@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindGeneratorRotate : MonoBehaviour
+public class RotateAround : MonoBehaviour
 {
     [SerializeField] private Vector3 _vector;
     [SerializeField] private float _rotateSpeed;
-    public bool IsRotate = true;
+    [SerializeField] private bool _isRotate = true;
+    [SerializeField] private bool _isRandomStartRotation = true;
 
     private void Start()
     {
-        SetRandomRotation();
+        if(_isRandomStartRotation) SetRandomRotation();
     }
 
     private void SetRandomRotation()
@@ -20,6 +21,6 @@ public class WindGeneratorRotate : MonoBehaviour
     }
     private void Update()
     {
-        if (IsRotate) transform.Rotate(_vector, _rotateSpeed * Time.deltaTime);
+        if (_isRotate) transform.Rotate(_vector, _rotateSpeed * Time.deltaTime);
     }
 }

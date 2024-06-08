@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9087124280116520038}
   m_Layer: 0
-  m_Name: Level_2
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 4452559589486957305}
   m_Father: {fileID: 1740559868349708282}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1995532333350797281
 GameObject:
@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 1995532333350797280}
   - component: {fileID: 1995532333350797282}
   - component: {fileID: 1995532333350797283}
-  - component: {fileID: 1995532333350797286}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -58,14 +57,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995532333350797281}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1995532334043188817}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &1995532333350797282
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -116,18 +115,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1995532333350797286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1995532333350797281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1995532334043188822
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +391,7 @@ GameObject:
   - component: {fileID: 4452559589486957305}
   - component: {fileID: 3927556653952616512}
   m_Layer: 0
-  m_Name: OilPump_2
+  m_Name: Pumpjack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,8 +404,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3927556653952616515}
-  m_LocalRotation: {x: -0, y: 0.2596619, z: -0, w: 0.9656996}
-  m_LocalPosition: {x: -1.800003, y: 0.118, z: 0.90999985}
+  m_LocalRotation: {x: 0, y: -0.8953234, z: 0, w: 0.44541675}
+  m_LocalPosition: {x: 1.61, y: 0.118, z: -1.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -427,7 +414,7 @@ Transform:
   - {fileID: 332588488917693569}
   m_Father: {fileID: 9087124280116520038}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 30.1, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -127.1, z: 0}
 --- !u!95 &3927556653952616512
 Animator:
   serializedVersion: 5
@@ -449,6 +436,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &4092441453266999804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1692289044201497844}
+  m_Layer: 0
+  m_Name: 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1692289044201497844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092441453266999804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1740559868349708282}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4197374807415580320
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5030785745942258599}
   m_Layer: 0
-  m_Name: Level_1
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1004,6 +1022,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5030785745942258599}
+  - {fileID: 1692289044201497844}
   - {fileID: 9087124280116520038}
   m_Father: {fileID: 1995532334043188817}
   m_RootOrder: 2
