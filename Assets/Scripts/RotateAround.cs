@@ -6,21 +6,30 @@ public class RotateAround : MonoBehaviour
 {
     [SerializeField] private Vector3 _vector;
     [SerializeField] private float _rotateSpeed;
-    [SerializeField] private bool _isRotate = true;
     [SerializeField] private bool _isRandomStartRotation = true;
+    private float _axis;
 
     private void Start()
     {
-        if(_isRandomStartRotation) SetRandomRotation();
+        if (_isRandomStartRotation) SetRandomRotation();
     }
 
     private void SetRandomRotation()
     {
         var rnd = Random.Range(0, 360);
-        transform.Rotate(0, 0, rnd);
+        transform.Rotate(_vector.x == 0 ? 0 : rnd, _vector.y == 0 ? 0 : rnd, _vector.z == 0 ? 0 : rnd);
     }
-    private void Update()
+
+    private void SetVector()
     {
-        if (_isRotate) transform.Rotate(_vector, _rotateSpeed * Time.deltaTime);
+
+    }
+    private void FixedUpdate()
+    {
+        _axis += Time.deltaTime * _rotateSpeed;
+
+        if (_axis > 360.0f) _axis = 0.0f;
+
+        transform.localRotation = Quaternion.Euler(_vector.x * _axis, _vector.y * _axis, _vector.z * _axis);
     }
 }
