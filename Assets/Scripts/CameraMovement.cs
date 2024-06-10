@@ -30,8 +30,8 @@ public class CameraMovement : MonoBehaviour
     private int _xMin = -50;
     private int _xMax = 150;
 
-    private int _yMin = -60;
-    private int _yMax = 100;
+    private int _yMin = -50;
+    private int _yMax = 110;
 
 
     private void Awake()
