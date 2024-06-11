@@ -13,5 +13,5 @@ public class TilesSystem : MonoBehaviour
         else Instance = this;
     }
 
-    public Tile TakeTile(TileView tileView) => _allTiles[(int)tileView];
+    public Tile TakeTile(TileViewEnum tileView) => _allTiles[(int)tileView];
 }

@@ -8,8 +8,7 @@ public class MapBuilder : MonoBehaviour
     [SerializeField] private GameObject _tile;
     [SerializeField] private Transform _parentTransform;
     [SerializeField] private SetTileNeighbours _setTileNeighbours;
-    [SerializeField] private TileObject[,] _tileObjects = new TileObject[16, 20];
-    [SerializeField] private List<TileObject> _roadTiles;
+    [SerializeField] private GameObject[,] _tileObjects = new GameObject[16, 20];
 
     [Header("Road")]
     private int _iterations = 0;
@@ -30,10 +29,10 @@ public class MapBuilder : MonoBehaviour
         {
             for (int k = 0; k < 20; k++)
             {
-                var p = Instantiate(_tile, new Vector3(k * 10, 10.8f, i * 10), Quaternion.identity);
-                _tileObjects[i, k] = p.GetComponent<TileObject>();
-                _setTileNeighbours.TileObject.Add(_tileObjects[i, k]);
-                p.transform.SetParent(_parentTransform);
+                var newObject = Instantiate(_tile, new Vector3(k * 10, 10.8f, i * 10), Quaternion.identity);
+                _tileObjects[i, k] = newObject;
+                _setTileNeighbours.TileObject.Add(_tileObjects[i, k].GetComponent<TileObject>());
+                newObject.transform.SetParent(_parentTransform);
             }
         }
     }
@@ -45,10 +44,9 @@ public class MapBuilder : MonoBehaviour
 
     private async void SetNextTile(int nextX, int nextY)
     {
-        await Task.Delay(100);
+        await Task.Delay(20);
 
-        _tileObjects[nextX, nextY].SetRoadTile(TilesSystem.Instance.TakeTile(TileView.Road));
-        _roadTiles.Add(_tileObjects[nextX, nextY]);
+        _tileObjects[nextX, nextY].GetComponent<TileRoad>().SetRoadTile(TilesSystem.Instance.TakeTile(TileViewEnum.Road));
 
         var rnd = Random.Range(0, 3);
 
@@ -105,7 +103,6 @@ public class MapBuilder : MonoBehaviour
                 SetNextTile(nextX, nextY - 1);
             }
         }
-
 
         if (_iterations > 45 || (nextY == _startY && _startX == nextX - 1))
         {

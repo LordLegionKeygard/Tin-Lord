@@ -9,53 +9,22 @@ public class TileObject : MonoBehaviour
     [SerializeField] private TileObject[] _neighbourTiles;
     [SerializeField] private Transform[] _parents;
     [SerializeField] private GameObject[] _currentTileObjects;
-    [SerializeField] private GameObject _visibleObject;
+
+    private TileView _tileView;
+
+
+
     public bool HaveTile() => _currentTile != null;
-    public bool CheckTileView(TileView tileView) => _currentTile.TileView == tileView;
+    public bool CheckTileView(TileViewEnum tileView) => _currentTile.TileView == tileView;
+    public bool NeighbourHaveTile(int number) => _neighbourTiles[number].HaveTile();
+    public GameObject CurrentTileObjects(int number) => _currentTileObjects[number];
+    public void SetTile(Tile tile) => _currentTile = tile;
 
     private void Awake()
     {
-        CustomEvents.OnPrepareRoads += PrepareRoads;
+        _tileView = GetComponent<TileView>();
     }
 
-    public void SetRoadTile(Tile tile)
-    {
-        _currentTile = tile;
-        SpawnTile();
-    }
-
-    private void PrepareRoads()
-    {
-        _visibleObject.SetActive(false);
-        if (_currentTile == null) return;
-        if (_currentTile.TileView != TileView.Road) return;
-
-        if (_neighbourTiles[(int)TileEnum.North].HaveTile() && _neighbourTiles[(int)TileEnum.South].HaveTile())
-        {
-            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(0, 0);
-        }
-        else if (_neighbourTiles[(int)TileEnum.East].HaveTile() && _neighbourTiles[(int)TileEnum.West].HaveTile())
-        {
-            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(0, 90);
-        }
-
-        else if (_neighbourTiles[(int)TileEnum.North].HaveTile() && _neighbourTiles[(int)TileEnum.East].HaveTile())
-        {
-            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(1, -90);
-        }
-        else if (_neighbourTiles[(int)TileEnum.East].HaveTile() && _neighbourTiles[(int)TileEnum.South].HaveTile())
-        {
-            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(1, 0);
-        }
-        else if (_neighbourTiles[(int)TileEnum.South].HaveTile() && _neighbourTiles[(int)TileEnum.West].HaveTile())
-        {
-            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(1, 90);
-        }
-        else if (_neighbourTiles[(int)TileEnum.West].HaveTile() && _neighbourTiles[(int)TileEnum.North].HaveTile())
-        {
-            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(1, 180);
-        }
-    }
 
     public void NeighbourTiles(TileObject[] array)
     {
@@ -78,8 +47,6 @@ public class TileObject : MonoBehaviour
 
         _currentTileObjects[tileNumber].transform.parent = _parents[tileNumber];
 
-        _visibleObject.SetActive(false);
-
         UpdateNeighbourTiles();
     }
 
@@ -96,15 +63,15 @@ public class TileObject : MonoBehaviour
         if (_currentTile == null) return;
         switch (_currentTile.TileView)
         {
-            case TileView.Plain:
+            case TileViewEnum.Plain:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (_neighbourTiles[i] == null) continue;
                     if (!_neighbourTiles[i].HaveTile()) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileView.Mountain))
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
                     {
-                        _currentTile = TilesSystem.Instance.TakeTile(TileView.Meadow);
+                        _currentTile = TilesSystem.Instance.TakeTile(TileViewEnum.Meadow);
                         SpawnTile();
                         return;
                     }
@@ -112,20 +79,9 @@ public class TileObject : MonoBehaviour
                 break;
         }
     }
-    private void OnDestroy()
-    {
-        CustomEvents.OnPrepareRoads -= PrepareRoads;
-    }
-}
 
-public enum TileEnum
-{
-    North = 0,
-    NorthEast = 1,
-    East = 2,
-    SouthEast = 3,
-    South = 4,
-    SouthWest = 5,
-    West = 6,
-    NorthWest = 7
+    public void SelectTile(bool state)
+    {
+        _tileView.ViewToggle(state);
+    }
 }
