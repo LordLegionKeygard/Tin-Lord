@@ -32,5 +32,4 @@ public enum TileView
     Desert = 8,
     Badlands = 9,
     Ground = 10,
-    RoadTurn = 11,
 }

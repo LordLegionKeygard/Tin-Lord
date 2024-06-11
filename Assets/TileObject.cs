@@ -8,25 +8,53 @@ public class TileObject : MonoBehaviour
     [SerializeField] private Tile _currentTile;
     [SerializeField] private TileObject[] _neighbourTiles;
     [SerializeField] private Transform[] _parents;
-    [SerializeField] private GameObject[] _currentTiles;
+    [SerializeField] private GameObject[] _currentTileObjects;
     [SerializeField] private GameObject _visibleObject;
     public bool HaveTile() => _currentTile != null;
     public bool CheckTileView(TileView tileView) => _currentTile.TileView == tileView;
-    public void SetRoadTile(Tile tile, int number)
-    {
-        _currentTile = tile;
-        SpawnTile();
-        _currentTiles[0].transform.rotation = Quaternion.Euler(0, number, 0);
-    }
 
     private void Awake()
     {
-        CustomEvents.OnSpawnAllTiles += SpawnTile;
+        CustomEvents.OnPrepareRoads += PrepareRoads;
     }
 
-    private void OnDestroy()
+    public void SetRoadTile(Tile tile)
     {
-        CustomEvents.OnSpawnAllTiles -= SpawnTile;
+        _currentTile = tile;
+        SpawnTile();
+    }
+
+    private void PrepareRoads()
+    {
+        _visibleObject.SetActive(false);
+        if (_currentTile == null) return;
+        if (_currentTile.TileView != TileView.Road) return;
+
+        if (_neighbourTiles[(int)TileEnum.North].HaveTile() && _neighbourTiles[(int)TileEnum.South].HaveTile())
+        {
+            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(0, 0);
+        }
+        else if (_neighbourTiles[(int)TileEnum.East].HaveTile() && _neighbourTiles[(int)TileEnum.West].HaveTile())
+        {
+            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(0, 90);
+        }
+
+        else if (_neighbourTiles[(int)TileEnum.North].HaveTile() && _neighbourTiles[(int)TileEnum.East].HaveTile())
+        {
+            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(1, -90);
+        }
+        else if (_neighbourTiles[(int)TileEnum.East].HaveTile() && _neighbourTiles[(int)TileEnum.South].HaveTile())
+        {
+            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(1, 0);
+        }
+        else if (_neighbourTiles[(int)TileEnum.South].HaveTile() && _neighbourTiles[(int)TileEnum.West].HaveTile())
+        {
+            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(1, 90);
+        }
+        else if (_neighbourTiles[(int)TileEnum.West].HaveTile() && _neighbourTiles[(int)TileEnum.North].HaveTile())
+        {
+            _currentTileObjects[(int)TileTypeEnum.Ground].GetComponent<PrepareTileRoad>().SetRoad(1, 180);
+        }
     }
 
     public void NeighbourTiles(TileObject[] array)
@@ -44,11 +72,11 @@ public class TileObject : MonoBehaviour
 
         var tileNumber = (int)_currentTile.TileTypeEnum;
 
-        if (_currentTiles[tileNumber] != null) Destroy(_currentTiles[tileNumber]);
+        if (_currentTileObjects[tileNumber] != null) Destroy(_currentTileObjects[tileNumber]);
 
-        _currentTiles[tileNumber] = Instantiate(_currentTile.TileObject, _parents[tileNumber].position, Quaternion.identity);
+        _currentTileObjects[tileNumber] = Instantiate(_currentTile.TileObject, _parents[tileNumber].position, Quaternion.identity);
 
-        _currentTiles[tileNumber].transform.parent = _parents[tileNumber];
+        _currentTileObjects[tileNumber].transform.parent = _parents[tileNumber];
 
         _visibleObject.SetActive(false);
 
@@ -83,6 +111,10 @@ public class TileObject : MonoBehaviour
                 }
                 break;
         }
+    }
+    private void OnDestroy()
+    {
+        CustomEvents.OnPrepareRoads -= PrepareRoads;
     }
 }
 
