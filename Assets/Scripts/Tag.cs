@@ -17,3 +17,9 @@ public class Tag : MonoBehaviour
         }
     }
 }
+
+public enum Tags
+{
+    All = 0,
+    Tree = 1,
+}

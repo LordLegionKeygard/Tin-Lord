@@ -6,6 +6,7 @@ public class Tile : ScriptableObject
 {
     [Header("Base")]
     public GameObject TileObject;
+    public Sprite Icon;
     public TileTypeEnum TileTypeEnum;
     public TileViewEnum TileView;
 

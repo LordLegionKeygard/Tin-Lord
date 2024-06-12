@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 
 public class TileObject : MonoBehaviour
 {
+    [Inject] private DiContainer _diContainer;
+    [Inject] private TilesSystem _tilesSystem;
     [SerializeField] private Tile _currentTile;
     [SerializeField] private TileObject[] _neighbourTiles;
     [SerializeField] private Transform[] _parents;
@@ -43,18 +46,19 @@ public class TileObject : MonoBehaviour
 
         if (_currentTileObjects[tileNumber] != null) Destroy(_currentTileObjects[tileNumber]);
 
-        _currentTileObjects[tileNumber] = Instantiate(_currentTile.TileObject, _parents[tileNumber].position, Quaternion.identity);
+        _currentTileObjects[tileNumber] = _diContainer.InstantiatePrefab(_currentTile.TileObject, _parents[tileNumber].position, Quaternion.identity, null);
 
         _currentTileObjects[tileNumber].transform.parent = _parents[tileNumber];
 
         UpdateNeighbourTiles();
+        RefreshTile();
     }
 
     private void UpdateNeighbourTiles()
     {
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {
-            _neighbourTiles[i].RefreshTile();
+            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshTile();
         }
     }
 
@@ -66,12 +70,11 @@ public class TileObject : MonoBehaviour
             case TileViewEnum.Plain:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
-                    if (_neighbourTiles[i] == null) continue;
-                    if (!_neighbourTiles[i].HaveTile()) continue;
+                    if (!IsNeedCheck(i, true)) continue;
 
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
                     {
-                        _currentTile = TilesSystem.Instance.TakeTile(TileViewEnum.Meadow);
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.Meadow));
                         SpawnTile();
                         return;
                     }
@@ -80,8 +83,21 @@ public class TileObject : MonoBehaviour
         }
     }
 
-    public void SelectTile(bool state)
+    public void SelectTile(bool state, TileTypeEnum tileTypeEnum)
     {
-        _tileView.ViewToggle(state);
+        _tileView.ViewToggle(state, tileTypeEnum);
+    }
+
+    public bool IsNeedCheck(int i, bool cross)
+    {
+        if (cross)
+        {
+            if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) return false;
+        }
+
+        if (_neighbourTiles[i] == null) return false;
+        if (!_neighbourTiles[i].HaveTile()) return false;
+
+        return true;
     }
 }

@@ -155,6 +155,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   _parents:
   - {fileID: 3928428458243860748}
   - {fileID: 1685772399035195807}
@@ -186,6 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectView: {fileID: 562694282674514341}
+  _tileSelectViewMaterial: {fileID: 2100000, guid: 393e2df53d7023440a7cdd02d68d51b2,
+    type: 2}
 --- !u!1 &3978845771815807656
 GameObject:
   m_ObjectHideFlags: 0
