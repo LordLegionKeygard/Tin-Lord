@@ -70,6 +70,15 @@ public class TileObject : MonoBehaviour
             case TileViewEnum.Plain:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
+                    if (!IsNeedCheck(i, false)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    {
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.Badlands));
+                        SpawnTile();
+                        return;
+                    }
+
                     if (!IsNeedCheck(i, true)) continue;
 
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
@@ -80,6 +89,34 @@ public class TileObject : MonoBehaviour
                     }
                 }
                 break;
+            case TileViewEnum.Meadow:
+                for (int i = 0; i < _neighbourTiles.Length; i++)
+                {
+                    if (!IsNeedCheck(i, false)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    {
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.Badlands));
+                        SpawnTile();
+                        return;
+                    }
+                }
+                break;
+            case TileViewEnum.Highland:
+                for (int i = 0; i < _neighbourTiles.Length; i++)
+                {
+                    if (!IsNeedCheck(i, true)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
+                    {
+                        var rnd = Random.Range(0, 2);
+                        SetTile(_tilesSystem.TakeTile(rnd == 0 ? TileViewEnum.IronVein : TileViewEnum.CopperVein));
+                        SpawnTile();
+                        return;
+                    }
+                }
+                break;
+
         }
     }
 

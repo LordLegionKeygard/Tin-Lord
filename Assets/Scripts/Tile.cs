@@ -29,10 +29,13 @@ public enum TileViewEnum
     Mountain = 4,
     IronVein = 5,
     CopperVein = 6,
-    Peatland = 7,
+    OilField = 7,
     Desert = 8,
     Badlands = 9,
     Ground = 10,
+    CoalDeposits = 11,
+    Highland = 12,
+    
 }
 
 public enum TileDirectionEnum
