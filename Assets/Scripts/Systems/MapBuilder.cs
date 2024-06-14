@@ -51,67 +51,47 @@ public class MapBuilder : MonoBehaviour
 
         _tileObjects[nextX, nextY].GetComponent<TileRoad>().SetRoadTile(_tilesSystem.TakeTile(TileViewEnum.Road));
 
-        var rnd = Random.Range(0, 3);
-
-        if (nextX < 7 && nextY < 10) //из нижнего левого угла идем в 
-        {
-            if (rnd == 0 || nextX <= 4) //право
-            {
-                SetNextTile(nextX, nextY + 1);
-            }
-            else //вниз
-            {
-                SetNextTile(nextX - 1, nextY);
-            }
-        }
-        else if (nextX <= 7 && nextY >= 10) //из нижнего правого угла идем в 
-        {
-            if ((rnd == 0 || nextY >= 15) && nextY != 10) //вверх
-            {
-                SetNextTile(nextX + 1, nextY);
-            }
-            else //вправо
-            {
-                SetNextTile(nextX, nextY + 1);
-            }
-        }
-        else if (nextX >= 7 && nextY >= 10) //из верхнего правого угла идем в 
-        {
-            if ((rnd == 0 || nextX >= 11) && nextX != 8) //влево
-            {
-                SetNextTile(nextX, nextY - 1);
-            }
-            else //вверх
-            {
-                SetNextTile(nextX + 1, nextY);
-            }
-        }
-        else if (nextX > 7 && nextY < 10) //из верхнего левого идем в
-        {
-            if (nextY == _startY)
-            {
-                SetNextTile(nextX - 1, nextY);
-            }
-            else if (nextX == 8 && nextY >= 5) //проверка если уйдет резко вниз
-            {
-                SetNextTile(nextX, nextY - 1);
-            }
-
-            else if ((rnd == 0 || nextX >= 11) && nextY >= 5 && nextY != 9) //вниз
-            {
-                SetNextTile(nextX - 1, nextY);
-            }
-            else //влево
-            {
-                SetNextTile(nextX, nextY - 1);
-            }
-        }
-
         if (_iterations > 45 || (nextY == _startY && _startX == nextX - 1))
         {
             CustomEvents.FirePrepareRoads();
             return;
         }
+
+        (int newNextX, int newNextY) = GetNextCoordinates(nextX, nextY);
+
         _iterations++;
+        SetNextTile(newNextX, newNextY);
     }
+
+    private (int, int) GetNextCoordinates(int nextX, int nextY)
+    {
+        var rnd = Random.Range(0, 3);
+
+        if (IsBottomLeft(nextX, nextY))
+        {
+            return (rnd == 0 || nextX <= 4) ? (nextX, nextY + 1) : (nextX - 1, nextY);
+        }
+        else if (IsBottomRight(nextX, nextY))
+        {
+            return ((rnd == 0 || nextY >= 15) && nextY != 10) ? (nextX + 1, nextY) : (nextX, nextY + 1);
+        }
+        else if (IsTopRight(nextX, nextY))
+        {
+            return ((rnd == 0 || nextX >= 11) && nextX != 8) ? (nextX, nextY - 1) : (nextX + 1, nextY);
+        }
+        else if (IsTopLeft(nextX, nextY))
+        {
+            if (nextY == _startY) return (nextX - 1, nextY);
+            if (nextX == 8 && nextY >= 5) return (nextX, nextY - 1);
+            return ((rnd == 0 || nextX >= 11) && nextY >= 5 && nextY != 9) ? (nextX - 1, nextY) : (nextX, nextY - 1);
+        }
+
+        return (nextX, nextY); // На случай, если ни одно из условий не выполнится.
+    }
+
+    private bool IsBottomLeft(int x, int y) => x < 7 && y < 10;
+    private bool IsBottomRight(int x, int y) => x <= 7 && y >= 10;
+    private bool IsTopRight(int x, int y) => x >= 7 && y >= 10;
+    private bool IsTopLeft(int x, int y) => x > 7 && y < 10;
 }
+

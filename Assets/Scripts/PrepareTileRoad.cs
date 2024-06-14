@@ -7,10 +7,10 @@ public class PrepareTileRoad : MonoBehaviour
     [SerializeField] private GameObject[] _roads;
     [SerializeField] private GameObject _ground;
 
-    public void SetRoad(int roadNumber, int rotation)
+    public void SetRoad(int number, int rotation)
     {
         _ground.SetActive(false);
-        _roads[roadNumber].SetActive(true);
-        _roads[roadNumber].transform.rotation = Quaternion.Euler(0, rotation, 0);
+        _roads[number].SetActive(true);
+        _roads[number].transform.rotation = Quaternion.Euler(0, rotation, 0);
     }
 }

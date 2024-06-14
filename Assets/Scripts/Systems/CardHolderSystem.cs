@@ -13,7 +13,7 @@ public class CardHolderSystem : MonoBehaviour
     [Header("Current")]
     [SerializeField] private List<CardObject> _currentCards;
     [SerializeField] private CardObject _currentSelectCardObject;
-    public bool IsHaveCurrentSelectedCardObject() => _currentSelectCardObject!= null;
+    public bool IsHaveCurrentSelectedCardObject() => _currentSelectCardObject != null;
     public Tile CurrentCardHolderSelectedTile() => _currentSelectCardObject.GetTile();
 
     private void Start()
@@ -24,16 +24,13 @@ public class CardHolderSystem : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void CancelSelectCard()
     {
         if (_currentSelectCardObject == null) return;
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            _currentSelectCardObject.CardObjectViewToggle(false);
-            _tileDetector.UnselectLastTile();
-            _currentSelectCardObject = null;
-        }
+        _currentSelectCardObject.CardObjectViewToggle(false);
+        _tileDetector.UnselectLastTile();
+        _currentSelectCardObject = null;
     }
 
     public void AddNewCard(Tile tile)

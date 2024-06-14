@@ -7,10 +7,10 @@ public class TileView : MonoBehaviour
     [SerializeField] private GameObject _selectView;
     [SerializeField] private Material _tileSelectViewMaterial;
 
-    public void ViewToggle(bool state, TileTypeEnum tileTypeEnum)
+    public void ViewToggle(bool state, SelectTileEnum selectTileEnum)
     {
         _selectView.SetActive(state);
-        _tileSelectViewMaterial.SetColor("_BaseColor", Colors.Instance.SelectTileView[(int)tileTypeEnum]);
+        _tileSelectViewMaterial.SetColor("_BaseColor", Colors.Instance.SelectTileView[(int)selectTileEnum]);
 
     }
 }

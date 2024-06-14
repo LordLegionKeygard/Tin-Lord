@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 
 
@@ -14,18 +15,34 @@ public class TileObject : MonoBehaviour
     [SerializeField] private GameObject[] _currentTileObjects;
 
     private TileView _tileView;
+    private TileRiver _tileRiver;
 
 
+    public bool NeighbourHaveLastRiverTile(int number)
+    {
+        return _neighbourTiles[number].GetLastRiverTile();
+    }
+
+    public bool GetLastRiverTile() => _tileRiver.GetLastRiverTile();
 
     public bool HaveTile() => _currentTile != null;
     public bool CheckTileView(TileViewEnum tileView) => _currentTile.TileView == tileView;
-    public bool NeighbourHaveTile(int number) => _neighbourTiles[number].HaveTile();
+    public bool NeighbourTileView(int number, TileViewEnum tileView)
+    {
+        if (_neighbourTiles[number] == null) return false;
+        if (!_neighbourTiles[number].HaveTile()) return false;
+
+        return _neighbourTiles[number].CheckTileView(tileView);
+
+    }
+    public bool NeighbourHaveTile(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].HaveTile();
     public GameObject CurrentTileObjects(int number) => _currentTileObjects[number];
     public void SetTile(Tile tile) => _currentTile = tile;
 
     private void Awake()
     {
         _tileView = GetComponent<TileView>();
+        _tileRiver = GetComponent<TileRiver>();
     }
 
 
@@ -116,13 +133,16 @@ public class TileObject : MonoBehaviour
                     }
                 }
                 break;
+            case TileViewEnum.River:
+                _tileRiver.PrepareRiver();
+                break;
 
         }
     }
 
-    public void SelectTile(bool state, TileTypeEnum tileTypeEnum)
+    public void SelectTile(bool state, SelectTileEnum selectTileEnum)
     {
-        _tileView.ViewToggle(state, tileTypeEnum);
+        _tileView.ViewToggle(state, selectTileEnum);
     }
 
     public bool IsNeedCheck(int i, bool cross)

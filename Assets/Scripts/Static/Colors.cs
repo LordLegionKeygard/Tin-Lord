@@ -13,3 +13,10 @@ public class Colors : MonoBehaviour
         else Instance = this;
     }
 }
+
+public enum SelectTileEnum
+{
+    EmptyTileSelect = 0,
+    TileSelect = 1,
+    ErrorSelect = 2,
+}

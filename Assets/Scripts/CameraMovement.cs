@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    private CameraControlActions cameraActions;
-    private InputAction movement;
-    private Transform cameraTransform;
+    // private CameraControlActions cameraActions;
+    // private InputAction movement;
+    [SerializeField] private Transform cameraTransform;
 
     [Header("Horizontal Translation")]
     [SerializeField] private float maxSpeed = 5f;
@@ -36,8 +36,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Awake()
     {
-        cameraActions = new CameraControlActions();
-        cameraTransform = this.GetComponentInChildren<Camera>().transform;
+        // cameraActions = new CameraControlActions();
+        // cameraTransform = this.GetComponentInChildren<Camera>().transform;
     }
 
     private void OnEnable()
@@ -47,15 +47,15 @@ public class CameraMovement : MonoBehaviour
 
         lastPosition = this.transform.position;
 
-        movement = cameraActions.Camera.Movement;
-        cameraActions.Camera.Zoom.performed += ZoomCamera;
-        cameraActions.Camera.Enable();
+        // movement = cameraActions.Camera.Movement;
+        // cameraActions.Camera.Zoom.performed += ZoomCamera;
+        // cameraActions.Camera.Enable();
     }
 
     private void OnDisable()
     {
-        cameraActions.Camera.Zoom.performed -= ZoomCamera;
-        cameraActions.Camera.Disable();
+        // cameraActions.Camera.Zoom.performed -= ZoomCamera;
+        // cameraActions.Camera.Disable();
     }
 
     private void Update()
@@ -78,8 +78,8 @@ public class CameraMovement : MonoBehaviour
 
     private void GetKeyboardMovement()
     {
-        Vector3 inputValue = movement.ReadValue<Vector2>().x * GetCameraRight()
-                    + movement.ReadValue<Vector2>().y * GetCameraForward();
+        Vector3 inputValue = PlayerInputSystem.Instance.MoveInput.x * GetCameraRight()
+                    + PlayerInputSystem.Instance.MoveInput.y * GetCameraForward();
 
         inputValue = inputValue.normalized;
 
@@ -120,9 +120,9 @@ public class CameraMovement : MonoBehaviour
         targetPosition = Vector3.zero;
     }
 
-    private void ZoomCamera(InputAction.CallbackContext obj)
+    public void ZoomCamera(InputAction.CallbackContext callBack)
     {
-        float inputValue = -obj.ReadValue<Vector2>().y / 100f;
+        float inputValue = -callBack.ReadValue<Vector2>().y / 100f;
 
         if (Mathf.Abs(inputValue) > 0.1f)
         {

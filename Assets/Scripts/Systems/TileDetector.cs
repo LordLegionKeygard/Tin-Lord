@@ -9,19 +9,13 @@ public class TileDetector : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private TileObject _currentTileObject;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
+    [SerializeField] private TilesSystem _tileSystem;
     private Transform _lastRayCastTransform;
 
     private void Update()
     {
         if (_cardHolderSystem.IsHaveCurrentSelectedCardObject())
         {
-            if (Input.GetMouseButtonDown(0) && _currentTileObject != null && !EventSystem.current.IsPointerOverGameObject())
-            {
-                _currentTileObject.SetTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
-                _currentTileObject.SpawnTile();
-                Clear();
-            }
-
             RaycastHit raycastHit;
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !EventSystem.current.IsPointerOverGameObject())
@@ -33,33 +27,45 @@ public class TileDetector : MonoBehaviour
                         return;
                     }
                     _lastRayCastTransform = raycastHit.transform;
-                    DetectEmptyTileForSetNewGroundTile(raycastHit.transform.gameObject);
+                    SelectEmptyTile(raycastHit.transform.gameObject);
                 }
             }
 
-            if(EventSystem.current.IsPointerOverGameObject())
+            if (EventSystem.current.IsPointerOverGameObject())
             {
+                Clear();
+            }
+        }
+    }
+    public void InputOnTile()
+    {
+        if (_cardHolderSystem.IsHaveCurrentSelectedCardObject())
+        {
+            if (_currentTileObject != null && !EventSystem.current.IsPointerOverGameObject())
+            {
+                if(!CanSetRiver()) return;
+
+                _currentTileObject.SetTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
+                _currentTileObject.SpawnTile();
                 Clear();
             }
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
+            RaycastHit raycastHit;
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !EventSystem.current.IsPointerOverGameObject())
             {
-                RaycastHit raycastHit;
-                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !EventSystem.current.IsPointerOverGameObject())
+                if (raycastHit.transform != null)
                 {
-                    if (raycastHit.transform != null)
-                    {
-                        DetectTileForBuilding(raycastHit.transform.gameObject);
-                    }
+                    DetectTileForBuilding(raycastHit.transform.gameObject);
                 }
             }
         }
     }
 
-    public void DetectEmptyTileForSetNewGroundTile(GameObject gameObject)
+
+    public void SelectEmptyTile(GameObject gameObject)
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
@@ -68,7 +74,7 @@ public class TileDetector : MonoBehaviour
         if (!newTileObject.HaveTile())
         {
             _currentTileObject = newTileObject;
-            _currentTileObject.SelectTile(true, TileTypeEnum.Ground);
+            _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
         }
         else _currentTileObject = null;
     }
@@ -82,13 +88,34 @@ public class TileDetector : MonoBehaviour
         if (newTileObject.HaveTile())
         {
             _currentTileObject = newTileObject;
-            _currentTileObject.SelectTile(true, TileTypeEnum.Building);
+            _currentTileObject.SelectTile(true, SelectTileEnum.TileSelect);
         }
     }
 
     public void UnselectLastTile()
     {
-        if (_currentTileObject != null) _currentTileObject.SelectTile(false, TileTypeEnum.Building);
+        if (_currentTileObject != null) _currentTileObject.SelectTile(false, SelectTileEnum.EmptyTileSelect);
+    }
+
+    private bool CanSetRiver()
+    {
+        if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River && _tileSystem.IsHaveRiver)
+        {
+            var riverNumber = 0;
+            var lastRiver = false;
+            for (int i = 0; i < 8; i++)
+            {
+                if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
+                if (_currentTileObject.NeighbourTileView(i, TileViewEnum.River))
+                {
+                    if (_currentTileObject.NeighbourHaveLastRiverTile(i)) lastRiver = true;
+                    riverNumber++;
+                }
+            }
+
+            if (riverNumber > 1 || !lastRiver) return false;           
+        }
+        return true;
     }
 
     public void Clear()
