@@ -55,6 +55,7 @@ public class TileDetector : MonoBehaviour
                 if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River)
                 {
                     if (!CanSetRiver()) return;
+                    if(_currentTileObject.HaveTile() && !_tileSystem.IsHaveRiver) return;
                 }
 
                 _currentTileObject.SetTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
@@ -84,13 +85,24 @@ public class TileDetector : MonoBehaviour
         if (newTileObject.HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River)
         {
             _currentTileObject = newTileObject;
-            if (!newTileObject.CheckTileView(TileViewEnum.Road))
+            if (!newTileObject.CheckTileView(TileViewEnum.Road) || !_tileSystem.IsHaveRiver)
             {
-                return false;
+                _currentTileObject.SelectTile(true, SelectTileEnum.ErrorSelect);
+                return true;
             }
-
-            _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            return true;
+            else
+            {
+                if (_currentTileObject.IsForwardRoad())
+                {
+                    _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+                    return true;
+                }
+                else
+                {
+                    _currentTileObject.SelectTile(true, SelectTileEnum.ErrorSelect);
+                    return true;
+                }
+            }
         }
         else return false;
     }

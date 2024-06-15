@@ -15,6 +15,7 @@ public class TileObject : MonoBehaviour
 
     private TileView _tileView;
     private TileRiver _tileRiver;
+    private TileRoad _tileRoad;
 
 
     public bool NeighbourHaveLastRiverTile(int number)
@@ -35,11 +36,13 @@ public class TileObject : MonoBehaviour
     public bool NeighbourHaveTile(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].HaveTile();
     public GameObject CurrentTileObjects(int number) => _currentTileObjects[number];
     public void SetTile(Tile tile) => _currentTile = tile;
+    public bool IsForwardRoad() => _tileRoad.IsForwardRoad();
 
     private void Awake()
     {
         _tileView = GetComponent<TileView>();
         _tileRiver = GetComponent<TileRiver>();
+        _tileRoad = GetComponent<TileRoad>();
     }
 
 
@@ -58,7 +61,7 @@ public class TileObject : MonoBehaviour
 
         var tileNumber = (int)_currentTile.TileTypeEnum;
 
-        if (_currentTileObjects[tileNumber] != null) Destroy(_currentTileObjects[tileNumber]);
+        if (_currentTileObjects[tileNumber] != null) Destroy(_currentTileObjects[tileNumber]);        
 
         _currentTileObjects[tileNumber] = _diContainer.InstantiatePrefab(_currentTile.TileObject, _parents[tileNumber].position, Quaternion.identity, null);
 
@@ -131,7 +134,7 @@ public class TileObject : MonoBehaviour
                 }
                 break;
             case TileViewEnum.River:
-                _tileRiver.PrepareRiver(isNeighbours, isRiver);
+                _tileRiver.PrepareRiver(isNeighbours, isRiver, IsForwardRoad());
                 break;
 
         }

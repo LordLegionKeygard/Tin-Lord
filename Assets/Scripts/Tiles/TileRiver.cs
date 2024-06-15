@@ -16,7 +16,7 @@ public class TileRiver : MonoBehaviour
         _tileObject = GetComponent<TileObject>();
     }
 
-    public void PrepareRiver(bool isNeighbours, bool isRiver)
+    public void PrepareRiver(bool isNeighbours, bool isRiver, bool isBridge)
     {
         if(isRiver)
         {
@@ -34,7 +34,7 @@ public class TileRiver : MonoBehaviour
             if (!_tileObject.HaveTile() || !_tileObject.CheckTileView(TileViewEnum.River)) return;
 
             if (CheckTurn()) return;
-            else CheckForward();
+            else CheckForward(isBridge);
 
         }
     }
@@ -61,9 +61,10 @@ public class TileRiver : MonoBehaviour
         return false;
     }
 
-    private void CheckForward()
+    private void CheckForward(bool isBridge)
     {
         var riverType = _isLake ? RiverTypeEnum.LakeExit : _isLastRiverTile ? RiverTypeEnum.RiverEnd : RiverTypeEnum.RiverForward;
+        if(isBridge) riverType = RiverTypeEnum.RiverBridge;
         (TileDirectionEnum, RiverTypeEnum, int)[] riverDirections = new (TileDirectionEnum, RiverTypeEnum, int)[]
         {
             (TileDirectionEnum.North, riverType, 180),

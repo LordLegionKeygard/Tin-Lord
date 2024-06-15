@@ -5,6 +5,8 @@ using UnityEngine;
 public class TileRoad : MonoBehaviour
 {
     private TileObject _tileObject;
+    private bool _isForwardRoad;
+    public bool IsForwardRoad() => _isForwardRoad;
     private void Awake()
     {
         _tileObject = GetComponent<TileObject>();
@@ -36,6 +38,8 @@ public class TileRoad : MonoBehaviour
             if (_tileObject.NeighbourHaveTile((int)dir1) && _tileObject.NeighbourHaveTile((int)dir2))
             {
                 _tileObject.CurrentTileObjects((int)TileTypeEnum.Ground).GetComponent<PrepareTileRoad>().SetRoad(roadType, angle);
+                _isForwardRoad = roadType == 0;
+
                 break;
             }
         }
