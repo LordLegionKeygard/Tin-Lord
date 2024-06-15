@@ -9,10 +9,4 @@ public class CustomEvents
     {
         OnPrepareRoads?.Invoke();
     }
-
-    public static event Action OnResetLastRiverTile;
-    public static void FireResetLastRiverTile()
-    {
-        OnResetLastRiverTile?.Invoke();
-    }
 }

@@ -23,7 +23,7 @@ public class TileObject : MonoBehaviour
         return _neighbourTiles[number].GetLastRiverTile();
     }
 
-    public bool GetLastRiverTile() => _tileRiver.GetLastRiverTile();
+    public bool GetLastRiverTile() => _tileRiver.IsLastRiverTile();
 
     public bool HaveTile() => _currentTile != null;
     public bool CheckTileView(TileViewEnum tileView) => _currentTile.TileView == tileView;
@@ -31,9 +31,7 @@ public class TileObject : MonoBehaviour
     {
         if (_neighbourTiles[number] == null) return false;
         if (!_neighbourTiles[number].HaveTile()) return false;
-
         return _neighbourTiles[number].CheckTileView(tileView);
-
     }
     public bool NeighbourHaveTile(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].HaveTile();
     public GameObject CurrentTileObjects(int number) => _currentTileObjects[number];
@@ -68,18 +66,18 @@ public class TileObject : MonoBehaviour
         _currentTileObjects[tileNumber].transform.parent = _parents[tileNumber];
 
         UpdateNeighbourTiles();
-        RefreshTile();
+        RefreshTile(false);
     }
 
     private void UpdateNeighbourTiles()
     {
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {
-            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshTile();
+            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshTile(true);
         }
     }
 
-    public void RefreshTile()
+    public void RefreshTile(bool isNeighbours)
     {
         if (_currentTile == null) return;
         switch (_currentTile.TileView)
@@ -134,7 +132,7 @@ public class TileObject : MonoBehaviour
                 }
                 break;
             case TileViewEnum.River:
-                _tileRiver.PrepareRiver();
+                _tileRiver.PrepareRiver(!isNeighbours);
                 break;
 
         }
