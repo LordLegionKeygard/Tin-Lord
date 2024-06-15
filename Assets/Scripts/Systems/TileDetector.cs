@@ -27,7 +27,15 @@ public class TileDetector : MonoBehaviour
                         return;
                     }
                     _lastRayCastTransform = raycastHit.transform;
-                    SelectEmptyTile(raycastHit.transform.gameObject);
+
+                    if (TrySelectBridge(raycastHit.transform.gameObject))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        SelectEmptyTile(raycastHit.transform.gameObject);
+                    }
                 }
             }
 
@@ -37,13 +45,17 @@ public class TileDetector : MonoBehaviour
             }
         }
     }
+
     public void InputOnTile()
     {
         if (_cardHolderSystem.IsHaveCurrentSelectedCardObject())
         {
             if (_currentTileObject != null && !EventSystem.current.IsPointerOverGameObject())
             {
-                if(!CanSetRiver()) return;
+                if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River)
+                {
+                    if (!CanSetRiver()) return;
+                }
 
                 _currentTileObject.SetTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
                 _currentTileObject.SpawnTile();
@@ -64,8 +76,27 @@ public class TileDetector : MonoBehaviour
         }
     }
 
+    private bool TrySelectBridge(GameObject gameObject)
+    {
+        var newTileObject = gameObject.GetComponent<TileObject>();
+        UnselectLastTile();
 
-    public void SelectEmptyTile(GameObject gameObject)
+        if (newTileObject.HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River)
+        {
+            _currentTileObject = newTileObject;
+            if (!newTileObject.CheckTileView(TileViewEnum.Road))
+            {
+                return false;
+            }
+
+            _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            return true;
+        }
+        else return false;
+    }
+
+
+    private void SelectEmptyTile(GameObject gameObject)
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
@@ -74,7 +105,15 @@ public class TileDetector : MonoBehaviour
         if (!newTileObject.HaveTile())
         {
             _currentTileObject = newTileObject;
-            _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+
+            if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River)
+            {
+                _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            }
+            else
+            {
+                _currentTileObject.SelectTile(true, SelectTileEnum.EmptyTileSelect);
+            }
         }
         else _currentTileObject = null;
     }
@@ -99,7 +138,7 @@ public class TileDetector : MonoBehaviour
 
     private bool CanSetRiver()
     {
-        if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River && _tileSystem.IsHaveRiver)
+        if (_tileSystem.IsHaveRiver)
         {
             var riverNumber = 0;
             var lastRiver = false;
@@ -113,9 +152,10 @@ public class TileDetector : MonoBehaviour
                 }
             }
 
-            if (riverNumber > 1 || !lastRiver) return false;           
+            if (riverNumber > 1 || !lastRiver) return false;
+            else return true;
         }
-        return true;
+        else return true;
     }
 
     public void Clear()

@@ -16,9 +16,13 @@ public class TileRiver : MonoBehaviour
         _tileObject = GetComponent<TileObject>();
     }
 
-    public void PrepareRiver(bool state)
+    public void PrepareRiver(bool isNeighbours, bool isRiver)
     {
-        _isLastRiverTile = state;
+        if(isRiver)
+        {
+            _isLastRiverTile = !isNeighbours;
+        }
+
         if (!_tilesSystem.IsHaveRiver)
         {
             _tilesSystem.IsHaveRiver = true;

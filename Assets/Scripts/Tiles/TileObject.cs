@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using Zenject;
 
 
@@ -66,18 +65,18 @@ public class TileObject : MonoBehaviour
         _currentTileObjects[tileNumber].transform.parent = _parents[tileNumber];
 
         UpdateNeighbourTiles();
-        RefreshTile(false);
+        RefreshTile(false, _currentTile.TileView == TileViewEnum.River);
     }
 
     private void UpdateNeighbourTiles()
     {
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {
-            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshTile(true);
+            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshTile(true, _currentTile.TileView == TileViewEnum.River);
         }
     }
 
-    public void RefreshTile(bool isNeighbours)
+    public void RefreshTile(bool isNeighbours, bool isRiver)
     {
         if (_currentTile == null) return;
         switch (_currentTile.TileView)
@@ -132,7 +131,7 @@ public class TileObject : MonoBehaviour
                 }
                 break;
             case TileViewEnum.River:
-                _tileRiver.PrepareRiver(!isNeighbours);
+                _tileRiver.PrepareRiver(isNeighbours, isRiver);
                 break;
 
         }
