@@ -52,10 +52,25 @@ public class TileDetector : MonoBehaviour
         {
             if (_currentTileObject != null && !EventSystem.current.IsPointerOverGameObject())
             {
-                if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River)
+                if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView is TileViewEnum.River or TileViewEnum.PollutedRiver)
                 {
                     if (!CanSetRiver()) return;
-                    if(_currentTileObject.HaveTile() && !_tileSystem.IsHaveRiver) return;
+                    if (_currentTileObject.HaveTile() && !_tileSystem.IsHaveRiver) return;
+                    if (_currentTileObject.HaveTile())
+                    {
+                        if (!_currentTileObject.IsForwardRoad()) return;
+                    }
+                    if (_currentTileObject.HaveTile())
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
+                            if (_currentTileObject.NeighbourTileIsBridge(i))
+                            {
+                                return;
+                            }
+                        }
+                    }
                 }
 
                 _currentTileObject.SetTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
@@ -82,7 +97,7 @@ public class TileDetector : MonoBehaviour
         var newTileObject = gameObject.GetComponent<TileObject>();
         UnselectLastTile();
 
-        if (newTileObject.HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River)
+        if (newTileObject.HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().TileView is TileViewEnum.River or TileViewEnum.PollutedRiver)
         {
             _currentTileObject = newTileObject;
             if (!newTileObject.CheckTileView(TileViewEnum.Road) || !_tileSystem.IsHaveRiver)
@@ -90,10 +105,21 @@ public class TileDetector : MonoBehaviour
                 _currentTileObject.SelectTile(true, SelectTileEnum.ErrorSelect);
                 return true;
             }
-            else
+            else //если это дорога и есть река
             {
                 if (_currentTileObject.IsForwardRoad())
                 {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
+                        if (_currentTileObject.NeighbourTileIsBridge(i))
+                        {
+                            _currentTileObject.SelectTile(true, SelectTileEnum.ErrorSelect);
+                            return true;
+                        }
+
+                    }
+
                     _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
                     return true;
                 }
@@ -118,7 +144,7 @@ public class TileDetector : MonoBehaviour
         {
             _currentTileObject = newTileObject;
 
-            if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView == TileViewEnum.River)
+            if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView is TileViewEnum.River or TileViewEnum.PollutedRiver)
             {
                 _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
             }
@@ -157,7 +183,7 @@ public class TileDetector : MonoBehaviour
             for (int i = 0; i < 8; i++)
             {
                 if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
-                if (_currentTileObject.NeighbourTileView(i, TileViewEnum.River))
+                if (_currentTileObject.NeighbourTileView(i, TileViewEnum.River) || _currentTileObject.NeighbourTileView(i, TileViewEnum.PollutedRiver))
                 {
                     if (_currentTileObject.NeighbourHaveLastRiverTile(i)) lastRiver = true;
                     riverNumber++;

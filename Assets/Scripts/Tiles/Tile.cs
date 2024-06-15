@@ -36,6 +36,7 @@ public enum TileViewEnum
     CoalDeposits = 11,
     Highland = 12,
     River = 13,
+    PollutedRiver = 14,
     
 }
 

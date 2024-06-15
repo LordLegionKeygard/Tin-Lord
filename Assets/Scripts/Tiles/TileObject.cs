@@ -37,6 +37,8 @@ public class TileObject : MonoBehaviour
     public GameObject CurrentTileObjects(int number) => _currentTileObjects[number];
     public void SetTile(Tile tile) => _currentTile = tile;
     public bool IsForwardRoad() => _tileRoad.IsForwardRoad();
+    public bool NeighbourTileIsBridge(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].IsBridge();
+    public bool IsBridge() => _tileRiver.IsBridge();
 
     private void Awake()
     {
@@ -61,21 +63,21 @@ public class TileObject : MonoBehaviour
 
         var tileNumber = (int)_currentTile.TileTypeEnum;
 
-        if (_currentTileObjects[tileNumber] != null) Destroy(_currentTileObjects[tileNumber]);        
+        if (_currentTileObjects[tileNumber] != null) Destroy(_currentTileObjects[tileNumber]);
 
         _currentTileObjects[tileNumber] = _diContainer.InstantiatePrefab(_currentTile.TileObject, _parents[tileNumber].position, Quaternion.identity, null);
 
         _currentTileObjects[tileNumber].transform.parent = _parents[tileNumber];
 
         UpdateNeighbourTiles();
-        RefreshTile(false, _currentTile.TileView == TileViewEnum.River);
+        RefreshTile(false, _currentTile.TileView is TileViewEnum.River or TileViewEnum.PollutedRiver);
     }
 
     private void UpdateNeighbourTiles()
     {
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {
-            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshTile(true, _currentTile.TileView == TileViewEnum.River);
+            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshTile(true, _currentTile.TileView is TileViewEnum.River or TileViewEnum.PollutedRiver);
         }
     }
 
@@ -134,6 +136,20 @@ public class TileObject : MonoBehaviour
                 }
                 break;
             case TileViewEnum.River:
+                for (int i = 0; i < _neighbourTiles.Length; i++)
+                {
+                    if (!IsNeedCheck(i, false)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    {
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.PollutedRiver));
+                        SpawnTile();
+                        return;
+                    }
+                }
+                _tileRiver.PrepareRiver(isNeighbours, isRiver, IsForwardRoad());
+                break;
+            case TileViewEnum.PollutedRiver:
                 _tileRiver.PrepareRiver(isNeighbours, isRiver, IsForwardRoad());
                 break;
 

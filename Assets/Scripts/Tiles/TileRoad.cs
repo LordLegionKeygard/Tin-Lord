@@ -5,7 +5,7 @@ using UnityEngine;
 public class TileRoad : MonoBehaviour
 {
     private TileObject _tileObject;
-    private bool _isForwardRoad;
+    public bool _isForwardRoad;
     public bool IsForwardRoad() => _isForwardRoad;
     private void Awake()
     {

@@ -7,9 +7,11 @@ public class TileRiver : MonoBehaviour
 {
     [Inject] private TilesSystem _tilesSystem;
     private TileObject _tileObject;
-    [SerializeField] private bool _isLastRiverTile;
+    public bool _isLastRiverTile;
     private bool _isLake;
     public bool IsLastRiverTile() => _isLastRiverTile;
+    public bool _isBridge;
+    public bool IsBridge() => _isBridge;
 
     private void Awake()
     {
@@ -18,20 +20,23 @@ public class TileRiver : MonoBehaviour
 
     public void PrepareRiver(bool isNeighbours, bool isRiver, bool isBridge)
     {
-        if(isRiver)
+        _isBridge = isBridge;
+
+        if (isRiver)
         {
             _isLastRiverTile = !isNeighbours;
         }
 
         if (!_tilesSystem.IsHaveRiver)
         {
+
             _tilesSystem.IsHaveRiver = true;
             _isLake = true;
             _tileObject.CurrentTileObjects((int)TileTypeEnum.Ground).GetComponent<PrepareTileRiver>().SetRiver(RiverTypeEnum.Lake, 0);
         }
         else
         {
-            if (!_tileObject.HaveTile() || !_tileObject.CheckTileView(TileViewEnum.River)) return;
+            if (!_tileObject.HaveTile() || (!_tileObject.CheckTileView(TileViewEnum.River) && !_tileObject.CheckTileView(TileViewEnum.PollutedRiver))) return;
 
             if (CheckTurn()) return;
             else CheckForward(isBridge);
@@ -52,7 +57,10 @@ public class TileRiver : MonoBehaviour
 
         for (int i = 0; i < riverDirections.Length; i++)
         {
-            if (_tileObject.NeighbourTileView((int)riverDirections[i].Item1, TileViewEnum.River) && _tileObject.NeighbourTileView((int)riverDirections[i].Item2, TileViewEnum.River))
+            if (_tileObject.NeighbourTileView((int)riverDirections[i].Item1, TileViewEnum.River) && _tileObject.NeighbourTileView((int)riverDirections[i].Item2, TileViewEnum.River)
+            || _tileObject.NeighbourTileView((int)riverDirections[i].Item1, TileViewEnum.PollutedRiver) && _tileObject.NeighbourTileView((int)riverDirections[i].Item2, TileViewEnum.PollutedRiver)
+            || _tileObject.NeighbourTileView((int)riverDirections[i].Item1, TileViewEnum.PollutedRiver) && _tileObject.NeighbourTileView((int)riverDirections[i].Item2, TileViewEnum.River)
+            || _tileObject.NeighbourTileView((int)riverDirections[i].Item1, TileViewEnum.River) && _tileObject.NeighbourTileView((int)riverDirections[i].Item2, TileViewEnum.PollutedRiver))
             {
                 _tileObject.CurrentTileObjects((int)TileTypeEnum.Ground).GetComponent<PrepareTileRiver>().SetRiver(riverDirections[i].Item3, riverDirections[i].Item4);
                 return true;
@@ -64,7 +72,7 @@ public class TileRiver : MonoBehaviour
     private void CheckForward(bool isBridge)
     {
         var riverType = _isLake ? RiverTypeEnum.LakeExit : _isLastRiverTile ? RiverTypeEnum.RiverEnd : RiverTypeEnum.RiverForward;
-        if(isBridge) riverType = RiverTypeEnum.RiverBridge;
+        if (isBridge) riverType = RiverTypeEnum.RiverBridge;
         (TileDirectionEnum, RiverTypeEnum, int)[] riverDirections = new (TileDirectionEnum, RiverTypeEnum, int)[]
         {
             (TileDirectionEnum.North, riverType, 180),
@@ -75,7 +83,7 @@ public class TileRiver : MonoBehaviour
 
         for (int i = 0; i < riverDirections.Length; i++)
         {
-            if (_tileObject.NeighbourTileView((int)riverDirections[i].Item1, TileViewEnum.River))
+            if (_tileObject.NeighbourTileView((int)riverDirections[i].Item1, TileViewEnum.River) || _tileObject.NeighbourTileView((int)riverDirections[i].Item1, TileViewEnum.PollutedRiver))
             {
                 _tileObject.CurrentTileObjects((int)TileTypeEnum.Ground).GetComponent<PrepareTileRiver>().SetRiver(riverDirections[i].Item2, riverDirections[i].Item3);
                 break;
