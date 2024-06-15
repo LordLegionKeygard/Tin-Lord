@@ -26,10 +26,10 @@ public class CardHolderSystem : MonoBehaviour
 
     public void CancelSelectCard()
     {
+        _tileDetector.UnselectLastTile();
         if (_currentSelectCardObject == null) return;
 
         _currentSelectCardObject.CardObjectViewToggle(false);
-        _tileDetector.UnselectLastTile();
         _currentSelectCardObject = null;
     }
 

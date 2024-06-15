@@ -9,6 +9,7 @@ public class Tile : ScriptableObject
     public Sprite Icon;
     public TileTypeEnum TileTypeEnum;
     public TileViewEnum TileView;
+    public bool IsWater;
 
     [Header("TextInfo")]
     public string[] Name; //0 eng, 1 rus

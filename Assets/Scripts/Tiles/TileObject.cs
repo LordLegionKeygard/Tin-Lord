@@ -18,14 +18,15 @@ public class TileObject : MonoBehaviour
     private TileRoad _tileRoad;
 
 
-    public bool NeighbourHaveLastRiverTile(int number)
-    {
-        return _neighbourTiles[number].GetLastRiverTile();
-    }
-
+    //LastRiverTile
     public bool GetLastRiverTile() => _tileRiver.IsLastRiverTile();
+    public bool NeighbourHaveLastRiverTile(int number) => _neighbourTiles[number].GetLastRiverTile();
 
+    //HaveTile
     public bool HaveTile() => _currentTile != null;
+    public bool NeighbourHaveTile(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].HaveTile();
+
+    //TileView
     public bool CheckTileView(TileViewEnum tileView) => _currentTile.TileView == tileView;
     public bool NeighbourTileView(int number, TileViewEnum tileView)
     {
@@ -33,12 +34,22 @@ public class TileObject : MonoBehaviour
         if (!_neighbourTiles[number].HaveTile()) return false;
         return _neighbourTiles[number].CheckTileView(tileView);
     }
-    public bool NeighbourHaveTile(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].HaveTile();
+
+    //IsBridge
+    public bool IsBridge() => _tileRiver.IsBridge();
+    public bool NeighbourTileIsBridge(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].IsBridge();
+
+    //IsWater
+    public bool IsWaterTile() => _currentTile == null ? false : _currentTile.IsWater;
+    public bool NeighbourTileIsWater(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].IsWaterTile();
+
+    //Other
     public GameObject CurrentTileObjects(int number) => _currentTileObjects[number];
     public void SetTile(Tile tile) => _currentTile = tile;
     public bool IsForwardRoad() => _tileRoad.IsForwardRoad();
-    public bool NeighbourTileIsBridge(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].IsBridge();
-    public bool IsBridge() => _tileRiver.IsBridge();
+
+
+    public int _riverNumber = 0;
 
     private void Awake()
     {
@@ -70,19 +81,20 @@ public class TileObject : MonoBehaviour
         _currentTileObjects[tileNumber].transform.parent = _parents[tileNumber];
 
         UpdateNeighbourTiles();
-        RefreshTile(false, _currentTile.TileView is TileViewEnum.River or TileViewEnum.PollutedRiver);
+        RefreshTile();
     }
 
     private void UpdateNeighbourTiles()
     {
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {
-            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshTile(true, _currentTile.TileView is TileViewEnum.River or TileViewEnum.PollutedRiver);
+            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshTile();
         }
     }
 
-    public void RefreshTile(bool isNeighbours, bool isRiver)
+    public void RefreshTile()
     {
+        _riverNumber = 0;
         if (_currentTile == null) return;
         switch (_currentTile.TileView)
         {
@@ -108,6 +120,7 @@ public class TileObject : MonoBehaviour
                     }
                 }
                 break;
+
             case TileViewEnum.Meadow:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
@@ -121,6 +134,7 @@ public class TileObject : MonoBehaviour
                     }
                 }
                 break;
+
             case TileViewEnum.Highland:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
@@ -135,6 +149,7 @@ public class TileObject : MonoBehaviour
                     }
                 }
                 break;
+
             case TileViewEnum.River:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
@@ -146,11 +161,42 @@ public class TileObject : MonoBehaviour
                         SpawnTile();
                         return;
                     }
+
+                    if (!IsNeedCheck(i, true)) continue;
+
+                    if (_neighbourTiles[i].IsWaterTile())
+                    {
+                        _riverNumber++;
+                    }
                 }
-                _tileRiver.PrepareRiver(isNeighbours, isRiver, IsForwardRoad());
+                _tileRiver.PrepareRiver(_riverNumber < 2, IsForwardRoad());
                 break;
+
             case TileViewEnum.PollutedRiver:
-                _tileRiver.PrepareRiver(isNeighbours, isRiver, IsForwardRoad());
+                for (int i = 0; i < _neighbourTiles.Length; i++)
+                {
+                    if (!IsNeedCheck(i, true)) continue;
+
+                    if (_neighbourTiles[i].IsWaterTile())
+                    {
+                        _riverNumber++;
+                    }
+                }
+                _tileRiver.PrepareRiver(_riverNumber < 2, IsForwardRoad());
+                break;
+
+            case TileViewEnum.Ground:
+                for (int i = 0; i < _neighbourTiles.Length; i++)
+                {
+                    if (!IsNeedCheck(i, true)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
+                    {
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.CoalDeposits));
+                        SpawnTile();
+                        return;
+                    }
+                }
                 break;
 
         }
