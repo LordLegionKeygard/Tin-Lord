@@ -183,14 +183,17 @@ public class TileDetector : MonoBehaviour
             for (int i = 0; i < 8; i++)
             {
                 if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
-                if (_currentTileObject.NeighbourTileView(i, TileViewEnum.River) || _currentTileObject.NeighbourTileView(i, TileViewEnum.PollutedRiver))
+                if (_currentTileObject.NeighbourTileIsWater(i))
                 {
                     if (_currentTileObject.NeighbourHaveLastRiverTile(i)) lastRiver = true;
                     riverNumber++;
                 }
             }
 
-            if (riverNumber > 1 || !lastRiver) return false;
+            if (riverNumber > 1 || !lastRiver)
+            {
+                return false;
+            }
             else return true;
         }
         else return true;
