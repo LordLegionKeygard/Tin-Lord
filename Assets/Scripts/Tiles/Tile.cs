@@ -28,16 +28,17 @@ public enum TileViewEnum
     Road = 2,
     Forest = 3,
     Mountain = 4,
-    IronVein = 5,
-    CopperVein = 6,
+    IronDeposit = 5,
+    CopperDeposit = 6,
     OilField = 7,
     Desert = 8,
-    Badlands = 9,
+    Barrenland = 9,
     Ground = 10,
-    CoalDeposits = 11,
+    CoalDeposit = 11,
     Highland = 12,
     River = 13,
     PollutedRiver = 14,
+    Junkyard = 15,
     
 }
 

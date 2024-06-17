@@ -103,9 +103,18 @@ public class TileObject : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, false)) continue;
 
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    {
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
+                        SpawnTile();
+                        return;
+                    }
+
+                    if (!IsNeedCheck(i, true)) continue;
+
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
                     {
-                        SetTile(_tilesSystem.TakeTile(TileViewEnum.Badlands));
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
                         SpawnTile();
                         return;
                     }
@@ -126,9 +135,18 @@ public class TileObject : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, false)) continue;
 
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    {
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
+                        SpawnTile();
+                        return;
+                    }
+
+                    if (!IsNeedCheck(i, true)) continue;
+
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
                     {
-                        SetTile(_tilesSystem.TakeTile(TileViewEnum.Badlands));
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
                         SpawnTile();
                         return;
                     }
@@ -143,7 +161,7 @@ public class TileObject : MonoBehaviour
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
                     {
                         var rnd = Random.Range(0, 2);
-                        SetTile(_tilesSystem.TakeTile(rnd == 0 ? TileViewEnum.IronVein : TileViewEnum.CopperVein));
+                        SetTile(_tilesSystem.TakeTile(rnd == 0 ? TileViewEnum.IronDeposit : TileViewEnum.CopperDeposit));
                         SpawnTile();
                         return;
                     }
@@ -154,6 +172,15 @@ public class TileObject : MonoBehaviour
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, false)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    {
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.PollutedRiver));
+                        SpawnTile();
+                        return;
+                    }
+
+                    if (!IsNeedCheck(i, true)) continue;
 
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
                     {
@@ -192,13 +219,12 @@ public class TileObject : MonoBehaviour
 
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
                     {
-                        SetTile(_tilesSystem.TakeTile(TileViewEnum.CoalDeposits));
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.CoalDeposit));
                         SpawnTile();
                         return;
                     }
                 }
                 break;
-
         }
     }
 
