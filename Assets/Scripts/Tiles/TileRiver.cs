@@ -65,8 +65,8 @@ public class TileRiver : MonoBehaviour
     private void CheckForward(bool isBridge)
     {
         var riverType = _isLake ? RiverTypeEnum.LakeExit : _isLastRiverTile ? RiverTypeEnum.RiverEnd : RiverTypeEnum.RiverForward;
-        if(riverType == RiverTypeEnum.LakeExit) _isLastRiverTile = false;
-        if (isBridge) riverType = RiverTypeEnum.RiverBridge;
+        if (riverType == RiverTypeEnum.LakeExit) _isLastRiverTile = false;
+        if (isBridge) riverType = _isLastRiverTile ? RiverTypeEnum.RiverBridgeEnd : RiverTypeEnum.RiverBridge;
         (TileDirectionEnum, RiverTypeEnum, int)[] riverDirections = new (TileDirectionEnum, RiverTypeEnum, int)[]
         {
             (TileDirectionEnum.North, riverType, 180),

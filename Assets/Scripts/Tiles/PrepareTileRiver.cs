@@ -23,4 +23,5 @@ public enum RiverTypeEnum
     LakeExit = 3,
     RiverEnd = 4,
     RiverBridge = 5,
+    RiverBridgeEnd = 6,
 }

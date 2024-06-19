@@ -23,9 +23,9 @@ public class ActiveObjects : MonoBehaviour
         {
             if (_currentObjectsCount >= objectsCount) return;
 
-            var rnd = Random.Range(0, 100);
+            var rnd = Random.Range(0, 2);
 
-            if (rnd > 50 && !_objects[i].activeInHierarchy)
+            if (rnd == 0 && !_objects[i].activeInHierarchy)
             {
                 _objects[i].SetActive(true);
                 if(_isRotation) RandomRotation(i);
@@ -33,7 +33,7 @@ public class ActiveObjects : MonoBehaviour
             }
         }
 
-        if(_currentObjectsCount < objectsCount) Active();
+        // if(_currentObjectsCount < objectsCount) Active();
     }
 
     private void RandomRotation(int number)
