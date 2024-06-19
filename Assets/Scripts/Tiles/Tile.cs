@@ -39,6 +39,7 @@ public enum TileViewEnum
     River = 13,
     PollutedRiver = 14,
     Junkyard = 15,
+    DeadForest = 16,
     
 }
 

@@ -119,8 +119,6 @@ public class TileObject : MonoBehaviour
                         return;
                     }
 
-                    if (!IsNeedCheck(i, true)) continue;
-
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
                     {
                         SetTile(_tilesSystem.TakeTile(TileViewEnum.Meadow));
@@ -189,8 +187,6 @@ public class TileObject : MonoBehaviour
                         return;
                     }
 
-                    if (!IsNeedCheck(i, true)) continue;
-
                     if (_neighbourTiles[i].IsWaterTile())
                     {
                         _riverNumber++;
@@ -220,6 +216,28 @@ public class TileObject : MonoBehaviour
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
                     {
                         SetTile(_tilesSystem.TakeTile(TileViewEnum.CoalDeposit));
+                        SpawnTile();
+                        return;
+                    }
+                }
+                break;
+            case TileViewEnum.Forest:
+                for (int i = 0; i < _neighbourTiles.Length; i++)
+                {
+                    if (!IsNeedCheck(i, false)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    {
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.DeadForest));
+                        SpawnTile();
+                        return;
+                    }
+
+                    if (!IsNeedCheck(i, true)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    {
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.DeadForest));
                         SpawnTile();
                         return;
                     }
