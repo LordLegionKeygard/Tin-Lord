@@ -321,7 +321,7 @@ public class TileObject : MonoBehaviour
 
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
                     {
-                        SetTile(_tilesSystem.TakeTile(TileViewEnum.PoorCoalDeposits));
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.ScarceCoalDeposits));
                         SpawnTile();
                         return;
                     }
@@ -330,7 +330,7 @@ public class TileObject : MonoBehaviour
 
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
                     {
-                        SetTile(_tilesSystem.TakeTile(TileViewEnum.PoorCoalDeposits));
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.ScarceCoalDeposits));
                         SpawnTile();
                         return;
                     }
@@ -344,7 +344,7 @@ public class TileObject : MonoBehaviour
 
                     if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
                     {
-                        SetTile(_tilesSystem.TakeTile(TileViewEnum.PoorCoalDeposits));
+                        SetTile(_tilesSystem.TakeTile(TileViewEnum.ScarceCoalDeposits));
                         SpawnTile();
                         return;
                     }

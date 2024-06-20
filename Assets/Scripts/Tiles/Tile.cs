@@ -42,7 +42,7 @@ public enum TileViewEnum
     DeadForest = 16,
     Oasis = 17,
     DesertRiver = 18,
-    PoorCoalDeposits = 19,
+    ScarceCoalDeposits = 19,
     
 }
 
