@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class TileRoad : MonoBehaviour
 {
-    private TileObject _tileObject;
+    private GroundTile _groundTile;
     public bool _isForwardRoad;
     public bool IsForwardRoad() => _isForwardRoad;
     private void Awake()
     {
-        _tileObject = GetComponent<TileObject>();
+        _groundTile = GetComponent<GroundTile>();
         CustomEvents.OnPrepareRoads += PrepareRoads;
     }
 
     public void SetRoadTile(Tile tile)
     {
-        _tileObject.SetTile(tile);
-        _tileObject.SpawnTile();
+        _groundTile.SetGroundTile(tile);
+        _groundTile.SpawnGroundTile();
     }
 
     private void PrepareRoads()
     {
-        if (!_tileObject.HaveTile() || !_tileObject.CheckTileView(TileViewEnum.Road)) return;
+        if (!_groundTile.HaveTile() || !_groundTile.CheckTileView(TileViewEnum.Road)) return;
 
         (TileDirectionEnum, TileDirectionEnum, int, int)[] roadDirections = new (TileDirectionEnum, TileDirectionEnum, int, int)[]
     {
@@ -35,9 +35,9 @@ public class TileRoad : MonoBehaviour
 
         foreach (var (dir1, dir2, roadType, angle) in roadDirections)
         {
-            if (_tileObject.NeighbourHaveTile((int)dir1) && _tileObject.NeighbourHaveTile((int)dir2))
+            if (_groundTile.NeighbourHaveTile((int)dir1) && _groundTile.NeighbourHaveTile((int)dir2))
             {
-                _tileObject.CurrentTileObjects((int)TileTypeEnum.Ground).GetComponent<PrepareTileRoad>().SetRoad(roadType, angle);
+                _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRoad>().SetRoad(roadType, angle);
                 _isForwardRoad = roadType == 0;
 
                 break;

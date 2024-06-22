@@ -7,7 +7,7 @@ public class TileDetector : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _layerMask;
-    [SerializeField] private TileObject _currentTileObject;
+    [SerializeField] private GroundTile _currentTileObject;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TilesSystem _tileSystem;
     private Transform _lastRayCastTransform;
@@ -73,8 +73,8 @@ public class TileDetector : MonoBehaviour
                     }
                 }
 
-                _currentTileObject.SetTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
-                _currentTileObject.SpawnTile();
+                _currentTileObject.SetGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
+                _currentTileObject.SpawnGroundTile();
                 Clear();
             }
         }
@@ -94,7 +94,7 @@ public class TileDetector : MonoBehaviour
 
     private bool TrySelectBridge(GameObject gameObject)
     {
-        var newTileObject = gameObject.GetComponent<TileObject>();
+        var newTileObject = gameObject.GetComponent<GroundTile>();
         UnselectLastTile();
 
         if (newTileObject.HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().TileView is TileViewEnum.River or TileViewEnum.PollutedRiver)
@@ -136,7 +136,7 @@ public class TileDetector : MonoBehaviour
 
     private void SelectEmptyTile(GameObject gameObject)
     {
-        var newTileObject = gameObject.GetComponent<TileObject>();
+        var newTileObject = gameObject.GetComponent<GroundTile>();
 
         UnselectLastTile();
 
@@ -158,7 +158,7 @@ public class TileDetector : MonoBehaviour
 
     public void DetectTileForBuilding(GameObject gameObject)
     {
-        var newTileObject = gameObject.GetComponent<TileObject>();
+        var newTileObject = gameObject.GetComponent<GroundTile>();
 
         UnselectLastTile();
 

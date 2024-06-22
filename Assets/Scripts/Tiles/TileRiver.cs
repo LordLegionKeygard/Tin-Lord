@@ -6,7 +6,7 @@ using Zenject;
 public class TileRiver : MonoBehaviour
 {
     [Inject] private TilesSystem _tilesSystem;
-    private TileObject _tileObject;
+    private GroundTile _groundTile;
     public bool _isLastRiverTile;
     private bool _isLake;
     public bool IsLastRiverTile() => _isLastRiverTile;
@@ -15,7 +15,7 @@ public class TileRiver : MonoBehaviour
 
     private void Awake()
     {
-        _tileObject = GetComponent<TileObject>();
+        _groundTile = GetComponent<GroundTile>();
     }
 
     public void PrepareRiver(bool isLastRiverTile, bool isBridge)
@@ -28,11 +28,11 @@ public class TileRiver : MonoBehaviour
 
             _tilesSystem.IsHaveRiver = true;
             _isLake = true;
-            _tileObject.CurrentTileObjects((int)TileTypeEnum.Ground).GetComponent<PrepareTileRiver>().SetRiver(RiverTypeEnum.Lake, 0);
+            _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(RiverTypeEnum.Lake, 0);
         }
         else
         {
-            if (!_tileObject.HaveTile() || !_tileObject.IsWaterTile()) return;
+            if (!_groundTile.HaveTile() || !_groundTile.IsWaterTile()) return;
 
             if (CheckTurn()) return;
             else CheckForward(isBridge);
@@ -53,9 +53,9 @@ public class TileRiver : MonoBehaviour
 
         for (int i = 0; i < riverDirections.Length; i++)
         {
-            if (_tileObject.NeighbourTileIsWater((int)riverDirections[i].Item1) && _tileObject.NeighbourTileIsWater((int)riverDirections[i].Item2))
+            if (_groundTile.NeighbourTileIsWater((int)riverDirections[i].Item1) && _groundTile.NeighbourTileIsWater((int)riverDirections[i].Item2))
             {
-                _tileObject.CurrentTileObjects((int)TileTypeEnum.Ground).GetComponent<PrepareTileRiver>().SetRiver(riverDirections[i].Item3, riverDirections[i].Item4);
+                _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(riverDirections[i].Item3, riverDirections[i].Item4);
                 return true;
             }
         }
@@ -77,9 +77,9 @@ public class TileRiver : MonoBehaviour
 
         for (int i = 0; i < riverDirections.Length; i++)
         {
-            if (_tileObject.NeighbourTileIsWater((int)riverDirections[i].Item1))
+            if (_groundTile.NeighbourTileIsWater((int)riverDirections[i].Item1))
             {
-                _tileObject.CurrentTileObjects((int)TileTypeEnum.Ground).GetComponent<PrepareTileRiver>().SetRiver(riverDirections[i].Item2, riverDirections[i].Item3);
+                _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(riverDirections[i].Item2, riverDirections[i].Item3);
                 break;
             }
         }
