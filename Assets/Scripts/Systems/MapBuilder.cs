@@ -49,7 +49,7 @@ public class MapBuilder : MonoBehaviour
     {
         await Task.Delay(50);
 
-        _tileObjects[nextX, nextY].GetComponent<TileRoad>().SetRoadTile(_tilesSystem.TakeTile(TileViewEnum.Road));
+        _tileObjects[nextX, nextY].GetComponent<TileRoad>().SetRoadTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Road));
 
         if (_iterations > 45 || (nextY == _startY && _startX == nextX - 1))
         {

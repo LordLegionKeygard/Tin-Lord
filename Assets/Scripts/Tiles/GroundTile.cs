@@ -27,8 +27,8 @@ public class GroundTile : MonoBehaviour
     public bool NeighbourHaveTile(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].HaveTile();
 
     //TileView
-    public bool CheckTileView(TileViewEnum tileView) => _currentGroundTile.TileView == tileView;
-    public bool NeighbourTileView(int number, TileViewEnum tileView)
+    public bool CheckTileView(GroundTileViewEnum tileView) => _currentGroundTile.GroundTileView == tileView;
+    public bool NeighbourTileView(int number, GroundTileViewEnum tileView)
     {
         if (_neighbourTiles[number] == null) return false;
         if (!_neighbourTiles[number].HaveTile()) return false;
@@ -47,6 +47,7 @@ public class GroundTile : MonoBehaviour
     public GameObject CurrentGroundTileObject() => _currentGroundTileObject;
     public void SetGroundTile(Tile tile) => _currentGroundTile = tile;
     public bool IsForwardRoad() => _tileRoad.IsForwardRoad();
+    public Tile CurrentGroundTile() => _currentGroundTile;
 
 
     public int _riverNumber = 0;
@@ -76,9 +77,9 @@ public class GroundTile : MonoBehaviour
 
         _currentGroundTileObject = _diContainer.InstantiatePrefab(_currentGroundTile.TileObject, _groundParent.position, Quaternion.identity, null);
 
-        _currentGroundTileObject.transform.parent = _groundParent;
+        _currentGroundTileObject.transform.SetParent(_groundParent);
 
-        RefreshGrodunTile();
+        RefreshGroundTile();
         UpdateNeighbourGrodunTiles();
     }
 
@@ -86,108 +87,108 @@ public class GroundTile : MonoBehaviour
     {
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {
-            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshGrodunTile();
+            if (_neighbourTiles[i] != null) _neighbourTiles[i].RefreshGroundTile();
         }
     }
 
-    public void RefreshGrodunTile()
+    public void RefreshGroundTile()
     {
         _riverNumber = 0;
         if (_currentGroundTile == null) return;
-        switch (_currentGroundTile.TileView)
+        switch (_currentGroundTile.GroundTileView)
         {
-            case TileViewEnum.Plain:
+            case GroundTileViewEnum.Plain:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, false)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Junkyard))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
                         SpawnGroundTile();
                         return;
                     }
 
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
                         SpawnGroundTile();
                         return;
                     }
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Mountain))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.Meadow));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Meadow));
                         SpawnGroundTile();
                         return;
                     }
                 }
                 break;
 
-            case TileViewEnum.Meadow:
+            case GroundTileViewEnum.Meadow:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, false)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Junkyard))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
                         SpawnGroundTile();
                         return;
                     }
 
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
                         SpawnGroundTile();
                         return;
                     }
                 }
                 break;
 
-            case TileViewEnum.Highland:
+            case GroundTileViewEnum.Highland:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Mountain))
                     {
                         var rnd = Random.Range(0, 2);
-                        SetGroundTile(_tilesSystem.TakeTile(rnd == 0 ? TileViewEnum.IronDeposits : TileViewEnum.CopperDeposits));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(rnd == 0 ? GroundTileViewEnum.IronDeposits : GroundTileViewEnum.CopperDeposits));
                         SpawnGroundTile();
                         return;
                     }
                 }
                 break;
 
-            case TileViewEnum.River:
+            case GroundTileViewEnum.River:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, false)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Junkyard))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.PollutedRiver));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.PollutedRiver));
                         SpawnGroundTile();
                         return;
                     }
 
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.PollutedRiver));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.PollutedRiver));
                         SpawnGroundTile();
                         return;
                     }
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Oasis))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Oasis))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.DesertRiver));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.DesertRiver));
                         SpawnGroundTile();
                         return;
                     }
@@ -200,7 +201,7 @@ public class GroundTile : MonoBehaviour
                 _tileRiver.PrepareRiver(_riverNumber < 2, IsForwardRoad());
                 break;
 
-            case TileViewEnum.PollutedRiver:
+            case GroundTileViewEnum.PollutedRiver:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, true)) continue;
@@ -213,76 +214,76 @@ public class GroundTile : MonoBehaviour
                 _tileRiver.PrepareRiver(_riverNumber < 2, IsForwardRoad());
                 break;
 
-            case TileViewEnum.Ground:
+            case GroundTileViewEnum.Ground:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, false)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Junkyard))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
                         SpawnGroundTile();
                         return;
                     }
 
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.Barrenland));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
                         SpawnGroundTile();
                         return;
                     }
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Mountain))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.CoalDeposits));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.CoalDeposits));
                         SpawnGroundTile();
                         return;
                     }
                 }
                 break;
 
-            case TileViewEnum.Forest:
+            case GroundTileViewEnum.Forest:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, false)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Junkyard))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.DeadForest));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.DeadForest));
                         SpawnGroundTile();
                         return;
                     }
 
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.DeadForest));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.DeadForest));
                         SpawnGroundTile();
                         return;
                     }
                 }
                 break;
 
-            case TileViewEnum.DesertRiver:
+            case GroundTileViewEnum.DesertRiver:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, false)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Junkyard))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.PollutedRiver));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.PollutedRiver));
                         SpawnGroundTile();
                         return;
                     }
 
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.PollutedRiver));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.PollutedRiver));
                         SpawnGroundTile();
                         return;
                     }
@@ -298,58 +299,58 @@ public class GroundTile : MonoBehaviour
                 _tileRiver.PrepareRiver(_riverNumber < 2, IsForwardRoad());
                 break;
 
-            case TileViewEnum.Desert:
+            case GroundTileViewEnum.Desert:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.River))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.River))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.Oasis));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Oasis));
                         SpawnGroundTile();
                         return;
                     }
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.DesertRiver))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.DesertRiver))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.Oasis));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Oasis));
                         SpawnGroundTile();
                         return;
                     }
                 }
                 break;
 
-            case TileViewEnum.CoalDeposits:
+            case GroundTileViewEnum.CoalDeposits:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, false)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Junkyard))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Junkyard))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.ScarceCoalDeposits));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.ScarceCoalDeposits));
                         SpawnGroundTile();
                         return;
                     }
 
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.ScarceCoalDeposits));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.ScarceCoalDeposits));
                         SpawnGroundTile();
                         return;
                     }
                 }
                 break;
 
-            case TileViewEnum.Barrenland:
+            case GroundTileViewEnum.Barrenland:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(TileViewEnum.Mountain))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Mountain))
                     {
-                        SetGroundTile(_tilesSystem.TakeTile(TileViewEnum.ScarceCoalDeposits));
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.ScarceCoalDeposits));
                         SpawnGroundTile();
                         return;
                     }

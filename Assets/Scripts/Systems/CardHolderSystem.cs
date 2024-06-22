@@ -25,8 +25,8 @@ public class CardHolderSystem : MonoBehaviour
     }
 
     public void CancelSelectCard()
-    {
-        _tileDetector.UnselectLastTile();
+    {       
+        _tileDetector.UnselectLastTile(true);
         if (_currentSelectCardObject == null) return;
 
         _currentSelectCardObject.CardObjectViewToggle(false);

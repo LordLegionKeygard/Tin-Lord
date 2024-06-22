@@ -1,11 +1,10 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    // private CameraControlActions cameraActions;
-    // private InputAction movement;
     [SerializeField] private Transform cameraTransform;
 
     [Header("Horizontal Translation")]
@@ -34,28 +33,12 @@ public class CameraMovement : MonoBehaviour
     private int _yMax = 110;
 
 
-    private void Awake()
-    {
-        // cameraActions = new CameraControlActions();
-        // cameraTransform = this.GetComponentInChildren<Camera>().transform;
-    }
-
     private void OnEnable()
     {
         zoomHeight = cameraTransform.localPosition.y;
         cameraTransform.LookAt(this.transform);
 
         lastPosition = this.transform.position;
-
-        // movement = cameraActions.Camera.Movement;
-        // cameraActions.Camera.Zoom.performed += ZoomCamera;
-        // cameraActions.Camera.Enable();
-    }
-
-    private void OnDisable()
-    {
-        // cameraActions.Camera.Zoom.performed -= ZoomCamera;
-        // cameraActions.Camera.Disable();
     }
 
     private void Update()
@@ -71,9 +54,9 @@ public class CameraMovement : MonoBehaviour
 
     private void UpdateVelocity()
     {
-        horizontalVelocity = (this.transform.position - lastPosition) / Time.deltaTime;
+        horizontalVelocity = (transform.position - lastPosition) / Time.deltaTime;
         horizontalVelocity.y = 0f;
-        lastPosition = this.transform.position;
+        lastPosition = transform.position;
     }
 
     private void GetKeyboardMovement()
@@ -122,6 +105,8 @@ public class CameraMovement : MonoBehaviour
 
     public void ZoomCamera(InputAction.CallbackContext callBack)
     {
+        if(EventSystem.current.IsPointerOverGameObject()) return;
+        
         float inputValue = -callBack.ReadValue<Vector2>().y / 100f;
 
         if (Mathf.Abs(inputValue) > 0.1f)

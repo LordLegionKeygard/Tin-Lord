@@ -8,11 +8,26 @@ public class Tile : ScriptableObject
     public GameObject TileObject;
     public Sprite Icon;
     public TileTypeEnum TileTypeEnum;
-    public TileViewEnum TileView;
+
+    [Header("Ground")]
+    public GroundTileViewEnum GroundTileView;
+    public int GroundEcology;
     public bool IsWater;
+
+    [Header("Building")]
+    public BuildingTileViewEnum BuildingTileView;
+    public UpgradeBuildingWrapper[] UpgradeBuildingWrapper;
 
     [Header("TextInfo")]
     public string[] Name; //0 eng, 1 rus
+}
+
+[System.Serializable]
+public class UpgradeBuildingWrapper
+{
+    public string[] Name; //0 eng, 1 rus
+    public int BuildingEcology;
+
 }
 
 public enum TileTypeEnum
@@ -21,29 +36,45 @@ public enum TileTypeEnum
     Building = 1,
 }
 
-public enum TileViewEnum
+public enum GroundTileViewEnum
 {
-    Plain = 0,
-    Meadow = 1,
-    Road = 2,
-    Forest = 3,
-    Mountain = 4,
-    IronDeposits = 5,
-    CopperDeposits = 6,
-    OilField = 7,
-    Desert = 8,
-    Barrenland = 9,
-    Ground = 10,
-    CoalDeposits = 11,
-    Highland = 12,
-    River = 13,
-    PollutedRiver = 14,
-    Junkyard = 15,
-    DeadForest = 16,
-    Oasis = 17,
-    DesertRiver = 18,
-    ScarceCoalDeposits = 19,
+    None = 0,
+    Plain = 1,
+    Meadow = 2,
+    Road = 3,
+    Forest = 4,
+    Mountain = 5,
+    IronDeposits = 6,
+    CopperDeposits = 7,
+    OilField = 8,
+    Desert = 9,
+    Barrenland = 10,
+    Ground = 11,
+    CoalDeposits = 12,
+    Highland = 13,
+    River = 14,
+    PollutedRiver = 15,
+    Junkyard = 16,
+    DeadForest = 17,
+    Oasis = 18,
+    DesertRiver = 19,
+    ScarceCoalDeposits = 20,
     
+}
+
+public enum BuildingTileViewEnum
+{
+    None = 0,
+    Base = 1,
+    ElectricPowerIndustry = 2,
+    CoalMining = 3,
+    OreMining = 4,
+    WoodExtraction = 5,
+    SandMining = 6,
+    OilProduction = 7,
+    StoneMining = 8,
+    WaterExtraction = 9,
+    ScrapMining = 10,
 }
 
 public enum TileDirectionEnum

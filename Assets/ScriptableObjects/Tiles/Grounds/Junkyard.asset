@@ -16,7 +16,10 @@ MonoBehaviour:
     type: 3}
   Icon: {fileID: 21300000, guid: df2946874cda5e34db43d79b273982fc, type: 3}
   TileTypeEnum: 0
-  TileView: 15
+  GroundTileView: 16
+  BuildingTileView: 0
+  GroundEcology: -3
+  BuildingEcology: 
   IsWater: 0
   Name:
   - Junkyard

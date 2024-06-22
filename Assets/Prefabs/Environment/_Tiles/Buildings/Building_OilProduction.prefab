@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1995532334043188817}
+  - component: {fileID: 6503420246242279485}
   m_Layer: 0
   m_Name: Building_OilProduction
   m_TagString: Untagged
@@ -64,6 +65,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6503420246242279485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995532334043188822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba1b99c5228397448abb38dcdaf715c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingLevels:
+  - {fileID: 7496487926896653902}
+  - {fileID: 4092441453266999804}
+  - {fileID: 750493029015770372}
+  _currentBuildingLevel: 0
 --- !u!1 &2400840434369642765
 GameObject:
   m_ObjectHideFlags: 0

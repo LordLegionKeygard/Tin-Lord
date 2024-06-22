@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8629768917c6cf439b82f2f5c445fff, type: 3}
+  m_Name: BuildingsOnTileInfo
+  m_EditorClassIdentifier: 
+  BuildingsOnTileInfoWrapper:
+  - GroundTileView: 1
+    BuildingTiles:
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - GroundTileView: 2
+    BuildingTiles:
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - GroundTileView: 3
+    BuildingTiles: []
+  - GroundTileView: 4
+    BuildingTiles:
+    - {fileID: 11400000, guid: af5bae1ce98b11748b6ce75629ca4056, type: 2}
+  - GroundTileView: 5
+    BuildingTiles:
+    - {fileID: 11400000, guid: 5acd58e8a9099c34ca1449970134360a, type: 2}
+  - GroundTileView: 6
+    BuildingTiles:
+    - {fileID: 11400000, guid: 8de041479e7436049a1d589eab812ba8, type: 2}
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - GroundTileView: 7
+    BuildingTiles:
+    - {fileID: 11400000, guid: 8de041479e7436049a1d589eab812ba8, type: 2}
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - GroundTileView: 8
+    BuildingTiles:
+    - {fileID: 11400000, guid: cdbffb5dfa5bbfd4bb5e438e328df5e4, type: 2}
+  - GroundTileView: 9
+    BuildingTiles:
+    - {fileID: 11400000, guid: 147750dcd60d8704bbf754bd005c7a82, type: 2}
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - GroundTileView: 10
+    BuildingTiles:
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - GroundTileView: 11
+    BuildingTiles:
+    - {fileID: 11400000, guid: 5c4aaa2ef2c0b1545aeec4fc198783da, type: 2}
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - GroundTileView: 12
+    BuildingTiles: []
+  - GroundTileView: 13
+    BuildingTiles:
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - GroundTileView: 14
+    BuildingTiles:
+    - {fileID: 11400000, guid: 806c4d977d8c2bd48861a74945b2872b, type: 2}
+  - GroundTileView: 15
+    BuildingTiles: []
+  - GroundTileView: 16
+    BuildingTiles:
+    - {fileID: 11400000, guid: dc10f0989afc47d4fb78eca4b53394e9, type: 2}
+  - GroundTileView: 17
+    BuildingTiles: []
+  - GroundTileView: 18
+    BuildingTiles:
+    - {fileID: 11400000, guid: 147750dcd60d8704bbf754bd005c7a82, type: 2}
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - GroundTileView: 19
+    BuildingTiles:
+    - {fileID: 11400000, guid: 806c4d977d8c2bd48861a74945b2872b, type: 2}
+  - GroundTileView: 20
+    BuildingTiles:
+    - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}

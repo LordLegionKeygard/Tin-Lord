@@ -16,7 +16,11 @@ MonoBehaviour:
     type: 3}
   Icon: {fileID: 21300000, guid: cbc2eab06c984de42a1bdd682d6f2288, type: 3}
   TileTypeEnum: 0
-  TileView: 8
+  GroundTileView: 9
+  BuildingTileView: 0
+  GroundEcology: 0
+  BuildingEcology: 
+  IsWater: 0
   Name:
   - Desert
   - "\u041F\u0443\u0441\u0442\u044B\u043D\u044F"

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: WoodExtraction
+  m_EditorClassIdentifier: 
+  TileObject: {fileID: 5746593528593359528, guid: ab5a6ed6cef42f14a9d8a262067ca84c,
+    type: 3}
+  Icon: {fileID: 0}
+  TileTypeEnum: 1
+  GroundTileView: 0
+  GroundEcology: 0
+  IsWater: 0
+  BuildingTileView: 5
+  UpgradeBuildingWrapper:
+  - Name:
+    - Manual Mining
+    - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
+    BuildingEcology: 0
+  - Name:
+    - Sawmill
+    - "\u041B\u0435\u0441\u043E\u043F\u0438\u043B\u043A\u0430"
+    BuildingEcology: 0
+  - Name:
+    - Industrial Lumbermill
+    - "\u041F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u0430\u044F \u041B\u0435\u0441\u043E\u043F\u0438\u043B\u043A\u0430"
+    BuildingEcology: 0
+  Name:
+  - Wood Extraction
+  - "\u0414\u043E\u0431\u044B\u0447\u0430 \u0414\u0435\u0440\u0435\u0432\u0430"

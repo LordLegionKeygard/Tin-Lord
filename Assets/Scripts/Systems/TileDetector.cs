@@ -7,9 +7,10 @@ public class TileDetector : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _layerMask;
-    [SerializeField] private GroundTile _currentTileObject;
+    [SerializeField] private TileObject _currentTileObject;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TilesSystem _tileSystem;
+    [SerializeField] private SelectTilePanel _selectTilePanel;
     private Transform _lastRayCastTransform;
 
     private void Update()
@@ -52,20 +53,20 @@ public class TileDetector : MonoBehaviour
         {
             if (_currentTileObject != null && !EventSystem.current.IsPointerOverGameObject())
             {
-                if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView is TileViewEnum.River or TileViewEnum.PollutedRiver)
+                if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
                 {
                     if (!CanSetRiver()) return;
-                    if (_currentTileObject.HaveTile() && !_tileSystem.IsHaveRiver) return;
-                    if (_currentTileObject.HaveTile())
+                    if (_currentTileObject.GroundTileObject().HaveTile() && !_tileSystem.IsHaveRiver) return;
+                    if (_currentTileObject.GroundTileObject().HaveTile())
                     {
-                        if (!_currentTileObject.IsForwardRoad()) return;
+                        if (!_currentTileObject.GroundTileObject().IsForwardRoad()) return;
                     }
-                    if (_currentTileObject.HaveTile())
+                    if (_currentTileObject.GroundTileObject().HaveTile())
                     {
                         for (int i = 0; i < 8; i++)
                         {
                             if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
-                            if (_currentTileObject.NeighbourTileIsBridge(i))
+                            if (_currentTileObject.GroundTileObject().NeighbourTileIsBridge(i))
                             {
                                 return;
                             }
@@ -73,8 +74,8 @@ public class TileDetector : MonoBehaviour
                     }
                 }
 
-                _currentTileObject.SetGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
-                _currentTileObject.SpawnGroundTile();
+                _currentTileObject.GroundTileObject().SetGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
+                _currentTileObject.GroundTileObject().SpawnGroundTile();
                 Clear();
             }
         }
@@ -94,38 +95,38 @@ public class TileDetector : MonoBehaviour
 
     private bool TrySelectBridge(GameObject gameObject)
     {
-        var newTileObject = gameObject.GetComponent<GroundTile>();
-        UnselectLastTile();
+        var newTileObject = gameObject.GetComponent<TileObject>();
+        UnselectLastTile(true);
 
-        if (newTileObject.HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().TileView is TileViewEnum.River or TileViewEnum.PollutedRiver)
+        if (newTileObject.GroundTileObject().HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
         {
             _currentTileObject = newTileObject;
-            if (!newTileObject.CheckTileView(TileViewEnum.Road) || !_tileSystem.IsHaveRiver)
+            if (!newTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Road) || !_tileSystem.IsHaveRiver)
             {
-                _currentTileObject.SelectTile(true, SelectTileEnum.ErrorSelect);
+                _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.ErrorSelect);
                 return true;
             }
             else //если это дорога и есть река
             {
-                if (_currentTileObject.IsForwardRoad())
+                if (_currentTileObject.GroundTileObject().IsForwardRoad())
                 {
                     for (int i = 0; i < 8; i++)
                     {
                         if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
-                        if (_currentTileObject.NeighbourTileIsBridge(i))
+                        if (_currentTileObject.GroundTileObject().NeighbourTileIsBridge(i))
                         {
-                            _currentTileObject.SelectTile(true, SelectTileEnum.ErrorSelect);
+                            _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.ErrorSelect);
                             return true;
                         }
 
                     }
 
-                    _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+                    _currentTileObject.GroundTileObject().SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
                     return true;
                 }
                 else
                 {
-                    _currentTileObject.SelectTile(true, SelectTileEnum.ErrorSelect);
+                    _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.ErrorSelect);
                     return true;
                 }
             }
@@ -136,21 +137,21 @@ public class TileDetector : MonoBehaviour
 
     private void SelectEmptyTile(GameObject gameObject)
     {
-        var newTileObject = gameObject.GetComponent<GroundTile>();
+        var newTileObject = gameObject.GetComponent<TileObject>();
 
-        UnselectLastTile();
+        UnselectLastTile(true);
 
-        if (!newTileObject.HaveTile())
+        if (!newTileObject.GroundTileObject().HaveTile())
         {
             _currentTileObject = newTileObject;
 
-            if (_cardHolderSystem.CurrentCardHolderSelectedTile().TileView is TileViewEnum.River or TileViewEnum.PollutedRiver)
+            if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
             {
-                _currentTileObject.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+                _currentTileObject.GroundTileObject().SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
             }
             else
             {
-                _currentTileObject.SelectTile(true, SelectTileEnum.EmptyTileSelect);
+                _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.EmptyTileSelect);
             }
         }
         else _currentTileObject = null;
@@ -158,20 +159,25 @@ public class TileDetector : MonoBehaviour
 
     public void DetectTileForBuilding(GameObject gameObject)
     {
-        var newTileObject = gameObject.GetComponent<GroundTile>();
+        var newTileObject = gameObject.GetComponent<TileObject>();
 
-        UnselectLastTile();
+        UnselectLastTile(false);
 
-        if (newTileObject.HaveTile())
+        if (newTileObject.GroundTileObject().HaveTile())
         {
             _currentTileObject = newTileObject;
-            _currentTileObject.SelectTile(true, SelectTileEnum.TileSelect);
+            _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.TileSelect);
+            _selectTilePanel.ShowInfo(_currentTileObject);
         }
     }
 
-    public void UnselectLastTile()
+    public void UnselectLastTile(bool isPanelView)
     {
-        if (_currentTileObject != null) _currentTileObject.SelectTile(false, SelectTileEnum.EmptyTileSelect);
+        if (_currentTileObject != null)
+        {
+            _currentTileObject.GroundTileObject().SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            if(isPanelView) _selectTilePanel.PanelViewToggle(false);
+        }
     }
 
     private bool CanSetRiver()
@@ -183,9 +189,9 @@ public class TileDetector : MonoBehaviour
             for (int i = 0; i < 8; i++)
             {
                 if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
-                if (_currentTileObject.NeighbourTileIsWater(i))
+                if (_currentTileObject.GroundTileObject().NeighbourTileIsWater(i))
                 {
-                    if (_currentTileObject.NeighbourHaveLastRiverTile(i)) lastRiver = true;
+                    if (_currentTileObject.GroundTileObject().NeighbourHaveLastRiverTile(i)) lastRiver = true;
                     riverNumber++;
                 }
             }
@@ -201,7 +207,7 @@ public class TileDetector : MonoBehaviour
 
     public void Clear()
     {
-        UnselectLastTile();
+        UnselectLastTile(true);
         _currentTileObject = null;
     }
 }

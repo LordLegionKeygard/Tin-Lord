@@ -16,7 +16,11 @@ MonoBehaviour:
     type: 3}
   Icon: {fileID: 21300000, guid: 6c4828f65c3432e428d697f754a589f2, type: 3}
   TileTypeEnum: 0
-  TileView: 3
+  GroundTileView: 4
+  BuildingTileView: 0
+  GroundEcology: 3
+  BuildingEcology: 
+  IsWater: 0
   Name:
   - Forest
   - "\u041B\u0435\u0441"

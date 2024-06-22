@@ -68,7 +68,7 @@ public class GrassCreator : EditorWindow
             return;
         }
  
-        if (splatTextureIndicesToAffect.Length > terrain.terrainData.splatPrototypes.Length)
+        if (splatTextureIndicesToAffect.Length > terrain.terrainData.terrainLayers.Length)
         {
             Debug.LogError("You have selected more splat textures to paint on, than there are in your libary.");
             return;
@@ -76,7 +76,7 @@ public class GrassCreator : EditorWindow
  
         for (int i = 0; i < splatTextureIndicesToAffect.Length; i++)
         {
-            if (splatTextureIndicesToAffect[i] >= terrain.terrainData.splatPrototypes.Length)
+            if (splatTextureIndicesToAffect[i] >= terrain.terrainData.terrainLayers.Length)
             {
                 Debug.LogError("You have chosen a splat texture index which is higher than the number of splat prototypes in your splat libary. Indices starts at 0");
                 return;

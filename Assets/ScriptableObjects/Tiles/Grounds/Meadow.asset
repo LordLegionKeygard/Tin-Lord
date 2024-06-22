@@ -16,7 +16,11 @@ MonoBehaviour:
     type: 3}
   Icon: {fileID: 21300000, guid: 6a54043ad028d1f42ad7d59236c0bb1b, type: 3}
   TileTypeEnum: 0
-  TileView: 1
+  GroundTileView: 2
+  BuildingTileView: 0
+  GroundEcology: 2
+  BuildingEcology: 
+  IsWater: 0
   Name:
   - Meadow
   - "\u041B\u0443\u0433"

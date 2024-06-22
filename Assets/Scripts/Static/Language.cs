@@ -13,7 +13,7 @@ public class Language : MonoBehaviour
     private void Awake()
     {
         // if (SteamManager.Initialized) LanguageNumber = CheckSteamLanguage();
-        // SetLanguage();
+        SetLanguage();
     }
 
     // private int CheckSteamLanguage()
@@ -27,11 +27,20 @@ public class Language : MonoBehaviour
 
     public void SetLanguage()
     {
-        _text[1, 0] = "";
-        _text[1, 1] = "";
+        _text[1, 0] = "Ecology";
+        _text[1, 1] = "Экология";
 
-        _text[2, 0] = "";
-        _text[2, 1] = "";
+        _text[2, 0] = "Building";
+        _text[2, 1] = "Здание";
+
+        _text[3, 0] = "Building level";
+        _text[3, 1] = "Уровень здания";
+
+        _text[4, 0] = "Build";
+        _text[4, 1] = "Строить";
+
+        _text[5, 0] = "Upgrade";
+        _text[5, 1] = "Улучшить";
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }

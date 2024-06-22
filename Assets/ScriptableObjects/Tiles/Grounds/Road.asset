@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TileObject: {fileID: 5428639154717664043, guid: 2cd242ebf68f0e342b99f67e19c23ba9,
     type: 3}
+  Icon: {fileID: 0}
   TileTypeEnum: 0
-  TileView: 2
+  GroundTileView: 3
+  BuildingTileView: 0
+  GroundEcology: 0
+  BuildingEcology: 
+  IsWater: 0
   Name:
   - Road
   - "\u0414\u043E\u0440\u043E\u0433\u0430"
