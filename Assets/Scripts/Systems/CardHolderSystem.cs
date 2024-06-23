@@ -15,6 +15,7 @@ public class CardHolderSystem : MonoBehaviour
     [SerializeField] private CardObject _currentSelectCardObject;
     public bool IsHaveCurrentSelectedCardObject() => _currentSelectCardObject != null;
     public Tile CurrentCardHolderSelectedTile() => _currentSelectCardObject.GetTile();
+    public bool CheckCurrentCardHolderSelectedTileIsFourTile() => _currentSelectCardObject == null ? false : _currentSelectCardObject.GetTile().IsFourTile;
 
     private void Start()
     {
@@ -25,8 +26,8 @@ public class CardHolderSystem : MonoBehaviour
     }
 
     public void CancelSelectCard()
-    {       
-        _tileDetector.UnselectLastTile(true);
+    {
+        _tileDetector.Clear();
         if (_currentSelectCardObject == null) return;
 
         _currentSelectCardObject.CardObjectViewToggle(false);

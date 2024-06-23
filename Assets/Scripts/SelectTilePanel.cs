@@ -32,16 +32,21 @@ public class SelectTilePanel : MonoBehaviour
             _objectTransform.DOAnchorPosY(-130, 0.3f);
         }
     }
+
     public void ShowInfo(TileObject tileObject)
     {
         _currentTileObject = tileObject;
-        PanelViewToggle(true);
-        _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
 
+        PanelViewToggle(true);
+
+        _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _buildingNameText.text = tileObject.BuildingTileObject().HaveTile() ? Language.TextStatic[2] + ": " + tileObject.BuildingTileObject().CurrentBuildingTile().UpgradeBuildingWrapper[tileObject.BuildingTileObject().CurrentBuildingLevel() - 1].Name[Language.LanguageNumber] : Language.TextStatic[2] + ": -";
         _buildingLevelText.text = tileObject.BuildingTileObject().HaveTile() ? Language.TextStatic[3] + ": " + tileObject.BuildingTileObject().CurrentBuildingLevel().ToString() : Language.TextStatic[3] + ": -";
 
-        _tileEcologyText.text = Language.TextStatic[1] + ": " + tileObject.GroundTileObject().CurrentGroundTile().GroundEcology.ToString();
+        var groundEcology = tileObject.GroundTileObject().CurrentGroundTile().GroundEcology;
+        var buildingEcology = tileObject.BuildingTileObject().HaveTile() ? tileObject.BuildingTileObject().CurrentBuildingTile().UpgradeBuildingWrapper[tileObject.BuildingTileObject().CurrentBuildingLevel() - 1].BuildingEcology : 0;
+        _tileEcologyText.text = Language.TextStatic[1] + ": " + (groundEcology + buildingEcology).ToString();
+
         _buildButton.SetActive(!tileObject.BuildingTileObject().HaveTile());
         _upgradeButton.SetActive(tileObject.BuildingTileObject().IsCanUpgrade());
     }

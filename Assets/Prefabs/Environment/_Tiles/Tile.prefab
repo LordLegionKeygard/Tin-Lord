@@ -189,6 +189,7 @@ MonoBehaviour:
   _currentBuildingTile: {fileID: 0}
   _buildingParent: {fileID: 1685772399035195807}
   _currentBuildingTileObject: {fileID: 0}
+  _buildingLevels: {fileID: 0}
 --- !u!114 &8647205754676832079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,9 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c59f8e03bea8244923aebff7d54bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mesh: {fileID: 3346719734020786494}
   _selectView: {fileID: 562694282674514341}
-  _tileSelectViewMaterial: {fileID: 2100000, guid: 393e2df53d7023440a7cdd02d68d51b2,
-    type: 2}
+  _fourTileMaterial: {fileID: 2100000, guid: 84fccdc470a94d94a95100179ca97210, type: 2}
 --- !u!114 &3578609753463227886
 MonoBehaviour:
   m_ObjectHideFlags: 0

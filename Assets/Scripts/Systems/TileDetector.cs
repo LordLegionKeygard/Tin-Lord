@@ -12,6 +12,7 @@ public class TileDetector : MonoBehaviour
     [SerializeField] private TilesSystem _tileSystem;
     [SerializeField] private SelectTilePanel _selectTilePanel;
     private Transform _lastRayCastTransform;
+    private bool _canSetTile = false;
 
     private void Update()
     {
@@ -51,7 +52,7 @@ public class TileDetector : MonoBehaviour
     {
         if (_cardHolderSystem.IsHaveCurrentSelectedCardObject())
         {
-            if (_currentTileObject != null && !EventSystem.current.IsPointerOverGameObject())
+            if (_canSetTile && !EventSystem.current.IsPointerOverGameObject())
             {
                 if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
                 {
@@ -76,6 +77,7 @@ public class TileDetector : MonoBehaviour
 
                 _currentTileObject.GroundTileObject().SetGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
                 _currentTileObject.GroundTileObject().SpawnGroundTile();
+                if(_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();
                 Clear();
             }
         }
@@ -139,10 +141,24 @@ public class TileDetector : MonoBehaviour
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
-        UnselectLastTile(true);
-
-        if (!newTileObject.GroundTileObject().HaveTile())
+        if (_cardHolderSystem.CheckCurrentCardHolderSelectedTileIsFourTile())
         {
+            UnselectLastX4Tiles(true);
+
+            _currentTileObject = newTileObject;
+
+            _currentTileObject.GroundTileObject().SelectTile(true, _currentTileObject.GroundTileObject().HaveTile() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            _currentTileObject.GroundTileObject().NeighbourGroundTile(0).SelectTile(true, _currentTileObject.GroundTileObject().NeighbourHaveTile(0) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            _currentTileObject.GroundTileObject().NeighbourGroundTile(1).SelectTile(true, _currentTileObject.GroundTileObject().NeighbourHaveTile(1) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            _currentTileObject.GroundTileObject().NeighbourGroundTile(2).SelectTile(true, _currentTileObject.GroundTileObject().NeighbourGroundTile(2).HaveTile() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+
+            _canSetTile = !_currentTileObject.GroundTileObject().HaveTile() && !_currentTileObject.GroundTileObject().NeighbourHaveTile(0)
+            && !_currentTileObject.GroundTileObject().NeighbourHaveTile(1) && !_currentTileObject.GroundTileObject().NeighbourHaveTile(2);
+        }
+        else
+        {
+            UnselectLastTile(true);
+
             _currentTileObject = newTileObject;
 
             if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
@@ -151,10 +167,11 @@ public class TileDetector : MonoBehaviour
             }
             else
             {
-                _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.EmptyTileSelect);
+                _currentTileObject.GroundTileObject().SelectTile(true, newTileObject.GroundTileObject().HaveTile() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
             }
+
+            _canSetTile = !_currentTileObject.GroundTileObject().HaveTile();
         }
-        else _currentTileObject = null;
     }
 
     public void DetectTileForBuilding(GameObject gameObject)
@@ -176,7 +193,19 @@ public class TileDetector : MonoBehaviour
         if (_currentTileObject != null)
         {
             _currentTileObject.GroundTileObject().SelectTile(false, SelectTileEnum.EmptyTileSelect);
-            if(isPanelView) _selectTilePanel.PanelViewToggle(false);
+            if (isPanelView) _selectTilePanel.PanelViewToggle(false);
+        }
+    }
+
+    public void UnselectLastX4Tiles(bool isPanelView)
+    {
+        if (_currentTileObject != null)
+        {
+            _currentTileObject.GroundTileObject().SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            _currentTileObject.GroundTileObject().NeighbourGroundTile(0).SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            _currentTileObject.GroundTileObject().NeighbourGroundTile(1).SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            _currentTileObject.GroundTileObject().NeighbourGroundTile(2).SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            if (isPanelView) _selectTilePanel.PanelViewToggle(false);
         }
     }
 
@@ -207,7 +236,15 @@ public class TileDetector : MonoBehaviour
 
     public void Clear()
     {
-        UnselectLastTile(true);
+        if (_cardHolderSystem.CheckCurrentCardHolderSelectedTileIsFourTile())
+        {
+            UnselectLastX4Tiles(true);
+        }
+        else
+        {
+            UnselectLastTile(true);
+        }
+
         _currentTileObject = null;
     }
 }

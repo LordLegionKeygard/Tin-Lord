@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Zenject;
 
 public class BuildingItem : MonoBehaviour
 {
+    [Inject] private TilesSystem _tilesSystem;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Tile _currentTile;
     [SerializeField] private TileObject _currentTileObject;
@@ -34,6 +36,7 @@ public class BuildingItem : MonoBehaviour
     {
         if (_isBuild)
         {
+            if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) _tilesSystem.IsHaveBase = true;
             _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile);
         }
         else

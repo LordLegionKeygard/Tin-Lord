@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class TileBuildPanel : MonoBehaviour
 {
+    [Inject] private DiContainer _diContainer;
+    [SerializeField] private TilesSystem _tileSystem;
     [SerializeField] private BuildingItem _buildingItem;
     [SerializeField] private Transform _content;
     [SerializeField] private BuildingsOnTileInfo _buildingsOnTileInfo;
@@ -15,18 +18,20 @@ public class TileBuildPanel : MonoBehaviour
 
         for (int i = 0; i < tiles.Length; i++)
         {
-            var item = Instantiate(_buildingItem, transform.position, Quaternion.identity);
+            if (tileObject.GroundTileObject().CurrentGroundTile().TileTypeEnum == TileTypeEnum.Ground && _tileSystem.IsHaveBase && i == 0) continue;
+
+            var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.SetBuildingTile(tiles[i], tileObject, selectTilePanel);
+            item.GetComponent<BuildingItem>().SetBuildingTile(tiles[i], tileObject, selectTilePanel);
             _buildingItemsList.Add(item.gameObject);
         }
     }
 
     public void SpawnUpgradeItemInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel)
     {
-        var item = Instantiate(_buildingItem, transform.position, Quaternion.identity);
+        var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
         item.transform.SetParent(_content);
-        item.SetUpgradeTile(tileObject, selectTilePanel);
+        item.GetComponent<BuildingItem>().SetUpgradeTile(tileObject, selectTilePanel);
         _buildingItemsList.Add(item.gameObject);
     }
 

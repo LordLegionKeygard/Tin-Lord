@@ -19,6 +19,7 @@ MonoBehaviour:
   GroundTileView: 0
   GroundEcology: 0
   IsWater: 0
+  IsFourTile: 0
   BuildingTileView: 1
   UpgradeBuildingWrapper:
   - Name:
@@ -28,23 +29,23 @@ MonoBehaviour:
   - Name:
     - Village
     - "\u0414\u0435\u0440\u0435\u0432\u043D\u044F"
-    BuildingEcology: 0
+    BuildingEcology: -1
   - Name:
     - Town
     - "\u0413\u043E\u0440\u043E\u0434"
-    BuildingEcology: 0
+    BuildingEcology: -2
   - Name:
     - City
     - "\u041A\u0440\u0443\u043F\u043D\u044B\u0439 \u0413\u043E\u0440\u043E\u0434"
-    BuildingEcology: 0
+    BuildingEcology: -3
   - Name:
     - Industrial City
     - "\u041F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u044B\u0439 \u0413\u043E\u0440\u043E\u0434"
-    BuildingEcology: 0
+    BuildingEcology: -4
   - Name:
     - Megapolis
     - "\u041C\u0435\u0433\u0430\u043F\u043E\u043B\u0438\u0441"
-    BuildingEcology: 0
+    BuildingEcology: -5
   Name:
   - Base
   - "\u0411\u0430\u0437\u0430"

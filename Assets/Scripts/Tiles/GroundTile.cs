@@ -27,7 +27,7 @@ public class GroundTile : MonoBehaviour
     public bool NeighbourHaveTile(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].HaveTile();
 
     //TileView
-    public bool CheckTileView(GroundTileViewEnum tileView) => _currentGroundTile.GroundTileView == tileView;
+    public bool CheckTileView(GroundTileViewEnum tileView) => _currentGroundTile != null ? _currentGroundTile.GroundTileView == tileView : false;
     public bool NeighbourTileView(int number, GroundTileViewEnum tileView)
     {
         if (_neighbourTiles[number] == null) return false;
@@ -48,6 +48,16 @@ public class GroundTile : MonoBehaviour
     public void SetGroundTile(Tile tile) => _currentGroundTile = tile;
     public bool IsForwardRoad() => _tileRoad.IsForwardRoad();
     public Tile CurrentGroundTile() => _currentGroundTile;
+    public GroundTile NeighbourGroundTile(int number) => _neighbourTiles[number];
+    public void TurnOffTileCollider() => _tileView.TurnOffCollider();
+
+    public void TurnOffFourTileNeighboursCollider()
+    {
+        _neighbourTiles[0].TurnOffTileCollider();
+        _neighbourTiles[1].TurnOffTileCollider();
+        _neighbourTiles[2].TurnOffTileCollider();
+    } 
+
 
 
     public int _riverNumber = 0;
@@ -60,7 +70,7 @@ public class GroundTile : MonoBehaviour
     }
 
 
-    public void NeighbourTiles(GroundTile[] array)
+    public void SetNeighbourTiles(GroundTile[] array)
     {
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {
@@ -81,6 +91,10 @@ public class GroundTile : MonoBehaviour
 
         RefreshGroundTile();
         UpdateNeighbourGrodunTiles();
+        if (_currentGroundTile.GroundTileView == GroundTileViewEnum.BaseFoundation)
+        {
+            _tileView.SetBaseFoundationTile(_currentGroundTileObject.transform, _groundParent);
+        }
     }
 
     private void UpdateNeighbourGrodunTiles()
@@ -287,7 +301,7 @@ public class GroundTile : MonoBehaviour
                         SpawnGroundTile();
                         return;
                     }
-                    
+
                     if (!IsNeedCheck(i, true)) continue;
 
                     if (_neighbourTiles[i].IsWaterTile())
@@ -302,7 +316,23 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Desert:
                 for (int i = 0; i < _neighbourTiles.Length; i++)
                 {
+                    if (!IsNeedCheck(i, false)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Junkyard))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlackDesert));
+                        SpawnGroundTile();
+                        return;
+                    }
+
                     if (!IsNeedCheck(i, true)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlackDesert));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.River))
                     {
@@ -351,6 +381,28 @@ public class GroundTile : MonoBehaviour
                     if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Mountain))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.ScarceCoalDeposits));
+                        SpawnGroundTile();
+                        return;
+                    }
+                }
+                break;
+            case GroundTileViewEnum.Oasis:
+                for (int i = 0; i < _neighbourTiles.Length; i++)
+                {
+                    if (!IsNeedCheck(i, false)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Junkyard))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlackDesert));
+                        SpawnGroundTile();
+                        return;
+                    }
+
+                    if (!IsNeedCheck(i, true)) continue;
+
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlackDesert));
                         SpawnGroundTile();
                         return;
                     }

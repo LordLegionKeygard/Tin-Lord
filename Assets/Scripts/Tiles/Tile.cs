@@ -13,6 +13,7 @@ public class Tile : ScriptableObject
     public GroundTileViewEnum GroundTileView;
     public int GroundEcology;
     public bool IsWater;
+    public bool IsFourTile;
 
     [Header("Building")]
     public BuildingTileViewEnum BuildingTileView;
@@ -59,6 +60,8 @@ public enum GroundTileViewEnum
     Oasis = 18,
     DesertRiver = 19,
     ScarceCoalDeposits = 20,
+    BaseFoundation = 21,
+    BlackDesert = 22,
     
 }
 
