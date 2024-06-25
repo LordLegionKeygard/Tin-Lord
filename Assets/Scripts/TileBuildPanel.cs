@@ -15,7 +15,7 @@ public class TileBuildPanel : MonoBehaviour
     public void SpawnBuildingItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel)
     {
         var tiles = _buildingsOnTileInfo.BuildingsOnTileInfoWrapper[(int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView - 1].BuildingTiles;
-
+        
         for (int i = 0; i < tiles.Length; i++)
         {
             if (tileObject.GroundTileObject().CurrentGroundTile().TileTypeEnum == TileTypeEnum.Ground && _tileSystem.IsHaveBase && i == 0) continue;
