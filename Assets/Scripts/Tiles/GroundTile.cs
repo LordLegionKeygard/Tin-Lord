@@ -90,11 +90,8 @@ public class GroundTile : MonoBehaviour
         _currentGroundTileObject.transform.SetParent(_groundParent);
 
         RefreshGroundTile();
-        UpdateNeighbourGrodunTiles();
-        if (_currentGroundTile.GroundTileView == GroundTileViewEnum.BaseFoundation)
-        {
-            _tileView.SetBaseFoundationTile(_currentGroundTileObject.transform, _groundParent);
-        }
+        UpdateNeighbourGrodunTiles();     
+        _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);     
     }
 
     private void UpdateNeighbourGrodunTiles()

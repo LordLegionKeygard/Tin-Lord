@@ -50,7 +50,7 @@ public class TileDetector : MonoBehaviour
 
     public void InputOnTile()
     {
-        if (_cardHolderSystem.IsHaveCurrentSelectedCardObject())
+        if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() && _currentTileObject != null)
         {
             if (_canSetTile && !EventSystem.current.IsPointerOverGameObject())
             {
@@ -77,7 +77,7 @@ public class TileDetector : MonoBehaviour
 
                 _currentTileObject.GroundTileObject().SetGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
                 _currentTileObject.GroundTileObject().SpawnGroundTile();
-                if(_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();
+                if (_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();
                 Clear();
             }
         }

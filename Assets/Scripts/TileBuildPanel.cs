@@ -18,8 +18,6 @@ public class TileBuildPanel : MonoBehaviour
         
         for (int i = 0; i < tiles.Length; i++)
         {
-            if (tileObject.GroundTileObject().CurrentGroundTile().TileTypeEnum == TileTypeEnum.Ground && _tileSystem.IsHaveBase && i == 0) continue;
-
             var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
             item.GetComponent<BuildingItem>().SetBuildingTile(tiles[i], tileObject, selectTilePanel);
