@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class AnimatorStrings : MonoBehaviour
 {
-    // public static readonly int Attack_R1 = Animator.StringToHash("AttackR1");
+    public static readonly int PickaxeMining = Animator.StringToHash("PickaxeMining");
 }
