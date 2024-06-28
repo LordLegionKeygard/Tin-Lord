@@ -11,38 +11,65 @@ public class BuildingItem : MonoBehaviour
     [SerializeField] private Tile _currentTile;
     [SerializeField] private TileObject _currentTileObject;
     private SelectTilePanel _selectTilePanel;
-    private bool _isBuild;
+    private TileBuildPanel _tileBuildPanel;
+    private BuildingState _currentBuildingState;
+    private int _upgradeToLevel;
 
-    public void SetBuildingTile(Tile tile, TileObject tileObject, SelectTilePanel selectTilePanel)
+    public void SetBuildingType(Tile tile, TileObject tileObject, SelectTilePanel selectTilePanel, TileBuildPanel tileBuildPanel)
     {
-        _isBuild = true;
+        _currentBuildingState = BuildingState.BuildingType;
         _selectTilePanel = selectTilePanel;
         _currentTileObject = tileObject;
         _currentTile = tile;
+        _tileBuildPanel = tileBuildPanel;
+
         _nameText.text = _currentTile.Name[Language.LanguageNumber];
     }
 
-    public void SetUpgradeTile(TileObject tileObject, SelectTilePanel selectTilePanel)
+    public void SetSpawnFirstBuilding(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile)
     {
-        _isBuild = false;
+        _currentBuildingState = BuildingState.FirstBuild;
         _selectTilePanel = selectTilePanel;
         _currentTileObject = tileObject;
+        _currentTile = tile;
+        _upgradeToLevel = level;
 
-        var tile = tileObject.BuildingTileObject();
-        _nameText.text = tile.CurrentBuildingTile().UpgradeBuildingWrapper[tile.CurrentBuildingLevel()].Name[Language.LanguageNumber];
+        _nameText.text = tile.UpgradeBuildingWrapper[_upgradeToLevel - 1].Name[Language.LanguageNumber];
+    }
+
+    public void SetUpgradeBuilding(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile)
+    {
+        _currentBuildingState = BuildingState.UpgradeBuilding;
+        _selectTilePanel = selectTilePanel;
+        _currentTileObject = tileObject;
+        _upgradeToLevel = level;
+
+        _nameText.text = tile.UpgradeBuildingWrapper[_upgradeToLevel - 1].Name[Language.LanguageNumber];
     }
 
     public void BuildOrUpgrade()
     {
-        if (_isBuild)
+        switch (_currentBuildingState)
         {
-            if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) _tilesSystem.IsHaveBase = true;
-            _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile);
+            case BuildingState.BuildingType:
+                _tileBuildPanel.SpawnBuildingItemsInScrollView(_currentTileObject, _selectTilePanel, _currentTile); //возвращаемся заспавнить список зданий этого типа
+                break;
+            case BuildingState.FirstBuild:
+                if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) _tilesSystem.IsHaveBase = true;
+                _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _upgradeToLevel); //спавним впервые здание на тайле определенного лвла
+                _selectTilePanel.ClosePanelAndRefreshInfo();
+                break;
+            case BuildingState.UpgradeBuilding:
+                _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_upgradeToLevel); //улучшаем здание
+                _selectTilePanel.ClosePanelAndRefreshInfo();
+                break;
         }
-        else
-        {
-            _currentTileObject.BuildingTileObject().UpgradeBuildingTile();
-        }
-        _selectTilePanel.ClosePanelAndRefreshInfo();
     }
+}
+
+public enum BuildingState
+{
+    BuildingType = 0,
+    FirstBuild = 1,
+    UpgradeBuilding = 2,
 }

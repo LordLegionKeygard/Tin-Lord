@@ -55,14 +55,14 @@ public class SelectTilePanel : MonoBehaviour
     {
         _tileInfoPanelObject.SetActive(false);
         _tileBuildPanelObject.SetActive(true);
-        _tileBuildPanel.SpawnBuildingItemsInScrollView(_currentTileObject, this);
+        _tileBuildPanel.SpawnBuildingTypesInScrollView(_currentTileObject, this);
     }
 
     public void OpenPanelForUpgrade()
     {
         _tileInfoPanelObject.SetActive(false);
         _tileBuildPanelObject.SetActive(true);
-        _tileBuildPanel.SpawnUpgradeItemInScrollView(_currentTileObject, this);
+        _tileBuildPanel.SpawnUpgradeItemsInScrollView(_currentTileObject, this);
     }
 
     public void ClosePanelAndRefreshInfo()
