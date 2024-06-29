@@ -20,5 +20,9 @@ public class CustomEvents
         OnChangeResourceExtraction?.Invoke(resourceEnum, amount, tileId);
     }
 
-
+    public static event Action<bool> OnPauseChanged;
+    public static void FirePauseChanged(bool isPause)
+    {
+        OnPauseChanged?.Invoke(isPause);
+    }
 }

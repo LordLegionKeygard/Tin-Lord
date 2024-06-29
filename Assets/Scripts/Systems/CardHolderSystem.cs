@@ -17,6 +17,11 @@ public class CardHolderSystem : MonoBehaviour
     public Tile CurrentCardHolderSelectedTile() => _currentSelectCardObject.GetTile();
     public bool CheckCurrentCardHolderSelectedTileIsFourTile() => _currentSelectCardObject == null ? false : _currentSelectCardObject.GetTile().IsFourTile;
 
+    private void Awake()
+    {
+        CustomEvents.OnPauseChanged += CancelSelectCard;
+    }
+
     private void Start()
     {
         for (int i = 0; i < _testStartCards.Length; i++)
@@ -25,8 +30,9 @@ public class CardHolderSystem : MonoBehaviour
         }
     }
 
-    public void CancelSelectCard()
+    public void CancelSelectCard(bool isPause)
     {
+        if (isPause) return;
         _tileDetector.Clear();
         if (_currentSelectCardObject == null) return;
 
@@ -52,5 +58,10 @@ public class CardHolderSystem : MonoBehaviour
     public void Clear()
     {
         _currentSelectCardObject = null;
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnPauseChanged -= CancelSelectCard;
     }
 }

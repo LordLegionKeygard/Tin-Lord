@@ -14,7 +14,7 @@ public class PlayerInputSystem : MonoBehaviour
     private delegate void LeftMouseClick();
     LeftMouseClick leftMouseClick;
 
-    private delegate void RightMouseClick();
+    private delegate void RightMouseClick(bool state);
     RightMouseClick rightMouseClick;
 
     private delegate void Pause();
@@ -54,7 +54,7 @@ public class PlayerInputSystem : MonoBehaviour
     {
         _playerInput.actions["CameraZoom"].started += ctx => cameraZoom(ctx);
         _playerInput.actions["LeftMouseClick"].performed += _ => leftMouseClick();
-        _playerInput.actions["RightMouseClick"].performed += _ => rightMouseClick();
+        _playerInput.actions["RightMouseClick"].performed += _ => rightMouseClick(false);
         _playerInput.actions["Pause"].performed += _cameraMovement => pause();
     }
 

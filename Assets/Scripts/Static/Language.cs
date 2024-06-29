@@ -42,6 +42,18 @@ public class Language : MonoBehaviour
         _text[5, 0] = "Upgrade";
         _text[5, 1] = "Улучшить";
 
+        _text[6, 0] = "Production";
+        _text[6, 1] = "Добыча";
+
+        _text[7, 0] = "Base Resources";
+        _text[7, 1] = "Базовые Ресурсы";
+
+        _text[8, 0] = "Building Materials";
+        _text[8, 1] = "Стройматериалы";
+
+        _text[9, 0] = "Robotics";
+        _text[9, 1] = "Робототехника";
+
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }
 }

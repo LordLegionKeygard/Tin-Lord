@@ -10,6 +10,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingNameText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
     [SerializeField] private TextMeshProUGUI _tileEcologyText;
+    [SerializeField] private TextMeshProUGUI _resourceProductionText;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private GameObject _buildButton;
     [SerializeField] private GameObject _upgradeButton;
@@ -39,15 +40,20 @@ public class SelectTilePanel : MonoBehaviour
 
         PanelViewToggle(true);
 
+        var buildingTile = tileObject.BuildingTileObject().CurrentBuildingTile();
+        var haveTile = tileObject.BuildingTileObject().HaveTile();
+        var buildingLevel = haveTile ? tileObject.BuildingTileObject().CurrentBuildingLevel() : 0;
+
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
-        _buildingNameText.text = tileObject.BuildingTileObject().HaveTile() ? Language.TextStatic[2] + ": " + tileObject.BuildingTileObject().CurrentBuildingTile().UpgradeBuildingWrapper[tileObject.BuildingTileObject().CurrentBuildingLevel() - 1].Name[Language.LanguageNumber] : Language.TextStatic[2] + ": -";
-        _buildingLevelText.text = tileObject.BuildingTileObject().HaveTile() ? Language.TextStatic[3] + ": " + tileObject.BuildingTileObject().CurrentBuildingLevel().ToString() : Language.TextStatic[3] + ": -";
+        _buildingNameText.text = haveTile ? Language.TextStatic[2] + ": " + buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].Name[Language.LanguageNumber] : Language.TextStatic[2] + ": -";
+        _buildingLevelText.text = haveTile ? Language.TextStatic[3] + ": " + buildingLevel.ToString() : Language.TextStatic[3] + ": -";
+        _resourceProductionText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[6] + ": " + buildingTile.Resource.Name[Language.LanguageNumber] + " " + buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].RecourcesAmount.ToString() : Language.TextStatic[6] + ": -";
 
         var groundEcology = tileObject.GroundTileObject().CurrentGroundTile().GroundEcology;
-        var buildingEcology = tileObject.BuildingTileObject().HaveTile() ? tileObject.BuildingTileObject().CurrentBuildingTile().UpgradeBuildingWrapper[tileObject.BuildingTileObject().CurrentBuildingLevel() - 1].BuildingEcology : 0;
+        var buildingEcology = haveTile ? buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].BuildingEcology : 0;
         _tileEcologyText.text = Language.TextStatic[1] + ": " + (groundEcology + buildingEcology).ToString();
 
-        _buildButton.SetActive(!tileObject.BuildingTileObject().HaveTile());
+        _buildButton.SetActive(!haveTile);
         _upgradeButton.SetActive(tileObject.BuildingTileObject().IsCanUpgrade());
     }
 

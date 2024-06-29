@@ -10,6 +10,11 @@ public class TimeSystem : MonoBehaviour
     private float _endTime = 11;
     private Coroutine _coroutine;
 
+    private void Awake()
+    {
+        CustomEvents.OnPauseChanged += ToggleTimeCoroutine;
+    }
+
     private void Start()
     {
         _coroutine = StartCoroutine(nameof(DayCoroutine));
@@ -33,5 +38,10 @@ public class TimeSystem : MonoBehaviour
     {
         if (isPause) StopCoroutine(_coroutine);
         else _coroutine = StartCoroutine(nameof(DayCoroutine));
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnPauseChanged -= ToggleTimeCoroutine;
     }
 }
