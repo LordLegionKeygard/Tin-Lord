@@ -19,20 +19,25 @@ MonoBehaviour:
   GroundTileView: 0
   GroundEcology: 0
   IsWater: 0
+  IsFourTile: 0
   BuildingTileView: 7
+  Resource: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
   UpgradeBuildingWrapper:
   - Name:
     - Manual Mining
     - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
     BuildingEcology: 0
+    RecourcesAmount: 1
   - Name:
     - Oil Rig Derrick
     - "\u041D\u0435\u0444\u0442\u044F\u043D\u0430\u044F \u0412\u044B\u0448\u043A\u0430"
     BuildingEcology: -1
+    RecourcesAmount: 2
   - Name:
     - Pumpjack
     - "\u0421\u0442\u0430\u043D\u043E\u043A-\u043A\u0430\u0447\u0430\u043B\u043A\u0430"
     BuildingEcology: -2
+    RecourcesAmount: 3
   Name:
   - Oil Production
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041D\u0435\u0444\u0442\u0438"

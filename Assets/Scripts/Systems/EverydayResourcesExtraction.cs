@@ -5,7 +5,7 @@ using UnityEngine;
 public class EverydayResourcesExtraction : MonoBehaviour
 {
     [SerializeField] private PlayerResources _playerResources;
-    [SerializeField] private ResourcesWrapper[] _everydayResourceExtraction;
+    [SerializeField] private EverydayResourcesWrapper[] _everydayResourceExtraction;
     [SerializeField] private List<ResourcesExtractionTilesInfo> _resourcesExtractionTilesInfoList = new List<ResourcesExtractionTilesInfo>();
 
     private void Awake()
@@ -68,5 +68,13 @@ public class ResourcesExtractionTilesInfo
 {
     public int Id;
     public ResourceEnum ResourceEnum;
+    public int Amount;
+}
+
+[System.Serializable]
+public class EverydayResourcesWrapper
+{
+    [HideInInspector] public string ElementName;
+    public Resource Resource;
     public int Amount;
 }

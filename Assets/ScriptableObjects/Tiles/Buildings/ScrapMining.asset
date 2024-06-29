@@ -19,20 +19,25 @@ MonoBehaviour:
   GroundTileView: 0
   GroundEcology: 0
   IsWater: 0
+  IsFourTile: 0
   BuildingTileView: 10
+  Resource: {fileID: 11400000, guid: 016e21bd40195cb4db517b50a55b0a69, type: 2}
   UpgradeBuildingWrapper:
   - Name:
     - Manual Mining
     - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
     BuildingEcology: 0
+    RecourcesAmount: 1
   - Name:
     - Crane
     - "\u041A\u0440\u0430\u043D"
     BuildingEcology: -1
+    RecourcesAmount: 2
   - Name:
     - Magnet Crane
     - "\u041C\u0430\u0433\u043D\u0438\u0442\u043D\u044B\u0439 \u041A\u0440\u0430\u043D"
     BuildingEcology: -2
+    RecourcesAmount: 3
   Name:
   - Scrap Mining
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041C\u0435\u0442\u0430\u043B\u0430\u043B\u043B\u043E\u043C\u0430"

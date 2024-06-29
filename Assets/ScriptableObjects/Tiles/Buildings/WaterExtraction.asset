@@ -18,20 +18,25 @@ MonoBehaviour:
   GroundTileView: 0
   GroundEcology: 0
   IsWater: 0
+  IsFourTile: 0
   BuildingTileView: 9
+  Resource: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61, type: 2}
   UpgradeBuildingWrapper:
   - Name:
     - Manual Mining
     - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
     BuildingEcology: 0
+    RecourcesAmount: 1
   - Name:
     - Well
     - "\u041A\u043E\u043B\u043E\u0434\u0435\u0446"
     BuildingEcology: -1
+    RecourcesAmount: 2
   - Name:
     - Mechanical Well
     - "\u041C\u0435\u0445\u0430\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u041A\u043E\u043B\u043E\u0434\u0435\u0446"
     BuildingEcology: -2
+    RecourcesAmount: 3
   Name:
   - Water Extraction
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u0412\u043E\u0434\u044B"

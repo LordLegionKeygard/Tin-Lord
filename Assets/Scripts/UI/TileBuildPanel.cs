@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class TileBuildPanel : MonoBehaviour
@@ -11,6 +12,12 @@ public class TileBuildPanel : MonoBehaviour
     [SerializeField] private Transform _content;
     [SerializeField] private BuildingsOnTileInfo _buildingsOnTileInfo;
     private List<GameObject> _buildingItemsList = new List<GameObject>();
+    [SerializeField] private ScrollRect _scrollRect;
+
+    private void OnEnable()
+    {
+        _scrollRect.verticalNormalizedPosition = 1;
+    }
 
     public void SpawnBuildingTypesInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //тип зданий
     {
@@ -42,7 +49,7 @@ public class TileBuildPanel : MonoBehaviour
 
     public void SpawnUpgradeItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //оставшиеся здания в типе
     {
-        var tile =  tileObject.BuildingTileObject().CurrentBuildingTile();
+        var tile = tileObject.BuildingTileObject().CurrentBuildingTile();
         var length = tile.UpgradeBuildingWrapper;
         var level = tileObject.BuildingTileObject().CurrentBuildingLevel();
 
