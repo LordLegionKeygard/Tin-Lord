@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BuildingsOnTileInfo", menuName = "Info/BuildingsOnTileInfo")]
+[CreateAssetMenu(fileName = "BuildingsOnTileInfo", menuName = "TinLord/Info/BuildingsOnTileInfo")]
 public class BuildingsOnTileInfo : ScriptableObject
 {
     public BuildingsOnTileInfoWrapper[] BuildingsOnTileInfoWrapper;

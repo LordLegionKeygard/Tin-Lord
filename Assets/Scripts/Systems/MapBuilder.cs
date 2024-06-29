@@ -11,6 +11,7 @@ public class MapBuilder : MonoBehaviour
     [SerializeField] private GameObject _tile;
     [SerializeField] private Transform _parentTransform;
     [SerializeField] private SetTileNeighbours _setTileNeighbours;
+    [SerializeField] private SetTilesId _setTilesId;
     [SerializeField] private GameObject[,] _tileObjects = new GameObject[16, 20];
 
     [Header("Road")]
@@ -23,6 +24,7 @@ public class MapBuilder : MonoBehaviour
     {
         SpawnTiles();
         _setTileNeighbours.SetNeighbours();
+        _setTilesId.SetId();
         SpawnRoad();
     }
 
@@ -34,7 +36,7 @@ public class MapBuilder : MonoBehaviour
             {
                 var newObject = _diContainer.InstantiatePrefab(_tile, new Vector3(k * 10, 10.8f, i * 10), Quaternion.identity, null);
                 _tileObjects[i, k] = newObject;
-                _setTileNeighbours.TileObject.Add(_tileObjects[i, k].GetComponent<GroundTile>());
+                _setTileNeighbours.GroundTiles.Add(_tileObjects[i, k].GetComponent<GroundTile>());
                 newObject.transform.SetParent(_parentTransform);
             }
         }

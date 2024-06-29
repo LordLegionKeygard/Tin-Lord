@@ -17,10 +17,14 @@ public class PlayerInputSystem : MonoBehaviour
     private delegate void RightMouseClick();
     RightMouseClick rightMouseClick;
 
+    private delegate void Pause();
+    Pause pause;
+
     [Header("Links")]
     [SerializeField] private TileDetector _tileDetector;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private CameraMovement _cameraMovement;
+    [SerializeField] private PauseSystem _pauseSystem;
 
     private void Awake()
     {
@@ -51,6 +55,7 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInput.actions["CameraZoom"].started += ctx => cameraZoom(ctx);
         _playerInput.actions["LeftMouseClick"].performed += _ => leftMouseClick();
         _playerInput.actions["RightMouseClick"].performed += _ => rightMouseClick();
+        _playerInput.actions["Pause"].performed += _cameraMovement => pause();
     }
 
     private void SetupDelegates()
@@ -58,6 +63,7 @@ public class PlayerInputSystem : MonoBehaviour
         cameraZoom = new CameraZoom(_cameraMovement.ZoomCamera);
         leftMouseClick = new LeftMouseClick(_tileDetector.InputOnTile);
         rightMouseClick = new RightMouseClick(_cardHolderSystem.CancelSelectCard);
+        pause = new Pause(_pauseSystem.PauseToggle);
     }
 
     private void UpdateInputs()
@@ -77,5 +83,6 @@ public class PlayerInputSystem : MonoBehaviour
 
         leftMouseClick = delegate { };
         rightMouseClick = delegate { };
+        pause = delegate { };
     }
 }

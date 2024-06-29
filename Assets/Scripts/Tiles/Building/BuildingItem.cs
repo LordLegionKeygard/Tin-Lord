@@ -56,11 +56,11 @@ public class BuildingItem : MonoBehaviour
                 break;
             case BuildingState.FirstBuild:
                 if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) _tilesSystem.IsHaveBase = true;
-                _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _upgradeToLevel); //спавним впервые здание на тайле определенного лвла
+                _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _upgradeToLevel, _currentTileObject.CurrentTileId()); //спавним впервые здание на тайле определенного лвла
                 _selectTilePanel.ClosePanelAndRefreshInfo();
                 break;
             case BuildingState.UpgradeBuilding:
-                _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_upgradeToLevel); //улучшаем здание
+                _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_upgradeToLevel, _currentTileObject.CurrentTileId()); //улучшаем здание
                 _selectTilePanel.ClosePanelAndRefreshInfo();
                 break;
         }

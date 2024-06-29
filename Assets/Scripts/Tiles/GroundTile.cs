@@ -12,6 +12,7 @@ public class GroundTile : MonoBehaviour
     [SerializeField] private GroundTile[] _neighbourTiles;
     [SerializeField] private Transform _groundParent;
     [SerializeField] private GameObject _currentGroundTileObject;
+    [SerializeField] private TileObject _tileObject;
 
     private TileView _tileView;
     private TileRiver _tileRiver;
@@ -50,6 +51,7 @@ public class GroundTile : MonoBehaviour
     public Tile CurrentGroundTile() => _currentGroundTile;
     public GroundTile NeighbourGroundTile(int number) => _neighbourTiles[number];
     public void TurnOffTileCollider() => _tileView.TurnOffCollider();
+    public void SetId(int id) => _tileObject.SetId(id);
 
     public void TurnOffFourTileNeighboursCollider()
     {
@@ -68,7 +70,6 @@ public class GroundTile : MonoBehaviour
         _tileRiver = GetComponent<TileRiver>();
         _tileRoad = GetComponent<TileRoad>();
     }
-
 
     public void SetNeighbourTiles(GroundTile[] array)
     {

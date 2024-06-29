@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "New Tile", menuName = "Tile")]
+[CreateAssetMenu(fileName = "New Tile", menuName = "TinLord/Tile")]
 public class Tile : ScriptableObject
 {
     [Header("Base")]
@@ -17,6 +17,7 @@ public class Tile : ScriptableObject
 
     [Header("Building")]
     public BuildingTileViewEnum BuildingTileView;
+    public Resource Resource;
     public UpgradeBuildingWrapper[] UpgradeBuildingWrapper;
 
     [Header("TextInfo")]
@@ -28,6 +29,7 @@ public class UpgradeBuildingWrapper
 {
     public string[] Name; //0 eng, 1 rus
     public int BuildingEcology;
+    public int RecourcesAmount;
 
 }
 

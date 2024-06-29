@@ -25,11 +25,11 @@ public class SelectTilePanel : MonoBehaviour
         {
             _tileInfoPanelObject.SetActive(true);
             _tileBuildPanelObject.SetActive(false);
-            _objectTransform.DOAnchorPosY(125, 0.3f);
+            _objectTransform.DOAnchorPosY(125, 0.3f).SetUpdate(true);
         }
         else
         {
-            _objectTransform.DOAnchorPosY(-130, 0.3f);
+            _objectTransform.DOAnchorPosY(-130, 0.3f).SetUpdate(true);
         }
     }
 
