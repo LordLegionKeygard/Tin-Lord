@@ -24,6 +24,9 @@ public class CharacterBuildingAnimator : MonoBehaviour
             case CharacterWorkType.PickaxeMining:
                 _animator.SetTrigger(AnimatorStrings.PickaxeMining);
                 break;
+            case CharacterWorkType.ShovelDig:
+                _animator.SetTrigger(AnimatorStrings.ShovelDig);
+                break;
         }
     }
 }
