@@ -54,6 +54,9 @@ public class Language : MonoBehaviour
         _text[9, 0] = "Robotics";
         _text[9, 1] = "Робототехника";
 
+        _text[10, 0] = "Bridge";
+        _text[10, 1] = "Мост";
+
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }
 }

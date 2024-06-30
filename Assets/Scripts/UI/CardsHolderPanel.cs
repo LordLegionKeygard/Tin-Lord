@@ -9,7 +9,7 @@ public class CardsHolderPanel : MonoBehaviour
 
     private void Awake()
     {
-        CustomEvents.OnPauseChanged += PanelViewToggle;
+        // CustomEvents.OnPauseChanged += PanelViewToggle;
     }
 
     public void PanelViewToggle(bool state)
@@ -26,6 +26,6 @@ public class CardsHolderPanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnPauseChanged -= PanelViewToggle;
+        // CustomEvents.OnPauseChanged -= PanelViewToggle;
     }
 }

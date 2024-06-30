@@ -10,8 +10,11 @@ public class TileRiver : MonoBehaviour
     public bool _isLastRiverTile;
     private bool _isLake;
     public bool IsLastRiverTile() => _isLastRiverTile;
-    public bool _isBridge;
+    private bool _isBridge;
     public bool IsBridge() => _isBridge;
+    private int _riverRotation;
+    public int RiverRotation() => _riverRotation;
+
 
     private void Awake()
     {
@@ -80,6 +83,7 @@ public class TileRiver : MonoBehaviour
             if (_groundTile.NeighbourTileIsWater((int)riverDirections[i].Item1))
             {
                 _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(riverDirections[i].Item2, riverDirections[i].Item3);
+                _riverRotation = riverDirections[i].Item3;
                 break;
             }
         }

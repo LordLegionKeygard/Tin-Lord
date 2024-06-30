@@ -80,6 +80,7 @@ public enum BuildingTileViewEnum
     StoneMining = 8,
     WaterExtraction = 9,
     ScrapMining = 10,
+    Bridge = 11,
 }
 
 public enum TileDirectionEnum

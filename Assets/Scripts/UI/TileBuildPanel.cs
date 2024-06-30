@@ -23,12 +23,22 @@ public class TileBuildPanel : MonoBehaviour
     {
         var tiles = _buildingsOnTileInfo.BuildingsOnTileInfoWrapper[(int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView - 1].BuildingTiles;
 
-        for (int i = 0; i < tiles.Length; i++)
+        if (tileObject.GroundTileObject().IsBridge())
         {
             var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.GetComponent<BuildingItem>().SetBuildingType(tiles[i], tileObject, selectTilePanel, this);
+            item.GetComponent<BuildingItem>().SetBuildingType(_tileSystem.TakeBuildingTile(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel, this);
             _buildingItemsList.Add(item.gameObject);
+        }
+        else
+        {
+            for (int i = 0; i < tiles.Length; i++)
+            {
+                var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
+                item.transform.SetParent(_content);
+                item.GetComponent<BuildingItem>().SetBuildingType(tiles[i], tileObject, selectTilePanel, this);
+                _buildingItemsList.Add(item.gameObject);
+            }
         }
     }
 
@@ -61,6 +71,8 @@ public class TileBuildPanel : MonoBehaviour
             _buildingItemsList.Add(item.gameObject);
         }
     }
+
+
 
     public void ClearListObjects()
     {
