@@ -174,6 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2887020357836408384}
   - component: {fileID: -8175941564363511164}
+  - component: {fileID: 2380008141396914750}
   m_Layer: 0
   m_Name: Building_StoneMining
   m_TagString: Untagged
@@ -214,6 +215,19 @@ MonoBehaviour:
   - {fileID: 8275522253245364927}
   - {fileID: 8177686629433533563}
   _currentBuildingLevel: 0
+--- !u!114 &2380008141396914750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4665257176694420121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe9192a9530cf044a8c941190f53762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingLevels: {fileID: -8175941564363511164}
 --- !u!1 &7700587406922036719
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,8 +579,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8908771725875224017}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.7, y: 1.5, z: 0.38}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.53, y: 1.78, z: -0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -576,4 +590,4 @@ Transform:
   - {fileID: 4984932919146842676}
   m_Father: {fileID: 5110143651300754705}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -13,7 +13,7 @@ public class GroundTile : MonoBehaviour
     [SerializeField] private Transform _groundParent;
     [SerializeField] private GameObject _currentGroundTileObject;
     [SerializeField] private TileObject _tileObject;
-
+    private int _groundModelRotation;
     private TileView _tileView;
     private TileRiver _tileRiver;
     private TileRoad _tileRoad;
@@ -44,6 +44,9 @@ public class GroundTile : MonoBehaviour
     public bool IsWaterTile() => _currentGroundTile == null ? false : _currentGroundTile.IsWater;
     public bool NeighbourTileIsWater(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].IsWaterTile();
 
+    //ModelRotation
+    public int GroundModelRotation() => _groundModelRotation;
+    public void SetGroundModelRotation(int rotation) => _groundModelRotation = rotation;
     //Other
     public GameObject CurrentGroundTileObject() => _currentGroundTileObject;
     public void SetGroundTile(Tile tile) => _currentGroundTile = tile;
@@ -58,7 +61,7 @@ public class GroundTile : MonoBehaviour
         _neighbourTiles[0].TurnOffTileCollider();
         _neighbourTiles[1].TurnOffTileCollider();
         _neighbourTiles[2].TurnOffTileCollider();
-    } 
+    }
 
 
 
@@ -84,15 +87,19 @@ public class GroundTile : MonoBehaviour
     {
         if (_currentGroundTile == null) return;
 
-        if (_currentGroundTileObject != null) Destroy(_currentGroundTileObject);
+        if (_currentGroundTileObject != null)
+        {
+            _groundModelRotation = 0;
+            Destroy(_currentGroundTileObject);
+        }
 
         _currentGroundTileObject = _diContainer.InstantiatePrefab(_currentGroundTile.TileObject, _groundParent.position, Quaternion.identity, null);
 
         _currentGroundTileObject.transform.SetParent(_groundParent);
 
         RefreshGroundTile();
-        UpdateNeighbourGrodunTiles();     
-        _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);     
+        UpdateNeighbourGrodunTiles();
+        _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
     }
 
     private void UpdateNeighbourGrodunTiles()

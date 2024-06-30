@@ -17,7 +17,7 @@ public class BuildingTile : MonoBehaviour
    public int CurrentBuildingLevel() => _buildingLevels.CurrentBuildingLevel();
    public bool IsCanUpgrade() => _currentBuildingTile != null ? CurrentBuildingLevel() < _currentBuildingTile.UpgradeBuildingWrapper.Length : false;
 
-   public void SpawnBuildingTile(Tile tile, int level, int tileId)
+   public void SpawnBuildingTile(Tile tile, int level, TileObject tileObject)
    {
       _currentBuildingTile = tile;
 
@@ -27,13 +27,13 @@ public class BuildingTile : MonoBehaviour
 
       _buildingLevels = _currentBuildingTileObject.GetComponent<BuildingLevels>();
 
-      _buildingLevels.SetBuildingView(level);
-      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileId);
+      _buildingLevels.SetBuildingView(level, tileObject);
+      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileObject.CurrentTileId());
    }
 
-   public void UpgradeBuildingTile(int level, int tileId)
+   public void UpgradeBuildingTile(int level, TileObject tileObject)
    {
-      _buildingLevels.SetBuildingView(level);
-      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileId);
+      _buildingLevels.SetBuildingView(level, tileObject);
+      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileObject.CurrentTileId());
    }
 }
