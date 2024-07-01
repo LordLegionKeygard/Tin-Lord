@@ -82,7 +82,7 @@ public class TileDetector : MonoBehaviour
                 Clear();
             }
         }
-        else
+        else if(!_cardHolderSystem.IsHaveCurrentSelectedCardObject())
         {
             RaycastHit raycastHit;
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);

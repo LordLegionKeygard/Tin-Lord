@@ -73,7 +73,7 @@ public enum BuildingTileViewEnum
     Base = 1,
     ElectricPowerIndustry = 2,
     CoalMining = 3,
-    OreMining = 4,
+    IronOreMining = 4,
     WoodExtraction = 5,
     SandMining = 6,
     OilProduction = 7,
@@ -81,6 +81,7 @@ public enum BuildingTileViewEnum
     WaterExtraction = 9,
     ScrapMining = 10,
     Bridge = 11,
+    CopperOreMining = 12,
 }
 
 public enum TileDirectionEnum

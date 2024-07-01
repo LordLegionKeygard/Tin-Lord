@@ -26,7 +26,7 @@ public class SelectTilePanel : MonoBehaviour
         {
             _tileInfoPanelObject.SetActive(true);
             _tileBuildPanelObject.SetActive(false);
-            _objectTransform.DOAnchorPosY(125, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(110, 0.3f).SetUpdate(true);
         }
         else
         {
