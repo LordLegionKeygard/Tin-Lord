@@ -14,6 +14,7 @@ public class Tile : ScriptableObject
     public int GroundEcology;
     public bool IsWater;
     public bool IsFourTile;
+    public BuildingsOnTile[] BuildingsOnTile;
 
     [Header("Building")]
     public BuildingTileViewEnum BuildingTileView;
@@ -29,8 +30,15 @@ public class UpgradeBuildingWrapper
 {
     public string[] Name; //0 eng, 1 rus
     public int BuildingEcology;
-    public int RecourcesAmount;
+    public float RecourcesAmount;
 
+}
+
+[System.Serializable]
+public class BuildingsOnTile
+{
+    public Tile BuildingTile;
+    public float ResourceModifier;
 }
 
 public enum TileTypeEnum

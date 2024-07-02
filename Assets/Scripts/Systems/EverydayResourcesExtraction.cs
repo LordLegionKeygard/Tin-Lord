@@ -14,7 +14,7 @@ public class EverydayResourcesExtraction : MonoBehaviour
         CustomEvents.OnTheDayIsOver += TheDayIsOverAddEverydayResources;
     }
 
-    public void ChangeResourceExtraction(ResourceEnum resourceEnum, int amount, int tileId)
+    public void ChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId)
     {
         for (int i = 0; i < _resourcesExtractionTilesInfoList.Count; i++)
         {
@@ -68,7 +68,7 @@ public class ResourcesExtractionTilesInfo
 {
     public int Id;
     public ResourceEnum ResourceEnum;
-    public int Amount;
+    public float Amount;
 }
 
 [System.Serializable]
@@ -76,5 +76,5 @@ public class EverydayResourcesWrapper
 {
     [HideInInspector] public string ElementName;
     public Resource Resource;
-    public int Amount;
+    public float Amount;
 }

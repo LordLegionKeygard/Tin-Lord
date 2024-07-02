@@ -28,12 +28,12 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels = _currentBuildingTileObject.GetComponent<BuildingLevels>();
 
       _buildingLevels.SetBuildingView(level, tileObject);
-      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileObject.CurrentTileId());
+      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileObject);
    }
 
    public void UpgradeBuildingTile(int level, TileObject tileObject)
    {
       _buildingLevels.SetBuildingView(level, tileObject);
-      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileObject.CurrentTileId());
+      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileObject);
    }
 }

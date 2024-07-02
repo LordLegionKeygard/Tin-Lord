@@ -20,10 +20,6 @@ public class RotateAround : MonoBehaviour
         transform.Rotate(_vector.x == 0 ? 0 : rnd, _vector.y == 0 ? 0 : rnd, _vector.z == 0 ? 0 : rnd);
     }
 
-    private void SetVector()
-    {
-
-    }
     private void FixedUpdate()
     {
         _axis += Time.deltaTime * _rotateSpeed;
@@ -31,5 +27,10 @@ public class RotateAround : MonoBehaviour
         if (_axis > 360.0f) _axis = 0.0f;
 
         transform.localRotation = Quaternion.Euler(_vector.x * _axis, _vector.y * _axis, _vector.z * _axis);
+    }
+
+    public void StopRotation()
+    {
+        _rotateSpeed = 0;
     }
 }

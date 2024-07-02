@@ -9,8 +9,10 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _groundTileNameText;
     [SerializeField] private TextMeshProUGUI _buildingNameText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
+    [SerializeField] private TextMeshProUGUI _productionModifierText;
+
+    [SerializeField] private TextMeshProUGUI _totalProductionText;
     [SerializeField] private TextMeshProUGUI _tileEcologyText;
-    [SerializeField] private TextMeshProUGUI _resourceProductionText;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private GameObject _buildButton;
     [SerializeField] private GameObject _upgradeButton;
@@ -47,7 +49,8 @@ public class SelectTilePanel : MonoBehaviour
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _buildingNameText.text = haveTile ? Language.TextStatic[2] + ": " + buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].Name[Language.LanguageNumber] : Language.TextStatic[2] + ": -";
         _buildingLevelText.text = haveTile ? Language.TextStatic[3] + ": " + buildingLevel.ToString() : Language.TextStatic[3] + ": -";
-        _resourceProductionText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[6] + ": " + buildingTile.Resource.Name[Language.LanguageNumber] + " " + buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].RecourcesAmount.ToString() : Language.TextStatic[6] + ": -";
+        _productionModifierText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[11] + ": " + "x" + StaticMethods.GetResourceModifier(tileObject) : Language.TextStatic[11] + ": -";
+        _totalProductionText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[6] + ": " + buildingTile.Resource.Name[Language.LanguageNumber] + " " + (buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].RecourcesAmount * StaticMethods.GetResourceModifier(tileObject)) : Language.TextStatic[6] + ": -";
 
         var groundEcology = tileObject.GroundTileObject().CurrentGroundTile().GroundEcology;
         var buildingEcology = haveTile ? buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].BuildingEcology : 0;

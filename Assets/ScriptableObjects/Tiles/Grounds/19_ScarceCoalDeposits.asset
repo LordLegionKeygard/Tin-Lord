@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 19_ScarceCoalDeposits
+  m_EditorClassIdentifier: 
+  TileObject: {fileID: 3989512879035521583, guid: 58d56c27c7b81a84b87f8e328d79ef7a,
+    type: 3}
+  Icon: {fileID: 21300000, guid: 1505a5cb30f609940b7ffb690fac14e4, type: 3}
+  TileTypeEnum: 0
+  GroundTileView: 20
+  GroundEcology: -1
+  IsWater: 0
+  IsFourTile: 0
+  BuildingsOnTile:
+  - BuildingTile: {fileID: 11400000, guid: dde3bb062577cd94786bdc213cdf927b, type: 2}
+    ResourceModifier: 0.5
+  - BuildingTile: {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+    ResourceModifier: 0.5
+  BuildingTileView: 0
+  Resource: {fileID: 0}
+  UpgradeBuildingWrapper: []
+  Name:
+  - Scarce Coal Deposits
+  - "\u0411\u0435\u0434\u043D\u044B\u0435 \u0417\u0430\u043B\u0435\u0436\u0438 \u0423\u0433\u043B\u044F"

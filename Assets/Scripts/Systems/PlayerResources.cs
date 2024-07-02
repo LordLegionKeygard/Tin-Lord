@@ -8,7 +8,7 @@ public class PlayerResources : MonoBehaviour
     [SerializeField] private PlayerResourcesWrapper[] _resourcesWrapper;
 
 
-    public void AddResources(ResourceEnum resourceEnum, int amount)
+    public void AddResources(ResourceEnum resourceEnum, float amount)
     {
         var resources = _resourcesWrapper[(int)resourceEnum];
         resources.Amount += amount;
@@ -22,7 +22,7 @@ public class PlayerResourcesWrapper
 {
     [HideInInspector] public string ElementName;
     public Resource Resource;
-    public int Amount;
+    public float Amount;
     public TextMeshProUGUI Text;
 
 }

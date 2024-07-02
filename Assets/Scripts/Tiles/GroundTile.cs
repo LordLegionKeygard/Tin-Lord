@@ -100,6 +100,7 @@ public class GroundTile : MonoBehaviour
         RefreshGroundTile();
         UpdateNeighbourGrodunTiles();
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
+        CustomEvents.FireRefreshAnyTileInfo(_tileObject.GetId());
     }
 
     private void UpdateNeighbourGrodunTiles()

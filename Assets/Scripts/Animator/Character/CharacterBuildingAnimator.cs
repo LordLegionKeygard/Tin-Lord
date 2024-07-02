@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterBuildingAnimator : MonoBehaviour
 {
-    [SerializeField] private CharacterWorkType _characterBuildType;
+    [SerializeField] private CharacterWorkType _characterWorkType;
     private Animator _animator;
 
     private void Awake()
@@ -14,12 +14,14 @@ public class CharacterBuildingAnimator : MonoBehaviour
 
     private void Start()
     {
-        TriggerAnimator();
+        TriggerWorkAnimator();
     }
 
-    private void TriggerAnimator()
+    public void TriggerWorkAnimator()
     {
-        switch (_characterBuildType)
+        if(_animator == null) return;
+
+        switch (_characterWorkType)
         {
             case CharacterWorkType.PickaxeMining:
                 _animator.SetTrigger(AnimatorStrings.PickaxeMining);
@@ -27,6 +29,15 @@ public class CharacterBuildingAnimator : MonoBehaviour
             case CharacterWorkType.ShovelDig:
                 _animator.SetTrigger(AnimatorStrings.ShovelDig);
                 break;
+            case CharacterWorkType.AxeChop:
+                _animator.SetTrigger(AnimatorStrings.AxeChop);
+                break;
         }
+    }
+
+    public void TriggerNotWorkAnimator()
+    {
+        if(_animator == null) return;
+        _animator.SetTrigger(AnimatorStrings.Idle);
     }
 }

@@ -45,6 +45,7 @@ public enum CharacterWorkType
     None = 0,
     PickaxeMining = 1,
     ShovelDig = 2,
+    AxeChop = 3,
 }
 
 [System.Serializable]

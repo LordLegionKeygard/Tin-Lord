@@ -10,7 +10,6 @@ public class TileBuildPanel : MonoBehaviour
     [SerializeField] private TilesSystem _tileSystem;
     [SerializeField] private BuildingItem _buildingItem;
     [SerializeField] private Transform _content;
-    [SerializeField] private BuildingsOnTileInfo _buildingsOnTileInfo;
     private List<GameObject> _buildingItemsList = new List<GameObject>();
     [SerializeField] private ScrollRect _scrollRect;
 
@@ -21,7 +20,7 @@ public class TileBuildPanel : MonoBehaviour
 
     public void SpawnBuildingTypesInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //тип зданий
     {
-        var tiles = _buildingsOnTileInfo.BuildingsOnTileInfoWrapper[(int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView - 1].BuildingTiles;
+        var buildingTiles = _tileSystem.TakeGroundTile(tileObject.GroundTileObject().CurrentGroundTile().GroundTileView).BuildingsOnTile;
 
         if (tileObject.GroundTileObject().IsBridge())
         {
@@ -32,11 +31,11 @@ public class TileBuildPanel : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < tiles.Length; i++)
+            for (int i = 0; i < buildingTiles.Length; i++)
             {
                 var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
                 item.transform.SetParent(_content);
-                item.GetComponent<BuildingItem>().SetBuildingType(tiles[i], tileObject, selectTilePanel, this);
+                item.GetComponent<BuildingItem>().SetBuildingType(buildingTiles[i].BuildingTile, tileObject, selectTilePanel, this);
                 _buildingItemsList.Add(item.gameObject);
             }
         }

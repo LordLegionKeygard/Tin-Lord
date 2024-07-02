@@ -14,8 +14,8 @@ public class CustomEvents
         OnTheDayIsOver?.Invoke();
     }
 
-    public static event Action<ResourceEnum, int, int> OnChangeResourceExtraction;
-    public static void FireChangeResourceExtraction(ResourceEnum resourceEnum, int amount, int tileId)
+    public static event Action<ResourceEnum, float, int> OnChangeResourceExtraction;
+    public static void FireChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId)
     {
         OnChangeResourceExtraction?.Invoke(resourceEnum, amount, tileId);
     }
@@ -24,5 +24,11 @@ public class CustomEvents
     public static void FirePauseChanged(bool isPause)
     {
         OnPauseChanged?.Invoke(isPause);
+    }
+
+    public static event Action<int> OnRefreshAnyTileInfo;
+    public static void FireRefreshAnyTileInfo(int tileId)
+    {
+        OnRefreshAnyTileInfo?.Invoke(tileId);
     }
 }

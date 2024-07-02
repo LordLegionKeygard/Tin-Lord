@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 15_Junkyard
+  m_EditorClassIdentifier: 
+  TileObject: {fileID: 4873044589289084976, guid: c52b7b8c100b0a34b8b07c3ec01c9f45,
+    type: 3}
+  Icon: {fileID: 21300000, guid: df2946874cda5e34db43d79b273982fc, type: 3}
+  TileTypeEnum: 0
+  GroundTileView: 16
+  GroundEcology: -3
+  IsWater: 0
+  IsFourTile: 0
+  BuildingsOnTile:
+  - BuildingTile: {fileID: 11400000, guid: dc10f0989afc47d4fb78eca4b53394e9, type: 2}
+    ResourceModifier: 1
+  BuildingTileView: 0
+  Resource: {fileID: 0}
+  UpgradeBuildingWrapper: []
+  Name:
+  - Junkyard
+  - "\u0421\u0432\u0430\u043B\u043A\u0430"

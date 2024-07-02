@@ -18,4 +18,5 @@ public class TileObject : MonoBehaviour
     }
 
     public void SetId(int id) => _id = id;
+    public int GetId() => _id;
 }

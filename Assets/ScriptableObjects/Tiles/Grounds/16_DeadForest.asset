@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 16_DeadForest
+  m_EditorClassIdentifier: 
+  TileObject: {fileID: 1128623563670308853, guid: 0f9719aca4c36184aa6d82848a6c1c1f,
+    type: 3}
+  Icon: {fileID: 21300000, guid: 8cbe7bb205172c74985964c8345f6ad2, type: 3}
+  TileTypeEnum: 0
+  GroundTileView: 17
+  GroundEcology: -1
+  IsWater: 0
+  IsFourTile: 0
+  BuildingsOnTile:
+  - BuildingTile: {fileID: 11400000, guid: af5bae1ce98b11748b6ce75629ca4056, type: 2}
+    ResourceModifier: 0.5
+  BuildingTileView: 0
+  Resource: {fileID: 0}
+  UpgradeBuildingWrapper: []
+  Name:
+  - Dead Forest
+  - "\u041C\u0435\u0440\u0442\u0432\u044B\u0439 \u041B\u0435\u0441"
