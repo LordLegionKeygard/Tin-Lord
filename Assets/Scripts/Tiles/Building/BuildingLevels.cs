@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Меняет view в зависимости от уровня здания, так же хранит текущий tileObject
+/// </summary>
 public class BuildingLevels : MonoBehaviour
 {
     [SerializeField] private GameObject[] _buildingLevels;
@@ -23,6 +26,6 @@ public class BuildingLevels : MonoBehaviour
 
         foreach (var item in _buildingLevels) item.SetActive(false);
         _buildingLevels[_currentBuildingLevel - 1].SetActive(true);
-        if (_buildingProductionView != null) _buildingProductionView.CheckProductionModifier(tileObject);
+        if (_buildingProductionView != null) _buildingProductionView.SetCurrentTileObject(tileObject);
     }
 }

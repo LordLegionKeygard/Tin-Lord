@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Обновляет view, если модификатор добычи может стать 0
+/// </summary>
 public class BuildingProductionView : MonoBehaviour
 {
-    [SerializeField] private float _modifier;
-    private bool _isProduction;
+    [SerializeField] private float _currentModifier;
+    [SerializeField] private float _changeViewIfModifier;
+
+    private bool _isChangeView;
     private TileObject _currentTileObject;
 
     [Header("PrepareObjects")]
     [SerializeField] private CharacterBuildingAnimator[] _characterBuildingAnimators;
-    [SerializeField] private GameObject[] _turnoffObjects;
+    [SerializeField] private GameObject[] _turnOffObjects;
+    [SerializeField] private GameObject[] _turnOnObjects;
     [SerializeField] private Animator[] _animators;
     [SerializeField] private RotateAround[] _rotateArounds;
 
@@ -19,7 +25,7 @@ public class BuildingProductionView : MonoBehaviour
         CustomEvents.OnRefreshAnyTileInfo += RefreshViewFromEvent;
     }
 
-    public void CheckProductionModifier(TileObject tileObject)
+    public void SetCurrentTileObject(TileObject tileObject)
     {
         _currentTileObject = tileObject;
         RefreshModifier();
@@ -34,41 +40,38 @@ public class BuildingProductionView : MonoBehaviour
 
     private void RefreshModifier()
     {
-        _modifier = StaticMethods.GetResourceModifier(_currentTileObject);
-        _isProduction = _modifier != 0;
+        _currentModifier = StaticMethods.GetResourceModifier(_currentTileObject);
+        _isChangeView = _currentModifier != _changeViewIfModifier;
         SetBuildingView();
     }
 
     private void SetBuildingView()
     {
-        if (_isProduction)
+        if (_isChangeView) return;
+
+        foreach (var animator in _characterBuildingAnimators)
         {
-            // foreach (var animator in _characterBuildingAnimators)
-            // {
-            //     animator.TriggerWorkAnimator();
-            // }
+            animator.TriggerNotWorkAnimator();
         }
-        else
+
+        foreach (var item in _turnOffObjects)
         {
-            foreach (var animator in _characterBuildingAnimators)
-            {
-                animator.TriggerNotWorkAnimator();
-            }
+            item.SetActive(false);
+        }
 
-            foreach (var item in _turnoffObjects)
-            {
-                item.SetActive(false);
-            }
+        foreach (var item in _animators)
+        {
+            item.enabled = false;
+        }
 
-            foreach (var item in _animators)
-            {
-                item.enabled = false;
-            }
+        foreach (var item in _rotateArounds)
+        {
+            item.StopRotation();
+        }
 
-            foreach (var item in _rotateArounds)
-            {
-                item.StopRotation();
-            }
+        foreach (var item in _turnOnObjects)
+        {
+            item.SetActive(true);
         }
     }
 
