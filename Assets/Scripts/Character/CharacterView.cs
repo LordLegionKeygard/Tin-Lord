@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using RootMotion.FinalIK;
 
+/// <summary>
+/// Включает необходимый инструмент и сетит IK для рук и ног
+/// </summary>
 public class CharacterView : MonoBehaviour
 {
     [Header("ModelView")]
@@ -15,7 +18,8 @@ public class CharacterView : MonoBehaviour
     [SerializeField] private CharacterWorkWrapper[] _characterWorkWrapper;
 
     [Header("Ik")]
-    [SerializeField] private ArmIK _armIK;
+    [SerializeField] private ArmIK _leftArmIK;
+    [SerializeField] private ArmIK _rightArmIK;
     [SerializeField] private FullBodyBipedIK _fullBodyBipedIK;
 
 
@@ -36,8 +40,17 @@ public class CharacterView : MonoBehaviour
     private void SetWorkView()
     {
         var number = (int)_currentCharacterWorkType - 1;
-        _characterWorkWrapper[number].ActiveObject.SetActive(true);
-        _armIK.solver.arm.target = _characterWorkWrapper[number].LeftHandTarget;
+        if (_characterWorkWrapper[number].ActiveObject != null) _characterWorkWrapper[number].ActiveObject.SetActive(true);
+
+        _leftArmIK.solver.arm.target = _characterWorkWrapper[number].LeftHandTarget;
+        _leftArmIK.solver.SetIKPositionWeight(_characterWorkWrapper[number].LeftHandTarget == null ? 0 : 1);
+        _leftArmIK.solver.SetRotationWeight(_characterWorkWrapper[number].LeftHandTarget == null ? 0 : 1);
+        _leftArmIK.solver.arm.shoulderRotationWeight = _characterWorkWrapper[number].LeftShoulderRotationWeight;
+
+        _rightArmIK.solver.arm.target = _characterWorkWrapper[number].RightHandTarget;
+        _rightArmIK.solver.SetIKPositionWeight(_characterWorkWrapper[number].RightHandTarget == null ? 0 : 1);
+        _rightArmIK.solver.SetRotationWeight(_characterWorkWrapper[number].RightHandTarget == null ? 0 : 1);
+        _rightArmIK.solver.arm.shoulderRotationWeight = _characterWorkWrapper[number].RightShoulderRotationWeight;
 
         _fullBodyBipedIK.solver.leftFootEffector.target = _characterWorkWrapper[number].LeftLegTarget;
         _fullBodyBipedIK.solver.leftFootEffector.positionWeight = _characterWorkWrapper[number].LeftLegTarget == null ? 0 : 1;
@@ -55,6 +68,9 @@ public class CharacterWorkWrapper
     public CharacterWorkType CharacterWorkType;
     public GameObject ActiveObject;
     public Transform LeftHandTarget;
+    public float LeftShoulderRotationWeight;
+    public Transform RightHandTarget;
+    public float RightShoulderRotationWeight;
     public Transform LeftLegTarget;
     public Transform RightLegTarget;
 }
@@ -65,6 +81,7 @@ public enum CharacterWorkType
     PickaxeMining = 1,
     ShovelDig = 2,
     AxeChop = 3,
+    HoldPlank = 4,
 }
 
 [System.Serializable]

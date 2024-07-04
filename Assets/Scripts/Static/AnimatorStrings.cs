@@ -8,4 +8,5 @@ public class AnimatorStrings : MonoBehaviour
     public static readonly int ShovelDig = Animator.StringToHash("Shovel_Dig");
     public static readonly int AxeChop = Animator.StringToHash("Axe_Chop");
     public static readonly int Idle = Animator.StringToHash("Idle");
+    public static readonly int HoldPlank = Animator.StringToHash("Hold_Plank");
 }

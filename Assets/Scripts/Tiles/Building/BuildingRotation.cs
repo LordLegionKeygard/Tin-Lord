@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Вращает обьект на ту же позицию, что и тайл земли
+/// Вращает обьект на ту же позицию, что и тайл земли. У тайла земли при этом на model должен быть скрипт RandomTileRotation. А так же стоять чекбокс и указана цифра родителя для получения компонента.
 /// </summary>
 public class BuildingRotation : MonoBehaviour
 {

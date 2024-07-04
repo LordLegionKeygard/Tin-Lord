@@ -19,7 +19,7 @@ public class CharacterBuildingAnimator : MonoBehaviour
 
     public void TriggerWorkAnimator()
     {
-        if(_animator == null) return;
+        if (_animator == null) return;
 
         switch (_characterWorkType)
         {
@@ -32,12 +32,15 @@ public class CharacterBuildingAnimator : MonoBehaviour
             case CharacterWorkType.AxeChop:
                 _animator.SetTrigger(AnimatorStrings.AxeChop);
                 break;
+            case CharacterWorkType.HoldPlank:
+                _animator.SetTrigger(AnimatorStrings.HoldPlank);
+                break;
         }
     }
 
     public void TriggerNotWorkAnimator()
     {
-        if(_animator == null) return;
+        if (_animator == null) return;
         _animator.SetTrigger(AnimatorStrings.Idle);
     }
 }

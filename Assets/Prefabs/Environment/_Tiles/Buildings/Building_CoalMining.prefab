@@ -7802,6 +7802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1859720921515297850}
   - component: {fileID: 3448757496672497119}
+  - component: {fileID: 2213002889168377882}
   - component: {fileID: 6255177977933028247}
   m_Layer: 0
   m_Name: Building_CoalMining
@@ -7843,6 +7844,19 @@ MonoBehaviour:
   - {fileID: 4829899836912742597}
   - {fileID: 4657624999425338881}
   _currentBuildingLevel: 0
+--- !u!114 &2213002889168377882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169984115598653667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe9192a9530cf044a8c941190f53762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingLevels: {fileID: 3448757496672497119}
 --- !u!114 &6255177977933028247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7855,30 +7869,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914cc685328b9574993329eaa1ec37bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _modifier: 0
+  _currentModifier: 0
+  _changeViewIfModifier: 0
   _characterBuildingAnimators:
   - {fileID: 138029405412682102}
   - {fileID: 3639686243451222460}
-  _turnoffObjects:
-  - {fileID: 2543252647400044065}
-  - {fileID: 7654973588916170435}
-  - {fileID: 4974027626946333592}
-  - {fileID: 2129944600146688758}
-  - {fileID: 5487214553091389249}
-  - {fileID: 2746256150097413458}
-  - {fileID: 7535194509880197649}
-  - {fileID: 682079252399765720}
-  - {fileID: 5386476841324114541}
-  - {fileID: 8571121700355393623}
-  - {fileID: 5399048777104899326}
-  - {fileID: 2341880355206815691}
-  - {fileID: 5083711089196571066}
-  - {fileID: 3195751863613120162}
-  - {fileID: 9015517342760133783}
-  - {fileID: 1589193832340642486}
-  - {fileID: 3610286549084439456}
-  - {fileID: 3423194500823112655}
-  - {fileID: 5320250222196518702}
   _turnOffObjects:
   - {fileID: 2543252647400044065}
   - {fileID: 7654973588916170435}

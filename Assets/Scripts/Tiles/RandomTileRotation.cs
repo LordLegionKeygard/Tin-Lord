@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Случайным образом вращает тайл земли по оси y. Так же сетит значение в groundTile, чтобы здание могло считать текущую позицию.
+/// </summary>
 public class RandomTileRotation : MonoBehaviour
 {
     [SerializeField] private int _parentCount;
