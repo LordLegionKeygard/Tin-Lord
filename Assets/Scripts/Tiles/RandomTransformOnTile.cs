@@ -15,8 +15,8 @@ public class RandomTransformOnTile : MonoBehaviour
     {
         if (_isChangePosition)
         {
-            var rndX = Random.Range(-2.8f, 2.8f);
-            var rndZ = Random.Range(-2.8f, 2.8f);
+            var rndX = Random.Range(-2.5f, 2.5f);
+            var rndZ = Random.Range(-2.5f, 2.5f);
             transform.localPosition += new Vector3(rndX, 0, rndZ);
         }
 

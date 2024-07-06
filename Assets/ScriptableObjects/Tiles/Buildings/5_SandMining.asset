@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 5_SandMining
   m_EditorClassIdentifier: 
-  TileObject: {fileID: 0}
+  TileObject: {fileID: 8169984115598653667, guid: 1e689cfe7afb0a048b1df26c15627b77,
+    type: 3}
   Icon: {fileID: 0}
   TileTypeEnum: 1
   GroundTileView: 0
@@ -34,8 +35,8 @@ MonoBehaviour:
     BuildingEcology: -1
     RecourcesAmount: 4
   - Name:
-    - Sand Combainer
-    - "\u041F\u0435\u0441\u0447\u0430\u043D\u044B\u0439 \u041A\u043E\u043C\u0431\u0430\u0439\u043D\u0435\u0440"
+    - Excavator
+    - "\u042D\u043A\u0441\u043A\u0430\u0432\u0430\u0442\u043E\u0440"
     BuildingEcology: -2
     RecourcesAmount: 6
   Name:
