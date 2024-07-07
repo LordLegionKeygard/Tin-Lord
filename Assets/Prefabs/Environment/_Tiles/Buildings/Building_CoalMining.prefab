@@ -4671,7 +4671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1302534385099010597}
   m_Layer: 0
-  m_Name: 2 - Mine
+  m_Name: 2 - CoalMine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9833,27 +9833,7 @@ PrefabInstance:
     - target: {fileID: 5510147092088727523, guid: 7dc2b2cb39002ed44bd65267f1d253c4,
         type: 3}
       propertyPath: m_Name
-      value: Tube_06_Smoke
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670551386176056895, guid: 7dc2b2cb39002ed44bd65267f1d253c4,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.65882355
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670551386176056895, guid: 7dc2b2cb39002ed44bd65267f1d253c4,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.0754717
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670551386176056895, guid: 7dc2b2cb39002ed44bd65267f1d253c4,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.0754717
-      objectReference: {fileID: 0}
-    - target: {fileID: 5670551386176056895, guid: 7dc2b2cb39002ed44bd65267f1d253c4,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.0754717
+      value: CoalMiningTube_Smoke
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dc2b2cb39002ed44bd65267f1d253c4, type: 3}
