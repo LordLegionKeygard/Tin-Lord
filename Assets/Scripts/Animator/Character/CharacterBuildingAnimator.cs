@@ -35,6 +35,9 @@ public class CharacterBuildingAnimator : MonoBehaviour
             case CharacterWorkType.HoldPlank:
                 _animator.SetTrigger(AnimatorStrings.HoldPlank);
                 break;
+            case CharacterWorkType.OilHandPump:
+                _animator.SetTrigger(AnimatorStrings.OilHandPump);
+                break;
         }
     }
 

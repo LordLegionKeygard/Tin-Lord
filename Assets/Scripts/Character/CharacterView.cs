@@ -46,11 +46,13 @@ public class CharacterView : MonoBehaviour
         _leftArmIK.solver.SetIKPositionWeight(_characterWorkWrapper[number].LeftHandTarget == null ? 0 : 1);
         _leftArmIK.solver.SetRotationWeight(_characterWorkWrapper[number].LeftHandTarget == null ? 0 : 1);
         _leftArmIK.solver.arm.shoulderRotationWeight = _characterWorkWrapper[number].LeftShoulderRotationWeight;
+        _leftArmIK.solver.arm.wristToPalmAxis = _characterWorkWrapper[number].LeftWristToPalmAxis;
 
         _rightArmIK.solver.arm.target = _characterWorkWrapper[number].RightHandTarget;
         _rightArmIK.solver.SetIKPositionWeight(_characterWorkWrapper[number].RightHandTarget == null ? 0 : 1);
         _rightArmIK.solver.SetRotationWeight(_characterWorkWrapper[number].RightHandTarget == null ? 0 : 1);
         _rightArmIK.solver.arm.shoulderRotationWeight = _characterWorkWrapper[number].RightShoulderRotationWeight;
+        _rightArmIK.solver.arm.wristToPalmAxis = _characterWorkWrapper[number].RightWristToPalmAxis;
 
         _fullBodyBipedIK.solver.leftFootEffector.target = _characterWorkWrapper[number].LeftLegTarget;
         _fullBodyBipedIK.solver.leftFootEffector.positionWeight = _characterWorkWrapper[number].LeftLegTarget == null ? 0 : 1;
@@ -67,12 +69,18 @@ public class CharacterWorkWrapper
 {
     public CharacterWorkType CharacterWorkType;
     public GameObject ActiveObject;
+
+    [Header("Left")]
     public Transform LeftHandTarget;
-    public float LeftShoulderRotationWeight;
-    public Transform RightHandTarget;
-    public float RightShoulderRotationWeight;
     public Transform LeftLegTarget;
+    public float LeftShoulderRotationWeight;
+    public Vector3 LeftWristToPalmAxis;
+
+    [Header("Right")]
+    public Transform RightHandTarget;
     public Transform RightLegTarget;
+    public float RightShoulderRotationWeight;
+    public Vector3 RightWristToPalmAxis;
 }
 
 public enum CharacterWorkType
@@ -82,6 +90,7 @@ public enum CharacterWorkType
     ShovelDig = 2,
     AxeChop = 3,
     HoldPlank = 4,
+    OilHandPump = 5,
 }
 
 [System.Serializable]

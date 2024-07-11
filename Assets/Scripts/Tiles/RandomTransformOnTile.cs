@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RandomTransformOnTile : MonoBehaviour
 {
+    [SerializeField] [Range(0f, 2.5f)] private float _randomRange = 2.5f;
     [SerializeField] private bool _isChangePosition;
     [SerializeField] private bool _isChangeRotation;
     private void Start()
@@ -15,8 +16,8 @@ public class RandomTransformOnTile : MonoBehaviour
     {
         if (_isChangePosition)
         {
-            var rndX = Random.Range(-2.5f, 2.5f);
-            var rndZ = Random.Range(-2.5f, 2.5f);
+            var rndX = Random.Range(-_randomRange, _randomRange);
+            var rndZ = Random.Range(-_randomRange, _randomRange);
             transform.localPosition += new Vector3(rndX, 0, rndZ);
         }
 

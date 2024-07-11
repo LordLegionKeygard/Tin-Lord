@@ -141,11 +141,11 @@ Material:
     - _FlowSpeed: 1
     - _FoamOn: 0
     - _FoamOpacity: 0.104
-    - _FoamSize: 0.01
+    - _FoamSize: 0.999
     - _FoamSpeed: 1
     - _FoamTiling: 1
     - _FoamWaveMask: 1
-    - _FoamWaveMaskExp: 1
+    - _FoamWaveMaskExp: 6.67
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -254,11 +254,11 @@ Material:
     - _DistanceNormalParams: {r: 100, g: 300, b: 0.25, a: 0}
     - _DistanceNormalsFadeDist: {r: 300, g: 0.25, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 0.078431375}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _HorizonColor: {r: 0, g: 0, b: 0, a: 0.5529412}
     - _IntersectionColor: {r: 0.16041833, g: 3.031433, b: 0, a: 0.9647059}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShallowColor: {r: 0.009433985, g: 0.009433985, b: 0.009433985, a: 1}
+    - _ShallowColor: {r: 0, g: 0, b: 0, a: 1}
     - _SlopeParams: {r: 0.5, g: 2, b: 0, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _TranslucencyParams: {r: 1, g: 8, b: 1, a: 0}

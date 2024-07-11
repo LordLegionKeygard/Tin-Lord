@@ -1003,6 +1003,37 @@ Transform:
   m_Father: {fileID: 5848048848525733049}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2418714869209393616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4157974735411457067}
+  m_Layer: 0
+  m_Name: OilHandPumpRightHandTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4157974735411457067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418714869209393616}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0.246, y: 1.337, z: 0.372}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2763320477549339766}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 180, y: -90, z: -90}
 --- !u!1 &2426293031249213215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,6 +1496,41 @@ Transform:
   m_Father: {fileID: 4592499404935472251}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3601768114959997090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2763320477549339766}
+  m_Layer: 0
+  m_Name: OilHandPump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2763320477549339766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601768114959997090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 920670283802124996}
+  - {fileID: 7189970963941369921}
+  - {fileID: 1913589760769595279}
+  - {fileID: 4157974735411457067}
+  m_Father: {fileID: 1741102352083068930}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3652151587458517157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,35 +1641,53 @@ MonoBehaviour:
   - CharacterWorkType: 1
     ActiveObject: {fileID: 7676673907254332255}
     LeftHandTarget: {fileID: 926265462177127205}
-    LeftShoulderRotationWeight: 0
-    RightHandTarget: {fileID: 0}
-    RightShoulderRotationWeight: 0
     LeftLegTarget: {fileID: 8836601828593770493}
+    LeftShoulderRotationWeight: 0
+    LeftWristToPalmAxis: {x: 0, y: 0, z: 0}
+    RightHandTarget: {fileID: 0}
     RightLegTarget: {fileID: 2067376735749416299}
+    RightShoulderRotationWeight: 0
+    RightWristToPalmAxis: {x: 0, y: 0, z: 0}
   - CharacterWorkType: 2
     ActiveObject: {fileID: 1263943194798805905}
     LeftHandTarget: {fileID: 4293599197025321262}
-    LeftShoulderRotationWeight: 0
-    RightHandTarget: {fileID: 0}
-    RightShoulderRotationWeight: 0
     LeftLegTarget: {fileID: 0}
+    LeftShoulderRotationWeight: 0
+    LeftWristToPalmAxis: {x: 0, y: 0, z: 0}
+    RightHandTarget: {fileID: 0}
     RightLegTarget: {fileID: 0}
+    RightShoulderRotationWeight: 0
+    RightWristToPalmAxis: {x: 0, y: 0, z: 0}
   - CharacterWorkType: 3
     ActiveObject: {fileID: 7120525381465750894}
     LeftHandTarget: {fileID: 5515759073454406961}
-    LeftShoulderRotationWeight: 0
-    RightHandTarget: {fileID: 0}
-    RightShoulderRotationWeight: 0
     LeftLegTarget: {fileID: 3907019327873499318}
+    LeftShoulderRotationWeight: 0
+    LeftWristToPalmAxis: {x: 0, y: 0, z: 0}
+    RightHandTarget: {fileID: 0}
     RightLegTarget: {fileID: 3455814829830179327}
+    RightShoulderRotationWeight: 0
+    RightWristToPalmAxis: {x: 0, y: 0, z: 0}
   - CharacterWorkType: 4
     ActiveObject: {fileID: 0}
     LeftHandTarget: {fileID: 2700667934058721778}
-    LeftShoulderRotationWeight: 0.221
-    RightHandTarget: {fileID: 2735799195257369421}
-    RightShoulderRotationWeight: 0.131
     LeftLegTarget: {fileID: 2827186635223865219}
+    LeftShoulderRotationWeight: 0.221
+    LeftWristToPalmAxis: {x: 0, y: 0, z: 0}
+    RightHandTarget: {fileID: 2735799195257369421}
     RightLegTarget: {fileID: 29167054231268552}
+    RightShoulderRotationWeight: 0.131
+    RightWristToPalmAxis: {x: 0, y: 0, z: 0}
+  - CharacterWorkType: 5
+    ActiveObject: {fileID: 0}
+    LeftHandTarget: {fileID: 1913589760769595279}
+    LeftLegTarget: {fileID: 920670283802124996}
+    LeftShoulderRotationWeight: 0
+    LeftWristToPalmAxis: {x: 0, y: 0, z: -0.36}
+    RightHandTarget: {fileID: 4157974735411457067}
+    RightLegTarget: {fileID: 7189970963941369921}
+    RightShoulderRotationWeight: 0.173
+    RightWristToPalmAxis: {x: 0, y: 0, z: -0.03}
   _leftArmIK: {fileID: 2784040041294930566}
   _rightArmIK: {fileID: 6566358360815652276}
   _fullBodyBipedIK: {fileID: 4874496475412273605}
@@ -2317,6 +2401,7 @@ Transform:
   - {fileID: 6887122321093147382}
   - {fileID: 8059485367095755269}
   - {fileID: 4984627284466723242}
+  - {fileID: 2763320477549339766}
   m_Father: {fileID: 4171701220532572703}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2352,6 +2437,37 @@ Transform:
   m_Father: {fileID: 699617916217075128}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4116730153444908557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 920670283802124996}
+  m_Layer: 0
+  m_Name: OilHandPumpLegLeftTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &920670283802124996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4116730153444908557}
+  m_LocalRotation: {x: 0.6205913, y: 0.3389196, z: 0.6205913, w: 0.3389196}
+  m_LocalPosition: {x: -0.191, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2763320477549339766}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &4316676156255262100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3712,6 +3828,37 @@ Transform:
   m_Father: {fileID: 6851557431056311077}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7444122691828114186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1913589760769595279}
+  m_Layer: 0
+  m_Name: OilHandPumpLeftHandTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1913589760769595279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444122691828114186}
+  m_LocalRotation: {x: 0.39890724, y: -0.42755133, z: -0.5534038, w: 0.59314173}
+  m_LocalPosition: {x: -0.235, y: 1.35, z: 0.318}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2763320477549339766}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: -71.57, z: -86.03}
 --- !u!1 &7475170679806162146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3938,6 +4085,37 @@ Transform:
   m_Father: {fileID: 1818421502005035081}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8133098120717217990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7189970963941369921}
+  m_Layer: 0
+  m_Name: OilHandPumpLegRightTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7189970963941369921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133098120717217990}
+  m_LocalRotation: {x: 0.6205913, y: 0.3389196, z: 0.6205913, w: 0.3389196}
+  m_LocalPosition: {x: 0.191, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2763320477549339766}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &8326790321313165548
 GameObject:
   m_ObjectHideFlags: 0
