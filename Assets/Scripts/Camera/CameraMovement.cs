@@ -8,17 +8,17 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
 
     [Header("Horizontal Translation")]
-    [SerializeField] private float maxSpeed = 5f;
+    [SerializeField] private float _currentMaxSpeed;
     private float speed;
-    [SerializeField] private float acceleration = 10f;
-    [SerializeField] private float damping = 15f;
+    private float _acceleration = 10;
+    private float _damping = 15;
 
     [Header("Vertical Translation")]
-    [SerializeField] private float stepSize = 2f;
-    [SerializeField] private float zoomDampening = 7.5f;
-    [SerializeField] private float minHeight = 5f;
-    [SerializeField] private float maxHeight = 50f;
-    [SerializeField] private float zoomSpeed = 2f;
+    private float _stepSize = 2;
+    private float _zoomDampening = 7.5f;
+    private float _minHeight = 12;
+    private float _maxHeight = 60;
+    private float _zoomSpeed = 4;
 
     [Header("Edge Movement")]
     [SerializeField, Range(0f, 0.1f)] private float edgeTolerance = 0.05f;
@@ -41,6 +41,11 @@ public class CameraMovement : MonoBehaviour
         lastPosition = transform.position;
     }
 
+    private void ChangeMaxSpeed()
+    {
+        _currentMaxSpeed = _camera.orthographicSize * 1.4f;
+    }
+
     private void Update()
     {
         GetKeyboardMovement();
@@ -50,6 +55,7 @@ public class CameraMovement : MonoBehaviour
         UpdateBasePosition();
         UpdateCameraPosition();
         UpdateLimits();
+        ChangeMaxSpeed();
     }
 
     private void UpdateVelocity()
@@ -92,12 +98,12 @@ public class CameraMovement : MonoBehaviour
     {
         if (targetPosition.sqrMagnitude > 0.1f)
         {
-            speed = Mathf.Lerp(speed, maxSpeed, Time.unscaledDeltaTime * acceleration);
+            speed = Mathf.Lerp(speed, _currentMaxSpeed, Time.unscaledDeltaTime * _acceleration);
             transform.position += targetPosition * speed * Time.unscaledDeltaTime;
         }
         else
         {
-            horizontalVelocity = Vector3.Lerp(horizontalVelocity, Vector3.zero, Time.unscaledDeltaTime * damping);
+            horizontalVelocity = Vector3.Lerp(horizontalVelocity, Vector3.zero, Time.unscaledDeltaTime * _damping);
             transform.position += horizontalVelocity * Time.unscaledDeltaTime;
         }
         targetPosition = Vector3.zero;
@@ -111,12 +117,12 @@ public class CameraMovement : MonoBehaviour
 
         if (Mathf.Abs(inputValue) > 0.1f)
         {
-            _camera.orthographicSize += inputValue * stepSize;
+            _camera.orthographicSize += inputValue * _stepSize;
 
-            if (_camera.orthographicSize < minHeight)
-                _camera.orthographicSize = minHeight;
-            else if (_camera.orthographicSize > maxHeight)
-                _camera.orthographicSize = maxHeight;
+            if (_camera.orthographicSize < _minHeight)
+                _camera.orthographicSize = _minHeight;
+            else if (_camera.orthographicSize > _maxHeight)
+                _camera.orthographicSize = _maxHeight;
         }
     }
 
@@ -124,9 +130,9 @@ public class CameraMovement : MonoBehaviour
     {
         Vector3 zoomTarget = new Vector3(cameraTransform.localPosition.x, zoomHeight, cameraTransform.localPosition.z);
 
-        zoomTarget -= zoomSpeed * (zoomHeight - cameraTransform.localPosition.y) * Vector3.forward;
+        zoomTarget -= _zoomSpeed * (zoomHeight - cameraTransform.localPosition.y) * Vector3.forward;
 
-        cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, zoomTarget, Time.unscaledDeltaTime * zoomDampening);
+        cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, zoomTarget, Time.unscaledDeltaTime * _zoomDampening);
         cameraTransform.LookAt(transform);
     }
 
