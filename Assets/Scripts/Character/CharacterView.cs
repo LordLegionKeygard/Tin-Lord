@@ -91,6 +91,7 @@ public enum CharacterWorkType
     AxeChop = 3,
     HoldPlank = 4,
     OilHandPump = 5,
+    WellHandleRotate = 6,
 }
 
 [System.Serializable]

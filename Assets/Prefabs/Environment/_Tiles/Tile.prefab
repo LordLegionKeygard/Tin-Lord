@@ -176,6 +176,7 @@ MonoBehaviour:
   _groundParent: {fileID: 3928428458243860748}
   _currentGroundTileObject: {fileID: 0}
   _tileObject: {fileID: 3503825946145213506}
+  _buildingResourceExtraction: {fileID: 8574113756699916082}
   _riverNumber: 0
 --- !u!114 &8036645975946344574
 MonoBehaviour:
@@ -189,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28878902da99b9488beb309e755a157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentBuildingTile: {fileID: 0}
+  _currentTile: {fileID: 0}
   _buildingParent: {fileID: 1685772399035195807}
   _currentBuildingTileObject: {fileID: 0}
   _buildingLevels: {fileID: 0}
@@ -235,7 +236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isLastRiverTile: 0
-  _isBridge: 0
 --- !u!114 &8574113756699916082
 MonoBehaviour:
   m_ObjectHideFlags: 0

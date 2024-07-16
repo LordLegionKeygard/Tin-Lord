@@ -13,6 +13,7 @@ public class GroundTile : MonoBehaviour
     [SerializeField] private Transform _groundParent;
     [SerializeField] private GameObject _currentGroundTileObject;
     [SerializeField] private TileObject _tileObject;
+    [SerializeField] private BuildingResourceExtraction _buildingResourceExtraction;
     private int _groundModelRotation;
     private TileView _tileView;
     private TileRiver _tileRiver;
@@ -98,12 +99,13 @@ public class GroundTile : MonoBehaviour
         _currentGroundTileObject.transform.SetParent(_groundParent);
 
         RefreshGroundTile();
-        UpdateNeighbourGrodunTiles();
+        UpdateNeighbourGroundTiles();
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
+        _buildingResourceExtraction.UpdateExtraction();
         CustomEvents.FireRefreshAnyTileInfo(_tileObject.GetId());
     }
 
-    private void UpdateNeighbourGrodunTiles()
+    private void UpdateNeighbourGroundTiles()
     {
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {

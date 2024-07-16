@@ -10,4 +10,5 @@ public class AnimatorStrings : MonoBehaviour
     public static readonly int Idle = Animator.StringToHash("Idle");
     public static readonly int HoldPlank = Animator.StringToHash("Hold_Plank");
     public static readonly int OilHandPump = Animator.StringToHash("Oil_Hand_Pump");
+    public static readonly int WellHandleRotate = Animator.StringToHash("Well_Handle_Rotate");
 }

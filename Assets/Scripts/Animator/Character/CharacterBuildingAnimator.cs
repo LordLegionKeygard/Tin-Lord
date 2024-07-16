@@ -38,6 +38,9 @@ public class CharacterBuildingAnimator : MonoBehaviour
             case CharacterWorkType.OilHandPump:
                 _animator.SetTrigger(AnimatorStrings.OilHandPump);
                 break;
+            case CharacterWorkType.WellHandleRotate:
+                _animator.SetTrigger(AnimatorStrings.WellHandleRotate);
+                break;
         }
     }
 

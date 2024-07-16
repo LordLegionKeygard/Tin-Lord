@@ -1003,37 +1003,6 @@ Transform:
   m_Father: {fileID: 5848048848525733049}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2418714869209393616
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4157974735411457067}
-  m_Layer: 0
-  m_Name: OilHandPumpRightHandTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4157974735411457067
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2418714869209393616}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0.246, y: 1.337, z: 0.372}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2763320477549339766}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 180, y: -90, z: -90}
 --- !u!1 &2426293031249213215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1526,8 +1495,6 @@ Transform:
   m_Children:
   - {fileID: 920670283802124996}
   - {fileID: 7189970963941369921}
-  - {fileID: 1913589760769595279}
-  - {fileID: 4157974735411457067}
   m_Father: {fileID: 1741102352083068930}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1680,14 +1647,24 @@ MonoBehaviour:
     RightWristToPalmAxis: {x: 0, y: 0, z: 0}
   - CharacterWorkType: 5
     ActiveObject: {fileID: 0}
-    LeftHandTarget: {fileID: 1913589760769595279}
+    LeftHandTarget: {fileID: 0}
     LeftLegTarget: {fileID: 920670283802124996}
     LeftShoulderRotationWeight: 0
     LeftWristToPalmAxis: {x: 0, y: 0, z: -0.36}
-    RightHandTarget: {fileID: 4157974735411457067}
+    RightHandTarget: {fileID: 0}
     RightLegTarget: {fileID: 7189970963941369921}
     RightShoulderRotationWeight: 0.173
     RightWristToPalmAxis: {x: 0, y: 0, z: -0.03}
+  - CharacterWorkType: 6
+    ActiveObject: {fileID: 0}
+    LeftHandTarget: {fileID: 0}
+    LeftLegTarget: {fileID: 8566445659128576173}
+    LeftShoulderRotationWeight: 0
+    LeftWristToPalmAxis: {x: 0, y: 0, z: 0}
+    RightHandTarget: {fileID: 0}
+    RightLegTarget: {fileID: 381104615757638260}
+    RightShoulderRotationWeight: 0
+    RightWristToPalmAxis: {x: 0, y: 0, z: 0}
   _leftArmIK: {fileID: 2784040041294930566}
   _rightArmIK: {fileID: 6566358360815652276}
   _fullBodyBipedIK: {fileID: 4874496475412273605}
@@ -2402,6 +2379,7 @@ Transform:
   - {fileID: 8059485367095755269}
   - {fileID: 4984627284466723242}
   - {fileID: 2763320477549339766}
+  - {fileID: 8327946886469574076}
   m_Father: {fileID: 4171701220532572703}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2500,6 +2478,37 @@ Transform:
   m_Father: {fileID: 726872342044376597}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4406731097686912441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381104615757638260}
+  m_Layer: 0
+  m_Name: WellHandleRotateLegRightTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &381104615757638260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4406731097686912441}
+  m_LocalRotation: {x: 0.6205913, y: 0.3389196, z: 0.6205913, w: 0.3389196}
+  m_LocalPosition: {x: 0.191, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8327946886469574076}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &4487400323029189710
 GameObject:
   m_ObjectHideFlags: 0
@@ -3500,6 +3509,39 @@ Transform:
   m_Father: {fileID: 154646905082718290}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6524308398076872892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8327946886469574076}
+  m_Layer: 0
+  m_Name: WellHandleRotate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8327946886469574076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524308398076872892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8566445659128576173}
+  - {fileID: 381104615757638260}
+  m_Father: {fileID: 1741102352083068930}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7070166365784720900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3828,37 +3870,6 @@ Transform:
   m_Father: {fileID: 6851557431056311077}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7444122691828114186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1913589760769595279}
-  m_Layer: 0
-  m_Name: OilHandPumpLeftHandTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1913589760769595279
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7444122691828114186}
-  m_LocalRotation: {x: 0.39890724, y: -0.42755133, z: -0.5534038, w: 0.59314173}
-  m_LocalPosition: {x: -0.235, y: 1.35, z: 0.318}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2763320477549339766}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -71.57, z: -86.03}
 --- !u!1 &7475170679806162146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3923,6 +3934,37 @@ Transform:
   m_Father: {fileID: 2059021179703515385}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7579016640091233099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8566445659128576173}
+  m_Layer: 0
+  m_Name: WellHandleRotateLegLeftTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8566445659128576173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7579016640091233099}
+  m_LocalRotation: {x: 0.6205913, y: 0.3389196, z: 0.6205913, w: 0.3389196}
+  m_LocalPosition: {x: -0.191, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8327946886469574076}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &7622481816247894860
 GameObject:
   m_ObjectHideFlags: 0

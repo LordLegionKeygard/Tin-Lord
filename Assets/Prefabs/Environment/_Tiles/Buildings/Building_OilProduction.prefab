@@ -3498,6 +3498,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &5110716373856546353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187301002641434315}
+  m_Layer: 0
+  m_Name: OilHandPumpRightHandTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187301002641434315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5110716373856546353}
+  m_LocalRotation: {x: 0.70544046, y: 0.6999226, z: 0.10059479, w: -0.04840179}
+  m_LocalPosition: {x: -0.083, y: -0.502, z: -0.015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5120609599044183856}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 192.07, y: -4.35, z: -89.09}
 --- !u!1 &5287990671107448147
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,7 +4751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5030785745942258599
 Transform:
   m_ObjectHideFlags: 0
@@ -5284,7 +5315,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1187301002641434315}
   m_Father: {fileID: 3612942006092095386}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5525,6 +5557,31 @@ PrefabInstance:
       propertyPath: _currentCharacterWorkType
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4863794265426660543, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _characterWorkWrapper.Array.data[4].RightLegTarget
+      value: 
+      objectReference: {fileID: 3266387214551999720}
+    - target: {fileID: 4863794265426660543, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _characterWorkWrapper.Array.data[4].RightHandTarget
+      value: 
+      objectReference: {fileID: 1187301002641434315}
+    - target: {fileID: 4863794265426660543, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _characterWorkWrapper.Array.data[4].LeftWristToPalmAxis.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863794265426660543, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _characterWorkWrapper.Array.data[4].RightWristToPalmAxis.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863794265426660543, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _characterWorkWrapper.Array.data[4].RightShoulderRotationWeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: m_RootOrder
@@ -5533,7 +5590,7 @@ PrefabInstance:
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.297
       objectReference: {fileID: 0}
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
@@ -5585,6 +5642,12 @@ PrefabInstance:
 --- !u!4 &2688465277470550099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5661976509060402345}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3266387214551999720 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7189970963941369921, guid: ce293a650c2d95248828f735d9af065f,
     type: 3}
   m_PrefabInstance: {fileID: 5661976509060402345}
   m_PrefabAsset: {fileID: 0}

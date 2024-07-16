@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using RootMotion.FinalIK;
 using UnityEngine;
 
 /// <summary>
@@ -15,6 +16,7 @@ public class BuildingProductionView : MonoBehaviour
 
     [Header("PrepareObjects")]
     [SerializeField] private CharacterBuildingAnimator[] _characterBuildingAnimators;
+    [SerializeField] private ArmIK[] _armIk;
     [SerializeField] private GameObject[] _turnOffObjects;
     [SerializeField] private GameObject[] _turnOnObjects;
     [SerializeField] private Animator[] _animators;
@@ -52,6 +54,11 @@ public class BuildingProductionView : MonoBehaviour
         foreach (var animator in _characterBuildingAnimators)
         {
             animator.TriggerNotWorkAnimator();
+        }
+
+        foreach (var ik in _armIk)
+        {
+            ik.enabled = false;
         }
 
         foreach (var item in _turnOffObjects)

@@ -6,34 +6,34 @@ using Zenject;
 public class BuildingTile : MonoBehaviour
 {
    [Inject] private DiContainer _diContainer;
-   [SerializeField] private Tile _currentBuildingTile;
+   [SerializeField] private Tile _currentTile;
    [SerializeField] private Transform _buildingParent;
    [SerializeField] private GameObject _currentBuildingTileObject;
    [SerializeField] private BuildingLevels _buildingLevels;
    [SerializeField] private BuildingResourceExtraction _buildingResourceExtraction;
 
-   public bool HaveTile() => _currentBuildingTile != null;
-   public Tile CurrentBuildingTile() => _currentBuildingTile;
+   public bool HaveTile() => _currentTile != null;
+   public Tile CurrentBuildingTile() => _currentTile;
    public int CurrentBuildingLevel() => _buildingLevels.CurrentBuildingLevel();
-   public bool IsCanUpgrade() => _currentBuildingTile != null ? CurrentBuildingLevel() < _currentBuildingTile.UpgradeBuildingWrapper.Length : false;
+   public bool IsCanUpgrade() => _currentTile != null ? CurrentBuildingLevel() < _currentTile.UpgradeBuildingWrapper.Length : false;
 
    public void SpawnBuildingTile(Tile tile, int level, TileObject tileObject)
    {
-      _currentBuildingTile = tile;
+      _currentTile = tile;
 
-      _currentBuildingTileObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
+      _currentBuildingTileObject = _diContainer.InstantiatePrefab(_currentTile.TileObject, _buildingParent.position, Quaternion.identity, null);
 
       _currentBuildingTileObject.transform.SetParent(_buildingParent);
 
       _buildingLevels = _currentBuildingTileObject.GetComponent<BuildingLevels>();
 
       _buildingLevels.SetBuildingView(level, tileObject);
-      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileObject);
+      _buildingResourceExtraction.SetExtraction(_currentTile, level, tileObject);
    }
 
    public void UpgradeBuildingTile(int level, TileObject tileObject)
    {
       _buildingLevels.SetBuildingView(level, tileObject);
-      _buildingResourceExtraction.UpdateExtraction(_currentBuildingTile, level, tileObject);
+      _buildingResourceExtraction.SetExtraction(_currentTile, level, tileObject);
    }
 }
