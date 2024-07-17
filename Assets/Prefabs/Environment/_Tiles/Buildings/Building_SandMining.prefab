@@ -695,6 +695,7 @@ GameObject:
   - component: {fileID: 1859720921515297850}
   - component: {fileID: 3448757496672497119}
   - component: {fileID: 6933014706926038401}
+  - component: {fileID: 7391287398701526470}
   m_Layer: 0
   m_Name: Building_SandMining
   m_TagString: Untagged
@@ -710,7 +711,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8169984115598653667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130, y: 0, z: 120}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -751,6 +752,7 @@ MonoBehaviour:
   _changeViewIfModifier: 0
   _characterBuildingAnimators:
   - {fileID: 138029405412682102}
+  _armIk: []
   _turnOffObjects:
   - {fileID: 6992594455896478535}
   _turnOnObjects: []
@@ -759,6 +761,18 @@ MonoBehaviour:
   - {fileID: 5062399532221040011}
   _rotateArounds:
   - {fileID: 2784898376750857055}
+--- !u!114 &7391287398701526470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169984115598653667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8319142745092601128
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _randomRange: 2.5
   _isChangePosition: 1
   _isChangeRotation: 1
 --- !u!1001 &1566363583244249037

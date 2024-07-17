@@ -7802,8 +7802,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1859720921515297850}
   - component: {fileID: 3448757496672497119}
-  - component: {fileID: 2213002889168377882}
   - component: {fileID: 6255177977933028247}
+  - component: {fileID: 8466782093270549725}
   m_Layer: 0
   m_Name: Building_CoalMining
   m_TagString: Untagged
@@ -7819,7 +7819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8169984115598653667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 130, y: 0, z: 120}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7844,19 +7844,6 @@ MonoBehaviour:
   - {fileID: 4829899836912742597}
   - {fileID: 4657624999425338881}
   _currentBuildingLevel: 0
---- !u!114 &2213002889168377882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8169984115598653667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe9192a9530cf044a8c941190f53762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buildingLevels: {fileID: 3448757496672497119}
 --- !u!114 &6255177977933028247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7874,6 +7861,7 @@ MonoBehaviour:
   _characterBuildingAnimators:
   - {fileID: 138029405412682102}
   - {fileID: 3639686243451222460}
+  _armIk: []
   _turnOffObjects:
   - {fileID: 2543252647400044065}
   - {fileID: 7654973588916170435}
@@ -7899,6 +7887,18 @@ MonoBehaviour:
   _rotateArounds:
   - {fileID: 2401826903321948010}
   - {fileID: 4409623067141077744}
+--- !u!114 &8466782093270549725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8169984115598653667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8229814499657685908
 GameObject:
   m_ObjectHideFlags: 0

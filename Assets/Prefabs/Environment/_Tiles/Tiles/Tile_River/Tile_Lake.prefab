@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentCount: 0
+  _isSetGroundModelRotation: 0
 --- !u!1 &3777515262791649971
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,6 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _parentCount: 0
+  _isSetGroundModelRotation: 0
 --- !u!1001 &1046033428137116675
 PrefabInstance:
   m_ObjectHideFlags: 0

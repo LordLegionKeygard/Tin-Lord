@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9219909324919567554}
   - component: {fileID: 8114486443859251651}
   - component: {fileID: 4672545499090717498}
+  - component: {fileID: 2389571044636311186}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentCount: 3
   _isSetGroundModelRotation: 1
+--- !u!114 &2389571044636311186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219909324919567552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0420846bcf0af34459f36782d2407bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentCount: 3
 --- !u!1 &9219909326082737527
 GameObject:
   m_ObjectHideFlags: 0

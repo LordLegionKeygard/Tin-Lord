@@ -1129,6 +1129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1995532334043188817}
   - component: {fileID: 6503420246242279485}
+  - component: {fileID: 256822578878966504}
   m_Layer: 0
   m_Name: Building_OilProduction
   m_TagString: Untagged
@@ -1169,6 +1170,18 @@ MonoBehaviour:
   - {fileID: 750493029015770372}
   - {fileID: 4092441453266999804}
   _currentBuildingLevel: 0
+--- !u!114 &256822578878966504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995532334043188822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1999692292492722890
 GameObject:
   m_ObjectHideFlags: 0
@@ -4751,7 +4764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5030785745942258599
 Transform:
   m_ObjectHideFlags: 0
