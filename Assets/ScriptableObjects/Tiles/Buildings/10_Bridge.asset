@@ -20,24 +20,25 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
+  BuildingsOnTile: []
   BuildingTileView: 11
   Resource: {fileID: 0}
   UpgradeBuildingWrapper:
   - Name:
     - Wooden Bridge
     - "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0439 \u041C\u043E\u0441\u0442"
-    BuildingEcology: 0
+    BuildingEcology: -1
     RecourcesAmount: 0
   - Name:
     - Stone Bridge
     - "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u041C\u043E\u0441\u0442"
-    BuildingEcology: -1
+    BuildingEcology: -3
     RecourcesAmount: 0
   - Name:
     - Metal Bridge
     - "\u041C\u0435\u0442\u0430\u043B\u043B\u0438\u0447\u0435\u0441\u043A\u0438\u0439
       \u041C\u043E\u0441\u0442"
-    BuildingEcology: -2
+    BuildingEcology: -6
     RecourcesAmount: 0
   Name:
   - Bridge

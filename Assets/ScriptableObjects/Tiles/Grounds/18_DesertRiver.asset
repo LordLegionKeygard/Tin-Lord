@@ -17,12 +17,14 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: ca6aaba5c90af6e4989793497f1ad4ee, type: 3}
   TileTypeEnum: 0
   GroundTileView: 19
-  GroundEcology: 1
+  GroundEcology: 4
   IsWater: 1
   IsFourTile: 0
   BuildingsOnTile:
-  - BuildingTile: {fileID: 11400000, guid: 806c4d977d8c2bd48861a74945b2872b, type: 2}
-    ResourceModifier: 0.5
+  - BuildingTile: {fileID: 11400000, guid: a65ed7bf83a92c54985cab8516db952e, type: 2}
+    ResourceModifier: 1
+  - BuildingTile: {fileID: 11400000, guid: c8ed789ecb673bc40a95025d146a4b6d, type: 2}
+    ResourceModifier: 2
   BuildingTileView: 0
   Resource: {fileID: 0}
   UpgradeBuildingWrapper: []

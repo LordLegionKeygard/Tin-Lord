@@ -23,5 +23,5 @@ public enum Tags
     All = 0,
     Tree = 1,
     Coal = 2,
-    Grass = 3,
+    Plant = 3,
 }

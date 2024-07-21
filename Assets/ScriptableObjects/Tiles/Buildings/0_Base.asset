@@ -20,32 +20,40 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
+  BuildingsOnTile: []
   BuildingTileView: 1
+  Resource: {fileID: 0}
   UpgradeBuildingWrapper:
   - Name:
     - House
     - "\u0414\u043E\u043C"
     BuildingEcology: 0
+    RecourcesAmount: 0
   - Name:
     - Village
     - "\u0414\u0435\u0440\u0435\u0432\u043D\u044F"
     BuildingEcology: -1
+    RecourcesAmount: 0
   - Name:
     - Town
     - "\u0413\u043E\u0440\u043E\u0434"
-    BuildingEcology: -2
+    BuildingEcology: -3
+    RecourcesAmount: 0
   - Name:
     - City
     - "\u041A\u0440\u0443\u043F\u043D\u044B\u0439 \u0413\u043E\u0440\u043E\u0434"
-    BuildingEcology: -3
+    BuildingEcology: -6
+    RecourcesAmount: 0
   - Name:
     - Industrial City
     - "\u041F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u044B\u0439 \u0413\u043E\u0440\u043E\u0434"
-    BuildingEcology: -4
+    BuildingEcology: -8
+    RecourcesAmount: 0
   - Name:
     - Megapolis
     - "\u041C\u0435\u0433\u0430\u043F\u043E\u043B\u0438\u0441"
-    BuildingEcology: -5
+    BuildingEcology: -10
+    RecourcesAmount: 0
   Name:
   - Base
   - "\u0411\u0430\u0437\u0430"

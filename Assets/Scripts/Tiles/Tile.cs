@@ -86,10 +86,12 @@ public enum BuildingTileViewEnum
     SandMining = 6,
     OilProduction = 7,
     StoneMining = 8,
-    WaterExtraction = 9,
+    LandWaterExtraction = 9,
     ScrapMining = 10,
     Bridge = 11,
     CopperOreMining = 12,
+    HydroPowerIndustry = 13,
+    RiverWaterExtraction = 14,
 }
 
 public enum TileDirectionEnum
