@@ -11,20 +11,8 @@ public class BuildingItem : MonoBehaviour
     [SerializeField] private Tile _currentTile;
     [SerializeField] private TileObject _currentTileObject;
     private SelectTilePanel _selectTilePanel;
-    private TileBuildPanel _tileBuildPanel;
     private BuildingState _currentBuildingState;
     private int _upgradeToLevel;
-
-    public void SetBuildingType(Tile tile, TileObject tileObject, SelectTilePanel selectTilePanel, TileBuildPanel tileBuildPanel)
-    {
-        _currentBuildingState = BuildingState.BuildingType;
-        _selectTilePanel = selectTilePanel;
-        _currentTileObject = tileObject;
-        _currentTile = tile;
-        _tileBuildPanel = tileBuildPanel;
-
-        _nameText.text = _currentTile.Name[Language.LanguageNumber];
-    }
 
     public void SetSpawnFirstBuilding(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile)
     {
@@ -51,9 +39,6 @@ public class BuildingItem : MonoBehaviour
     {
         switch (_currentBuildingState)
         {
-            case BuildingState.BuildingType:
-                _tileBuildPanel.SpawnBuildingItemsInScrollView(_currentTileObject, _selectTilePanel, _currentTile); //возвращаемся заспавнить список зданий этого типа
-                break;
             case BuildingState.FirstBuild:
                 if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) _tilesSystem.IsHaveBase = true;
                 _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _upgradeToLevel, _currentTileObject); //спавним впервые здание на тайле определенного лвла
@@ -69,7 +54,6 @@ public class BuildingItem : MonoBehaviour
 
 public enum BuildingState
 {
-    BuildingType = 0,
-    FirstBuild = 1,
-    UpgradeBuilding = 2,
+    FirstBuild = 0,
+    UpgradeBuilding = 1,
 }

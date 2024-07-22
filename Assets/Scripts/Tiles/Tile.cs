@@ -30,8 +30,16 @@ public class UpgradeBuildingWrapper
 {
     public string[] Name; //0 eng, 1 rus
     public int BuildingEcology;
-    public float RecourcesAmount;
+    public float ResourcesExtractionAmount;
+    public ResourcesForBuildWrapper[] ResourcesForBuild;
 
+}
+
+[System.Serializable]
+public class ResourcesForBuildWrapper
+{
+    public ResourceEnum ResourcesForBuild;
+    public int RecourcesForBuildAmount;
 }
 
 [System.Serializable]

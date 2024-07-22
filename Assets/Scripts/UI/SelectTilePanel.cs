@@ -28,11 +28,11 @@ public class SelectTilePanel : MonoBehaviour
         {
             _tileInfoPanelObject.SetActive(true);
             _tileBuildPanelObject.SetActive(false);
-            _objectTransform.DOAnchorPosY(110, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(260, 0.3f).SetUpdate(true);
         }
         else
         {
-            _objectTransform.DOAnchorPosY(-130, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(-280, 0.3f).SetUpdate(true);
         }
     }
 
@@ -50,7 +50,7 @@ public class SelectTilePanel : MonoBehaviour
         _buildingNameText.text = haveTile ? Language.TextStatic[2] + ": " + buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].Name[Language.LanguageNumber] : Language.TextStatic[2] + ": -";
         _buildingLevelText.text = haveTile ? Language.TextStatic[3] + ": " + buildingLevel.ToString() : Language.TextStatic[3] + ": -";
         _productionModifierText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[11] + ": " + "x" + StaticMethods.GetResourceModifier(tileObject) : Language.TextStatic[11] + ": -";
-        _totalProductionText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[6] + ": " + buildingTile.Resource.Name[Language.LanguageNumber] + " " + (buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].RecourcesAmount * StaticMethods.GetResourceModifier(tileObject)) : Language.TextStatic[6] + ": -";
+        _totalProductionText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[6] + ": " + buildingTile.Resource.Name[Language.LanguageNumber] + " " + (buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].ResourcesExtractionAmount * StaticMethods.GetResourceModifier(tileObject)) : Language.TextStatic[6] + ": -";
 
         var groundEcology = tileObject.GroundTileObject().CurrentGroundTile().GroundEcology;
         var buildingEcology = haveTile ? buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].BuildingEcology : 0;

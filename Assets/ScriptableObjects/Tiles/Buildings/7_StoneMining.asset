@@ -28,17 +28,38 @@ MonoBehaviour:
     - Manual Mining
     - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
     BuildingEcology: -2
-    RecourcesAmount: 2
+    ResourcesExtractionAmount: 2
+    ResourcesForBuild:
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 5
+    - ResourcesForBuild: 2
+      RecourcesForBuildAmount: 3
   - Name:
     - Wooden Crane
     - "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0439 \u041A\u0440\u0430\u043D"
     BuildingEcology: -3
-    RecourcesAmount: 4
+    ResourcesExtractionAmount: 4
+    ResourcesForBuild:
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 2
+      RecourcesForBuildAmount: 5
+    - ResourcesForBuild: 12
+      RecourcesForBuildAmount: 5
   - Name:
     - Boer Machine
     - "\u0411\u0443\u0440\u043E\u0432\u0430\u044F \u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
     BuildingEcology: -7
-    RecourcesAmount: 6
+    ResourcesExtractionAmount: 6
+    ResourcesForBuild:
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 20
+    - ResourcesForBuild: 2
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 12
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 13
+      RecourcesForBuildAmount: 5
   Name:
   - Stone Mining
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041A\u0430\u043C\u043D\u044F"

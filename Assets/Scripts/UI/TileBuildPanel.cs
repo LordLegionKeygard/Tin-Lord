@@ -8,6 +8,7 @@ public class TileBuildPanel : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
     [SerializeField] private TilesSystem _tileSystem;
+    [SerializeField] private BuildingType _buildingType;
     [SerializeField] private BuildingItem _buildingItem;
     [SerializeField] private Transform _content;
     private List<GameObject> _buildingItemsList = new List<GameObject>();
@@ -24,18 +25,18 @@ public class TileBuildPanel : MonoBehaviour
 
         if (tileObject.GroundTileObject().IsBridge())
         {
-            var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
+            var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.GetComponent<BuildingItem>().SetBuildingType(_tileSystem.TakeBuildingTile(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel, this);
+            item.GetComponent<BuildingType>().SetBuildingType(_tileSystem.TakeBuildingTile(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel, this);
             _buildingItemsList.Add(item.gameObject);
         }
         else
         {
             for (int i = 0; i < buildingTiles.Length; i++)
             {
-                var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
+                var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
                 item.transform.SetParent(_content);
-                item.GetComponent<BuildingItem>().SetBuildingType(buildingTiles[i].BuildingTile, tileObject, selectTilePanel, this);
+                item.GetComponent<BuildingType>().SetBuildingType(buildingTiles[i].BuildingTile, tileObject, selectTilePanel, this);
                 _buildingItemsList.Add(item.gameObject);
             }
         }

@@ -28,17 +28,38 @@ MonoBehaviour:
     - Manual Mining
     - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
     BuildingEcology: -4
-    RecourcesAmount: 2
+    ResourcesExtractionAmount: 2
+    ResourcesForBuild:
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 5
+    - ResourcesForBuild: 2
+      RecourcesForBuildAmount: 3
   - Name:
-    - Mine
-    - "\u0420\u0443\u0434\u043D\u0438\u043A"
+    - Coal Mine
+    - "\u0423\u0433\u043E\u043B\u044C\u043D\u0430\u044F \u0428\u0430\u0445\u0442\u0430"
     BuildingEcology: -8
-    RecourcesAmount: 4
+    ResourcesExtractionAmount: 4
+    ResourcesForBuild:
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 2
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 12
+      RecourcesForBuildAmount: 5
   - Name:
     - Boer Machine
     - "\u0411\u0443\u0440\u043E\u0432\u0430\u044F \u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
     BuildingEcology: -8
-    RecourcesAmount: 6
+    ResourcesExtractionAmount: 6
+    ResourcesForBuild:
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 20
+    - ResourcesForBuild: 2
+      RecourcesForBuildAmount: 20
+    - ResourcesForBuild: 12
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 13
+      RecourcesForBuildAmount: 5
   Name:
   - Coal Mining
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u0423\u0433\u043B\u044F"

@@ -28,17 +28,20 @@ MonoBehaviour:
     - Manual Mining
     - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
     BuildingEcology: 0
-    RecourcesAmount: 2
+    ResourcesExtractionAmount: 2
+    ResourcesForBuild: []
   - Name:
     - Crane
     - "\u041A\u0440\u0430\u043D"
     BuildingEcology: 0
-    RecourcesAmount: 4
+    ResourcesExtractionAmount: 4
+    ResourcesForBuild: []
   - Name:
     - Magnet Crane
     - "\u041C\u0430\u0433\u043D\u0438\u0442\u043D\u044B\u0439 \u041A\u0440\u0430\u043D"
     BuildingEcology: 0
-    RecourcesAmount: 6
+    ResourcesExtractionAmount: 6
+    ResourcesForBuild: []
   Name:
   - Scrap Mining
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041C\u0435\u0442\u0430\u043B\u0430\u043B\u043B\u043E\u043C\u0430"

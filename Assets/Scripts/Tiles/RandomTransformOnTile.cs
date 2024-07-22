@@ -7,6 +7,7 @@ public class RandomTransformOnTile : MonoBehaviour
     [SerializeField] [Range(0f, 2.5f)] private float _randomRange = 2.5f;
     [SerializeField] private bool _isChangePosition;
     [SerializeField] private bool _isChangeRotation;
+    [SerializeField] private bool _isFixed90Rotation;
     private void Start()
     {
         SetRandomTransform();
@@ -23,8 +24,10 @@ public class RandomTransformOnTile : MonoBehaviour
 
         if (_isChangeRotation)
         {
-            var rnd = Random.Range(0, 360);
-            transform.localRotation = Quaternion.Euler(transform.rotation.x, rnd, transform.rotation.z);
+            var rnd = Random.Range(0, 4); //для фиксированного вращения
+
+            var newRotation = _isFixed90Rotation ? rnd * 90 : Random.Range(0, 360);
+            transform.localRotation = Quaternion.Euler(transform.rotation.x, newRotation, transform.rotation.z);
         }
     }
 }

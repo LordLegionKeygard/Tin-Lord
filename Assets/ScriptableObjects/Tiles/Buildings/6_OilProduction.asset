@@ -28,17 +28,42 @@ MonoBehaviour:
     - Hand Pump
     - "\u0420\u0443\u0447\u043D\u043E\u0439 \u041D\u0430\u0441\u043E\u0441"
     BuildingEcology: -5
-    RecourcesAmount: 2
+    ResourcesExtractionAmount: 2
+    ResourcesForBuild:
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 2
+      RecourcesForBuildAmount: 5
+    - ResourcesForBuild: 12
+      RecourcesForBuildAmount: 5
   - Name:
     - Pumpjack
     - "\u0421\u0442\u0430\u043D\u043E\u043A-\u043A\u0430\u0447\u0430\u043B\u043A\u0430"
     BuildingEcology: -6
-    RecourcesAmount: 4
+    ResourcesExtractionAmount: 4
+    ResourcesForBuild:
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 20
+    - ResourcesForBuild: 2
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 12
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 13
+      RecourcesForBuildAmount: 5
   - Name:
     - Oil Rig
     - "\u041D\u0435\u0444\u0442\u044F\u043D\u0430\u044F \u0412\u044B\u0448\u043A\u0430"
     BuildingEcology: -8
-    RecourcesAmount: 6
+    ResourcesExtractionAmount: 6
+    ResourcesForBuild:
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 30
+    - ResourcesForBuild: 2
+      RecourcesForBuildAmount: 15
+    - ResourcesForBuild: 12
+      RecourcesForBuildAmount: 15
+    - ResourcesForBuild: 13
+      RecourcesForBuildAmount: 10
   Name:
   - Oil Production
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041D\u0435\u0444\u0442\u0438"
