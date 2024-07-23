@@ -3,36 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Zenject;
+using UnityEngine.UI;
 
 public class BuildingItem : MonoBehaviour
 {
     [Inject] private TilesSystem _tilesSystem;
-    [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Tile _currentTile;
     [SerializeField] private TileObject _currentTileObject;
+
+    [Header("View")]
+    [SerializeField] private TextMeshProUGUI _nameText;
+    [SerializeField] private Image _icon;
+
+    [Header("Other")]
     private SelectTilePanel _selectTilePanel;
     private BuildingState _currentBuildingState;
     private int _upgradeToLevel;
 
-    public void SetSpawnFirstBuilding(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile)
+    public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile, BuildingState buildingState)
     {
-        _currentBuildingState = BuildingState.FirstBuild;
+        _currentBuildingState = buildingState;
         _selectTilePanel = selectTilePanel;
         _currentTileObject = tileObject;
         _currentTile = tile;
         _upgradeToLevel = level;
 
-        _nameText.text = tile.UpgradeBuildingWrapper[_upgradeToLevel - 1].Name[Language.LanguageNumber];
+        UpdateView();
     }
 
-    public void SetUpgradeBuilding(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile)
+    private void UpdateView()
     {
-        _currentBuildingState = BuildingState.UpgradeBuilding;
-        _selectTilePanel = selectTilePanel;
-        _currentTileObject = tileObject;
-        _upgradeToLevel = level;
+        var building = _currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1];
 
-        _nameText.text = tile.UpgradeBuildingWrapper[_upgradeToLevel - 1].Name[Language.LanguageNumber];
+        _nameText.text = building.Name[Language.LanguageNumber];
+        _icon.sprite = building.BuildingSprite;
     }
 
     public void BuildOrUpgrade()

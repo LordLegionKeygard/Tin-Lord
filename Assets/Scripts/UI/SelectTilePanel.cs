@@ -18,7 +18,8 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private GameObject _upgradeButton;
     [SerializeField] private GameObject _tileInfoPanelObject;
     [SerializeField] private GameObject _tileBuildPanelObject;
-    [SerializeField] private TileBuildPanel _tileBuildPanel;
+    [SerializeField] private BuildTypesPanel _buildTypesPanel;
+    [SerializeField] private BuildsPanel _buildsPanel;
     private TileObject _currentTileObject;
 
 
@@ -28,11 +29,12 @@ public class SelectTilePanel : MonoBehaviour
         {
             _tileInfoPanelObject.SetActive(true);
             _tileBuildPanelObject.SetActive(false);
-            _objectTransform.DOAnchorPosY(260, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(110, 0.3f).SetUpdate(true);
         }
         else
         {
-            _objectTransform.DOAnchorPosY(-280, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(-130, 0.3f).SetUpdate(true);
+            _buildsPanel.PanelViewToggle(false);
         }
     }
 
@@ -64,18 +66,19 @@ public class SelectTilePanel : MonoBehaviour
     {
         _tileInfoPanelObject.SetActive(false);
         _tileBuildPanelObject.SetActive(true);
-        _tileBuildPanel.SpawnBuildingTypesInScrollView(_currentTileObject, this);
+        _buildTypesPanel.SpawnBuildingTypesInScrollView(_currentTileObject, this);
     }
 
     public void OpenPanelForUpgrade()
     {
-        _tileInfoPanelObject.SetActive(false);
-        _tileBuildPanelObject.SetActive(true);
-        _tileBuildPanel.SpawnUpgradeItemsInScrollView(_currentTileObject, this);
+        // _tileInfoPanelObject.SetActive(false);
+        // _tileBuildPanelObject.SetActive(true);
+        _buildsPanel.SpawnUpgradeItemsInScrollView(_currentTileObject, this);
     }
 
     public void ClosePanelAndRefreshInfo()
     {
+        _buildsPanel.PanelViewToggle(false);
         _tileInfoPanelObject.SetActive(true);
         _tileBuildPanelObject.SetActive(false);
         ShowInfo(_currentTileObject);

@@ -29,6 +29,7 @@ public class Tile : ScriptableObject
 public class UpgradeBuildingWrapper
 {
     public string[] Name; //0 eng, 1 rus
+    public Sprite BuildingSprite;
     public int BuildingEcology;
     public float ResourcesExtractionAmount;
     public ResourcesForBuildWrapper[] ResourcesForBuild;
