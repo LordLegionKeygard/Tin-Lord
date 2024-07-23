@@ -27,6 +27,7 @@ MonoBehaviour:
   - Name:
     - Manual Mining
     - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
+    BuildingSprite: {fileID: 21300000, guid: 06e7773f81e9ac8439fa800cd078f496, type: 3}
     BuildingEcology: -3
     ResourcesExtractionAmount: 2
     ResourcesForBuild:
@@ -37,6 +38,7 @@ MonoBehaviour:
   - Name:
     - Copper Mine
     - "\u041C\u0435\u0434\u043D\u044B\u0439 \u0420\u0443\u0434\u043D\u0438\u043A"
+    BuildingSprite: {fileID: 21300000, guid: 7de1ee472eb9c9a4ca93fbcea18b709e, type: 3}
     BuildingEcology: -6
     ResourcesExtractionAmount: 4
     ResourcesForBuild:
@@ -50,6 +52,7 @@ MonoBehaviour:
     - Bucket-wheel Excavator
     - "\u041C\u043D\u043E\u0433\u043E\u043A\u043E\u0432\u0448\u043E\u0432\u044B\u0439
       \u042D\u043A\u0441\u043A\u0430\u0432\u0430\u0442\u043E\u0440"
+    BuildingSprite: {fileID: 21300000, guid: 9e0d4059751d2eb42a33d34b8fc7f547, type: 3}
     BuildingEcology: -8
     ResourcesExtractionAmount: 6
     ResourcesForBuild:
