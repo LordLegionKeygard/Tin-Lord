@@ -27,6 +27,7 @@ MonoBehaviour:
   - Name:
     - Wooden Bridge
     - "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0439 \u041C\u043E\u0441\u0442"
+    BuildingSprite: {fileID: 21300000, guid: 22edb65e68884ab44b667a03fa584847, type: 3}
     BuildingEcology: -1
     ResourcesExtractionAmount: 0
     ResourcesForBuild:
@@ -35,6 +36,7 @@ MonoBehaviour:
   - Name:
     - Stone Bridge
     - "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u041C\u043E\u0441\u0442"
+    BuildingSprite: {fileID: 21300000, guid: 6c58355ea4d616c49bb8fc178a28c9d5, type: 3}
     BuildingEcology: -3
     ResourcesExtractionAmount: 0
     ResourcesForBuild:
@@ -44,6 +46,7 @@ MonoBehaviour:
     - Metal Bridge
     - "\u041C\u0435\u0442\u0430\u043B\u043B\u0438\u0447\u0435\u0441\u043A\u0438\u0439
       \u041C\u043E\u0441\u0442"
+    BuildingSprite: {fileID: 21300000, guid: e55474d85a50e4b4c83bcddf141cff7d, type: 3}
     BuildingEcology: -6
     ResourcesExtractionAmount: 0
     ResourcesForBuild:

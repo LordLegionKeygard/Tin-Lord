@@ -27,6 +27,7 @@ MonoBehaviour:
   - Name:
     - Hand Pump
     - "\u0420\u0443\u0447\u043D\u043E\u0439 \u041D\u0430\u0441\u043E\u0441"
+    BuildingSprite: {fileID: 21300000, guid: fa3ddde894051cc4f9ec3a3862977eaa, type: 3}
     BuildingEcology: -1
     ResourcesExtractionAmount: 2
     ResourcesForBuild:
@@ -37,6 +38,7 @@ MonoBehaviour:
   - Name:
     - Wind Pump
     - "\u0412\u0435\u0442\u0440\u044F\u043D\u043E\u0439 \u041D\u0430\u0441\u043E\u0441"
+    BuildingSprite: {fileID: 21300000, guid: e230492dcf36fe7408b0855fbb4f8538, type: 3}
     BuildingEcology: -2
     ResourcesExtractionAmount: 4
     ResourcesForBuild:
@@ -50,6 +52,7 @@ MonoBehaviour:
     - Electric Water Pump
     - "\u042D\u043B\u0435\u043A\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u0438\u0439
       \u041D\u0430\u0441\u043E\u0441"
+    BuildingSprite: {fileID: 21300000, guid: 843e1d1af2689af479d451a3f999f573, type: 3}
     BuildingEcology: -3
     ResourcesExtractionAmount: 6
     ResourcesForBuild:
