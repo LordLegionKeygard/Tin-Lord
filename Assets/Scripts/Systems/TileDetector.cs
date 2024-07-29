@@ -12,6 +12,7 @@ public class TileDetector : MonoBehaviour
     [SerializeField] private TilesSystem _tileSystem;
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private ResourcesPanel _resourcesPanel;
+    [SerializeField] private BuildsPanel _buildsPanel;
     private Transform _lastRayCastTransform;
     private bool _canSetTile = false;
 
@@ -180,6 +181,7 @@ public class TileDetector : MonoBehaviour
         var newTileObject = gameObject.GetComponent<TileObject>();
 
         UnselectLastTile(false);
+        _buildsPanel.PanelViewToggle(false);
 
         if (newTileObject.GroundTileObject().HaveTile())
         {

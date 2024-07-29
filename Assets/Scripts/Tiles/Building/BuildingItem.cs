@@ -8,12 +8,14 @@ using UnityEngine.UI;
 public class BuildingItem : MonoBehaviour
 {
     [Inject] private TilesSystem _tilesSystem;
+    [Inject] private PlayerResources _playerResources;
     [SerializeField] private Tile _currentTile;
     [SerializeField] private TileObject _currentTileObject;
 
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Image _icon;
+    [SerializeField] private Button _button;
 
     [Header("Other")]
     private SelectTilePanel _selectTilePanel;
@@ -37,10 +39,18 @@ public class BuildingItem : MonoBehaviour
 
         _nameText.text = building.Name[Language.LanguageNumber];
         _icon.sprite = building.BuildingSprite;
+
+
+        var resourcesEnough = _playerResources.ResourcesForBuildEnough(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
+        _button.enabled = resourcesEnough;
+
+        _nameText.color = resourcesEnough ? Color.white : Colors.BuildingItemTextDisabled;
+        _icon.color = resourcesEnough ? Color.white : Colors.BuildingItemIconDisabled;
     }
 
     public void BuildOrUpgrade()
     {
+        _playerResources.RemoveResourcesFromBuild(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:

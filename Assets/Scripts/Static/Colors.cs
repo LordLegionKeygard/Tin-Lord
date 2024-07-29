@@ -5,6 +5,8 @@ using UnityEngine;
 public class Colors : MonoBehaviour
 {
     public static Colors Instance;
+    public static readonly Color BuildingItemIconDisabled = new Color(0.5f, 0.5f, 0.5f, 0.5f);
+    public static readonly Color BuildingItemTextDisabled = new Color(0.5f, 0.5f, 0.5f, 1);
     public Color[] SelectTileView;
 
     private void Awake()

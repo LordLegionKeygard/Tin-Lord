@@ -52,7 +52,7 @@ public class EverydayResourcesExtraction : MonoBehaviour
     {
         for (int i = 0; i < _everydayResourceExtraction.Length; i++)
         {
-            _playerResources.AddResources(_everydayResourceExtraction[i].Resource.ResourceEnum, _everydayResourceExtraction[i].Amount);
+            _playerResources.AddResource(_everydayResourceExtraction[i].Resource.ResourceEnum, _everydayResourceExtraction[i].Amount);
         }
     }
 
