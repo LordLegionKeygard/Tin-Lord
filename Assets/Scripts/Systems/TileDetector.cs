@@ -11,7 +11,6 @@ public class TileDetector : MonoBehaviour
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TilesSystem _tileSystem;
     [SerializeField] private SelectTilePanel _selectTilePanel;
-    [SerializeField] private ResourcesPanel _resourcesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     private Transform _lastRayCastTransform;
     private bool _canSetTile = false;
@@ -188,7 +187,6 @@ public class TileDetector : MonoBehaviour
             _currentTileObject = newTileObject;
             _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.TileSelect);
             _selectTilePanel.ShowInfo(_currentTileObject);
-            _resourcesPanel.PanelViewToggle(_currentTileObject.GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum.BaseFoundation);
         }
     }
 
@@ -240,7 +238,6 @@ public class TileDetector : MonoBehaviour
 
     public void Clear()
     {
-        _resourcesPanel.PanelViewToggle(false);
         if (_cardHolderSystem.CheckCurrentCardHolderSelectedTileIsFourTile())
         {
             UnselectLastX4Tiles(true);

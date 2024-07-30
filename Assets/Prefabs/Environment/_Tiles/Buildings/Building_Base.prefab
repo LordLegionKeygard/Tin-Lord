@@ -942,8 +942,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aba586dbfac94674c89f361f349936b9, type: 2}
-  - {fileID: 2100000, guid: d21107ff806c3ba438c587d3b5a6c853, type: 2}
+  - {fileID: 2100000, guid: 8fe8dff4826de1848a39072af7ede88b, type: 2}
+  - {fileID: 2100000, guid: de26ea1af8745984081679a10ca11ae3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2288,9 +2288,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aba586dbfac94674c89f361f349936b9, type: 2}
-  - {fileID: 2100000, guid: 843ea373463968f42806d99f1c4f2de5, type: 2}
-  - {fileID: 2100000, guid: d21107ff806c3ba438c587d3b5a6c853, type: 2}
+  - {fileID: 2100000, guid: 8fe8dff4826de1848a39072af7ede88b, type: 2}
+  - {fileID: 2100000, guid: 349c430b09332a542966659425e6ecb9, type: 2}
+  - {fileID: 2100000, guid: de26ea1af8745984081679a10ca11ae3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6195,8 +6195,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aba586dbfac94674c89f361f349936b9, type: 2}
-  - {fileID: 2100000, guid: 843ea373463968f42806d99f1c4f2de5, type: 2}
+  - {fileID: 2100000, guid: 8fe8dff4826de1848a39072af7ede88b, type: 2}
+  - {fileID: 2100000, guid: 349c430b09332a542966659425e6ecb9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7129,8 +7129,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aba586dbfac94674c89f361f349936b9, type: 2}
-  - {fileID: 2100000, guid: d21107ff806c3ba438c587d3b5a6c853, type: 2}
+  - {fileID: 2100000, guid: 8fe8dff4826de1848a39072af7ede88b, type: 2}
+  - {fileID: 2100000, guid: de26ea1af8745984081679a10ca11ae3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8139,7 +8139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9056274883441525976
 Transform:
   m_ObjectHideFlags: 0

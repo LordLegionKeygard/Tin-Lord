@@ -74,13 +74,12 @@ public enum GroundTileViewEnum
     Highland = 13,
     River = 14,
     PollutedRiver = 15,
-    Junkyard = 16,
-    DeadForest = 17,
-    Oasis = 18,
-    DesertRiver = 19,
-    ScarceCoalDeposits = 20,
-    BaseFoundation = 21,
-    BlackDesert = 22,
+    DeadForest = 16,
+    Oasis = 17,
+    DesertRiver = 18,
+    ScarceCoalDeposits = 19,
+    BaseFoundation = 20,
+    BlackDesert = 21,
     
 }
 

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 17_DesertRiver
+  m_EditorClassIdentifier: 
+  TileObject: {fileID: 2479273178103927905, guid: e4f73b0c2b6924141b8b3b49bbf1b79c,
+    type: 3}
+  Icon: {fileID: 21300000, guid: ca6aaba5c90af6e4989793497f1ad4ee, type: 3}
+  TileTypeEnum: 0
+  GroundTileView: 19
+  GroundEcology: 4
+  IsWater: 1
+  IsFourTile: 0
+  BuildingsOnTile:
+  - BuildingTile: {fileID: 11400000, guid: a65ed7bf83a92c54985cab8516db952e, type: 2}
+    ResourceModifier: 1
+  - BuildingTile: {fileID: 11400000, guid: c8ed789ecb673bc40a95025d146a4b6d, type: 2}
+    ResourceModifier: 2
+  BuildingTileView: 0
+  Resource: {fileID: 0}
+  UpgradeBuildingWrapper: []
+  Name:
+  - Desert River
+  - "\u041F\u0443\u0441\u0442\u044B\u043D\u043D\u0430\u044F \u0420\u0435\u043A\u0430"
