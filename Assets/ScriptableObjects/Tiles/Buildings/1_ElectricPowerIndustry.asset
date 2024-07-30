@@ -29,39 +29,39 @@ MonoBehaviour:
     - "\u0421\u043E\u043B\u043D\u0435\u0447\u043D\u0430\u044F \u041F\u0430\u043D\u0435\u043B\u044C"
     BuildingSprite: {fileID: 21300000, guid: 805756962377cdd499251c0e527486d9, type: 3}
     BuildingEcology: 0
-    ResourcesExtractionAmount: 2
+    ResourceExtractedAmount: 0.2
     ResourcesForBuild:
+    - ResourcesForBuild: 0
+      RecourcesForBuildAmount: 10
     - ResourcesForBuild: 1
       RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 2
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 12
+    - ResourcesForBuild: 10
       RecourcesForBuildAmount: 5
   - Name:
     - Wind Generator
     - "\u0412\u0435\u0442\u0440\u044F\u043D\u043E\u0439 \u0413\u0435\u043D\u0435\u0440\u0430\u0442\u043E\u0440"
     BuildingSprite: {fileID: 21300000, guid: 56aebd9bf3d73124a960eb8f2bd10971, type: 3}
     BuildingEcology: -1
-    ResourcesExtractionAmount: 4
+    ResourceExtractedAmount: 0.4
     ResourcesForBuild:
+    - ResourcesForBuild: 0
+      RecourcesForBuildAmount: 20
     - ResourcesForBuild: 1
       RecourcesForBuildAmount: 20
-    - ResourcesForBuild: 2
-      RecourcesForBuildAmount: 20
-    - ResourcesForBuild: 12
+    - ResourcesForBuild: 10
       RecourcesForBuildAmount: 10
   - Name:
     - Thermal Power Plant
     - "\u0422\u0435\u043F\u043B\u043E\u044D\u043B\u0435\u043A\u0442\u0440\u043E\u0441\u0442\u0430\u043D\u0446\u0438\u044F"
     BuildingSprite: {fileID: 21300000, guid: 273af5c41cd65ae469f6fd002c974a2f, type: 3}
     BuildingEcology: -8
-    ResourcesExtractionAmount: 6
+    ResourceExtractedAmount: 0.6
     ResourcesForBuild:
+    - ResourcesForBuild: 0
+      RecourcesForBuildAmount: 30
     - ResourcesForBuild: 1
       RecourcesForBuildAmount: 30
-    - ResourcesForBuild: 2
-      RecourcesForBuildAmount: 30
-    - ResourcesForBuild: 13
+    - ResourcesForBuild: 11
       RecourcesForBuildAmount: 15
   Name:
   - Electric Power Industry

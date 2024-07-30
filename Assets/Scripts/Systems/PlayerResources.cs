@@ -12,14 +12,14 @@ public class PlayerResources : MonoBehaviour
     {
         var resources = _resourcesWrapper[(int)resourceEnum];
         resources.Amount += amount;
-        resources.Text.text = resources.Amount.ToString();
+        resources.Text.text = ((int)resources.Amount).ToString();
     }
 
     private void UpdateAllTexts()
     {
         for (int i = 0; i < _resourcesWrapper.Length; i++)
         {
-            _resourcesWrapper[i].Text.text = _resourcesWrapper[i].Amount.ToString();
+            _resourcesWrapper[i].Text.text = ((int)_resourcesWrapper[i].Amount).ToString();
         }
     }
 

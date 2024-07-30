@@ -8,16 +8,22 @@ public class CustomEvents
         OnPrepareRoads?.Invoke();
     }
 
-    public static event Action OnTheDayIsOver;
-    public static void FireTheDayIsOver()
+    public static event Action OnTimeTick;
+    public static void FireTimeTick()
     {
-        OnTheDayIsOver?.Invoke();
+        OnTimeTick?.Invoke();
     }
 
     public static event Action<ResourceEnum, float, int> OnChangeResourceExtraction;
     public static void FireChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId)
     {
         OnChangeResourceExtraction?.Invoke(resourceEnum, amount, tileId);
+    }
+
+    public static event Action<int, int> OnChangeEcology;
+    public static void FireChangeEcology(int amount, int tileId)
+    {
+        OnChangeEcology?.Invoke(amount, tileId);
     }
 
     public static event Action<bool> OnPauseChanged;

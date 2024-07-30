@@ -19,4 +19,16 @@ public class TileObject : MonoBehaviour
 
     public void SetId(int id) => _id = id;
     public int GetId() => _id;
+
+    public int GetEcology()
+    {
+        var buildingTile = BuildingTileObject().CurrentBuildingTile();
+        var haveTile = BuildingTileObject().HaveTile();
+        var buildingLevel = haveTile ? BuildingTileObject().CurrentBuildingLevel() : 0;
+
+        var groundEcology = GroundTileObject().CurrentGroundTile().GroundEcology;
+        var buildingEcology = haveTile ? buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].BuildingEcology : 0;
+
+        return groundEcology + buildingEcology;
+    }
 }

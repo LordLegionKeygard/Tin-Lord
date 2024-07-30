@@ -29,24 +29,24 @@ MonoBehaviour:
     - "\u041A\u043E\u043B\u043E\u0434\u0435\u0446"
     BuildingSprite: {fileID: 21300000, guid: ca90f8241c4db214a90321cebac01475, type: 3}
     BuildingEcology: 0
-    ResourcesExtractionAmount: 2
+    ResourceExtractedAmount: 0.2
     ResourcesForBuild:
-    - ResourcesForBuild: 1
+    - ResourcesForBuild: 0
       RecourcesForBuildAmount: 5
-    - ResourcesForBuild: 2
+    - ResourcesForBuild: 1
       RecourcesForBuildAmount: 3
   - Name:
     - Wind Pump
     - "\u0412\u0435\u0442\u0440\u044F\u043D\u043E\u0439 \u041D\u0430\u0441\u043E\u0441"
     BuildingSprite: {fileID: 21300000, guid: 88920f8572fd2ca40a414bc2100d4cc1, type: 3}
     BuildingEcology: -1
-    ResourcesExtractionAmount: 4
+    ResourceExtractedAmount: 0.4
     ResourcesForBuild:
-    - ResourcesForBuild: 1
+    - ResourcesForBuild: 0
       RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 2
+    - ResourcesForBuild: 1
       RecourcesForBuildAmount: 5
-    - ResourcesForBuild: 12
+    - ResourcesForBuild: 10
       RecourcesForBuildAmount: 5
   - Name:
     - Electric Water Pump
@@ -54,15 +54,15 @@ MonoBehaviour:
       \u041D\u0430\u0441\u043E\u0441"
     BuildingSprite: {fileID: 21300000, guid: cfc9b5612e0ff0f4899885a9dd44e530, type: 3}
     BuildingEcology: -3
-    ResourcesExtractionAmount: 6
+    ResourceExtractedAmount: 0.6
     ResourcesForBuild:
-    - ResourcesForBuild: 1
+    - ResourcesForBuild: 0
       RecourcesForBuildAmount: 20
-    - ResourcesForBuild: 2
+    - ResourcesForBuild: 1
       RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 12
+    - ResourcesForBuild: 10
       RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 13
+    - ResourcesForBuild: 11
       RecourcesForBuildAmount: 5
   Name:
   - Land Water Extraction

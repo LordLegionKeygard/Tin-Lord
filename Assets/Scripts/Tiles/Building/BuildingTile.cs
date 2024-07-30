@@ -29,11 +29,15 @@ public class BuildingTile : MonoBehaviour
 
       _buildingLevels.SetBuildingView(level, tileObject);
       _buildingResourceExtraction.SetExtraction(_currentTile, level, tileObject);
+
+      CustomEvents.FireChangeEcology(tileObject.GetEcology(), tileObject.GetId());
    }
 
    public void UpgradeBuildingTile(int level, TileObject tileObject)
    {
       _buildingLevels.SetBuildingView(level, tileObject);
       _buildingResourceExtraction.SetExtraction(_currentTile, level, tileObject);
+      
+      CustomEvents.FireChangeEcology(tileObject.GetEcology(), tileObject.GetId());
    }
 }

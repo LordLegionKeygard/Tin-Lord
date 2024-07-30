@@ -60,6 +60,9 @@ public class Language : MonoBehaviour
         _text[11, 0] = "Producation modifier";
         _text[11, 1] = "Модификатор добычи";
 
+        _text[12, 0] = "Day";
+        _text[12, 1] = "День";
+
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }
 }

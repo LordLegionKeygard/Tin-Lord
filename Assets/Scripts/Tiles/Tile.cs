@@ -31,7 +31,7 @@ public class UpgradeBuildingWrapper
     public string[] Name; //0 eng, 1 rus
     public Sprite BuildingSprite;
     public int BuildingEcology;
-    public float ResourcesExtractionAmount;
+    public float ResourceExtractedAmount; // за 1 тик времени
     public ResourcesForBuildWrapper[] ResourcesForBuild;
 
 }
@@ -79,8 +79,7 @@ public enum GroundTileViewEnum
     DesertRiver = 18,
     ScarceCoalDeposits = 19,
     BaseFoundation = 20,
-    BlackDesert = 21,
-    
+    BlackDesert = 21, 
 }
 
 public enum BuildingTileViewEnum
@@ -95,11 +94,10 @@ public enum BuildingTileViewEnum
     OilProduction = 7,
     StoneMining = 8,
     LandWaterExtraction = 9,
-    ScrapMining = 10,
-    Bridge = 11,
-    CopperOreMining = 12,
-    HydroPowerIndustry = 13,
-    RiverWaterExtraction = 14,
+    Bridge = 10,
+    CopperOreMining = 11,
+    HydroPowerIndustry = 12,
+    RiverWaterExtraction = 13,
 }
 
 public enum TileDirectionEnum
