@@ -20,6 +20,12 @@ public class CustomEvents
         OnChangeResourceExtraction?.Invoke(resourceEnum, amount, tileId);
     }
 
+    public static event Action<TileObject, Resource, float> OnChangeResourceRequired;
+    public static void FireChangeResourceRequired(TileObject tileObject, Resource resource, float amount)
+    {
+        OnChangeResourceRequired?.Invoke(tileObject, resource, amount);
+    }
+
     public static event Action<int, int> OnChangeEcology;
     public static void FireChangeEcology(int amount, int tileId)
     {
@@ -32,9 +38,21 @@ public class CustomEvents
         OnPauseChanged?.Invoke(isPause);
     }
 
-    public static event Action<int> OnRefreshAnyTileInfo;
-    public static void FireRefreshAnyTileInfo(int tileId)
+    public static event Action<int> OnRefreshBuildingModifier;
+    public static void FireRefreshBuildingModifier(int tileId)
     {
-        OnRefreshAnyTileInfo?.Invoke(tileId);
+        OnRefreshBuildingModifier?.Invoke(tileId);
+    }
+
+    public static event Action<int, bool> OnHaveRequiredResource;
+    public static void FireHaveRequiredResource(int id, bool state)
+    {
+        OnHaveRequiredResource?.Invoke(id, state);
+    }
+
+    public static event Action<int> OnRefreshShowInfo;
+    public static void FireRefreshShowInfo(int id)
+    {
+        OnRefreshShowInfo?.Invoke(id);
     }
 }

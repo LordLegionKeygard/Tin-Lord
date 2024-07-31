@@ -11,6 +11,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
     [SerializeField] private TextMeshProUGUI _productionModifierText;
     [SerializeField] private TextMeshProUGUI _totalProductionText;
+    [SerializeField] private TextMeshProUGUI _requiredResources;
     [SerializeField] private TextMeshProUGUI _tileEcologyText;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private GameObject _buildButton;
@@ -21,6 +22,18 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private BuildsPanel _buildsPanel;
     private TileObject _currentTileObject;
 
+    private void Awake()
+    {
+        CustomEvents.OnRefreshShowInfo += RefreshShowInfo;
+    }
+
+    private void RefreshShowInfo(int tileId)
+    {
+        if (_currentTileObject == null) return;
+        if (_currentTileObject.GetId() != tileId) return;
+        SetInfo(_currentTileObject);
+    }
+
 
     public void PanelViewToggle(bool state)
     {
@@ -28,30 +41,36 @@ public class SelectTilePanel : MonoBehaviour
         {
             _tileInfoPanelObject.SetActive(true);
             _tileBuildPanelObject.SetActive(false);
-            _objectTransform.DOAnchorPosY(110, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(160, 0.3f).SetUpdate(true);
         }
         else
         {
-            _objectTransform.DOAnchorPosY(-130, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(-160, 0.3f).SetUpdate(true);
             _buildsPanel.PanelViewToggle(false);
         }
     }
 
-    public void ShowInfo(TileObject tileObject)
+    public void SetInfo(TileObject tileObject)
     {
         _currentTileObject = tileObject;
-
-        PanelViewToggle(true);
 
         var buildingTile = tileObject.BuildingTileObject().CurrentBuildingTile();
         var haveTile = tileObject.BuildingTileObject().HaveTile();
         var buildingLevel = haveTile ? tileObject.BuildingTileObject().CurrentBuildingLevel() : 0;
 
+
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _buildingNameText.text = haveTile ? Language.TextStatic[2] + ": " + buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].Name[Language.LanguageNumber] : Language.TextStatic[2] + ": -";
         _buildingLevelText.text = haveTile ? Language.TextStatic[3] + ": " + buildingLevel.ToString() : Language.TextStatic[3] + ": -";
-        _productionModifierText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[11] + ": " + "x" + StaticMethods.GetResourceModifier(tileObject) : Language.TextStatic[11] + ": -";
-        _totalProductionText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[6] + ": " + buildingTile.Resource.Name[Language.LanguageNumber] + " " + (buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].ResourceExtractedAmount * StaticMethods.GetResourceModifier(tileObject)) : Language.TextStatic[6] + ": -";
+        _productionModifierText.text = haveTile && buildingTile.Resource != null ? Language.TextStatic[11] + ": " + "x" + tileObject.CurrentModifier : Language.TextStatic[11] + ": -";
+
+        var resourceExtractedAmount = haveTile && buildingTile.Resource != null && tileObject.IsHaveRequiredResource() ? (buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].ResourceExtractedAmount * tileObject.CurrentModifier) : 0;
+        _totalProductionText.text = haveTile && buildingTile.Resource != null ?
+        Language.TextStatic[6] + ": " + buildingTile.Resource.Name[Language.LanguageNumber] + " " + resourceExtractedAmount : Language.TextStatic[6] + ": -";
+
+
+        _requiredResources.text = Language.TextStatic[14] + ": " + (haveTile && buildingTile.Resource != null && tileObject.CurrentResourceRequired != null ? tileObject.CurrentResourceRequired.Name[Language.LanguageNumber] + " " + tileObject.CurrentResourceRequiredAmount : "-");
+
         _tileEcologyText.text = Language.TextStatic[1] + ": " + tileObject.GetEcology().ToString();
 
         _buildButton.SetActive(!haveTile);
@@ -75,6 +94,12 @@ public class SelectTilePanel : MonoBehaviour
         _buildsPanel.PanelViewToggle(false);
         _tileInfoPanelObject.SetActive(true);
         _tileBuildPanelObject.SetActive(false);
-        ShowInfo(_currentTileObject);
+        PanelViewToggle(true);
+        SetInfo(_currentTileObject);
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnRefreshShowInfo -= RefreshShowInfo;
     }
 }

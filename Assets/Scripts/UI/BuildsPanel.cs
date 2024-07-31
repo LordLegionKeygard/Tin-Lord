@@ -18,11 +18,11 @@ public class BuildsPanel : MonoBehaviour
     {
         if (state)
         {
-            _rectTransform.DOAnchorPosX(-248, 0.3f).SetUpdate(true);
+            _rectTransform.DOAnchorPosX(-250, 0.3f).SetUpdate(true);
         }
         else
         {
-            _rectTransform.DOAnchorPosX(276, 0.3f).SetUpdate(true);
+            _rectTransform.DOAnchorPosX(250, 0.3f).SetUpdate(true);
             ClearListObjects();
         }
     }

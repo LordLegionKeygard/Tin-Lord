@@ -6,12 +6,14 @@ public class RotateAround : MonoBehaviour
 {
     [SerializeField] private Vector3 _vector;
     [SerializeField] private float _rotateSpeed;
+    private float _defaultRotateSpeed;
     [SerializeField] private bool _isRandomStartRotation = true;
     private float _axis;
 
     private void Start()
     {
         if (_isRandomStartRotation) SetRandomRotation();
+        _rotateSpeed = _defaultRotateSpeed;
     }
 
     private void SetRandomRotation()
@@ -29,8 +31,8 @@ public class RotateAround : MonoBehaviour
         transform.localRotation = Quaternion.Euler(_vector.x * _axis, _vector.y * _axis, _vector.z * _axis);
     }
 
-    public void StopRotation()
+    public void RotationToggle(bool state)
     {
-        _rotateSpeed = 0;
+        _rotateSpeed = state ? _defaultRotateSpeed : 0;
     }
 }

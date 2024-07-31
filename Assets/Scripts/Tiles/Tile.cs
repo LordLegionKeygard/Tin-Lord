@@ -32,8 +32,19 @@ public class UpgradeBuildingWrapper
     public Sprite BuildingSprite;
     public int BuildingEcology;
     public float ResourceExtractedAmount; // за 1 тик времени
-    public ResourcesForBuildWrapper[] ResourcesForBuild;
 
+    [Header("Requires")]
+    public ResourcesForBuildWrapper[] ResourcesForBuild;
+    public ResourceRequiredEnum ResourceRequiredEnum;
+}
+
+[System.Serializable]
+public enum ResourceRequiredEnum
+{   
+    None = 0,
+    Fuel = 1,
+    Electricity = 2,
+    
 }
 
 [System.Serializable]

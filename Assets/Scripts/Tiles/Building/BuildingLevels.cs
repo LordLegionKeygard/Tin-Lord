@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Меняет view в зависимости от уровня здания, так же хранит текущий tileObject
+/// Меняет view в зависимости от уровня здания
 /// </summary>
 public class BuildingLevels : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class BuildingLevels : MonoBehaviour
         _buildingProductionView = GetComponent<BuildingProductionView>();
     }
 
-    public void SetBuildingView(int level, TileObject tileObject)
+    public void SetBuildingLevelView(int level, TileObject tileObject)
     {
         _tileObject = tileObject;
         _currentBuildingLevel = level;

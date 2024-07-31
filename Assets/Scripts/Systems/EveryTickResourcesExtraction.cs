@@ -6,15 +6,15 @@ public class EveryTickResourcesExtraction : MonoBehaviour
 {
     [SerializeField] private PlayerResources _playerResources;
     [SerializeField] private EveryTickResourcesWrapper[] _everyTickResourceExtraction;
-    [SerializeField] private List<ResourcesExtractionTilesInfo> _resourcesExtractionTilesInfoList = new List<ResourcesExtractionTilesInfo>();
+    [SerializeField] private List<ResourcesExtractionTilesInfo> _resourcesExtractionTilesInfoList = new();
 
     private void Awake()
     {
         CustomEvents.OnChangeResourceExtraction += ChangeResourceExtraction;
-        CustomEvents.OnTimeTick += TheDayIsOverAddEverydayResources;
+        CustomEvents.OnTimeTick += AddEveryTickResources;
     }
 
-    public void ChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId)
+    private void ChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId)
     {
         for (int i = 0; i < _resourcesExtractionTilesInfoList.Count; i++)
         {
@@ -48,18 +48,18 @@ public class EveryTickResourcesExtraction : MonoBehaviour
         }
     }
 
-    public void TheDayIsOverAddEverydayResources()
+    private void AddEveryTickResources()
     {
         for (int i = 0; i < _everyTickResourceExtraction.Length; i++)
         {
-            _playerResources.AddResource(_everyTickResourceExtraction[i].Resource.ResourceEnum, _everyTickResourceExtraction[i].Amount);
+            _playerResources.ChangeResource(_everyTickResourceExtraction[i].Resource.ResourceEnum, _everyTickResourceExtraction[i].Amount);
         }
     }
 
     private void OnDestroy()
     {
         CustomEvents.OnChangeResourceExtraction -= ChangeResourceExtraction;
-        CustomEvents.OnTimeTick -= TheDayIsOverAddEverydayResources;
+        CustomEvents.OnTimeTick -= AddEveryTickResources;
     }
 }
 

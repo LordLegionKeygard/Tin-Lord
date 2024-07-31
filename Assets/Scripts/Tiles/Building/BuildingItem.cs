@@ -50,7 +50,7 @@ public class BuildingItem : MonoBehaviour
 
     public void BuildOrUpgrade()
     {
-        _playerResources.RemoveResourcesFromBuild(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
+        _playerResources.UseResourcesFromBuild(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:

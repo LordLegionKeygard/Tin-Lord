@@ -63,6 +63,12 @@ public class Language : MonoBehaviour
         _text[12, 0] = "Day";
         _text[12, 1] = "День";
 
+        _text[13, 0] = "Buildings";
+        _text[13, 1] = "Постройки";
+
+        _text[14, 0] = "Required resource";
+        _text[14, 1] = "Требуемый ресурс";
+
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }
 }

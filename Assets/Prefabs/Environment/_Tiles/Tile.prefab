@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 7070204914130894150}
   - component: {fileID: 3578609753463227886}
   - component: {fileID: 8574113756699916082}
+  - component: {fileID: 7078652077594085456}
   m_Layer: 3
   m_Name: Tile
   m_TagString: Untagged
@@ -151,6 +152,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 0
+  CurrentModifier: 0
+  IsHaveRequiredResource: 0
+  CurrentResourceRequired: {fileID: 0}
+  CurrentResourceRequiredAmount: 0
 --- !u!114 &1168189090752038110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +253,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ba033d4ad2df0438be4f00ee761804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7078652077594085456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820182973411244697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55dde5a55ff5ecf498752ff507006ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _electricity: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
 --- !u!1 &3978845771815807656
 GameObject:
   m_ObjectHideFlags: 0

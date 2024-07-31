@@ -8,7 +8,7 @@ public class PlayerResources : MonoBehaviour
     [SerializeField] private PlayerResourcesWrapper[] _resourcesWrapper;
 
 
-    public void AddResource(ResourceEnum resourceEnum, float amount)
+    public void ChangeResource(ResourceEnum resourceEnum, float amount)
     {
         var resources = _resourcesWrapper[(int)resourceEnum];
         resources.Amount += amount;
@@ -23,7 +23,7 @@ public class PlayerResources : MonoBehaviour
         }
     }
 
-    public void RemoveResourcesFromBuild(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
+    public void UseResourcesFromBuild(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
     {
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
@@ -42,6 +42,11 @@ public class PlayerResources : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public bool ResourceEnough(ResourceEnum resourceEnum, float amount)
+    {
+        return _resourcesWrapper[(int)resourceEnum].Amount >= amount;
     }
 }
 
