@@ -102,8 +102,7 @@ public class GroundTile : MonoBehaviour
         UpdateNeighbourGroundTiles();
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
         _buildingResourceExtraction.UpdateExtraction();
-        CustomEvents.FireRefreshBuildingModifier(_tileObject.GetId());
-        CustomEvents.FireChangeEcology(_tileObject.GetEcology(), _tileObject.GetId());
+        CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId());
     }
 
     private void UpdateNeighbourGroundTiles()
@@ -116,6 +115,7 @@ public class GroundTile : MonoBehaviour
 
     public void RefreshGroundTile()
     {
+        CustomEvents.FireRefreshBuildingModifier(_tileObject.GetId());
         _riverNumber = 0;
         if (_currentGroundTile == null) return;
         switch (_currentGroundTile.GroundTileView)

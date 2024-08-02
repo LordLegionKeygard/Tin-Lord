@@ -7,9 +7,11 @@ public class TileObject : MonoBehaviour
     [SerializeField] private int _id;
     private GroundTile _groundTile;
     private BuildingTile _buildingTile;
+    private TileEcology _tileEcology;
     private BuildingResourcesRequired _buildingResourcesRequired;
     public GroundTile GroundTileObject() => _groundTile;
     public BuildingTile BuildingTileObject() => _buildingTile;
+    public TileEcology TileEcology() => _tileEcology;
     public BuildingResourcesRequired BuildingResourcesRequired() => _buildingResourcesRequired;
     public int CurrentTileId() => _id;
     [SerializeField] private bool _isHaveRequiredResource;
@@ -25,6 +27,7 @@ public class TileObject : MonoBehaviour
     {
         _groundTile = GetComponent<GroundTile>();
         _buildingTile = GetComponent<BuildingTile>();
+        _tileEcology = GetComponent<TileEcology>();
         _buildingResourcesRequired = GetComponent<BuildingResourcesRequired>();
     }
 
@@ -35,18 +38,6 @@ public class TileObject : MonoBehaviour
     {
         _isHaveRequiredResource = state;
         FireEvent();
-    }
-
-    public int GetEcology()
-    {
-        var buildingTile = BuildingTileObject().CurrentBuildingTile();
-        var haveTile = BuildingTileObject().HaveTile();
-        var buildingLevel = haveTile ? BuildingTileObject().CurrentBuildingLevel() : 0;
-
-        var groundEcology = GroundTileObject().CurrentGroundTile().GroundEcology;
-        var buildingEcology = haveTile ? buildingTile.UpgradeBuildingWrapper[buildingLevel - 1].BuildingEcology : 0;
-
-        return groundEcology + buildingEcology;
     }
 
     public void SetResourceModifier()
@@ -68,7 +59,18 @@ public class TileObject : MonoBehaviour
 
     private void FireEvent()
     {
-        var resourcesExtracted = _isHaveRequiredResource ? _buildingTile.CurrentUpgradeBuildingWrapper().ResourceExtractedAmount * CurrentModifier : 0;
+        Debug.Log("FireEvent - NeedOptimize");
+        var resourcesExtracted = 0f;
+
+        if(_buildingTile.CurrentUpgradeBuildingWrapper().ResourceRequiredEnum == ResourceRequiredEnum.None)
+        {
+            resourcesExtracted = _buildingTile.CurrentUpgradeBuildingWrapper().ResourceExtractedAmount * CurrentModifier;
+        }
+        else
+        {
+            resourcesExtracted = _isHaveRequiredResource ? _buildingTile.CurrentUpgradeBuildingWrapper().ResourceExtractedAmount * CurrentModifier : 0;
+        }
+
         CustomEvents.FireChangeResourceExtraction(_buildingTile.CurrentBuildingTile().Resource.ResourceEnum, resourcesExtracted, _id);
     }
 }

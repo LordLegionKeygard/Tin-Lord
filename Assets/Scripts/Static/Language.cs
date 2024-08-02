@@ -27,8 +27,8 @@ public class Language : MonoBehaviour
 
     public void SetLanguage()
     {
-        _text[1, 0] = "Ecology";
-        _text[1, 1] = "Экология";
+        _text[1, 0] = "";
+        _text[1, 1] = "";
 
         _text[2, 0] = "Building";
         _text[2, 1] = "Здание";
@@ -68,6 +68,13 @@ public class Language : MonoBehaviour
 
         _text[14, 0] = "Required resource";
         _text[14, 1] = "Требуемый ресурс";
+
+        _text[15, 0] = "Ground ecology: ";
+        _text[15, 1] = "Экология земли: ";
+
+        _text[16, 0] = "Building ecology: ";
+        _text[16, 1] = "Экология здания: ";
+
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }

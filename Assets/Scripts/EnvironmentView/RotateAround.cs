@@ -13,7 +13,7 @@ public class RotateAround : MonoBehaviour
     private void Start()
     {
         if (_isRandomStartRotation) SetRandomRotation();
-        _rotateSpeed = _defaultRotateSpeed;
+        _defaultRotateSpeed = _rotateSpeed;
     }
 
     private void SetRandomRotation()

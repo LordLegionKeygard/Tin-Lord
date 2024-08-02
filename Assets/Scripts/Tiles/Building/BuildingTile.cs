@@ -32,8 +32,8 @@ public class BuildingTile : MonoBehaviour
       _buildingResourceExtraction.SetExtraction(_currentTile, level, tileObject);
 
 
-      CustomEvents.FireChangeEcology(tileObject.GetEcology(), tileObject.GetId());
-      tileObject.BuildingResourcesRequired().ChangeResourcesRequired(tileObject, CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
+      CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId());
+      tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
    }
 
    public void UpgradeBuildingTile(int level, TileObject tileObject)
@@ -41,7 +41,7 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels.SetBuildingLevelView(level, tileObject);
       _buildingResourceExtraction.SetExtraction(_currentTile, level, tileObject);
       
-      CustomEvents.FireChangeEcology(tileObject.GetEcology(), tileObject.GetId());
-      tileObject.BuildingResourcesRequired().ChangeResourcesRequired(tileObject, CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
+      CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId());
+      tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
    }
 }

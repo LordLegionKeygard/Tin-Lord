@@ -23,6 +23,7 @@ public class BuildingType : MonoBehaviour
 
     public void SelectTypeButton()
     {
+        _buildsPanel.gameObject.SetActive(true);
         _buildsPanel.SpawnBuildingItemsInScrollView(_currentTileObject, _selectTilePanel, _currentTile); //спавним список зданий этого типа
     }
 }

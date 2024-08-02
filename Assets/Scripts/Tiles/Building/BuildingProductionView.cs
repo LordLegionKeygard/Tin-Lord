@@ -55,7 +55,7 @@ public class BuildingProductionView : MonoBehaviour
     private void RefreshModifier()
     {
         _currentTileObject.SetResourceModifier();
-        if (_changeViewIfModifier != 0) SetAdditionalBuildingView(_changeViewIfModifier == _currentTileObject.CurrentModifier);
+        if (_changeViewIfModifier != 0) SetAdditionalBuildingView(_changeViewIfModifier != _currentTileObject.CurrentModifier);
         CheckMainBuildingView();
     }
 
@@ -74,7 +74,7 @@ public class BuildingProductionView : MonoBehaviour
 
     private void CheckMainBuildingView()
     {
-        if (_currentTileObject.CurrentModifier > 0 && _currentTileObject.IsHaveRequiredResource())
+        if (_currentTileObject.CurrentModifier > 0 && (_currentTileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum == ResourceRequiredEnum.None || _currentTileObject.IsHaveRequiredResource()))
         {
             SetMainBuildingView(true);
         }

@@ -180,7 +180,7 @@ public class TileDetector : MonoBehaviour
         var newTileObject = gameObject.GetComponent<TileObject>();
 
         UnselectLastTile(false);
-        _buildsPanel.PanelViewToggle(false);
+        _buildsPanel.gameObject.SetActive(false);
 
         if (newTileObject.GroundTileObject().HaveTile())
         {

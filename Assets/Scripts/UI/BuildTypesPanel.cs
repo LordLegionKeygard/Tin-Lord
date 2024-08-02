@@ -11,13 +11,8 @@ public class BuildTypesPanel : MonoBehaviour
     [SerializeField] private BuildingType _buildingType;
     [SerializeField] private Transform _content;
     private List<GameObject> _buildingTypesList = new List<GameObject>();
-    [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private BuildsPanel _buildsPanel;
 
-    private void OnEnable()
-    {
-        _scrollRect.verticalNormalizedPosition = 1;
-    }
 
     public void SpawnBuildingTypesInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //тип зданий
     {

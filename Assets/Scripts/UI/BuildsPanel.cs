@@ -14,23 +14,9 @@ public class BuildsPanel : MonoBehaviour
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private ScrollRect _scrollRect;
 
-    public void PanelViewToggle(bool state)
-    {
-        if (state)
-        {
-            _rectTransform.DOAnchorPosX(-250, 0.3f).SetUpdate(true);
-        }
-        else
-        {
-            _rectTransform.DOAnchorPosX(250, 0.3f).SetUpdate(true);
-            ClearListObjects();
-        }
-    }
-
     public void SpawnBuildingItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel, Tile tile) //все здания в типе
     {
         ClearListObjects();
-        PanelViewToggle(true);
 
         var length = tile.UpgradeBuildingWrapper;
         _scrollRect.horizontal = length.Length > 3;
@@ -47,7 +33,6 @@ public class BuildsPanel : MonoBehaviour
     public void SpawnUpgradeItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //оставшиеся здания в типе
     {
         ClearListObjects(); 
-        PanelViewToggle(true);
         var tile = tileObject.BuildingTileObject().CurrentBuildingTile();
         var length = tile.UpgradeBuildingWrapper;
         _scrollRect.horizontal = length.Length > 3;
