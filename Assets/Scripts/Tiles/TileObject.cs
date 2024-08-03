@@ -4,24 +4,34 @@ using UnityEngine;
 
 public class TileObject : MonoBehaviour
 {
-    [SerializeField] private int _id;
     private GroundTile _groundTile;
     private BuildingTile _buildingTile;
     private TileEcology _tileEcology;
     private BuildingResourcesRequired _buildingResourcesRequired;
+    private int _id;
+    private bool _isHaveRequiredResource;
+    private float _currentModifier;
+    private Resource _currentResourceRequired;
+    private float _currentResourceRequiredAmount;
+
     public GroundTile GroundTileObject() => _groundTile;
     public BuildingTile BuildingTileObject() => _buildingTile;
     public TileEcology TileEcology() => _tileEcology;
     public BuildingResourcesRequired BuildingResourcesRequired() => _buildingResourcesRequired;
     public int CurrentTileId() => _id;
-    [SerializeField] private bool _isHaveRequiredResource;
+    public int GetId() => _id;
     public bool IsHaveRequiredResource() => _isHaveRequiredResource;
+    public float CurrentModifier() => _currentModifier;
+    public Resource CurrentResourceRequired() => _currentResourceRequired;
+    public float CurrentResourceRequiredAmount() => _currentResourceRequiredAmount;
 
 
-    public float CurrentModifier;
-
-    public Resource CurrentResourceRequired;
-    public float CurrentResourceRequiredAmount;
+    public void SetResourceRequied(Resource resource, float amount)
+    {
+        _currentResourceRequired = resource;
+        _currentResourceRequiredAmount = amount;
+        CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount);
+    }
 
     private void Awake()
     {
@@ -32,44 +42,39 @@ public class TileObject : MonoBehaviour
     }
 
     public void SetId(int id) => _id = id;
-    public int GetId() => _id;
 
     public void SetIsHaveRequiredResource(bool state)
     {
         _isHaveRequiredResource = state;
-        FireEvent();
+        FireChangeResourceExtractionEvent();
     }
 
     public void SetResourceModifier()
     {
-        var buildingsOnTile = GroundTileObject().CurrentGroundTile().BuildingsOnTile;
-
-        for (int i = 0; i < buildingsOnTile.Length; i++)
-        {
-            if (buildingsOnTile[i].BuildingTile == BuildingTileObject().CurrentBuildingTile())
-            {
-                CurrentModifier = buildingsOnTile[i].ResourceModifier;
-                FireEvent();
-                return;
-            }
-        }
-        CurrentModifier = 0; //данного ресурса больше нет на тайле
-        FireEvent();
+        _currentModifier = CalculateCurrentModifier();
+        FireChangeResourceExtractionEvent();
     }
 
-    private void FireEvent()
+    private float CalculateCurrentModifier()
+    {
+        foreach (var building in GroundTileObject().CurrentGroundTile().BuildingsOnTile)
+        {
+            if (building.BuildingTile == BuildingTileObject().CurrentBuildingTile())
+            {
+                return building.ResourceModifier;
+            }
+        }
+        return 0; // Resource is no longer available on the tile
+    }
+
+private void FireChangeResourceExtractionEvent()
     {
         Debug.Log("FireEvent - NeedOptimize");
-        var resourcesExtracted = 0f;
 
-        if(_buildingTile.CurrentUpgradeBuildingWrapper().ResourceRequiredEnum == ResourceRequiredEnum.None)
-        {
-            resourcesExtracted = _buildingTile.CurrentUpgradeBuildingWrapper().ResourceExtractedAmount * CurrentModifier;
-        }
-        else
-        {
-            resourcesExtracted = _isHaveRequiredResource ? _buildingTile.CurrentUpgradeBuildingWrapper().ResourceExtractedAmount * CurrentModifier : 0;
-        }
+        var resourceWrapper = _buildingTile.CurrentUpgradeBuildingWrapper();
+        var resourcesExtracted = resourceWrapper.ResourceRequiredEnum == ResourceRequiredEnum.None
+            ? resourceWrapper.ResourceExtractedAmount * _currentModifier
+            : (_isHaveRequiredResource ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0);
 
         CustomEvents.FireChangeResourceExtraction(_buildingTile.CurrentBuildingTile().Resource.ResourceEnum, resourcesExtracted, _id);
     }

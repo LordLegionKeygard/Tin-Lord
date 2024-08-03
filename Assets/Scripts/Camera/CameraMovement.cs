@@ -111,7 +111,7 @@ public class CameraMovement : MonoBehaviour
 
     public void ZoomCamera(InputAction.CallbackContext callBack)
     {
-        if(EventSystem.current.IsPointerOverGameObject()) return;
+        if(IsPointerOverUISystem.IsPointerOverUI) return;
         
         float inputValue = -callBack.ReadValue<Vector2>().y / 100f;
 

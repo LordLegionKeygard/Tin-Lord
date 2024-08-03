@@ -1,0 +1,83 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EveryTickResourcesRequired : MonoBehaviour
+{
+    [SerializeField] private PlayerResources _playerResources;
+    [SerializeField] private List<ResourcesRequiredTilesInfo> _resourcesRequiresTilesInfoList = new();
+
+    private void Awake()
+    {
+        CustomEvents.OnChangeResourceRequired += ChangeResourceRequired;
+        CustomEvents.OnTimeTick += UseEveryTick;
+    }
+
+    private void UseEveryTick()
+    {
+        UseEveryTickRequiredResources(false);
+    }
+
+    private void ChangeResourceRequired(TileObject tileObject, Resource resource, float amount)
+    {
+        var info = _resourcesRequiresTilesInfoList.Find(info => info.TileObject == tileObject);
+
+        if (resource == null)
+        {
+            if (info != null)
+            {
+                _resourcesRequiresTilesInfoList.Remove(info);
+                UseEveryTickRequiredResources(true);
+            }
+            return;
+        }
+
+        if (info != null)
+        {
+            info.ResourceEnum = resource.ResourceEnum;
+            info.Amount = amount;
+        }
+        else
+        {
+            _resourcesRequiresTilesInfoList.Add(new ResourcesRequiredTilesInfo
+            {
+                TileObject = tileObject,
+                ResourceEnum = resource.ResourceEnum,
+                Amount = amount
+            });
+        }
+        UseEveryTickRequiredResources(true);
+    }
+
+    private void UseEveryTickRequiredResources(bool needEvent)
+    {
+        foreach (var info in _resourcesRequiresTilesInfoList)
+        {
+            bool hasEnoughResource = _playerResources.ResourceEnough(info.ResourceEnum, info.Amount);
+            if (hasEnoughResource)
+            {
+                _playerResources.ChangeResource(info.ResourceEnum, -info.Amount);
+            }
+
+            bool isResourceStateChanged = info.TileObject.IsHaveRequiredResource() != hasEnoughResource || needEvent;
+            if (isResourceStateChanged)
+            {
+                CustomEvents.FireHaveRequiredResource(info.TileObject.GetId(), hasEnoughResource);
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnChangeResourceRequired -= ChangeResourceRequired;
+        CustomEvents.OnTimeTick -= UseEveryTick;
+    }
+}
+
+[System.Serializable]
+public class ResourcesRequiredTilesInfo
+{
+    public TileObject TileObject;
+    public ResourceEnum ResourceEnum;
+    public float Amount;
+}

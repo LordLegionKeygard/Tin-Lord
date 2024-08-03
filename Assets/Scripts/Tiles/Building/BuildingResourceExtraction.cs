@@ -21,6 +21,6 @@ public class BuildingResourceExtraction : MonoBehaviour
         if(_tile == null || _level == 0 || _tileObject == null) return;
         if(_tile.Resource == null) return;
         
-        CustomEvents.FireChangeResourceExtraction(_tile.Resource.ResourceEnum, _tile.UpgradeBuildingWrapper[_level - 1].ResourceExtractedAmount * _tileObject.CurrentModifier, _tileObject.CurrentTileId());
+        CustomEvents.FireChangeResourceExtraction(_tile.Resource.ResourceEnum, _tile.UpgradeBuildingWrapper[_level - 1].ResourceExtractedAmount * _tileObject.CurrentModifier(), _tileObject.CurrentTileId());
     }
 }

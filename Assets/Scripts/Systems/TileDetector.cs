@@ -21,7 +21,7 @@ public class TileDetector : MonoBehaviour
         {
             RaycastHit raycastHit;
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !EventSystem.current.IsPointerOverGameObject())
+            if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !IsPointerOverUISystem.IsPointerOverUI)
             {
                 if (raycastHit.transform != null)
                 {
@@ -42,7 +42,7 @@ public class TileDetector : MonoBehaviour
                 }
             }
 
-            if (EventSystem.current.IsPointerOverGameObject())
+            if (IsPointerOverUISystem.IsPointerOverUI)
             {
                 Clear();
             }
@@ -53,7 +53,7 @@ public class TileDetector : MonoBehaviour
     {
         if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() && _currentTileObject != null)
         {
-            if (_canSetTile && !EventSystem.current.IsPointerOverGameObject())
+            if (_canSetTile && !IsPointerOverUISystem.IsPointerOverUI)
             {
                 if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
                 {
@@ -86,7 +86,7 @@ public class TileDetector : MonoBehaviour
         {
             RaycastHit raycastHit;
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !EventSystem.current.IsPointerOverGameObject())
+            if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !IsPointerOverUISystem.IsPointerOverUI)
             {
                 if (raycastHit.transform != null)
                 {
