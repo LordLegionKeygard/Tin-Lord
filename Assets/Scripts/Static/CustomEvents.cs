@@ -38,21 +38,9 @@ public class CustomEvents
         OnPauseChanged?.Invoke(isPause);
     }
 
-    public static event Action<int> OnRefreshBuildingModifier;
-    public static void FireRefreshBuildingModifier(int tileId)
-    {
-        OnRefreshBuildingModifier?.Invoke(tileId);
-    }
-
     public static event Action<int, bool> OnHaveRequiredResource;
     public static void FireHaveRequiredResource(int id, bool state)
     {
         OnHaveRequiredResource?.Invoke(id, state);
-    }
-
-    public static event Action<int> OnRefreshShowInfo;
-    public static void FireRefreshShowInfo(int id)
-    {
-        OnRefreshShowInfo?.Invoke(id);
     }
 }

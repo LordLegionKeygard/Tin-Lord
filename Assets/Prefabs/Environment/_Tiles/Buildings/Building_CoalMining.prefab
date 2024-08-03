@@ -7856,8 +7856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914cc685328b9574993329eaa1ec37bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentModifier: 0
-  _changeViewIfModifier: 0
   _characterBuildingAnimators:
   - {fileID: 138029405412682102}
   - {fileID: 3639686243451222460}
@@ -7887,6 +7885,9 @@ MonoBehaviour:
   _rotateArounds:
   - {fileID: 2401826903321948010}
   - {fileID: 4409623067141077744}
+  _changeViewIfModifier: 0
+  _additionalturnOffObjects: []
+  _additionalturnOnObjects: []
 --- !u!114 &8466782093270549725
 MonoBehaviour:
   m_ObjectHideFlags: 0

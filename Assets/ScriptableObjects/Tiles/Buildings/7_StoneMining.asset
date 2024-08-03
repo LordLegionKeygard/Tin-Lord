@@ -35,9 +35,10 @@ MonoBehaviour:
       RecourcesForBuildAmount: 5
     - ResourcesForBuild: 1
       RecourcesForBuildAmount: 3
+    ResourceRequiredEnum: 0
   - Name:
-    - Wooden Crane
-    - "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0439 \u041A\u0440\u0430\u043D"
+    - Drill
+    - "\u0411\u0443\u0440"
     BuildingSprite: {fileID: 21300000, guid: a614ffb074d3e7f45bfb8f97bc63c7b6, type: 3}
     BuildingEcology: -3
     ResourceExtractedAmount: 0.4
@@ -48,6 +49,7 @@ MonoBehaviour:
       RecourcesForBuildAmount: 5
     - ResourcesForBuild: 10
       RecourcesForBuildAmount: 5
+    ResourceRequiredEnum: 1
   - Name:
     - Boer Machine
     - "\u0411\u0443\u0440\u043E\u0432\u0430\u044F \u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
@@ -63,6 +65,7 @@ MonoBehaviour:
       RecourcesForBuildAmount: 10
     - ResourcesForBuild: 11
       RecourcesForBuildAmount: 5
+    ResourceRequiredEnum: 2
   Name:
   - Stone Mining
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041A\u0430\u043C\u043D\u044F"

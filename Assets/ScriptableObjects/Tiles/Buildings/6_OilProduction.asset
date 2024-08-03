@@ -37,6 +37,7 @@ MonoBehaviour:
       RecourcesForBuildAmount: 5
     - ResourcesForBuild: 10
       RecourcesForBuildAmount: 5
+    ResourceRequiredEnum: 0
   - Name:
     - Pumpjack
     - "\u0421\u0442\u0430\u043D\u043E\u043A-\u043A\u0430\u0447\u0430\u043B\u043A\u0430"
@@ -52,6 +53,7 @@ MonoBehaviour:
       RecourcesForBuildAmount: 10
     - ResourcesForBuild: 11
       RecourcesForBuildAmount: 5
+    ResourceRequiredEnum: 2
   - Name:
     - Oil Rig
     - "\u041D\u0435\u0444\u0442\u044F\u043D\u0430\u044F \u0412\u044B\u0448\u043A\u0430"
@@ -67,6 +69,7 @@ MonoBehaviour:
       RecourcesForBuildAmount: 15
     - ResourcesForBuild: 11
       RecourcesForBuildAmount: 10
+    ResourceRequiredEnum: 2
   Name:
   - Oil Production
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041D\u0435\u0444\u0442\u0438"

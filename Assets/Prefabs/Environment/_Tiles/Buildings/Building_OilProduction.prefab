@@ -1129,6 +1129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1995532334043188817}
   - component: {fileID: 6503420246242279485}
+  - component: {fileID: 4756560344875198513}
   - component: {fileID: 256822578878966504}
   m_Layer: 0
   m_Name: Building_OilProduction
@@ -1170,6 +1171,27 @@ MonoBehaviour:
   - {fileID: 750493029015770372}
   - {fileID: 4092441453266999804}
   _currentBuildingLevel: 0
+--- !u!114 &4756560344875198513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995532334043188822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914cc685328b9574993329eaa1ec37bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterBuildingAnimators: []
+  _armIk: []
+  _turnOffObjects: []
+  _turnOnObjects: []
+  _animators: []
+  _rotateArounds: []
+  _changeViewIfModifier: 0
+  _additionalturnOffObjects: []
+  _additionalturnOnObjects: []
 --- !u!114 &256822578878966504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5543,6 +5565,7 @@ MonoBehaviour:
   _randomRange: 0.4
   _isChangePosition: 1
   _isChangeRotation: 1
+  _isFixed90Rotation: 0
 --- !u!1001 &5661976509060402345
 PrefabInstance:
   m_ObjectHideFlags: 0

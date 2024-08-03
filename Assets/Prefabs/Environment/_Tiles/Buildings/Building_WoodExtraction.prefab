@@ -1717,8 +1717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914cc685328b9574993329eaa1ec37bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentModifier: 0
-  _haveRequiredResource: 0
   _characterBuildingAnimators: []
   _armIk: []
   _turnOffObjects:
@@ -2134,7 +2132,7 @@ GameObject:
   - component: {fileID: 5746593528806956023}
   - component: {fileID: 5746593528806956022}
   m_Layer: 0
-  m_Name: DestroyTrees
+  m_Name: TagsDestroyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3936,7 +3934,7 @@ GameObject:
   - component: {fileID: 3707708968451161586}
   - component: {fileID: 4001531606917262607}
   m_Layer: 0
-  m_Name: DestroyTrees
+  m_Name: TagsDestroyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4095,7 +4093,7 @@ GameObject:
   - component: {fileID: 915746122965384648}
   - component: {fileID: 6562147912711709274}
   m_Layer: 0
-  m_Name: DestroyTrees
+  m_Name: TagsDestroyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

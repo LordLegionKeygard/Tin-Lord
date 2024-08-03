@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using RootMotion.FinalIK;
 using UnityEngine;
+using Zenject;
 
 /// <summary>
 /// Обновляет view, если модификатор добычи 0 или закончился требуемый ресурс для работы или здание выключено игроком
 /// </summary>
 public class BuildingProductionView : MonoBehaviour
 {
+    [Inject] private SelectTilePanel _selectTilePanel;
     private TileObject _currentTileObject;
 
     [Header("MainWorkObjects")]
@@ -25,14 +27,14 @@ public class BuildingProductionView : MonoBehaviour
 
     private void Awake()
     {
-        CustomEvents.OnRefreshBuildingModifier += RefreshBuildingModifier;
         CustomEvents.OnHaveRequiredResource += ToggleResourceRequired;
     }
 
     public void SetCurrentTileObject(TileObject tileObject)
     {
         _currentTileObject = tileObject;
-        RefreshModifier();
+        _currentTileObject.SetBuildingProductionView(this);
+        _currentTileObject.SetResourceModifier();
     }
 
     private void ToggleResourceRequired(int tileId, bool state)
@@ -45,16 +47,8 @@ public class BuildingProductionView : MonoBehaviour
         CheckMainBuildingView();
     }
 
-    private void RefreshBuildingModifier(int tileId)
+    public void RefreshModifierView()
     {
-        if (_currentTileObject == null) return;
-        if (_currentTileObject.GetId() != tileId) return;
-        RefreshModifier();
-    }
-
-    private void RefreshModifier()
-    {
-        _currentTileObject.SetResourceModifier();
         if (_changeViewIfModifier != 0) SetAdditionalBuildingView(_changeViewIfModifier != _currentTileObject.CurrentModifier());
         CheckMainBuildingView();
     }
@@ -82,7 +76,7 @@ public class BuildingProductionView : MonoBehaviour
         {
             SetMainBuildingView(false);
         }
-        CustomEvents.FireRefreshShowInfo(_currentTileObject.GetId());
+        _selectTilePanel.RefreshShowInfo(_currentTileObject.GetId());
     }
 
     private void SetMainBuildingView(bool state)
@@ -121,7 +115,6 @@ public class BuildingProductionView : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnRefreshBuildingModifier -= RefreshBuildingModifier;
         CustomEvents.OnHaveRequiredResource -= ToggleResourceRequired;
     }
 }

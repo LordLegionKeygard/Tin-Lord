@@ -8,6 +8,7 @@ public class TileObject : MonoBehaviour
     private BuildingTile _buildingTile;
     private TileEcology _tileEcology;
     private BuildingResourcesRequired _buildingResourcesRequired;
+    private BuildingProductionView _buildingProductionView;
     private int _id;
     private bool _isHaveRequiredResource;
     private float _currentModifier;
@@ -24,6 +25,7 @@ public class TileObject : MonoBehaviour
     public float CurrentModifier() => _currentModifier;
     public Resource CurrentResourceRequired() => _currentResourceRequired;
     public float CurrentResourceRequiredAmount() => _currentResourceRequiredAmount;
+    public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
 
 
     public void SetResourceRequied(Resource resource, float amount)
@@ -46,13 +48,17 @@ public class TileObject : MonoBehaviour
     public void SetIsHaveRequiredResource(bool state)
     {
         _isHaveRequiredResource = state;
-        FireChangeResourceExtractionEvent();
+        ChangeResourceExtraction();
     }
 
     public void SetResourceModifier()
     {
+        if (_buildingTile.CurrentBuildingTile() == null) return;
+
         _currentModifier = CalculateCurrentModifier();
-        FireChangeResourceExtractionEvent();
+        _buildingProductionView.RefreshModifierView();
+        ChangeResourceExtraction();
+
     }
 
     private float CalculateCurrentModifier()
@@ -64,12 +70,13 @@ public class TileObject : MonoBehaviour
                 return building.ResourceModifier;
             }
         }
-        return 0; // Resource is no longer available on the tile
+        return 0;
     }
 
-private void FireChangeResourceExtractionEvent()
+    public void ChangeResourceExtraction()
     {
-        Debug.Log("FireEvent - NeedOptimize");
+        if (_buildingTile.CurrentBuildingTile() == null) return;
+        Debug.Log("FireEvent - CheckCount");
 
         var resourceWrapper = _buildingTile.CurrentUpgradeBuildingWrapper();
         var resourcesExtracted = resourceWrapper.ResourceRequiredEnum == ResourceRequiredEnum.None

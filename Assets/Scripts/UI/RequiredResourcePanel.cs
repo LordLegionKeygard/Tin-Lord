@@ -8,8 +8,22 @@ public class RequiredResourcePanel : MonoBehaviour
     [SerializeField] private GameObject[] _select;
     [SerializeField] private Button[] _buttons;
 
-    public void UpdateButtonsView(ResourceEnum resourceEnum)
+    public void UpdateButtonsView(ResourceEnum resourceEnum, ResourceRequiredEnum resourceRequiredEnum)
     {
+        if (resourceRequiredEnum == ResourceRequiredEnum.Fuel)
+        {
+            _buttons[0].gameObject.SetActive(true);
+            _buttons[1].gameObject.SetActive(true);
+            _buttons[2].gameObject.SetActive(false);
+        }
+        else if (resourceRequiredEnum == ResourceRequiredEnum.Electricity)
+        {
+            _buttons[0].gameObject.SetActive(false);
+            _buttons[1].gameObject.SetActive(false);
+            _buttons[2].gameObject.SetActive(true);
+        }
+
+
         foreach (var select in _select)
         {
             select.SetActive(false);

@@ -13,7 +13,6 @@ public class GroundTile : MonoBehaviour
     [SerializeField] private Transform _groundParent;
     [SerializeField] private GameObject _currentGroundTileObject;
     [SerializeField] private TileObject _tileObject;
-    [SerializeField] private BuildingResourceExtraction _buildingResourceExtraction;
     private int _groundModelRotation;
     private TileView _tileView;
     private TileRiver _tileRiver;
@@ -101,8 +100,9 @@ public class GroundTile : MonoBehaviour
         RefreshGroundTile();
         UpdateNeighbourGroundTiles();
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
-        _buildingResourceExtraction.UpdateExtraction();
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId());
+        _tileObject.ChangeResourceExtraction();
+        _tileObject.SetResourceModifier();
     }
 
     private void UpdateNeighbourGroundTiles()
@@ -115,7 +115,7 @@ public class GroundTile : MonoBehaviour
 
     public void RefreshGroundTile()
     {
-        CustomEvents.FireRefreshBuildingModifier(_tileObject.GetId());
+
         _riverNumber = 0;
         if (_currentGroundTile == null) return;
         switch (_currentGroundTile.GroundTileView)

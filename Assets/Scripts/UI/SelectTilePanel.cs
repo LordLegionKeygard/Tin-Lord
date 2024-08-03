@@ -9,13 +9,13 @@ public class SelectTilePanel : MonoBehaviour
     [Header("Main")]
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
-    
+
     [Header("Objects")]
     [SerializeField] private GameObject _buildButton;
     [SerializeField] private GameObject _upgradeButton;
     [SerializeField] private GameObject _tileInfoPanelObject;
     [SerializeField] private GameObject _tileBuildPanelObject;
-    [SerializeField] private GameObject _requiredResourcePanel;
+    [SerializeField] private GameObject _requiredResourcePanelObject;
     [SerializeField] private GameObject _requiredResourcePanelLine;
     [SerializeField] private RectTransform _objectTransform;
 
@@ -31,18 +31,17 @@ public class SelectTilePanel : MonoBehaviour
 
     [Header("Other")]
     private TileObject _currentTileObject;
-    private RequiredResourcePanel _requiredResourcePanelScript;
+    private RequiredResourcePanel _requiredResourcePanel;
 
     private void Awake()
     {
-        CustomEvents.OnRefreshShowInfo += RefreshShowInfo;
-        _requiredResourcePanelScript = GetComponent<RequiredResourcePanel>();
+        _requiredResourcePanel = GetComponent<RequiredResourcePanel>();
     }
 
-    private void RefreshShowInfo(int tileId)
+    public void RefreshShowInfo(int tileId)
     {
-        Debug.Log("RefreshShowInfo - NeedOptimize");
         if (_currentTileObject == null || _currentTileObject.GetId() != tileId) return;
+        Debug.Log("RefreshShowInfo - CheckCount");
         SetInfo(_currentTileObject);
     }
 
@@ -87,7 +86,7 @@ public class SelectTilePanel : MonoBehaviour
 
         if (haveBuildingTile && buildingTile.Resource != null && tileObject.CurrentResourceRequired() != null)
         {
-            _requiredResourcePanelScript.UpdateButtonsView(_currentTileObject.CurrentResourceRequired().ResourceEnum);
+            _requiredResourcePanel.UpdateButtonsView(_currentTileObject.CurrentResourceRequired().ResourceEnum, _currentTileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
         }
     }
 
@@ -103,9 +102,20 @@ public class SelectTilePanel : MonoBehaviour
     {
         if (haveBuildingTile && buildingTile.Resource != null)
         {
+            var isUseRources = _currentTileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum != ResourceRequiredEnum.None;
             var productionText = $"{Language.TextStatic[6]}: {buildingTile.Resource.Name[Language.LanguageNumber]} ";
-            productionText += tileObject.IsHaveRequiredResource() ? (buildingWrapper.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString() : "0";
+
+            if (isUseRources)
+            {
+                productionText += tileObject.IsHaveRequiredResource() ? (buildingWrapper.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString() : "0";
+
+            }
+            else
+            {
+                productionText += (buildingWrapper.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString();
+            }
             _totalProductionText.text = productionText;
+
         }
         else
         {
@@ -124,7 +134,7 @@ public class SelectTilePanel : MonoBehaviour
     private void SetPanelVisibility(bool haveBuildingTile, UpgradeBuildingWrapper buildingWrapper)
     {
         var showRequiredResourcePanel = haveBuildingTile && buildingWrapper.ResourceRequiredEnum != ResourceRequiredEnum.None;
-        _requiredResourcePanel.SetActive(showRequiredResourcePanel);
+        _requiredResourcePanelObject.SetActive(showRequiredResourcePanel);
         _requiredResourcePanelLine.SetActive(showRequiredResourcePanel);
     }
 
@@ -157,11 +167,6 @@ public class SelectTilePanel : MonoBehaviour
     public void ChangeResourceRequired(Resource resource)
     {
         _currentTileObject.BuildingResourcesRequired().ChangeResourceRequired(_currentTileObject, resource);
-        _requiredResourcePanelScript.UpdateButtonsView(resource.ResourceEnum);
-    }
-
-    private void OnDestroy()
-    {
-        CustomEvents.OnRefreshShowInfo -= RefreshShowInfo;
+        _requiredResourcePanel.UpdateButtonsView(_currentTileObject.CurrentResourceRequired().ResourceEnum, _currentTileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
     }
 }

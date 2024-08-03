@@ -10,7 +10,6 @@ public class BuildingTile : MonoBehaviour
    [SerializeField] private Transform _buildingParent;
    [SerializeField] private GameObject _currentBuildingTileObject;
    [SerializeField] private BuildingLevels _buildingLevels;
-   [SerializeField] private BuildingResourceExtraction _buildingResourceExtraction;
 
    public bool HaveTile() => _currentTile != null;
    public Tile CurrentBuildingTile() => _currentTile;
@@ -29,8 +28,6 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels = _currentBuildingTileObject.GetComponent<BuildingLevels>();
 
       _buildingLevels.SetBuildingLevelView(level, tileObject);
-      _buildingResourceExtraction.SetExtraction(_currentTile, level, tileObject);
-
 
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId());
       tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
@@ -39,7 +36,6 @@ public class BuildingTile : MonoBehaviour
    public void UpgradeBuildingTile(int level, TileObject tileObject)
    {
       _buildingLevels.SetBuildingLevelView(level, tileObject);
-      _buildingResourceExtraction.SetExtraction(_currentTile, level, tileObject);
       
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId());
       tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);

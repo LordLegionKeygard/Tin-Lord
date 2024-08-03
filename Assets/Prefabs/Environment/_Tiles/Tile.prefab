@@ -99,7 +99,6 @@ GameObject:
   - component: {fileID: 8647205754676832079}
   - component: {fileID: 7070204914130894150}
   - component: {fileID: 3578609753463227886}
-  - component: {fileID: 8574113756699916082}
   - component: {fileID: 7078652077594085456}
   - component: {fileID: 9176713146945725742}
   m_Layer: 3
@@ -152,11 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7481d986074fb543b287e606e105134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 0
-  _isHaveRequiredResource: 0
-  CurrentModifier: 0
-  CurrentResourceRequired: {fileID: 0}
-  CurrentResourceRequiredAmount: 0
 --- !u!114 &1168189090752038110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +176,6 @@ MonoBehaviour:
   _groundParent: {fileID: 3928428458243860748}
   _currentGroundTileObject: {fileID: 0}
   _tileObject: {fileID: 3503825946145213506}
-  _buildingResourceExtraction: {fileID: 8574113756699916082}
   _riverNumber: 0
 --- !u!114 &8036645975946344574
 MonoBehaviour:
@@ -200,7 +193,6 @@ MonoBehaviour:
   _buildingParent: {fileID: 1685772399035195807}
   _currentBuildingTileObject: {fileID: 0}
   _buildingLevels: {fileID: 0}
-  _buildingResourceExtraction: {fileID: 8574113756699916082}
 --- !u!114 &8647205754676832079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,18 +234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isLastRiverTile: 0
---- !u!114 &8574113756699916082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3820182973411244697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90ba033d4ad2df0438be4f00ee761804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7078652077594085456
 MonoBehaviour:
   m_ObjectHideFlags: 0
