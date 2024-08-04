@@ -21,6 +21,7 @@ public enum ResourceType
 
 public enum ResourceEnum
 {
+    None = -1,
     Wood = 0,
     Stone = 1,
     IronOre = 2,

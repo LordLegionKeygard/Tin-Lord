@@ -114,6 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 792149862495462663}
+  - component: {fileID: 2785289006932365449}
   m_Layer: 0
   m_Name: Tile_DesertRiver
   m_TagString: Untagged
@@ -139,6 +140,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2785289006932365449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792149862495462656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6973c5ef68690ca49a9c40f0d0c5061b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeObjects:
+  - {fileID: 2078123452642938290}
 --- !u!1 &1150323008125883569
 GameObject:
   m_ObjectHideFlags: 0

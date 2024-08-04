@@ -12,7 +12,7 @@ public class Tag : MonoBehaviour
         {
             if (_currentTag == tags[i] || tags[0] == Tags.All)
             {
-                Destroy(_parentObject);
+                _parentObject.SetActive(false);
             }
         }
     }

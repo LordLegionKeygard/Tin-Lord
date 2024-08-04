@@ -10,12 +10,13 @@ public class ActiveObjects : MonoBehaviour
     [SerializeField] private int _max;
     private int _currentObjectsCount;
 
-    private void Start()
+    public void Refresh()
     {
-        Active();
+        Reset();
+        ActiveNewObjects();
     }
 
-    private void Active()
+    private void ActiveNewObjects()
     {
         var objectsCount = Random.Range(_min, _max);
 
@@ -28,12 +29,19 @@ public class ActiveObjects : MonoBehaviour
             if (rnd == 0 && !_objects[i].activeInHierarchy)
             {
                 _objects[i].SetActive(true);
-                if(_isRotation) RandomRotation(i);
+                if (_isRotation) RandomRotation(i);
                 _currentObjectsCount++;
             }
         }
+    }
 
-        // if(_currentObjectsCount < objectsCount) Active();
+    private void Reset()
+    {
+        _currentObjectsCount = 0;
+        for (int i = 0; i < _objects.Length; i++)
+        {
+            _objects[i].SetActive(false);
+        }
     }
 
     private void RandomRotation(int number)

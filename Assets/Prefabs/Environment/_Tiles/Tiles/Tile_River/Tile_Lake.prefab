@@ -97,8 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parentCount: 0
-  _isSetGroundModelRotation: 0
 --- !u!1 &3777515262791649971
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8012957610898376202}
+  - component: {fileID: 3135315705585850889}
   m_Layer: 0
   m_Name: Tile_Lake
   m_TagString: Untagged
@@ -230,6 +229,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3135315705585850889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8012957610898376205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6973c5ef68690ca49a9c40f0d0c5061b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeObjects:
+  - {fileID: 2538653371831720773}
 --- !u!1 &8012957611513165754
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,8 +365,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parentCount: 0
-  _isSetGroundModelRotation: 0
 --- !u!1001 &1046033428137116675
 PrefabInstance:
   m_ObjectHideFlags: 0

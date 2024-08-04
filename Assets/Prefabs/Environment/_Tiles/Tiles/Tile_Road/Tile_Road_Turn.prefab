@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7305456058208014204}
+  - component: {fileID: 6850136846501770350}
   m_Layer: 0
   m_Name: Tile_Road_Turn
   m_TagString: Untagged
@@ -33,6 +34,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6850136846501770350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305456058208014203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6973c5ef68690ca49a9c40f0d0c5061b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeObjects:
+  - {fileID: 4076684572864086909}
 --- !u!1 &7305456059033566924
 GameObject:
   m_ObjectHideFlags: 0

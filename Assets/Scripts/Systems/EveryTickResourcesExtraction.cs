@@ -14,13 +14,20 @@ public class EveryTickResourcesExtraction : MonoBehaviour
         CustomEvents.OnTimeTick += AddEveryTickResources;
     }
 
-    private void ChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId)
+    private void ChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId, bool remove)
     {
         for (int i = 0; i < _resourcesExtractionTilesInfoList.Count; i++)
         {
             if (_resourcesExtractionTilesInfoList[i].Id == tileId)
             {
-                _resourcesExtractionTilesInfoList[i].Amount = amount;
+                if (remove)
+                {
+                    _resourcesExtractionTilesInfoList.Remove(_resourcesExtractionTilesInfoList[i]);
+                }
+                else
+                {
+                    _resourcesExtractionTilesInfoList[i].Amount = amount;
+                }
                 RefreshEverydayResourcedExtraction();
                 return;
             }
@@ -37,7 +44,7 @@ public class EveryTickResourcesExtraction : MonoBehaviour
 
     public void RefreshEverydayResourcedExtraction()
     {
-        for (int i = 0; i < _everyTickResourceExtraction.Length; i++) //возможен баг в конце дня что не даст ресурсов
+        for (int i = 0; i < _everyTickResourceExtraction.Length; i++)
         {
             _everyTickResourceExtraction[i].Amount = 0;
         }

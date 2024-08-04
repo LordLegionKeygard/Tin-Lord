@@ -49,21 +49,17 @@ public class EveryTickResourcesRequired : MonoBehaviour
         UseEveryTickRequiredResources(true);
     }
 
-    private void UseEveryTickRequiredResources(bool needEvent)
+    private void UseEveryTickRequiredResources(bool needCheck)
     {
         foreach (var info in _resourcesRequiresTilesInfoList)
         {
-            bool hasEnoughResource = _playerResources.ResourceEnough(info.ResourceEnum, info.Amount);
-            if (hasEnoughResource)
+            var state = info.TileObject.IsHaveRequiredResource();
+            info.TileObject.CheckResourceRequired(state, needCheck);
+            if (state)
             {
                 _playerResources.ChangeResource(info.ResourceEnum, -info.Amount);
             }
 
-            bool isResourceStateChanged = info.TileObject.IsHaveRequiredResource() != hasEnoughResource || needEvent;
-            if (isResourceStateChanged)
-            {
-                CustomEvents.FireHaveRequiredResource(info.TileObject.GetId(), hasEnoughResource);
-            }
         }
     }
 

@@ -116,6 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463810506727819772}
+  - component: {fileID: 8861490638433322907}
   m_Layer: 0
   m_Name: Tile_Road
   m_TagString: Untagged
@@ -140,6 +141,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8861490638433322907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463810506727819771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6973c5ef68690ca49a9c40f0d0c5061b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeObjects:
+  - {fileID: 2790000897152779149}
 --- !u!1 &6723153962567917477
 GameObject:
   m_ObjectHideFlags: 0

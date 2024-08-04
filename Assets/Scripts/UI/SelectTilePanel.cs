@@ -169,9 +169,15 @@ public class SelectTilePanel : MonoBehaviour
             _currentTileObject.GroundTileObject().DestroyGroundTile();
             PanelViewToggle(false);            
         }
+        else
+        {
+            _currentTileObject.BuildingTileObject().DestroyBuildingTile();
+            CloseBuildPanelAndRefreshInfo();
+            SetInfo(_currentTileObject);
+        }
     }
 
-    public void ClosePanelAndRefreshInfo()
+    public void CloseBuildPanelAndRefreshInfo()
     {
         _buildsPanel.gameObject.SetActive(false);
         _tileBuildPanelObject.SetActive(false);

@@ -286,7 +286,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterBuildingAnimators: []
   _armIk: []
-  _turnOffObjects: []
+  _turnOffObjects:
+  - {fileID: 6601896749498471455}
+  - {fileID: 1670621421315844831}
   _turnOnObjects: []
   _animators: []
   _rotateArounds: []
@@ -2323,6 +2325,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7283618941699520005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1670621421315844831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8231350325831671002, guid: 11c6385723770bb4bbac97689a9d51b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 7283618941699520005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8321426607147797685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2395,6 +2403,12 @@ PrefabInstance:
 --- !u!4 &6599230479841546189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2949444619574018936, guid: e27740f1149a54e4ab7ac7ddbce61a24,
+    type: 3}
+  m_PrefabInstance: {fileID: 8321426607147797685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6601896749498471455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2946765330253273258, guid: e27740f1149a54e4ab7ac7ddbce61a24,
     type: 3}
   m_PrefabInstance: {fileID: 8321426607147797685}
   m_PrefabAsset: {fileID: 0}

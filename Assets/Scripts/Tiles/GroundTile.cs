@@ -58,10 +58,10 @@ public class GroundTile : MonoBehaviour
 
     public void DestroyGroundTile()
     {
+        _currentGroundTile = null;
         _groundModelRotation = 0;
         CustomEvents.FireChangeEcology(0, _tileObject.GetId(), true);
         SelectTile(false, SelectTileEnum.TileSelect);
-        _currentGroundTile = null;
         Destroy(_currentGroundTileObject);
     }
 

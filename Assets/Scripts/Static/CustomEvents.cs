@@ -14,10 +14,10 @@ public class CustomEvents
         OnTimeTick?.Invoke();
     }
 
-    public static event Action<ResourceEnum, float, int> OnChangeResourceExtraction;
-    public static void FireChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId)
+    public static event Action<ResourceEnum, float, int, bool> OnChangeResourceExtraction;
+    public static void FireChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId, bool remove)
     {
-        OnChangeResourceExtraction?.Invoke(resourceEnum, amount, tileId);
+        OnChangeResourceExtraction?.Invoke(resourceEnum, amount, tileId, remove);
     }
 
     public static event Action<TileObject, Resource, float> OnChangeResourceRequired;
@@ -36,11 +36,5 @@ public class CustomEvents
     public static void FirePauseChanged(bool isPause)
     {
         OnPauseChanged?.Invoke(isPause);
-    }
-
-    public static event Action<int, bool> OnHaveRequiredResource;
-    public static void FireHaveRequiredResource(int id, bool state)
-    {
-        OnHaveRequiredResource?.Invoke(id, state);
     }
 }

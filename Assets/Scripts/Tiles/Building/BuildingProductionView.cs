@@ -10,7 +10,7 @@ using Zenject;
 public class BuildingProductionView : MonoBehaviour
 {
     [Inject] private SelectTilePanel _selectTilePanel;
-    private TileObject _currentTileObject;
+    private TileObject _tileObject;
 
     [Header("MainWorkObjects")]
     [SerializeField] private CharacterBuildingAnimator[] _characterBuildingAnimators;
@@ -25,31 +25,17 @@ public class BuildingProductionView : MonoBehaviour
     [SerializeField] private GameObject[] _additionalturnOffObjects;
     [SerializeField] private GameObject[] _additionalturnOnObjects;
 
-    private void Awake()
-    {
-        CustomEvents.OnHaveRequiredResource += ToggleResourceRequired;
-    }
 
     public void SetCurrentTileObject(TileObject tileObject)
     {
-        _currentTileObject = tileObject;
-        _currentTileObject.SetBuildingProductionView(this);
-        _currentTileObject.SetResourceModifier();
-    }
-
-    private void ToggleResourceRequired(int tileId, bool state)
-    {
-        if (_currentTileObject == null) return;
-        if (_currentTileObject.GetId() != tileId) return;
-
-        _currentTileObject.SetIsHaveRequiredResource(state);
-
-        CheckMainBuildingView();
+        _tileObject = tileObject;
+        _tileObject.SetBuildingProductionView(this);
+        _tileObject.SetResourceModifier();
     }
 
     public void RefreshModifierView()
     {
-        if (_changeViewIfModifier != 0) SetAdditionalBuildingView(_changeViewIfModifier != _currentTileObject.CurrentModifier());
+        if (_changeViewIfModifier != 0) SetAdditionalBuildingView(_changeViewIfModifier != _tileObject.CurrentModifier());
         CheckMainBuildingView();
     }
 
@@ -66,9 +52,9 @@ public class BuildingProductionView : MonoBehaviour
         }
     }
 
-    private void CheckMainBuildingView()
+    public void CheckMainBuildingView()
     {
-        if (_currentTileObject.CurrentModifier() > 0 && (_currentTileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum == ResourceRequiredEnum.None || _currentTileObject.IsHaveRequiredResource()))
+        if (_tileObject.CurrentModifier() > 0 && (_tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum == ResourceRequiredEnum.None || _tileObject.IsHaveRequiredResource()))
         {
             SetMainBuildingView(true);
         }
@@ -76,7 +62,7 @@ public class BuildingProductionView : MonoBehaviour
         {
             SetMainBuildingView(false);
         }
-        _selectTilePanel.RefreshShowInfo(_currentTileObject.GetId());
+        _selectTilePanel.RefreshShowInfo(_tileObject.GetId());
     }
 
     private void SetMainBuildingView(bool state)
@@ -111,10 +97,5 @@ public class BuildingProductionView : MonoBehaviour
         {
             item.SetActive(!state);
         }
-    }
-
-    private void OnDestroy()
-    {
-        CustomEvents.OnHaveRequiredResource -= ToggleResourceRequired;
     }
 }

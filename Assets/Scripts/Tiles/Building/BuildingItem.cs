@@ -50,17 +50,17 @@ public class BuildingItem : MonoBehaviour
 
     public void BuildOrUpgrade()
     {
-        _playerResources.UseResourcesFromBuild(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
+        _playerResources.UseResourcesFromBuilding(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
                 if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) _tilesSystem.IsHaveBase = true;
                 _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _upgradeToLevel, _currentTileObject); //спавним впервые здание на тайле определенного лвла
-                _selectTilePanel.ClosePanelAndRefreshInfo();
+                _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;
             case BuildingState.UpgradeBuilding:
                 _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_upgradeToLevel, _currentTileObject); //улучшаем здание
-                _selectTilePanel.ClosePanelAndRefreshInfo();
+                _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;
         }
     }
