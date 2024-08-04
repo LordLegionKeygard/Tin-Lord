@@ -56,6 +56,15 @@ public class GroundTile : MonoBehaviour
     public void TurnOffTileCollider() => _tileView.TurnOffCollider();
     public void SetId(int id) => _tileObject.SetId(id);
 
+    public void DestroyGroundTile()
+    {
+        _groundModelRotation = 0;
+        CustomEvents.FireChangeEcology(0, _tileObject.GetId(), true);
+        SelectTile(false, SelectTileEnum.TileSelect);
+        _currentGroundTile = null;
+        Destroy(_currentGroundTileObject);
+    }
+
     public void TurnOffFourTileNeighboursCollider()
     {
         _neighbourTiles[0].TurnOffTileCollider();
@@ -100,7 +109,7 @@ public class GroundTile : MonoBehaviour
         RefreshGroundTile();
         UpdateNeighbourGroundTiles();
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
-        CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId());
+        CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceExtraction();
         _tileObject.SetResourceModifier();
     }

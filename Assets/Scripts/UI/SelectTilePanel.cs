@@ -12,9 +12,10 @@ public class SelectTilePanel : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private GameObject _buildButton;
-    [SerializeField] private GameObject _upgradeButton;
+    [SerializeField] private GameObject _onOffButton;
     [SerializeField] private GameObject _tileInfoPanelObject;
     [SerializeField] private GameObject _tileBuildPanelObject;
+    [SerializeField] private GameObject _tileBuildPanelLine;
     [SerializeField] private GameObject _requiredResourcePanelObject;
     [SerializeField] private GameObject _requiredResourcePanelLine;
     [SerializeField] private RectTransform _objectTransform;
@@ -68,6 +69,7 @@ public class SelectTilePanel : MonoBehaviour
     {
         _objectTransform.DOAnchorPosY(-600, 0.3f).SetUpdate(true);
         _buildsPanel.gameObject.SetActive(false);
+        _tileBuildPanelLine.SetActive(false);
     }
 
     public void SetInfo(TileObject tileObject)
@@ -82,12 +84,13 @@ public class SelectTilePanel : MonoBehaviour
         SetProductionText(tileObject, buildingTile, haveBuildingTile, buildingWrapper);
         SetEcologyTexts(tileObject);
         SetPanelVisibility(haveBuildingTile, buildingWrapper);
-        SetButtonStates(tileObject, haveBuildingTile);
 
         if (haveBuildingTile && buildingTile.Resource != null && tileObject.CurrentResourceRequired() != null)
         {
             _requiredResourcePanel.UpdateButtonsView(_currentTileObject.CurrentResourceRequired().ResourceEnum, _currentTileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
         }
+
+        SetButtonStates(tileObject, haveBuildingTile);
     }
 
     private void SetTextFields(TileObject tileObject, Tile buildingTile, bool haveBuildingTile, UpgradeBuildingWrapper buildingWrapper)
@@ -140,26 +143,39 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetButtonStates(TileObject tileObject, bool haveBuildingTile)
     {
-        _buildButton.SetActive(!haveBuildingTile);
-        _upgradeButton.SetActive(tileObject.BuildingTileObject().IsCanUpgrade());
+        _onOffButton.SetActive(haveBuildingTile);
+        _buildButton.SetActive(!haveBuildingTile || tileObject.BuildingTileObject().IsCanUpgrade()); ;
     }
 
-    public void OpenPanelForBuild()
+    public void BuildButton()
     {
-        _tileBuildPanelObject.SetActive(true);
-        _buildTypesPanel.SpawnBuildingTypesInScrollView(_currentTileObject, this);
+        if (!_currentTileObject.BuildingTileObject().HaveTile() && !_tileBuildPanelObject.activeInHierarchy)
+        {
+            _tileBuildPanelObject.SetActive(true);
+            _tileBuildPanelLine.SetActive(true);
+            _buildTypesPanel.SpawnBuildingTypesInScrollView(_currentTileObject, this);
+        }
+        else if (_currentTileObject.BuildingTileObject().HaveTile() && !_buildsPanel.gameObject.activeInHierarchy)
+        {
+            _buildsPanel.gameObject.SetActive(true);
+            _buildsPanel.SpawnUpgradeItemsInScrollView(_currentTileObject, this);
+        }
     }
 
-    public void OpenPanelForUpgrade()
+    public void DestroyButton()
     {
-        _buildsPanel.gameObject.SetActive(true);
-        _buildsPanel.SpawnUpgradeItemsInScrollView(_currentTileObject, this);
+        if (!_currentTileObject.BuildingTileObject().HaveTile())
+        {
+            _currentTileObject.GroundTileObject().DestroyGroundTile();
+            PanelViewToggle(false);            
+        }
     }
 
     public void ClosePanelAndRefreshInfo()
     {
         _buildsPanel.gameObject.SetActive(false);
         _tileBuildPanelObject.SetActive(false);
+        _tileBuildPanelLine.SetActive(false);
         PanelViewToggle(true);
         SetInfo(_currentTileObject);
     }

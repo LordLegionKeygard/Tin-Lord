@@ -36,11 +36,11 @@ public class Language : MonoBehaviour
         _text[3, 0] = "Building level";
         _text[3, 1] = "Уровень здания";
 
-        _text[4, 0] = "Build";
-        _text[4, 1] = "Строить";
+        _text[4, 0] = "";
+        _text[4, 1] = "";
 
-        _text[5, 0] = "Upgrade";
-        _text[5, 1] = "Улучшить";
+        _text[5, 0] = "";
+        _text[5, 1] = "";
 
         _text[6, 0] = "Total production";
         _text[6, 1] = "Итоговая добыча";

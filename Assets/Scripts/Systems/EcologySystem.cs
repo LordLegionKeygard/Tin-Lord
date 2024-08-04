@@ -15,13 +15,20 @@ public class EcologySystem : MonoBehaviour
         CustomEvents.OnChangeEcology += ChangeEcology;
     }
 
-    public void ChangeEcology(int amount, int tileId)
+    public void ChangeEcology(int amount, int tileId, bool remove)
     {
         for (int i = 0; i < _ecologyTileInfoList.Count; i++)
         {
             if (_ecologyTileInfoList[i].Id == tileId)
             {
-                _ecologyTileInfoList[i].Amount = amount;
+                if (remove)
+                {
+                    _ecologyTileInfoList.Remove(_ecologyTileInfoList[i]);
+                }
+                else
+                {
+                    _ecologyTileInfoList[i].Amount = amount;
+                }
                 UpdateTotalEcology();
                 return;
             }

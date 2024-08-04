@@ -26,10 +26,10 @@ public class CustomEvents
         OnChangeResourceRequired?.Invoke(tileObject, resource, amount);
     }
 
-    public static event Action<int, int> OnChangeEcology;
-    public static void FireChangeEcology(int amount, int tileId)
+    public static event Action<int, int, bool> OnChangeEcology;
+    public static void FireChangeEcology(int amount, int tileId, bool remove)
     {
-        OnChangeEcology?.Invoke(amount, tileId);
+        OnChangeEcology?.Invoke(amount, tileId, remove);
     }
 
     public static event Action<bool> OnPauseChanged;
