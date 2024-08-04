@@ -15,9 +15,9 @@ public class TileObject : MonoBehaviour
     private float _currentModifier;
     private Resource _currentResourceRequired;
     private float _currentResourceRequiredAmount;
-
-
+    public bool IsBuildingWork;
     private bool _isHaveResourceRequired;
+
     public GroundTile GroundTileObject() => _groundTile;
     public BuildingTile BuildingTileObject() => _buildingTile;
     public TileEcology TileEcology() => _tileEcology;
@@ -38,7 +38,7 @@ public class TileObject : MonoBehaviour
     }
     public bool IsHaveRequiredResource()
     {
-        return _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount);
+        return _buildingTile.CurrentUpgradeBuildingWrapper().ResourceRequiredEnum != ResourceRequiredEnum.None ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
     }
 
     public void ClearBuildingInfo()
@@ -67,7 +67,6 @@ public class TileObject : MonoBehaviour
         _currentModifier = CalculateCurrentModifier();
         _buildingProductionView.RefreshModifierView();
         ChangeResourceExtraction();
-
     }
 
     private float CalculateCurrentModifier()
@@ -84,23 +83,28 @@ public class TileObject : MonoBehaviour
 
     public void CheckResourceRequired(bool state, bool needCheck)
     {
-
         if (state != _isHaveResourceRequired || needCheck)
         {
             _isHaveResourceRequired = state;
-            if (_buildingProductionView != null) _buildingProductionView.CheckMainBuildingView();
+            CheckBuildingView();
             ChangeResourceExtraction();
         }
+    }
+
+    public void CheckBuildingView()
+    {
+        if (_buildingProductionView != null) _buildingProductionView.CheckMainBuildingView();
     }
 
     public void ChangeResourceExtraction()
     {
         if (_buildingTile.CurrentBuildingTile() == null) return;
+        Debug.Log("ChangeResourceExtraction - CheckCount");
 
         var resourceWrapper = _buildingTile.CurrentUpgradeBuildingWrapper();
-        var resourcesExtracted = resourceWrapper.ResourceRequiredEnum == ResourceRequiredEnum.None
+        var resourcesExtracted = IsBuildingWork ? resourceWrapper.ResourceRequiredEnum == ResourceRequiredEnum.None
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier
-            : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0);
+            : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0) : 0;
 
         CustomEvents.FireChangeResourceExtraction(_buildingTile.CurrentBuildingTile().Resource.ResourceEnum, resourcesExtracted, _id, false);
     }

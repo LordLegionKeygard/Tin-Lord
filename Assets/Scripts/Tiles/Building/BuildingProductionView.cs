@@ -30,7 +30,6 @@ public class BuildingProductionView : MonoBehaviour
     {
         _tileObject = tileObject;
         _tileObject.SetBuildingProductionView(this);
-        _tileObject.SetResourceModifier();
     }
 
     public void RefreshModifierView()
@@ -54,7 +53,7 @@ public class BuildingProductionView : MonoBehaviour
 
     public void CheckMainBuildingView()
     {
-        if (_tileObject.CurrentModifier() > 0 && (_tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum == ResourceRequiredEnum.None || _tileObject.IsHaveRequiredResource()))
+        if (_tileObject.CurrentModifier() > 0 && (_tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum == ResourceRequiredEnum.None || _tileObject.IsHaveRequiredResource()) && _tileObject.IsBuildingWork)
         {
             SetMainBuildingView(true);
         }

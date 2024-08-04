@@ -53,13 +53,14 @@ public class EveryTickResourcesRequired : MonoBehaviour
     {
         foreach (var info in _resourcesRequiresTilesInfoList)
         {
+            if (!info.TileObject.IsBuildingWork) return;
+            
             var state = info.TileObject.IsHaveRequiredResource();
             info.TileObject.CheckResourceRequired(state, needCheck);
             if (state)
             {
                 _playerResources.ChangeResource(info.ResourceEnum, -info.Amount);
             }
-
         }
     }
 

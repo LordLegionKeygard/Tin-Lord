@@ -25,26 +25,25 @@ public class BuildingTile : MonoBehaviour
       _tileObject = tileObject;
 
       _currentBuildingTileObject = _diContainer.InstantiatePrefab(_currentTile.TileObject, _buildingParent.position, Quaternion.identity, null);
-
       _currentBuildingTileObject.transform.SetParent(_buildingParent);
-
       _buildingLevels = _currentBuildingTileObject.GetComponent<BuildingLevels>();
-
       _buildingLevels.SetBuildingLevelView(level, tileObject);
-
+      tileObject.IsBuildingWork = true;
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
       tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
       _buildingLevels.CheckBuildingProductionView();
+      _tileObject.SetResourceModifier();
    }
 
    public void UpgradeBuildingTile(int level, TileObject tileObject)
    {
       _tileObject = tileObject;
-      _buildingLevels.SetBuildingLevelView(level, tileObject);
 
+      _buildingLevels.SetBuildingLevelView(level, tileObject);
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
       tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
       _buildingLevels.CheckBuildingProductionView();
+      _tileObject.SetResourceModifier();
    }
 
    public void DestroyBuildingTile()
@@ -57,6 +56,5 @@ public class BuildingTile : MonoBehaviour
       var tileObjectsView = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<TileObjectsView>();
       if (tileObjectsView != null) tileObjectsView.RefreshObjects();
       Destroy(_currentBuildingTileObject);
-
    }
 }

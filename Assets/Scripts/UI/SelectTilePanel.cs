@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class SelectTilePanel : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private GameObject _requiredResourcePanelObject;
     [SerializeField] private GameObject _requiredResourcePanelLine;
     [SerializeField] private RectTransform _objectTransform;
+    [SerializeField] private Image _onOffImage;
 
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI _groundTileNameText;
@@ -31,7 +33,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
 
     [Header("Other")]
-    private TileObject _currentTileObject;
+    private TileObject _tileObject;
     private RequiredResourcePanel _requiredResourcePanel;
 
     private void Awake()
@@ -41,9 +43,9 @@ public class SelectTilePanel : MonoBehaviour
 
     public void RefreshShowInfo(int tileId)
     {
-        if (_currentTileObject == null || _currentTileObject.GetId() != tileId) return;
+        if (_tileObject == null || _tileObject.GetId() != tileId) return;
         Debug.Log("RefreshShowInfo - CheckCount");
-        SetInfo(_currentTileObject);
+        SetInfo(_tileObject);
     }
 
     public void PanelViewToggle(bool state)
@@ -74,7 +76,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void SetInfo(TileObject tileObject)
     {
-        _currentTileObject = tileObject;
+        _tileObject = tileObject;
 
         var buildingTile = tileObject.BuildingTileObject().CurrentBuildingTile();
         var haveBuildingTile = tileObject.BuildingTileObject().HaveTile();
@@ -84,13 +86,19 @@ public class SelectTilePanel : MonoBehaviour
         SetProductionText(tileObject, buildingTile, haveBuildingTile, buildingWrapper);
         SetEcologyTexts(tileObject);
         SetPanelVisibility(haveBuildingTile, buildingWrapper);
+        SetOnOffButtonColor();
 
         if (haveBuildingTile && buildingTile.Resource != null && tileObject.CurrentResourceRequired() != null)
         {
-            _requiredResourcePanel.UpdateButtonsView(_currentTileObject.CurrentResourceRequired().ResourceEnum, _currentTileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
+            _requiredResourcePanel.UpdateButtonsView(_tileObject.CurrentResourceRequired().ResourceEnum, _tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
         }
 
         SetButtonStates(tileObject, haveBuildingTile);
+    }
+
+    private void SetOnOffButtonColor()
+    {
+        _onOffImage.color = _tileObject.IsBuildingWork ? Colors.OnOffButtonWork : Color.black;
     }
 
     private void SetTextFields(TileObject tileObject, Tile buildingTile, bool haveBuildingTile, UpgradeBuildingWrapper buildingWrapper)
@@ -105,17 +113,17 @@ public class SelectTilePanel : MonoBehaviour
     {
         if (haveBuildingTile && buildingTile.Resource != null)
         {
-            var isUseRources = _currentTileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum != ResourceRequiredEnum.None;
+            var isUseRources = _tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum != ResourceRequiredEnum.None;
             var productionText = $"{Language.TextStatic[6]}: {buildingTile.Resource.Name[Language.LanguageNumber]} ";
 
             if (isUseRources)
             {
-                productionText += tileObject.IsHaveRequiredResource() ? (buildingWrapper.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString() : "0";
+                productionText += tileObject.IsHaveRequiredResource() && tileObject.IsBuildingWork ? (buildingWrapper.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString() : "0";
 
             }
             else
             {
-                productionText += (buildingWrapper.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString();
+                productionText += tileObject.IsBuildingWork ? (buildingWrapper.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString() : "0";
             }
             _totalProductionText.text = productionText;
 
@@ -149,31 +157,31 @@ public class SelectTilePanel : MonoBehaviour
 
     public void BuildButton()
     {
-        if (!_currentTileObject.BuildingTileObject().HaveTile() && !_tileBuildPanelObject.activeInHierarchy)
+        if (!_tileObject.BuildingTileObject().HaveTile() && !_tileBuildPanelObject.activeInHierarchy)
         {
             _tileBuildPanelObject.SetActive(true);
             _tileBuildPanelLine.SetActive(true);
-            _buildTypesPanel.SpawnBuildingTypesInScrollView(_currentTileObject, this);
+            _buildTypesPanel.SpawnBuildingTypesInScrollView(_tileObject, this);
         }
-        else if (_currentTileObject.BuildingTileObject().HaveTile() && !_buildsPanel.gameObject.activeInHierarchy)
+        else if (_tileObject.BuildingTileObject().HaveTile() && !_buildsPanel.gameObject.activeInHierarchy)
         {
             _buildsPanel.gameObject.SetActive(true);
-            _buildsPanel.SpawnUpgradeItemsInScrollView(_currentTileObject, this);
+            _buildsPanel.SpawnUpgradeItemsInScrollView(_tileObject, this);
         }
     }
 
     public void DestroyButton()
     {
-        if (!_currentTileObject.BuildingTileObject().HaveTile())
+        if (!_tileObject.BuildingTileObject().HaveTile())
         {
-            _currentTileObject.GroundTileObject().DestroyGroundTile();
-            PanelViewToggle(false);            
+            _tileObject.GroundTileObject().DestroyGroundTile();
+            PanelViewToggle(false);
         }
         else
         {
-            _currentTileObject.BuildingTileObject().DestroyBuildingTile();
+            _tileObject.BuildingTileObject().DestroyBuildingTile();
             CloseBuildPanelAndRefreshInfo();
-            SetInfo(_currentTileObject);
+            SetInfo(_tileObject);
         }
     }
 
@@ -183,12 +191,25 @@ public class SelectTilePanel : MonoBehaviour
         _tileBuildPanelObject.SetActive(false);
         _tileBuildPanelLine.SetActive(false);
         PanelViewToggle(true);
-        SetInfo(_currentTileObject);
+        SetInfo(_tileObject);
+    }
+
+    public void ToggleBuildingWork()
+    {
+        _tileObject.IsBuildingWork = !_tileObject.IsBuildingWork;
+        SetOnOffButtonColor();
+
+        CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
+        if (!_tileObject.IsHaveRequiredResource()) return;
+
+        _tileObject.ChangeResourceExtraction();
+        CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0);
+        _tileObject.CheckBuildingView();
     }
 
     public void ChangeResourceRequired(Resource resource)
     {
-        _currentTileObject.BuildingResourcesRequired().ChangeResourceRequired(_currentTileObject, resource);
-        _requiredResourcePanel.UpdateButtonsView(_currentTileObject.CurrentResourceRequired().ResourceEnum, _currentTileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
+        _tileObject.BuildingResourcesRequired().ChangeResourceRequired(_tileObject, resource);
+        _requiredResourcePanel.UpdateButtonsView(_tileObject.CurrentResourceRequired().ResourceEnum, _tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
     }
 }
