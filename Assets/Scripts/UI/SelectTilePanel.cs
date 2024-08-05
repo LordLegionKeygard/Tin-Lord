@@ -14,6 +14,7 @@ public class SelectTilePanel : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private GameObject _buildButton;
     [SerializeField] private GameObject _onOffButton;
+    [SerializeField] private GameObject _destroyButton;
     [SerializeField] private GameObject _tileInfoPanelObject;
     [SerializeField] private GameObject _tileBuildPanelObject;
     [SerializeField] private GameObject _tileBuildPanelLine;
@@ -151,8 +152,9 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetButtonStates(TileObject tileObject, bool haveBuildingTile)
     {
-        _onOffButton.SetActive(haveBuildingTile);
-        _buildButton.SetActive(!haveBuildingTile || tileObject.BuildingTileObject().IsCanUpgrade()); ;
+        _onOffButton.SetActive(haveBuildingTile && tileObject.BuildingTileObject().CurrentBuildingTile().Resource != null);
+        _buildButton.SetActive(!haveBuildingTile || tileObject.BuildingTileObject().IsCanUpgrade());
+        _destroyButton.SetActive(tileObject.GroundTileObject().CurrentGroundTile().GroundTileView != GroundTileViewEnum.BaseFoundation);
     }
 
     public void BuildButton()

@@ -1512,8 +1512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914cc685328b9574993329eaa1ec37bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentModifier: 0
-  _changeViewIfModifier: 0
   _characterBuildingAnimators:
   - {fileID: 6135329989216789439}
   _armIk:
@@ -1526,6 +1524,9 @@ MonoBehaviour:
   - {fileID: 1384633254006958113}
   - {fileID: 2899163478662622293}
   _rotateArounds: []
+  _changeViewIfModifier: 0
+  _additionalturnOffObjects: []
+  _additionalturnOnObjects: []
 --- !u!1 &5746593529489641403
 GameObject:
   m_ObjectHideFlags: 0

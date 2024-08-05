@@ -62,7 +62,7 @@ public class TileObject : MonoBehaviour
 
     public void SetResourceModifier()
     {
-        if (_buildingTile.CurrentBuildingTile() == null) return;
+        if (_buildingTile.CurrentBuildingTile() == null || _buildingTile.CurrentBuildingTile().Resource == null) return;
 
         _currentModifier = CalculateCurrentModifier();
         _buildingProductionView.RefreshModifierView();

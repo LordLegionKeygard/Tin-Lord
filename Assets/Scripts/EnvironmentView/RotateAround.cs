@@ -6,11 +6,11 @@ public class RotateAround : MonoBehaviour
 {
     [SerializeField] private Vector3 _vector;
     [SerializeField] private float _rotateSpeed;
-    private float _defaultRotateSpeed;
+    [SerializeField] private float _defaultRotateSpeed;
     [SerializeField] private bool _isRandomStartRotation = true;
     private float _axis;
 
-    private void Start()
+    private void Awake()
     {
         if (_isRandomStartRotation) SetRandomRotation();
         _defaultRotateSpeed = _rotateSpeed;

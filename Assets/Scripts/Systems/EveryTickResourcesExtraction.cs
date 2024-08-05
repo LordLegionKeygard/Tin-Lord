@@ -33,6 +33,8 @@ public class EveryTickResourcesExtraction : MonoBehaviour
             }
         }
 
+        if(remove) return;
+
         _resourcesExtractionTilesInfoList.Add(new ResourcesExtractionTilesInfo()
         {
             Id = tileId,
