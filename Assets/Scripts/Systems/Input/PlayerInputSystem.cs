@@ -9,22 +9,31 @@ public class PlayerInputSystem : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
 
     private delegate void CameraZoom(InputAction.CallbackContext context);
-    CameraZoom cameraZoom;
+    private CameraZoom cameraZoom;
 
     private delegate void LeftMouseClick();
-    LeftMouseClick leftMouseClick;
+    private LeftMouseClick leftMouseClick;
 
     private delegate void RightMouseClick(bool state);
-    RightMouseClick rightMouseClick;
+    private RightMouseClick rightMouseClick;
 
-    private delegate void Pause();
-    Pause pause;
+    private delegate void GameSpeedPause(int gameSpeed);
+    private GameSpeedPause _gameSpeedPause;
+
+    private delegate void GameSpeedDefault(int gameSpeed);
+    private GameSpeedDefault _gameSpeedDefault;
+
+    private delegate void GameSpeedDouble(int gameSpeed);
+    private GameSpeedDouble _gameSpeedDouble;
+
+    private delegate void GameSpeedTriple(int gameSpeed);
+    private GameSpeedTriple _gameSpeedTriple;
 
     [Header("Links")]
     [SerializeField] private TileDetector _tileDetector;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private CameraMovement _cameraMovement;
-    [SerializeField] private PauseSystem _pauseSystem;
+    [SerializeField] private GameSpeedSystem _gameSpeedSystem;
 
     private void Awake()
     {
@@ -55,7 +64,10 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInput.actions["CameraZoom"].started += ctx => cameraZoom(ctx);
         _playerInput.actions["LeftMouseClick"].performed += _ => leftMouseClick();
         _playerInput.actions["RightMouseClick"].performed += _ => rightMouseClick(false);
-        _playerInput.actions["Pause"].performed += _cameraMovement => pause();
+        _playerInput.actions["GameSpeedPause"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Pause);
+        _playerInput.actions["GameSpeedDefault"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Default);
+        _playerInput.actions["GameSpeedDouble"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Double);
+        _playerInput.actions["GameSpeedTriple"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Triple);
     }
 
     private void SetupDelegates()
@@ -63,7 +75,10 @@ public class PlayerInputSystem : MonoBehaviour
         cameraZoom = new CameraZoom(_cameraMovement.ZoomCamera);
         leftMouseClick = new LeftMouseClick(_tileDetector.InputOnTile);
         rightMouseClick = new RightMouseClick(_cardHolderSystem.CancelSelectCard);
-        pause = new Pause(_pauseSystem.PauseToggle);
+        _gameSpeedPause = new GameSpeedPause(_gameSpeedSystem.ChangeGameSpeed);
+        _gameSpeedDefault = new GameSpeedDefault(_gameSpeedSystem.ChangeGameSpeed);
+        _gameSpeedDouble = new GameSpeedDouble(_gameSpeedSystem.ChangeGameSpeed);
+        _gameSpeedTriple = new GameSpeedTriple(_gameSpeedSystem.ChangeGameSpeed);
     }
 
     private void UpdateInputs()
@@ -83,6 +98,9 @@ public class PlayerInputSystem : MonoBehaviour
 
         leftMouseClick = delegate { };
         rightMouseClick = delegate { };
-        pause = delegate { };
+        _gameSpeedPause = delegate { };
+        _gameSpeedDefault = delegate { };
+        _gameSpeedDouble = delegate { };
+        _gameSpeedTriple = delegate { };
     }
 }

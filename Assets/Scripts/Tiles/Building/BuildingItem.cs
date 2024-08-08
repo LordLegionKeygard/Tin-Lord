@@ -44,8 +44,8 @@ public class BuildingItem : MonoBehaviour
         var resourcesEnough = _playerResources.ResourcesForBuildEnough(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
         _button.enabled = resourcesEnough;
 
-        _nameText.color = resourcesEnough ? Color.white : Colors.BuildingItemTextDisabled;
-        _icon.color = resourcesEnough ? Color.white : Colors.BuildingItemIconDisabled;
+        _nameText.color = resourcesEnough ? Color.white : Colors.StandartGrey;
+        _icon.color = resourcesEnough ? Color.white : Colors.AlphaGrey;
     }
 
     public void BuildOrUpgrade()
