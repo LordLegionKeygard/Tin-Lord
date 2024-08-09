@@ -8,10 +8,10 @@ public class CustomEvents
         OnPrepareRoads?.Invoke();
     }
 
-    public static event Action OnTimeTick;
-    public static void FireTimeTick()
+    public static event Action OnTimeTickAfterResourcesChanged;
+    public static void FireTickAfterResourcesChanged()
     {
-        OnTimeTick?.Invoke();
+        OnTimeTickAfterResourcesChanged?.Invoke();
     }
 
     public static event Action<ResourceEnum, float, int, bool> OnChangeResourceExtraction;

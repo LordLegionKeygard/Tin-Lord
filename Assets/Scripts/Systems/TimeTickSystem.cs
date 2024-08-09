@@ -7,6 +7,8 @@ public class TimeTickSystem : MonoBehaviour
     [SerializeField] private int _currentTick;
     [SerializeField] private TimeView _timeView;
     [SerializeField] private TextMeshProUGUI _dayText;
+    [SerializeField] private EveryTickResourcesExtraction _everyTickResourcesExtraction;
+    [SerializeField] private EveryTickResourcesRequired _everyTickResourcesRequired;
     private float _endTime = 11;
     private int _currentDay = 0;
     [SerializeField] private float _currentTime = 0f;
@@ -37,7 +39,7 @@ public class TimeTickSystem : MonoBehaviour
 
             // Обновляем текущее время
             _currentTick++;
-            CustomEvents.FireTimeTick();
+            UpdateResourcesAfterTick();
 
             if (_currentTick >= _endTime)
             {
@@ -48,6 +50,13 @@ public class TimeTickSystem : MonoBehaviour
 
             _timeView.UpdateTimeSlotsView(_currentTick);
         }
+    }
+
+    private void UpdateResourcesAfterTick()
+    {
+        _everyTickResourcesExtraction.AddEveryTickResources();
+        _everyTickResourcesRequired.UseEveryTickRequiredResources(false);
+        CustomEvents.FireTickAfterResourcesChanged();
     }
 
     private void UpdateDayText()

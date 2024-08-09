@@ -45,7 +45,7 @@ public class SelectTilePanel : MonoBehaviour
     public void RefreshShowInfo(int tileId)
     {
         if (_tileObject == null || _tileObject.GetId() != tileId) return;
-        Debug.Log("RefreshShowInfo - CheckCount");
+        // Debug.Log("RefreshShowInfo - CheckCount");
         SetInfo(_tileObject);
     }
 

@@ -10,12 +10,6 @@ public class EveryTickResourcesRequired : MonoBehaviour
     private void Awake()
     {
         CustomEvents.OnChangeResourceRequired += ChangeResourceRequired;
-        CustomEvents.OnTimeTick += UseEveryTick;
-    }
-
-    private void UseEveryTick()
-    {
-        UseEveryTickRequiredResources(false);
     }
 
     private void ChangeResourceRequired(TileObject tileObject, Resource resource, float amount)
@@ -49,7 +43,7 @@ public class EveryTickResourcesRequired : MonoBehaviour
         UseEveryTickRequiredResources(true);
     }
 
-    private void UseEveryTickRequiredResources(bool needCheck)
+    public void UseEveryTickRequiredResources(bool needCheck)
     {
         for (int i = 0; i < _resourcesRequiresTilesInfoList.Count; i++)
         {
@@ -66,7 +60,6 @@ public class EveryTickResourcesRequired : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnChangeResourceRequired -= ChangeResourceRequired;
-        CustomEvents.OnTimeTick -= UseEveryTick;
     }
 }
 

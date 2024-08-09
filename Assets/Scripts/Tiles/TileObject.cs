@@ -99,7 +99,7 @@ public class TileObject : MonoBehaviour
     public void ChangeResourceExtraction()
     {
         if (_buildingTile.CurrentBuildingTile() == null) return;
-        Debug.Log("ChangeResourceExtraction - CheckCount");
+        // Debug.Log("ChangeResourceExtraction - CheckCount");
 
         var resourceWrapper = _buildingTile.CurrentUpgradeBuildingWrapper();
         var resourcesExtracted = IsBuildingWork ? resourceWrapper.ResourceRequiredEnum == ResourceRequiredEnum.None

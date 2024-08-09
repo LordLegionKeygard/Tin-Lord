@@ -22,6 +22,11 @@ public class BuildingItem : MonoBehaviour
     private BuildingState _currentBuildingState;
     private int _upgradeToLevel;
 
+    private void Start()
+    {
+        CustomEvents.OnTimeTickAfterResourcesChanged += CheckResourcesForBuildEnought;
+    }
+
     public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile, BuildingState buildingState)
     {
         _currentBuildingState = buildingState;
@@ -40,7 +45,11 @@ public class BuildingItem : MonoBehaviour
         _nameText.text = building.Name[Language.LanguageNumber];
         _icon.sprite = building.BuildingSprite;
 
+        CheckResourcesForBuildEnought();
+    }
 
+    private void CheckResourcesForBuildEnought()
+    {
         var resourcesEnough = _playerResources.ResourcesForBuildEnough(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
         _button.enabled = resourcesEnough;
 
@@ -63,6 +72,11 @@ public class BuildingItem : MonoBehaviour
                 _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;
         }
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnTimeTickAfterResourcesChanged -= CheckResourcesForBuildEnought;
     }
 }
 

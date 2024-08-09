@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class PlayerResources : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerResources : MonoBehaviour
     public void ChangeResource(ResourceEnum resourceEnum, float amount)
     {
         var resources = _resourcesWrapper[(int)resourceEnum];
-        resources.Amount += amount;
+        resources.Amount = (float)Math.Round(resources.Amount + amount, 1, MidpointRounding.AwayFromZero);
         resources.Text.text = resources.Amount.ToString("0.0");
     }
 

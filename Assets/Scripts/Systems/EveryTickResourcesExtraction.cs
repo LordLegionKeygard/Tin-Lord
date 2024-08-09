@@ -11,7 +11,6 @@ public class EveryTickResourcesExtraction : MonoBehaviour
     private void Awake()
     {
         CustomEvents.OnChangeResourceExtraction += ChangeResourceExtraction;
-        CustomEvents.OnTimeTick += AddEveryTickResources;
     }
 
     private void ChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId, bool remove)
@@ -57,7 +56,7 @@ public class EveryTickResourcesExtraction : MonoBehaviour
         }
     }
 
-    private void AddEveryTickResources()
+    public void AddEveryTickResources()
     {
         for (int i = 0; i < _everyTickResourceExtraction.Length; i++)
         {
@@ -68,7 +67,6 @@ public class EveryTickResourcesExtraction : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnChangeResourceExtraction -= ChangeResourceExtraction;
-        CustomEvents.OnTimeTick -= AddEveryTickResources;
     }
 }
 
