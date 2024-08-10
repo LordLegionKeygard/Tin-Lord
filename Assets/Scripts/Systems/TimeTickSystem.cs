@@ -55,7 +55,7 @@ public class TimeTickSystem : MonoBehaviour
     private void UpdateResourcesAfterTick()
     {
         _everyTickResourcesExtraction.AddEveryTickResources();
-        _everyTickResourcesRequired.UseEveryTickRequiredResources(false);
+        _everyTickResourcesRequired.UseEveryTickRequiredResources();
         CustomEvents.FireTickAfterResourcesChanged();
     }
 

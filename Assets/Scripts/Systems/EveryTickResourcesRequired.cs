@@ -21,7 +21,7 @@ public class EveryTickResourcesRequired : MonoBehaviour
             if (info != null)
             {
                 _resourcesRequiresTilesInfoList.Remove(info);
-                UseEveryTickRequiredResources(true);
+                info.TileObject.CheckResourceRequired(true);
             }
             return;
         }
@@ -30,6 +30,7 @@ public class EveryTickResourcesRequired : MonoBehaviour
         {
             info.ResourceEnum = resource.ResourceEnum;
             info.Amount = amount;
+            info.TileObject.CheckResourceRequired(true);
         }
         else
         {
@@ -40,19 +41,17 @@ public class EveryTickResourcesRequired : MonoBehaviour
                 Amount = amount
             });
         }
-        UseEveryTickRequiredResources(true);
     }
 
-    public void UseEveryTickRequiredResources(bool needCheck)
+    public void UseEveryTickRequiredResources()
     {
         for (int i = 0; i < _resourcesRequiresTilesInfoList.Count; i++)
         {
             var info = _resourcesRequiresTilesInfoList[i];
             if (info.TileObject.IsBuildingWork)
             {
-                var state = info.TileObject.IsHaveRequiredResource();
-                info.TileObject.CheckResourceRequired(state, needCheck);
-                if (state) _playerResources.ChangeResource(info.ResourceEnum, -info.Amount);
+                info.TileObject.CheckResourceRequired(false);
+                if (info.TileObject.IsHaveRequiredResource()) _playerResources.ChangeResource(info.ResourceEnum, -info.Amount);
             }
         }
     }

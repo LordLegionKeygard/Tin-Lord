@@ -4,30 +4,23 @@ using UnityEngine;
 
 public class BuildingResourcesRequired : MonoBehaviour
 {
-    [SerializeField] private Resource _electricity;
-    [SerializeField] private Resource _wood;
-    [SerializeField] private Resource _coal;
-    public void SetResourceRequiredAfterSpawnOrUpgradeBuilding(TileObject tileObject, ResourceRequiredEnum resourceRequiredEnum)
+    public void SetResourceRequiredAfterSpawnOrUpgradeBuilding(TileObject tileObject, ResourcesForWorkWrapper[] resourcesForWork)
     {
-        switch (resourceRequiredEnum)
+        if (resourcesForWork.Length == 0)
         {
-            case ResourceRequiredEnum.None:
-                tileObject.SetResourceRequied(null, 0);
-                break;
-            case ResourceRequiredEnum.Fuel:
-                if (tileObject.CurrentResourceRequired() == null) //ставим дефолтный ресурс для работы дерево
-                {
-                    tileObject.SetResourceRequied(_wood, 1);
-                }
-                break;
-            case ResourceRequiredEnum.Electricity:
-                tileObject.SetResourceRequied(_electricity, 1);
-                break;
+            tileObject.SetResourceRequied(null, 0);
+        }
+        else
+        {
+            if (tileObject.CurrentResourceRequired() == null)
+            {
+                tileObject.SetResourceRequied(resourcesForWork[0].ResourceForWork, resourcesForWork[0].ResourcesForWorkAmount); //ставим дефолтный ресурс для работы дерево
+            }
         }
     }
 
-    public void ChangeResourceRequired(TileObject tileObject, Resource resource)
+    public void ChangeResourceRequired(TileObject tileObject, Resource resource, float amount)
     {
-        tileObject.SetResourceRequied(resource, 1);
+        tileObject.SetResourceRequied(resource, amount);
     }
 }

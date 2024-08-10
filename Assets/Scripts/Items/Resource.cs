@@ -36,6 +36,5 @@ public enum ResourceEnum
     SteelIngot = 11,
     CopperPlate = 12,
     Concrete = 13,
-    Cop = 14,
-    Conc = 15,
+    Steam = 14,
 }

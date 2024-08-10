@@ -35,16 +35,14 @@ public class UpgradeBuildingWrapper
 
     [Header("Requires")]
     public ResourcesForBuildWrapper[] ResourcesForBuild;
-    public ResourceRequiredEnum ResourceRequiredEnum;
+    public ResourcesForWorkWrapper[] ResourcesForWork;
 }
 
 [System.Serializable]
-public enum ResourceRequiredEnum
-{   
-    None = 0,
-    Fuel = 1,
-    Electricity = 2,
-    
+public class ResourcesForWorkWrapper
+{
+    public Resource ResourceForWork;
+    public float ResourcesForWorkAmount;
 }
 
 [System.Serializable]
@@ -107,8 +105,8 @@ public enum BuildingTileViewEnum
     LandWaterExtraction = 9,
     Bridge = 10,
     CopperOreMining = 11,
-    HydroPowerIndustry = 12,
-    RiverWaterExtraction = 13,
+    // HydroPowerIndustry = 12,
+    // RiverWaterExtraction = 13,
 }
 
 public enum TileDirectionEnum

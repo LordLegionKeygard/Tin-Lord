@@ -8,50 +8,61 @@ public class RequiredResourcePanel : MonoBehaviour
     [SerializeField] private GameObject[] _select;
     [SerializeField] private Button[] _buttons;
 
-    public void UpdateButtonsView(ResourceEnum resourceEnum, ResourceRequiredEnum resourceRequiredEnum)
+    public void UpdateButtonsView(ResourceEnum resourceEnum, ResourcesForWorkWrapper[] resourcesForWork)
     {
-        if (resourceRequiredEnum == ResourceRequiredEnum.Fuel)
-        {
-            _buttons[0].gameObject.SetActive(true);
-            _buttons[1].gameObject.SetActive(true);
-            _buttons[2].gameObject.SetActive(false);
-        }
-        else if (resourceRequiredEnum == ResourceRequiredEnum.Electricity)
-        {
-            _buttons[0].gameObject.SetActive(false);
-            _buttons[1].gameObject.SetActive(false);
-            _buttons[2].gameObject.SetActive(true);
-        }
+        ResetButtons();
 
-
-        foreach (var select in _select)
+        for (int i = 0; i < resourcesForWork.Length; i++)
         {
-            select.SetActive(false);
-        }
-
-        foreach (var button in _buttons)
-        {
-            button.interactable = false;
+            switch (resourcesForWork[i].ResourceForWork.ResourceEnum)
+            {
+                case ResourceEnum.Wood:
+                    _buttons[0].gameObject.SetActive(true);
+                    break;
+                case ResourceEnum.Coal:
+                    _buttons[1].gameObject.SetActive(true);
+                    break;
+                case ResourceEnum.Oil:
+                    _buttons[2].gameObject.SetActive(true);
+                    break;
+                case ResourceEnum.Electricity:
+                    _buttons[3].gameObject.SetActive(true);
+                    break;
+            }
         }
 
         switch (resourceEnum)
         {
             case ResourceEnum.Wood:
-                SetActiveResource(0, 1, 2);
+                _select[0].SetActive(true);
+                _buttons[0].interactable = false;
                 break;
             case ResourceEnum.Coal:
-                SetActiveResource(1, 0, 2);
+                _select[1].SetActive(true);
+                _buttons[1].interactable = false;
+                break;
+            case ResourceEnum.Oil:
+                _select[2].SetActive(true);
+                _buttons[2].interactable = false;
                 break;
             case ResourceEnum.Electricity:
-                SetActiveResource(2, 0, 1);
+                _select[3].SetActive(true);
+                _buttons[3].interactable = false;
                 break;
         }
     }
 
-    private void SetActiveResource(int selectIndex, int buttonIndex1, int buttonIndex2)
+    private void ResetButtons()
     {
-        _select[selectIndex].SetActive(true);
-        _buttons[buttonIndex1].interactable = true;
-        _buttons[buttonIndex2].interactable = true;
+        foreach (var button in _buttons)
+        {
+            button.gameObject.SetActive(false);
+            button.interactable = true;
+        }
+
+        foreach (var select in _select)
+        {
+            select.SetActive(false);
+        }
     }
 }

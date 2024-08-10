@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.PlayerLoop;
 
 public class PlayerResources : MonoBehaviour
 {
     [SerializeField] private PlayerResourcesWrapper[] _resourcesWrapper;
 
+    private void Start()
+    {
+        UpdateAllTexts();
+    }
 
     public void ChangeResource(ResourceEnum resourceEnum, float amount)
     {

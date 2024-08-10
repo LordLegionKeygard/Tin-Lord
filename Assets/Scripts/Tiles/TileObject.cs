@@ -38,7 +38,7 @@ public class TileObject : MonoBehaviour
     }
     public bool IsHaveRequiredResource()
     {
-        return _buildingTile.CurrentUpgradeBuildingWrapper().ResourceRequiredEnum != ResourceRequiredEnum.None ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
+        return _buildingTile.CurrentUpgradeBuildingWrapper().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
     }
 
     public void ClearBuildingInfo()
@@ -81,8 +81,10 @@ public class TileObject : MonoBehaviour
         return 0;
     }
 
-    public void CheckResourceRequired(bool state, bool needCheck)
+    public void CheckResourceRequired(bool needCheck)
     {
+        var state = IsHaveRequiredResource();
+
         if (state != _isHaveResourceRequired || needCheck)
         {
             _isHaveResourceRequired = state;
@@ -102,7 +104,7 @@ public class TileObject : MonoBehaviour
         // Debug.Log("ChangeResourceExtraction - CheckCount");
 
         var resourceWrapper = _buildingTile.CurrentUpgradeBuildingWrapper();
-        var resourcesExtracted = IsBuildingWork ? resourceWrapper.ResourceRequiredEnum == ResourceRequiredEnum.None
+        var resourcesExtracted = IsBuildingWork ? resourceWrapper.ResourcesForWork.Length == 0
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier
             : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0) : 0;
 

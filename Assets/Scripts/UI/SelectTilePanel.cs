@@ -92,7 +92,7 @@ public class SelectTilePanel : MonoBehaviour
 
         if (haveBuildingTile && buildingTile.Resource != null && tileObject.CurrentResourceRequired() != null)
         {
-            _requiredResourcePanel.UpdateButtonsView(_tileObject.CurrentResourceRequired().ResourceEnum, _tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
+            _requiredResourcePanel.UpdateButtonsView(_tileObject.CurrentResourceRequired().ResourceEnum, _tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourcesForWork);
         }
 
         SetButtonStates(tileObject, haveBuildingTile);
@@ -115,7 +115,7 @@ public class SelectTilePanel : MonoBehaviour
     {
         if (haveBuildingTile && buildingTile.Resource != null)
         {
-            var isUseRources = _tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum != ResourceRequiredEnum.None;
+            var isUseRources = _tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourcesForWork.Length != 0;
             var productionText = $"{Language.TextStatic[6]}: {buildingTile.Resource.Name[Language.LanguageNumber]} ";
 
             if (isUseRources)
@@ -146,7 +146,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetRequiredResourcePanelVisibility(bool haveBuildingTile, UpgradeBuildingWrapper buildingWrapper)
     {
-        var showRequiredResourcePanel = haveBuildingTile && buildingWrapper.ResourceRequiredEnum != ResourceRequiredEnum.None;
+        var showRequiredResourcePanel = haveBuildingTile && buildingWrapper.ResourcesForWork.Length != 0;
         _requiredResourcePanelObject.SetActive(showRequiredResourcePanel);
         _requiredResourcePanelLine.SetActive(showRequiredResourcePanel);
     }
@@ -212,14 +212,23 @@ public class SelectTilePanel : MonoBehaviour
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         if (!_tileObject.IsHaveRequiredResource()) return;
 
-        _tileObject.ChangeResourceExtraction();
+        // _tileObject.ChangeResourceExtraction();
         CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0);
         _tileObject.CheckBuildingView();
     }
 
     public void ChangeResourceRequired(Resource resource)
     {
-        _tileObject.BuildingResourcesRequired().ChangeResourceRequired(_tileObject, resource);
-        _requiredResourcePanel.UpdateButtonsView(_tileObject.CurrentResourceRequired().ResourceEnum, _tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourceRequiredEnum);
+        var resourcesForWork = _tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourcesForWork;
+
+        for (int i = 0; i < resourcesForWork.Length; i++)
+        {
+            if (resource == resourcesForWork[i].ResourceForWork)
+            {
+                _tileObject.BuildingResourcesRequired().ChangeResourceRequired(_tileObject, resource, resourcesForWork[i].ResourcesForWorkAmount);
+            }
+        }
+
+        _requiredResourcePanel.UpdateButtonsView(resource.ResourceEnum, resourcesForWork);
     }
 }
