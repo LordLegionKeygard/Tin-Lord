@@ -212,7 +212,7 @@ public class SelectTilePanel : MonoBehaviour
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         if (!_tileObject.IsHaveRequiredResource()) return;
 
-        // _tileObject.ChangeResourceExtraction();
+        _tileObject.ChangeResourceExtraction();
         CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0);
         _tileObject.CheckBuildingView();
     }
