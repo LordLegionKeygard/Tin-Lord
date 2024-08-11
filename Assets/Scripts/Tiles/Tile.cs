@@ -20,6 +20,7 @@ public class Tile : ScriptableObject
     public BuildingTileViewEnum BuildingTileView;
     public Resource Resource;
     public UpgradeBuildingWrapper[] UpgradeBuildingWrapper;
+    public Building[] Buildings;
 
     [Header("TextInfo")]
     public string[] Name; //0 eng, 1 rus

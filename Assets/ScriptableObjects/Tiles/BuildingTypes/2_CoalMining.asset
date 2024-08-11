@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 2_CoalMining
+  m_EditorClassIdentifier: 
+  TileObject: {fileID: 8169984115598653667, guid: eb5dff98f4cb81c4f9e1cf30a0da01aa,
+    type: 3}
+  Icon: {fileID: 0}
+  TileTypeEnum: 1
+  GroundTileView: 0
+  GroundEcology: 0
+  IsWater: 0
+  IsFourTile: 0
+  BuildingsOnTile: []
+  BuildingTileView: 3
+  Resource: {fileID: 11400000, guid: 27b850f65039e4244ac4286f6c1c897b, type: 2}
+  UpgradeBuildingWrapper:
+  - Name:
+    - Manual Mining
+    - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
+    BuildingSprite: {fileID: 21300000, guid: a376e44011e233143a6508815b9adb39, type: 3}
+    BuildingEcology: -1
+    ResourceExtractedAmount: 0.2
+    ResourcesForBuild:
+    - ResourcesForBuild: 0
+      RecourcesForBuildAmount: 5
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 3
+    ResourcesForWork: []
+  - Name:
+    - Coal Mine
+    - "\u0423\u0433\u043E\u043B\u044C\u043D\u0430\u044F \u0428\u0430\u0445\u0442\u0430"
+    BuildingSprite: {fileID: 21300000, guid: 7bc970ebe9040d747b227eeb14f6dcb5, type: 3}
+    BuildingEcology: -3
+    ResourceExtractedAmount: 0.4
+    ResourcesForBuild:
+    - ResourcesForBuild: 0
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 10
+      RecourcesForBuildAmount: 5
+    ResourcesForWork: []
+  - Name:
+    - Steam Coal Rig
+    - "\u041F\u0430\u0440\u043E\u0432\u0430\u044F \u0423\u0433\u043E\u043B\u044C\u043D\u0430\u044F
+      \u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
+    BuildingSprite: {fileID: 21300000, guid: 2e1fa000418e0554a885d4e1bc8b823f, type: 3}
+    BuildingEcology: -4
+    ResourceExtractedAmount: 0.6
+    ResourcesForBuild:
+    - ResourcesForBuild: 0
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 10
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 11
+      RecourcesForBuildAmount: 5
+    ResourcesForWork:
+    - ResourceForWork: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098,
+        type: 2}
+      ResourcesForWorkAmount: 1
+  - Name:
+    - Drilling Rig
+    - "\u0411\u0443\u0440\u043E\u0432\u0430\u044F \u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
+    BuildingSprite: {fileID: 21300000, guid: 90a1caa491f3b1344bf6ca7b07d927ab, type: 3}
+    BuildingEcology: -5
+    ResourceExtractedAmount: 0.8
+    ResourcesForBuild:
+    - ResourcesForBuild: 0
+      RecourcesForBuildAmount: 20
+    - ResourcesForBuild: 1
+      RecourcesForBuildAmount: 20
+    - ResourcesForBuild: 10
+      RecourcesForBuildAmount: 10
+    - ResourcesForBuild: 11
+      RecourcesForBuildAmount: 5
+    ResourcesForWork:
+    - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f,
+        type: 2}
+      ResourcesForWorkAmount: 1
+    - ResourceForWork: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7,
+        type: 2}
+      ResourcesForWorkAmount: 1
+  Name:
+  - Coal Mining
+  - "\u0414\u043E\u0431\u044B\u0447\u0430 \u0423\u0433\u043B\u044F"
