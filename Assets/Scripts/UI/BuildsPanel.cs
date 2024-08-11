@@ -20,6 +20,7 @@ public class BuildsPanel : MonoBehaviour
 
         var length = tile.UpgradeBuildingWrapper;
         _scrollRect.horizontal = length.Length > 3;
+        _scrollRect.horizontalNormalizedPosition = 0f;
 
         for (int i = 0; i < length.Length; i++)
         {
@@ -36,6 +37,7 @@ public class BuildsPanel : MonoBehaviour
         var tile = tileObject.BuildingTileObject().CurrentBuildingTile();
         var length = tile.UpgradeBuildingWrapper;
         _scrollRect.horizontal = length.Length > 3;
+        _scrollRect.horizontalNormalizedPosition = 0f;
         var level = tileObject.BuildingTileObject().CurrentBuildingLevel();
 
         for (int i = level; i < length.Length; i++)

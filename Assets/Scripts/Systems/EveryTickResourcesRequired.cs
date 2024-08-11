@@ -21,7 +21,6 @@ public class EveryTickResourcesRequired : MonoBehaviour
             if (info != null)
             {
                 _resourcesRequiresTilesInfoList.Remove(info);
-                info.TileObject.CheckResourceRequired(true);
             }
             return;
         }

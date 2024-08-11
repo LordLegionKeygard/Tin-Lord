@@ -17,6 +17,7 @@ public class BuildingTile : MonoBehaviour
    public Tile CurrentBuildingTile() => _currentTile;
    public int CurrentBuildingLevel() => _buildingLevels.CurrentBuildingLevel();
    public UpgradeBuildingWrapper CurrentUpgradeBuildingWrapper() => _currentTile.UpgradeBuildingWrapper[_buildingLevels.CurrentBuildingLevel() - 1];
+
    public bool IsCanUpgrade() => _currentTile != null ? CurrentBuildingLevel() < _currentTile.UpgradeBuildingWrapper.Length : false;
 
    public void SpawnBuildingTile(Tile tile, int level, TileObject tileObject)

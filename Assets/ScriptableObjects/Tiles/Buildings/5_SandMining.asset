@@ -28,19 +28,19 @@ MonoBehaviour:
     - Manual Mining
     - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
     BuildingSprite: {fileID: 21300000, guid: dcdaf1981a5213942a977854d8a79623, type: 3}
-    BuildingEcology: -2
+    BuildingEcology: 0
     ResourceExtractedAmount: 0.2
     ResourcesForBuild:
     - ResourcesForBuild: 0
       RecourcesForBuildAmount: 5
     - ResourcesForBuild: 1
       RecourcesForBuildAmount: 3
-    ResourceRequiredEnum: 0
+    ResourcesForWork: []
   - Name:
     - Excavator
     - "\u042D\u043A\u0441\u043A\u0430\u0432\u0430\u0442\u043E\u0440"
     BuildingSprite: {fileID: 21300000, guid: debdb3c90da1db640b6327a196846cb8, type: 3}
-    BuildingEcology: -4
+    BuildingEcology: 0
     ResourceExtractedAmount: 0.4
     ResourcesForBuild:
     - ResourcesForBuild: 0
@@ -49,13 +49,13 @@ MonoBehaviour:
       RecourcesForBuildAmount: 5
     - ResourcesForBuild: 10
       RecourcesForBuildAmount: 5
-    ResourceRequiredEnum: 2
+    ResourcesForWork: []
   - Name:
     - Bucket-wheel Excavator
     - "\u041C\u043D\u043E\u0433\u043E\u043A\u043E\u0432\u0448\u043E\u0432\u044B\u0439
       \u042D\u043A\u0441\u043A\u0430\u0432\u0430\u0442\u043E\u0440"
     BuildingSprite: {fileID: 21300000, guid: f9a2336eb6a7e584eb5e43400a0ea61b, type: 3}
-    BuildingEcology: -6
+    BuildingEcology: 0
     ResourceExtractedAmount: 0.6
     ResourcesForBuild:
     - ResourcesForBuild: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
       RecourcesForBuildAmount: 10
     - ResourcesForBuild: 11
       RecourcesForBuildAmount: 5
-    ResourceRequiredEnum: 2
+    ResourcesForWork: []
   Name:
   - Sand Mining
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041F\u0435\u0441\u043A\u0430"

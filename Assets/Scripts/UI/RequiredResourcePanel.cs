@@ -28,6 +28,9 @@ public class RequiredResourcePanel : MonoBehaviour
                 case ResourceEnum.Electricity:
                     _buttons[3].gameObject.SetActive(true);
                     break;
+                case ResourceEnum.Steam:
+                    _buttons[4].gameObject.SetActive(true);
+                    break;
             }
         }
 
@@ -48,6 +51,10 @@ public class RequiredResourcePanel : MonoBehaviour
             case ResourceEnum.Electricity:
                 _select[3].SetActive(true);
                 _buttons[3].interactable = false;
+                break;
+            case ResourceEnum.Steam:
+                _select[4].SetActive(true);
+                _buttons[4].interactable = false;
                 break;
         }
     }

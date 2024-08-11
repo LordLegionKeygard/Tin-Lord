@@ -12,10 +12,7 @@ public class BuildingResourcesRequired : MonoBehaviour
         }
         else
         {
-            if (tileObject.CurrentResourceRequired() == null)
-            {
-                tileObject.SetResourceRequied(resourcesForWork[0].ResourceForWork, resourcesForWork[0].ResourcesForWorkAmount); //ставим дефолтный ресурс для работы дерево
-            }
+            tileObject.SetResourceRequied(resourcesForWork[0].ResourceForWork, resourcesForWork[0].ResourcesForWorkAmount); //ставим дефолтный ресурс для работы дерево  
         }
     }
 
