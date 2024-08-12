@@ -66,6 +66,11 @@ MonoBehaviour:
     - ResourcesForBuild: 11
       RecourcesForBuildAmount: 5
     ResourcesForWork: []
+  Buildings:
+  - {fileID: 11400000, guid: 54ce5eab62568474ebc8545d0c43b334, type: 2}
+  - {fileID: 11400000, guid: add5cfd344fb5d34daf51c33db266e0e, type: 2}
+  - {fileID: 11400000, guid: 8a86475244a697e4fa358e910691ec30, type: 2}
+  - {fileID: 11400000, guid: 30f802c65dc45a1469db228580c35383, type: 2}
   Name:
   - Wood Extraction
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u0414\u0435\u0440\u0435\u0432\u0430"

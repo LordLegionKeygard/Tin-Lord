@@ -67,6 +67,11 @@ MonoBehaviour:
     - ResourcesForBuild: 11
       RecourcesForBuildAmount: 5
     ResourcesForWork: []
+  Buildings:
+  - {fileID: 11400000, guid: 58c8ecf517b77784c8fd7629c481a2af, type: 2}
+  - {fileID: 11400000, guid: ca501727baf1a6348a33b8733a0ba620, type: 2}
+  - {fileID: 11400000, guid: c903773d52b9bfd498b39f86a7c268ac, type: 2}
+  - {fileID: 11400000, guid: b468b906c13c1b4409f1ad47d3720f35, type: 2}
   Name:
   - Copper Ore Mining
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041C\u0435\u0434\u043D\u043E\u0439 \u0420\u0443\u0434\u044B"

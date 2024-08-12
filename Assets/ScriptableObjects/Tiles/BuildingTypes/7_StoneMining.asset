@@ -66,6 +66,11 @@ MonoBehaviour:
     - ResourcesForBuild: 11
       RecourcesForBuildAmount: 5
     ResourcesForWork: []
+  Buildings:
+  - {fileID: 11400000, guid: 4fbbc806c920f3e4c93b4f1ad5679cfd, type: 2}
+  - {fileID: 11400000, guid: 9fffabc0de0b5dc42a568fa2eefecd34, type: 2}
+  - {fileID: 11400000, guid: b2fa7beec3198414cb5091f409b77d2c, type: 2}
+  - {fileID: 11400000, guid: 1e03d1367f7652e4bb61b66994bfecfc, type: 2}
   Name:
   - Stone Mining
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041A\u0430\u043C\u043D\u044F"

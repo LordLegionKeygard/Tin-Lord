@@ -70,6 +70,11 @@ MonoBehaviour:
     - ResourcesForBuild: 11
       RecourcesForBuildAmount: 10
     ResourcesForWork: []
+  Buildings:
+  - {fileID: 11400000, guid: 0b5ebe0d62e7f79478960e6824ff8b49, type: 2}
+  - {fileID: 11400000, guid: b14e052e455ebd1409acbf9ab6c868f3, type: 2}
+  - {fileID: 11400000, guid: 5b4df28fc6cfd0f46b51539a37e32672, type: 2}
+  - {fileID: 11400000, guid: 07eb00d2c6ff70a43ab3052ff8b265e7, type: 2}
   Name:
   - Oil Production
   - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041D\u0435\u0444\u0442\u0438"

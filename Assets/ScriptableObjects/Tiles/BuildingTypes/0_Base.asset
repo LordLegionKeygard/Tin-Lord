@@ -24,15 +24,13 @@ MonoBehaviour:
   BuildingTileView: 1
   Resource: {fileID: 0}
   UpgradeBuildingWrapper:
-  - Id: 2
-    Name: []
+  - Name: []
     BuildingSprite: {fileID: 21300000, guid: 335ec1dfa0be35c46b97646eeb713feb, type: 3}
     BuildingEcology: 0
     ResourceExtractedAmount: 0
     ResourcesForBuild: []
     ResourcesForWork: []
-  - Id: 0
-    Name:
+  - Name:
     - Village
     - "\u0414\u0435\u0440\u0435\u0432\u043D\u044F"
     BuildingSprite: {fileID: 21300000, guid: 05dcc18e9e4cf6d4abc93da2231610e1, type: 3}
@@ -46,8 +44,7 @@ MonoBehaviour:
     - ResourcesForBuild: 2
       RecourcesForBuildAmount: 10
     ResourcesForWork: []
-  - Id: 0
-    Name:
+  - Name:
     - Town
     - "\u0413\u043E\u0440\u043E\u0434"
     BuildingSprite: {fileID: 21300000, guid: ff0cb2a6fa76d07479393c487bb9c846, type: 3}
@@ -63,8 +60,7 @@ MonoBehaviour:
     - ResourcesForBuild: 4
       RecourcesForBuildAmount: 10
     ResourcesForWork: []
-  - Id: 0
-    Name:
+  - Name:
     - City
     - "\u041A\u0440\u0443\u043F\u043D\u044B\u0439 \u0413\u043E\u0440\u043E\u0434"
     BuildingSprite: {fileID: 21300000, guid: 39db0b56cdc422d4da3b3aa4e51ceeba, type: 3}
@@ -82,8 +78,7 @@ MonoBehaviour:
     - ResourcesForBuild: 13
       RecourcesForBuildAmount: 20
     ResourcesForWork: []
-  - Id: 0
-    Name:
+  - Name:
     - Industrial City
     - "\u041F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u044B\u0439 \u0413\u043E\u0440\u043E\u0434"
     BuildingSprite: {fileID: 21300000, guid: 7762639e4acc0ab4ab15c04e837d7525, type: 3}
@@ -101,8 +96,7 @@ MonoBehaviour:
     - ResourcesForBuild: 13
       RecourcesForBuildAmount: 40
     ResourcesForWork: []
-  - Id: 0
-    Name:
+  - Name:
     - Megapolis
     - "\u041C\u0435\u0433\u0430\u043F\u043E\u043B\u0438\u0441"
     BuildingSprite: {fileID: 21300000, guid: 6ddb383688c3164458250a4fef9fac1a, type: 3}
@@ -124,6 +118,11 @@ MonoBehaviour:
     ResourcesForWork: []
   Buildings:
   - {fileID: 11400000, guid: bd5f6630a142ee34686f893de754a851, type: 2}
+  - {fileID: 11400000, guid: 6989042c1a67f234484178402d55a53a, type: 2}
+  - {fileID: 11400000, guid: 8de35bc0743254a48937facc71192557, type: 2}
+  - {fileID: 11400000, guid: c413b97f91ef770499b1437a84f39ff0, type: 2}
+  - {fileID: 11400000, guid: 7998d41a9b182d54f8dcd25fbce37042, type: 2}
+  - {fileID: 11400000, guid: 8800b49efcb16174eb142005c1eb6423, type: 2}
   Name:
   - Base
   - "\u0411\u0430\u0437\u0430"
