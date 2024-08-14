@@ -14,9 +14,9 @@ public class Resource : ScriptableObject
 
 public enum ResourceType
 {
-    Base = 0,
+    BaseResource = 0,
     BuildingMaterial = 1,
-    Robotics = 2,
+    Component = 2,
 }
 
 public enum ResourceEnum
@@ -37,4 +37,11 @@ public enum ResourceEnum
     CopperPlate = 12,
     Concrete = 13,
     Steam = 14,
+    Glass = 15,
+    CopperCabble = 16,
+    GearWheel = 17,
+    ElectronicCircuit = 18,
+    Processor = 19,
+    Engine = 20,
+    ElectricEngine = 21,
 }

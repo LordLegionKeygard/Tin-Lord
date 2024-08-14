@@ -81,7 +81,6 @@ public class ResourcesExtractionTilesInfo
 [System.Serializable]
 public class EveryTickResourcesWrapper
 {
-    [HideInInspector] public string ElementName;
     public Resource Resource;
     public float Amount;
 }

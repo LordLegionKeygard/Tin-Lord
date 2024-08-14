@@ -51,8 +51,8 @@ public class Language : MonoBehaviour
         _text[8, 0] = "Building Materials";
         _text[8, 1] = "Стройматериалы";
 
-        _text[9, 0] = "Robotics";
-        _text[9, 1] = "Робототехника";
+        _text[9, 0] = "Components";
+        _text[9, 1] = "Компоненты";
 
         _text[10, 0] = "Bridge";
         _text[10, 1] = "Мост";

@@ -61,7 +61,7 @@ public class ConfigLoaderBuildings : ScriptableObject
 
     private ResourcesForBuildWrapper[] ParseResources(string resources)
     {
-        string[] parts = resources.Split('.');
+        string[] parts = resources.Split('/');
         List<ResourcesForBuildWrapper> buildWrapperList = new List<ResourcesForBuildWrapper>();
 
         foreach (string part in parts)
@@ -101,7 +101,7 @@ public class ConfigLoaderBuildings : ScriptableObject
             return new ResourcesForWorkWrapper[0]; // Возвращаем пустой массив
         }
 
-        string[] parts = resources.Split('.');
+        string[] parts = resources.Split('/');
         List<ResourcesForWorkWrapper> workWrapperList = new List<ResourcesForWorkWrapper>();
 
         foreach (string part in parts)

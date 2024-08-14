@@ -68,7 +68,6 @@ public class PlayerResources : MonoBehaviour
 [System.Serializable]
 public class PlayerResourcesWrapper
 {
-    [HideInInspector] public string ElementName;
     public Resource Resource;
     public float Amount;
     public TextMeshProUGUI Text;
