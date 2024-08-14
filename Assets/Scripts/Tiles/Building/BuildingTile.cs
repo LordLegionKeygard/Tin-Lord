@@ -16,9 +16,9 @@ public class BuildingTile : MonoBehaviour
    public bool HaveTile() => _currentTile != null;
    public Tile CurrentBuildingTile() => _currentTile;
    public int CurrentBuildingLevel() => _buildingLevels.CurrentBuildingLevel();
-   public UpgradeBuildingWrapper CurrentUpgradeBuildingWrapper() => _currentTile.UpgradeBuildingWrapper[_buildingLevels.CurrentBuildingLevel() - 1];
+   public Building CurrentBuildings() => _currentTile.Buildings[_buildingLevels.CurrentBuildingLevel() - 1];
 
-   public bool IsCanUpgrade() => _currentTile != null ? CurrentBuildingLevel() < _currentTile.UpgradeBuildingWrapper.Length : false;
+   public bool IsCanUpgrade() => _currentTile != null ? CurrentBuildingLevel() < _currentTile.Buildings.Length : false;
 
    public void SpawnBuildingTile(Tile tile, int level, TileObject tileObject)
    {
@@ -31,7 +31,7 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels.SetBuildingLevelView(level, tileObject);
       tileObject.IsBuildingWork = true;
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
-      tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentUpgradeBuildingWrapper().ResourcesForWork);
+      tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentBuildings().ResourcesForWork);
       _buildingLevels.CheckBuildingProductionView();
       _tileObject.SetResourceModifier();
    }
@@ -42,14 +42,14 @@ public class BuildingTile : MonoBehaviour
 
       _buildingLevels.SetBuildingLevelView(level, tileObject);
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
-      tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentUpgradeBuildingWrapper().ResourcesForWork);
+      tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentBuildings().ResourcesForWork);
       _buildingLevels.CheckBuildingProductionView();
       _tileObject.SetResourceModifier();
    }
 
    public void DestroyBuildingTile()
    {
-      _playerResources.AddResourcesFromDestroyBuilding(CurrentUpgradeBuildingWrapper().ResourcesForBuild);
+      _playerResources.AddResourcesFromDestroyBuilding(CurrentBuildings().ResourcesForBuild);
       _currentTile = null;
       _tileObject.ClearBuildingInfo();
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);

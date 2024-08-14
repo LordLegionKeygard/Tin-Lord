@@ -4,6 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Tile", menuName = "TinLord/Tile")]
 public class Tile : ScriptableObject
 {
+    [Header("TextInfo")]
+    public string[] Name; //0 eng, 1 rus
+
     [Header("Base")]
     public GameObject TileObject;
     public Sprite Icon;
@@ -19,11 +22,7 @@ public class Tile : ScriptableObject
     [Header("Building")]
     public BuildingTileViewEnum BuildingTileView;
     public Resource Resource;
-    public UpgradeBuildingWrapper[] UpgradeBuildingWrapper;
     public Building[] Buildings;
-
-    [Header("TextInfo")]
-    public string[] Name; //0 eng, 1 rus
 }
 
 [System.Serializable]

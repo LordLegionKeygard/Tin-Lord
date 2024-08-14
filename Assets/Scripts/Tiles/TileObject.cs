@@ -38,7 +38,7 @@ public class TileObject : MonoBehaviour
     }
     public bool IsHaveRequiredResource()
     {
-        return _buildingTile.CurrentUpgradeBuildingWrapper().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
+        return _buildingTile.CurrentBuildings().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
     }
 
     public void ClearBuildingInfo()
@@ -103,7 +103,7 @@ public class TileObject : MonoBehaviour
         if (_buildingTile.CurrentBuildingTile() == null) return;
         // Debug.Log("ChangeResourceExtraction - CheckCount");
 
-        var resourceWrapper = _buildingTile.CurrentUpgradeBuildingWrapper();
+        var resourceWrapper = _buildingTile.CurrentBuildings();
         var resourcesExtracted = IsBuildingWork ? resourceWrapper.ResourcesForWork.Length == 0
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier
             : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0) : 0;

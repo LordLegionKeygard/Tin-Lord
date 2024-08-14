@@ -53,7 +53,7 @@ public class BuildingProductionView : MonoBehaviour
 
     public void CheckMainBuildingView()
     {
-        if (_tileObject.CurrentModifier() > 0 && (_tileObject.BuildingTileObject().CurrentUpgradeBuildingWrapper().ResourcesForWork.Length == 0 || _tileObject.IsHaveRequiredResource()) && _tileObject.IsBuildingWork)
+        if (_tileObject.CurrentModifier() > 0 && (_tileObject.BuildingTileObject().CurrentBuildings().ResourcesForWork.Length == 0 || _tileObject.IsHaveRequiredResource()) && _tileObject.IsBuildingWork)
         {
             SetMainBuildingView(true);
         }

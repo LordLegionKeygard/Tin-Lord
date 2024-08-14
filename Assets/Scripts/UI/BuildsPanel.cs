@@ -18,7 +18,7 @@ public class BuildsPanel : MonoBehaviour
     {
         ClearListObjects();
 
-        var length = tile.UpgradeBuildingWrapper;
+        var length = tile.Buildings;
         _scrollRect.horizontal = length.Length > 3;
         _scrollRect.horizontalNormalizedPosition = 0f;
 
@@ -35,7 +35,7 @@ public class BuildsPanel : MonoBehaviour
     {
         ClearListObjects(); 
         var tile = tileObject.BuildingTileObject().CurrentBuildingTile();
-        var length = tile.UpgradeBuildingWrapper;
+        var length = tile.Buildings;
         _scrollRect.horizontal = length.Length > 3;
         _scrollRect.horizontalNormalizedPosition = 0f;
         var level = tileObject.BuildingTileObject().CurrentBuildingLevel();

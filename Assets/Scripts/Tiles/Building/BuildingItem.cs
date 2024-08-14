@@ -40,7 +40,7 @@ public class BuildingItem : MonoBehaviour
 
     private void UpdateView()
     {
-        var building = _currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1];
+        var building = _currentTile.Buildings[_upgradeToLevel - 1];
 
         _nameText.text = building.Name[Language.LanguageNumber];
         _icon.sprite = building.BuildingSprite;
@@ -50,7 +50,7 @@ public class BuildingItem : MonoBehaviour
 
     private void CheckResourcesForBuildEnought()
     {
-        var resourcesEnough = _playerResources.ResourcesForBuildEnough(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
+        var resourcesEnough = _playerResources.ResourcesForBuildEnough(_currentTile.Buildings[_upgradeToLevel - 1].ResourcesForBuild);
         _button.enabled = resourcesEnough;
 
         _nameText.color = resourcesEnough ? Color.white : Colors.StandartGrey;
@@ -59,7 +59,7 @@ public class BuildingItem : MonoBehaviour
 
     public void BuildOrUpgrade()
     {
-        _playerResources.UseResourcesFromBuilding(_currentTile.UpgradeBuildingWrapper[_upgradeToLevel - 1].ResourcesForBuild);
+        _playerResources.UseResourcesFromBuilding(_currentTile.Buildings[_upgradeToLevel - 1].ResourcesForBuild);
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
