@@ -12,9 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 16_FuelPoweredDrill
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Fuel-Powered Drill
+  - "\u0422\u043E\u043F\u043B\u0438\u0432\u043D\u044B\u0439 \u0411\u0443\u0440"
   BuildingSprite: {fileID: 21300000, guid: b20ac9d5d8ccf7a44abd92fc4a4dfb71, type: 3}
-  BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
-  ResourcesForWork: []
+  BuildingEcology: -4
+  ResourceExtractedAmount: 0.7
+  ResourcesForBuild:
+  - ResourcesForBuild: 10
+    RecourcesForBuildAmount: 15
+  - ResourcesForBuild: 12
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 17
+    RecourcesForBuildAmount: 1
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
+    ResourcesForWorkAmount: 1
+  - ResourceForWork: {fileID: 11400000, guid: 27b850f65039e4244ac4286f6c1c897b, type: 2}
+    ResourcesForWorkAmount: 1
+  - ResourceForWork: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: bfa570f1828818e49a04733c679a441d, type: 2}
+    ResourceRecept: []

@@ -12,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 8_SteamEngine
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Steam Engine
+  - "\u041F\u0430\u0440\u043E\u0432\u043E\u0439 \u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C"
   BuildingSprite: {fileID: 21300000, guid: f7a94c98c112eca439db9a78ed1bc0e9, type: 3}
-  BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
-  ResourcesForWork: []
+  BuildingEcology: -2
+  ResourceExtractedAmount: 0.7
+  ResourcesForBuild:
+  - ResourcesForBuild: 11
+    RecourcesForBuildAmount: 15
+  - ResourcesForBuild: 16
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 17
+    RecourcesForBuildAmount: 10
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
+    ResourceRecept: []

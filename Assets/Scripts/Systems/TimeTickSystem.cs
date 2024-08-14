@@ -9,7 +9,7 @@ public class TimeTickSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dayText;
     [SerializeField] private EveryTickResourcesExtraction _everyTickResourcesExtraction;
     [SerializeField] private EveryTickResourcesRequired _everyTickResourcesRequired;
-    private float _endTime = 11;
+    private float _endTime = 25;
     private int _currentDay = 0;
     [SerializeField] private float _currentTime = 0f;
     private bool _isPaused = false;
@@ -28,16 +28,11 @@ public class TimeTickSystem : MonoBehaviour
     {
         if (_isPaused) return;
 
-        // Добавляем время, прошедшее с последнего кадра
         _currentTime += Time.deltaTime;
 
-        // Проверяем, если прошло достаточно времени для смены часа
         if (_currentTime >= _tickSpeed)
         {
-            // Уменьшаем оставшееся время
-            _currentTime -= _tickSpeed;
-
-            // Обновляем текущее время
+            _currentTime = 0;
             _currentTick++;
             UpdateResourcesAfterTick();
 

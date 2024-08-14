@@ -12,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 4_IndustrialCity
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Industrial City
+  - "\u041F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u044B\u0439 \u0413\u043E\u0440\u043E\u0434"
   BuildingSprite: {fileID: 21300000, guid: 7762639e4acc0ab4ab15c04e837d7525, type: 3}
-  BuildingEcology: 0
+  BuildingEcology: -5
   ResourceExtractedAmount: 0
-  ResourcesForBuild: []
+  ResourcesForBuild:
+  - ResourcesForBuild: 9
+    RecourcesForBuildAmount: 50
+  - ResourcesForBuild: 11
+    RecourcesForBuildAmount: 20
+  - ResourcesForBuild: 12
+    RecourcesForBuildAmount: 20
+  - ResourcesForBuild: 13
+    RecourcesForBuildAmount: 20
+  - ResourcesForBuild: 17
+    RecourcesForBuildAmount: 10
   ResourcesForWork: []
+  ResourceCreate: []

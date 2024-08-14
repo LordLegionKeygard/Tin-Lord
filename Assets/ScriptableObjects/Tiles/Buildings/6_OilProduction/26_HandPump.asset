@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 26_HandPump
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Hand Pump
+  - "\u0420\u0443\u0447\u043D\u043E\u0439 \u041D\u0430\u0441\u043E\u0441"
   BuildingSprite: {fileID: 21300000, guid: 79b68068ee7b91145a36736575d04f54, type: 3}
-  BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
+  BuildingEcology: -2
+  ResourceExtractedAmount: 0.2
+  ResourcesForBuild:
+  - ResourcesForBuild: 10
+    RecourcesForBuildAmount: 5
   ResourcesForWork: []
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
+    ResourceRecept: []

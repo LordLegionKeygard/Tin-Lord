@@ -40,13 +40,6 @@ public class UpgradeBuildingWrapper
 }
 
 [System.Serializable]
-public class ResourcesForWorkWrapper
-{
-    public Resource ResourceForWork;
-    public float ResourcesForWorkAmount;
-}
-
-[System.Serializable]
 public class ResourcesForBuildWrapper
 {
     public ResourceEnum ResourcesForBuild;

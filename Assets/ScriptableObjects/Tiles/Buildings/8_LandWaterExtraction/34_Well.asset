@@ -12,9 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 34_Well
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Well
+  - "\u041A\u043E\u043B\u043E\u0434\u0435\u0446"
   BuildingSprite: {fileID: 21300000, guid: ca90f8241c4db214a90321cebac01475, type: 3}
   BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
+  ResourceExtractedAmount: 0.2
+  ResourcesForBuild:
+  - ResourcesForBuild: 0
+    RecourcesForBuildAmount: 3
+  - ResourcesForBuild: 1
+    RecourcesForBuildAmount: 10
   ResourcesForWork: []
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61, type: 2}
+    ResourceRecept: []

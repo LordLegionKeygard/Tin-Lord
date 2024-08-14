@@ -12,9 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 1_Village
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Village
+  - "\u0414\u0435\u0440\u0435\u0432\u043D\u044F"
   BuildingSprite: {fileID: 21300000, guid: 05dcc18e9e4cf6d4abc93da2231610e1, type: 3}
-  BuildingEcology: 0
+  BuildingEcology: -2
   ResourceExtractedAmount: 0
-  ResourcesForBuild: []
+  ResourcesForBuild:
+  - ResourcesForBuild: 0
+    RecourcesForBuildAmount: 20
+  - ResourcesForBuild: 9
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 10
+    RecourcesForBuildAmount: 5
   ResourcesForWork: []
+  ResourceCreate: []

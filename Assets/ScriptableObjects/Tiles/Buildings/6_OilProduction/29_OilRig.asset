@@ -12,9 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 29_OilRig
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Oil Rig
+  - "\u041D\u0435\u0444\u0442\u044F\u043D\u0430\u044F \u0412\u044B\u0448\u043A\u0430"
   BuildingSprite: {fileID: 21300000, guid: 6e5fabafd0784f64bb95af8cbf3f3bbc, type: 3}
-  BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
-  ResourcesForWork: []
+  BuildingEcology: -5
+  ResourceExtractedAmount: 1
+  ResourcesForBuild:
+  - ResourcesForBuild: 11
+    RecourcesForBuildAmount: 50
+  - ResourcesForBuild: 18
+    RecourcesForBuildAmount: 20
+  - ResourcesForBuild: 21
+    RecourcesForBuildAmount: 1
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
+    ResourcesForWorkAmount: 1
+  - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
+    ResourceRecept: []

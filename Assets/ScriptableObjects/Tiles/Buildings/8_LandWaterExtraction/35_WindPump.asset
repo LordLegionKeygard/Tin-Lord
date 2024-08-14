@@ -12,9 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 35_WindPump
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Wind Pump
+  - "\u0412\u0435\u0442\u0440\u044F\u043D\u043E\u0439 \u041D\u0430\u0441\u043E\u0441"
   BuildingSprite: {fileID: 21300000, guid: 88920f8572fd2ca40a414bc2100d4cc1, type: 3}
   BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
+  ResourceExtractedAmount: 0.4
+  ResourcesForBuild:
+  - ResourcesForBuild: 10
+    RecourcesForBuildAmount: 5
+  - ResourcesForBuild: 16
+    RecourcesForBuildAmount: 5
   ResourcesForWork: []
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61, type: 2}
+    ResourceRecept: []

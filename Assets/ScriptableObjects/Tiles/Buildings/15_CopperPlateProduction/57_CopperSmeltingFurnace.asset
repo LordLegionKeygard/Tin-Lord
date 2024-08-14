@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 57_CopperSmeltingFurnace
+  m_EditorClassIdentifier: 
+  Name:
+  - Copper Smelting Furnace
+  - "\u041C\u0435\u0434\u043D\u0430\u044F \u041F\u043B\u0430\u0432\u0438\u043B\u044C\u043D\u0430\u044F
+    \u041F\u0435\u0447\u044C"
+  BuildingSprite: {fileID: 0}
+  BuildingEcology: 0
+  ResourceExtractedAmount: 0.2
+  ResourcesForBuild:
+  - ResourcesForBuild: 11
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 12
+    RecourcesForBuildAmount: 5
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
+    ResourcesForWorkAmount: 1
+  - ResourceForWork: {fileID: 11400000, guid: 27b850f65039e4244ac4286f6c1c897b, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: 87e7f2965c9604145ab9de337103b03d, type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: 2538275dafe458f46a01eee4a20d4818,
+        type: 2}
+      ResourcesForReceptAmount: 2
+    - ResourceForRecept: {fileID: 11400000, guid: 74a315f742d4240439661f70ab026398,
+        type: 2}
+      ResourcesForReceptAmount: 1

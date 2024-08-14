@@ -12,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 21_ElectroSawmill
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Electro Sawmill
+  - "\u042D\u043B\u0435\u043A\u0442\u0440\u043E\u043B\u0435\u0441\u043E\u043F\u0438\u043B\u043A\u0430"
   BuildingSprite: {fileID: 21300000, guid: e77f008d318383f4b93679543191e631, type: 3}
-  BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
-  ResourcesForWork: []
+  BuildingEcology: -3
+  ResourceExtractedAmount: 1
+  ResourcesForBuild:
+  - ResourcesForBuild: 11
+    RecourcesForBuildAmount: 30
+  - ResourcesForBuild: 18
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 21
+    RecourcesForBuildAmount: 1
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
+    ResourceRecept: []

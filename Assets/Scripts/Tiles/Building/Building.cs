@@ -6,9 +6,31 @@ public class Building : ScriptableObject
     public string[] Name; //0 eng, 1 rus
     public Sprite BuildingSprite;
     public int BuildingEcology;
-    public float ResourceExtractedAmount; // за 1 тик времени
+    public float ResourceExtractedAmount; // кол-во создаваемого ресурса за 1 тик времени
 
     [Header("Requires")]
-    public ResourcesForBuildWrapper[] ResourcesForBuild;
-    public ResourcesForWorkWrapper[] ResourcesForWork;
+    public ResourcesForBuildWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства здания
+    public ResourcesForWorkWrapper[] ResourcesForWork; // кол-во ресурсов для работы здания
+    public ResourcesCreateWrapper[] ResourceCreate; // кол-во ресурсов для создания предмета
+}
+
+[System.Serializable]
+public class ResourcesForWorkWrapper
+{
+    public Resource ResourceForWork; // ресурс необходимый для работы здания
+    public float ResourcesForWorkAmount; // кол-во ресурса для работы
+}
+
+[System.Serializable]
+public class ResourcesCreateWrapper
+{
+    public Resource CreateResource; // добываемый или создаваемый зданием ресурс
+    public ResourceRecept[] ResourceRecept; // дополнительные ресурсы для создания
+}
+
+[System.Serializable]
+public class ResourceRecept
+{
+    public Resource ResourceForRecept; // ресурс для создания предмета
+    public float ResourcesForReceptAmount; // кол-во ресурса для создания предмета
 }

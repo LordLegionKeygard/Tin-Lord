@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 39_StoneBridge
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Stone Bridge
+  - "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u041C\u043E\u0441\u0442"
   BuildingSprite: {fileID: 21300000, guid: 6c58355ea4d616c49bb8fc178a28c9d5, type: 3}
-  BuildingEcology: 0
+  BuildingEcology: -2
   ResourceExtractedAmount: 0
-  ResourcesForBuild: []
+  ResourcesForBuild:
+  - ResourcesForBuild: 9
+    RecourcesForBuildAmount: 30
   ResourcesForWork: []
+  ResourceCreate: []

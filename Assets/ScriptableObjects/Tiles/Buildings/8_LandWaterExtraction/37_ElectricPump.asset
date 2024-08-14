@@ -12,9 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 37_ElectricPump
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Electric Pump
+  - "\u042D\u043B\u0435\u043A\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+    \u041D\u0430\u0441\u043E\u0441"
   BuildingSprite: {fileID: 21300000, guid: cfc9b5612e0ff0f4899885a9dd44e530, type: 3}
-  BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
-  ResourcesForWork: []
+  BuildingEcology: -1
+  ResourceExtractedAmount: 1
+  ResourcesForBuild:
+  - ResourcesForBuild: 11
+    RecourcesForBuildAmount: 25
+  - ResourcesForBuild: 18
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 21
+    RecourcesForBuildAmount: 1
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61, type: 2}
+    ResourceRecept: []

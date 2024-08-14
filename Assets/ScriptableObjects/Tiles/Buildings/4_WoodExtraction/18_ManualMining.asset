@@ -12,9 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 18_ManualMining
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Manual Mining
+  - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
   BuildingSprite: {fileID: 21300000, guid: bc98a9a454c85b144a922bd638b1259f, type: 3}
-  BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
+  BuildingEcology: -1
+  ResourceExtractedAmount: 0.2
+  ResourcesForBuild:
+  - ResourcesForBuild: 0
+    RecourcesForBuildAmount: 5
+  - ResourcesForBuild: 1
+    RecourcesForBuildAmount: 2
   ResourcesForWork: []
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
+    ResourceRecept: []

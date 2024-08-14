@@ -12,9 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 23_SteamSandRig
   m_EditorClassIdentifier: 
-  Name: []
+  Name:
+  - Steam Sand Rig
+  - "\u041F\u0430\u0440\u043E\u0432\u0430\u044F \u041F\u0435\u0441\u0447\u0430\u043D\u0430\u044F
+    \u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
   BuildingSprite: {fileID: 21300000, guid: c1e8b4066d4c2be4c8c4404cebba48e9, type: 3}
-  BuildingEcology: 0
-  ResourceExtractedAmount: 0
-  ResourcesForBuild: []
-  ResourcesForWork: []
+  BuildingEcology: -3
+  ResourceExtractedAmount: 0.4
+  ResourcesForBuild:
+  - ResourcesForBuild: 10
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 12
+    RecourcesForBuildAmount: 5
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourceCreate:
+  - CreateResource: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046, type: 2}
+    ResourceRecept: []
