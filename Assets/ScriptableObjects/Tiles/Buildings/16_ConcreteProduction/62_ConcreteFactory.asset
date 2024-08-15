@@ -16,7 +16,7 @@ MonoBehaviour:
   - Concrete Factory
   - "\u0411\u0435\u0442\u043E\u043D\u043D\u044B\u0439 \u0417\u0430\u0432\u043E\u0434"
   BuildingSprite: {fileID: 0}
-  BuildingEcology: 0
+  BuildingEcology: -3
   ResourceExtractedAmount: 1
   ResourcesForBuild:
   - ResourcesForBuild: 1
@@ -30,8 +30,9 @@ MonoBehaviour:
     ResourcesForWorkAmount: 1
   - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
     ResourcesForWorkAmount: 1
-  ResourceCreate:
-  - CreateResource: {fileID: 11400000, guid: 88c078b7f1fb61b4ab52aeb4297fb458, type: 2}
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: 88c078b7f1fb61b4ab52aeb4297fb458,
+      type: 2}
     ResourceRecept:
     - ResourceForRecept: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046,
         type: 2}

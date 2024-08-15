@@ -11,7 +11,7 @@ public class Building : ScriptableObject
     [Header("Requires")]
     public ResourcesForBuildWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства здания
     public ResourcesForWorkWrapper[] ResourcesForWork; // кол-во ресурсов для работы здания
-    public ResourcesCreateWrapper[] ResourceCreate; // кол-во ресурсов для создания предмета
+    public ResourcesProductionWrapper[] ResourcesProduction; // кол-во ресурсов которые может создавать здание
 }
 
 [System.Serializable]
@@ -22,9 +22,9 @@ public class ResourcesForWorkWrapper
 }
 
 [System.Serializable]
-public class ResourcesCreateWrapper
+public class ResourcesProductionWrapper
 {
-    public Resource CreateResource; // добываемый или создаваемый зданием ресурс
+    public Resource ProductionResource; // добываемый или создаваемый зданием ресурс
     public ResourceRecept[] ResourceRecept; // дополнительные ресурсы для создания
 }
 

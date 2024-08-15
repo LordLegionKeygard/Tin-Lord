@@ -16,7 +16,7 @@ MonoBehaviour:
   - Smelter
   - "\u041F\u043B\u0430\u0432\u0438\u043B\u044C\u043D\u044F"
   BuildingSprite: {fileID: 0}
-  BuildingEcology: 0
+  BuildingEcology: -3
   ResourceExtractedAmount: 1
   ResourcesForBuild:
   - ResourcesForBuild: 9
@@ -26,8 +26,9 @@ MonoBehaviour:
   - ResourcesForBuild: 13
     RecourcesForBuildAmount: 15
   ResourcesForWork: []
-  ResourceCreate:
-  - CreateResource: {fileID: 11400000, guid: 6296258cf7c590140b67984f03ca6845, type: 2}
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: 6296258cf7c590140b67984f03ca6845,
+      type: 2}
     ResourceRecept:
     - ResourceForRecept: {fileID: 11400000, guid: 6296258cf7c590140b67984f03ca6845,
         type: 2}

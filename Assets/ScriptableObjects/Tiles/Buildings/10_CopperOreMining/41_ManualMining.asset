@@ -24,6 +24,7 @@ MonoBehaviour:
   - ResourcesForBuild: 1
     RecourcesForBuildAmount: 2
   ResourcesForWork: []
-  ResourceCreate:
-  - CreateResource: {fileID: 11400000, guid: 2538275dafe458f46a01eee4a20d4818, type: 2}
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: 2538275dafe458f46a01eee4a20d4818,
+      type: 2}
     ResourceRecept: []

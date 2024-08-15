@@ -21,8 +21,8 @@ public class Tile : ScriptableObject
 
     [Header("Building")]
     public BuildingTileViewEnum BuildingTileView;
-    public Resource Resource;
     public Building[] Buildings;
+    public bool IsHaveProdictionResources() => Buildings[0].ResourcesProduction.Length > 0;
 }
 
 [System.Serializable]

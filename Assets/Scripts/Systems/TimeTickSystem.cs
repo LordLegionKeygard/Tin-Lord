@@ -7,7 +7,7 @@ public class TimeTickSystem : MonoBehaviour
     [SerializeField] private int _currentTick;
     [SerializeField] private TimeView _timeView;
     [SerializeField] private TextMeshProUGUI _dayText;
-    [SerializeField] private EveryTickResourcesExtraction _everyTickResourcesExtraction;
+    [SerializeField] private EveryTickResourcesProduction _everyTickResourcesExtraction;
     [SerializeField] private EveryTickResourcesRequired _everyTickResourcesRequired;
     private float _endTime = 25;
     private int _currentDay = 0;

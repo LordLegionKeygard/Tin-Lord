@@ -6,13 +6,14 @@ using Zenject;
 public class TileObject : MonoBehaviour
 {
     [Inject] PlayerResources _playerResources;
+    [Inject] SelectTilePanel _selectTilePanel;
     private GroundTile _groundTile;
     private BuildingTile _buildingTile;
     private TileEcology _tileEcology;
-    private BuildingResourcesRequired _buildingResourcesRequired;
     private BuildingProductionView _buildingProductionView;
     private int _id;
     private float _currentModifier;
+    private Resource _currentResourcesProduction;
     private Resource _currentResourceRequired;
     private float _currentResourceRequiredAmount;
     public bool IsBuildingWork;
@@ -21,10 +22,10 @@ public class TileObject : MonoBehaviour
     public GroundTile GroundTileObject() => _groundTile;
     public BuildingTile BuildingTileObject() => _buildingTile;
     public TileEcology TileEcology() => _tileEcology;
-    public BuildingResourcesRequired BuildingResourcesRequired() => _buildingResourcesRequired;
     public int CurrentTileId() => _id;
     public int GetId() => _id;
     public float CurrentModifier() => _currentModifier;
+    public Resource CurrentResourcesProduction() => _currentResourcesProduction;
     public Resource CurrentResourceRequired() => _currentResourceRequired;
     public float CurrentResourceRequiredAmount() => _currentResourceRequiredAmount;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
@@ -34,39 +35,32 @@ public class TileObject : MonoBehaviour
         _groundTile = GetComponent<GroundTile>();
         _buildingTile = GetComponent<BuildingTile>();
         _tileEcology = GetComponent<TileEcology>();
-        _buildingResourcesRequired = GetComponent<BuildingResourcesRequired>();
     }
     public bool IsHaveRequiredResource()
     {
-        return _buildingTile.CurrentBuildings().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
+        return _buildingTile.CurrentBuilding().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
     }
 
     public void ClearBuildingInfo()
     {
+        _currentResourcesProduction = null;
         _currentResourceRequired = null;
         _currentResourceRequiredAmount = 0;
         _buildingProductionView = null;
         _currentModifier = 0;
-        CustomEvents.FireChangeResourceExtraction(ResourceEnum.None, 0, _id, true);
+        CustomEvents.FireChangeResourceProduction(ResourceEnum.None, 0, _id, true);
         CustomEvents.FireChangeResourceRequired(this, null, 0);
-    }
-
-    public void SetResourceRequied(Resource resource, float amount)
-    {
-        _currentResourceRequired = resource;
-        _currentResourceRequiredAmount = amount;
-        CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount);
     }
 
     public void SetId(int id) => _id = id;
 
     public void SetResourceModifier()
     {
-        if (_buildingTile.CurrentBuildingTile() == null || _buildingTile.CurrentBuildingTile().Resource == null) return;
+        if (_buildingTile.CurrentBuildingTile() == null || !_buildingTile.CurrentBuildingTile().IsHaveProdictionResources()) return;
 
         _currentModifier = CalculateCurrentModifier();
         _buildingProductionView.RefreshModifierView();
-        ChangeResourceExtraction();
+        ChangeResourceProduction();
     }
 
     private float CalculateCurrentModifier()
@@ -89,7 +83,7 @@ public class TileObject : MonoBehaviour
         {
             _isHaveResourceRequired = state;
             CheckBuildingView();
-            ChangeResourceExtraction();
+            ChangeResourceProduction();
         }
     }
 
@@ -98,16 +92,30 @@ public class TileObject : MonoBehaviour
         if (_buildingProductionView != null) _buildingProductionView.CheckMainBuildingView();
     }
 
-    public void ChangeResourceExtraction()
+    public void ChangeResourceProduction()
     {
         if (_buildingTile.CurrentBuildingTile() == null) return;
-        // Debug.Log("ChangeResourceExtraction - CheckCount");
+        // Debug.Log("ChangeResourceProduction - CheckCount");
 
-        var resourceWrapper = _buildingTile.CurrentBuildings();
-        var resourcesExtracted = IsBuildingWork ? resourceWrapper.ResourcesForWork.Length == 0
+        var resourceWrapper = _buildingTile.CurrentBuilding();
+        var resourcesProduction = IsBuildingWork ? resourceWrapper.ResourcesForWork.Length == 0
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier
             : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0) : 0;
 
-        CustomEvents.FireChangeResourceExtraction(_buildingTile.CurrentBuildingTile().Resource.ResourceEnum, resourcesExtracted, _id, false);
+        CustomEvents.FireChangeResourceProduction(_currentResourcesProduction.ResourceEnum, resourcesProduction, _id, false);
+    }
+
+    public void SetResourceRequied(Resource resource, float amount)
+    {
+        _currentResourceRequired = resource;
+        _currentResourceRequiredAmount = amount;
+        CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount);
+    }
+
+    public void SetResourceProduction(Resource resource)
+    {
+        _currentResourcesProduction = resource;
+        ChangeResourceProduction();
+        _selectTilePanel.SetInfo(this);
     }
 }

@@ -110,7 +110,7 @@ public class GroundTile : MonoBehaviour
         UpdateNeighbourGroundTiles();
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
-        _tileObject.ChangeResourceExtraction();
+        _tileObject.ChangeResourceProduction();
         _tileObject.SetResourceModifier();
     }
 

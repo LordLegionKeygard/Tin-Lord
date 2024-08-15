@@ -16,7 +16,7 @@ public class BuildingTile : MonoBehaviour
    public bool HaveTile() => _currentTile != null;
    public Tile CurrentBuildingTile() => _currentTile;
    public int CurrentBuildingLevel() => _buildingLevels.CurrentBuildingLevel();
-   public Building CurrentBuildings() => _currentTile.Buildings[_buildingLevels.CurrentBuildingLevel() - 1];
+   public Building CurrentBuilding() => _currentTile.Buildings[_buildingLevels.CurrentBuildingLevel() - 1];
 
    public bool IsCanUpgrade() => _currentTile != null ? CurrentBuildingLevel() < _currentTile.Buildings.Length : false;
 
@@ -31,8 +31,9 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels.SetBuildingLevelView(level, tileObject);
       tileObject.IsBuildingWork = true;
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
-      tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentBuildings().ResourcesForWork);
+      SetResourceRequiredAfterSpawnOrUpgradeBuilding(CurrentBuilding().ResourcesForWork);
       _buildingLevels.CheckBuildingProductionView();
+      tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource);
       _tileObject.SetResourceModifier();
    }
 
@@ -42,14 +43,15 @@ public class BuildingTile : MonoBehaviour
 
       _buildingLevels.SetBuildingLevelView(level, tileObject);
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
-      tileObject.BuildingResourcesRequired().SetResourceRequiredAfterSpawnOrUpgradeBuilding(tileObject, CurrentBuildings().ResourcesForWork);
+      SetResourceRequiredAfterSpawnOrUpgradeBuilding(CurrentBuilding().ResourcesForWork);
       _buildingLevels.CheckBuildingProductionView();
+      tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource);
       _tileObject.SetResourceModifier();
    }
 
    public void DestroyBuildingTile()
    {
-      _playerResources.AddResourcesFromDestroyBuilding(CurrentBuildings().ResourcesForBuild);
+      _playerResources.AddResourcesFromDestroyBuilding(CurrentBuilding().ResourcesForBuild);
       _currentTile = null;
       _tileObject.ClearBuildingInfo();
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
@@ -57,5 +59,17 @@ public class BuildingTile : MonoBehaviour
       var tileObjectsView = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<TileObjectsView>();
       if (tileObjectsView != null) tileObjectsView.RefreshObjects();
       Destroy(_currentBuildingTileObject);
+   }
+
+   public void SetResourceRequiredAfterSpawnOrUpgradeBuilding(ResourcesForWorkWrapper[] resourcesForWork)
+   {
+      if (resourcesForWork.Length == 0)
+      {
+         _tileObject.SetResourceRequied(null, 0);
+      }
+      else
+      {
+         _tileObject.SetResourceRequied(resourcesForWork[0].ResourceForWork, resourcesForWork[0].ResourcesForWorkAmount); //ставим дефолтный ресурс для работы дерево  
+      }
    }
 }

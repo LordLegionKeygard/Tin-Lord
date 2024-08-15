@@ -48,7 +48,7 @@ public class ConfigLoaderBuildings : ScriptableObject
             _allBuildings[i].ResourceExtractedAmount = ParseFloat(config.ResourceExtractedAmount);
             _allBuildings[i].ResourcesForBuild = ParseResources(config.ResourcesForBuild);
             _allBuildings[i].ResourcesForWork = ParseResourcesForWork(config.ResourcesForWork);
-            _allBuildings[i].ResourceCreate = ParseExtractedResources(config.ExtractedResources, config.ResourceRecept);
+            _allBuildings[i].ResourcesProduction = ParseExtractedResources(config.ExtractedResources, config.ResourceRecept);
 
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(_allBuildings[i]);
@@ -57,17 +57,17 @@ public class ConfigLoaderBuildings : ScriptableObject
     }
 
     // Метод для парсинга ExtractedResources и заполнения ResourceCreate
-    private ResourcesCreateWrapper[] ParseExtractedResources(string extractedResources, string resourceRecepts)
+    private ResourcesProductionWrapper[] ParseExtractedResources(string extractedResources, string resourceRecepts)
     {
         if (string.IsNullOrWhiteSpace(extractedResources))
         {
             Debug.LogWarning("ExtractedResources string is null or empty.");
-            return new ResourcesCreateWrapper[0];
+            return new ResourcesProductionWrapper[0];
         }
 
         string[] resourceParts = extractedResources.Split('/');
         string[] receptParts = resourceRecepts?.Split('&') ?? new string[0];
-        List<ResourcesCreateWrapper> resourceCreateList = new List<ResourcesCreateWrapper>();
+        List<ResourcesProductionWrapper> resourceCreateList = new List<ResourcesProductionWrapper>();
 
         for (int i = 0; i < resourceParts.Length; i++)
         {
@@ -75,9 +75,9 @@ public class ConfigLoaderBuildings : ScriptableObject
             {
                 if (resourceIndex >= 0 && resourceIndex < _allResources.Length)
                 {
-                    var resourceCreate = new ResourcesCreateWrapper
+                    var resourceCreate = new ResourcesProductionWrapper
                     {
-                        CreateResource = _allResources[resourceIndex],
+                        ProductionResource = _allResources[resourceIndex],
                         ResourceRecept = i < receptParts.Length 
                             ? ParseResourceRecept(receptParts[i]) 
                             : new ResourceRecept[0]

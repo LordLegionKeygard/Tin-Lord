@@ -16,7 +16,7 @@ MonoBehaviour:
   - Boiler
   - "\u041A\u043E\u0442\u0435\u043B"
   BuildingSprite: {fileID: 0}
-  BuildingEcology: 0
+  BuildingEcology: -1
   ResourceExtractedAmount: 0.2
   ResourcesForBuild:
   - ResourcesForBuild: 0
@@ -26,8 +26,9 @@ MonoBehaviour:
   ResourcesForWork:
   - ResourceForWork: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
     ResourcesForWorkAmount: 1
-  ResourceCreate:
-  - CreateResource: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098, type: 2}
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098,
+      type: 2}
     ResourceRecept:
     - ResourceForRecept: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61,
         type: 2}

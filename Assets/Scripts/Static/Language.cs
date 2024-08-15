@@ -42,8 +42,8 @@ public class Language : MonoBehaviour
         _text[5, 0] = "";
         _text[5, 1] = "";
 
-        _text[6, 0] = "Total production";
-        _text[6, 1] = "Итоговая добыча";
+        _text[6, 0] = "Production resource";
+        _text[6, 1] = "Добываемый ресурс";
 
         _text[7, 0] = "Base Resources";
         _text[7, 1] = "Базовые Ресурсы";

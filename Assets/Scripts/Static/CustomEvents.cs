@@ -14,10 +14,10 @@ public class CustomEvents
         OnTimeTickAfterResourcesChanged?.Invoke();
     }
 
-    public static event Action<ResourceEnum, float, int, bool> OnChangeResourceExtraction;
-    public static void FireChangeResourceExtraction(ResourceEnum resourceEnum, float amount, int tileId, bool remove)
+    public static event Action<ResourceEnum, float, int, bool> OnChangeResourceProduction;
+    public static void FireChangeResourceProduction(ResourceEnum resourceEnum, float amount, int tileId, bool remove)
     {
-        OnChangeResourceExtraction?.Invoke(resourceEnum, amount, tileId, remove);
+        OnChangeResourceProduction?.Invoke(resourceEnum, amount, tileId, remove);
     }
 
     public static event Action<TileObject, Resource, float> OnChangeResourceRequired;

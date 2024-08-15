@@ -16,7 +16,7 @@ MonoBehaviour:
   - Pottery Furnace
   - "\u0413\u043E\u0440\u043D\u043E\u0432\u0430\u044F \u041F\u0435\u0447\u044C"
   BuildingSprite: {fileID: 0}
-  BuildingEcology: 0
+  BuildingEcology: -1
   ResourceExtractedAmount: 0.5
   ResourcesForBuild:
   - ResourcesForBuild: 9
@@ -26,8 +26,9 @@ MonoBehaviour:
   - ResourcesForBuild: 13
     RecourcesForBuildAmount: 10
   ResourcesForWork: []
-  ResourceCreate:
-  - CreateResource: {fileID: 11400000, guid: 6296258cf7c590140b67984f03ca6845, type: 2}
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: 6296258cf7c590140b67984f03ca6845,
+      type: 2}
     ResourceRecept:
     - ResourceForRecept: {fileID: 11400000, guid: 6296258cf7c590140b67984f03ca6845,
         type: 2}

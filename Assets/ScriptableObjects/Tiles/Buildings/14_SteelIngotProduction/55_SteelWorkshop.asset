@@ -17,7 +17,7 @@ MonoBehaviour:
   - "\u0421\u0442\u0430\u043B\u0435\u043F\u043B\u0430\u0432\u0438\u043B\u044C\u043D\u044B\u0439
     \u0426\u0435\u0445"
   BuildingSprite: {fileID: 0}
-  BuildingEcology: 0
+  BuildingEcology: -3
   ResourceExtractedAmount: 0.5
   ResourcesForBuild:
   - ResourcesForBuild: 11
@@ -31,8 +31,9 @@ MonoBehaviour:
     ResourcesForWorkAmount: 1
   - ResourceForWork: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
     ResourcesForWorkAmount: 1
-  ResourceCreate:
-  - CreateResource: {fileID: 11400000, guid: adc84d59d087d39419aa867840587e8d, type: 2}
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: adc84d59d087d39419aa867840587e8d,
+      type: 2}
     ResourceRecept:
     - ResourceForRecept: {fileID: 11400000, guid: 74a315f742d4240439661f70ab026398,
         type: 2}
