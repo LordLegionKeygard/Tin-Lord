@@ -25,7 +25,7 @@ public class ResourcesForWorkWrapper
 public class ResourcesProductionWrapper
 {
     public Resource ProductionResource; // добываемый или создаваемый зданием ресурс
-    public ResourceRecept[] ResourceRecept; // дополнительные ресурсы для создания
+    public ResourceRecept[] ResourceRecept; // рецепт для создания ресурса
 }
 
 [System.Serializable]

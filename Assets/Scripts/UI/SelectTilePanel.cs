@@ -226,11 +226,11 @@ public class SelectTilePanel : MonoBehaviour
         if (!_tileObject.IsHaveRequiredResource()) return;
 
         _tileObject.ChangeResourceProduction();
-        CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0);
+        CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());
         _tileObject.CheckBuildingView();
     }
 
-    public void ChangeResourceRequired(Resource resource)
+    public void ChangeResourceRequired(Resource resource) // для работы
     {
         var resourcesForWork = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork;
 
@@ -238,15 +238,15 @@ public class SelectTilePanel : MonoBehaviour
         {
             if (resource == resourcesForWork[i].ResourceForWork)
             {
-                _tileObject.SetResourceRequied(resource, resourcesForWork[i].ResourcesForWorkAmount);
+                _tileObject.SetResourceRequied(resource, resourcesForWork[i].ResourcesForWorkAmount, _tileObject.CurrentResourceRecept());
             }
         }
 
         _requiredResourcePanel.UpdateButtonsView(resource.ResourceEnum, resourcesForWork);
     }
 
-    public void ChangeResourceProduction(Resource resource)
+    public void ChangeResourceProduction(Resource resource, ResourceRecept[] resourceRecept)
     {
-        _tileObject.SetResourceProduction(resource);
+        _tileObject.SetResourceProduction(resource, resourceRecept);
     }
 }

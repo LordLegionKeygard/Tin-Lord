@@ -12,11 +12,11 @@ public class EveryTickResourcesRequired : MonoBehaviour
         CustomEvents.OnChangeResourceRequired += ChangeResourceRequired;
     }
 
-    private void ChangeResourceRequired(TileObject tileObject, Resource resource, float amount)
+    private void ChangeResourceRequired(TileObject tileObject, Resource resourceForWork, float amount, ResourceRecept[] resourceRecept)
     {
         var info = _resourcesRequiresTilesInfoList.Find(info => info.TileObject == tileObject);
 
-        if (resource == null)
+        if (resourceForWork == null && resourceRecept == null)
         {
             if (info != null)
             {
@@ -27,8 +27,9 @@ public class EveryTickResourcesRequired : MonoBehaviour
 
         if (info != null)
         {
-            info.ResourceEnum = resource.ResourceEnum;
-            info.Amount = amount;
+            info.ResourceForWork = resourceForWork;
+            info.ResourceForWorkAmount = amount;
+            info.ResourceRecept = resourceRecept;
             info.TileObject.CheckResourceRequired(true);
         }
         else
@@ -36,13 +37,14 @@ public class EveryTickResourcesRequired : MonoBehaviour
             _resourcesRequiresTilesInfoList.Add(new ResourcesRequiredTilesInfo
             {
                 TileObject = tileObject,
-                ResourceEnum = resource.ResourceEnum,
-                Amount = amount
+                ResourceForWork = resourceForWork,
+                ResourceForWorkAmount = amount,
+                ResourceRecept = resourceRecept
             });
         }
     }
 
-    public void UseEveryTickRequiredResources()
+    public void UseEveryTickRequiredResources() //
     {
         for (int i = 0; i < _resourcesRequiresTilesInfoList.Count; i++)
         {
@@ -50,7 +52,15 @@ public class EveryTickResourcesRequired : MonoBehaviour
             if (info.TileObject.IsBuildingWork)
             {
                 info.TileObject.CheckResourceRequired(false);
-                if (info.TileObject.IsHaveRequiredResource()) _playerResources.ChangeResource(info.ResourceEnum, -info.Amount);
+                if (info.TileObject.IsHaveRequiredResource())
+                {
+                    if (info.ResourceForWork != null) _playerResources.ChangeResource(info.ResourceForWork.ResourceEnum, -info.ResourceForWorkAmount);
+
+                    for (int k = 0; k < info.ResourceRecept.Length; k++)
+                    {
+                        _playerResources.ChangeResource(info.ResourceRecept[k].ResourceForRecept.ResourceEnum, -info.ResourceRecept[k].ResourcesForReceptAmount);
+                    }
+                }
             }
         }
     }
@@ -65,6 +75,10 @@ public class EveryTickResourcesRequired : MonoBehaviour
 public class ResourcesRequiredTilesInfo
 {
     public TileObject TileObject;
-    public ResourceEnum ResourceEnum;
-    public float Amount;
+    public Resource ResourceForWork;
+    public float ResourceForWorkAmount;
+    public ResourceRecept[] ResourceRecept;
+
 }
+
+

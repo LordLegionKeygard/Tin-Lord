@@ -31,10 +31,9 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels.SetBuildingLevelView(level, tileObject);
       tileObject.IsBuildingWork = true;
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
-      SetResourceRequiredAfterSpawnOrUpgradeBuilding(CurrentBuilding().ResourcesForWork);
+      SetResourceRequiredAfterSpawnOrUpgradeBuilding();
       _buildingLevels.CheckBuildingProductionView();
-      tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource);
-      _tileObject.SetResourceModifier();
+      tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
    }
 
    public void UpgradeBuildingTile(int level, TileObject tileObject)
@@ -43,10 +42,9 @@ public class BuildingTile : MonoBehaviour
 
       _buildingLevels.SetBuildingLevelView(level, tileObject);
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
-      SetResourceRequiredAfterSpawnOrUpgradeBuilding(CurrentBuilding().ResourcesForWork);
+      SetResourceRequiredAfterSpawnOrUpgradeBuilding();
       _buildingLevels.CheckBuildingProductionView();
-      tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource);
-      _tileObject.SetResourceModifier();
+      tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
    }
 
    public void DestroyBuildingTile()
@@ -61,15 +59,15 @@ public class BuildingTile : MonoBehaviour
       Destroy(_currentBuildingTileObject);
    }
 
-   public void SetResourceRequiredAfterSpawnOrUpgradeBuilding(ResourcesForWorkWrapper[] resourcesForWork)
+   public void SetResourceRequiredAfterSpawnOrUpgradeBuilding()
    {
-      if (resourcesForWork.Length == 0)
+      if (CurrentBuilding().ResourcesForWork.Length == 0)
       {
-         _tileObject.SetResourceRequied(null, 0);
+         _tileObject.SetResourceRequied(null, 0, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
       }
       else
       {
-         _tileObject.SetResourceRequied(resourcesForWork[0].ResourceForWork, resourcesForWork[0].ResourcesForWorkAmount); //ставим дефолтный ресурс для работы дерево  
+         _tileObject.SetResourceRequied(CurrentBuilding().ResourcesForWork[0].ResourceForWork, CurrentBuilding().ResourcesForWork[0].ResourcesForWorkAmount, CurrentBuilding().ResourcesProduction[0].ResourceRecept); //ставим 0 ресурс из массива
       }
    }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -15,6 +16,7 @@ public class TileObject : MonoBehaviour
     private float _currentModifier;
     private Resource _currentResourcesProduction;
     private Resource _currentResourceRequired;
+    private ResourceRecept[] _currentResourceRecept;
     private float _currentResourceRequiredAmount;
     public bool IsBuildingWork;
     private bool _isHaveResourceRequired;
@@ -28,6 +30,7 @@ public class TileObject : MonoBehaviour
     public Resource CurrentResourcesProduction() => _currentResourcesProduction;
     public Resource CurrentResourceRequired() => _currentResourceRequired;
     public float CurrentResourceRequiredAmount() => _currentResourceRequiredAmount;
+    public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
 
     private void Awake()
@@ -38,7 +41,14 @@ public class TileObject : MonoBehaviour
     }
     public bool IsHaveRequiredResource()
     {
-        return _buildingTile.CurrentBuilding().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
+        var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
+        if(!haveResourcesForWork) return false;
+        if(_currentResourceRecept.Length == 0) return true;
+
+        var haveResourceForRecept =  _currentResourceRecept.All(recept => 
+        _playerResources.ResourceEnough(recept.ResourceForRecept.ResourceEnum, recept.ResourcesForReceptAmount));
+
+        return haveResourceForRecept;
     }
 
     public void ClearBuildingInfo()
@@ -48,8 +58,9 @@ public class TileObject : MonoBehaviour
         _currentResourceRequiredAmount = 0;
         _buildingProductionView = null;
         _currentModifier = 0;
+        _currentResourceRecept = null;
         CustomEvents.FireChangeResourceProduction(ResourceEnum.None, 0, _id, true);
-        CustomEvents.FireChangeResourceRequired(this, null, 0);
+        CustomEvents.FireChangeResourceRequired(this, null, 0, null);
     }
 
     public void SetId(int id) => _id = id;
@@ -105,17 +116,25 @@ public class TileObject : MonoBehaviour
         CustomEvents.FireChangeResourceProduction(_currentResourcesProduction.ResourceEnum, resourcesProduction, _id, false);
     }
 
-    public void SetResourceRequied(Resource resource, float amount)
+    public void SetResourceRequied(Resource resource, float amount, ResourceRecept[] resourceRecepts)
     {
         _currentResourceRequired = resource;
         _currentResourceRequiredAmount = amount;
-        CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount);
+        _currentResourceRecept = resourceRecepts;
+        CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount, _currentResourceRecept);
     }
 
-    public void SetResourceProduction(Resource resource)
+    public void SetResourceProduction(Resource resource, ResourceRecept[] resourceRecept)
     {
         _currentResourcesProduction = resource;
+        _currentResourceRecept = resourceRecept;
+        SetResourceModifier();
         ChangeResourceProduction();
         _selectTilePanel.SetInfo(this);
+
+        if (_currentResourceRecept.Length != 0)
+        {
+            CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount, _currentResourceRecept);
+        }
     }
 }

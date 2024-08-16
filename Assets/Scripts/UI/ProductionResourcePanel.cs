@@ -60,7 +60,7 @@ public class ProductionResourcePanel : MonoBehaviour
 
     public void ChangeResourceProductionButton(int number)
     {
-        _selectTilePanel.ChangeResourceProduction(_productionResources[number]);
+        _selectTilePanel.ChangeResourceProduction(_productionResources[number], _lastBuilding.ResourcesProduction[number].ResourceRecept);
         ResetButtons(false);
         _select[number].SetActive(true);
         _buttons[number].interactable = false;
