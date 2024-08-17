@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 61_ComponentsFactory
+  m_EditorClassIdentifier: 
+  Name:
+  - Components Factory
+  - "\u0417\u0430\u0432\u043E\u0434 \u041A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442\u043E\u0432"
+  BuildingSprite: {fileID: 0}
+  BuildingEcology: -3
+  ResourceExtractedAmount: 1
+  ResourcesForBuild:
+  - ResourcesForBuild: 1
+    RecourcesForBuildAmount: 20
+  - ResourcesForBuild: 10
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 12
+    RecourcesForBuildAmount: 10
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: afe06345f5df3d44195027c365643634,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: 87e7f2965c9604145ab9de337103b03d,
+        type: 2}
+      ResourcesForReceptAmount: 1
+  - ProductionResource: {fileID: 11400000, guid: 1112c1c241ed4e745abf4cc8f4f47b35,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: 74a315f742d4240439661f70ab026398,
+        type: 2}
+      ResourcesForReceptAmount: 2
+  - ProductionResource: {fileID: 11400000, guid: e146e99502c6ef641b5dd62017dbde0c,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: afe06345f5df3d44195027c365643634,
+        type: 2}
+      ResourcesForReceptAmount: 2
+    - ResourceForRecept: {fileID: 11400000, guid: 74a315f742d4240439661f70ab026398,
+        type: 2}
+      ResourcesForReceptAmount: 1
+  - ProductionResource: {fileID: 11400000, guid: 3b10836e3965a9f4b939cdc5e23f020d,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: adc84d59d087d39419aa867840587e8d,
+        type: 2}
+      ResourcesForReceptAmount: 4
+    - ResourceForRecept: {fileID: 11400000, guid: afe06345f5df3d44195027c365643634,
+        type: 2}
+      ResourcesForReceptAmount: 1
+    - ResourceForRecept: {fileID: 11400000, guid: 1112c1c241ed4e745abf4cc8f4f47b35,
+        type: 2}
+      ResourcesForReceptAmount: 1
+  - ProductionResource: {fileID: 11400000, guid: ff6c84f3761e86444a64007a34ebd721,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: e146e99502c6ef641b5dd62017dbde0c,
+        type: 2}
+      ResourcesForReceptAmount: 2
+    - ResourceForRecept: {fileID: 11400000, guid: afe06345f5df3d44195027c365643634,
+        type: 2}
+      ResourcesForReceptAmount: 2
+    - ResourceForRecept: {fileID: 11400000, guid: adc84d59d087d39419aa867840587e8d,
+        type: 2}
+      ResourcesForReceptAmount: 2
+  - ProductionResource: {fileID: 11400000, guid: 072a407d58b15cb429cb3ba64d09eb1b,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: 3b10836e3965a9f4b939cdc5e23f020d,
+        type: 2}
+      ResourcesForReceptAmount: 1
+    - ResourceForRecept: {fileID: 11400000, guid: e146e99502c6ef641b5dd62017dbde0c,
+        type: 2}
+      ResourcesForReceptAmount: 2
+    - ResourceForRecept: {fileID: 11400000, guid: 1112c1c241ed4e745abf4cc8f4f47b35,
+        type: 2}
+      ResourcesForReceptAmount: 2

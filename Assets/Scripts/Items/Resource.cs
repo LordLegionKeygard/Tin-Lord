@@ -14,8 +14,8 @@ public class Resource : ScriptableObject
 
 public enum ResourceType
 {
-    BaseResource = 0,
-    BuildingMaterial = 1,
+    Resource = 0,
+    Material = 1,
     Component = 2,
 }
 

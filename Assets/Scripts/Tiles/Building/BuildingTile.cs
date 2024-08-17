@@ -33,7 +33,7 @@ public class BuildingTile : MonoBehaviour
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
       _buildingLevels.CheckBuildingProductionView();
-      tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
+      if (CurrentBuilding().ResourcesProduction.Length != 0) tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
    }
 
    public void UpgradeBuildingTile(int level, TileObject tileObject)
@@ -44,7 +44,7 @@ public class BuildingTile : MonoBehaviour
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
       _buildingLevels.CheckBuildingProductionView();
-      tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
+      if (CurrentBuilding().ResourcesProduction.Length != 0) tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
    }
 
    public void DestroyBuildingTile()
@@ -63,7 +63,8 @@ public class BuildingTile : MonoBehaviour
    {
       if (CurrentBuilding().ResourcesForWork.Length == 0)
       {
-         _tileObject.SetResourceRequied(null, 0, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
+         if (CurrentBuilding().ResourcesProduction.Length == 0) _tileObject.SetResourceRequied(null, 0, null);
+         else _tileObject.SetResourceRequied(null, 0, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
       }
       else
       {

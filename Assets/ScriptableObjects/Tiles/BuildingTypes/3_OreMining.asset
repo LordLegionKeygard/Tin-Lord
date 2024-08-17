@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 3_OreMining
+  m_EditorClassIdentifier: 
+  Name:
+  - Ore Mining
+  - "\u0414\u043E\u0431\u044B\u0447\u0430 \u0420\u0443\u0434\u044B"
+  TileObject: {fileID: 5027250661803429687, guid: efa1ec3629e748246a0d08e1c49ec583,
+    type: 3}
+  Icon: {fileID: 0}
+  TileTypeEnum: 1
+  GroundTileView: 0
+  GroundEcology: 0
+  IsWater: 0
+  IsFourTile: 0
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: 4
+  Buildings:
+  - {fileID: 11400000, guid: 0f7b8997f9a8ad24db8099239a40929d, type: 2}
+  - {fileID: 11400000, guid: e03c742ab99ee4744876fa0e54f9f5d3, type: 2}
+  - {fileID: 11400000, guid: 463c4f5ff6266ec40981b2b17f579b02, type: 2}
+  - {fileID: 11400000, guid: d25f398890ce14249be16e95f290da50, type: 2}

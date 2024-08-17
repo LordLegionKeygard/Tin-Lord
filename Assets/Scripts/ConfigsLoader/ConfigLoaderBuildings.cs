@@ -61,7 +61,6 @@ public class ConfigLoaderBuildings : ScriptableObject
     {
         if (string.IsNullOrWhiteSpace(extractedResources))
         {
-            Debug.LogWarning("ExtractedResources string is null or empty.");
             return new ResourcesProductionWrapper[0];
         }
 

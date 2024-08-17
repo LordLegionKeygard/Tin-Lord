@@ -48,17 +48,17 @@ public class Language : MonoBehaviour
         _text[6, 0] = "Production resource";
         _text[6, 1] = "Добываемый ресурс";
 
-        _text[7, 0] = "Base Resources";
-        _text[7, 1] = "Базовые Ресурсы";
+        _text[7, 0] = "Resources";
+        _text[7, 1] = "Ресурсы";
 
-        _text[8, 0] = "Building Materials";
-        _text[8, 1] = "Стройматериалы";
+        _text[8, 0] = "Materials";
+        _text[8, 1] = "Материалы";
 
         _text[9, 0] = "Components";
         _text[9, 1] = "Компоненты";
 
-        _text[10, 0] = "Bridge";
-        _text[10, 1] = "Мост";
+        _text[10, 0] = "";
+        _text[10, 1] = "";
 
         _text[11, 0] = "Producation modifier";
         _text[11, 1] = "Модификатор добычи";

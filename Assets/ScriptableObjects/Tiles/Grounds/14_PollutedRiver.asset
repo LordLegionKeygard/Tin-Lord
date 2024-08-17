@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 14_PollutedRiver
   m_EditorClassIdentifier: 
+  Name:
+  - Polluted river
+  - "\u0417\u0430\u0433\u0440\u044F\u0437\u043D\u0435\u043D\u043D\u0430\u044F \u0440\u0435\u043A\u0430"
   TileObject: {fileID: 2479273178103927905, guid: 8e10657c42e39454ca29f5efa83da5e8,
     type: 3}
   Icon: {fileID: 21300000, guid: 61e3e57b64d4cd4498bc4220512b622d, type: 3}
@@ -20,12 +23,7 @@ MonoBehaviour:
   GroundEcology: -5
   IsWater: 1
   IsFourTile: 0
-  BuildingsOnTile:
-  - BuildingTile: {fileID: 11400000, guid: c8ed789ecb673bc40a95025d146a4b6d, type: 2}
-    ResourceModifier: 2
+  BuildingTypes: []
+  ProductionOnGroundResources: []
   BuildingTileView: 0
-  Resource: {fileID: 0}
-  UpgradeBuildingWrapper: []
-  Name:
-  - Polluted river
-  - "\u0417\u0430\u0433\u0440\u044F\u0437\u043D\u0435\u043D\u043D\u0430\u044F \u0440\u0435\u043A\u0430"
+  Buildings: []

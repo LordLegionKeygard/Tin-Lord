@@ -19,7 +19,7 @@ public class TileObject : MonoBehaviour
     private ResourceRecept[] _currentResourceRecept;
     private float _currentResourceRequiredAmount;
     public bool IsBuildingWork;
-    private bool _isHaveResourceRequired;
+    private bool _isHaveResourceRequired = true;
 
     public GroundTile GroundTileObject() => _groundTile;
     public BuildingTile BuildingTileObject() => _buildingTile;
@@ -76,11 +76,11 @@ public class TileObject : MonoBehaviour
 
     private float CalculateCurrentModifier()
     {
-        foreach (var building in GroundTileObject().CurrentGroundTile().BuildingsOnTile)
+        foreach (var productionFromGroundResources in GroundTileObject().CurrentGroundTile().ProductionOnGroundResources)
         {
-            if (building.BuildingTile == BuildingTileObject().CurrentBuildingTile())
+            if (productionFromGroundResources.ProductionOnGroundResource == _currentResourcesProduction)
             {
-                return building.ResourceModifier;
+                return productionFromGroundResources.ProductionOnGroundResourceModifier;
             }
         }
         return 0;

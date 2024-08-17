@@ -17,13 +17,22 @@ public class Tile : ScriptableObject
     public int GroundEcology;
     public bool IsWater;
     public bool IsFourTile;
-    public BuildingsOnTile[] BuildingsOnTile;
+    public Tile[] BuildingTypes;
+    public ProductionOnGroundResources[] ProductionOnGroundResources;
 
     [Header("Building")]
     public BuildingTileViewEnum BuildingTileView;
     public Building[] Buildings;
     public bool IsHaveProdictionResources() => Buildings[0].ResourcesProduction.Length > 0;
 }
+
+[System.Serializable]
+public class ProductionOnGroundResources
+{
+    public Resource ProductionOnGroundResource;
+    public float ProductionOnGroundResourceModifier;
+}
+
 
 [System.Serializable]
 public class UpgradeBuildingWrapper
@@ -90,16 +99,15 @@ public enum BuildingTileViewEnum
     Base = 1,
     ElectricPowerIndustry = 2,
     CoalMining = 3,
-    IronOreMining = 4,
+    OreMining = 4,
     WoodExtraction = 5,
     SandMining = 6,
     OilProduction = 7,
     StoneMining = 8,
     LandWaterExtraction = 9,
     Bridge = 10,
-    CopperOreMining = 11,
-    // HydroPowerIndustry = 12,
-    // RiverWaterExtraction = 13,
+    // HydroPowerIndustry
+    // RiverWaterExtraction
 }
 
 public enum TileDirectionEnum

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 59_ComponentsWorkbench
+  m_EditorClassIdentifier: 
+  Name:
+  - Components Workbench
+  - "\u0412\u0435\u0440\u0441\u0442\u0430\u043A \u041A\u043E\u043C\u043F\u043E\u043D\u0435\u043D\u0442\u043E\u0432"
+  BuildingSprite: {fileID: 0}
+  BuildingEcology: -1
+  ResourceExtractedAmount: 0.2
+  ResourcesForBuild:
+  - ResourcesForBuild: 0
+    RecourcesForBuildAmount: 5
+  - ResourcesForBuild: 1
+    RecourcesForBuildAmount: 2
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
+    ResourcesForWorkAmount: 1
+  - ResourceForWork: {fileID: 11400000, guid: 27b850f65039e4244ac4286f6c1c897b, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: afe06345f5df3d44195027c365643634,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: 87e7f2965c9604145ab9de337103b03d,
+        type: 2}
+      ResourcesForReceptAmount: 1
+  - ProductionResource: {fileID: 11400000, guid: 1112c1c241ed4e745abf4cc8f4f47b35,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: 74a315f742d4240439661f70ab026398,
+        type: 2}
+      ResourcesForReceptAmount: 2

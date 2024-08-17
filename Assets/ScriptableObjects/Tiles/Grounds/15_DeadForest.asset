@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 15_DeadForest
   m_EditorClassIdentifier: 
+  Name:
+  - Dead Forest
+  - "\u041C\u0435\u0440\u0442\u0432\u044B\u0439 \u041B\u0435\u0441"
   TileObject: {fileID: 1128623563670308853, guid: 0f9719aca4c36184aa6d82848a6c1c1f,
     type: 3}
   Icon: {fileID: 21300000, guid: 8cbe7bb205172c74985964c8345f6ad2, type: 3}
@@ -20,12 +23,11 @@ MonoBehaviour:
   GroundEcology: -2
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile:
-  - BuildingTile: {fileID: 11400000, guid: af5bae1ce98b11748b6ce75629ca4056, type: 2}
-    ResourceModifier: 0.5
+  BuildingTypes:
+  - {fileID: 11400000, guid: af5bae1ce98b11748b6ce75629ca4056, type: 2}
+  ProductionOnGroundResources:
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
   BuildingTileView: 0
-  Resource: {fileID: 0}
-  UpgradeBuildingWrapper: []
-  Name:
-  - Dead Forest
-  - "\u041C\u0435\u0440\u0442\u0432\u044B\u0439 \u041B\u0435\u0441"
+  Buildings: []

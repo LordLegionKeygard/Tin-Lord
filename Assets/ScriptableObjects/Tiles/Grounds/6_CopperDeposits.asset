@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 6_CopperDeposits
   m_EditorClassIdentifier: 
+  Name:
+  - Copper Deposits
+  - "\u0417\u0430\u043B\u0435\u0436\u0438 \u041C\u0435\u0434\u0438"
   TileObject: {fileID: 8298401937988867811, guid: 8dfffa8de759dfa4f838b0ee10bb10d8,
     type: 3}
   Icon: {fileID: 21300000, guid: 7613cff5825ea444db9fefdf51c33972, type: 3}
@@ -20,14 +23,15 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile:
-  - BuildingTile: {fileID: 11400000, guid: 6cbddb87838833b4081e7680d56daeeb, type: 2}
-    ResourceModifier: 1
-  - BuildingTile: {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
-    ResourceModifier: 1
+  BuildingTypes:
+  - {fileID: 11400000, guid: 8de041479e7436049a1d589eab812ba8, type: 2}
+  - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  ProductionOnGroundResources:
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 2538275dafe458f46a01eee4a20d4818,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1
   BuildingTileView: 0
-  Resource: {fileID: 0}
-  UpgradeBuildingWrapper: []
-  Name:
-  - Copper Deposits
-  - "\u0417\u0430\u043B\u0435\u0436\u0438 \u041C\u0435\u0434\u0438"
+  Buildings: []

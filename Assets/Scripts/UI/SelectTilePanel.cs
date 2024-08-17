@@ -198,7 +198,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetReceptPanelVisibility(bool haveBuildingTile, ResourceRecept[] resourceRecept)
     {
-        var state = haveBuildingTile && resourceRecept.Length != 0;
+        var state = haveBuildingTile && resourceRecept != null && resourceRecept.Length != 0;
         _receptPanelObject.SetActive(state);
         _receptPanelLine.SetActive(state);
     }

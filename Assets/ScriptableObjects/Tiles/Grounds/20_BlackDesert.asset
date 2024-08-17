@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 20_BlackDesert
   m_EditorClassIdentifier: 
+  Name:
+  - Black Desert
+  - "\u0427\u0435\u0440\u043D\u0430\u044F \u041F\u0443\u0441\u0442\u044B\u043D\u044F"
   TileObject: {fileID: 943504291324001087, guid: e553eed32181bf844a8776795067d2e5,
     type: 3}
   Icon: {fileID: 21300000, guid: 248996152abd52947a51ffc52592f108, type: 3}
@@ -20,12 +23,11 @@ MonoBehaviour:
   GroundEcology: -4
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile:
-  - BuildingTile: {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
-    ResourceModifier: 1.5
+  BuildingTypes:
+  - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  ProductionOnGroundResources:
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1.5
   BuildingTileView: 0
-  Resource: {fileID: 0}
-  UpgradeBuildingWrapper: []
-  Name:
-  - Black Desert
-  - "\u0427\u0435\u0440\u043D\u0430\u044F \u041F\u0443\u0441\u0442\u044B\u043D\u044F"
+  Buildings: []

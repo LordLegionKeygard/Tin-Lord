@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 1_Meadow
   m_EditorClassIdentifier: 
+  Name:
+  - Meadow
+  - "\u041B\u0443\u0433"
   TileObject: {fileID: 8123914287721754775, guid: 9c9f423f92cd0b14985f661425b1f853,
     type: 3}
   Icon: {fileID: 21300000, guid: 6a54043ad028d1f42ad7d59236c0bb1b, type: 3}
@@ -20,14 +23,15 @@ MonoBehaviour:
   GroundEcology: 3
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile:
-  - BuildingTile: {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
-    ResourceModifier: 1
-  - BuildingTile: {fileID: 11400000, guid: 806c4d977d8c2bd48861a74945b2872b, type: 2}
-    ResourceModifier: 0.5
+  BuildingTypes:
+  - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - {fileID: 11400000, guid: 806c4d977d8c2bd48861a74945b2872b, type: 2}
+  ProductionOnGroundResources:
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
   BuildingTileView: 0
-  Resource: {fileID: 0}
-  UpgradeBuildingWrapper: []
-  Name:
-  - Meadow
-  - "\u041B\u0443\u0433"
+  Buildings: []

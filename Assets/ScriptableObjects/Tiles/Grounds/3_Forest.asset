@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 3_Forest
   m_EditorClassIdentifier: 
+  Name:
+  - Forest
+  - "\u041B\u0435\u0441"
   TileObject: {fileID: 2196790771032332189, guid: ef16bea2f7551954d85bcfc66e0aaf9d,
     type: 3}
   Icon: {fileID: 21300000, guid: 6c4828f65c3432e428d697f754a589f2, type: 3}
@@ -20,12 +23,11 @@ MonoBehaviour:
   GroundEcology: 5
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile:
-  - BuildingTile: {fileID: 11400000, guid: af5bae1ce98b11748b6ce75629ca4056, type: 2}
-    ResourceModifier: 1
+  BuildingTypes:
+  - {fileID: 11400000, guid: af5bae1ce98b11748b6ce75629ca4056, type: 2}
+  ProductionOnGroundResources:
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1
   BuildingTileView: 0
-  Resource: {fileID: 0}
-  UpgradeBuildingWrapper: []
-  Name:
-  - Forest
-  - "\u041B\u0435\u0441"
+  Buildings: []
