@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class ReceptPanel : MonoBehaviour
 {
+    [Inject] PlayerResources _playerResources;
     [SerializeField] private GameObject[] _receptCells;
     [SerializeField] private Image[] _receptCellResourceIcon;
     [SerializeField] private TextMeshProUGUI[] _receptCellResourceText;
@@ -22,7 +24,16 @@ public class ReceptPanel : MonoBehaviour
         {
             _receptCells[i].SetActive(true);
             _receptCellResourceIcon[i].sprite = resourceRecept[i].ResourceForRecept.Icon;
-            _receptCellResourceText[i].text = $"{resourceRecept[i].ResourcesForReceptAmount} x";
+
+            if (_playerResources.ResourceEnough(resourceRecept[i].ResourceForRecept.ResourceEnum, resourceRecept[i].ResourcesForReceptAmount))
+            {
+                _receptCellResourceText[i].text = $"{resourceRecept[i].ResourcesForReceptAmount} x";
+
+            }
+            else
+            {
+                _receptCellResourceText[i].text = $"<color={Colors.HexColorYellow}>{resourceRecept[i].ResourcesForReceptAmount} x</color>";
+            }
         }
     }
 

@@ -109,7 +109,8 @@ public class TileObject : MonoBehaviour
         // Debug.Log("ChangeResourceProduction - CheckCount");
 
         var resourceWrapper = _buildingTile.CurrentBuilding();
-        var resourcesProduction = IsBuildingWork ? resourceWrapper.ResourcesForWork.Length == 0
+        var resourcesProduction = IsBuildingWork 
+            ? _currentResourceRequired == null && _currentResourceRecept == null
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier
             : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0) : 0;
 
