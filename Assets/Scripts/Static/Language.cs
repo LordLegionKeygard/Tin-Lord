@@ -27,8 +27,11 @@ public class Language : MonoBehaviour
 
     public void SetLanguage()
     {
-        _text[1, 0] = "";
-        _text[1, 1] = "";
+        _text[0, 0] = "Tin Lord";
+        _text[0, 1] = "Жестяной Лорд";
+
+        _text[1, 0] = "Recept:";
+        _text[1, 1] = "Рецепт:";
 
         _text[2, 0] = "Building";
         _text[2, 1] = "Здание";

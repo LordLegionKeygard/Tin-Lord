@@ -9,6 +9,8 @@ public class Colors : MonoBehaviour
     public static readonly Color AlphaGrey = new Color(0.5f, 0.5f, 0.5f, 0.5f);
     public static readonly Color StandartGrey = new Color(0.5f, 0.5f, 0.5f, 1);
     public static readonly Color OnOffButtonWork = new Color(0.3f, 0.7f, 0, 1);
+    public static string HexColorWhite = "#FFFFFF";
+    public static string HexColorYellow = "#FFA800";
 
     public Color[] SelectTileView;
 

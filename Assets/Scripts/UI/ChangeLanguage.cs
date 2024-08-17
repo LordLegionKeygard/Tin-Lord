@@ -4,8 +4,8 @@ using TMPro;
 public class ChangeLanguage : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _buildingsText;
-
     [SerializeField] private TextMeshProUGUI[] _resourceTypesPanel;
+    [SerializeField] private TextMeshProUGUI _receptText;
 
     private void Start()
     {
@@ -14,6 +14,8 @@ public class ChangeLanguage : MonoBehaviour
         _resourceTypesPanel[0].text = Language.TextStatic[7];
         _resourceTypesPanel[1].text = Language.TextStatic[8];
         _resourceTypesPanel[2].text = Language.TextStatic[9];
+
+        _receptText.text = Language.TextStatic[1];
 
     }
 }

@@ -15,15 +15,20 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private GameObject _buildButton;
     [SerializeField] private GameObject _onOffButton;
     [SerializeField] private GameObject _destroyButton;
-    [SerializeField] private GameObject _tileInfoPanelObject;
+    [SerializeField] private RectTransform _objectTransform;
+    [SerializeField] private Image _onOffImage;
+
+    [Header("Panels & Lines")]
     [SerializeField] private GameObject _buildTypesPanelObject;
     [SerializeField] private GameObject _buildTypesPanelLine;
     [SerializeField] private GameObject _requiredResourcePanelObject;
     [SerializeField] private GameObject _requiredResourcePanelLine;
     [SerializeField] private GameObject _productionResourcePanelObject;
     [SerializeField] private GameObject _productionResourcePanelLine;
-    [SerializeField] private RectTransform _objectTransform;
-    [SerializeField] private Image _onOffImage;
+    [SerializeField] private GameObject _receptPanelObject;
+    [SerializeField] private GameObject _receptPanelLine;
+    [SerializeField] private GameObject _buttonsPanel;
+    [SerializeField] private GameObject _buildingLine;
 
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI _groundTileNameText;
@@ -39,11 +44,13 @@ public class SelectTilePanel : MonoBehaviour
     private TileObject _tileObject;
     private RequiredResourcePanel _requiredResourcePanel;
     private ProductionResourcePanel _productionResourcePanel;
+    private ReceptPanel _receptPanel;
 
     private void Awake()
     {
         _requiredResourcePanel = GetComponent<RequiredResourcePanel>();
         _productionResourcePanel = GetComponent<ProductionResourcePanel>();
+        _receptPanel = GetComponent<ReceptPanel>();
     }
 
     public void RefreshShowInfo(int tileId)
@@ -67,14 +74,13 @@ public class SelectTilePanel : MonoBehaviour
 
     private void ShowInfoPanel()
     {
-        _tileInfoPanelObject.SetActive(true);
         _buildTypesPanelObject.SetActive(false);
         _objectTransform.DOAnchorPosY(0, 0.3f).SetUpdate(true);
     }
 
     private void HideInfoPanel()
     {
-        _objectTransform.DOAnchorPosY(-650, 0.3f).SetUpdate(true);
+        _objectTransform.DOAnchorPosY(-700, 0.3f).SetUpdate(true);
         _buildsPanel.gameObject.SetActive(false);
         _buildTypesPanelLine.SetActive(false);
     }
@@ -92,16 +98,29 @@ public class SelectTilePanel : MonoBehaviour
         SetEcologyTexts(tileObject);
         SetRequiredResourcePanelVisibility(haveBuildingTile, currentBuilding);
         SetProductionResourcePanelVisibility(haveBuildingTile, currentBuilding);
+        SetReceptPanelVisibility(haveBuildingTile, tileObject.CurrentResourceRecept());
+        SetButtonsVisibility(tileObject.GroundTileObject().CurrentGroundTile().GroundTileView);
         SetBuildTypesPanelVisibility(false);
         SetOnOffButtonColor();
 
         if (haveBuildingTile && buildingTile.IsHaveProdictionResources())
         {
             _productionResourcePanel.SetButtonView(tileObject.BuildingTileObject().CurrentBuilding(), tileObject.CurrentResourcesProduction());
-            if (tileObject.CurrentResourceRequired() != null) _requiredResourcePanel.UpdateButtonsView(_tileObject.CurrentResourceRequired().ResourceEnum, _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork);
+            if (tileObject.CurrentResourceRequired() != null)
+            {
+                _requiredResourcePanel.UpdateButtonsView(_tileObject.CurrentResourceRequired().ResourceEnum, _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork);
+            }
+            _receptPanel.UpdateReceptView(tileObject.CurrentResourceRecept());
         }
 
         SetButtonStates(tileObject, haveBuildingTile);
+    }
+
+    private void SetButtonsVisibility(GroundTileViewEnum groundTileViewEnum)
+    {
+        var state = groundTileViewEnum != GroundTileViewEnum.Road;
+        _buildingLine.SetActive(state);
+        _buttonsPanel.SetActive(state);
     }
 
     private void SetOnOffButtonColor()
@@ -114,7 +133,10 @@ public class SelectTilePanel : MonoBehaviour
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _buildingNameText.text = haveBuildingTile ? $"{Language.TextStatic[2]}: {building.Name[Language.LanguageNumber]}" : $"{Language.TextStatic[2]}: -";
         _buildingLevelText.text = haveBuildingTile ? $"{Language.TextStatic[3]}: {tileObject.BuildingTileObject().CurrentBuildingLevel()}" : $"{Language.TextStatic[3]}: -";
-        _productionModifierText.text = haveBuildingTile && buildingTile.IsHaveProdictionResources() ? $"{Language.TextStatic[11]}: x{tileObject.CurrentModifier()}" : $"{Language.TextStatic[11]}: -";
+
+        _productionModifierText.text = haveBuildingTile && buildingTile.IsHaveProdictionResources()
+     ? $"{Language.TextStatic[11]}: <color={(tileObject.CurrentModifier() == 0 ? Colors.HexColorYellow : Colors.HexColorWhite)}>x{tileObject.CurrentModifier()}</color>"
+     : $"{Language.TextStatic[11]}: -";
     }
 
     private void SetProductionText(TileObject tileObject, Tile buildingTile, bool haveBuildingTile, Building buildings)
@@ -122,19 +144,29 @@ public class SelectTilePanel : MonoBehaviour
         if (haveBuildingTile && buildingTile.IsHaveProdictionResources())
         {
             var isUseRources = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork.Length != 0;
-            var productionText = $"{Language.TextStatic[6]}: {tileObject.CurrentResourcesProduction().Name[Language.LanguageNumber]} ";
+            var productionName = $"{tileObject.CurrentResourcesProduction().Name[Language.LanguageNumber]} ";
+            var productionAmount = "";
 
             if (isUseRources)
             {
-                productionText += tileObject.IsHaveRequiredResource() && tileObject.IsBuildingWork ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString() : "0";
-
+                productionAmount = tileObject.IsHaveRequiredResource() && tileObject.IsBuildingWork
+                    ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString()
+                    : "0";
             }
             else
             {
-                productionText += tileObject.IsBuildingWork ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString() : "0";
+                productionAmount = tileObject.IsBuildingWork
+                    ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString()
+                    : "0";
             }
-            _productionResourceText.text = productionText;
 
+            // Определяем цвет текста в зависимости от значения производства ресурсов
+            var productionColor = (productionAmount == "0") ? Colors.HexColorYellow : Colors.HexColorWhite;
+
+            // Формируем итоговую строку с цветовым форматированием
+            var productionText = $"{Language.TextStatic[6]}: <color={productionColor}>{productionName}{productionAmount}</color>";
+
+            _productionResourceText.text = productionText;
         }
         else
         {
@@ -159,9 +191,16 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetProductionResourcePanelVisibility(bool haveBuildingTile, Building building)
     {
-        var state = haveBuildingTile && building.ResourcesProduction.Length!= 0;
+        var state = haveBuildingTile && building.ResourcesProduction.Length != 0;
         _productionResourcePanelObject.SetActive(state);
         _productionResourcePanelLine.SetActive(state);
+    }
+
+    private void SetReceptPanelVisibility(bool haveBuildingTile, ResourceRecept[] resourceRecept)
+    {
+        var state = haveBuildingTile && resourceRecept.Length != 0;
+        _receptPanelObject.SetActive(state);
+        _receptPanelLine.SetActive(state);
     }
 
     private void SetBuildTypesPanelVisibility(bool state)
@@ -227,7 +266,6 @@ public class SelectTilePanel : MonoBehaviour
 
         _tileObject.ChangeResourceProduction();
         CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());
-        _tileObject.CheckBuildingView();
     }
 
     public void ChangeResourceRequired(Resource resource) // для работы
