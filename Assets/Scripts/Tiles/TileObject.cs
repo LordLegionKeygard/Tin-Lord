@@ -14,7 +14,7 @@ public class TileObject : MonoBehaviour
     private BuildingProductionView _buildingProductionView;
     private int _id;
     private float _currentModifier;
-    private Resource _currentResourcesProduction;
+    private Resource _currentResourceProduction;
     private Resource _currentResourceRequired;
     private ResourceRecept[] _currentResourceRecept;
     private float _currentResourceRequiredAmount;
@@ -27,7 +27,7 @@ public class TileObject : MonoBehaviour
     public int CurrentTileId() => _id;
     public int GetId() => _id;
     public float CurrentModifier() => _currentModifier;
-    public Resource CurrentResourcesProduction() => _currentResourcesProduction;
+    public Resource CurrentResourceProduction() => _currentResourceProduction;
     public Resource CurrentResourceRequired() => _currentResourceRequired;
     public float CurrentResourceRequiredAmount() => _currentResourceRequiredAmount;
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
@@ -53,7 +53,7 @@ public class TileObject : MonoBehaviour
 
     public void ClearBuildingInfo()
     {
-        _currentResourcesProduction = null;
+        _currentResourceProduction = null;
         _currentResourceRequired = null;
         _currentResourceRequiredAmount = 0;
         _buildingProductionView = null;
@@ -78,7 +78,7 @@ public class TileObject : MonoBehaviour
     {
         foreach (var productionFromGroundResources in GroundTileObject().CurrentGroundTile().ProductionOnGroundResources)
         {
-            if (productionFromGroundResources.ProductionOnGroundResource == _currentResourcesProduction)
+            if (productionFromGroundResources.ProductionOnGroundResource == _currentResourceProduction)
             {
                 return productionFromGroundResources.ProductionOnGroundResourceModifier;
             }
@@ -114,7 +114,7 @@ public class TileObject : MonoBehaviour
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier
             : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0) : 0;
 
-        CustomEvents.FireChangeResourceProduction(_currentResourcesProduction.ResourceEnum, resourcesProduction, _id, false);
+        CustomEvents.FireChangeResourceProduction(_currentResourceProduction.ResourceEnum, resourcesProduction, _id, false);
     }
 
     public void SetResourceRequied(Resource resource, float amount, ResourceRecept[] resourceRecepts)
@@ -127,7 +127,7 @@ public class TileObject : MonoBehaviour
 
     public void SetResourceProduction(Resource resource, ResourceRecept[] resourceRecept)
     {
-        _currentResourcesProduction = resource;
+        _currentResourceProduction = resource;
         _currentResourceRecept = resourceRecept;
         SetResourceModifier();
         ChangeResourceProduction();

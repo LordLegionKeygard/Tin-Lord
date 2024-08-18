@@ -12,7 +12,7 @@ public class BuildingProductionView : MonoBehaviour
     [Inject] private SelectTilePanel _selectTilePanel;
     private TileObject _tileObject;
 
-    [Header("MainWorkObjects")]
+    [Header("Main")]
     [SerializeField] private CharacterBuildingAnimator[] _characterBuildingAnimators;
     [SerializeField] private ArmIK[] _armIk;
     [SerializeField] private GameObject[] _turnOffObjects;
@@ -20,10 +20,15 @@ public class BuildingProductionView : MonoBehaviour
     [SerializeField] private Animator[] _animators;
     [SerializeField] private RotateAround[] _rotateArounds;
 
-    [Header("AdditionalObjects")]
+    [Header("Modifier")]
     [SerializeField] private float _changeViewIfModifier;
     [SerializeField] private GameObject[] _additionalturnOffObjects;
     [SerializeField] private GameObject[] _additionalturnOnObjects;
+
+    [Header("Resource")]
+    [SerializeField] private bool _needSetResourceView;
+    [SerializeField] private ResourceViewMeshRenders[] _resourceViewMeshRenders;
+    [SerializeField] private ResourceViewActiveGameObjects[] _resourceViewActiveGameObjects;
 
 
     public void SetCurrentTileObject(TileObject tileObject)
@@ -34,11 +39,11 @@ public class BuildingProductionView : MonoBehaviour
 
     public void RefreshModifierView()
     {
-        if (_changeViewIfModifier != 0) SetAdditionalBuildingView(_changeViewIfModifier != _tileObject.CurrentModifier());
+        if (_changeViewIfModifier != 0) SetModifierView(_changeViewIfModifier != _tileObject.CurrentModifier());
         CheckMainBuildingView();
     }
 
-    private void SetAdditionalBuildingView(bool state)
+    private void SetModifierView(bool state)
     {
         foreach (var item in _additionalturnOffObjects)
         {
@@ -55,16 +60,17 @@ public class BuildingProductionView : MonoBehaviour
     {
         if (_tileObject.CurrentModifier() > 0 && _tileObject.IsHaveRequiredResource() && _tileObject.IsBuildingWork)
         {
-            SetMainBuildingView(true);
+            SetMainView(true);
         }
         else
         {
-            SetMainBuildingView(false);
+            SetMainView(false);
         }
         _selectTilePanel.RefreshShowInfo(_tileObject.GetId());
+        if (_needSetResourceView) SetResourceView();
     }
 
-    private void SetMainBuildingView(bool state)
+    private void SetMainView(bool state)
     {
         foreach (var animator in _characterBuildingAnimators)
         {
@@ -97,4 +103,61 @@ public class BuildingProductionView : MonoBehaviour
             item.SetActive(!state);
         }
     }
+
+
+    private void SetResourceView()
+    {
+        ChangeMeshRendersMaterial();
+        ChangeActiveObjects();
+    }
+
+    private void ChangeMeshRendersMaterial()
+    {
+        for (int i = 0; i < _resourceViewMeshRenders.Length; i++)
+        {
+            for (int k = 0; k < _resourceViewMeshRenders[i].ResourceMaterialWrapper.Length; k++)
+            {
+                if (_tileObject.CurrentResourceProduction() == _resourceViewMeshRenders[i].ResourceMaterialWrapper[k].Resource)
+                {
+                    foreach (var item in _resourceViewMeshRenders[i].MeshRenderers)
+                    {
+                        item.material = _resourceViewMeshRenders[i].ResourceMaterialWrapper[k].ResourceMaterial;
+                    }
+                }
+            }
+        }
+    }
+
+    private void ChangeActiveObjects()
+    {
+        for (int i = 0; i < _resourceViewActiveGameObjects.Length; i++)
+        {
+            foreach (var item in _resourceViewActiveGameObjects[i].ActiveGameObjects)
+            {
+                item.SetActive(_tileObject.CurrentResourceProduction() == _resourceViewActiveGameObjects[i].Resource);
+            }
+        }
+    }
 }
+
+[System.Serializable]
+public class ResourceViewActiveGameObjects
+{
+    public Resource Resource;
+    public GameObject[] ActiveGameObjects;
+}
+
+[System.Serializable]
+public class ResourceViewMeshRenders
+{
+    public MeshRenderer[] MeshRenderers;
+    public ResourceMaterialWrapper[] ResourceMaterialWrapper;
+}
+
+[System.Serializable]
+public class ResourceMaterialWrapper
+{
+    public Resource Resource;
+    public Material ResourceMaterial;
+}
+
