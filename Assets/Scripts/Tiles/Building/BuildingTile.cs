@@ -44,7 +44,7 @@ public class BuildingTile : MonoBehaviour
       CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
       _buildingLevels.CheckBuildingProductionView();
-      if (CurrentBuilding().ResourcesProduction.Length != 0) tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
+      if (CurrentBuilding().ResourcesProduction.Length != 0) tileObject.SetResourceProduction(tileObject.CurrentResourceProduction(), tileObject.CurrentResourceRecept());
    }
 
    public void DestroyBuildingTile()

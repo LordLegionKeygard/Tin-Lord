@@ -134,7 +134,7 @@ public class GroundTile : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
                         SpawnGroundTile();
@@ -155,7 +155,7 @@ public class GroundTile : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
                         SpawnGroundTile();
@@ -184,7 +184,7 @@ public class GroundTile : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.PollutedRiver));
                         SpawnGroundTile();
@@ -224,7 +224,7 @@ public class GroundTile : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
                         SpawnGroundTile();
@@ -245,7 +245,7 @@ public class GroundTile : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.DeadForest));
                         SpawnGroundTile();
@@ -259,7 +259,7 @@ public class GroundTile : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.PollutedRiver));
                         SpawnGroundTile();
@@ -282,7 +282,7 @@ public class GroundTile : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlackDesert));
                         SpawnGroundTile();
@@ -310,7 +310,7 @@ public class GroundTile : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.ScarceCoalDeposits));
                         SpawnGroundTile();
@@ -337,7 +337,7 @@ public class GroundTile : MonoBehaviour
                 {
                     if (!IsNeedCheck(i, true)) continue;
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilField))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlackDesert));
                         SpawnGroundTile();

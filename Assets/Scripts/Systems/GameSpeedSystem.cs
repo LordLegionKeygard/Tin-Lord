@@ -7,6 +7,9 @@ public class GameSpeedSystem : MonoBehaviour
 {
     [SerializeField] private bool _isPause;
     [SerializeField] private Image[] _images;
+    [SerializeField] private Sprite[] _spriteOn;
+    [SerializeField] private Sprite[] _spriteOff;
+
     [SerializeField] private GameSpeedEnum _currentGameSpeedEnum = GameSpeedEnum.Default;
 
     public void ChangeGameSpeed(int gameSpeed)
@@ -32,11 +35,12 @@ public class GameSpeedSystem : MonoBehaviour
 
     private void UpdateGameSpeedView()
     {
-        foreach (var item in _images)
+        for (int i = 0; i < _images.Length; i++)
         {
-            item.color = Colors.AlphaGrey;
+            _images[i].sprite = _spriteOff[i];
         }
-        _images[(int)_currentGameSpeedEnum].color = Color.white;
+
+        _images[(int)_currentGameSpeedEnum].sprite = _spriteOn[(int)_currentGameSpeedEnum];
     }
 }
 

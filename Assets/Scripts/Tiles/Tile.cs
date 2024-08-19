@@ -77,7 +77,7 @@ public enum GroundTileViewEnum
     Mountain = 5,
     IronDeposits = 6,
     CopperDeposits = 7,
-    OilField = 8,
+    OilSwamp = 8,
     Desert = 9,
     Barrenland = 10,
     Ground = 11,
