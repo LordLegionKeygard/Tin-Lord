@@ -65,9 +65,9 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInput.actions["LeftMouseClick"].performed += _ => leftMouseClick();
         _playerInput.actions["RightMouseClick"].performed += _ => rightMouseClick(false);
         _playerInput.actions["GameSpeedPause"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Pause);
-        _playerInput.actions["GameSpeedDefault"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Default);
-        _playerInput.actions["GameSpeedDouble"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Double);
-        _playerInput.actions["GameSpeedTriple"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Triple);
+        _playerInput.actions["GameSpeedDefault"].performed += _ => _gameSpeedDefault((int)GameSpeedEnum.Default);
+        _playerInput.actions["GameSpeedDouble"].performed += _ => _gameSpeedDouble((int)GameSpeedEnum.Double);
+        _playerInput.actions["GameSpeedTriple"].performed += _ => _gameSpeedTriple((int)GameSpeedEnum.Triple);
     }
 
     private void SetupDelegates()

@@ -48,8 +48,8 @@ public class EcologySystem : MonoBehaviour
     {
         _totalEcology = _ecologyTileInfoList.Sum(tile => tile.Amount);
 
-        _totalEcologyText.color = _totalEcology < 0 ? Colors.WarningSign : Color.white;
-        _warningSign.SetActive(_totalEcology < 0);
+        _totalEcologyText.color = _totalEcology < 0 ? Colors.WarningSign : Colors.TextGrey;
+        _warningSign.SetActive(_totalEcology <= -50);
 
         var ecologyString = Mathf.Abs(_totalEcology).ToString("D2");
 

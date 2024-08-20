@@ -141,7 +141,7 @@ public class GroundTile : MonoBehaviour
                         return;
                     }
 
-                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Mountain))
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Mountain) || _neighbourTiles[i].CheckTileView(GroundTileViewEnum.Forest))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Meadow));
                         SpawnGroundTile();

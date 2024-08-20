@@ -126,7 +126,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetOnOffButtonColor()
     {
-        _onOffImage.color = _tileObject.IsBuildingWork ? Colors.OnOffButtonWork : Color.black;
+        _onOffImage.color = _tileObject.IsBuildingWork ? Colors.TextGrey : Color.black;
     }
 
     private void SetTextFields(TileObject tileObject, Tile buildingTile, bool haveBuildingTile, Building building)

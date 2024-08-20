@@ -8,8 +8,9 @@ public class Colors : MonoBehaviour
     public static Colors Instance;
     public static readonly Color AlphaGrey = new Color(0.5f, 0.5f, 0.5f, 0.5f);
     public static readonly Color StandartGrey = new Color(0.5f, 0.5f, 0.5f, 1);
-    public static readonly Color OnOffButtonWork = new Color(0.3f, 0.7f, 0, 1);
     public static readonly Color WarningSign = new Color(1, 0.7f, 0, 1);
+    public static readonly Color TextGrey = new Color(0.7f, 0.7f, 0.7f, 1);
+
     public static string HexColorWhite = "#FFFFFF";
     public static string HexColorYellow = "#FFA800";
 

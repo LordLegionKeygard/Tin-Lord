@@ -7,7 +7,7 @@ public class RequiredResourcePanel : MonoBehaviour
 {
     [SerializeField] private GameObject[] _select;
     [SerializeField] private Button[] _buttons;
-    private ResourceEnum _lastResourceEnum;
+    private ResourceEnum _lastResourceEnum = ResourceEnum.None;
 
     public void UpdateButtonsView(ResourceEnum resourceEnum, ResourcesForWorkWrapper[] resourcesForWork)
     {
