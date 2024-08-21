@@ -12,8 +12,8 @@ public class RotateAround : MonoBehaviour
 
     private void Awake()
     {
-        if (_isRandomStartRotation) SetRandomRotation();
         _defaultRotateSpeed = _rotateSpeed;
+        if (_isRandomStartRotation) SetRandomRotation();
     }
 
     private void SetRandomRotation()
@@ -33,6 +33,7 @@ public class RotateAround : MonoBehaviour
 
     public void RotationToggle(bool state)
     {
+        if(_defaultRotateSpeed == 0) _defaultRotateSpeed = _rotateSpeed;
         _rotateSpeed = state ? _defaultRotateSpeed : 0;
     }
 }

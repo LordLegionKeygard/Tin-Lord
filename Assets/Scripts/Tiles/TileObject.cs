@@ -42,10 +42,10 @@ public class TileObject : MonoBehaviour
     public bool IsHaveRequiredResource()
     {
         var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
-        if(!haveResourcesForWork) return false;
-        if(_currentResourceRecept.Length == 0) return true;
+        if (!haveResourcesForWork) return false;
+        if (_currentResourceRecept.Length == 0) return true;
 
-        var haveResourceForRecept =  _currentResourceRecept.All(recept => 
+        var haveResourceForRecept = _currentResourceRecept.All(recept =>
         _playerResources.ResourceEnough(recept.ResourceForRecept.ResourceEnum, recept.ResourcesForReceptAmount));
 
         return haveResourceForRecept;
@@ -109,7 +109,7 @@ public class TileObject : MonoBehaviour
         // Debug.Log("ChangeResourceProduction - CheckCount");
 
         var resourceWrapper = _buildingTile.CurrentBuilding();
-        var resourcesProduction = IsBuildingWork 
+        var resourcesProduction = IsBuildingWork
             ? _currentResourceRequired == null && _currentResourceRecept == null
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier
             : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0) : 0;
@@ -132,10 +132,6 @@ public class TileObject : MonoBehaviour
         SetResourceModifier();
         ChangeResourceProduction();
         _selectTilePanel.SetInfo(this);
-
-        if (_currentResourceRecept.Length != 0)
-        {
-            CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount, _currentResourceRecept);
-        }
+        CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount, _currentResourceRecept);
     }
 }

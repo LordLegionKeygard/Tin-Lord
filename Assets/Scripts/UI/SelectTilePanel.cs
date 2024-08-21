@@ -100,7 +100,6 @@ public class SelectTilePanel : MonoBehaviour
         SetRequiredResourcePanelVisibility(haveBuildingTile, currentBuilding);
         SetProductionResourcePanelVisibility(haveBuildingTile, currentBuilding);
         SetReceptPanelVisibility(haveBuildingTile, tileObject.CurrentResourceRecept());
-        SetButtonsVisibility(tileObject.GroundTileObject().CurrentGroundTile().GroundTileView);
         SetBuildTypesPanelVisibility(false);
         SetOnOffButtonColor();
 
@@ -109,7 +108,7 @@ public class SelectTilePanel : MonoBehaviour
             _productionResourcePanel.SetButtonView(tileObject.BuildingTileObject().CurrentBuilding(), tileObject.CurrentResourceProduction());
             if (tileObject.CurrentResourceRequired() != null)
             {
-                _requiredResourcePanel.UpdateButtonsView(_tileObject.CurrentResourceRequired().ResourceEnum, _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork);
+                _requiredResourcePanel.UpdateButtonsView(_tileObject);
             }
             _receptPanel.UpdateReceptView(tileObject.CurrentResourceRecept());
         }
@@ -117,9 +116,8 @@ public class SelectTilePanel : MonoBehaviour
         SetButtonStates(tileObject, haveBuildingTile);
     }
 
-    private void SetButtonsVisibility(GroundTileViewEnum groundTileViewEnum)
+    private void SetButtonsPanelVisibility(bool state)
     {
-        var state = groundTileViewEnum != GroundTileViewEnum.Road;
         _buildingLine.SetActive(state);
         _buttonsPanel.SetActive(state);
     }
@@ -227,13 +225,25 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetButtonStates(TileObject tileObject, bool haveBuildingTile)
     {
-        var isRoad = tileObject.GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum.Road;
-        var isBase = tileObject.GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum.BaseFoundation;
+        var currentGroundTile = tileObject.GroundTileObject().CurrentGroundTile();
+        var currentBuildingTile = haveBuildingTile ? tileObject.BuildingTileObject().CurrentBuildingTile() : null;
+        var isRoad = currentGroundTile.GroundTileView == GroundTileViewEnum.Road;
+        var isBase = currentGroundTile.GroundTileView == GroundTileViewEnum.BaseFoundation;
+        var isRiver = currentGroundTile.GroundTileView == GroundTileViewEnum.River;
+        var isHaveProdictionResources = currentBuildingTile?.IsHaveProdictionResources() ?? false;
+        var isCanUpgrade = tileObject.BuildingTileObject().IsCanUpgrade();
 
-        _onOffButton.SetActive(haveBuildingTile && tileObject.BuildingTileObject().CurrentBuildingTile().IsHaveProdictionResources());
-        _buildButton.SetActive((!haveBuildingTile || tileObject.BuildingTileObject().IsCanUpgrade()) && !isRoad);
-        _destroyButton.SetActive(!isRoad && !isBase);
+        var onOffButtonState = haveBuildingTile && isHaveProdictionResources;
+        var buildButtonState = (!haveBuildingTile || isCanUpgrade) && !isRoad && !isRiver;
+        var destroyButtonState = !isRoad && !isBase && !isRiver;
+
+        _onOffButton.SetActive(onOffButtonState);
+        _buildButton.SetActive(buildButtonState);
+        _destroyButton.SetActive(destroyButtonState);
+
+        SetButtonsPanelVisibility(onOffButtonState || buildButtonState || destroyButtonState);
     }
+
 
     public void BuildButton()
     {
@@ -296,7 +306,7 @@ public class SelectTilePanel : MonoBehaviour
             }
         }
 
-        _requiredResourcePanel.UpdateButtonsView(resource.ResourceEnum, resourcesForWork);
+        _requiredResourcePanel.UpdateButtonsView(_tileObject);
     }
 
     public void ChangeResourceProduction(Resource resource, ResourceRecept[] resourceRecept)

@@ -14,10 +14,10 @@ public class CharacterBuildingAnimator : MonoBehaviour
 
     private void Start()
     {
-        TriggerWorkAnimator();
+        StartWork();
     }
 
-    public void TriggerWorkAnimator()
+    public void StartWork()
     {
         if (_animator == null) return;
 
@@ -44,9 +44,9 @@ public class CharacterBuildingAnimator : MonoBehaviour
         }
     }
 
-    public void TriggerNotWorkAnimator()
+    public void ToggleWorkView(bool state)
     {
         if (_animator == null) return;
-        _animator.SetTrigger(AnimatorStrings.Idle);
+        _animator.SetBool(AnimatorStrings.Idle, !state);
     }
 }

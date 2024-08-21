@@ -11,6 +11,7 @@ public class BuildingProductionView : MonoBehaviour
 {
     [Inject] private SelectTilePanel _selectTilePanel;
     private TileObject _tileObject;
+    private bool _lastState;
 
     [Header("Main")]
     [SerializeField] private CharacterBuildingAnimator[] _characterBuildingAnimators;
@@ -72,10 +73,11 @@ public class BuildingProductionView : MonoBehaviour
 
     private void SetMainView(bool state)
     {
+        if(_lastState == state) return;
+        _lastState = state;
         foreach (var animator in _characterBuildingAnimators)
         {
-            if (state) animator.TriggerWorkAnimator();
-            else animator.TriggerNotWorkAnimator();
+            animator.ToggleWorkView(state);
         }
 
         foreach (var ik in _armIk)

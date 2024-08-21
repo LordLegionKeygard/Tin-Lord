@@ -1772,6 +1772,9 @@ MonoBehaviour:
   - {fileID: 2494032774200110039}
   _additionalturnOnObjects:
   - {fileID: 3534387690045417883}
+  _needSetResourceView: 0
+  _resourceViewMeshRenders: []
+  _resourceViewActiveGameObjects: []
 --- !u!114 &3048585600452738113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2172,7 +2175,7 @@ GameObject:
   - component: {fileID: 5746593528806956023}
   - component: {fileID: 5746593528806956022}
   m_Layer: 0
-  m_Name: TagsDestroyer
+  m_Name: TagsDisabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

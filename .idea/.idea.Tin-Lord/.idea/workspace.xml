@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProductionResourcePanel.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ProductionResourcePanel.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Character/Building/Building_CharacterAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Character/Building/Building_CharacterAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MaskRectTransform.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MaskRectTransform.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/4_WoodExtraction.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/4_WoodExtraction.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/5_SandMining.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/5_SandMining.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/World.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/10_ManualMining.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/10_ManualMining.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Static/CustomEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Static/CustomEvents.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/EveryTickResourcesRequired.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/EveryTickResourcesRequired.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/Building.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animator/Character/CharacterBuildingAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animator/Character/CharacterBuildingAnimator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnvironmentView/RotateAround.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnvironmentView/RotateAround.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingProductionView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingProductionView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingRotation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/RequiredResourcePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/RequiredResourcePanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/GameSpeed/GameSpeed_On.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/UI/GameSpeed/GameSpeed_On.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/Panel_BG_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/UI/Panel_BG_03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/SelectTilePanelMask.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/UI/SelectTilePanelMask.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/SelectTilePanelMask.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/UI/SelectTilePanelMask.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,22 +42,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Legion\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Legion\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Legion\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Legion\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Legion\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Legion\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.32f1\Editor\Unity.exe" />
@@ -75,10 +89,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19048">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="19048" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -98,6 +112,8 @@
       <workItem from="1723750066256" duration="2000" />
       <workItem from="1723849015930" duration="224000" />
       <workItem from="1723849312759" duration="7000" />
+      <workItem from="1724260516989" duration="1000" />
+      <workItem from="1724265257928" duration="599000" />
     </task>
     <servers />
   </component>
@@ -113,5 +129,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs</url>
+          <line>105</line>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\UI\SelectTilePanel.cs" containingFunctionPresentation="Method 'SetInfo'">
+            <startOffsets>
+              <option value="4030" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4095" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

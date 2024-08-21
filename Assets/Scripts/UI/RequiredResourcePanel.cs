@@ -8,71 +8,59 @@ public class RequiredResourcePanel : MonoBehaviour
     [SerializeField] private GameObject[] _select;
     [SerializeField] private Button[] _buttons;
     private ResourceEnum _lastResourceEnum = ResourceEnum.None;
+    private TileObject _tileObject;
 
-    public void UpdateButtonsView(ResourceEnum resourceEnum, ResourcesForWorkWrapper[] resourcesForWork)
+    private Dictionary<ResourceEnum, (Button button, GameObject select)> _resourceMapping;
+
+    private void Awake()
     {
-        if(resourceEnum == _lastResourceEnum) return;
+        _resourceMapping = new Dictionary<ResourceEnum, (Button, GameObject)>
+        {
+            { ResourceEnum.Wood, (_buttons[0], _select[0]) },
+            { ResourceEnum.Coal, (_buttons[1], _select[1]) },
+            { ResourceEnum.Oil, (_buttons[2], _select[2]) },
+            { ResourceEnum.Electricity, (_buttons[3], _select[3]) },
+            { ResourceEnum.Steam, (_buttons[4], _select[4]) }
+        };
+    }
+
+    public void UpdateButtonsView(TileObject tileObject)
+    {
+        var resourceEnum = tileObject.CurrentResourceRequired().ResourceEnum;
+        var resourcesForWork = tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork;
+
+        if (resourceEnum == _lastResourceEnum && _tileObject == tileObject)
+        {
+            return; // Нет необходимости обновлять, если ресурс и объект те же
+        }
+
         _lastResourceEnum = resourceEnum;
+        _tileObject = tileObject;
+
         ResetButtons();
 
-        for (int i = 0; i < resourcesForWork.Length; i++)
+        foreach (var resource in resourcesForWork)
         {
-            switch (resourcesForWork[i].ResourceForWork.ResourceEnum)
+            if (_resourceMapping.TryGetValue(resource.ResourceForWork.ResourceEnum, out var mapping))
             {
-                case ResourceEnum.Wood:
-                    _buttons[0].gameObject.SetActive(true);
-                    break;
-                case ResourceEnum.Coal:
-                    _buttons[1].gameObject.SetActive(true);
-                    break;
-                case ResourceEnum.Oil:
-                    _buttons[2].gameObject.SetActive(true);
-                    break;
-                case ResourceEnum.Electricity:
-                    _buttons[3].gameObject.SetActive(true);
-                    break;
-                case ResourceEnum.Steam:
-                    _buttons[4].gameObject.SetActive(true);
-                    break;
+                mapping.button.gameObject.SetActive(true);
             }
         }
 
-        switch (resourceEnum)
+        if (_resourceMapping.TryGetValue(resourceEnum, out var selectedMapping))
         {
-            case ResourceEnum.Wood:
-                _select[0].SetActive(true);
-                _buttons[0].interactable = false;
-                break;
-            case ResourceEnum.Coal:
-                _select[1].SetActive(true);
-                _buttons[1].interactable = false;
-                break;
-            case ResourceEnum.Oil:
-                _select[2].SetActive(true);
-                _buttons[2].interactable = false;
-                break;
-            case ResourceEnum.Electricity:
-                _select[3].SetActive(true);
-                _buttons[3].interactable = false;
-                break;
-            case ResourceEnum.Steam:
-                _select[4].SetActive(true);
-                _buttons[4].interactable = false;
-                break;
+            selectedMapping.select.SetActive(true);
+            selectedMapping.button.interactable = false;
         }
     }
 
     private void ResetButtons()
     {
-        foreach (var button in _buttons)
+        foreach (var mapping in _resourceMapping.Values)
         {
-            button.gameObject.SetActive(false);
-            button.interactable = true;
-        }
-
-        foreach (var select in _select)
-        {
-            select.SetActive(false);
+            mapping.button.gameObject.SetActive(false);
+            mapping.button.interactable = true;
+            mapping.select.SetActive(false);
         }
     }
 }
