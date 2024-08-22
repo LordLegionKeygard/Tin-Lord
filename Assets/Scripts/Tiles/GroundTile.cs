@@ -175,6 +175,14 @@ public class GroundTile : MonoBehaviour
                         SpawnGroundTile();
                         return;
                     }
+
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Barrenland) ||
+                        _neighbourTiles[i].CheckTileView(GroundTileViewEnum.BlackDesert))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Ground));
+                        SpawnGroundTile();
+                        return;
+                    }
                 }
                 break;
 
@@ -187,6 +195,14 @@ public class GroundTile : MonoBehaviour
                         _neighbourTiles[i].CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Barrenland));
+                        SpawnGroundTile();
+                        return;
+                    }
+
+                    if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.Barrenland) ||
+                        _neighbourTiles[i].CheckTileView(GroundTileViewEnum.BlackDesert))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Ground));
                         SpawnGroundTile();
                         return;
                     }
@@ -278,7 +294,8 @@ public class GroundTile : MonoBehaviour
 
                     if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _neighbourTiles[i].CheckTileView(GroundTileViewEnum.BlackDesert) ||
-                        _neighbourTiles[i].CheckTileView(GroundTileViewEnum.PollutedRiver))
+                        _neighbourTiles[i].CheckTileView(GroundTileViewEnum.PollutedRiver) ||
+                        _neighbourTiles[i].CheckTileView(GroundTileViewEnum.Barrenland))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.DeadForest));
                         SpawnGroundTile();
@@ -377,7 +394,8 @@ public class GroundTile : MonoBehaviour
 
                     if (_neighbourTiles[i].CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _neighbourTiles[i].CheckTileView(GroundTileViewEnum.PollutedRiver) ||
-                        _neighbourTiles[i].CheckTileView(GroundTileViewEnum.BlackDesert))
+                        _neighbourTiles[i].CheckTileView(GroundTileViewEnum.BlackDesert) ||
+                        _neighbourTiles[i].CheckTileView(GroundTileViewEnum.Barrenland))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.DriedOasis));
                         SpawnGroundTile();
