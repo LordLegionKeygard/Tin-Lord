@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1042266052717626611}
   m_Father: {fileID: 1128623563670308850}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150,8 +151,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1128623562952357443}
-  - {fileID: 4506402632012985745}
-  - {fileID: 8692608238664432953}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -180,7 +179,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8692608238664432953}
   - component: {fileID: 911854817236248775}
-  - component: {fileID: 1481731095100958981}
   m_Layer: 0
   m_Name: FallenTrees
   m_TagString: Untagged
@@ -195,7 +193,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028204397598233010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -211,8 +209,8 @@ Transform:
   - {fileID: 6984294940010146736}
   - {fileID: 6482059077923875351}
   - {fileID: 3273045658420699886}
-  m_Father: {fileID: 1128623563670308850}
-  m_RootOrder: 2
+  m_Father: {fileID: 1042266052717626611}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &911854817236248775
 MonoBehaviour:
@@ -241,18 +239,6 @@ MonoBehaviour:
   _isRotation: 0
   _min: 1
   _max: 10
---- !u!114 &1481731095100958981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028204397598233010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4506402632012985744
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +249,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4506402632012985745}
   - component: {fileID: 4506402632012985746}
-  - component: {fileID: 5063745105228934915}
   m_Layer: 0
   m_Name: Trees
   m_TagString: Untagged
@@ -278,7 +263,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4506402632012985744}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -301,8 +286,8 @@ Transform:
   - {fileID: 4506402631368128921}
   - {fileID: 4506402630681374329}
   - {fileID: 4506402631507479033}
-  m_Father: {fileID: 1128623563670308850}
-  m_RootOrder: 1
+  m_Father: {fileID: 1042266052717626611}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4506402632012985746
 MonoBehaviour:
@@ -338,13 +323,47 @@ MonoBehaviour:
   _isRotation: 1
   _min: 10
   _max: 17
---- !u!114 &5063745105228934915
+--- !u!1 &7702521355240135321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1042266052717626611}
+  - component: {fileID: 6922309236745998779}
+  m_Layer: 0
+  m_Name: Rotation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1042266052717626611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7702521355240135321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4506402632012985745}
+  - {fileID: 8692608238664432953}
+  m_Father: {fileID: 1128623562952357443}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6922309236745998779
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4506402632012985744}
+  m_GameObject: {fileID: 7702521355240135321}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}

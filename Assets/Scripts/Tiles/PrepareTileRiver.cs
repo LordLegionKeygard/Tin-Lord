@@ -17,6 +17,7 @@ public class PrepareTileRiver : MonoBehaviour
 
 public enum RiverTypeEnum
 {
+    None = -1,
     RiverForward = 0,
     RiverTurn = 1,
     Lake = 2,
