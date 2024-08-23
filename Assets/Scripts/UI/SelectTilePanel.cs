@@ -236,7 +236,7 @@ public class SelectTilePanel : MonoBehaviour
 
         var onOffButtonState = haveBuildingTile && isHaveProdictionResources;
         var buildButtonState = (!haveBuildingTile || isCanUpgrade) && !isRoad && (!isWater || tileObject.GroundTileObject().IsBridge());
-        var destroyButtonState = haveBuildingTile || (!isRoad && !isBase && isWater ? isLastRiverTile : true);
+        var destroyButtonState = haveBuildingTile || (!isRoad && !isBase && (!isWater || isLastRiverTile));
 
         _onOffButton.SetActive(onOffButtonState);
         _buildButton.SetActive(buildButtonState);
