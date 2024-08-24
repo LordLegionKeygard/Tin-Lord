@@ -27,7 +27,8 @@ public class GroundTile : MonoBehaviour
 
     //HaveTile
     public bool HaveTile() => _currentGroundTile != null;
-    public bool NeighbourHaveTile(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].HaveTile();
+    public bool NeighbourHaveGroundTile(int number) => _neighbourTiles[number] == null ? false : _neighbourTiles[number].HaveTile();
+    public bool HaveNeighbour(int number) => _neighbourTiles[number] == null ? false : true;
 
     //TileView
     public bool CheckTileView(GroundTileViewEnum tileView) => _currentGroundTile != null ? _currentGroundTile.GroundTileView == tileView : false;
@@ -133,6 +134,7 @@ public class GroundTile : MonoBehaviour
         RefreshGroundTile();
         UpdateNeighbourGroundTiles();
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
+        _tileView.PlaySpawnAnimation();
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceProduction();
         _tileObject.SetResourceModifier();

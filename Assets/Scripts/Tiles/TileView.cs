@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class TileView : MonoBehaviour
 {
-    [SerializeField] private MeshRenderer _mesh;
     private BoxCollider _boxCollider;
+    private Animator _animator;
+    [SerializeField] private MeshRenderer _mesh;
     [SerializeField] private GameObject _selectView;
     [SerializeField] private Material _fourTileMaterial;
 
     private void Awake()
     {
         _boxCollider = GetComponent<BoxCollider>();
+        _animator = GetComponent<Animator>();
     }
 
     public void SetTileView(Transform groundTransform, Tile tile)
@@ -32,6 +34,10 @@ public class TileView : MonoBehaviour
         }
     }
 
+    public void PlaySpawnAnimation()
+    {
+        _animator.SetTrigger(AnimatorStrings.TileSpawn);
+    }
 
 
     public void ViewToggle(bool state, SelectTileEnum selectTileEnum)

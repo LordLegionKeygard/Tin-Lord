@@ -82,7 +82,7 @@ public class TileDetector : MonoBehaviour
                 Clear();
             }
         }
-        else if(!_cardHolderSystem.IsHaveCurrentSelectedCardObject())
+        else if (!_cardHolderSystem.IsHaveCurrentSelectedCardObject())
         {
             RaycastHit raycastHit;
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
@@ -148,13 +148,17 @@ public class TileDetector : MonoBehaviour
 
             _currentTileObject = newTileObject;
 
-            _currentTileObject.GroundTileObject().SelectTile(true, _currentTileObject.GroundTileObject().HaveTile() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            _currentTileObject.GroundTileObject().NeighbourGroundTile(0).SelectTile(true, _currentTileObject.GroundTileObject().NeighbourHaveTile(0) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            _currentTileObject.GroundTileObject().NeighbourGroundTile(1).SelectTile(true, _currentTileObject.GroundTileObject().NeighbourHaveTile(1) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            _currentTileObject.GroundTileObject().NeighbourGroundTile(2).SelectTile(true, _currentTileObject.GroundTileObject().NeighbourGroundTile(2).HaveTile() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            var groundTile = _currentTileObject.GroundTileObject();
 
-            _canSetTile = !_currentTileObject.GroundTileObject().HaveTile() && !_currentTileObject.GroundTileObject().NeighbourHaveTile(0)
-            && !_currentTileObject.GroundTileObject().NeighbourHaveTile(1) && !_currentTileObject.GroundTileObject().NeighbourHaveTile(2);
+            groundTile.SelectTile(true, _currentTileObject.GroundTileObject().HaveTile() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(true, groundTile.NeighbourHaveGroundTile(0) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(true, groundTile.NeighbourHaveGroundTile(1) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(true, groundTile.NeighbourHaveGroundTile(2) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+
+            var haveNeighbours = groundTile.HaveNeighbour(0) && groundTile.HaveNeighbour(1) && groundTile.HaveNeighbour(2);
+            var neighboursHaveGroundTile = groundTile.NeighbourHaveGroundTile(0) && groundTile.NeighbourHaveGroundTile(1) && groundTile.NeighbourHaveGroundTile(2);
+
+            _canSetTile = !groundTile.HaveTile() && !neighboursHaveGroundTile && haveNeighbours;
         }
         else
         {
@@ -204,10 +208,12 @@ public class TileDetector : MonoBehaviour
     {
         if (_currentTileObject != null)
         {
-            _currentTileObject.GroundTileObject().SelectTile(false, SelectTileEnum.EmptyTileSelect);
-            _currentTileObject.GroundTileObject().NeighbourGroundTile(0).SelectTile(false, SelectTileEnum.EmptyTileSelect);
-            _currentTileObject.GroundTileObject().NeighbourGroundTile(1).SelectTile(false, SelectTileEnum.EmptyTileSelect);
-            _currentTileObject.GroundTileObject().NeighbourGroundTile(2).SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            var groundTile = _currentTileObject.GroundTileObject();
+
+            groundTile.SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(false, SelectTileEnum.EmptyTileSelect);
             if (isPanelView) _selectTilePanel.PanelViewToggle(false);
         }
     }
