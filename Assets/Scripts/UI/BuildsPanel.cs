@@ -8,11 +8,12 @@ using UnityEngine.UI;
 public class BuildsPanel : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
+    private List<BuildingItem> _buildingsList = new List<BuildingItem>();
     [SerializeField] private BuildingItem _buildingItem;
     [SerializeField] private Transform _content;
-    private List<GameObject> _buildingsList = new List<GameObject>();
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private ScrollRect _scrollRect;
+    [SerializeField] private BuildingResourcesView _buildingResourcesView;
 
     public void SpawnBuildingItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel, Tile tile) //все здания в типе
     {
@@ -26,8 +27,10 @@ public class BuildsPanel : MonoBehaviour
         {
             var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.GetComponent<BuildingItem>().SetBuildingInfo(tileObject, selectTilePanel, i + 1, tile, BuildingState.FirstBuild);
-            _buildingsList.Add(item.gameObject);
+
+            var buildingItem = item.GetComponent<BuildingItem>();
+            buildingItem.SetBuildingInfo(tileObject, selectTilePanel, i + 1, tile, BuildingState.FirstBuild, _buildingResourcesView, this);
+            _buildingsList.Add(buildingItem);
         }
     }
 
@@ -44,8 +47,18 @@ public class BuildsPanel : MonoBehaviour
         {
             var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.GetComponent<BuildingItem>().SetBuildingInfo(tileObject, selectTilePanel, i + 1, tile, BuildingState.UpgradeBuilding);
-            _buildingsList.Add(item.gameObject);
+
+            var buildingItem = item.GetComponent<BuildingItem>();
+            buildingItem.SetBuildingInfo(tileObject, selectTilePanel, i + 1, tile, BuildingState.UpgradeBuilding, _buildingResourcesView, this);
+            _buildingsList.Add(buildingItem);
+        }
+    }
+
+    public void UnselectAllBuildings()
+    {
+        for (int i = 0; i < _buildingsList.Count; i++)
+        {
+            _buildingsList[i].SelectToggleState(false);
         }
     }
 
@@ -53,7 +66,7 @@ public class BuildsPanel : MonoBehaviour
     {
         foreach (var item in _buildingsList)
         {
-            Destroy(item);
+            Destroy(item.gameObject);
         }
         _buildingsList.Clear();
     }

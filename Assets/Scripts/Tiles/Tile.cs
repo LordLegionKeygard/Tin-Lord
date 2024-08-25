@@ -33,27 +33,6 @@ public class ProductionOnGroundResources
     public float ProductionOnGroundResourceModifier;
 }
 
-
-[System.Serializable]
-public class UpgradeBuildingWrapper
-{
-    public string[] Name; //0 eng, 1 rus
-    public Sprite BuildingSprite;
-    public int BuildingEcology;
-    public float ResourceExtractedAmount; // за 1 тик времени
-
-    [Header("Requires")]
-    public ResourcesForBuildWrapper[] ResourcesForBuild;
-    public ResourcesForWorkWrapper[] ResourcesForWork;
-}
-
-[System.Serializable]
-public class ResourcesForBuildWrapper
-{
-    public ResourceEnum ResourcesForBuild;
-    public int RecourcesForBuildAmount;
-}
-
 [System.Serializable]
 public class BuildingsOnTile
 {

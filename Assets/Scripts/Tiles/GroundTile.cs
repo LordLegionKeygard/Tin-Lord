@@ -60,8 +60,6 @@ public class GroundTile : MonoBehaviour
     public void SetId(int id) => _tileObject.SetId(id);
     private int _riverNumber = 0;
 
-    private int _delay = 150;
-
 
     private void Awake()
     {

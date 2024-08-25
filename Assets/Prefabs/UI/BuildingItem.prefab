@@ -339,7 +339,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8189086078396391186}
         m_TargetAssemblyTypeName: BuildingItem, Assembly-CSharp
-        m_MethodName: BuildOrUpgrade
+        m_MethodName: ClickButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

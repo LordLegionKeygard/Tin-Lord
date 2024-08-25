@@ -20,20 +20,25 @@ public class BuildingItem : MonoBehaviour
     [Header("Other")]
     private SelectTilePanel _selectTilePanel;
     private BuildingState _currentBuildingState;
+    private BuildingResourcesView _buildingResourcesView;
+    private BuildsPanel _buildsPanel;
     private int _upgradeToLevel;
+    private bool _select;
 
     private void Start()
     {
         CustomEvents.OnTimeTickAfterResourcesChanged += CheckResourcesForBuildEnought;
     }
 
-    public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile, BuildingState buildingState)
+    public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile, BuildingState buildingState, BuildingResourcesView buildingResourcesView, BuildsPanel buildsPanel)
     {
         _currentBuildingState = buildingState;
         _selectTilePanel = selectTilePanel;
         _currentTileObject = tileObject;
         _currentTile = tile;
         _upgradeToLevel = level;
+        _buildingResourcesView = buildingResourcesView;
+        _buildsPanel = buildsPanel;
 
         UpdateView();
     }
@@ -57,8 +62,28 @@ public class BuildingItem : MonoBehaviour
         _icon.color = resourcesEnough ? Color.white : Colors.AlphaGrey;
     }
 
-    public void BuildOrUpgrade()
+    public void SelectToggleState(bool state)
     {
+        _select = state;
+    }
+
+    public void ClickButton()
+    {
+        if (_select)
+        {
+            BuildOrUpgrade();
+        }
+        else
+        {
+            _buildsPanel.UnselectAllBuildings();
+            SelectToggleState(true);
+            _buildingResourcesView.SetBuildingResourcesView(_currentTile.Buildings[_upgradeToLevel - 1]);
+        }
+    }
+
+    private void BuildOrUpgrade()
+    {
+        _buildingResourcesView.ResetCells();
         _playerResources.UseResourcesFromBuilding(_currentTile.Buildings[_upgradeToLevel - 1].ResourcesForBuild);
         switch (_currentBuildingState)
         {

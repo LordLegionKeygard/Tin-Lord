@@ -15,6 +15,13 @@ public class Building : ScriptableObject
 }
 
 [System.Serializable]
+public class ResourcesForBuildWrapper
+{
+    public ResourceEnum ResourcesForBuild;
+    public int RecourcesForBuildAmount;
+}
+
+[System.Serializable]
 public class ResourcesForWorkWrapper
 {
     public Resource ResourceForWork; // ресурс необходимый для работы здания
