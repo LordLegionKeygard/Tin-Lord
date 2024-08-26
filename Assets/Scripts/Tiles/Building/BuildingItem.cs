@@ -16,6 +16,7 @@ public class BuildingItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _button;
+    [SerializeField] private Image _backImage;
 
     [Header("Other")]
     private SelectTilePanel _selectTilePanel;
@@ -23,11 +24,11 @@ public class BuildingItem : MonoBehaviour
     private BuildingResourcesView _buildingResourcesView;
     private BuildsPanel _buildsPanel;
     private int _upgradeToLevel;
-    private bool _select;
+    private bool _isSelect;
 
     private void Start()
     {
-        CustomEvents.OnTimeTickAfterResourcesChanged += CheckResourcesForBuildEnought;
+        CustomEvents.OnTimeTickAfterResourcesChanged += SetTextColor;
     }
 
     public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile, BuildingState buildingState, BuildingResourcesView buildingResourcesView, BuildsPanel buildsPanel)
@@ -49,39 +50,32 @@ public class BuildingItem : MonoBehaviour
 
         _nameText.text = building.Name[Language.LanguageNumber];
         _icon.sprite = building.BuildingSprite;
-
-        CheckResourcesForBuildEnought();
     }
 
-    private void CheckResourcesForBuildEnought()
+    private void SetTextColor()
     {
         var resourcesEnough = _playerResources.ResourcesForBuildEnough(_currentTile.Buildings[_upgradeToLevel - 1].ResourcesForBuild);
         _button.enabled = resourcesEnough;
-
-        _nameText.color = resourcesEnough ? Color.white : Colors.StandartGrey;
-        _icon.color = resourcesEnough ? Color.white : Colors.AlphaGrey;
+        _nameText.color = !_isSelect ? Colors.LightGrey : resourcesEnough ? Color.white : Colors.WarningYellow;
+        _icon.color = _isSelect ? Color.white : Colors.LightGrey;
+        _backImage.color = _isSelect ? Color.white : Colors.LightGrey;
+        if(_isSelect) _buildingResourcesView.SetBuildingResourcesView(_currentTile.Buildings[_upgradeToLevel - 1]);
     }
 
     public void SelectToggleState(bool state)
     {
-        _select = state;
+        _isSelect = state;
+        SetTextColor();
     }
 
-    public void ClickButton()
+    public void SetView()
     {
-        if (_select)
-        {
-            BuildOrUpgrade();
-        }
-        else
-        {
-            _buildsPanel.UnselectAllBuildings();
-            SelectToggleState(true);
-            _buildingResourcesView.SetBuildingResourcesView(_currentTile.Buildings[_upgradeToLevel - 1]);
-        }
+        _buildsPanel.UnselectAllBuildings();
+        SelectToggleState(true);
+        _buildingResourcesView.SetBuildingResourcesView(_currentTile.Buildings[_upgradeToLevel - 1]);
     }
 
-    private void BuildOrUpgrade()
+    public void BuildOrUpgrade()
     {
         _buildingResourcesView.ResetCells();
         _playerResources.UseResourcesFromBuilding(_currentTile.Buildings[_upgradeToLevel - 1].ResourcesForBuild);
@@ -101,7 +95,7 @@ public class BuildingItem : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnTimeTickAfterResourcesChanged -= CheckResourcesForBuildEnought;
+        CustomEvents.OnTimeTickAfterResourcesChanged -= SetTextColor;
     }
 }
 

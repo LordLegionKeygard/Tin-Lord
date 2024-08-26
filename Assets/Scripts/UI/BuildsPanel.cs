@@ -36,7 +36,7 @@ public class BuildsPanel : MonoBehaviour
 
     public void SpawnUpgradeItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //оставшиеся здания в типе
     {
-        ClearListObjects(); 
+        ClearListObjects();
         var tile = tileObject.BuildingTileObject().CurrentBuildingTile();
         var length = tile.Buildings;
         _scrollRect.horizontal = length.Length > 3;
@@ -69,5 +69,10 @@ public class BuildsPanel : MonoBehaviour
             Destroy(item.gameObject);
         }
         _buildingsList.Clear();
+    }
+
+    private void OnDisable()
+    {
+        _buildingResourcesView.ResetCells();
     }
 }
