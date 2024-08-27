@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using Zenject;
 using UnityEngine.UI;
 
@@ -18,6 +16,7 @@ public class BuildsPanel : MonoBehaviour
     public void SpawnBuildingItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel, Tile tile) //все здания в типе
     {
         ClearListObjects();
+        _buildingResourcesView.ResetCells();
 
         var length = tile.Buildings;
         _scrollRect.horizontal = length.Length > 3;
@@ -37,6 +36,8 @@ public class BuildsPanel : MonoBehaviour
     public void SpawnUpgradeItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //оставшиеся здания в типе
     {
         ClearListObjects();
+        _buildingResourcesView.ResetCells();
+
         var tile = tileObject.BuildingTileObject().CurrentBuildingTile();
         var length = tile.Buildings;
         _scrollRect.horizontal = length.Length > 3;
@@ -73,6 +74,6 @@ public class BuildsPanel : MonoBehaviour
 
     private void OnDisable()
     {
-        _buildingResourcesView.ResetCells();
+        ClearListObjects();
     }
 }

@@ -38,7 +38,7 @@ public enum ResourceEnum
     Concrete = 13,
     Steam = 14,
     Glass = 15,
-    CopperCabble = 16,
+    CopperWire = 16,
     GearWheel = 17,
     ElectronicCircuit = 18,
     Processor = 19,

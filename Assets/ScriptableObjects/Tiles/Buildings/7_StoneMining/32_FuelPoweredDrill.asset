@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 32_FuelPoweredDrill
   m_EditorClassIdentifier: 
   Name:
-  - Fuel-Powered Drill
-  - "\u0422\u043E\u043F\u043B\u0438\u0432\u043D\u044B\u0439 \u0411\u0443\u0440"
+  - Steam-Powered Drill
+  - "\u041F\u0430\u0440\u043E\u0432\u043E\u0439 \u0411\u0443\u0440"
   BuildingSprite: {fileID: 21300000, guid: a614ffb074d3e7f45bfb8f97bc63c7b6, type: 3}
   BuildingEcology: -4
   ResourceExtractedAmount: 0.7
@@ -25,13 +25,7 @@ MonoBehaviour:
     RecourcesForBuildAmount: 10
   - ResourcesForBuild: 12
     RecourcesForBuildAmount: 5
-  ResourcesForWork:
-  - ResourceForWork: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
-    ResourcesForWorkAmount: 1
-  - ResourceForWork: {fileID: 11400000, guid: 27b850f65039e4244ac4286f6c1c897b, type: 2}
-    ResourcesForWorkAmount: 1
-  - ResourceForWork: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
-    ResourcesForWorkAmount: 1
+  ResourcesForWork: []
   ResourcesProduction:
   - ProductionResource: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216,
       type: 2}

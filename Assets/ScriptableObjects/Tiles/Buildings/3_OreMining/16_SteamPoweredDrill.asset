@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 16_SteamPoweredDrill
+  m_EditorClassIdentifier: 
+  Name:
+  - Steam-Powered Drill
+  - "\u041F\u0430\u0440\u043E\u0432\u043E\u0439 \u0411\u0443\u0440"
+  BuildingSprite: {fileID: 21300000, guid: b20ac9d5d8ccf7a44abd92fc4a4dfb71, type: 3}
+  BuildingEcology: -4
+  ResourceExtractedAmount: 0.7
+  ResourcesForBuild:
+  - ResourcesForBuild: 10
+    RecourcesForBuildAmount: 15
+  - ResourcesForBuild: 12
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 17
+    RecourcesForBuildAmount: 1
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: bfa570f1828818e49a04733c679a441d,
+      type: 2}
+    ResourceRecept: []
+  - ProductionResource: {fileID: 11400000, guid: 2538275dafe458f46a01eee4a20d4818,
+      type: 2}
+    ResourceRecept: []
