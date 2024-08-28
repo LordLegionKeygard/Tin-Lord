@@ -59,7 +59,7 @@ public class BuildingItem : MonoBehaviour
         _nameText.color = !_isSelect ? Colors.LightGrey : resourcesEnough ? Color.white : Colors.WarningYellow;
         _icon.color = _isSelect ? Color.white : Colors.LightGrey;
         _backImage.color = _isSelect ? Color.white : Colors.LightGrey;
-        if(_isSelect) _buildingResourcesView.SetBuildingResourcesView(_currentTile.Buildings[_upgradeToLevel - 1]);
+        if (_isSelect) _buildingResourcesView.SetBuildingResourcesView(_currentTile.Buildings[_upgradeToLevel - 1]);
     }
 
     public void SelectToggleState(bool state)
@@ -87,6 +87,7 @@ public class BuildingItem : MonoBehaviour
                 _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;
             case BuildingState.UpgradeBuilding:
+                _playerResources.AddResourcesFromDestroyBuilding(_currentTileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild); // возвращаем часть ресурсов за прошлое здание
                 _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_upgradeToLevel, _currentTileObject); //улучшаем здание
                 _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;
