@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 789768396228311266}
   - component: {fileID: -7120134370962905864}
   - component: {fileID: 1267800841027848771}
+  - component: {fileID: 3166317523630130912}
   m_Layer: 0
   m_Name: 1_ElectricPowerIndustry
   m_TagString: Untagged
@@ -306,6 +307,24 @@ MonoBehaviour:
   _changeViewIfModifier: 0
   _additionalturnOffObjects: []
   _additionalturnOnObjects: []
+  _needSetResourceView: 0
+  _resourceViewMeshRenders: []
+  _resourceViewActiveGameObjects: []
+--- !u!114 &3166317523630130912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789768396228311269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe65b2b613eab44d9f17cd1d6a0cf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectsForRotate:
+  - {fileID: 3403497581695783725}
+  - {fileID: 5952229133822595312}
 --- !u!1 &1159981397673027972
 GameObject:
   m_ObjectHideFlags: 0

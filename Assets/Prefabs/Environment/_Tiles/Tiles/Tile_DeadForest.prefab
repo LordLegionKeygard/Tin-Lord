@@ -131,6 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1128623563670308850}
   - component: {fileID: 7936513994670562188}
+  - component: {fileID: 9089343526304734173}
   m_Layer: 0
   m_Name: Tile_DeadForest
   m_TagString: Untagged
@@ -169,6 +170,20 @@ MonoBehaviour:
   _activeObjects:
   - {fileID: 4506402632012985746}
   - {fileID: 911854817236248775}
+--- !u!114 &9089343526304734173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128623563670308853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe65b2b613eab44d9f17cd1d6a0cf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectsForRotate:
+  - {fileID: 1128623563670308853}
 --- !u!1 &2028204397598233010
 GameObject:
   m_ObjectHideFlags: 0

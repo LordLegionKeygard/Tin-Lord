@@ -15,6 +15,7 @@ public class BuildingTile : MonoBehaviour
 
    public bool HaveTile() => _currentTile != null;
    public Tile CurrentBuildingTile() => _currentTile;
+   public GameObject CurrentBuildingTileObject() => _currentBuildingTileObject;
    public int CurrentBuildingLevel() => _buildingLevels.CurrentBuildingLevel();
    public Building CurrentBuilding() => _currentTile.Buildings[_buildingLevels.CurrentBuildingLevel() - 1];
 

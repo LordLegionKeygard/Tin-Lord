@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class SelectTilePanel : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SelectTilePanel : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private GameObject _buildButton;
     [SerializeField] private GameObject _onOffButton;
+    [SerializeField] private GameObject _rotateButton;
     [SerializeField] private GameObject _destroyButton;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private Image _onOffImage;
@@ -232,12 +234,17 @@ public class SelectTilePanel : MonoBehaviour
         var isCanUpgrade = tileObject.BuildingTileObject().IsCanUpgrade();
         var isLastRiverTile = tileObject.GroundTileObject().GetLastRiverTile();
 
+        var haveRotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>() != null;
+        var haveRotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() != null : false;
+
         var onOffButtonState = haveBuildingTile && isHaveProdictionResources;
         var buildButtonState = (!haveBuildingTile || isCanUpgrade) && !isRoad && (!isWater || tileObject.GroundTileObject().IsBridge());
+        var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
         var destroyButtonState = haveBuildingTile || (!isRoad && !isBase && (!isWater || isLastRiverTile));
 
         _onOffButton.SetActive(onOffButtonState);
         _buildButton.SetActive(buildButtonState);
+        _rotateButton.SetActive(rotateButtonState);
         _destroyButton.SetActive(destroyButtonState);
 
         SetButtonsPanelVisibility(onOffButtonState || buildButtonState || destroyButtonState);
@@ -256,6 +263,27 @@ public class SelectTilePanel : MonoBehaviour
             _buildsPanel.gameObject.SetActive(true);
             _buildsPanel.SpawnUpgradeItemsInScrollView(_tileObject, this);
         }
+    }
+
+    public void ToggleBuildingWorkButton()
+    {
+        _tileObject.IsBuildingWork = !_tileObject.IsBuildingWork;
+        SetOnOffButtonColor();
+
+        CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
+        if (!_tileObject.IsHaveRequiredResource()) return;
+
+        _tileObject.ChangeResourceProduction();
+        CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());
+    }
+
+    public void RotateButton()
+    {
+        var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
+        var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() : null;
+
+        if (rotationViewGround != null) rotationViewGround.Rotate();
+        if (rotationViewBuilding != null) rotationViewBuilding.Rotate();
     }
 
     public void DestroyButton()
@@ -279,18 +307,6 @@ public class SelectTilePanel : MonoBehaviour
         SetBuildTypesPanelVisibility(false);
         PanelViewToggle(true);
         SetInfo(_tileObject);
-    }
-
-    public void ToggleBuildingWork()
-    {
-        _tileObject.IsBuildingWork = !_tileObject.IsBuildingWork;
-        SetOnOffButtonColor();
-
-        CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
-        if (!_tileObject.IsHaveRequiredResource()) return;
-
-        _tileObject.ChangeResourceProduction();
-        CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());
     }
 
     public void ChangeResourceRequired(Resource resource) // для работы

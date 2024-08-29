@@ -106,6 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3989512879035521576}
   - component: {fileID: 5611136820838882208}
+  - component: {fileID: 8712668614510667293}
   m_Layer: 0
   m_Name: Tile_CoalDeposits
   m_TagString: Untagged
@@ -144,6 +145,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activeObjects:
   - {fileID: 2964325555506473220}
+--- !u!114 &8712668614510667293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3989512879035521583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe65b2b613eab44d9f17cd1d6a0cf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectsForRotate:
+  - {fileID: 3989512879035521583}
 --- !u!1 &8071437682693742117
 GameObject:
   m_ObjectHideFlags: 0

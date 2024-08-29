@@ -180,6 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8123914287721754768}
   - component: {fileID: 6655380495888978333}
+  - component: {fileID: 5616026837116835349}
   m_Layer: 0
   m_Name: Tile_Meadow
   m_TagString: Untagged
@@ -218,6 +219,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activeObjects:
   - {fileID: 7098758840836028988}
+--- !u!114 &5616026837116835349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123914287721754775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe65b2b613eab44d9f17cd1d6a0cf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectsForRotate:
+  - {fileID: 8123914287721754775}
 --- !u!1 &8123914288474439968
 GameObject:
   m_ObjectHideFlags: 0

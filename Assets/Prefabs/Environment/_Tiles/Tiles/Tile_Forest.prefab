@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2196790771032332186}
   - component: {fileID: 655679015141750470}
+  - component: {fileID: 2422889300211506278}
   m_Layer: 0
   m_Name: Tile_Forest
   m_TagString: Untagged
@@ -48,6 +49,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activeObjects:
   - {fileID: 883474221528571190}
+--- !u!114 &2422889300211506278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2196790771032332189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe65b2b613eab44d9f17cd1d6a0cf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectsForRotate:
+  - {fileID: 2196790771032332189}
 --- !u!1 &2196790772058056234
 GameObject:
   m_ObjectHideFlags: 0

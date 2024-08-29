@@ -481,6 +481,7 @@ GameObject:
   - component: {fileID: -8175941564363511164}
   - component: {fileID: 2744466568226457437}
   - component: {fileID: 2380008141396914750}
+  - component: {fileID: 1882388842996930149}
   m_Layer: 0
   m_Name: Building_StoneBlockProduction
   m_TagString: Untagged
@@ -540,6 +541,9 @@ MonoBehaviour:
   _changeViewIfModifier: 0
   _additionalturnOffObjects: []
   _additionalturnOnObjects: []
+  _needSetResourceView: 0
+  _resourceViewMeshRenders: []
+  _resourceViewActiveGameObjects: []
 --- !u!114 &2380008141396914750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,6 +557,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingLevels: {fileID: -8175941564363511164}
+--- !u!114 &1882388842996930149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4665257176694420121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe65b2b613eab44d9f17cd1d6a0cf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectsForRotate:
+  - {fileID: 4665257176694420121}
 --- !u!1 &4793046936556474227
 GameObject:
   m_ObjectHideFlags: 0
