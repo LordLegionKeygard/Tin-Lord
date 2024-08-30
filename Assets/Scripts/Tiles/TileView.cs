@@ -29,7 +29,7 @@ public class TileView : MonoBehaviour
                 _mesh.material = _fourTileMaterial;
                 break;
             case GroundTileViewEnum.Mountain or GroundTileViewEnum.OilSwamp:
-                _selectView.transform.localPosition = new Vector3(-1.4f, 2, -1.4f);
+                _selectView.transform.localPosition = new Vector3(-0.35f, 0.5f, -0.35f);
                 break;
         }
     }
