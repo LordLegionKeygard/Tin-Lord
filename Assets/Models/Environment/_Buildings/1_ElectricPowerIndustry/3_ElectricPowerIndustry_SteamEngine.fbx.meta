@@ -352,6 +352,21 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: MetalA
+    second: {fileID: 2100000, guid: f0bf5ac7882e07648946b1a149b730da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalC
+    second: {fileID: 2100000, guid: 349c430b09332a542966659425e6ecb9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalRust
+    second: {fileID: 2100000, guid: 8fe8dff4826de1848a39072af7ede88b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: brass__brassloop_png
     second: {fileID: 2100000, guid: f8dd89bfcb7dc4c3b97e7e3af3c88a8e, type: 2}
   - first:
@@ -546,7 +561,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.5
+    globalScale: 50
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
