@@ -11,7 +11,12 @@ public class BuildingProductionView : MonoBehaviour
 {
     [Inject] private SelectTilePanel _selectTilePanel;
     private TileObject _tileObject;
-    private bool _lastState;
+
+    /// <summary>
+    /// Изначально тру так как подразумевается, что здание при создании будет включено
+    /// Если будет ложь, то при спавне здания и нехватке ресурса, анимация будет продолжать работать
+    /// </summary>
+    private bool _lastState = true; 
 
     [Header("Main")]
     [SerializeField] private CharacterBuildingAnimator[] _characterBuildingAnimators;
@@ -74,6 +79,7 @@ public class BuildingProductionView : MonoBehaviour
     private void SetMainView(bool state)
     {
         if(_lastState == state) return;
+
         _lastState = state;
         foreach (var animator in _characterBuildingAnimators)
         {
@@ -113,6 +119,8 @@ public class BuildingProductionView : MonoBehaviour
         ChangeActiveObjects();
     }
 
+
+
     private void ChangeMeshRendersMaterial()
     {
         for (int i = 0; i < _resourceViewMeshRenders.Length; i++)
@@ -122,6 +130,11 @@ public class BuildingProductionView : MonoBehaviour
                 if (_tileObject.CurrentResourceProduction() == _resourceViewMeshRenders[i].ResourceMaterialWrapper[k].Resource)
                 {
                     foreach (var item in _resourceViewMeshRenders[i].MeshRenderers)
+                    {
+                        item.material = _resourceViewMeshRenders[i].ResourceMaterialWrapper[k].ResourceMaterial;
+                    }
+
+                    foreach (var item in _resourceViewMeshRenders[i].SkinnedMeshRenderers)
                     {
                         item.material = _resourceViewMeshRenders[i].ResourceMaterialWrapper[k].ResourceMaterial;
                     }
@@ -155,6 +168,7 @@ public class ResourceViewActiveGameObjects
 public class ResourceViewMeshRenders
 {
     public MeshRenderer[] MeshRenderers;
+    public SkinnedMeshRenderer[] SkinnedMeshRenderers;
     public ResourceMaterialWrapper[] ResourceMaterialWrapper;
 }
 
