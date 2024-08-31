@@ -25,9 +25,36 @@ MonoBehaviour:
   IsFourTile: 0
   BuildingTypes:
   - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - {fileID: 11400000, guid: 2a6e5ea87cd8f04448bcf8887c8981e0, type: 2}
+  - {fileID: 11400000, guid: 3fbd9e5df08784a45993d1293bb6ab60, type: 2}
+  - {fileID: 11400000, guid: 2030307a75a13f34798f72c4951e49e8, type: 2}
   ProductionOnGroundResources:
   - ProductionOnGroundResource: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f,
       type: 2}
     ProductionOnGroundResourceModifier: 0.5
-  BuildingTileView: 0
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 88c078b7f1fb61b4ab52aeb4297fb458,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
+  - ProductionOnGroundResource: {fileID: 11400000, guid: afe06345f5df3d44195027c365643634,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 1112c1c241ed4e745abf4cc8f4f47b35,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
+  - ProductionOnGroundResource: {fileID: 11400000, guid: e146e99502c6ef641b5dd62017dbde0c,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
+  - ProductionOnGroundResource: {fileID: 11400000, guid: ff6c84f3761e86444a64007a34ebd721,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 3b10836e3965a9f4b939cdc5e23f020d,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 072a407d58b15cb429cb3ba64d09eb1b,
+      type: 2}
+    ProductionOnGroundResourceModifier: 0.5
+  BuildingTileView: -1
   Buildings: []

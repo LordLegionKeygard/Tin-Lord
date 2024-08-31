@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 9_Bridge
   m_EditorClassIdentifier: 
+  Name:
+  - Bridge
+  - "\u041C\u043E\u0441\u0442"
   TileObject: {fileID: 5746593528593359528, guid: bf19e07097995bc419c72f91c09a364a,
     type: 3}
   Icon: {fileID: 0}
@@ -20,45 +23,10 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile: []
-  BuildingTileView: 10
-  Resource: {fileID: 0}
-  UpgradeBuildingWrapper:
-  - Name:
-    - Wooden Bridge
-    - "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0439 \u041C\u043E\u0441\u0442"
-    BuildingSprite: {fileID: 21300000, guid: 22edb65e68884ab44b667a03fa584847, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.2
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 30
-    ResourcesForWork: []
-  - Name:
-    - Stone Bridge
-    - "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u041C\u043E\u0441\u0442"
-    BuildingSprite: {fileID: 21300000, guid: 6c58355ea4d616c49bb8fc178a28c9d5, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.4
-    ResourcesForBuild:
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 20
-    ResourcesForWork: []
-  - Name:
-    - Metal Bridge
-    - "\u041C\u0435\u0442\u0430\u043B\u043B\u0438\u0447\u0435\u0441\u043A\u0438\u0439
-      \u041C\u043E\u0441\u0442"
-    BuildingSprite: {fileID: 21300000, guid: e55474d85a50e4b4c83bcddf141cff7d, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.6
-    ResourcesForBuild:
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 15
-    ResourcesForWork: []
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: 9
   Buildings:
   - {fileID: 11400000, guid: 212e073f90156b349b4eb8b9fb6303ae, type: 2}
   - {fileID: 11400000, guid: bb5e3ca6e55b01b43bddf823c0798edf, type: 2}
   - {fileID: 11400000, guid: 426e9dd51417a474593fe387bbe11ce8, type: 2}
-  Name:
-  - Bridge
-  - "\u041C\u043E\u0441\u0442"

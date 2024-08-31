@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 4_WoodExtraction
   m_EditorClassIdentifier: 
+  Name:
+  - Wood Extraction
+  - "\u0414\u043E\u0431\u044B\u0447\u0430 \u0414\u0435\u0440\u0435\u0432\u0430"
   TileObject: {fileID: 5746593528593359528, guid: ab5a6ed6cef42f14a9d8a262067ca84c,
     type: 3}
   Icon: {fileID: 0}
@@ -20,57 +23,11 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile: []
-  BuildingTileView: 5
-  Resource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
-  UpgradeBuildingWrapper:
-  - Name:
-    - Manual Mining
-    - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
-    BuildingSprite: {fileID: 21300000, guid: bc98a9a454c85b144a922bd638b1259f, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.2
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 5
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 3
-    ResourcesForWork: []
-  - Name:
-    - Sawmill
-    - "\u041B\u0435\u0441\u043E\u043F\u0438\u043B\u043A\u0430"
-    BuildingSprite: {fileID: 21300000, guid: 5c3f2536b8b545542a00a6a39759b28c, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.4
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 5
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 5
-    ResourcesForWork: []
-  - Name:
-    - Industrial Lumbermill
-    - "\u041F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u0430\u044F \u041B\u0435\u0441\u043E\u043F\u0438\u043B\u043A\u0430"
-    BuildingSprite: {fileID: 21300000, guid: 97b6e3d4280bc5d4baca5a35c3ead666, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.6
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 20
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 11
-      RecourcesForBuildAmount: 5
-    ResourcesForWork: []
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: 4
   Buildings:
   - {fileID: 11400000, guid: 54ce5eab62568474ebc8545d0c43b334, type: 2}
   - {fileID: 11400000, guid: add5cfd344fb5d34daf51c33db266e0e, type: 2}
   - {fileID: 11400000, guid: 8a86475244a697e4fa358e910691ec30, type: 2}
   - {fileID: 11400000, guid: 30f802c65dc45a1469db228580c35383, type: 2}
-  Name:
-  - Wood Extraction
-  - "\u0414\u043E\u0431\u044B\u0447\u0430 \u0414\u0435\u0440\u0435\u0432\u0430"

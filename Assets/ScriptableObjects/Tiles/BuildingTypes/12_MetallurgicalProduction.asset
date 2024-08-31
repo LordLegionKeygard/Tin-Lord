@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 12_MetallurgicalProduction
+  m_EditorClassIdentifier: 
+  Name:
+  - Metallurgical Production
+  - "\u041F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u043E \u041C\u0435\u0442\u0430\u043B\u043B\u0443\u0440\u0433\u0438\u0438"
+  TileObject: {fileID: 2696899411291575605, guid: 3682b65f5dd947c40b8933a2bf57666a,
+    type: 3}
+  Icon: {fileID: 0}
+  TileTypeEnum: 1
+  GroundTileView: 0
+  GroundEcology: 0
+  IsWater: 0
+  IsFourTile: 0
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: 12
+  Buildings:
+  - {fileID: 11400000, guid: 39bb896619b47344f9a9c7855c39e35e, type: 2}
+  - {fileID: 11400000, guid: 73357ccc59afa7f47884c439ca87375a, type: 2}
+  - {fileID: 11400000, guid: 31c3e5c5bfbeed34193aebbbaa0e4eb7, type: 2}

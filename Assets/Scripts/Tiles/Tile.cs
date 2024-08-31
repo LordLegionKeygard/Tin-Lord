@@ -75,19 +75,23 @@ public enum GroundTileViewEnum
 
 public enum BuildingTileViewEnum
 {
-    None = 0,
-    Base = 1,
-    ElectricPowerIndustry = 2,
-    CoalMining = 3,
-    OreMining = 4,
-    WoodExtraction = 5,
-    SandMining = 6,
-    OilProduction = 7,
-    StoneMining = 8,
-    LandWaterExtraction = 9,
-    Bridge = 10,
-    // HydroPowerIndustry
-    // RiverWaterExtraction
+    None = -1,
+    Base = 0,
+    ElectricPowerIndustry = 1,
+    CoalMining = 2,
+    OreMining = 3,
+    WoodExtraction = 4,
+    SandMining = 5,
+    OilProduction = 6,
+    StoneMining = 7,
+    LandWaterExtraction = 8,
+    Bridge = 9,
+    StoneBlockProduction = 10,
+    IronIngotGlassProduction = 11,
+    MetallurgicalProduction = 12,
+    ConcreteProduction = 13,
+    SteamProduction = 14,
+    ComponentsProduction = 15,
 }
 
 public enum TileDirectionEnum

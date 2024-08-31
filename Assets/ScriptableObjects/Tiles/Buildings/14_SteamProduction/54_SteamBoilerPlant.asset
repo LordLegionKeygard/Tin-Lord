@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 54_SteamBoilerPlant
+  m_EditorClassIdentifier: 
+  Name:
+  - Steam Boiler Plant
+  - "\u041F\u0430\u0440\u043E\u0432\u0430\u044F \u041A\u043E\u0442\u0435\u043B\u044C\u043D\u0430\u044F"
+  BuildingSprite: {fileID: 21300000, guid: 7f1a25503286ad546a7cb058081a7b5a, type: 3}
+  BuildingEcology: -2
+  ResourceExtractedAmount: 0.5
+  ResourcesForBuild:
+  - ResourcesForBuild: 10
+    RecourcesForBuildAmount: 15
+  - ResourcesForBuild: 11
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 17
+    RecourcesForBuildAmount: 5
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 27b850f65039e4244ac4286f6c1c897b, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61,
+        type: 2}
+      ResourcesForReceptAmount: 2

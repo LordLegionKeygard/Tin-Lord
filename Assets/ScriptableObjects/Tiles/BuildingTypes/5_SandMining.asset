@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 5_SandMining
   m_EditorClassIdentifier: 
+  Name:
+  - Sand Mining
+  - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041F\u0435\u0441\u043A\u0430"
   TileObject: {fileID: 8169984115598653667, guid: 1e689cfe7afb0a048b1df26c15627b77,
     type: 3}
   Icon: {fileID: 0}
@@ -20,58 +23,11 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile: []
-  BuildingTileView: 6
-  Resource: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046, type: 2}
-  UpgradeBuildingWrapper:
-  - Name:
-    - Manual Mining
-    - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
-    BuildingSprite: {fileID: 21300000, guid: dcdaf1981a5213942a977854d8a79623, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.2
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 5
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 3
-    ResourcesForWork: []
-  - Name:
-    - Excavator
-    - "\u042D\u043A\u0441\u043A\u0430\u0432\u0430\u0442\u043E\u0440"
-    BuildingSprite: {fileID: 21300000, guid: debdb3c90da1db640b6327a196846cb8, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.4
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 5
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 5
-    ResourcesForWork: []
-  - Name:
-    - Bucket-wheel Excavator
-    - "\u041C\u043D\u043E\u0433\u043E\u043A\u043E\u0432\u0448\u043E\u0432\u044B\u0439
-      \u042D\u043A\u0441\u043A\u0430\u0432\u0430\u0442\u043E\u0440"
-    BuildingSprite: {fileID: 21300000, guid: f9a2336eb6a7e584eb5e43400a0ea61b, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.6
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 20
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 11
-      RecourcesForBuildAmount: 5
-    ResourcesForWork: []
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: 5
   Buildings:
   - {fileID: 11400000, guid: 6e6b77360bf5a00479a754e415a75d7f, type: 2}
   - {fileID: 11400000, guid: cbb5c2bf0341af14ab6e48ce2ef5b998, type: 2}
   - {fileID: 11400000, guid: 7bafff524c4e47044984ebd49b4c499d, type: 2}
   - {fileID: 11400000, guid: 28c4c212d60c4284981885fb66d7b187, type: 2}
-  Name:
-  - Sand Mining
-  - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041F\u0435\u0441\u043A\u0430"

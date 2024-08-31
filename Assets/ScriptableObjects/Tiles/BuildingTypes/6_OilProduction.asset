@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 6_OilProduction
   m_EditorClassIdentifier: 
+  Name:
+  - Oil Production
+  - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041D\u0435\u0444\u0442\u0438"
   TileObject: {fileID: 1995532334043188822, guid: a2adf9b8a53cafb47b569560bc5e1c00,
     type: 3}
   Icon: {fileID: 0}
@@ -20,61 +23,11 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile: []
-  BuildingTileView: 7
-  Resource: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
-  UpgradeBuildingWrapper:
-  - Name:
-    - Hand Pump
-    - "\u0420\u0443\u0447\u043D\u043E\u0439 \u041D\u0430\u0441\u043E\u0441"
-    BuildingSprite: {fileID: 21300000, guid: 79b68068ee7b91145a36736575d04f54, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.2
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 5
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 5
-    ResourcesForWork: []
-  - Name:
-    - Pumpjack
-    - "\u0421\u0442\u0430\u043D\u043E\u043A-\u043A\u0430\u0447\u0430\u043B\u043A\u0430"
-    BuildingSprite: {fileID: 21300000, guid: c9e07c5a02d170e4c9b61e70a7218bff, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.4
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 20
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 11
-      RecourcesForBuildAmount: 5
-    ResourcesForWork: []
-  - Name:
-    - Oil Rig
-    - "\u041D\u0435\u0444\u0442\u044F\u043D\u0430\u044F \u0412\u044B\u0448\u043A\u0430"
-    BuildingSprite: {fileID: 21300000, guid: 6e5fabafd0784f64bb95af8cbf3f3bbc, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0.6
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 30
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 15
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 15
-    - ResourcesForBuild: 11
-      RecourcesForBuildAmount: 10
-    ResourcesForWork: []
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: 6
   Buildings:
   - {fileID: 11400000, guid: 0b5ebe0d62e7f79478960e6824ff8b49, type: 2}
   - {fileID: 11400000, guid: b14e052e455ebd1409acbf9ab6c868f3, type: 2}
   - {fileID: 11400000, guid: 5b4df28fc6cfd0f46b51539a37e32672, type: 2}
   - {fileID: 11400000, guid: 07eb00d2c6ff70a43ab3052ff8b265e7, type: 2}
-  Name:
-  - Oil Production
-  - "\u0414\u043E\u0431\u044B\u0447\u0430 \u041D\u0435\u0444\u0442\u0438"

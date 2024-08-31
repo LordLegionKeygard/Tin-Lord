@@ -16,7 +16,7 @@ public class BuildTypesPanel : MonoBehaviour
 
     public void SpawnBuildingTypesInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //тип зданий
     {
-        var buildingTiles = _tileSystem.TakeGroundTile(tileObject.GroundTileObject().CurrentGroundTile().GroundTileView).BuildingTypes;
+        var buildingTypeTiles = _tileSystem.TakeGroundTile(tileObject.GroundTileObject().CurrentGroundTile().GroundTileView).BuildingTypes;
 
         if (tileObject.GroundTileObject().IsBridge())
         {
@@ -27,11 +27,11 @@ public class BuildTypesPanel : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < buildingTiles.Length; i++)
+            for (int i = 0; i < buildingTypeTiles.Length; i++)
             {
                 var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
                 item.transform.SetParent(_content);
-                item.GetComponent<BuildingType>().SetBuildingType(buildingTiles[i], tileObject, selectTilePanel, _buildsPanel);
+                item.GetComponent<BuildingType>().SetBuildingType(buildingTypeTiles[i], tileObject, selectTilePanel, _buildsPanel);
                 _buildingTypesList.Add(item.gameObject);
             }
         }

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 0_Base
   m_EditorClassIdentifier: 
+  Name:
+  - Base
+  - "\u0411\u0430\u0437\u0430"
   TileObject: {fileID: 5128493445474986613, guid: b7c3523c33644b844b511999ac783763,
     type: 3}
   Icon: {fileID: 0}
@@ -20,102 +23,9 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
-  BuildingsOnTile: []
-  BuildingTileView: 1
-  Resource: {fileID: 0}
-  UpgradeBuildingWrapper:
-  - Name: []
-    BuildingSprite: {fileID: 21300000, guid: 335ec1dfa0be35c46b97646eeb713feb, type: 3}
-    BuildingEcology: 0
-    ResourceExtractedAmount: 0
-    ResourcesForBuild: []
-    ResourcesForWork: []
-  - Name:
-    - Village
-    - "\u0414\u0435\u0440\u0435\u0432\u043D\u044F"
-    BuildingSprite: {fileID: 21300000, guid: 05dcc18e9e4cf6d4abc93da2231610e1, type: 3}
-    BuildingEcology: -2
-    ResourceExtractedAmount: 0
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 20
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 2
-      RecourcesForBuildAmount: 10
-    ResourcesForWork: []
-  - Name:
-    - Town
-    - "\u0413\u043E\u0440\u043E\u0434"
-    BuildingSprite: {fileID: 21300000, guid: ff0cb2a6fa76d07479393c487bb9c846, type: 3}
-    BuildingEcology: -3
-    ResourceExtractedAmount: 0
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 50
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 25
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 10
-    - ResourcesForBuild: 4
-      RecourcesForBuildAmount: 10
-    ResourcesForWork: []
-  - Name:
-    - City
-    - "\u041A\u0440\u0443\u043F\u043D\u044B\u0439 \u0413\u043E\u0440\u043E\u0434"
-    BuildingSprite: {fileID: 21300000, guid: 39db0b56cdc422d4da3b3aa4e51ceeba, type: 3}
-    BuildingEcology: -4
-    ResourceExtractedAmount: 0
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 100
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 50
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 20
-    - ResourcesForBuild: 4
-      RecourcesForBuildAmount: 20
-    - ResourcesForBuild: 13
-      RecourcesForBuildAmount: 20
-    ResourcesForWork: []
-  - Name:
-    - Industrial City
-    - "\u041F\u0440\u043E\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u044B\u0439 \u0413\u043E\u0440\u043E\u0434"
-    BuildingSprite: {fileID: 21300000, guid: 7762639e4acc0ab4ab15c04e837d7525, type: 3}
-    BuildingEcology: -5
-    ResourceExtractedAmount: 0
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 200
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 100
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 40
-    - ResourcesForBuild: 4
-      RecourcesForBuildAmount: 40
-    - ResourcesForBuild: 13
-      RecourcesForBuildAmount: 40
-    ResourcesForWork: []
-  - Name:
-    - Megapolis
-    - "\u041C\u0435\u0433\u0430\u043F\u043E\u043B\u0438\u0441"
-    BuildingSprite: {fileID: 21300000, guid: 6ddb383688c3164458250a4fef9fac1a, type: 3}
-    BuildingEcology: -6
-    ResourceExtractedAmount: 0
-    ResourcesForBuild:
-    - ResourcesForBuild: 0
-      RecourcesForBuildAmount: 500
-    - ResourcesForBuild: 1
-      RecourcesForBuildAmount: 250
-    - ResourcesForBuild: 10
-      RecourcesForBuildAmount: 100
-    - ResourcesForBuild: 4
-      RecourcesForBuildAmount: 100
-    - ResourcesForBuild: 12
-      RecourcesForBuildAmount: 50
-    - ResourcesForBuild: 13
-      RecourcesForBuildAmount: 100
-    ResourcesForWork: []
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: 0
   Buildings:
   - {fileID: 11400000, guid: bd5f6630a142ee34686f893de754a851, type: 2}
   - {fileID: 11400000, guid: 6989042c1a67f234484178402d55a53a, type: 2}
@@ -123,6 +33,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c413b97f91ef770499b1437a84f39ff0, type: 2}
   - {fileID: 11400000, guid: 7998d41a9b182d54f8dcd25fbce37042, type: 2}
   - {fileID: 11400000, guid: 8800b49efcb16174eb142005c1eb6423, type: 2}
-  Name:
-  - Base
-  - "\u0411\u0430\u0437\u0430"
