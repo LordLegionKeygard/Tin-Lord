@@ -87,11 +87,10 @@ public enum BuildingTileViewEnum
     LandWaterExtraction = 8,
     Bridge = 9,
     StoneBlockProduction = 10,
-    IronIngotGlassProduction = 11,
-    MetallurgicalProduction = 12,
-    ConcreteProduction = 13,
-    SteamProduction = 14,
-    ComponentsProduction = 15,
+    SmeltingProduction = 11,
+    ConcreteProduction = 12,
+    SteamProduction = 13,
+    ComponentsProduction = 14,
 }
 
 public enum TileDirectionEnum
