@@ -41,6 +41,9 @@ public class CharacterBuildingAnimator : MonoBehaviour
             case CharacterWorkType.WellHandleRotate:
                 _animator.SetTrigger(AnimatorStrings.WellHandleRotate);
                 break;
+            case CharacterWorkType.StoneCutting:
+                _animator.SetTrigger(AnimatorStrings.StoneCutting);
+                break;
         }
     }
 
