@@ -92,7 +92,8 @@ public enum CharacterWorkType
     HoldPlank = 4,
     OilHandPump = 5,
     WellHandleRotate = 6,
-    StoneCutting = 7,
+    StoneCuttingTable = 7,
+    StoneCuttingWorkbrench = 8,
 }
 
 [System.Serializable]

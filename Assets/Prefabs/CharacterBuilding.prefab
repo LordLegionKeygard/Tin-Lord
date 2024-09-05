@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3455814829830179327}
   m_Layer: 0
-  m_Name: AxeRightLegTarget
+  m_Name: Axe_RightLegTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -696,7 +696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3814740843348212352}
   m_Layer: 0
-  m_Name: StoneCutting
+  m_Name: 7_StoneCuttingTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,9 +714,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 335621405017352915}
   - {fileID: 8543013515635155052}
   - {fileID: 3977302609076152620}
-  - {fileID: 335621405017352915}
   m_Father: {fileID: 1741102352083068930}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1015,7 +1015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 335621405017352915}
   m_Layer: 0
-  m_Name: StoneCuttingLeftHandTarget
+  m_Name: SCTable_LeftHandTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,8 +1034,43 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3814740843348212352}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -98.98, y: -173.15, z: 0}
+--- !u!1 &2319238244083427383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1838862258373232853}
+  m_Layer: 0
+  m_Name: 8_StoneCuttingWorkbrench
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1838862258373232853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319238244083427383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6277277193393103309}
+  - {fileID: 4616621620259963664}
+  - {fileID: 4137722924238307066}
+  - {fileID: 785167335295142023}
+  m_Father: {fileID: 1741102352083068930}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2380785845300399616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2827186635223865219}
   m_Layer: 0
-  m_Name: HoldPlankLegLeftTarget
+  m_Name: HoldPlank_LegLeftTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1160,7 +1195,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4984627284466723242}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &2894166312251789133
 GameObject:
@@ -1239,7 +1274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3977302609076152620}
   m_Layer: 0
-  m_Name: StoneCuttingLegRightTarget
+  m_Name: SCTable_LegRightTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1258,7 +1293,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3814740843348212352}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &3114210796787242221
 GameObject:
@@ -1270,7 +1305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6887122321093147382}
   m_Layer: 0
-  m_Name: PickAxe
+  m_Name: 1_PickAxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1571,7 +1606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2763320477549339766}
   m_Layer: 0
-  m_Name: OilHandPump
+  m_Name: 5_OilHandPump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1769,6 +1804,16 @@ MonoBehaviour:
     LeftWristToPalmAxis: {x: -2, y: 0, z: 0}
     RightHandTarget: {fileID: 3097432405938894942}
     RightLegTarget: {fileID: 3977302609076152620}
+    RightShoulderRotationWeight: 0.131
+    RightWristToPalmAxis: {x: 0, y: 0, z: 0}
+  - CharacterWorkType: 8
+    ActiveObject: {fileID: 0}
+    LeftHandTarget: {fileID: 6277277193393103309}
+    LeftLegTarget: {fileID: 4616621620259963664}
+    LeftShoulderRotationWeight: 0.221
+    LeftWristToPalmAxis: {x: 0, y: 0, z: 0}
+    RightHandTarget: {fileID: 4137722924238307066}
+    RightLegTarget: {fileID: 785167335295142023}
     RightShoulderRotationWeight: 0.131
     RightWristToPalmAxis: {x: 0, y: 0, z: 0}
   _leftArmIK: {fileID: 2784040041294930566}
@@ -2337,7 +2382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8836601828593770493}
   m_Layer: 0
-  m_Name: PickaxeLeftLegTarget
+  m_Name: Pickaxe_LeftLegTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2487,6 +2532,7 @@ Transform:
   - {fileID: 2763320477549339766}
   - {fileID: 8327946886469574076}
   - {fileID: 3814740843348212352}
+  - {fileID: 1838862258373232853}
   m_Father: {fileID: 4171701220532572703}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2532,7 +2578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 920670283802124996}
   m_Layer: 0
-  m_Name: OilHandPumpLegLeftTarget
+  m_Name: OilHandPump_LegLeftTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2595,7 +2641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 381104615757638260}
   m_Layer: 0
-  m_Name: WellHandleRotateLegRightTarget
+  m_Name: WellHandleRotate_LegRightTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2615,6 +2661,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8327946886469574076}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
+--- !u!1 &4444930716748187392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 785167335295142023}
+  m_Layer: 0
+  m_Name: SCWorkbrenchLegRightTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &785167335295142023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4444930716748187392}
+  m_LocalRotation: {x: 0.6205913, y: 0.3389196, z: 0.6205913, w: 0.3389196}
+  m_LocalPosition: {x: 0.191, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1838862258373232853}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &4487400323029189710
 GameObject:
@@ -2753,7 +2830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2735799195257369421}
   m_Layer: 0
-  m_Name: HoldPlankRightHandTarget
+  m_Name: HoldPlank_RightHandTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2772,7 +2849,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4984627284466723242}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -106.518, y: -163.581, z: -22.901978}
 --- !u!1 &4742130924344815808
 GameObject:
@@ -2815,7 +2892,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4984627284466723242}
   m_Layer: 0
-  m_Name: HoldPlank
+  m_Name: 4_HoldPlank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2833,10 +2910,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2827186635223865219}
-  - {fileID: 29167054231268552}
   - {fileID: 2700667934058721778}
+  - {fileID: 2827186635223865219}
   - {fileID: 2735799195257369421}
+  - {fileID: 29167054231268552}
   m_Father: {fileID: 1741102352083068930}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3042,7 +3119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3907019327873499318}
   m_Layer: 0
-  m_Name: AxeLeftLegTarget
+  m_Name: Axe_LeftLegTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3158,6 +3235,37 @@ Transform:
   m_Father: {fileID: 1297434324520669775}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5505660650360492090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6277277193393103309}
+  m_Layer: 0
+  m_Name: SCWorkbrench_LeftHandTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6277277193393103309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5505660650360492090}
+  m_LocalRotation: {x: 0.07960408, y: -0.64601046, z: -0.7561137, w: -0.06801235}
+  m_LocalPosition: {x: -0.548, y: 1.35, z: 0.596}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1838862258373232853}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -98.98, y: -192.02, z: 0}
 --- !u!1 &5586306492057613019
 GameObject:
   m_ObjectHideFlags: 0
@@ -3372,7 +3480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8543013515635155052}
   m_Layer: 0
-  m_Name: StoneCuttingLegLeftTarget
+  m_Name: SCTable_LegLeftTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3391,7 +3499,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3814740843348212352}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &5868331797108525681
 GameObject:
@@ -3403,7 +3511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2700667934058721778}
   m_Layer: 0
-  m_Name: HoldPlankLeftHandTarget
+  m_Name: HoldPlank_LeftHandTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3422,7 +3530,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4984627284466723242}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -98.98, y: -192.02, z: 0}
 --- !u!1 &5915002365133878744
 GameObject:
@@ -3594,7 +3702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2067376735749416299}
   m_Layer: 0
-  m_Name: PickaxeRightLegTarget
+  m_Name: Pickaxe_RightLegTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3647,6 +3755,37 @@ Transform:
   m_Father: {fileID: 154646905082718290}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6374497756072791131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4137722924238307066}
+  m_Layer: 0
+  m_Name: SCWorkbrenchRightHandTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4137722924238307066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6374497756072791131}
+  m_LocalRotation: {x: -0.4549554, y: -0.5517232, z: -0.51100475, w: -0.47696057}
+  m_LocalPosition: {x: 0.273, y: 1.686, z: 0.869}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1838862258373232853}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -172.538, y: -88.68399, z: -93.68799}
 --- !u!1 &6524308398076872892
 GameObject:
   m_ObjectHideFlags: 0
@@ -3657,7 +3796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8327946886469574076}
   m_Layer: 0
-  m_Name: WellHandleRotate
+  m_Name: 6_WellHandleRotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3690,7 +3829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8059485367095755269}
   m_Layer: 0
-  m_Name: Axe
+  m_Name: 3_Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3818,7 +3957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 29167054231268552}
   m_Layer: 0
-  m_Name: HoldPlankLegRightTarget
+  m_Name: HoldPlank_LegRightTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3837,7 +3976,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4984627284466723242}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &7270023773795403144
 GameObject:
@@ -4083,7 +4222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8566445659128576173}
   m_Layer: 0
-  m_Name: WellHandleRotateLegLeftTarget
+  m_Name: WellHandleRotate_LegLeftTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4137,6 +4276,37 @@ Transform:
   m_Father: {fileID: 1278336041694991839}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7634067737386460017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4616621620259963664}
+  m_Layer: 0
+  m_Name: SCWorkbrenchLegLeftTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4616621620259963664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7634067737386460017}
+  m_LocalRotation: {x: 0.6205913, y: 0.3389196, z: 0.6205913, w: 0.3389196}
+  m_LocalPosition: {x: -0.191, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1838862258373232853}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 122.72}
 --- !u!1 &7718119565152714006
 GameObject:
   m_ObjectHideFlags: 0
@@ -4276,7 +4446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7189970963941369921}
   m_Layer: 0
-  m_Name: OilHandPumpLegRightTarget
+  m_Name: OilHandPump_LegRightTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
