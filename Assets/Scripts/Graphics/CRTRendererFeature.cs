@@ -127,7 +127,7 @@ namespace CRTFilter
                 var cameraColorTexture = renderingData.cameraData.renderer.cameraColorTarget;
                 if ((cameraColorTexture == new RenderTargetIdentifier(BuiltinRenderTextureType.CameraTarget)))
                 {
-                    Debug.LogWarning("CRT Filter: camera doesn't render to the texture. Please make sure, that there is PixelPerfectCamera component attached with CropFrame setting anything but 'None'");
+                    // Debug.LogWarning("CRT Filter: camera doesn't render to the texture. Please make sure, that there is PixelPerfectCamera component attached with CropFrame setting anything but 'None'");
                     return;
                 }
 
