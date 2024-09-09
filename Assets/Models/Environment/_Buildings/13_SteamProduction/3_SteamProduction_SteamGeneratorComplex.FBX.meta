@@ -165,12 +165,22 @@ ModelImporter:
   - first:
       137: 13700000
     second: SteamGenerator
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ContainerWhite
+    second: {fileID: 2100000, guid: 3976d78a1e0fdb04fac744c3ea47c6a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalA
+    second: {fileID: 2100000, guid: f0bf5ac7882e07648946b1a149b730da, type: 2}
   materials:
-    materialImportMode: 0
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
