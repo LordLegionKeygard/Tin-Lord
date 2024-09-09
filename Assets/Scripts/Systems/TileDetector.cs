@@ -156,7 +156,7 @@ public class TileDetector : MonoBehaviour
             if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(true, groundTile.NeighbourHaveGroundTile(2) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
 
             var haveNeighbours = groundTile.HaveNeighbour(0) && groundTile.HaveNeighbour(1) && groundTile.HaveNeighbour(2);
-            var neighboursHaveGroundTile = groundTile.NeighbourHaveGroundTile(0) && groundTile.NeighbourHaveGroundTile(1) && groundTile.NeighbourHaveGroundTile(2);
+            var neighboursHaveGroundTile = groundTile.NeighbourHaveGroundTile(0) || groundTile.NeighbourHaveGroundTile(1) || groundTile.NeighbourHaveGroundTile(2);
 
             _canSetTile = !groundTile.HaveTile() && !neighboursHaveGroundTile && haveNeighbours;
         }
