@@ -17,5 +17,6 @@ public class AnimatorStrings : MonoBehaviour
 
     [Header("Tile")]
     public static readonly int TileSpawn = Animator.StringToHash("TileSpawn");
+    public static readonly int TileDestroy = Animator.StringToHash("TileDestroy");
 
 }

@@ -34,9 +34,9 @@ public class TileView : MonoBehaviour
         }
     }
 
-    public void PlaySpawnAnimation()
+    public void PlayAnimation(int animation)
     {
-        _animator.SetTrigger(AnimatorStrings.TileSpawn);
+        _animator.SetTrigger(animation);
     }
 
 

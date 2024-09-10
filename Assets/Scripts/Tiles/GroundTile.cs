@@ -19,6 +19,8 @@ public class GroundTile : MonoBehaviour
     private TileRiver _tileRiver;
     private TileRoad _tileRoad;
 
+    private IEnumerator _destroyCoroutine;
+
 
     //LastRiverTile
     public TileRiver CurrentTileRiver() => _tileRiver;
@@ -59,6 +61,7 @@ public class GroundTile : MonoBehaviour
     public void TurnOffTileCollider() => _tileView.TurnOffCollider();
     public void SetId(int id) => _tileObject.SetId(id);
     private int _riverNumber = 0;
+    
 
 
     private void Awake()
@@ -90,13 +93,26 @@ public class GroundTile : MonoBehaviour
         _groundModelRotation = 0;
         CustomEvents.FireChangeEcology(0, _tileObject.GetId(), true);
         SelectTile(false, SelectTileEnum.TileSelect);
-        Destroy(_currentGroundTileObject);
 
         if (IsForwardRoad())
         {
             _tileRoad.SetRoadTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Road));
             CustomEvents.FirePrepareRoads();
         }
+        else
+        {
+            _tileView.PlayAnimation(AnimatorStrings.TileDestroy);
+
+            if(_destroyCoroutine!= null) StopCoroutine(_destroyCoroutine);
+            _destroyCoroutine = DestroyCoroutine();
+            StartCoroutine(_destroyCoroutine);
+        }
+    }
+
+    private IEnumerator DestroyCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(_currentGroundTileObject);
     }
 
     public void TurnOffFourTileNeighboursCollider()
@@ -132,7 +148,7 @@ public class GroundTile : MonoBehaviour
         RefreshGroundTile();
         UpdateNeighbourGroundTiles();
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
-        _tileView.PlaySpawnAnimation();
+        _tileView.PlayAnimation(AnimatorStrings.TileSpawn);
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceProduction();
         _tileObject.SetResourceModifier();
