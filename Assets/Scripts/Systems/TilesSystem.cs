@@ -12,5 +12,5 @@ public class TilesSystem : MonoBehaviour
     public bool IsHaveBase = false;
 
     public Tile TakeGroundTile(GroundTileViewEnum tileView) => _allGroundTiles[(int)tileView - 1];
-    public Tile TakeBuildingTile(BuildingTileViewEnum tileView) => _allBuildingTiles[(int)tileView - 1];
+    public Tile TakeBuildingTile(BuildingTileViewEnum tileView) => _allBuildingTiles[(int)tileView];
 }

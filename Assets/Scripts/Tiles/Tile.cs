@@ -75,7 +75,6 @@ public enum GroundTileViewEnum
 
 public enum BuildingTileViewEnum
 {
-    None = -1,
     Base = 0,
     ElectricPowerIndustry = 1,
     CoalMining = 2,
