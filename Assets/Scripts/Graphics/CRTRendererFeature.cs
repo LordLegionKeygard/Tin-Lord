@@ -15,22 +15,6 @@ namespace CRTFilter
         public float screenBend = 4f;
 
         [Range(0f, 10f)]
-        public float scanlinesStrength = 3;
-        [Range(0f, 10f)]
-        public float apertureStrength = 3;
-        [Range(0f, 50f)]
-        public float shadowlines = 8;
-        [Range(-20f, 20f)]
-        public float shadowlinesSpeed = -2;
-        [Range(0f, 1f)]
-        public float shadowlinesAlpha = 0.05f;
-        [Range(0f, 50f)]
-        public float noiseSize = 75f;
-        [Range(0f, 10f)]
-        public float noiseSpeed = 0.02f;
-        [Range(0f, 1f)]
-        public float noiseAlpha = 0.05f;
-        [Range(0f, 10f)]
         public float vignetteSize = 5.3f;
         [Range(0f, 20f)]
         public float vignetteSmooth = 2;
@@ -49,15 +33,9 @@ namespace CRTFilter
             material.SetFloat("m_screenBend", screenBend == 0 ? 1000 : 13 - screenBend);
             material.SetFloat("m_resX", pixelResolutionX);
             material.SetFloat("m_resY", pixelResolutionY);
-            material.SetFloat("m_shadowlines", shadowlines);
-            material.SetFloat("m_shadowlinesSpeed", shadowlinesSpeed);
-            material.SetFloat("m_shadowlinesAlpha", shadowlinesAlpha * 0.2f);
             material.SetFloat("m_vignetteSize", vignetteSize * 0.35f);
             material.SetFloat("m_vignetteSmooth", vignetteSmooth * 0.1f);
             material.SetFloat("m_vignetteRound", vignetteRound);
-            material.SetFloat("m_noiseSize", noiseSize * 20);
-            material.SetFloat("m_noiseAlpha", noiseAlpha * 0.2f);
-            material.SetFloat("m_noiseSpeed", noiseSpeed * 0.0001f);
             material.SetFloat("m_contrast", 1);
             material.SetFloat("m_gamma", 1);
             material.SetFloat("m_red", 1);
@@ -99,7 +77,7 @@ namespace CRTFilter
 
             public CRTRenderPass()
             {
-                renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+                renderPassEvent = RenderPassEvent.AfterRenderingPostProcessing;
             }
 
             public void Init(ScriptableRenderer renderer, Material material)
