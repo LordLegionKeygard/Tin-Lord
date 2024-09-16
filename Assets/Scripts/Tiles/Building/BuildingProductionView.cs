@@ -145,7 +145,7 @@ public class BuildingProductionView : MonoBehaviour
 
     private void ChangeActiveObjects()
     {
-        if(!_tileObject.IsBuildingWork) return;
+        // if(!_tileObject.IsBuildingWork) return;
         
         for (int i = 0; i < _resourceViewActiveGameObjects.Length; i++)
         {
