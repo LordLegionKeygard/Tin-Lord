@@ -6,7 +6,7 @@ public class RotateAround : MonoBehaviour
 {
     [SerializeField] private Vector3 _vector;
     [SerializeField] private float _rotateSpeed;
-    [SerializeField] private float _defaultRotateSpeed;
+    private float _defaultRotateSpeed;
     [SerializeField] private bool _isRandomStartRotation = true;
     private float _axis;
 

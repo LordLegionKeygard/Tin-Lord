@@ -1,116 +1,64 @@
 fileFormatVersion: 2
-guid: 4ef987b669e0fcf458f9f20bd4dd9616
+guid: 45985faf9bf71d340ac736ec15f5cdd9
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable:
+  internalIDToNameTable: []
+  externalObjects:
   - first:
-      1: 100000
-    second: //RootNode
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 046e81767d199264a8546bd752e0faa1, type: 2}
   - first:
-      1: 100002
-    second: BlastFurnace
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlastFurnace
+    second: {fileID: 2100000, guid: 5aacf24f317c9fc4eaea60b9cf32c086, type: 2}
   - first:
-      1: 100004
-    second: Centr_Bone
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Capacity
+    second: {fileID: 2100000, guid: 423795c00b334794dac84135c172dd6c, type: 2}
   - first:
-      1: 100006
-    second: gear_1_bone
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Melton
+    second: {fileID: 2100000, guid: 9ce4b07f64f462c4db653b4f86778453, type: 2}
   - first:
-      1: 100008
-    second: gear_2_bone
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal01
+    second: {fileID: 2100000, guid: 698263580c612f34d82615fed886df80, type: 2}
   - first:
-      1: 100010
-    second: hot_metal_bone
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal02
+    second: {fileID: 2100000, guid: 77e3cb4efd9297e418de19952d5da9c5, type: 2}
   - first:
-      1: 100012
-    second: hot_metal_bone_2
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalC
+    second: {fileID: 2100000, guid: 5aacf24f317c9fc4eaea60b9cf32c086, type: 2}
   - first:
-      1: 100014
-    second: ingots_bone
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalCDark
+    second: {fileID: 2100000, guid: 77e3cb4efd9297e418de19952d5da9c5, type: 2}
   - first:
-      1: 100016
-    second: ore
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rust
+    second: {fileID: 2100000, guid: dc3fe9fdf2933be44a5fa8e55eb7e085, type: 2}
   - first:
-      1: 100018
-    second: pipe_bone
-  - first:
-      1: 100020
-    second: Platform_bone
-  - first:
-      1: 100022
-    second: BlastFurnace_Collision
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      4: 400002
-    second: BlastFurnace
-  - first:
-      4: 400004
-    second: Centr_Bone
-  - first:
-      4: 400006
-    second: gear_1_bone
-  - first:
-      4: 400008
-    second: gear_2_bone
-  - first:
-      4: 400010
-    second: hot_metal_bone
-  - first:
-      4: 400012
-    second: hot_metal_bone_2
-  - first:
-      4: 400014
-    second: ingots_bone
-  - first:
-      4: 400016
-    second: ore
-  - first:
-      4: 400018
-    second: pipe_bone
-  - first:
-      4: 400020
-    second: Platform_bone
-  - first:
-      4: 400022
-    second: BlastFurnace_Collision
-  - first:
-      23: 2300000
-    second: BlastFurnace_Collision
-  - first:
-      33: 3300000
-    second: BlastFurnace_Collision
-  - first:
-      43: 4300000
-    second: BlastFurnace
-  - first:
-      43: 4300002
-    second: BlastFurnace_Collision
-  - first:
-      74: 7400000
-    second: BF_put_ore
-  - first:
-      74: 7400002
-    second: BF_sending_ore
-  - first:
-      74: 7400004
-    second: BF_bullion_making
-  - first:
-      95: 9500000
-    second: //RootNode
-  - first:
-      111: 11100000
-    second: //RootNode
-  - first:
-      137: 13700000
-    second: BlastFurnace
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sand
+    second: {fileID: 2100000, guid: 1a75181167dd4e241a38f8b92c1c667b, type: 2}
   materials:
-    materialImportMode: 0
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -135,112 +83,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: BF_put_ore
+      name: Take 001
       takeName: Take 001
-      internalID: 0
+      internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 80
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: BlastFurnace
-        weight: 1
-      - path: Centr_Bone
-        weight: 1
-      - path: Centr_Bone/gear_1_bone
-        weight: 1
-      - path: Centr_Bone/gear_2_bone
-        weight: 1
-      - path: Centr_Bone/hot_metal_bone
-        weight: 1
-      - path: Centr_Bone/hot_metal_bone_2
-        weight: 1
-      - path: Centr_Bone/ingots_bone
-        weight: 1
-      - path: Centr_Bone/ore
-        weight: 1
-      - path: Centr_Bone/pipe_bone
-        weight: 1
-      - path: Centr_Bone/Platform_bone
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: BF_sending_ore
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 80
-      lastFrame: 160
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: BlastFurnace
-        weight: 1
-      - path: Centr_Bone
-        weight: 1
-      - path: Centr_Bone/gear_1_bone
-        weight: 1
-      - path: Centr_Bone/gear_2_bone
-        weight: 1
-      - path: Centr_Bone/hot_metal_bone
-        weight: 1
-      - path: Centr_Bone/hot_metal_bone_2
-        weight: 1
-      - path: Centr_Bone/ingots_bone
-        weight: 1
-      - path: Centr_Bone/ore
-        weight: 1
-      - path: Centr_Bone/pipe_bone
-        weight: 1
-      - path: Centr_Bone/Platform_bone
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: BF_bullion_making
-      takeName: Take 001
-      internalID: 0
-      firstFrame: 160
       lastFrame: 320
       wrapMode: 0
       orientationOffsetY: 0
@@ -250,59 +96,37 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: BlastFurnace
-        weight: 1
-      - path: Centr_Bone
-        weight: 1
-      - path: Centr_Bone/gear_1_bone
-        weight: 1
-      - path: Centr_Bone/gear_2_bone
-        weight: 1
-      - path: Centr_Bone/hot_metal_bone
-        weight: 1
-      - path: Centr_Bone/hot_metal_bone_2
-        weight: 1
-      - path: Centr_Bone/ingots_bone
-        weight: 1
-      - path: Centr_Bone/ore
-        weight: 1
-      - path: Centr_Bone/pipe_bone
-        weight: 1
-      - path: Centr_Bone/Platform_bone
-        weight: 1
+      transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.85
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 0
-    importBlendShapes: 1
+    importBlendShapes: 0
     importCameras: 0
     importLights: 0
-    nodeNameCollisionStrategy: 0
-    fileIdsGeneration: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -311,13 +135,13 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
+    optimizeBones: 0
     meshOptimizationFlags: -1
-    indexFormat: 1
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 0
+    secondaryUVMarginMethod: 1
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
@@ -326,8 +150,8 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 0
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
@@ -343,18 +167,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.85
     rootMotionBoneName: Centr_Bone
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
-  avatarSetup: 1
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
-  remapMaterialsIfMaterialImportModeIsNone: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

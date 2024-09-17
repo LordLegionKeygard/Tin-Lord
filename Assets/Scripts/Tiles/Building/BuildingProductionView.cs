@@ -16,7 +16,7 @@ public class BuildingProductionView : MonoBehaviour
     /// Изначально тру так как подразумевается, что здание при создании будет включено
     /// Если будет ложь, то при спавне здания и нехватке ресурса, анимация будет продолжать работать
     /// </summary>
-    private bool _lastState = true; 
+    private bool _lastState = true;
 
     [Header("Main")]
     [SerializeField] private CharacterBuildingAnimator[] _characterBuildingAnimators;
@@ -78,7 +78,7 @@ public class BuildingProductionView : MonoBehaviour
 
     private void SetMainView(bool state)
     {
-        if(_lastState == state) return;
+        if (_lastState == state) return;
 
         _lastState = state;
         foreach (var animator in _characterBuildingAnimators)
@@ -145,8 +145,12 @@ public class BuildingProductionView : MonoBehaviour
 
     private void ChangeActiveObjects()
     {
-        // if(!_tileObject.IsBuildingWork) return;
-        
+        if (!_tileObject.IsBuildingWork)
+        {
+            // ресурсы должны отключаться когда здание выключено, чтобы визуально было лучше понятно, поэтому нет смысла вызывать этот метод, если они выключены
+            return;
+        }
+
         for (int i = 0; i < _resourceViewActiveGameObjects.Length; i++)
         {
             foreach (var item in _resourceViewActiveGameObjects[i].ActiveGameObjects)
