@@ -842,7 +842,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 1, y: 0, z: 0}
   _rotateSpeed: 60
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 1
 --- !u!1 &1687501093026272098
 GameObject:
@@ -941,7 +940,7 @@ GameObject:
   - component: {fileID: 1018133922202895714}
   - component: {fileID: 5872941302390575820}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: 2 - Sand (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1716,7 +1715,7 @@ GameObject:
   - component: {fileID: 3512557420340006725}
   - component: {fileID: 2784846493433151688}
   m_Layer: 0
-  m_Name: Sand
+  m_Name: 2 - Sand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29542,6 +29541,8 @@ MonoBehaviour:
   - {fileID: 2770138555777287143}
   - {fileID: 3197162572743164920}
   - {fileID: 5760087516258701201}
+  - {fileID: 2598356645698031843}
+  - {fileID: 1877995861726832598}
   _turnOnObjects: []
   _animators:
   - {fileID: 1140279897267798671}
