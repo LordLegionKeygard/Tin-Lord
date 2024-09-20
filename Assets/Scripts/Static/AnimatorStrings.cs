@@ -14,9 +14,25 @@ public class AnimatorStrings : MonoBehaviour
     public static readonly int WellHandleRotate = Animator.StringToHash("Well_Handle_Rotate");
     public static readonly int StoneCuttingTable = Animator.StringToHash("Stone_Cutting_Table");
     public static readonly int StoneCuttingWorkbrench = Animator.StringToHash("Stone_Cutting_Workbrench");
+    public static readonly int StickMix = Animator.StringToHash("Stick_Mix");
+    public static readonly int ComponentsCraft = Animator.StringToHash("Components_Craft");
+
 
     [Header("Tile")]
     public static readonly int TileSpawn = Animator.StringToHash("TileSpawn");
     public static readonly int TileDestroy = Animator.StringToHash("TileDestroy");
 
+    public static readonly Dictionary<CharacterWorkType, int> WorkTriggers = new Dictionary<CharacterWorkType, int>
+    {
+        { CharacterWorkType.PickaxeMining, PickaxeMining },
+        { CharacterWorkType.ShovelDig, ShovelDig },
+        { CharacterWorkType.AxeChop, AxeChop },
+        { CharacterWorkType.HoldPlank, HoldPlank },
+        { CharacterWorkType.OilHandPump, OilHandPump },
+        { CharacterWorkType.WellHandleRotate, WellHandleRotate },
+        { CharacterWorkType.StoneCuttingTable, StoneCuttingTable },
+        { CharacterWorkType.StoneCuttingWorkbrench, StoneCuttingWorkbrench },
+        { CharacterWorkType.StickMix, StickMix },
+        { CharacterWorkType.ComponentsCraft, ComponentsCraft},
+    };
 }

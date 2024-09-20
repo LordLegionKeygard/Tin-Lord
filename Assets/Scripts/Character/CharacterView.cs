@@ -94,6 +94,8 @@ public enum CharacterWorkType
     WellHandleRotate = 6,
     StoneCuttingTable = 7,
     StoneCuttingWorkbrench = 8,
+    StickMix = 9,
+    ComponentsCraft = 10,
 }
 
 [System.Serializable]

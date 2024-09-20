@@ -21,32 +21,9 @@ public class CharacterBuildingAnimator : MonoBehaviour
     {
         if (_animator == null) return;
 
-        switch (_characterWorkType)
+        if (AnimatorStrings.WorkTriggers.TryGetValue(_characterWorkType, out int trigger))
         {
-            case CharacterWorkType.PickaxeMining:
-                _animator.SetTrigger(AnimatorStrings.PickaxeMining);
-                break;
-            case CharacterWorkType.ShovelDig:
-                _animator.SetTrigger(AnimatorStrings.ShovelDig);
-                break;
-            case CharacterWorkType.AxeChop:
-                _animator.SetTrigger(AnimatorStrings.AxeChop);
-                break;
-            case CharacterWorkType.HoldPlank:
-                _animator.SetTrigger(AnimatorStrings.HoldPlank);
-                break;
-            case CharacterWorkType.OilHandPump:
-                _animator.SetTrigger(AnimatorStrings.OilHandPump);
-                break;
-            case CharacterWorkType.WellHandleRotate:
-                _animator.SetTrigger(AnimatorStrings.WellHandleRotate);
-                break;
-            case CharacterWorkType.StoneCuttingTable:
-                _animator.SetTrigger(AnimatorStrings.StoneCuttingTable);
-                break;
-            case CharacterWorkType.StoneCuttingWorkbrench:
-                _animator.SetTrigger(AnimatorStrings.StoneCuttingWorkbrench);
-                break;
+            _animator.SetTrigger(trigger);
         }
     }
 
