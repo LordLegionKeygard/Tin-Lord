@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1990506950313878577}
   - component: {fileID: 3442015342585222366}
   m_Layer: 0
-  m_Name: TagsDestroyer
+  m_Name: TagsDisabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 741839632891771293}
   - component: {fileID: 814921320746386375}
   m_Layer: 0
-  m_Name: TagsDestroyer
+  m_Name: TagsDisabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,6 +310,7 @@ Transform:
   - {fileID: 1667658291573633293}
   - {fileID: 6492062526325192288}
   - {fileID: 5342740797563885923}
+  - {fileID: 7447935267590341739}
   m_Father: {fileID: 7967166357370195416}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -491,7 +492,7 @@ GameObject:
   - component: {fileID: 6542983126776209520}
   - component: {fileID: 3791800493348237041}
   m_Layer: 0
-  m_Name: TagsDestroyer
+  m_Name: TagsDisabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2867,7 +2868,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 0, y: 0, z: 1}
   _rotateSpeed: 50
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 1
 --- !u!1 &1645934781853722862
 GameObject:
@@ -2882,7 +2882,7 @@ GameObject:
   - component: {fileID: 4146923857085761059}
   - component: {fileID: 5052695641410947009}
   m_Layer: 0
-  m_Name: TagsDestroyer
+  m_Name: TagsDisabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7867,7 +7867,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 0, y: 0, z: -1}
   _rotateSpeed: 100
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 1
 --- !u!1 &2214173061987498992
 GameObject:
@@ -7882,7 +7881,7 @@ GameObject:
   - component: {fileID: 5375692116252346026}
   - component: {fileID: 2249435370136205171}
   m_Layer: 0
-  m_Name: TagsDestroyer
+  m_Name: TagsDisabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8292,7 +8291,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 0, y: 0, z: -1}
   _rotateSpeed: 100
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 1
 --- !u!1 &3402291568421856449
 GameObject:
@@ -8610,7 +8608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 0, y: 0, z: -1}
   _rotateSpeed: 100
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 1
 --- !u!1 &5135034737796745817
 GameObject:
@@ -13635,7 +13632,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 140392169565030426}
-  - {fileID: 7447935267590341739}
   m_Father: {fileID: 9177904237762603314}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13652,7 +13648,7 @@ GameObject:
   - component: {fileID: 8802271454406492339}
   - component: {fileID: 3123017206169803969}
   m_Layer: 0
-  m_Name: TagsDestroyer
+  m_Name: TagsDisabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13665,13 +13661,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5957933069794220313}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7967166357370195416}
-  m_RootOrder: 1
+  m_Father: {fileID: 140392169565030426}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1908723130339331093
 BoxCollider:
@@ -14016,7 +14012,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 0, y: 0, z: 1}
   _rotateSpeed: 50
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 1
 --- !u!1 &6601896749498471455
 GameObject:
@@ -19057,7 +19052,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 0, y: 0, z: 1}
   _rotateSpeed: 50
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 1
 --- !u!1 &8293879105650416455
 GameObject:
@@ -19155,7 +19149,7 @@ GameObject:
   - component: {fileID: 435663613342113136}
   - component: {fileID: 1113999294126225895}
   m_Layer: 0
-  m_Name: TagsDestroyer
+  m_Name: TagsDisabler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
