@@ -919,7 +919,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 0, y: 1, z: 0}
   _rotateSpeed: 40
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 0
 --- !u!1 &1473137399314336164
 GameObject:
@@ -4231,7 +4230,7 @@ GameObject:
   - component: {fileID: 6171670566488805278}
   - component: {fileID: 5142257738978553071}
   m_Layer: 0
-  m_Name: 3 - Smoke_VFX (2)
+  m_Name: 3 - Steam_VFX (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14648,7 +14647,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: 0, y: -1, z: 0}
   _rotateSpeed: 40
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 0
 --- !u!1 &7755730763682561370
 GameObject:
@@ -19766,7 +19764,7 @@ GameObject:
   - component: {fileID: 2239266567175471415}
   - component: {fileID: 1184013989736280241}
   m_Layer: 0
-  m_Name: 3 - Smoke_VFX (1)
+  m_Name: 3 - Steam_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
