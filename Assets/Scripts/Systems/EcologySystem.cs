@@ -10,11 +10,13 @@ public class EcologySystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _totalEcologyText;
     [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
     [SerializeField] private GameObject _warningSign;
+    private SetupRenderSettings _setupRenderSettings;
 
 
     private void Awake()
     {
         CustomEvents.OnChangeEcology += ChangeEcology;
+        _setupRenderSettings = GetComponent<SetupRenderSettings>();
     }
 
     public void ChangeEcology(int amount, int tileId, bool remove)
@@ -54,6 +56,8 @@ public class EcologySystem : MonoBehaviour
         var ecologyString = Mathf.Abs(_totalEcology).ToString("D2");
 
         _totalEcologyText.text = ecologyString;
+
+        _setupRenderSettings.UpdateRenderSettings(_totalEcology);
     }
 
     private void OnDestroy()
