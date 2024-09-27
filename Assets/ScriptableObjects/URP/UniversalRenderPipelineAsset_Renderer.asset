@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5314674511765353862
+--- !u!114 &-697766152651993082
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   shader: {fileID: 4800000, guid: 6f2fcdc189458914eb8a323f19e3a27b, type: 3}
-  screenBend: 6.5
+  screenBend: 6
   vignetteSize: 5.7
-  vignetteSmooth: 2.8
-  vignetteRound: 30
+  vignetteSmooth: 2
+  vignetteRound: 25
+  brightness: -0.127
+  contrast: 0.826
+  colorize: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,8 +38,8 @@ MonoBehaviour:
       type: 3}
   m_RendererFeatures:
   - {fileID: 4924039037384313131}
-  - {fileID: -5314674511765353862}
-  m_RendererFeatureMap: 2bc972736ab355447a4a679db07b3eb6
+  - {fileID: -697766152651993082}
+  m_RendererFeatureMap: 2bc972736ab355440610e38e610951f6
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
