@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7613883374445710897}
   - component: {fileID: 920691245878469781}
   m_Layer: 0
-  m_Name: Smoke_VFX
+  m_Name: 3 - Smoke_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,8 +169,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 2
+      scalar: 2
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5094,7 +5094,7 @@ GameObject:
   - component: {fileID: 1728726363396099369}
   - component: {fileID: 678580165247374178}
   m_Layer: 0
-  m_Name: Smoke_VFX
+  m_Name: 2 - Smoke_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10978,7 +10978,7 @@ GameObject:
   - component: {fileID: 7976969618480356373}
   - component: {fileID: 5926448643007784712}
   m_Layer: 0
-  m_Name: StoneBlock
+  m_Name: 2 - StoneBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13185,7 +13185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _vector: {x: -2, y: 0, z: 0}
   _rotateSpeed: 210
-  _defaultRotateSpeed: 0
   _isRandomStartRotation: 1
 --- !u!1 &3869405106929935867
 GameObject:
@@ -14102,7 +14101,7 @@ GameObject:
   - component: {fileID: 1346936781890902713}
   - component: {fileID: 5086918571977922649}
   m_Layer: 0
-  m_Name: Spark_VFX
+  m_Name: 2 - Spark_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21475,7 +21474,7 @@ GameObject:
   - component: {fileID: 7553774011347584708}
   - component: {fileID: 7553774011346453508}
   m_Layer: 0
-  m_Name: Stone
+  m_Name: 1 - Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
