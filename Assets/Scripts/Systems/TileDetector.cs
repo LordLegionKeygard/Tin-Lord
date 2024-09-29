@@ -78,8 +78,9 @@ public class TileDetector : MonoBehaviour
 
                 _currentTileObject.GroundTileObject().SetGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
                 _currentTileObject.GroundTileObject().SpawnGroundTile();
-                if (_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();
+                if (_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();                
                 Clear();
+                _cardHolderSystem.RemoveCurrentCard();
             }
         }
         else if (!_cardHolderSystem.IsHaveCurrentSelectedCardObject())

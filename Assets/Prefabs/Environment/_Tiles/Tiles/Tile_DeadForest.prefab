@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 1128623563670308850}
   - component: {fileID: 7936513994670562188}
   - component: {fileID: 9089343526304734173}
+  - component: {fileID: 3696852290414556476}
+  - component: {fileID: -3781078917052394051}
   m_Layer: 0
   m_Name: Tile_DeadForest
   m_TagString: Untagged
@@ -184,6 +186,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsForRotate:
   - {fileID: 1128623563670308853}
+--- !u!65 &3696852290414556476
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128623563670308853}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 1.95, z: 12}
+  m_Center: {x: 0, y: -0.975, z: 0}
+--- !u!114 &-3781078917052394051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128623563670308853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 2468818121023808196
+  updateError: 1
+  checkTime: 0.2
 --- !u!1 &2028204397598233010
 GameObject:
   m_ObjectHideFlags: 0

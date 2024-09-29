@@ -11,8 +11,8 @@ public class BuildingTile : MonoBehaviour
    [SerializeField] private Transform _buildingParent;
    [SerializeField] private GameObject _currentBuildingTileObject;
    [SerializeField] private BuildingLevels _buildingLevels;
+   [SerializeField] private BuildingHealth _buildingHealth;
    private TileObject _tileObject;
-
    public bool HaveTile() => _currentTile != null;
    public Tile CurrentBuildingTile() => _currentTile;
    public GameObject CurrentBuildingTileObject() => _currentBuildingTileObject;
@@ -35,6 +35,8 @@ public class BuildingTile : MonoBehaviour
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
       _buildingLevels.CheckBuildingProductionView();
       if (CurrentBuilding().ResourcesProduction.Length != 0) tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
+
+      _buildingHealth.SetNewBuildingHealth(CurrentBuilding());
    }
 
    public void UpgradeBuildingTile(int level, TileObject tileObject)
@@ -46,11 +48,13 @@ public class BuildingTile : MonoBehaviour
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
       _buildingLevels.CheckBuildingProductionView();
       if (CurrentBuilding().ResourcesProduction.Length != 0) tileObject.SetResourceProduction(tileObject.CurrentResourceProduction(), tileObject.CurrentResourceRecept());
+      
+      _buildingHealth.SetNewBuildingHealth(CurrentBuilding());
    }
 
-   public void DestroyBuildingTile()
+   public void DestroyBuildingTile(bool isDeath)
    {
-      _playerResources.AddResourcesFromDestroyBuilding(CurrentBuilding().ResourcesForBuild);
+      if(!isDeath) _playerResources.AddResourcesFromDestroyBuilding(CurrentBuilding().ResourcesForBuild);
       _currentTile = null;
       _tileObject.ClearBuildingInfo();
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);

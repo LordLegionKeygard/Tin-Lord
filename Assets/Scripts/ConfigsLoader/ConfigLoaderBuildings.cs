@@ -49,6 +49,7 @@ public class ConfigLoaderBuildings : ScriptableObject
             _allBuildings[i].ResourcesForBuild = ParseResources(config.ResourcesForBuild);
             _allBuildings[i].ResourcesForWork = ParseResourcesForWork(config.ResourcesForWork);
             _allBuildings[i].ResourcesProduction = ParseExtractedResources(config.ExtractedResources, config.ResourceRecept);
+            _allBuildings[i].BuildingHealth = config.BuildingHealth;
 
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(_allBuildings[i]);
@@ -229,6 +230,7 @@ public class BuildingConfigs
     public string ResourceExtractedAmount;
     public string ResourcesForBuild;
     public string ResourcesForWork;
-    public string ExtractedResources; // Значения для создаваемых ресурсов
-    public string ResourceRecept; // Новая переменная для хранения рецептов ресурсов
+    public string ResourceRecept;
+    public string ExtractedResources;
+    public float BuildingHealth;
 }

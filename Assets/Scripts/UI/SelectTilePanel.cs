@@ -295,7 +295,7 @@ public class SelectTilePanel : MonoBehaviour
         }
         else
         {
-            _tileObject.BuildingTileObject().DestroyBuildingTile();
+            _tileObject.BuildingTileObject().DestroyBuildingTile(false);
             CloseBuildPanelAndRefreshInfo();
             SetInfo(_tileObject);
         }

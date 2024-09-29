@@ -144,6 +144,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9219909326082737520}
   - component: {fileID: 9095684506827631830}
+  - component: {fileID: -4949266088848551759}
+  - component: {fileID: 3616129838889364015}
   m_Layer: 0
   m_Name: Tile_Mountain
   m_TagString: Untagged
@@ -181,3 +183,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsForRotate:
   - {fileID: 9219909326082737527}
+--- !u!65 &-4949266088848551759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219909326082737527}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 1.95, z: 12}
+  m_Center: {x: 0, y: -0.975, z: 0}
+--- !u!114 &3616129838889364015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219909326082737527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 7821075974979858982
+  updateError: 1
+  checkTime: 0.2

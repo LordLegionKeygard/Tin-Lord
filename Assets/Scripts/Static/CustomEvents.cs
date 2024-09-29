@@ -2,6 +2,11 @@ using System;
 
 public class CustomEvents
 {
+    public static event Action OnBaseDestroy;
+    public static void FireBaseDestroy()
+    {
+        OnBaseDestroy?.Invoke();
+    }
     public static event Action OnPrepareRoads;
     public static void FirePrepareRoads()
     {

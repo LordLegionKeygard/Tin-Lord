@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2198704575876981381}
   - component: {fileID: 813818222418668659}
+  - component: {fileID: 1928871672075352434}
+  - component: {fileID: 8133856901015210058}
   m_Layer: 0
   m_Name: Tile_OilSwamp
   m_TagString: Untagged
@@ -47,6 +49,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsForRotate:
   - {fileID: 2198704575876981378}
+--- !u!65 &1928871672075352434
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198704575876981378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 1.95, z: 12}
+  m_Center: {x: 0, y: -0.975, z: 0}
+--- !u!114 &8133856901015210058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198704575876981378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 7387342071318471347
+  updateError: 1
+  checkTime: 0.2
 --- !u!1 &2198704576569348917
 GameObject:
   m_ObjectHideFlags: 0

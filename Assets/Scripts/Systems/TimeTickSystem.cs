@@ -9,6 +9,7 @@ public class TimeTickSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dayText;
     [SerializeField] private EveryTickResourcesProduction _everyTickResourcesExtraction;
     [SerializeField] private EveryTickResourcesRequired _everyTickResourcesRequired;
+    [SerializeField] private EnemiesSpawnerSystem _enemiesSpawnerSystem;
     private float _endTime = 25;
     private int _currentDay = 0;
     [SerializeField] private float _currentTime = 0f;
@@ -41,6 +42,7 @@ public class TimeTickSystem : MonoBehaviour
                 _currentDay++;
                 _currentTick = 0;
                 UpdateDayText();
+                _enemiesSpawnerSystem.PrepareSpawn(_currentDay);
             }
 
             _timeView.UpdateTimeSlotsView(_currentTick);

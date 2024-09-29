@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 7070204914130894150}
   - component: {fileID: 3578609753463227886}
   - component: {fileID: 9176713146945725742}
+  - component: {fileID: 7664700781180546211}
   m_Layer: 3
   m_Name: Tile
   m_TagString: Untagged
@@ -123,6 +124,7 @@ Transform:
   - {fileID: 8576811597451427845}
   - {fileID: 3928428458243860748}
   - {fileID: 1685772399035195807}
+  - {fileID: 5760606443099653656}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -214,6 +216,7 @@ MonoBehaviour:
   _buildingParent: {fileID: 1685772399035195807}
   _currentBuildingTileObject: {fileID: 0}
   _buildingLevels: {fileID: 0}
+  _buildingHealth: {fileID: 7664700781180546211}
 --- !u!114 &8647205754676832079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +272,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b39283c55dd57c46bc5d97710310041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7664700781180546211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3820182973411244697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfe5dc5481169c4581ed041ede92108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 0
+  CurrentHealth: 0
+  _healthSliderPrefab: {fileID: 404669213447232347, guid: 843af3f1866dc284bad9866b35f2d89e,
+    type: 3}
+  _fourTileTransform: {fileID: 5760606443099653656}
 --- !u!1 &3978845771815807656
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,4 +350,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3820182973411244696}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8006979770629361393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5760606443099653656}
+  m_Layer: 3
+  m_Name: FourTilePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5760606443099653656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8006979770629361393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 0, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3820182973411244696}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

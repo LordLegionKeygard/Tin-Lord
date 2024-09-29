@@ -5,6 +5,7 @@ using UnityEngine;
 public class CardHolderSystem : MonoBehaviour
 {
     [Header("Base")]
+    [SerializeField] private bool _dontRemoveCards;
     [SerializeField] private CardObject _cardObject;
     [SerializeField] private TileDetector _tileDetector;
     [SerializeField] private Transform _parentTransform;
@@ -32,7 +33,7 @@ public class CardHolderSystem : MonoBehaviour
         if (_currentSelectCardObject == null) return;
 
         _currentSelectCardObject.CardObjectViewToggle(false);
-        _currentSelectCardObject = null;
+        Clear();
     }
 
     public void AddNewCard(Tile tile)
@@ -43,6 +44,16 @@ public class CardHolderSystem : MonoBehaviour
         card.SetCardInfo(tile, this);
     }
 
+    public void RemoveCurrentCard()
+    {
+
+        if(_currentSelectCardObject == null || _dontRemoveCards) return;
+
+        _currentCards.Remove(_currentSelectCardObject);
+        Destroy(_currentSelectCardObject.gameObject);
+        Clear();
+    }
+
     public void SelectCardInCardHolder(CardObject newCardObject)
     {
         _tileDetector.Clear();
@@ -50,7 +61,7 @@ public class CardHolderSystem : MonoBehaviour
         _currentSelectCardObject = newCardObject;
     }
 
-    public void Clear()
+    private void Clear()
     {
         _currentSelectCardObject = null;
     }

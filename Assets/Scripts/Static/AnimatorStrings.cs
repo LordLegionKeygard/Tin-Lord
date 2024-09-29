@@ -17,6 +17,11 @@ public class AnimatorStrings : MonoBehaviour
     public static readonly int StickMix = Animator.StringToHash("Stick_Mix");
     public static readonly int ComponentsCraft = Animator.StringToHash("Components_Craft");
 
+    [Header("Ai")]
+    public static readonly int Speed = Animator.StringToHash("Speed");
+    public static readonly int TakeDamage = Animator.StringToHash("TakeDamage");
+    public static readonly int Attack = Animator.StringToHash("Attack");
+
 
     [Header("Tile")]
     public static readonly int TileSpawn = Animator.StringToHash("TileSpawn");

@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4862296254654334542}
+  - component: {fileID: -1242882880506372721}
   - component: {fileID: 4873179480006676936}
+  - component: {fileID: 4701472273412432369}
   m_Layer: 0
   m_Name: Tile_PrepareDesertRiver
   m_TagString: Untagged
@@ -39,6 +41,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &-1242882880506372721
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479273178103927905}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 1.95, z: 12}
+  m_Center: {x: 0, y: -0.975, z: 0}
 --- !u!114 &4873179480006676936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,6 +74,22 @@ MonoBehaviour:
   - {fileID: 1337047182804578983}
   - {fileID: 7533342412076684821}
   - {fileID: 3909404818324119143}
+--- !u!114 &4701472273412432369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479273178103927905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 7674245825271961428
+  updateError: 1
+  checkTime: 0.2
 --- !u!1001 &383382393684795841
 PrefabInstance:
   m_ObjectHideFlags: 0

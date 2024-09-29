@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class WorldGameInfo : MonoBehaviour
+public class WorldGameInfo
 {
+    public static bool StaticBlood = true;
     public const float PausedTimeScale = 0.00001f;
 
-    [Header("GoogleSheet")]
+    //"GoogleSheet"
     public const string GoogleSheetId = "1phPv5iEL7Iw6A6CCdU4SdSgN5LwbEprCKEzY10dwDr4";
     public const string BuildingGridId = "1534982770";
+
+    //"ReachedDistance"
+    public const int TileDistance = 9;
+    public const int FourTileDistance = 12;
 }
