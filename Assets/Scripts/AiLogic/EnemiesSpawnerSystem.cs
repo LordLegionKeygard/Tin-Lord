@@ -49,6 +49,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         {
             var rndEnemy = Random.Range(0, spawner.Enemies.Length);
             var enemy = _diContainer.InstantiatePrefab(spawner.Enemies[rndEnemy], spawnPosition + GetRandomizePosition(), Quaternion.identity, null);
+            enemy.GetComponent<CreatureLevel>().SetLevel(spawner.EnemyLevel);
             enemy.transform.SetParent(_enemiesParent);
         }
     }

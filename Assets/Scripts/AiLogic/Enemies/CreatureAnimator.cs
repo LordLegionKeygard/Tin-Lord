@@ -24,13 +24,13 @@ public class CreatureAnimator : MonoBehaviour
     {
         if (_ai.reachedEndOfPath)
         {
-            Animator.SetFloat(AnimatorStrings.Speed, 0, 1, Time.deltaTime);
+            Animator.SetFloat(AnimatorStrings.Speed, 0, 0.1f, Time.deltaTime);
         }
         else
         {
             Vector3 relVelocity = transform.InverseTransformDirection(_ai.velocity);
             relVelocity.y = 0;
-            Animator.SetFloat(AnimatorStrings.Speed, relVelocity.magnitude / Animator.transform.lossyScale.x, 0.5f, Time.deltaTime);
+            Animator.SetFloat(AnimatorStrings.Speed, relVelocity.magnitude / Animator.transform.lossyScale.x, 0.2f, Time.deltaTime);
         }
     }
 

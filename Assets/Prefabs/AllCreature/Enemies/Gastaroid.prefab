@@ -1504,7 +1504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee092cff6e9d3914499ae819fd25d6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyInformation: {fileID: 11400000, guid: 50969a87dad4a9848934d8bb32581dbe, type: 2}
+  _enemyInformation: {fileID: 11400000, guid: 50969a87dad4a9848934d8bb32581dbe, type: 2}
 --- !u!114 &1539703436552722861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1519,7 +1519,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 0
   CurrentHealth: 0
-  CreatureTakeDamageVFX: {fileID: 0}
+  _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
+    type: 3}
+  _sliderHeightOffset: 4
 --- !u!114 &1539703436552722859
 MonoBehaviour:
   m_ObjectHideFlags: 0

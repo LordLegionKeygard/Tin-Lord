@@ -3,7 +3,7 @@ using Zenject;
 
 public class BuildingHealth : BaseHealth
 {
-    [Inject] private HealthCanvas _healthCanvas;
+    [Inject] private readonly HealthCanvas _healthCanvas;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private Transform _fourTileTransform;
     private GameObject _healthSliderObject;
@@ -30,6 +30,7 @@ public class BuildingHealth : BaseHealth
             _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
             _healthSlider = _healthSliderObject.GetComponent<HealthSlider>();
             _healthSlider.SetMaxHealth(MaxHealth);
+            _healthSlider.SetHeightOffset(-3.5f);
             _healthSlider.SetObjectTransform(transform);
         }
     }
@@ -54,14 +55,13 @@ public class BuildingHealth : BaseHealth
     private void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
-        _healthSlider.SetHealth(CurrentHealth);
         UpdateSlider();
     }
 
-    public void UpdateSlider()
+    private void UpdateSlider()
     {
-        if(IsDeath()) return;
-
+        if (IsDeath()) return;
+        _healthSlider.SetHealth(CurrentHealth);
         CheckDeath();
     }
 
@@ -72,11 +72,11 @@ public class BuildingHealth : BaseHealth
 
     private void Death()
     {
-        if(_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base)
+        if (_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base)
         {
             CustomEvents.FireBaseDestroy();
         }
-        
+
         Destroy(_healthSliderObject);
         _isDeath = true;
         _buildingTile.DestroyBuildingTile(IsDeath());

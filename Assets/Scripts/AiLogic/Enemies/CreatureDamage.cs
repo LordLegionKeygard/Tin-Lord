@@ -15,7 +15,7 @@ public class CreatureDamage : MonoBehaviour
 
     private void SetDamage()
     {
-        _damage = _enemyLevel.EnemyInformation.PhysAttack[_enemyLevel.Level()];
+        _damage = _enemyLevel.GetEnemiesInformation().PhysAttack[_enemyLevel.GetLevel()];
     }
 
     public void SetTargetHealth(BaseHealth baseHealth)

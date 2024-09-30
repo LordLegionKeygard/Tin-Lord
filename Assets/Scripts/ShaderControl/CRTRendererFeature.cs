@@ -116,7 +116,7 @@ namespace CRTFilter
 
             public CRTRenderPass()
             {
-                renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+                renderPassEvent = RenderPassEvent.AfterRenderingPostProcessing;
             }
 
             public void Init(ScriptableRenderer renderer, Material material)

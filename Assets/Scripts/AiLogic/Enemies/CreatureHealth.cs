@@ -5,35 +5,50 @@ using Zenject;
 
 public class CreatureHealth : BaseHealth
 {
+    [Inject] private readonly HealthCanvas _healthCanvas;
+    [SerializeField] private GameObject _healthSliderPrefab;
+    [SerializeField] private float _sliderHeightOffset;
+    private GameObject _healthSliderObject;
+    private HealthSlider _healthSlider;
     private CreatureKnockBack _creatureKnockBackController;
-    public AIPath AiPath { get; private set; }
-    public CharacterController CharacterController { get; private set; }
-    public BaseAiStateChanger BaseAiStateChanger { get; private set; }
-    public CreatureAnimator CreatureAnimator { get; private set; }
-    public CreatureLevel CreatureLevel { get; private set; }
-    [HideInInspector] public CreatureTakeDamageVFX CreatureTakeDamageVFX;
+    private AIPath _aiPath;
+    private CharacterController _characterController;
+    private CreatureLevel _creatureLevel;
+    private CreatureTakeDamageVFX _creatureTakeDamageVFX; //TO DO
 
-    public virtual void Awake()
+    private void Awake()
     {
-        CreatureLevel = GetComponent<CreatureLevel>();
-        CreatureAnimator = GetComponent<CreatureAnimator>();
+        _creatureLevel = GetComponent<CreatureLevel>();
         _creatureKnockBackController = GetComponent<CreatureKnockBack>();
-        CharacterController = GetComponent<CharacterController>();
-        CreatureTakeDamageVFX = GetComponent<CreatureTakeDamageVFX>();
-        BaseAiStateChanger = GetComponent<BaseAiStateChanger>();
-        AiPath = GetComponent<AIPath>();
+        _characterController = GetComponent<CharacterController>();
+        _creatureTakeDamageVFX = GetComponent<CreatureTakeDamageVFX>();
+        _aiPath = GetComponent<AIPath>();
     }
 
-    public virtual void Start()
+    public void Start()
     {
         SetStartStats();
     }
 
-    public virtual void SetStartStats()
+    private void CreateHealthBar()
     {
-        MaxHealth = CreatureLevel.EnemyInformation.Health[CreatureLevel.Level()];
+        if (_healthSliderObject == null)
+        {
+            _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
+            _healthSlider = _healthSliderObject.GetComponent<HealthSlider>();
+            _healthSlider.SetMaxHealth(MaxHealth);
+            _healthSlider.SetHeightOffset(_sliderHeightOffset);
+            _healthSlider.SetObjectTransform(transform);
+        }
+    }
+
+    private void SetStartStats()
+    {
+        _isDeath = false;
+        MaxHealth = _creatureLevel.GetEnemiesInformation().Health[_creatureLevel.GetLevel()];
         CurrentHealth = MaxHealth;
-        // CreatureHealthSlider.SetMaxHealth(MaxHealth);
+        CreateHealthBar();
+        UpdateSlider();
     }
 
     public override void CalculateDamage(float damage, KnockBackType knockBackType)
@@ -51,23 +66,23 @@ public class CreatureHealth : BaseHealth
     }
 
 
-    public virtual void UpdateSlider()
+    private void UpdateSlider()
     {
         if (_isDeath) return;
-        // CreatureHealthSlider.SetHealth(CurrentHealth);
+        _healthSlider.SetHealth(CurrentHealth);
         CheckDeath();
     }
 
-    public void CheckDeath()
+    private void CheckDeath()
     {
         if (CurrentHealth <= 0 && !IsDeath()) Death();
     }
 
-    public virtual void Death()
+    private void Death()
     {
+        Destroy(_healthSliderObject);
         _isDeath = true;
-        // CreatureHealthSlider.gameObject.SetActive(false);
-        CharacterController.enabled = false;
-        AiPath.enabled = false;
+        _characterController.enabled = false;
+        _aiPath.enabled = false;
     }
 }

@@ -6,7 +6,7 @@ public class HealthSlider : MonoBehaviour
     [SerializeField] private Slider _slider;
     [SerializeField] private RectTransform _sliderTransform;
     private Camera _mainCamera;
-    private float _heightOffset = -3.5f;
+    private float _heightOffset;
     private Transform _objectTransform;
 
     private void Awake()
@@ -22,7 +22,12 @@ public class HealthSlider : MonoBehaviour
 
     public void CheckSliderActive()
     {
-        if (!_slider.gameObject.activeInHierarchy) _slider.gameObject.SetActive(true);
+        _slider.gameObject.SetActive(_slider.value != _slider.maxValue);
+    }
+
+    public void SetHeightOffset(float value)
+    {
+        _heightOffset = value;
     }
 
     public void SetMaxHealth(float maxHealth)

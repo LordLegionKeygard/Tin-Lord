@@ -10,6 +10,7 @@ public class EnemiesSpawnerInformation : ScriptableObject
 public class Spawner
 {
     public int DaySpawn;
+    public int EnemyLevel;
     public int MinCount;
     public int MaxCount;
     public GameObject[] Enemies;
