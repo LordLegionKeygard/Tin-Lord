@@ -2,33 +2,33 @@ using UnityEngine;
 
 public class EnemyPursueTargetState : EnemyState
 {
-    [SerializeField] private EnemyCombatStanceState _combatStanceState;
-    [SerializeField] private EnemyIdleState _enemyIdleState;
-    public override EnemyState Tick(EnemyStateChanger enemyStateChanger, CreatureHealth enemyHealth, CreatureAnimator enemyAnimator, AIDestinationSetter aiDestinationSetter, BaseHealth baseHealth, CreatureAttacks creatureAttacks)
+    [SerializeField] private EnemyCombatState _combatState;
+    [SerializeField] private EnemyIdleState _idleState;
+    public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks)
     {
         if (aiDestinationSetter.CurrentTarget != null)
         {
-            if (aiDestinationSetter.CurrentTarget.gameObject.TryGetComponent<BaseHealth>(out BaseHealth health))
+            if (aiDestinationSetter.CurrentTarget.gameObject.TryGetComponent<BaseHealth>(out BaseHealth h))
             {
-                if (health.IsDeath())
+                if (h.IsDeath())
                 {
-                    return _combatStanceState;
+                    return _combatState;
                 }
             }
 
-            enemyStateChanger.CanRotateForwardToggle(false);
+            stateChanger.CanRotateForwardToggle(false);
 
 
 
-            if (enemyStateChanger.DistanceToTarget <= creatureAttacks.MaxAtkRange)
+            if (stateChanger.DistanceToTarget() <= attacks.MaxAtkRange())
             {
-                return _combatStanceState;
+                return _combatState;
             }
             return this;
         }
         else
         {
-            return _enemyIdleState;
+            return _idleState;
         }
     }
 }

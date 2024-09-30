@@ -33,14 +33,14 @@ public class BaseKnockBack : MonoBehaviour
 [System.Serializable]
 public enum KnockBackType
 {
-    Full = 105, //Traps, BallistaBolt, GolemBlock, BerserkJump
-    Half_ArrowShield = 55, //Arrows
-    Fourty_GreatWeapon = 40, // GreatSword, GreatHammer, GreatAxe, Fireball, MagicAoe
-    Thirty_SpearScytheBite = 30, // Spear, Scythe 
-    Quarter_SwordAxeHammerStaffPunch = 25, //Sword,Axe,Hammer
-    Fifteen_Knuckles = 15, //Knuckles
-    Ten_FistDagger = 10, //Fist,Dagger,
+    Full = 105,
+    Half = 55,
+    Fourty = 40,
+    Thirty = 30,
+    Quarter = 25,
+    Fifteen = 15,
+    Ten = 10,
     Five = 5,
-    One = 1, //TriggerStay
-    Zero = 0, //Dots, BloodSkills
+    One = 1,
+    Zero = 0,
 }

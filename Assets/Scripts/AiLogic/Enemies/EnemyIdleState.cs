@@ -7,20 +7,19 @@ public class EnemyIdleState : EnemyState
     [SerializeField] private EnemyStateChanger _enemyStateChanger;
     [SerializeField] private EnemyPursueTargetState _pursueTargetState;
     [SerializeField] private AIDestinationSetter _aiDestinationSetter;
-    [SerializeField] private CreatureDamage _creatureDamage;
-    [SerializeField] private CreatureReachedDistance _creatureReachedDistance;
+    [SerializeField] private BaseDamage _creatureDamage;
+    [SerializeField] private EnemyReachedDistance _creatureReachedDistance;
 
     private void Start()
     {
         SetBaseTarget();
     }
 
-
-    public override EnemyState Tick(EnemyStateChanger enemyStateChanger, CreatureHealth creatureHealth, CreatureAnimator enemyAnimator, AIDestinationSetter aiDestinationSetter, BaseHealth baseHealth, CreatureAttacks creatureAttacks)
+    public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks)
     {
-        enemyStateChanger.CanRotateForwardToggle(false);
+        stateChanger.CanRotateForwardToggle(false);
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, enemyStateChanger.CurrentDetectionRadius, enemyStateChanger.DetectionLayer);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.CurrentDetectionRadius, stateChanger.DetectionLayer);
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -35,7 +34,7 @@ public class EnemyIdleState : EnemyState
                 : targetHealth.gameObject.transform;
 
             _creatureReachedDistance.UpdateAiEndReachedDistance(buildingTile);
-            creatureAttacks.UpdateCreatureAttackDistance(buildingTile);
+            attacks.UpdateCreatureAttackDistance(buildingTile);
 
             _aiDestinationSetter.CurrentTarget = targetTransform;
             _creatureDamage.SetTargetHealth(targetHealth);

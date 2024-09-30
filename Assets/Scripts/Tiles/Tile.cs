@@ -75,6 +75,7 @@ public enum GroundTileViewEnum
 
 public enum BuildingTileViewEnum
 {
+    None = -1,
     Base = 0,
     ElectricPowerIndustry = 1,
     CoalMining = 2,
@@ -90,6 +91,7 @@ public enum BuildingTileViewEnum
     ConcreteProduction = 12,
     SteamProduction = 13,
     ComponentsProduction = 14,
+    AttackSructures = 15,
 }
 
 public enum TileDirectionEnum

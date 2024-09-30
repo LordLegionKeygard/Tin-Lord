@@ -3,12 +3,10 @@ using UnityEngine;
 public class BaseAiStateChanger : MonoBehaviour
 {
     [Header("A.I Settings")]
-    [SerializeField] private float _rotationSpeed = 1;
+    [SerializeField] private float _rotationSpeedFactor = 1;
     [HideInInspector] public float CurrentAttackRecoveryTime;
-    protected CreatureAttacks CreatureAttacks;
-    protected CreatureHealth CreatureHealth;
     protected AIDestinationSetter AiDestinationSetter;
-    public CreatureAnimator CreatureAnimator { get; private set; }
+    protected BaseAnimator BaseAnimator;
 
     [Header("Bool")]
     private bool _isCanAttack = true;
@@ -21,27 +19,25 @@ public class BaseAiStateChanger : MonoBehaviour
 
     [Header("Distance")]
     [SerializeField] private float _distanceToTarget;
-    public float DistanceToTarget => _distanceToTarget;
+    public float DistanceToTarget() => _distanceToTarget;
 
     public virtual void Awake()
-    {
-        CreatureAttacks = GetComponent<CreatureAttacks>();
-        CreatureHealth = GetComponent<CreatureHealth>();
+    {    
         AiDestinationSetter = GetComponent<AIDestinationSetter>();
-        CreatureAnimator = GetComponent<CreatureAnimator>();
+        BaseAnimator = GetComponent<BaseAnimator>();
     }
 
     public virtual void Update()
     {
         HandleAttackRecoveryTime();
 
-        if (_isCanRotate && AiDestinationSetter.CurrentTarget != null && !CreatureHealth.IsDeath())
+        if (_isCanRotate && AiDestinationSetter.CurrentTarget != null)
         {
             var t = AiDestinationSetter.CurrentTarget.transform.position;
 
             var targetDirection = new Vector3(t.x, transform.position.y, t.z) - transform.position;
 
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 3 * Time.deltaTime * _rotationSpeed, 0);
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 3 * Time.deltaTime * _rotationSpeedFactor, 0);
 
             transform.rotation = Quaternion.LookRotation(newDirection);
         }

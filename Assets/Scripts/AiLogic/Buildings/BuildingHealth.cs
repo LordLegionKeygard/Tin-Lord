@@ -6,9 +6,7 @@ public class BuildingHealth : BaseHealth
     [Inject] private readonly HealthCanvas _healthCanvas;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private Transform _fourTileTransform;
-    private GameObject _healthSliderObject;
     private BuildingTile _buildingTile;
-    private HealthSlider _healthSlider;
     public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
 
@@ -48,37 +46,17 @@ public class BuildingHealth : BaseHealth
     public override void CalculateDamage(float damage, KnockBackType knockBackType)
     {
         if (IsDeath()) return;
-
-        TakeDamage(damage);
+        TakeDamage(damage, knockBackType);
     }
 
-    private void TakeDamage(float damage)
-    {
-        CurrentHealth -= damage;
-        UpdateSlider();
-    }
-
-    private void UpdateSlider()
-    {
-        if (IsDeath()) return;
-        _healthSlider.SetHealth(CurrentHealth);
-        CheckDeath();
-    }
-
-    private void CheckDeath()
-    {
-        if (CurrentHealth <= 0 && !IsDeath()) Death();
-    }
-
-    private void Death()
+    public override void Death()
     {
         if (_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base)
         {
             CustomEvents.FireBaseDestroy();
         }
 
-        Destroy(_healthSliderObject);
-        _isDeath = true;
+        base.Death();
         _buildingTile.DestroyBuildingTile(IsDeath());
 
     }

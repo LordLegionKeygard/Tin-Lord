@@ -5,24 +5,22 @@ using UnityEngine;
 
 public class AiStop : MonoBehaviour
 {
-    private CharacterController _characterController;
     private AIPath _aIPath;
     private AIDestinationSetter _aiDestinationSetter;
-    private CreatureAnimator _creatureAnimator;
+    private EnemyAnimator _creatureAnimator;
     private EnemyStateChanger _enemyStateChanger;
-    private CreatureHealth _creatureHealth;
-    private CreatureDamage _creatureDamage;
+    private EnemyHealth _creatureHealth;
+    private BaseDamage _creatureDamage;
 
 
     private void Awake()
     {
-        _characterController = GetComponent<CharacterController>();
         _aIPath = GetComponent<AIPath>();
         _aiDestinationSetter = GetComponent<AIDestinationSetter>();
-        _creatureAnimator = GetComponent<CreatureAnimator>();
+        _creatureAnimator = GetComponent<EnemyAnimator>();
         _enemyStateChanger = GetComponent<EnemyStateChanger>();
-        _creatureHealth = GetComponent<CreatureHealth>();
-        _creatureDamage = GetComponent<CreatureDamage>();
+        _creatureHealth = GetComponent<EnemyHealth>();
+        _creatureDamage = GetComponent<BaseDamage>();
     }
     private void Start()
     {
@@ -31,7 +29,6 @@ public class AiStop : MonoBehaviour
 
     private void DisableAllLogic()
     {
-        _characterController.enabled = false;
         _aIPath.enabled = false;
         _aiDestinationSetter.enabled = false;
         _creatureAnimator.enabled = false;
