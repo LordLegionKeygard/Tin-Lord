@@ -14,14 +14,14 @@ public class EnemyHealth : BaseHealth
     private AIPath _aiPath;
     private CharacterController _characterController;
     private BaseLevel _baseLevel;
-    private EnemyTakeDamageVFX _creatureTakeDamageVFX; //TO DO
+    private BaseTakeDamageVFX _takeDamageVFX; //TO DO
 
     private void Awake()
     {
         _baseLevel = GetComponent<BaseLevel>();
         _creatureKnockBackController = GetComponent<EnemyKnockBack>();
         _characterController = GetComponent<CharacterController>();
-        _creatureTakeDamageVFX = GetComponent<EnemyTakeDamageVFX>();
+        _takeDamageVFX = GetComponent<BaseTakeDamageVFX>();
         _aiPath = GetComponent<AIPath>();
         _enemyAnimator = GetComponent<EnemyAnimator>();
     }
@@ -29,6 +29,12 @@ public class EnemyHealth : BaseHealth
     public void Start()
     {
         SetStartStats();
+    }
+
+    public override void CalculateDamage(float damage, KnockBackType knockBackType)
+    {
+        base.CalculateDamage(damage, knockBackType);
+        _takeDamageVFX.SpawnTakeDamageVFX();
     }
 
     private void CreateHealthBar()
@@ -57,8 +63,6 @@ public class EnemyHealth : BaseHealth
         base.TakeDamage(damage, knockBackType);
         _creatureKnockBackController.TakeKnockbackPoints(knockBackType);
     }
-
-    
 
     public override void Death()
     {

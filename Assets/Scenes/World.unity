@@ -1233,7 +1233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &123557430
@@ -2106,7 +2106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &229933150
@@ -8345,9 +8345,10 @@ MonoBehaviour:
   data:
     dataString: UEsDBBQAAAgIAAAYIewkEkbekwIAAJsFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFtVNtu2zAM/ZVAzysQp+htb5uTphvQNmhW9GHuAyPTsRBZMnRpkhb591GyE7vuAAO2yUPyHJLSBxPK1sidNnMj8nudI/s+YuGbfRt1zjvcwVqrpXjHI+ZF5K4MIIiYJ3BCkz0JYVZX6IzgP9RaBvCYjF6JQptqlq8x1dZZMhcgLZLLaBeiFZk+RmzXBuzb93t4jw70xVE5NB0qSYa4ywboFZdQ1ZgHwh3+YnzE01cEKhLTYgJxrqUUtmXC3L6OSlOorScdBMgFkLLIIeBLFOvS0c+kH/xYFBZdy8rAfioMNajJyn7qpmsV2E3D7A2kx5PGJuX9F+9ZEt2F0dXdsWoS9bhS8M0T7DlY12tq3zz9TNurLcgNrCS+lKge9Nxor3JyOuNDqLc4mfZSnZSlJfJNh2u4Doy+/jrGpBvjIWrfpVJUqzCI5ncpdez1TYhAQ1P5RXTjUtg2D1kDhWeLf2Dd357WcSuMdeRqy6nAbaW9CVA2ix0LUrxLtVEYzS3jGhVIt19QGjcc38DXKzvw3EI4J23x1ndc/0FINHf48XjgWuhtNyqLv31VL7RQbolgeNnLZ0u9vUdbPnonhcJOUXA8UBNTrVSzevY/YUtvCuC9MIc75w1OwUE8AMSJdiTvh1JDY4TyUoZ1jCpC8r+kIjyvocklUF0ZzexBq3h0Pr1fwxqsvcg/Lzm7Psfzi4vrK0hyPsGb1VmRnF/e4Gpyya9W11cJZ/EUCEU9B7lomtaOijZIdVoUbfzxKhvNDdTx1OUGtnPxXul+P4Qq9JIbRPXYpDipRUNV6HrIZ7kgnUt0Tqi4fOwjY1LzDebZqWYWOzvbOQNZlyVjtXjTLlgylsYbLGPBfDpVC4NvAreh+DHZgR3+AVBLAwQUAAAICAAAGCHscXJAx20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0koVxqrGpqYV5omFKslGqZZJumqGxmWVqkpFZsnmShblhslIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAGCHsJBJG3pMCAACbBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAGCHscXJAx20AAAB4AAAACQAkAAAAAAAAAAAAAADgAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAJgDAAAAAA==
     upgradeData: 
-    file_cachedStartup: {fileID: 0}
+    file_cachedStartup: {fileID: 4900000, guid: ce5324d5ee9c1b1499e1739038051f50,
+      type: 3}
     data_cachedStartup: 
-    cacheStartup: 0
+    cacheStartup: 1
   showNavGraphs: 1
   showUnwalkableNodes: 1
   debugMode: 0
@@ -8358,7 +8359,7 @@ MonoBehaviour:
   unwalkableNodeDebugSize: 0.3
   logPathResults: 1
   maxNearestNodeDistance: 100
-  scanOnStartup: 1
+  scanOnStartup: 0
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
   prioritizeGraphsLimit: 1
@@ -14148,7 +14149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1270537335

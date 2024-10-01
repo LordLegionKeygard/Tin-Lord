@@ -1471,11 +1471,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444144861235826408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19a05bb07e8b5b1488c55eb9227d9e0e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bd1bb9f5800bb546b357cd155683949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _takeDamageFX: []
-  _bloodAttach: []
+  _takeDamageFX:
+  - {fileID: 1379687761388206, guid: 612fc26611deac34ca2ace49e8db64d2, type: 3}
+  - {fileID: 1062706298221994, guid: 880829e573f3bd547a392a8121795fd2, type: 3}
+  - {fileID: 1669892649892646, guid: 31cd0829c887eb34ba419b2ab0982361, type: 3}
+  - {fileID: 1773671868869290, guid: afd3a39611dffa04eb57d1791f8b313b, type: 3}
+  - {fileID: 1835477299728120, guid: 98ceda76bf806a14a80c20c9edfad7ae, type: 3}
+  - {fileID: 1393208114215402, guid: 79a0f0d3ed434c84c98487772d3203f8, type: 3}
+  - {fileID: 1005733798079064, guid: f3f6aa0661b8cfd49b20673a293270eb, type: 3}
+  - {fileID: 1775185755791428, guid: 8a8fd82f64dcd05418a7489c573f4e88, type: 3}
+  - {fileID: 1674142358167700, guid: 8634d8f54a29e1948985c511a7aaf0ec, type: 3}
+  - {fileID: 1992822808985176, guid: 3c0fe87ffa23d30468f28f12ab4b41b4, type: 3}
+  - {fileID: 1467475997020756, guid: fd53e430a9d80ba47b8861aa2a4a0622, type: 3}
+  - {fileID: 1732386157228432, guid: 3e59383a67cc678498de93fdeacb7779, type: 3}
+  - {fileID: 1242668725453158, guid: 2b491acaf5c3f174ebb0f7e6aea13910, type: 3}
+  - {fileID: 1943797493643154, guid: db7712d7e28513b43b3436a2b1e52045, type: 3}
+  - {fileID: 1912625953125092, guid: 4a7b0b077aec9c84eb7fb8b9f716f372, type: 3}
+  - {fileID: 1218674856646296, guid: 598cf4312eb07a147b990aa475d2a710, type: 3}
 --- !u!114 &1539703436552722863
 MonoBehaviour:
   m_ObjectHideFlags: 0
