@@ -5,11 +5,12 @@ using UnityEngine;
 public class CardHolderSystem : MonoBehaviour
 {
     [Header("Base")]
-    [SerializeField] private bool _dontRemoveCards;
+    [SerializeField] private bool _test;
     [SerializeField] private CardObject _cardObject;
     [SerializeField] private TileDetector _tileDetector;
     [SerializeField] private Transform _parentTransform;
-    [SerializeField] private Tile[] _testStartCards;
+    [SerializeField] private Tile[] _startCards;
+    [SerializeField] private Tile[] _availableCards;
 
     [Header("Current")]
     [SerializeField] private List<CardObject> _currentCards;
@@ -18,11 +19,28 @@ public class CardHolderSystem : MonoBehaviour
     public Tile CurrentCardHolderSelectedTile() => _currentSelectCardObject.GetTile();
     public bool CheckCurrentCardHolderSelectedTileIsFourTile() => _currentSelectCardObject == null ? false : _currentSelectCardObject.GetTile().IsFourTile;
 
+    private void Awake()
+    {
+        CustomEvents.OnDayEnd += AddNewRandomCard;
+        CustomEvents.OnSetBase += AddCardAfterSetBase;
+    }
+
     private void Start()
     {
-        for (int i = 0; i < _testStartCards.Length; i++)
+        if (_test)
         {
-            AddNewCard(_testStartCards[i]);
+            for (int i = 0; i < _availableCards.Length; i++)
+            {
+                AddNewCard(_availableCards[i]);
+            }
+            AddNewCard(_startCards[0]);
+        }
+        else
+        {
+            for (int i = 0; i < _startCards.Length; i++)
+            {
+                AddNewCard(_startCards[i]);
+            }
         }
     }
 
@@ -47,7 +65,7 @@ public class CardHolderSystem : MonoBehaviour
     public void RemoveCurrentCard()
     {
 
-        if(_currentSelectCardObject == null || _dontRemoveCards) return;
+        if (_currentSelectCardObject == null || _test) return;
 
         _currentCards.Remove(_currentSelectCardObject);
         Destroy(_currentSelectCardObject.gameObject);
@@ -61,8 +79,28 @@ public class CardHolderSystem : MonoBehaviour
         _currentSelectCardObject = newCardObject;
     }
 
+    private void AddNewRandomCard(int dayNumber)
+    {
+        var rndCard = Random.Range(0, _availableCards.Length);
+
+        AddNewCard(_availableCards[rndCard]);
+    }
+
+    private void AddCardAfterSetBase()
+    {
+        AddNewRandomCard(0);
+        AddNewRandomCard(0);
+        AddNewRandomCard(0);
+    }
+
     private void Clear()
     {
         _currentSelectCardObject = null;
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnDayEnd -= AddNewRandomCard;
+        CustomEvents.OnSetBase -= AddCardAfterSetBase;
     }
 }

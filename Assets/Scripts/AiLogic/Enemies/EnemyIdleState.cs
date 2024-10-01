@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-
 public class EnemyIdleState : EnemyState
 {
     [SerializeField] private EnemyStateChanger _enemyStateChanger;
@@ -19,34 +18,60 @@ public class EnemyIdleState : EnemyState
     {
         stateChanger.CanRotateForwardToggle(false);
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.CurrentDetectionRadius, stateChanger.DetectionLayer);
-
-        for (int i = 0; i < colliders.Length; i++)
+        BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
+        
+        if (targetHealth != null)
         {
-            BaseHealth targetHealth = colliders[i].transform.GetComponent<BaseHealth>();
-
-            if (targetHealth == null || targetHealth.IsDeath()) continue;
-
-            var buildingTile = targetHealth.BuildingTile();
-
-            var targetTransform = buildingTile != null
-                ? (buildingTile.IsFourTile ? targetHealth.GetFoutTileTransform() : targetHealth.gameObject.transform)
-                : targetHealth.gameObject.transform;
-
-            _creatureReachedDistance.UpdateAiEndReachedDistance(buildingTile);
-            attacks.UpdateCreatureAttackDistance(buildingTile);
-
-            _aiDestinationSetter.CurrentTarget = targetTransform;
-            _creatureDamage.SetTargetHealth(targetHealth);
+            SetTargetAndStartPursuit(targetHealth, attacks);
             return _pursueTargetState;
-
         }
 
         if (_aiDestinationSetter.CurrentTarget == null)
         {
             SetBaseTarget();
         }
+
         return this;
+    }
+
+    private BaseHealth FindNearestTargetInRange(EnemyStateChanger stateChanger)
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.CurrentDetectionRadius, stateChanger.DetectionLayer);
+
+        BaseHealth nearestTarget = null;
+        float nearestDistance = Mathf.Infinity;
+
+        foreach (var collider in colliders)
+        {
+            BaseHealth targetHealth = collider.transform.GetComponent<BaseHealth>();
+
+            if (targetHealth != null && !targetHealth.IsDeath())
+            {
+                float distanceToTarget = Vector3.Distance(transform.position, targetHealth.transform.position);
+
+                if (distanceToTarget < nearestDistance)
+                {
+                    nearestDistance = distanceToTarget;
+                    nearestTarget = targetHealth;
+                }
+            }
+        }
+
+        return nearestTarget;
+    }
+
+    private void SetTargetAndStartPursuit(BaseHealth targetHealth, EnemyAttacks attacks)
+    {
+        var buildingTile = targetHealth.BuildingTile();
+        var targetTransform = buildingTile != null
+            ? (buildingTile.IsFourTile ? targetHealth.GetFoutTileTransform() : targetHealth.gameObject.transform)
+            : targetHealth.gameObject.transform;
+
+        _creatureReachedDistance.UpdateAiEndReachedDistance(buildingTile);
+        attacks.UpdateCreatureAttackDistance(buildingTile);
+
+        _aiDestinationSetter.CurrentTarget = targetTransform;
+        _creatureDamage.SetTargetHealth(targetHealth);
     }
 
     private void SetBaseTarget()
@@ -56,6 +81,7 @@ public class EnemyIdleState : EnemyState
             _aiDestinationSetter.CurrentTarget = null;
             return;
         }
+
         _aiDestinationSetter.CurrentTarget = BasePoint.Instance.gameObject.transform;
     }
 }

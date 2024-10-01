@@ -15,7 +15,7 @@ MonoBehaviour:
   Spawners:
   - DaySpawn: 1
     EnemyLevel: 2
-    MinCount: 1
-    MaxCount: 10
+    MinCount: 10
+    MaxCount: 20
     Enemies:
     - {fileID: 1444144861235826408, guid: 752668b4bcd8eb04080cc2a98cdcd183, type: 3}

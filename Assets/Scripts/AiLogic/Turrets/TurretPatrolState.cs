@@ -22,18 +22,34 @@ public class TurretPatrolState : TurretState
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.CurrentDetectionRadius, stateChanger.DetectionLayer);
 
+        Transform bestTarget = null;
+        float closestAngle = float.MaxValue;
+
         for (int i = 0; i < colliders.Length; i++)
         {
             BaseHealth targetHealth = colliders[i].transform.GetComponent<BaseHealth>();
 
             if (targetHealth == null || targetHealth.IsDeath()) continue;
 
-            aiDestinationSetter.CurrentTarget = targetHealth.transform;
-            _creatureDamage.SetTargetHealth(targetHealth);
+            // Вычисляем направление до цели
+            Vector3 directionToTarget = (colliders[i].transform.position - transform.position).normalized;
+            float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
 
-            return _turretCombatState;
-
+            // Проверяем, является ли этот угол самым маленьким
+            if (angleToTarget < closestAngle)
+            {
+                closestAngle = angleToTarget;
+                bestTarget = targetHealth.transform;
+            }
         }
+
+        if (bestTarget != null)
+        {
+            aiDestinationSetter.CurrentTarget = bestTarget;
+            _creatureDamage.SetTargetHealth(bestTarget.GetComponent<BaseHealth>());
+            return _turretCombatState;
+        }
+
         return this;
     }
 

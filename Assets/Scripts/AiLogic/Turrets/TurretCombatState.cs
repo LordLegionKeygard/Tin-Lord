@@ -12,14 +12,12 @@ public class TurretCombatState : TurretState
         {
             stateChanger.CanRotateForwardToggle(true);
 
-            if (aiDestinationSetter.CurrentTarget.gameObject.TryGetComponent<BaseHealth>(out BaseHealth h))
+            if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))
             {
-                if (h.IsDeath())
-                {
-                    aiDestinationSetter.CurrentTarget = null;
-                    return _patrolState;
-                }
+                aiDestinationSetter.CurrentTarget = null;
+                return _patrolState;
             }
+
 
             if (stateChanger.CurrentAttackRecoveryTime <= 0 && stateChanger.DistanceToTarget() <= attacks.MaxAtkRange())
             {
@@ -39,5 +37,14 @@ public class TurretCombatState : TurretState
         {
             return _patrolState;
         }
+    }
+
+    private bool IsTargetDead(GameObject target)
+    {
+        if (target.TryGetComponent<BaseHealth>(out BaseHealth health))
+        {
+            return health.IsDeath();
+        }
+        return false;
     }
 }

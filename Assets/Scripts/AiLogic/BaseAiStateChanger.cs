@@ -3,7 +3,7 @@ using UnityEngine;
 public class BaseAiStateChanger : MonoBehaviour
 {
     [Header("A.I Settings")]
-    [SerializeField] private float _rotationSpeedFactor = 1;
+    [SerializeField] private float _rotationSpeed = 1;
     [HideInInspector] public float CurrentAttackRecoveryTime;
     protected AIDestinationSetter AiDestinationSetter;
     protected BaseAnimator BaseAnimator;
@@ -37,7 +37,7 @@ public class BaseAiStateChanger : MonoBehaviour
 
             var targetDirection = new Vector3(t.x, transform.position.y, t.z) - transform.position;
 
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 3 * Time.deltaTime * _rotationSpeedFactor, 0);
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 3 * Time.deltaTime * _rotationSpeed, 0);
 
             transform.rotation = Quaternion.LookRotation(newDirection);
         }

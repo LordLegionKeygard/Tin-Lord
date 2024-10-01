@@ -1,10 +1,10 @@
 using UnityEngine;
 
-
 public class EnemyAttackState : EnemyState
 {
     [SerializeField] private EnemyCombatState _combatState;
     [SerializeField] private AttackInfo _currentAttack;
+    private AttackInfo _attackInfo;
 
     public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks)
     {
@@ -12,65 +12,91 @@ public class EnemyAttackState : EnemyState
 
         stateChanger.CanRotateForwardToggle(true);
 
-        if (aiDestinationSetter.CurrentTarget.gameObject.TryGetComponent<BaseHealth>(out BaseHealth h))
+        if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))
         {
-            if (h.IsDeath())
-            {
-                aiDestinationSetter.CurrentTarget = null;
-                return _combatState;
-            }
+            aiDestinationSetter.CurrentTarget = null;
+            return _combatState;
         }
 
         var targetPos = aiDestinationSetter.CurrentTarget.transform.position;
-        Vector3 targetDirection = new Vector3(targetPos.x, transform.position.y, targetPos.z) - transform.position;
+        Vector3 targetDirection = GetDirectionToTarget(targetPos);
         float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
 
-        if (!stateChanger.CanAttack())
-            return _combatState;
+        if (!stateChanger.CanAttack()) return _combatState;
 
         if (_currentAttack != null)
         {
-            if (stateChanger.DistanceToTarget() < _currentAttack.MinimumDistanceNeededToAttack)
+            if (IsTargetWithinAttackRange(stateChanger, _currentAttack, attacks.GetBonusAttackDistance()))
             {
-                _currentAttack = null;
-                return this;
-            }
-            else if (stateChanger.DistanceToTarget() < _currentAttack.MaximumDistanceNeededToAttack + attacks.GetBonusAttackDistance())
-            {
-                if (viewableAngle <= _currentAttack.MaximumAttackAngle &&
-                    viewableAngle >= _currentAttack.MinimumAttackAngle)
+                if (IsTargetInAttackAngle(viewableAngle, _currentAttack))
                 {
-
-                    if (stateChanger.CurrentAttackRecoveryTime <= 0 && stateChanger.CanAttack())
+                    if (CanPerformAttack(stateChanger))
                     {
-                        animator.AttackAnim(_currentAttack.ActionNumber);
-                        stateChanger.AttackToggle(false);
-
-                        stateChanger.CurrentAttackRecoveryTime = _currentAttack.RecoveryTime;
-                        _currentAttack = null;
+                        PerformAttack(stateChanger, animator);
                         return _combatState;
                     }
-
                 }
+            }
+            else
+            {
+                _currentAttack = null;
             }
         }
         else
         {
-            var rnd = Random.Range(0, attacks.GetCreatureAttacks().Length);
-            AttackInfo enemyAttackAction = attacks.GetCreatureAttacks()[rnd];
-
-            if (stateChanger.DistanceToTarget() <= enemyAttackAction.MaximumDistanceNeededToAttack + attacks.GetBonusAttackDistance()
-                && stateChanger.DistanceToTarget() >= enemyAttackAction.MinimumDistanceNeededToAttack)
+            _attackInfo = SelectNextAttack(attacks);
+            if (IsTargetWithinAttackRange(stateChanger, _attackInfo, attacks.GetBonusAttackDistance())
+                && IsTargetInAttackAngle(viewableAngle, _attackInfo))
             {
-                if (viewableAngle <= enemyAttackAction.MaximumAttackAngle
-                    && viewableAngle >= enemyAttackAction.MinimumAttackAngle)
-                {
-                    if (_currentAttack != null) return this;
-                    _currentAttack = enemyAttackAction;
-                }
+                _currentAttack = _attackInfo;
             }
         }
 
         return _combatState;
+    }
+
+    private bool IsTargetDead(GameObject target)
+    {
+        if (target.TryGetComponent<BaseHealth>(out BaseHealth health))
+        {
+            return health.IsDeath();
+        }
+        return false;
+    }
+
+    private Vector3 GetDirectionToTarget(Vector3 targetPos)
+    {
+        return new Vector3(targetPos.x, transform.position.y, targetPos.z) - transform.position;
+    }
+
+    private bool IsTargetWithinAttackRange(EnemyStateChanger stateChanger, AttackInfo attack, float bonusDistance)
+    {
+        float distanceToTarget = stateChanger.DistanceToTarget();
+        return distanceToTarget >= attack.MinimumDistanceNeededToAttack
+               && distanceToTarget <= attack.MaximumDistanceNeededToAttack + bonusDistance;
+    }
+
+    private bool IsTargetInAttackAngle(float viewableAngle, AttackInfo attack)
+    {
+        return viewableAngle >= attack.MinimumAttackAngle && viewableAngle <= attack.MaximumAttackAngle;
+    }
+
+    private bool CanPerformAttack(EnemyStateChanger stateChanger)
+    {
+        return stateChanger.CurrentAttackRecoveryTime <= 0 && stateChanger.CanAttack();
+    }
+
+    private void PerformAttack(EnemyStateChanger stateChanger, BaseAnimator animator)
+    {
+        animator.AttackAnim(_currentAttack.ActionNumber);
+        stateChanger.AttackToggle(false);
+        stateChanger.CurrentAttackRecoveryTime = _currentAttack.RecoveryTime;
+        _currentAttack = null;
+    }
+
+    private AttackInfo SelectNextAttack(EnemyAttacks attacks)
+    {
+        int rnd = Random.Range(0, attacks.GetCreatureAttacks().Length);
+        return attacks.GetCreatureAttacks()[rnd];
     }
 }

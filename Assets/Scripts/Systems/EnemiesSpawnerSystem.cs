@@ -7,13 +7,17 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     [Inject] DiContainer _diContainer;
     [SerializeField] private EnemiesSpawnerInformation _enemiesSpawnerInfo;
     [SerializeField] private Transform _enemiesParent;
-    [SerializeField] TilesSystem _tilesSystem;
     private Vector3 _bottomLeft = new Vector3(-155, 11, -213);
     private Vector3 _bottomRight = new Vector3(380, 11, -213);
     private Vector3 _topRight = new Vector3(380, 11, 327);
     private Vector3 _topLeft = new Vector3(-155, 11, 327);
 
     private float _bottomLength, _rightLength, _topLength, _leftLength, _totalPerimeter;
+
+    private void Awake()
+    {
+        CustomEvents.OnDayEnd += PrepareSpawn;
+    }
 
     private void Start()
     {
@@ -29,10 +33,8 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         _totalPerimeter = _bottomLength + _rightLength + _topLength + _leftLength;
     }
 
-    public void PrepareSpawn(int day)
+    private void PrepareSpawn(int day)
     {
-        if(!_tilesSystem.IsHaveBase) return;
-        
         var spawner = _enemiesSpawnerInfo.Spawners.FirstOrDefault(spawner => spawner.DaySpawn == day);
 
         if (spawner == null) return;
@@ -43,12 +45,11 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     private void SpawnEnemies(Spawner spawner)
     {
         var rndCount = Random.Range(spawner.MinCount, spawner.MaxCount + 1);
-        Vector3 spawnPosition = GetRandomPerimeterPosition();
 
         for (int i = 0; i < rndCount; i++)
         {
             var rndEnemy = Random.Range(0, spawner.Enemies.Length);
-            var enemy = _diContainer.InstantiatePrefab(spawner.Enemies[rndEnemy], spawnPosition + GetRandomizePosition(), Quaternion.identity, null);
+            var enemy = _diContainer.InstantiatePrefab(spawner.Enemies[rndEnemy], GetRandomPerimeterPosition() + GetRandomizePosition(), Quaternion.identity, null);
             enemy.GetComponent<BaseLevel>().SetLevel(spawner.EnemyLevel);
             enemy.transform.SetParent(_enemiesParent);
         }
@@ -86,5 +87,10 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             // Левый край (между topLeft и bottomLeft)
             return Vector3.Lerp(_topLeft, _bottomLeft, (randomPoint - _bottomLength - _rightLength - _topLength) / _leftLength);
         }
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnDayEnd -= PrepareSpawn;
     }
 }

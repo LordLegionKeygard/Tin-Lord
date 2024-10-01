@@ -12,18 +12,14 @@ public class EnemyCombatState : EnemyState
         {
             stateChanger.CanRotateForwardToggle(true);
 
-            if (aiDestinationSetter.CurrentTarget.gameObject.TryGetComponent<BaseHealth>(out BaseHealth h))
+            if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))
             {
-                if (h.IsDeath())
-                {
-                    aiDestinationSetter.CurrentTarget = null;
-                    return _enemyIdleState;
-                }
+                aiDestinationSetter.CurrentTarget = null;
+                return _enemyIdleState;
             }
 
             if (stateChanger.CurrentAttackRecoveryTime <= 0 && stateChanger.DistanceToTarget() <= attacks.MaxAtkRange())
             {
-
                 return _attackState;
             }
             else if (stateChanger.DistanceToTarget() > attacks.MaxAtkRange())
@@ -39,5 +35,14 @@ public class EnemyCombatState : EnemyState
         {
             return _enemyIdleState;
         }
+    }
+
+    private bool IsTargetDead(GameObject target)
+    {
+        if (target.TryGetComponent<BaseHealth>(out BaseHealth health))
+        {
+            return health.IsDeath();
+        }
+        return false;
     }
 }

@@ -6,6 +6,7 @@ public class TimeTickSystem : MonoBehaviour
     [SerializeField] private float _tickSpeed;
     [SerializeField] private int _currentTick;
     [SerializeField] private TimeView _timeView;
+    [SerializeField] private TilesSystem _tilesSystem;
     [SerializeField] private TextMeshProUGUI _dayText;
     [SerializeField] private EveryTickResourcesProduction _everyTickResourcesExtraction;
     [SerializeField] private EveryTickResourcesRequired _everyTickResourcesRequired;
@@ -27,7 +28,7 @@ public class TimeTickSystem : MonoBehaviour
 
     private void Update()
     {
-        if (_isPaused) return;
+        if (_isPaused || !_tilesSystem.IsHaveBase()) return;
 
         _currentTime += Time.deltaTime;
 
@@ -42,7 +43,7 @@ public class TimeTickSystem : MonoBehaviour
                 _currentDay++;
                 _currentTick = 0;
                 UpdateDayText();
-                _enemiesSpawnerSystem.PrepareSpawn(_currentDay);
+                CustomEvents.FireDayEnd(_currentDay);
             }
 
             _timeView.UpdateTimeSlotsView(_currentTick);

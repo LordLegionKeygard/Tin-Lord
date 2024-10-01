@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class BuildingItem : MonoBehaviour
 {
-    [Inject] private TilesSystem _tilesSystem;
     [Inject] private PlayerResources _playerResources;
     [SerializeField] private Tile _currentTile;
     [SerializeField] private TileObject _currentTileObject;
@@ -82,7 +81,8 @@ public class BuildingItem : MonoBehaviour
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
-                if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) _tilesSystem.IsHaveBase = true;
+                if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase();
+
                 _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _upgradeToLevel, _currentTileObject); //спавним впервые здание на тайле определенного лвла
                 _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;

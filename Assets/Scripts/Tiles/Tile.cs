@@ -17,6 +17,7 @@ public class Tile : ScriptableObject
     public int GroundEcology;
     public bool IsWater;
     public bool IsFourTile;
+    public bool IsTurret;
     public Tile[] BuildingTypes;
     public ProductionOnGroundResources[] ProductionOnGroundResources;
 

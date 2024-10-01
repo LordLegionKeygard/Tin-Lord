@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TestTurret_Attack_1
   m_EditorClassIdentifier: 
   ActionNumber: 1
-  RecoveryTime: 2
+  RecoveryTime: 0.4
   MinimumDistanceNeededToAttack: 0
   MaximumDistanceNeededToAttack: 50
-  MaximumAttackAngle: 35
-  MinimumAttackAngle: -35
+  MaximumAttackAngle: 10
+  MinimumAttackAngle: -10

@@ -42,4 +42,16 @@ public class CustomEvents
     {
         OnPauseChanged?.Invoke(isPause);
     }
+
+    public static event Action<int> OnDayEnd;
+    public static void FireDayEnd(int day)
+    {
+        OnDayEnd?.Invoke(day);
+    }
+
+    public static event Action OnSetBase;
+    public static void FireSetBase()
+    {
+        OnSetBase?.Invoke();
+    }
 }
