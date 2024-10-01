@@ -16,7 +16,7 @@ public class BaseTakeDamageVFX : MonoBehaviour
     public virtual void SpawnTakeDamageVFX()
     {
         if (!WorldGameInfo.StaticBlood) return;
-        var rndHeaight = Random.Range(0, _aiPath.height);
+        var rndHeaight = Random.Range(_aiPath.height * 0.5f, _aiPath.height);
         var rnd = Random.Range(0, _takeDamageFX.Length);
         var prefab = Instantiate(_takeDamageFX[rnd], new Vector3(transform.position.x, transform.position.y + rndHeaight, transform.position.z), transform.rotation * Quaternion.Euler(0, 90, 0));
         Destroy(prefab, 35);
