@@ -9,11 +9,18 @@ public class GameSpeedSystem : MonoBehaviour
     [SerializeField] private Image[] _images;
     [SerializeField] private Sprite[] _spriteOn;
     [SerializeField] private Sprite[] _spriteOff;
-
     [SerializeField] private GameSpeedEnum _currentGameSpeedEnum = GameSpeedEnum.Default;
+    private bool _canChangeSpeed;
+
+    private void Awake()
+    {
+        CustomEvents.OnSpawnRoadComplete += () => _canChangeSpeed = true;
+    }
 
     public void ChangeGameSpeed(int gameSpeed)
     {
+        if (!_canChangeSpeed) return;
+
         GameSpeedEnum gameSpeedEnum = (GameSpeedEnum)gameSpeed;
 
         switch (gameSpeedEnum)
@@ -41,6 +48,11 @@ public class GameSpeedSystem : MonoBehaviour
         }
 
         _images[(int)_currentGameSpeedEnum].sprite = _spriteOn[(int)_currentGameSpeedEnum];
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnSpawnRoadComplete -= () => _canChangeSpeed = true;
     }
 }
 

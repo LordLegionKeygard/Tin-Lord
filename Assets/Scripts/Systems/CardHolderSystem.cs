@@ -44,10 +44,8 @@ public class CardHolderSystem : MonoBehaviour
         }
     }
 
-    public void CancelSelectCard(bool isPause)
+    public void CancelSelectCard()
     {
-        if (isPause) return;
-
         _tileDetector.Clear();
         if (_currentSelectCardObject == null) return;
 
@@ -62,7 +60,7 @@ public class CardHolderSystem : MonoBehaviour
 
         if (cardsToRemove > 0)
         {
-            RemoveLeftmostCards(cardsToRemove, () =>
+            RemoveFirstCards(cardsToRemove, () =>
             {
                 AddCards(tiles);
             });
@@ -88,7 +86,7 @@ public class CardHolderSystem : MonoBehaviour
         _cardsLayout.RearrangeCards(_currentCards); // пересчитываем позиции
     }
 
-    public void RemoveLeftmostCards(int count, TweenCallback onComplete)
+    public void RemoveFirstCards(int count, TweenCallback onComplete)
     {
         List<CardObject> cardsToRemove = new List<CardObject>();
 
@@ -96,7 +94,16 @@ public class CardHolderSystem : MonoBehaviour
         {
             if (_currentCards.Count == 0) return;
 
-            cardsToRemove.Add(_currentCards[0]);
+            var cardToRemove = _currentCards[0];
+
+            // Проверяем, является ли карта текущей выбранной
+            if (cardToRemove == _currentSelectCardObject)
+            {
+                CancelSelectCard();
+            }
+
+            cardsToRemove.Add(cardToRemove);
+            cardsToRemove[i].DisabledButton();
             _currentCards.RemoveAt(0);
         }
 
@@ -108,7 +115,7 @@ public class CardHolderSystem : MonoBehaviour
             removeSequence.Join(cardRect.DOAnchorPosY(300, 0.5f).SetEase(Ease.InOutQuad)
                 .OnComplete(() =>
                 {
-                    cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
+                    cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
                     {
                         Destroy(cardToRemove.gameObject);
                     });
@@ -117,6 +124,7 @@ public class CardHolderSystem : MonoBehaviour
 
         removeSequence.OnComplete(onComplete);
     }
+
 
     public void RemoveCurrentCard()
     {

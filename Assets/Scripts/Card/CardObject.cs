@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -11,8 +9,14 @@ public class CardObject : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private RectTransform _objectTransform;
+    [SerializeField] private Button _button;
     private CardHolderSystem _cardHolderSystem;
     public Tile GetTile() => _tile;
+
+    public void DisabledButton()
+    {
+        _button.enabled = false;
+    }
 
     public void SetCardInfo(Tile tile, CardHolderSystem cardHolderSystem)
     {
@@ -34,5 +38,4 @@ public class CardObject : MonoBehaviour
         if (state) _objectTransform.DOAnchorPosY(42, 0.3f).SetUpdate(true);
         else _objectTransform.DOAnchorPosY(0, 0.3f).SetUpdate(true);
     }
-
 }

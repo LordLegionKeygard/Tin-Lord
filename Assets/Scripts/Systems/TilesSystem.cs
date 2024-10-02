@@ -16,13 +16,11 @@ public class TilesSystem : MonoBehaviour
 
     private void Awake()
     {
-        CustomEvents.OnSetBase += SetBase;
+        CustomEvents.OnSetBase += () => _isHaveBase = true;
     }
-
-    private void SetBase() => _isHaveBase = true;
 
     private void OnDestroy()
     {
-        CustomEvents.OnSetBase -= SetBase;
+        CustomEvents.OnSetBase -= () => _isHaveBase = true;
     }
 }
