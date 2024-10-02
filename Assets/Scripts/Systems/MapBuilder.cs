@@ -56,7 +56,7 @@ public class MapBuilder : MonoBehaviour
         if (_iterations > 45 || (nextY == _startY && _startX == nextX - 1))
         {
             await Task.Delay(200);
-            CustomEvents.FirePrepareRoads();
+            CustomEvents.FireSpawnRoadComplete();
             return;
         }
 

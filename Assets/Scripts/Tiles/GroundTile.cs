@@ -97,7 +97,7 @@ public class GroundTile : MonoBehaviour
         if (IsForwardRoad())
         {
             _tileRoad.SetRoadTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Road));
-            CustomEvents.FirePrepareRoads();
+            CustomEvents.FireSpawnRoadComplete();
         }
         else
         {

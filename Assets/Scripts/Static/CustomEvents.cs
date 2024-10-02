@@ -7,10 +7,10 @@ public class CustomEvents
     {
         OnBaseDestroy?.Invoke();
     }
-    public static event Action OnPrepareRoads;
-    public static void FirePrepareRoads()
+    public static event Action OnSpawnRoadComplete;
+    public static void FireSpawnRoadComplete()
     {
-        OnPrepareRoads?.Invoke();
+        OnSpawnRoadComplete?.Invoke();
     }
 
     public static event Action OnTimeTickAfterResourcesChanged;

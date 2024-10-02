@@ -10,7 +10,7 @@ public class TileRoad : MonoBehaviour
     private void Awake()
     {
         _groundTile = GetComponent<GroundTile>();
-        CustomEvents.OnPrepareRoads += PrepareRoads;
+        CustomEvents.OnSpawnRoadComplete += PrepareRoads;
     }
 
     public void SetRoadTile(Tile tile)
@@ -47,6 +47,6 @@ public class TileRoad : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnPrepareRoads -= PrepareRoads;
+        CustomEvents.OnSpawnRoadComplete -= PrepareRoads;
     }
 }
