@@ -32,7 +32,7 @@ public class BaseHealth : MonoBehaviour
         if (IsDeath()) return;
         _healthSlider.SetHealth(CurrentHealth);
         CheckDeath();
-    } 
+    }
 
     private void CheckDeath()
     {
@@ -41,8 +41,14 @@ public class BaseHealth : MonoBehaviour
 
     public virtual void Death()
     {
-        Destroy(_healthSliderObject);
+        DestroyHealthSlider();
         _isDeath = true;
+    }
+
+    public void DestroyHealthSlider()
+    {
+        if (_healthSliderObject == null) return;
+        Destroy(_healthSliderObject);
     }
 
 

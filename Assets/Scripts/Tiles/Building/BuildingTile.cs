@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -55,6 +53,7 @@ public class BuildingTile : MonoBehaviour
    public void DestroyBuildingTile(bool isDeath)
    {
       if(!isDeath) _playerResources.AddResourcesFromDestroyBuilding(CurrentBuilding().ResourcesForBuild);
+      _buildingHealth.DestroyHealthSlider();
       _currentTile = null;
       _tileObject.ClearBuildingInfo();
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);

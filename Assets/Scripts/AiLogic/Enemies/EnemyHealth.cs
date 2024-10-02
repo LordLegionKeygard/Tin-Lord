@@ -78,7 +78,7 @@ public class EnemyHealth : BaseHealth
     {
         yield return new WaitForSeconds(5f);
 
-        float duration = 3f; // Время, за которое враг будет опускаться под землю
+        float duration = 3f;
         float elapsedTime = 0f;
         Vector3 startPosition = transform.position;
         Vector3 targetPosition = new Vector3(startPosition.x, startPosition.y - 4, startPosition.z);

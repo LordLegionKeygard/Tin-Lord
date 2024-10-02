@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -57,7 +58,25 @@ public class BuildingHealth : BaseHealth
         }
 
         base.Death();
-        _buildingTile.DestroyBuildingTile(IsDeath());
+        //тут логика для отключения сего
 
+        StartCoroutine(FadeAndDestroy());
+    }
+
+    private IEnumerator FadeAndDestroy()
+    {
+        float duration = 3f;
+        float elapsedTime = 0f;
+        Vector3 startPosition = _buildingTile.CurrentBuildingTileObject().transform.position;
+        Vector3 targetPosition = new Vector3(startPosition.x, startPosition.y - 12, startPosition.z);
+
+        while (elapsedTime < duration)
+        {
+            _buildingTile.CurrentBuildingTileObject().transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        _buildingTile.DestroyBuildingTile(IsDeath());
     }
 }
