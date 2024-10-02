@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-
 public class CardHolderSystem : MonoBehaviour
 {
     [Header("Base")]
@@ -17,6 +16,15 @@ public class CardHolderSystem : MonoBehaviour
     [Header("Current")]
     [SerializeField] private List<CardObject> _currentCards;
     [SerializeField] private CardObject _currentSelectCardObject;
+
+    [Header("Layout Settings")]
+    [SerializeField] private float cardWidth = 120;
+    [SerializeField] private float spacing = 7;
+    [SerializeField] private int maxCards = 9;
+    [SerializeField] private RectTransform _panelRectTransform;
+    [SerializeField] private float leftPadding = 84;
+    [SerializeField] private float bottomPadding = 92;
+
     public bool IsHaveCurrentSelectedCardObject() => _currentSelectCardObject != null;
     public Tile CurrentCardHolderSelectedTile() => _currentSelectCardObject.GetTile();
     public bool CheckCurrentCardHolderSelectedTileIsFourTile() => _currentSelectCardObject == null ? false : _currentSelectCardObject.GetTile().IsFourTile;
@@ -32,7 +40,6 @@ public class CardHolderSystem : MonoBehaviour
         if (_addAllCards)
         {
             AddNewCards(_availableCards);
-
             AddNewCards(new Tile[] { _startCards[0] });
         }
         else
@@ -41,28 +48,29 @@ public class CardHolderSystem : MonoBehaviour
         }
     }
 
-    public void CancelSelectCard(bool isPause)
-    {
-        if (isPause) return;
-        _tileDetector.Clear();
-        if (_currentSelectCardObject == null) return;
-
-        _currentSelectCardObject.CardObjectViewToggle(false);
-        Clear();
-    }
-
     public void AddNewCards(Tile[] tiles)
     {
-        // Рассчитываем, сколько карт нужно удалить, если их больше 9
         int cardsToAdd = tiles.Length;
-        int cardsToRemove = Mathf.Max(0, _currentCards.Count + cardsToAdd - 9);
+        int cardsToRemove = Mathf.Max(0, _currentCards.Count + cardsToAdd - maxCards);
 
-        // Удаляем лишние карты с анимацией
+        // Если есть карты для удаления, ждем их удаления
         if (cardsToRemove > 0)
         {
-            RemoveLeftmostCards(cardsToRemove);
+            RemoveLeftmostCards(cardsToRemove, () =>
+            {
+                // После завершения удаления добавляем новые карты
+                AddCards(tiles);
+            });
         }
+        else
+        {
+            // Если удалять карты не нужно, сразу добавляем новые карты
+            AddCards(tiles);
+        }
+    }
 
+    private void AddCards(Tile[] tiles)
+    {
         // Добавляем новые карты
         foreach (var tile in tiles)
         {
@@ -70,15 +78,44 @@ public class CardHolderSystem : MonoBehaviour
             _currentCards.Add(card);
             card.transform.SetParent(_parentTransform, false);
             card.SetCardInfo(tile, this);
+
+            // Рассчитываем корректную позицию для карты по X и Y с учетом отступов
+            RectTransform cardRect = card.GetComponent<RectTransform>();
+            float initialY = -bottomPadding; // Уровень карты относительно панели с учетом отступа снизу
+            float targetY = bottomPadding; // Конечная позиция по Y с учетом отступа снизу
+
+            cardRect.anchoredPosition = new Vector2(GetCardPosition(_currentCards.Count - 1), initialY);
+
+            // Анимация подъема карты на нужную позицию
+            cardRect.DOAnchorPosY(targetY, 0.5f).SetEase(Ease.OutBounce);
+        }
+
+        // Перераспределяем оставшиеся карты после добавления
+        RearrangeCards();
+    }
+
+    private void RearrangeCards()
+    {
+        // Перемещаем все карты на нужные позиции с анимацией
+        for (int i = 0; i < _currentCards.Count; i++)
+        {
+            RectTransform cardRect = _currentCards[i].GetComponent<RectTransform>();
+            float targetX = GetCardPosition(i);
+            cardRect.DOAnchorPosX(targetX, 0.5f).SetEase(Ease.InOutQuad);
         }
     }
 
-    private void RemoveLeftmostCards(int count)
+    private float GetCardPosition(int index)
     {
-        // Создаем копию текущего списка карт, которые нужно удалить
+        // Рассчитываем позицию по оси X для карты, начиная с левого края панели и с учетом отступа слева
+        float startX = leftPadding; // Левый край панели с учетом отступа
+        return startX + index * (cardWidth + spacing); // Позиция для карты с учетом отступа
+    }
+
+    private void RemoveLeftmostCards(int count, TweenCallback onComplete)
+    {
         List<CardObject> cardsToRemove = new List<CardObject>();
 
-        // Сохраняем карты для удаления
         for (int i = 0; i < count; i++)
         {
             if (_currentCards.Count == 0) return;
@@ -87,46 +124,32 @@ public class CardHolderSystem : MonoBehaviour
             _currentCards.RemoveAt(0);
         }
 
-        // Удаляем карты с анимацией подъема и изменения масштаба
+        Sequence removeSequence = DOTween.Sequence(); // Создаем последовательность анимации
+
         foreach (var cardToRemove in cardsToRemove)
         {
-            cardToRemove.GetComponent<RectTransform>().DOAnchorPosY(100, 0.5f).SetEase(Ease.InOutQuad)
+            RectTransform cardRect = cardToRemove.GetComponent<RectTransform>();
+            removeSequence.Join(cardRect.DOAnchorPosY(300, 0.5f).SetEase(Ease.InOutQuad)
                 .OnComplete(() =>
                 {
                     cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.InBack).OnComplete(() =>
                     {
                         Destroy(cardToRemove.gameObject);
                     });
-                });
-        }
-    }
-
-    private void ShiftRemainingCards(TweenCallback onComplete)
-    {
-        // Сначала сохраняем текущие позиции всех оставшихся карт
-        List<Vector3> originalPositions = new List<Vector3>();
-        foreach (var card in _currentCards)
-        {
-            originalPositions.Add(card.transform.position);
+                }));
         }
 
-
-        for (int i = 0; i < _currentCards.Count; i++)
-        {
-            var card = _currentCards[i];
-            Vector3 newPosition = originalPositions[i];
-            card.transform.DOMove(newPosition, 0.5f).SetEase(Ease.InOutQuad);
-        }
+        removeSequence.OnComplete(onComplete); // Вызываем завершение после всех анимаций удаления
     }
 
     public void RemoveCurrentCard()
     {
-
         if (_currentSelectCardObject == null || _dontRemoveCards) return;
 
         _currentCards.Remove(_currentSelectCardObject);
         Destroy(_currentSelectCardObject.gameObject);
         Clear();
+        RearrangeCards(); // Обновляем позиции оставшихся карт
     }
 
     public void SelectCardInCardHolder(CardObject newCardObject)
@@ -146,7 +169,6 @@ public class CardHolderSystem : MonoBehaviour
             randomTiles[i] = _availableCards[rndCard];
         }
 
-        // Передаем массив с несколькими случайными картами
         AddNewCards(randomTiles);
     }
 
@@ -170,4 +192,20 @@ public class CardHolderSystem : MonoBehaviour
         CustomEvents.OnDayEnd -= AddCardsAfterDayEnd;
         CustomEvents.OnSetBase -= AddCardAfterSetBase;
     }
+    public void CancelSelectCard(bool isPause)
+    {
+        if (isPause) return;
+
+        _tileDetector.Clear();
+        if (_currentSelectCardObject == null) return;
+
+        _currentSelectCardObject.CardObjectViewToggle(false);
+        Clear();
+    }
 }
+
+
+
+
+
+

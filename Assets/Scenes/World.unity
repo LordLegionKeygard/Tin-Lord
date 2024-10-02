@@ -5855,7 +5855,6 @@ GameObject:
   - component: {fileID: 494805488}
   - component: {fileID: 494805491}
   - component: {fileID: 494805490}
-  - component: {fileID: 494805492}
   m_Layer: 5
   m_Name: CardsHolderPanel
   m_TagString: Untagged
@@ -5921,30 +5920,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494805487}
   m_CullTransparentMesh: 1
---- !u!114 &494805492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494805487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 23
-    m_Right: 0
-    m_Top: 13
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 120, y: 150}
-  m_Spacing: {x: 7, y: 0}
-  m_Constraint: 2
-  m_ConstraintCount: 1
 --- !u!1 &495674314
 GameObject:
   m_ObjectHideFlags: 0
@@ -8431,6 +8406,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: adc20fa2d0fb7a04499607598b1290d7, type: 2}
   _currentCards: []
   _currentSelectCardObject: {fileID: 0}
+  cardWidth: 120
+  spacing: 7
+  maxCards: 9
+  _panelRectTransform: {fileID: 494805488}
+  leftPadding: 84
+  bottomPadding: 92
 --- !u!1001 &729276258
 PrefabInstance:
   m_ObjectHideFlags: 0
