@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CardHolderSystem : MonoBehaviour
 {
@@ -76,13 +75,6 @@ public class CardHolderSystem : MonoBehaviour
 
     private void RemoveLeftmostCards(int count)
     {
-        // Отключаем HorizontalLayoutGroup перед удалением карт для предотвращения мгновенного сдвига
-        GridLayoutGroup layoutGroup = _parentTransform.GetComponent<GridLayoutGroup>();
-        if (layoutGroup != null)
-        {
-            layoutGroup.enabled = false;
-        }
-
         // Создаем копию текущего списка карт, которые нужно удалить
         List<CardObject> cardsToRemove = new List<CardObject>();
 
@@ -107,16 +99,6 @@ public class CardHolderSystem : MonoBehaviour
                     });
                 });
         }
-
-        // Плавно смещаем оставшиеся карты и включаем HorizontalLayoutGroup после завершения анимации
-        ShiftRemainingCards(() =>
-        {
-            if (layoutGroup != null)
-            {
-                layoutGroup.enabled = true;
-                // LayoutRebuilder.ForceRebuildLayoutImmediate(layoutGroup.GetComponent<RectTransform>());
-            }
-        });
     }
 
     private void ShiftRemainingCards(TweenCallback onComplete)
@@ -128,20 +110,14 @@ public class CardHolderSystem : MonoBehaviour
             originalPositions.Add(card.transform.position);
         }
 
-        // Плавно перемещаем оставшиеся карты на новые позиции
-        Sequence moveSequence = DOTween.Sequence();
+
         for (int i = 0; i < _currentCards.Count; i++)
         {
             var card = _currentCards[i];
             Vector3 newPosition = originalPositions[i];
-            moveSequence.Join(card.transform.DOMove(newPosition, 0.5f).SetEase(Ease.InOutQuad));
+            card.transform.DOMove(newPosition, 0.5f).SetEase(Ease.InOutQuad);
         }
-
-        // Когда анимация завершена, вызываем onComplete
-        moveSequence.OnComplete(onComplete);
     }
-
-
 
     public void RemoveCurrentCard()
     {
