@@ -16,17 +16,17 @@ MonoBehaviour:
   shader: {fileID: 4800000, guid: 6f2fcdc189458914eb8a323f19e3a27b, type: 3}
   screenBend: 6
   vignetteSize: 5.7
-  vignetteSmooth: 20
-  vignetteRound: 3.5
+  vignetteSmooth: 4.02
+  vignetteRound: 45.33
   shadowlines: 50
   shadowlinesSpeed: -5
-  shadowlinesAlpha: 0.05
+  shadowlinesAlpha: 0
   noiseSize: 50
   noiseSpeed: 10
-  noiseAlpha: 0.035
+  noiseAlpha: 0.0021
   brightness: -0.12
   contrast: 0.82
-  colorize: 0
+  colorize: 0.94
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

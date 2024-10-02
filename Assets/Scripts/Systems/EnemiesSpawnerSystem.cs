@@ -48,9 +48,9 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
         for (int i = 0; i < rndCount; i++)
         {
-            var rndEnemy = Random.Range(0, spawner.Enemies.Length);
-            var enemy = _diContainer.InstantiatePrefab(spawner.Enemies[rndEnemy], GetRandomPerimeterPosition() + GetRandomizePosition(), Quaternion.identity, null);
-            enemy.GetComponent<BaseLevel>().SetLevel(spawner.EnemyLevel);
+            var rndEnemy = Random.Range(0, spawner.EnemiesSpawnerInfo.Length);
+            var enemy = _diContainer.InstantiatePrefab(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyPrefab, GetRandomPerimeterPosition() + GetRandomizePosition(), Quaternion.identity, null);
+            enemy.GetComponent<BaseLevel>().SetLevel(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyLevel);
             enemy.transform.SetParent(_enemiesParent);
         }
     }

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyState
 {
-    [SerializeField] private EnemyStateChanger _enemyStateChanger;
     [SerializeField] private EnemyPursueTargetState _pursueTargetState;
     [SerializeField] private AIDestinationSetter _aiDestinationSetter;
     [SerializeField] private BaseDamage _creatureDamage;

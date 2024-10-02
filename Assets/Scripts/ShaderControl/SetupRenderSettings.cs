@@ -18,7 +18,7 @@ public class SetupRenderSettings : MonoBehaviour
         if (ecology < -50)
         {
             float shadowlinesEcology = Mathf.Clamp01((ecology + 50) / -50f);
-            _crtRendererFeature.shadowlinesAlpha = shadowlinesEcology * 0.05f;
+            _crtRendererFeature.shadowlinesAlpha = shadowlinesEcology * 0.015f;
         }
         else
         {

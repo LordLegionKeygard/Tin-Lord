@@ -20,7 +20,7 @@ namespace CRTFilter
         [Header("ShadowLines")]
         [Range(0f, 50f)] public float shadowlines = 50; //не трогаем
         [Range(-20f, 20f)] public float shadowlinesSpeed = -5; //не трогаем
-        [Range(0f, 1f)] public float shadowlinesAlpha = 0.05f; // если экология >=0 то 0, если <=0 то движемся к 0.05f с максимальным параметром -100 экологии
+        [Range(0f, 0.015f)] public float shadowlinesAlpha = 0.05f; // если экология >=0 то 0, если <=0 то движемся к 0.05f с максимальным параметром -100 экологии
 
         [Header("Noise")]
         [Range(0f, 100f)] public float noiseSize = 50; //не трогаем

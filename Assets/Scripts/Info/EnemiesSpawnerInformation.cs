@@ -10,9 +10,16 @@ public class EnemiesSpawnerInformation : ScriptableObject
 public class Spawner
 {
     public int DaySpawn;
-    public int EnemyLevel;
     public int MinCount;
     public int MaxCount;
-    public GameObject[] Enemies;
+    public EnemySpawnerInfo[] EnemiesSpawnerInfo;
 
 }
+
+[System.Serializable]
+public class EnemySpawnerInfo
+{
+    public GameObject EnemyPrefab;
+    public int EnemyLevel;
+}
+

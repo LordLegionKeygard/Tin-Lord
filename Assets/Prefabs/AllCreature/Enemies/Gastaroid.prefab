@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7453f589b79bb49acc854b122fdcb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeedFactor: 1
+  _rotationSpeed: 1
   CurrentAttackRecoveryTime: 0
   CurrentDetectionRadius: 50
   DetectionLayer:
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf6490fdd4429f46b9ff068bceaef25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _runSpeed: 8
+  _runSpeed: 7
   _canMove: 1
 --- !u!114 &1096399938091357351
 MonoBehaviour:
@@ -1585,6 +1585,8 @@ MonoBehaviour:
   _attacks:
   - {fileID: 11400000, guid: a065882c28e160f49859f1d0635644fe, type: 2}
   - {fileID: 11400000, guid: af27a580f552b5d4e885130ad1952fd9, type: 2}
+  _attackOneByOne: 0
+  _currentAttackIndex: 0
 --- !u!114 &5290578712437865080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3147,7 +3149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586377fefe1023149be20cd2952ff27e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyStateChanger: {fileID: 1539703436552722856}
   _pursueTargetState: {fileID: 3478823766269654390}
   _aiDestinationSetter: {fileID: 1539703436552722862}
   _creatureDamage: {fileID: 1539703436552722870}
