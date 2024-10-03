@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
 
@@ -58,14 +59,15 @@ public class BuildingHealth : BaseHealth
         }
 
         base.Death();
-        //тут логика для отключения сего
-
+        //тут логика для отключения всего
         StartCoroutine(FadeAndDestroy());
     }
 
     private IEnumerator FadeAndDestroy()
     {
-        float duration = 3f;
+        var spawnPos = _buildingTile.CurrentBuildingTile().IsFourTile ? _fourTileTransform.position : transform.position;
+        Instantiate(_buildingTile.CurrentBuilding().DestroyVFXPrefab, spawnPos, Quaternion.identity);
+        float duration = 5f;
         float elapsedTime = 0f;
         Vector3 startPosition = _buildingTile.CurrentBuildingTileObject().transform.position;
         Vector3 targetPosition = new Vector3(startPosition.x, startPosition.y - 12, startPosition.z);

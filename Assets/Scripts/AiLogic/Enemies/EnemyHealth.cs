@@ -14,7 +14,7 @@ public class EnemyHealth : BaseHealth
     private AIPath _aiPath;
     private CharacterController _characterController;
     private BaseLevel _baseLevel;
-    private BaseTakeDamageVFX _takeDamageVFX; //TO DO
+    private BaseTakeDamageVFX _takeDamageVFX;
 
     private void Awake()
     {
