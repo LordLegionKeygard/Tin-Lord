@@ -42,6 +42,8 @@ public class ConfigLoaderBuildings : ScriptableObject
                 break;
             }
 
+            if(_allBuildings[i] == null) continue;
+
             BuildingConfigs config = _configs[i];
             _allBuildings[i].Name = new[] { config.EnglishName, config.RussianName };
             _allBuildings[i].BuildingEcology = config.BuildingEcology;
