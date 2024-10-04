@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretAttackState : TurretState
 {
+    [SerializeField] private int _attacksNumber;
+    [SerializeField] private bool _attackOneByOne;
+    [SerializeField] private TurretBuilding _turretBuilding;
     [SerializeField] private TurretPatrolState _patrolState;
     [SerializeField] private TurretCombatState _combatState;
-    [SerializeField] private AttackInfo _currentAttack;
-    private AttackInfo _attackInfo;
+    private int _currentAttackIndex = 1;
+    private int _currentAttack;
+    public bool AttackOneByOne() => _attackOneByOne;
 
-    public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, BaseAttacks attacks)
+    public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
         if (aiDestinationSetter.CurrentTarget == null) return _combatState;
 
@@ -27,11 +29,11 @@ public class TurretAttackState : TurretState
 
         if (!stateChanger.CanAttack()) return _combatState;
 
-        if (_currentAttack != null)
+        if (_currentAttack != 0)
         {
-            if (IsTargetWithinAttackRange(stateChanger, _currentAttack))
+            if (IsTargetWithinAttackRange(stateChanger))
             {
-                if (IsTargetInAttackAngle(viewableAngle, _currentAttack))
+                if (IsTargetInAttackAngle(viewableAngle))
                 {
                     if (CanPerformAttack(stateChanger))
                     {
@@ -42,15 +44,15 @@ public class TurretAttackState : TurretState
             }
             else
             {
-                _currentAttack = null;
+                _currentAttack = 0;
             }
         }
         else
         {
-            _attackInfo = SelectNextAttack(attacks);
-            if (IsTargetWithinAttackRange(stateChanger, _attackInfo) && IsTargetInAttackAngle(viewableAngle, _attackInfo))
+            _currentAttackIndex = SelectNextAttack();
+            if (IsTargetWithinAttackRange(stateChanger) && IsTargetInAttackAngle(viewableAngle))
             {
-                _currentAttack = _attackInfo;
+                _currentAttack = _currentAttackIndex;
             }
         }
 
@@ -71,16 +73,16 @@ public class TurretAttackState : TurretState
         return new Vector3(targetPos.x, transform.position.y, targetPos.z) - transform.position;
     }
 
-    private bool IsTargetWithinAttackRange(TurretStateChanger stateChanger, AttackInfo attack)
+    private bool IsTargetWithinAttackRange(TurretStateChanger stateChanger)
     {
         float distanceToTarget = stateChanger.DistanceToTarget();
-        return distanceToTarget >= attack.MinimumDistanceNeededToAttack 
-                && distanceToTarget <= attack.MaximumDistanceNeededToAttack;
+        return distanceToTarget >= 0
+                && distanceToTarget <= _turretBuilding.Building().AttackRadius;
     }
 
-    private bool IsTargetInAttackAngle(float viewableAngle, AttackInfo attack)
+    private bool IsTargetInAttackAngle(float viewableAngle)
     {
-        return viewableAngle >= attack.MinimumAttackAngle && viewableAngle <= attack.MaximumAttackAngle;
+        return viewableAngle >= WorldGameInfo.TurretMinimumAttackAngle && viewableAngle <= WorldGameInfo.TurretMaximumAttackAngle;
     }
 
     private bool CanPerformAttack(TurretStateChanger stateChanger)
@@ -90,22 +92,37 @@ public class TurretAttackState : TurretState
 
     private void PerformAttack(TurretStateChanger stateChanger, BaseAnimator animator)
     {
-        animator.AttackAnim(_currentAttack.ActionNumber);
+        animator.AttackAnim(_currentAttack);
         stateChanger.AttackToggle(false);
-        stateChanger.CurrentAttackRecoveryTime = _currentAttack.RecoveryTime;
-        _currentAttack = null;
+        stateChanger.CurrentAttackRecoveryTime = _turretBuilding.Building().AttackRecoveryTime;
+        _currentAttack = 0;
     }
 
-    private AttackInfo SelectNextAttack(BaseAttacks attacks)
+
+
+
+    private int SelectNextAttack()
     {
-        if (attacks.AttackOneByOne())
+        if (_attackOneByOne)
         {
-            return attacks.GetCreatureAttacks()[attacks.CurrentAttackIndex()];
+            return _currentAttackIndex;
         }
         else
         {
-            int rnd = Random.Range(0, attacks.GetCreatureAttacks().Length);
-            return attacks.GetCreatureAttacks()[rnd];
+            int rnd = Random.Range(1, _attacksNumber + 1);
+            return rnd;
+        }
+    }
+
+    public void ChangeAttackIndex()
+    {
+        if (_currentAttackIndex >= _attacksNumber)
+        {
+            _currentAttackIndex = 1;
+        }
+        else
+        {
+            _currentAttackIndex++;
         }
     }
 }

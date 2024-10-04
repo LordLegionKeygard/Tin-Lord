@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class TurretCombatState : TurretState
 {
+    [SerializeField] private TurretBuilding _turretBuilding;
     [SerializeField] private TurretPatrolState _patrolState;
     [SerializeField] private TurretAttackState _attackState;
-    public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, BaseAttacks attacks)
+    public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
         if (aiDestinationSetter.CurrentTarget != null)
         {
@@ -19,12 +20,12 @@ public class TurretCombatState : TurretState
             }
 
 
-            if (stateChanger.CurrentAttackRecoveryTime <= 0 && stateChanger.DistanceToTarget() <= attacks.MaxAtkRange())
+            if (stateChanger.CurrentAttackRecoveryTime <= 0 && stateChanger.DistanceToTarget() <= _turretBuilding.Building().AttackRadius)
             {
 
                 return _attackState;
             }
-            else if (stateChanger.DistanceToTarget() > attacks.MaxAtkRange())
+            else if (stateChanger.DistanceToTarget() > _turretBuilding.Building().AttackRadius)
             {
                 return _patrolState;
             }

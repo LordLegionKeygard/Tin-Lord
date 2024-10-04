@@ -4,7 +4,7 @@ using UnityEngine;
 public class TurretPatrolState : TurretState
 {
     [SerializeField] private Transform _rotateObject;
-    [SerializeField] private float _patrolRotationSpeed;
+    private float _patrolRotationSpeed = 10;
     [SerializeField] private BaseDamage _creatureDamage;
     [SerializeField] private TurretCombatState _turretCombatState;
     private Coroutine _patrolTimerCoroutine;
@@ -16,11 +16,11 @@ public class TurretPatrolState : TurretState
         StartCoroutine(PatrolTimerCoroutine(rnd));
     }
 
-    public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, BaseAttacks attacks)
+    public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
         stateChanger.CanRotateForwardToggle(false);
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.CurrentDetectionRadius, stateChanger.DetectionLayer);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.AttackRadius(), stateChanger.DetectionLayer());
 
         Transform bestTarget = null;
         float closestAngle = float.MaxValue;

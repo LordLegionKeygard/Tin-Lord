@@ -35,7 +35,7 @@ public class EnemyIdleState : EnemyState
 
     private BaseHealth FindNearestTargetInRange(EnemyStateChanger stateChanger)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.CurrentDetectionRadius, stateChanger.DetectionLayer);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.DetectionRadius(), stateChanger.DetectionLayer());
 
         BaseHealth nearestTarget = null;
         float nearestDistance = Mathf.Infinity;

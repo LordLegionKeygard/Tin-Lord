@@ -1274,10 +1274,10 @@ GameObject:
   - component: {fileID: 1539703436552722856}
   - component: {fileID: 1539703436552722857}
   - component: {fileID: 1539703436552722863}
-  - component: {fileID: 1096399938091357351}
+  - component: {fileID: 3142442439015776861}
   - component: {fileID: 1539703436552722861}
   - component: {fileID: 1539703436552722859}
-  - component: {fileID: 1539703436552722870}
+  - component: {fileID: 2502988496846022424}
   - component: {fileID: 4825103896725807852}
   - component: {fileID: 3202737524755143386}
   - component: {fileID: 5290578712437865080}
@@ -1454,14 +1454,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7453f589b79bb49acc854b122fdcb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 1
   CurrentAttackRecoveryTime: 0
-  CurrentDetectionRadius: 50
-  DetectionLayer:
+  _distanceToTarget: 0
+  _rotationSpeed: 1
+  _currentState: {fileID: 3478823766067254493}
+  _detectionRadius: 50
+  _detectionLayer:
     serializedVersion: 2
     m_Bits: 8
-  _distanceToTarget: 0
-  _currentState: {fileID: 3478823766067254493}
 --- !u!114 &1539703436552722857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1499,7 +1499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _runSpeed: 7
   _canMove: 1
---- !u!114 &1096399938091357351
+--- !u!114 &3142442439015776861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1508,11 +1508,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444144861235826408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9fd73f7311a44d46bed1bbf14c7e76c, type: 3}
+  m_Script: {fileID: 11500000, guid: fa43f09e48f75f1469f385adf2b4ac6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: 0
   _aiLevelInfo: {fileID: 11400000, guid: 50969a87dad4a9848934d8bb32581dbe, type: 2}
+  _level: 3
 --- !u!114 &1539703436552722861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,7 +1545,7 @@ MonoBehaviour:
   MaxKnockbackPoints: 100
   MinimumKnockbackPoints: 30
   CurrentKnockBackPoints: 0
---- !u!114 &1539703436552722870
+--- !u!114 &2502988496846022424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1554,10 +1554,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444144861235826408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 939cb8b529e39d641976b27aeec98230, type: 3}
+  m_Script: {fileID: 11500000, guid: fdc79d534b197594abeec2eab06a5eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockBackType: 0
 --- !u!114 &4825103896725807852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1585,8 +1584,6 @@ MonoBehaviour:
   _attacks:
   - {fileID: 11400000, guid: a065882c28e160f49859f1d0635644fe, type: 2}
   - {fileID: 11400000, guid: af27a580f552b5d4e885130ad1952fd9, type: 2}
-  _attackOneByOne: 0
-  _currentAttackIndex: 0
 --- !u!114 &5290578712437865080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3151,7 +3148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pursueTargetState: {fileID: 3478823766269654390}
   _aiDestinationSetter: {fileID: 1539703436552722862}
-  _creatureDamage: {fileID: 1539703436552722870}
+  _creatureDamage: {fileID: 2502988496846022424}
   _creatureReachedDistance: {fileID: 4825103896725807852}
 --- !u!1 &3478823766269654377
 GameObject:

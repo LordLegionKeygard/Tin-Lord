@@ -45,10 +45,10 @@ public class BuildingHealth : BaseHealth
         UpdateSlider();
     }
 
-    public override void CalculateDamage(float damage, KnockBackType knockBackType)
+    public override void CalculateDamage(float damage, int knockBackPoints)
     {
         if (IsDeath()) return;
-        TakeDamage(damage, knockBackType);
+        TakeDamage(damage, knockBackPoints);
     }
 
     public override void Death()

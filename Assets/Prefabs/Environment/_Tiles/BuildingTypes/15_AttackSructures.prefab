@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateObject: {fileID: 4539514839331439214}
   _patrolRotationSpeed: 10
-  _creatureDamage: {fileID: 6283254879660301524}
+  _creatureDamage: {fileID: 3740979349390679736}
   _turretCombatState: {fileID: 4431824854880737592}
 --- !u!1 &1232651814158428087
 GameObject:
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8635909e89acf8642b20e9fe2e72e537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turretBuilding: {fileID: 5334293581158750380}
   _patrolState: {fileID: 4358446773627071915}
   _attackState: {fileID: 603422474541398033}
 --- !u!1 &2104568305378516240
@@ -294,10 +295,10 @@ GameObject:
   - component: {fileID: 1142757386238991630}
   - component: {fileID: 1863192828658299591}
   - component: {fileID: 7717315173196263960}
-  - component: {fileID: 5347316351587120770}
-  - component: {fileID: 312583412940332613}
-  - component: {fileID: 6187635454573295292}
+  - component: {fileID: 8954863762164675321}
+  - component: {fileID: 3232266982051074051}
   - component: {fileID: 1761813661176019987}
+  - component: {fileID: 5334293581158750380}
   m_Layer: 0
   m_Name: Parent
   m_TagString: Untagged
@@ -469,14 +470,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621bdbf5c7b4b284cb507675884cffa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 0.4
   CurrentAttackRecoveryTime: 0
-  CurrentDetectionRadius: 40
-  DetectionLayer:
-    serializedVersion: 2
-    m_Bits: 64
   _distanceToTarget: 0
   _currentState: {fileID: 4358446773627071915}
+  _detectionLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &7717315173196263960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _takeDamageFX: []
---- !u!114 &5347316351587120770
+--- !u!114 &8954863762164675321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,12 +498,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2167219007506316241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9fd73f7311a44d46bed1bbf14c7e76c, type: 3}
+  m_Script: {fileID: 11500000, guid: bc33a4bd2dcf568409f998d508e36302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: 1
   _aiLevelInfo: {fileID: 11400000, guid: 50969a87dad4a9848934d8bb32581dbe, type: 2}
---- !u!114 &312583412940332613
+--- !u!114 &3232266982051074051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -513,26 +511,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2167219007506316241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 939cb8b529e39d641976b27aeec98230, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ecc53e8b86d4b64cbf179405e80bd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockBackType: 5
---- !u!114 &6187635454573295292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2167219007506316241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b463b024afd91284d9856dccb7fb80f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attacks:
-  - {fileID: 11400000, guid: c7b0e1c4c8a12ea4bac547573e80e61c, type: 2}
-  _attackOneByOne: 0
-  _currentAttackIndex: 0
+  _turretAttackState: {fileID: 603422474541398033}
 --- !u!114 &1761813661176019987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +529,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleSystems:
   - {fileID: 4916002977240493298}
+--- !u!114 &5334293581158750380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167219007506316241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8b313e14c18b74eab38c76b7e50fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _building: {fileID: 11400000, guid: b29b266bea933544e898fe0f31249b31, type: 2}
 --- !u!1 &2167219007506316247
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,10 +894,10 @@ GameObject:
   - component: {fileID: 7407167325332379787}
   - component: {fileID: 1520573745991691782}
   - component: {fileID: 1834881010794773566}
-  - component: {fileID: 5446552315125802478}
-  - component: {fileID: 6283254879660301524}
-  - component: {fileID: 5889455350139298478}
+  - component: {fileID: 1149308223778799761}
+  - component: {fileID: 3740979349390679736}
   - component: {fileID: 9085903817215815704}
+  - component: {fileID: 8719285422043222950}
   m_Layer: 0
   m_Name: Parent
   m_TagString: Untagged
@@ -1074,14 +1069,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621bdbf5c7b4b284cb507675884cffa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 0.2
   CurrentAttackRecoveryTime: 0
-  CurrentDetectionRadius: 50
-  DetectionLayer:
-    serializedVersion: 2
-    m_Bits: 64
   _distanceToTarget: 0
   _currentState: {fileID: 389025380287167617}
+  _detectionLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &1834881010794773566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,7 +1088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _takeDamageFX: []
---- !u!114 &5446552315125802478
+--- !u!114 &1149308223778799761
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1104,12 +1097,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3447151249939714858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9fd73f7311a44d46bed1bbf14c7e76c, type: 3}
+  m_Script: {fileID: 11500000, guid: bc33a4bd2dcf568409f998d508e36302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _level: 1
   _aiLevelInfo: {fileID: 11400000, guid: 50969a87dad4a9848934d8bb32581dbe, type: 2}
---- !u!114 &6283254879660301524
+--- !u!114 &3740979349390679736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1118,28 +1110,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3447151249939714858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 939cb8b529e39d641976b27aeec98230, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ecc53e8b86d4b64cbf179405e80bd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockBackType: 25
---- !u!114 &5889455350139298478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3447151249939714858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b463b024afd91284d9856dccb7fb80f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attacks:
-  - {fileID: 11400000, guid: 4f902efe85b71d64bbdee84115587016, type: 2}
-  - {fileID: 11400000, guid: 6a761c23893da43449f406562ea95038, type: 2}
-  - {fileID: 11400000, guid: 68d51fc3497498a40b9d389912fddebd, type: 2}
-  _attackOneByOne: 1
-  _currentAttackIndex: 0
+  _turretAttackState: {fileID: 3899606218221292193}
 --- !u!114 &9085903817215815704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1156,6 +1130,19 @@ MonoBehaviour:
   - {fileID: 1226497584280874864}
   - {fileID: 732213780085797774}
   - {fileID: 1205061172823238473}
+--- !u!114 &8719285422043222950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3447151249939714858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8b313e14c18b74eab38c76b7e50fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _building: {fileID: 11400000, guid: b2908d4b70fb693449a32f2238e62f9d, type: 2}
 --- !u!1 &3515545009342314748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,9 +1237,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505c241505f31d54694bd7eada98b8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attacksNumber: 3
+  _currentAttackIndex: 1
+  _currentAttack: 0
+  _attackOneByOne: 1
+  _turretBuilding: {fileID: 8719285422043222950}
   _patrolState: {fileID: 389025380287167617}
   _combatState: {fileID: 4431824854880737592}
-  _currentAttack: {fileID: 0}
 --- !u!1 &3794975432508224250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateObject: {fileID: 2167219007506409393}
   _patrolRotationSpeed: 10
-  _creatureDamage: {fileID: 312583412940332613}
+  _creatureDamage: {fileID: 3232266982051074051}
   _turretCombatState: {fileID: 1374911170967737018}
 --- !u!1 &5969335650833077541
 GameObject:
@@ -1588,6 +1579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8635909e89acf8642b20e9fe2e72e537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turretBuilding: {fileID: 8719285422043222950}
   _patrolState: {fileID: 389025380287167617}
   _attackState: {fileID: 3899606218221292193}
 --- !u!1 &6269207349863085508
@@ -1634,9 +1626,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505c241505f31d54694bd7eada98b8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attacksNumber: 1
+  _currentAttackIndex: 1
+  _currentAttack: 0
+  _attackOneByOne: 0
+  _turretBuilding: {fileID: 5334293581158750380}
   _patrolState: {fileID: 4358446773627071915}
   _combatState: {fileID: 1374911170967737018}
-  _currentAttack: {fileID: 0}
 --- !u!1 &6440023083273794084
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,5 +26,10 @@ MonoBehaviour:
     RecourcesForBuildAmount: 20
   ResourcesForWork: []
   ResourcesProduction: []
-  DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
+  DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
     type: 3}
+  Level: 2
+  AttackRadius: 60
+  RotationSpeed: 0.2
+  AttackRecoveryTime: 0.4
+  KnockbackPoints: 15

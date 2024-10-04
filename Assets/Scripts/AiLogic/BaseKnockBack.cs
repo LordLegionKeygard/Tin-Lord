@@ -13,9 +13,9 @@ public class BaseKnockBack : MonoBehaviour
 
     }
 
-    public void TakeKnockbackPoints(KnockBackType knockBackType)
+    public void TakeKnockbackPoints(int knockBackPoints)
     {
-        CurrentKnockBackPoints += (int)knockBackType;
+        CurrentKnockBackPoints += knockBackPoints;
         CheckKnockBack();
     }
 

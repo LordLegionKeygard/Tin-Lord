@@ -42,7 +42,7 @@ public class ConfigLoaderBuildings : ScriptableObject
                 break;
             }
 
-            if(_allBuildings[i] == null) continue;
+            if (_allBuildings[i] == null) continue;
 
             BuildingConfigs config = _configs[i];
             _allBuildings[i].Name = new[] { config.EnglishName, config.RussianName };
@@ -52,6 +52,25 @@ public class ConfigLoaderBuildings : ScriptableObject
             _allBuildings[i].ResourcesForWork = ParseResourcesForWork(config.ResourcesForWork);
             _allBuildings[i].ResourcesProduction = ParseExtractedResources(config.ExtractedResources, config.ResourceRecept);
             _allBuildings[i].BuildingHealth = config.BuildingHealth;
+
+            if (float.TryParse(config.RotationSpeed, NumberStyles.Float, CultureInfo.InvariantCulture, out float rotationSpeed))
+            {
+                _allBuildings[i].RotationSpeed = rotationSpeed;
+            }
+
+            if (float.TryParse(config.AttackRadius, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRadius))
+            {
+                _allBuildings[i].AttackRadius = attackRadius;
+            }
+
+            _allBuildings[i].Level = config.Level;
+            _allBuildings[i].KnockbackPoints = config.KnockbackPoints;
+
+            if (float.TryParse(config.AttackRecoveryTime, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRecoveryTime))
+            {
+                _allBuildings[i].AttackRecoveryTime = attackRecoveryTime;
+            }
+
 
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(_allBuildings[i]);
@@ -80,8 +99,8 @@ public class ConfigLoaderBuildings : ScriptableObject
                     var resourceCreate = new ResourcesProductionWrapper
                     {
                         ProductionResource = _allResources[resourceIndex],
-                        ResourceRecept = i < receptParts.Length 
-                            ? ParseResourceRecept(receptParts[i]) 
+                        ResourceRecept = i < receptParts.Length
+                            ? ParseResourceRecept(receptParts[i])
                             : new ResourceRecept[0]
                     };
 
@@ -235,4 +254,11 @@ public class BuildingConfigs
     public string ResourceRecept;
     public string ExtractedResources;
     public float BuildingHealth;
+
+    //Turrets
+    public string RotationSpeed;
+    public string AttackRadius;
+    public int Level;
+    public int KnockbackPoints;
+    public string AttackRecoveryTime;
 }

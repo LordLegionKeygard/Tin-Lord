@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class EnemyStateChanger : BaseAiStateChanger
 {
+    [SerializeField] private float _rotationSpeed = 1;
     [SerializeField] private EnemyState _currentState;
     private BaseHealth _baseHealth;
     private EnemyAttacks _enemyAttacks;
+
+    [Header("Detection")]
+    [SerializeField] private float _detectionRadius = 50;
+    public float DetectionRadius() => _detectionRadius;
+    [SerializeField] private LayerMask _detectionLayer;
+    public LayerMask DetectionLayer() => _detectionLayer;
 
     public override void Awake()
     {
@@ -16,7 +23,19 @@ public class EnemyStateChanger : BaseAiStateChanger
     public override void Update()
     {
         if (_baseHealth.IsDeath()) return;
-        base.Update();
+
+        HandleAttackRecoveryTime();
+
+        if (IsCanRotate() && AiDestinationSetter.CurrentTarget != null)
+        {
+            var t = AiDestinationSetter.CurrentTarget.transform.position;
+
+            var targetDirection = new Vector3(t.x, transform.position.y, t.z) - transform.position;
+
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 3 * Time.deltaTime * _rotationSpeed, 0);
+
+            transform.rotation = Quaternion.LookRotation(newDirection);
+        }
     }
 
     public override void HandleStateMachine()

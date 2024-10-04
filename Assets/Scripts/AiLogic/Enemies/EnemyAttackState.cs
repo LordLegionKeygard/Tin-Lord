@@ -3,8 +3,8 @@ using UnityEngine;
 public class EnemyAttackState : EnemyState
 {
     [SerializeField] private EnemyCombatState _combatState;
-    [SerializeField] private AttackInfo _currentAttack;
-    private AttackInfo _attackInfo;
+    [SerializeField] private EnemyAttackInfo _currentAttack;
+    private EnemyAttackInfo _attackInfo;
 
     public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks)
     {
@@ -69,14 +69,14 @@ public class EnemyAttackState : EnemyState
         return new Vector3(targetPos.x, transform.position.y, targetPos.z) - transform.position;
     }
 
-    private bool IsTargetWithinAttackRange(EnemyStateChanger stateChanger, AttackInfo attack, float bonusDistance)
+    private bool IsTargetWithinAttackRange(EnemyStateChanger stateChanger, EnemyAttackInfo attack, float bonusDistance)
     {
         float distanceToTarget = stateChanger.DistanceToTarget();
         return distanceToTarget >= attack.MinimumDistanceNeededToAttack
                && distanceToTarget <= attack.MaximumDistanceNeededToAttack + bonusDistance;
     }
 
-    private bool IsTargetInAttackAngle(float viewableAngle, AttackInfo attack)
+    private bool IsTargetInAttackAngle(float viewableAngle, EnemyAttackInfo attack)
     {
         return viewableAngle >= attack.MinimumAttackAngle && viewableAngle <= attack.MaximumAttackAngle;
     }
@@ -94,7 +94,7 @@ public class EnemyAttackState : EnemyState
         _currentAttack = null;
     }
 
-    private AttackInfo SelectNextAttack(EnemyAttacks attacks)
+    private EnemyAttackInfo SelectNextAttack(EnemyAttacks attacks)
     {
         int rnd = Random.Range(0, attacks.GetCreatureAttacks().Length);
         return attacks.GetCreatureAttacks()[rnd];

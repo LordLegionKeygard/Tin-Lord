@@ -3,7 +3,6 @@ using UnityEngine;
 public class BaseAiStateChanger : MonoBehaviour
 {
     [Header("A.I Settings")]
-    [SerializeField] private float _rotationSpeed = 1;
     [HideInInspector] public float CurrentAttackRecoveryTime;
     protected AIDestinationSetter AiDestinationSetter;
     protected BaseAnimator BaseAnimator;
@@ -12,10 +11,7 @@ public class BaseAiStateChanger : MonoBehaviour
     private bool _isCanAttack = true;
     public bool CanAttack() => _isCanAttack;
     private bool _isCanRotate;
-
-    [Header("Detection")]
-    public float CurrentDetectionRadius = 50;
-    public LayerMask DetectionLayer;
+    public bool IsCanRotate() => _isCanRotate;
 
     [Header("Distance")]
     [SerializeField] private float _distanceToTarget;
@@ -29,18 +25,7 @@ public class BaseAiStateChanger : MonoBehaviour
 
     public virtual void Update()
     {
-        HandleAttackRecoveryTime();
-
-        if (_isCanRotate && AiDestinationSetter.CurrentTarget != null)
-        {
-            var t = AiDestinationSetter.CurrentTarget.transform.position;
-
-            var targetDirection = new Vector3(t.x, transform.position.y, t.z) - transform.position;
-
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 3 * Time.deltaTime * _rotationSpeed, 0);
-
-            transform.rotation = Quaternion.LookRotation(newDirection);
-        }
+        
     }
 
     public virtual void FixedUpdate()
@@ -62,7 +47,7 @@ public class BaseAiStateChanger : MonoBehaviour
 
     }
 
-    private void HandleAttackRecoveryTime()
+    public void HandleAttackRecoveryTime()
     {
         if (CurrentAttackRecoveryTime > 0) CurrentAttackRecoveryTime -= Time.deltaTime;
 

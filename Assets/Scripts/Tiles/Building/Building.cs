@@ -16,6 +16,13 @@ public class Building : ScriptableObject
 
     [Header("VFX")]
     public GameObject DestroyVFXPrefab;
+
+    [Header("Turret")]
+    public int Level;
+    public float AttackRadius;
+    public float RotationSpeed;
+    public float AttackRecoveryTime;
+    public int KnockbackPoints;
 }
 
 [System.Serializable]

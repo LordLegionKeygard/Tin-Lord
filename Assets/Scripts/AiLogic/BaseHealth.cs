@@ -15,13 +15,13 @@ public class BaseHealth : MonoBehaviour
 
     public virtual bool IsDeath() => _isDeath;
 
-    public virtual void CalculateDamage(float damage, KnockBackType knockBackType)
+    public virtual void CalculateDamage(float damage, int knockBackPoints)
     {
         if (IsDeath()) return;
-        TakeDamage(damage, knockBackType);
+        TakeDamage(damage, knockBackPoints);
     }
 
-    public virtual void TakeDamage(float damage, KnockBackType knockBackType)
+    public virtual void TakeDamage(float damage, int knockBackPoints)
     {
         CurrentHealth -= damage;
         UpdateSlider();
