@@ -30,7 +30,7 @@ public class BaseDamage : MonoBehaviour
 
     public virtual void Attack(int attackNumber)
     {
-        if (BaseAttackVFX != null) BaseAttackVFX.PlayeVFX(attackNumber);
+        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(attackNumber);
         if (CurrentTargetBaseHealth == null) return;
         CurrentTargetBaseHealth.CalculateDamage(Damage, 0);
     }

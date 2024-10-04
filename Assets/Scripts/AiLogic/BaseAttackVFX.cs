@@ -6,7 +6,7 @@ public class BaseAttackVFX : MonoBehaviour
 {
     [SerializeField] private ParticleSystem[] _particleSystems;
 
-    public void PlayeVFX(int number)
+    public void PlayVFX(int number)
     {
         _particleSystems[number].Play();
     }
