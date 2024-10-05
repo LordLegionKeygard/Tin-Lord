@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Zenject;
 using UnityEngine.UI;
+using System.Linq;
 
 public class BuildingItem : MonoBehaviour
 {
@@ -24,6 +23,7 @@ public class BuildingItem : MonoBehaviour
     private BuildsPanel _buildsPanel;
     private int _upgradeToLevel;
     private bool _isSelect;
+    private bool _resourcesEnough;
 
     private void Start()
     {
@@ -47,18 +47,18 @@ public class BuildingItem : MonoBehaviour
     {
         var building = _currentTile.Buildings[_upgradeToLevel - 1];
 
-        _nameText.text = building.Name[Language.LanguageNumber];
+        _nameText.text = _currentBuildingState == BuildingState.Repair ? Language.TextStatic[4] : building.Name[Language.LanguageNumber];
         _icon.sprite = building.BuildingSprite;
     }
 
     private void SetTextColor()
     {
-        var resourcesEnough = _playerResources.ResourcesForBuildEnough(_currentTile.Buildings[_upgradeToLevel - 1].ResourcesForBuild);
-        _button.enabled = resourcesEnough;
-        _nameText.color = !_isSelect ? Colors.LightGrey : resourcesEnough ? Color.white : Colors.WarningYellow;
+        _resourcesEnough = _playerResources.ResourcesForBuildEnough(GetResources());
+        _button.enabled = _resourcesEnough;
+        _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.LightGrey : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _isSelect ? Color.white : Colors.LightGrey;
         _backImage.color = _isSelect ? Color.white : Colors.LightGrey;
-        if (_isSelect) _buildingResourcesView.SetBuildingResourcesView(_currentTile.Buildings[_upgradeToLevel - 1]);
+        if (_isSelect) _buildingResourcesView.SetBuildingResourcesView(GetResources());
     }
 
     public void SelectToggleState(bool state)
@@ -67,32 +67,61 @@ public class BuildingItem : MonoBehaviour
         SetTextColor();
     }
 
-    public void SetView()
+    public void SetViewFromListener()
     {
         _buildsPanel.UnselectAllBuildings();
         SelectToggleState(true);
-        _buildingResourcesView.SetBuildingResourcesView(_currentTile.Buildings[_upgradeToLevel - 1]);
+        _buildingResourcesView.SetBuildingResourcesView(GetResources());
     }
 
     public void BuildOrUpgrade()
     {
         _buildingResourcesView.ResetCells();
-        _playerResources.UseResourcesFromBuilding(_currentTile.Buildings[_upgradeToLevel - 1].ResourcesForBuild);
+        _playerResources.UseResourcesForBuilding(GetResources());
+
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
                 if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase();
 
                 _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _upgradeToLevel, _currentTileObject); //спавним впервые здание на тайле определенного лвла
-                _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;
             case BuildingState.UpgradeBuilding:
-                _playerResources.AddResourcesFromDestroyBuilding(_currentTileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild); // возвращаем часть ресурсов за прошлое здание
+                _playerResources.AddResourcesAfterDestroyBuilding(_currentTileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild); // возвращаем часть ресурсов за прошлое здание
                 _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_upgradeToLevel, _currentTileObject); //улучшаем здание
-                _selectTilePanel.CloseBuildPanelAndRefreshInfo();
+                break;
+            case BuildingState.Repair:
+                _currentTileObject.BuildingHealth().Repair();
                 break;
         }
+
+        _selectTilePanel.CloseBuildPanelAndRefreshInfo();
     }
+
+    public ResourcesForBuildWrapper[] GetResources()
+    {
+        var building = _currentTile.Buildings[_upgradeToLevel - 1];
+
+        if (_currentBuildingState == BuildingState.Repair)
+        {
+            // Получаем здоровье здания
+            var buildingHealth = _currentTileObject.BuildingHealth();
+            float healthPercentage = (float)(buildingHealth.MaxHealth - buildingHealth.CurrentHealth) / buildingHealth.MaxHealth;
+
+            // Пропорционально рассчитываем ресурсы для ремонта
+            return building.ResourcesForBuild
+                .Select(resource => new ResourcesForBuildWrapper
+                {
+                    ResourcesForBuild = resource.ResourcesForBuild,
+                    RecourcesForBuildAmount = Mathf.CeilToInt(resource.RecourcesForBuildAmount * healthPercentage)
+                })
+                .ToArray();
+        }
+
+        // Возвращаем ресурсы для строительства
+        return building.ResourcesForBuild;
+    }
+
 
     private void OnDestroy()
     {
@@ -104,4 +133,5 @@ public enum BuildingState
 {
     FirstBuild = 0,
     UpgradeBuilding = 1,
+    Repair = 2,
 }

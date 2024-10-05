@@ -13,23 +13,23 @@ public class BuildingResourcesView : MonoBehaviour
     [SerializeField] private Image[] _icons;
     [SerializeField] private TextMeshProUGUI[] _amountText;
 
-    public void SetBuildingResourcesView(Building building)
+    public void SetBuildingResourcesView(ResourcesForBuildWrapper[] resources)
     {
         ResetCells();
 
-        for (int i = 0; i < building.ResourcesForBuild.Length; i++)
+        for (int i = 0; i < resources.Length; i++)
         {
             _resourceCells[i].SetActive(true);
-            _icons[i].sprite = _allResourceSprites[(int)building.ResourcesForBuild[i].ResourcesForBuild];
+            _icons[i].sprite = _allResourceSprites[(int)resources[i].ResourcesForBuild];
 
-            if (_playerResources.ResourceEnough(building.ResourcesForBuild[i].ResourcesForBuild, building.ResourcesForBuild[i].RecourcesForBuildAmount))
+            if (_playerResources.ResourceEnough(resources[i].ResourcesForBuild, resources[i].RecourcesForBuildAmount))
             {
-                _amountText[i].text = $"{building.ResourcesForBuild[i].RecourcesForBuildAmount}";
+                _amountText[i].text = $"{resources[i].RecourcesForBuildAmount}";
 
             }
             else
             {
-                _amountText[i].text = $"<color={Colors.HexColorYellow}>{building.ResourcesForBuild[i].RecourcesForBuildAmount}</color>";
+                _amountText[i].text = $"<color={Colors.HexColorWarningYellow}>{resources[i].RecourcesForBuildAmount}</color>";
             } 
         }
     }

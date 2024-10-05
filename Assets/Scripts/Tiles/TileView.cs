@@ -33,16 +33,18 @@ public class TileView : MonoBehaviour
         }
     }
 
-    public void PlayAnimation(TileAnimationsEnum tileAnimationsEnum)
+    public void PlayAnimation(TileAnimationsEnum tileAnimationsEnum, TweenCallback onComplete = null)
     {
         switch (tileAnimationsEnum)
         {
             case TileAnimationsEnum.Spawn:
                 transform.localScale = Vector3.one * 0.6f;
-                transform.DOScale(1f, 0.2f).SetEase(Ease.InOutSine).SetUpdate(true);
+                transform.DOScale(1f, 0.2f).SetEase(Ease.InOutSine).SetUpdate(true)
+                    .OnComplete(onComplete);
                 break;
             case TileAnimationsEnum.Destroy:
-                transform.DOScale(0, 0.2f).SetEase(Ease.InOutSine).SetUpdate(true);
+                transform.DOScale(0, 0.2f).SetEase(Ease.InOutSine).SetUpdate(true)
+                    .OnComplete(onComplete);
                 break;
         }
     }

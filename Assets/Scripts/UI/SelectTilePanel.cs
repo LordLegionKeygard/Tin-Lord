@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class SelectTilePanel : MonoBehaviour
 {
@@ -56,7 +55,6 @@ public class SelectTilePanel : MonoBehaviour
     public void RefreshShowInfo(int tileId)
     {
         if (_tileObject == null || _tileObject.GetId() != tileId) return;
-        // Debug.Log("RefreshShowInfo - CheckCount");
         SetInfo(_tileObject);
     }
 
@@ -134,7 +132,7 @@ public class SelectTilePanel : MonoBehaviour
         _buildingLevelText.text = haveBuildingTile ? $"{Language.TextStatic[3]}: {tileObject.BuildingTileObject().CurrentBuildingLevel()}" : $"{Language.TextStatic[3]}: -";
 
         _productionModifierText.text = haveBuildingTile && buildingTile.IsHaveProdictionResources()
-     ? $"{Language.TextStatic[11]}: <color={(tileObject.CurrentModifier() == 0 ? Colors.HexColorYellow : Colors.HexColorWhite)}>x{tileObject.CurrentModifier()}</color>"
+     ? $"{Language.TextStatic[11]}: <color={(tileObject.CurrentModifier() == 0 ? Colors.HexColorWarningYellow : Colors.HexColorWhite)}>x{tileObject.CurrentModifier()}</color>"
      : $"{Language.TextStatic[11]}: -";
     }
 
@@ -159,10 +157,8 @@ public class SelectTilePanel : MonoBehaviour
                     : "0";
             }
 
-            // Определяем цвет текста в зависимости от значения производства ресурсов
-            var productionColor = (productionAmount == "0") ? Colors.HexColorYellow : Colors.HexColorWhite;
+            var productionColor = (productionAmount == "0") ? Colors.HexColorWarningYellow : Colors.HexColorWhite;
 
-            // Формируем итоговую строку с цветовым форматированием
             var productionText = $"{Language.TextStatic[6]}: <color={productionColor}>{productionName}{productionAmount}</color>";
 
             _productionResourceText.text = productionText;
@@ -184,7 +180,7 @@ public class SelectTilePanel : MonoBehaviour
         }
         else
         {
-            textColor = Colors.HexColorYellow;
+            textColor = Colors.HexColorWarningYellow;
         }
 
         _requiredResources.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && buildingTile.IsHaveProdictionResources() && tileObject.CurrentResourceRequired() != null ? $"{tileObject.CurrentResourceRequired().Name[Language.LanguageNumber]} {tileObject.CurrentResourceRequiredAmount()}" : "-")}</color>";
@@ -233,12 +229,13 @@ public class SelectTilePanel : MonoBehaviour
         var isHaveProdictionResources = currentBuildingTile?.IsHaveProdictionResources() ?? false;
         var isCanUpgrade = tileObject.BuildingTileObject().IsCanUpgrade();
         var isLastRiverTile = tileObject.GroundTileObject().GetLastRiverTile();
+        var isCanRepair = !tileObject.BuildingHealth().IsFullHealth();
 
         var haveRotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>() != null;
         var haveRotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() != null : false;
 
         var onOffButtonState = haveBuildingTile && isHaveProdictionResources;
-        var buildButtonState = (!haveBuildingTile || isCanUpgrade) && !isRoad && (!isWater || tileObject.GroundTileObject().IsBridge());
+        var buildButtonState = (!haveBuildingTile || isCanUpgrade || isCanRepair) && !isRoad && (!isWater || tileObject.GroundTileObject().IsBridge());
         var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
         var destroyButtonState = haveBuildingTile || (!isRoad && !isBase && (!isWater || isLastRiverTile));
 

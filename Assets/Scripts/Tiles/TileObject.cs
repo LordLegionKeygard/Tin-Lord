@@ -12,6 +12,7 @@ public class TileObject : MonoBehaviour
     private BuildingTile _buildingTile;
     private TileEcology _tileEcology;
     private BuildingProductionView _buildingProductionView;
+    private BuildingHealth _buildingHealth;
     private int _id;
     private float _currentModifier;
     private Resource _currentResourceProduction;
@@ -24,6 +25,7 @@ public class TileObject : MonoBehaviour
     public bool IsBuildingDestroyedNow() => _isBuildingDestroyedNow;
     public GroundTile GroundTileObject() => _groundTile;
     public BuildingTile BuildingTileObject() => _buildingTile;
+    public BuildingHealth BuildingHealth() => _buildingHealth;
     public TileEcology TileEcology() => _tileEcology;
     public int CurrentTileId() => _id;
     public int GetId() => _id;
@@ -40,6 +42,7 @@ public class TileObject : MonoBehaviour
         _groundTile = GetComponent<GroundTile>();
         _buildingTile = GetComponent<BuildingTile>();
         _tileEcology = GetComponent<TileEcology>();
+        _buildingHealth = GetComponent<BuildingHealth>();
     }
     public bool IsHaveRequiredResource()
     {

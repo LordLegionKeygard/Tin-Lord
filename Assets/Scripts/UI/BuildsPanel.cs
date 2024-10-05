@@ -24,13 +24,18 @@ public class BuildsPanel : MonoBehaviour
 
         for (int i = 0; i < length.Length; i++)
         {
-            var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
-            item.transform.SetParent(_content);
-
-            var buildingItem = item.GetComponent<BuildingItem>();
-            buildingItem.SetBuildingInfo(tileObject, selectTilePanel, i + 1, tile, BuildingState.FirstBuild, _buildingResourcesView, this);
-            _buildingsList.Add(buildingItem);
+            Spawn(tileObject, selectTilePanel, i + 1, tile, BuildingState.FirstBuild);
         }
+    }
+
+    private void Spawn(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile, BuildingState buildingState)
+    {
+        var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
+        item.transform.SetParent(_content);
+
+        var buildingItem = item.GetComponent<BuildingItem>();
+        buildingItem.SetBuildingInfo(tileObject, selectTilePanel, level, tile, buildingState, _buildingResourcesView, this);
+        _buildingsList.Add(buildingItem);
     }
 
     public void SpawnUpgradeItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //оставшиеся здания в типе
@@ -42,16 +47,17 @@ public class BuildsPanel : MonoBehaviour
         var length = tile.Buildings;
         _scrollRect.horizontal = length.Length > 3;
         _scrollRect.horizontalNormalizedPosition = 0f;
+        var isFullHealth = tileObject.BuildingHealth().IsFullHealth();
         var level = tileObject.BuildingTileObject().CurrentBuildingLevel();
+
+        if(!isFullHealth)
+        {
+            Spawn(tileObject, selectTilePanel, level, tile, BuildingState.Repair);
+        }
 
         for (int i = level; i < length.Length; i++)
         {
-            var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
-            item.transform.SetParent(_content);
-
-            var buildingItem = item.GetComponent<BuildingItem>();
-            buildingItem.SetBuildingInfo(tileObject, selectTilePanel, i + 1, tile, BuildingState.UpgradeBuilding, _buildingResourcesView, this);
-            _buildingsList.Add(buildingItem);
+            Spawn(tileObject, selectTilePanel, i + 1, tile, BuildingState.UpgradeBuilding);
         }
     }
 

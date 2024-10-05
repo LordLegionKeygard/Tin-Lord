@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class Colors : MonoBehaviour
@@ -9,11 +6,12 @@ public class Colors : MonoBehaviour
     public static readonly Color AlphaGrey = new Color(0.5f, 0.5f, 0.5f, 0.5f);
     public static readonly Color StandartGrey = new Color(0.5f, 0.5f, 0.5f, 1);
     public static readonly Color WarningYellow = new Color(1, 0.7f, 0, 1);
+     public static readonly Color FadedYellow = new Color(0.8f, 0.55f, 0, 1);
     public static readonly Color TextGrey = new Color(0.7f, 0.7f, 0.7f, 1);
     public static readonly Color LightGrey = new Color(0.8f, 0.8f, 0.8f, 1);
 
     public static string HexColorWhite = "#FFFFFF";
-    public static string HexColorYellow = "#FFA800";
+    public static string HexColorWarningYellow = "#FFA800";
 
     public Color[] SelectTileView;
 

@@ -52,7 +52,7 @@ public class BuildingTile : MonoBehaviour
 
    public void DestroyBuildingTile(bool isDeath)
    {
-      if(!isDeath) _playerResources.AddResourcesFromDestroyBuilding(CurrentBuilding().ResourcesForBuild);
+      if(!isDeath) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild);
       _buildingHealth.DestroyHealthSlider();
       _currentTile = null;
       _tileObject.ClearBuildingInfo();

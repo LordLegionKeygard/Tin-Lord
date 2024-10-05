@@ -29,7 +29,7 @@ public class PlayerResources : MonoBehaviour
         }
     }
 
-    public void UseResourcesFromBuilding(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
+    public void UseResourcesForBuilding(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
     {
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
@@ -38,7 +38,7 @@ public class PlayerResources : MonoBehaviour
         UpdateAllTexts();
     }
 
-    public void AddResourcesFromDestroyBuilding(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
+    public void AddResourcesAfterDestroyBuilding(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
     {
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {

@@ -19,8 +19,6 @@ public class GroundTile : MonoBehaviour
     private TileRiver _tileRiver;
     private TileRoad _tileRoad;
 
-    private IEnumerator _destroyCoroutine;
-
 
     //LastRiverTile
     public TileRiver CurrentTileRiver() => _tileRiver;
@@ -61,7 +59,7 @@ public class GroundTile : MonoBehaviour
     public void TurnOffTileCollider() => _tileView.TurnOffCollider();
     public void SetId(int id) => _tileObject.SetId(id);
     private int _riverNumber = 0;
-    
+
 
 
     private void Awake()
@@ -101,18 +99,12 @@ public class GroundTile : MonoBehaviour
         }
         else
         {
-            _tileView.PlayAnimation(TileAnimationsEnum.Destroy);
-
-            if(_destroyCoroutine!= null) StopCoroutine(_destroyCoroutine);
-            _destroyCoroutine = DestroyCoroutine();
-            StartCoroutine(_destroyCoroutine);
+            _tileView.PlayAnimation(TileAnimationsEnum.Destroy, () =>
+            {
+                Destroy(_currentGroundTileObject);
+                transform.localScale = Vector3.one * 1;
+            });
         }
-    }
-
-    private IEnumerator DestroyCoroutine()
-    {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(_currentGroundTileObject);
     }
 
     public void TurnOffFourTileNeighboursCollider()

@@ -12,6 +12,7 @@ public class BuildingHealth : BaseHealth
     private TileObject _tileObject;
     public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
+    public bool IsFullHealth() => CurrentHealth == MaxHealth;
 
     public override bool IsDeath()
     {
@@ -23,6 +24,12 @@ public class BuildingHealth : BaseHealth
     {
         _buildingTile = GetComponent<BuildingTile>();
         _tileObject = GetComponent<TileObject>();
+    }
+
+    public void Repair()
+    {
+        CurrentHealth = MaxHealth;
+        UpdateSlider();
     }
 
     private void CreateHealthBar()
