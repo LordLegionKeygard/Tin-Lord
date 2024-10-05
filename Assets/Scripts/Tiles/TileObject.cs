@@ -20,7 +20,8 @@ public class TileObject : MonoBehaviour
     private float _currentResourceRequiredAmount;
     public bool IsBuildingWork;
     private bool _isHaveResourceRequired = true;
-
+    private bool _isBuildingDestroyedNow;
+    public bool IsBuildingDestroyedNow() => _isBuildingDestroyedNow;
     public GroundTile GroundTileObject() => _groundTile;
     public BuildingTile BuildingTileObject() => _buildingTile;
     public TileEcology TileEcology() => _tileEcology;
@@ -32,6 +33,7 @@ public class TileObject : MonoBehaviour
     public float CurrentResourceRequiredAmount() => _currentResourceRequiredAmount;
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
+    public void ToggleIsBuildingDestroyedNow(bool state) => _isBuildingDestroyedNow = state;
 
     private void Awake()
     {

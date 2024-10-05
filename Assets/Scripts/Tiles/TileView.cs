@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TileView : MonoBehaviour
 {
     private BoxCollider _boxCollider;
-    private Animator _animator;
     [SerializeField] private MeshRenderer _mesh;
     [SerializeField] private GameObject _selectView;
     [SerializeField] private Material _fourTileMaterial;
@@ -13,7 +13,6 @@ public class TileView : MonoBehaviour
     private void Awake()
     {
         _boxCollider = GetComponent<BoxCollider>();
-        _animator = GetComponent<Animator>();
     }
 
     public void SetTileView(Transform groundTransform, Tile tile)
@@ -34,9 +33,18 @@ public class TileView : MonoBehaviour
         }
     }
 
-    public void PlayAnimation(int animation)
+    public void PlayAnimation(TileAnimationsEnum tileAnimationsEnum)
     {
-        _animator.SetTrigger(animation);
+        switch (tileAnimationsEnum)
+        {
+            case TileAnimationsEnum.Spawn:
+                transform.localScale = Vector3.one * 0.6f;
+                transform.DOScale(1f, 0.2f).SetEase(Ease.InOutSine).SetUpdate(true);
+                break;
+            case TileAnimationsEnum.Destroy:
+                transform.DOScale(0, 0.2f).SetEase(Ease.InOutSine).SetUpdate(true);
+                break;
+        }
     }
 
 
@@ -47,4 +55,11 @@ public class TileView : MonoBehaviour
     }
 
     public void TurnOffCollider() => _boxCollider.enabled = false;
+}
+
+[System.Serializable]
+public enum TileAnimationsEnum
+{
+    Spawn = 0,
+    Destroy = 1,
 }

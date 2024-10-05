@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 3232266982051074051}
   - component: {fileID: 1761813661176019987}
   - component: {fileID: 5334293581158750380}
+  - component: {fileID: 7739262858332815}
   m_Layer: 0
   m_Name: Delta_Parent
   m_TagString: Untagged
@@ -545,6 +546,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _building: {fileID: 11400000, guid: b29b266bea933544e898fe0f31249b31, type: 2}
+--- !u!114 &7739262858332815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167219007506316241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdfff63ad195cb469dd9fa5571ab55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingLevels: {fileID: 7759801266027362676}
 --- !u!1 &2167219007506316247
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +948,7 @@ GameObject:
   - component: {fileID: 3740979349390679736}
   - component: {fileID: 9085903817215815704}
   - component: {fileID: 8719285422043222950}
+  - component: {fileID: 5300526902608189367}
   m_Layer: 0
   m_Name: Indicator_Parent
   m_TagString: Untagged
@@ -1184,6 +1199,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _building: {fileID: 11400000, guid: b2908d4b70fb693449a32f2238e62f9d, type: 2}
+--- !u!114 &5300526902608189367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3447151249939714858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdfff63ad195cb469dd9fa5571ab55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingLevels: {fileID: 7759801266027362676}
 --- !u!1 &3515545009342314748
 GameObject:
   m_ObjectHideFlags: 0

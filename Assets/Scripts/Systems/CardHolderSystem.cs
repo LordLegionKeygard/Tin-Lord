@@ -115,7 +115,7 @@ public class CardHolderSystem : MonoBehaviour
             removeSequence.Join(cardRect.DOAnchorPosY(300, 0.5f).SetEase(Ease.InOutQuad)
                 .OnComplete(() =>
                 {
-                    cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+                    cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.Linear).SetUpdate(true).OnComplete(() =>
                     {
                         Destroy(cardToRemove.gameObject);
                     });

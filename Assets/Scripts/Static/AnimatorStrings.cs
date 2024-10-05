@@ -24,10 +24,6 @@ public class AnimatorStrings : MonoBehaviour
     public static readonly int Death = Animator.StringToHash("Death");
 
 
-    [Header("Tile")]
-    public static readonly int TileSpawn = Animator.StringToHash("TileSpawn");
-    public static readonly int TileDestroy = Animator.StringToHash("TileDestroy");
-
     public static readonly Dictionary<CharacterWorkType, int> WorkTriggers = new Dictionary<CharacterWorkType, int>
     {
         { CharacterWorkType.PickaxeMining, PickaxeMining },

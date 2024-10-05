@@ -17,7 +17,7 @@ public class TurretStateChanger : BaseAiStateChanger
     }
 
     public override void Update()
-    {
+    {       
         HandleAttackRecoveryTime();
 
         if (IsCanRotate() && AiDestinationSetter.CurrentTarget != null)

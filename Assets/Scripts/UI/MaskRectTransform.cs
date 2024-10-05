@@ -17,7 +17,7 @@ public class MaskRectTransform : MonoBehaviour
 
     private void Update()
     {
-        if (_targetRectTransform.sizeDelta != _previousSizeDelta)
+        if (Vector2.Distance(_targetRectTransform.sizeDelta, _previousSizeDelta) > 0.01f)
         {
             CopyRectTransformValues();
             SetSizeDelta();
@@ -30,9 +30,6 @@ public class MaskRectTransform : MonoBehaviour
         _currentRectTransform.anchorMax = _targetRectTransform.anchorMax;
         _currentRectTransform.pivot = _targetRectTransform.pivot;
         _currentRectTransform.sizeDelta = _targetRectTransform.sizeDelta;
-        _currentRectTransform.anchoredPosition = _targetRectTransform.anchoredPosition;
-        _currentRectTransform.localScale = _targetRectTransform.localScale;
-        _currentRectTransform.localRotation = _targetRectTransform.localRotation;
+        _currentRectTransform.anchoredPosition = Vector2.Lerp(_currentRectTransform.anchoredPosition, _targetRectTransform.anchoredPosition, 0.1f);
     }
-
 }

@@ -13,6 +13,12 @@ public class CustomEvents
         OnSpawnRoadComplete?.Invoke();
     }
 
+    public static event Action<int> OnBuildingDestroyedNow;
+    public static void FireBuildingDestroyedNow(int tileId)
+    {
+        OnBuildingDestroyedNow?.Invoke(tileId);
+    }
+
     public static event Action OnTimeTickAfterResourcesChanged;
     public static void FireTickAfterResourcesChanged()
     {

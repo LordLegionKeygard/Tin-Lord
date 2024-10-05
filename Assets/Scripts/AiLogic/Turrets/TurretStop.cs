@@ -1,0 +1,39 @@
+using Pathfinding;
+using UnityEngine;
+
+public class TurretStop : MonoBehaviour
+{
+    [SerializeField] private BuildingLevels _buildingLevels;
+    private AIPath _aIPath;
+    private AIDestinationSetter _aIDestinationSetter;
+    private TurretStateChanger _turretStateChanger;
+
+    private void Awake()
+    {
+        _aIPath = GetComponent<AIPath>();
+        _aIDestinationSetter = GetComponent<AIDestinationSetter>();
+        _turretStateChanger = GetComponent<TurretStateChanger>();
+
+        CustomEvents.OnBuildingDestroyedNow += CheckStopTurret;
+    }
+
+    private void CheckStopTurret(int id)
+    {
+        if (_buildingLevels.CurrentTileObject().GetId() == id)
+        {
+            StopTurretLogic();
+        }
+    }
+
+    public void StopTurretLogic()
+    {
+        _aIPath.enabled = false;
+        _aIDestinationSetter.enabled = false;
+        _turretStateChanger.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnBuildingDestroyedNow -= CheckStopTurret;
+    }
+}

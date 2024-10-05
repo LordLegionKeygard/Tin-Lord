@@ -35,7 +35,17 @@ public class CardObject : MonoBehaviour
 
     public void CardObjectViewToggle(bool state)
     {
+        if (_objectTransform == null) return;
+        
         if (state) _objectTransform.DOAnchorPosY(42, 0.3f).SetUpdate(true);
         else _objectTransform.DOAnchorPosY(0, 0.3f).SetUpdate(true);
+    }
+
+    private void OnDestroy()
+    {
+        if (_objectTransform != null)
+        {
+            _objectTransform.DOKill();
+        }
     }
 }

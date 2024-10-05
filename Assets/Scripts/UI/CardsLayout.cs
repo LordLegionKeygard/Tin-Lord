@@ -27,7 +27,7 @@ public class CardsLayout : MonoBehaviour
         cardRect.anchoredPosition = new Vector2(GetCardPosition(index), initialY);
 
         // Анимация появления карты
-        cardRect.DOAnchorPosY(targetY, 0.5f).SetEase(Ease.OutBounce);
+        cardRect.DOAnchorPosY(targetY, 0.5f).SetEase(Ease.OutBounce).SetUpdate(true);
     }
 
     public void RearrangeCards(List<CardObject> cards)
@@ -37,7 +37,7 @@ public class CardsLayout : MonoBehaviour
         {
             RectTransform cardRect = cards[i].GetComponent<RectTransform>();
             float targetX = GetCardPosition(i);
-            cardRect.DOAnchorPosX(targetX, 0.5f).SetEase(Ease.InOutQuad);
+            cardRect.DOAnchorPosX(targetX, 0.5f).SetEase(Ease.InOutQuad).SetUpdate(true);
         }
     }
 

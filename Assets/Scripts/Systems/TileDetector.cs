@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class TileDetector : MonoBehaviour
 {
@@ -14,6 +11,21 @@ public class TileDetector : MonoBehaviour
     [SerializeField] private BuildsPanel _buildsPanel;
     private Transform _lastRayCastTransform;
     private bool _canSetTile = false;
+
+    private void Awake()
+    {
+        CustomEvents.OnBuildingDestroyedNow += CheckCurrentTileObject;
+    }
+
+    private void CheckCurrentTileObject(int tileId)
+    {
+        if(_currentTileObject == null) return;
+        if (_currentTileObject.GetId() == tileId)
+        {
+            UnselectLastTile(true);
+            Clear();
+        }
+    }
 
     private void Update()
     {
@@ -78,7 +90,7 @@ public class TileDetector : MonoBehaviour
 
                 _currentTileObject.GroundTileObject().SetGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
                 _currentTileObject.GroundTileObject().SpawnGroundTile();
-                if (_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();                
+                if (_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();
                 Clear();
                 _cardHolderSystem.RemoveCurrentCard();
             }
@@ -184,6 +196,11 @@ public class TileDetector : MonoBehaviour
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
+        if (newTileObject.IsBuildingDestroyedNow())
+        {
+            return;
+        }
+
         UnselectLastTile(false);
         _buildsPanel.gameObject.SetActive(false);
 
@@ -256,5 +273,10 @@ public class TileDetector : MonoBehaviour
         }
 
         _currentTileObject = null;
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnBuildingDestroyedNow -= CheckCurrentTileObject;
     }
 }

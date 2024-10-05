@@ -101,7 +101,7 @@ public class GroundTile : MonoBehaviour
         }
         else
         {
-            _tileView.PlayAnimation(AnimatorStrings.TileDestroy);
+            _tileView.PlayAnimation(TileAnimationsEnum.Destroy);
 
             if(_destroyCoroutine!= null) StopCoroutine(_destroyCoroutine);
             _destroyCoroutine = DestroyCoroutine();
@@ -148,7 +148,7 @@ public class GroundTile : MonoBehaviour
         RefreshGroundTile();
         UpdateNeighbourGroundTiles();
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
-        _tileView.PlayAnimation(AnimatorStrings.TileSpawn);
+        _tileView.PlayAnimation(TileAnimationsEnum.Spawn);
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceProduction();
         _tileObject.SetResourceModifier();

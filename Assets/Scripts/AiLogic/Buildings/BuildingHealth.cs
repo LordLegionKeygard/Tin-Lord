@@ -9,6 +9,7 @@ public class BuildingHealth : BaseHealth
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private Transform _fourTileTransform;
     private BuildingTile _buildingTile;
+    private TileObject _tileObject;
     public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
 
@@ -21,6 +22,7 @@ public class BuildingHealth : BaseHealth
     private void Awake()
     {
         _buildingTile = GetComponent<BuildingTile>();
+        _tileObject = GetComponent<TileObject>();
     }
 
     private void CreateHealthBar()
@@ -60,6 +62,8 @@ public class BuildingHealth : BaseHealth
 
         base.Death();
         //тут логика для отключения всего
+        _tileObject.ToggleIsBuildingDestroyedNow(true);
+        CustomEvents.FireBuildingDestroyedNow(_tileObject.GetId());
         StartCoroutine(FadeAndDestroy());
     }
 
@@ -80,5 +84,6 @@ public class BuildingHealth : BaseHealth
         }
 
         _buildingTile.DestroyBuildingTile(IsDeath());
+        _tileObject.ToggleIsBuildingDestroyedNow(false);
     }
 }
