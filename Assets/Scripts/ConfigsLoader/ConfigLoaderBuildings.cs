@@ -63,7 +63,7 @@ public class ConfigLoaderBuildings : ScriptableObject
                 _allBuildings[i].AttackRadius = attackRadius;
             }
 
-            _allBuildings[i].Level = config.Level;
+            _allBuildings[i].Damage = config.Damage;
             _allBuildings[i].KnockbackPoints = config.KnockbackPoints;
 
             if (float.TryParse(config.AttackRecoveryTime, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRecoveryTime))
@@ -258,7 +258,7 @@ public class BuildingConfigs
     //Turrets
     public string RotationSpeed;
     public string AttackRadius;
-    public int Level;
+    public int Damage;
     public int KnockbackPoints;
     public string AttackRecoveryTime;
 }

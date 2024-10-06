@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawners:
   - DaySpawn: 1
-    MinCount: 20
-    MaxCount: 40
+    MinCount: 99
+    MaxCount: 100
     EnemiesSpawnerInfo:
     - EnemyPrefab: {fileID: 5297197506641602335, guid: b5f961f9c792dd34fb1aab6273d0b924,
         type: 3}

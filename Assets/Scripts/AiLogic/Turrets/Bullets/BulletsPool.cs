@@ -4,7 +4,7 @@ using UnityEngine;
 public class BulletsPool : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _bulletPrefabs; // Список всех префабов пуль
-    [SerializeField] private int _poolSize = 20;
+    [SerializeField] private int _poolSize = 40;
     private Dictionary<BulletEnum, Queue<GameObject>> _bulletPools;
 
     private void Start()
@@ -42,8 +42,8 @@ public class BulletsPool : MonoBehaviour
             }
             else
             {
-                // Если пул закончился, создаем новую пулю (по желанию)
-                GameObject bullet = Instantiate(_bulletPrefabs[(int)bulletType]);
+                // Если пул закончился
+                GameObject bullet = Instantiate(_bulletPrefabs[(int)bulletType], transform);
                 return bullet;
             }
         }

@@ -13,12 +13,12 @@ public class EnemyHealth : BaseHealth
     private EnemyKnockBack _creatureKnockBackController;
     private AIPath _aiPath;
     private CharacterController _characterController;
-    private BaseLevel _baseLevel;
+    private EnemyLevel _enemyLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
 
     private void Awake()
     {
-        _baseLevel = GetComponent<BaseLevel>();
+        _enemyLevel = GetComponent<EnemyLevel>();
         _creatureKnockBackController = GetComponent<EnemyKnockBack>();
         _characterController = GetComponent<CharacterController>();
         _takeDamageVFX = GetComponent<BaseTakeDamageVFX>();
@@ -52,7 +52,7 @@ public class EnemyHealth : BaseHealth
     private void SetStartStats()
     {
         _isDeath = false;
-        MaxHealth = _baseLevel.GetAiLevelInformation().Health[_baseLevel.GetLevel()];
+        MaxHealth = _enemyLevel.GetAiLevelInformation().Health[_enemyLevel.GetLevel()];
         CurrentHealth = MaxHealth;
         CreateHealthBar();
         UpdateSlider();

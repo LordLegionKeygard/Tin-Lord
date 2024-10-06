@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class BaseDamage : MonoBehaviour
 {
-    private BaseLevel _baseLevel;
+    
     protected BaseHealth CurrentTargetBaseHealth;
     protected BaseAttackVFX BaseAttackVFX;
     protected float Damage;
 
     public virtual void Awake()
     {
-        _baseLevel = GetComponent<BaseLevel>();
         BaseAttackVFX = GetComponent<BaseAttackVFX>();
     }
 
@@ -18,9 +17,9 @@ public class BaseDamage : MonoBehaviour
         SetDamage();
     }
 
-    private void SetDamage()
+    public virtual void SetDamage()
     {
-        Damage = _baseLevel.GetAiLevelInformation().PhysAttack[_baseLevel.GetLevel()];
+        
     }
 
     public void SetTargetHealth(BaseHealth baseHealth)

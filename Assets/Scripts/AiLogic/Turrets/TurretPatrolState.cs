@@ -10,6 +10,10 @@ public class TurretPatrolState : TurretState
     private Coroutine _patrolTimerCoroutine;
     private float _currentPatrolTimer;
 
+    [Header("Minigun")]
+    [SerializeField] private bool _isMinigun;
+    [SerializeField] private TurretGunRotation _turretGunRotation;
+
     private void Start()
     {
         var rnd = Random.Range(1, 10);
@@ -48,6 +52,10 @@ public class TurretPatrolState : TurretState
             aiDestinationSetter.CurrentTarget = bestTarget;
             _creatureDamage.SetTargetHealth(bestTarget.GetComponent<BaseHealth>());
             return _turretCombatState;
+        }
+        else
+        {
+            if (_isMinigun) _turretGunRotation.SetRotateToggle(false);
         }
 
         return this;

@@ -15,6 +15,11 @@ public class TurretDamage : BaseDamage
         _turretBuilding = GetComponent<TurretBuilding>();
     }
 
+    public override void SetDamage()
+    {
+        Damage = _turretBuilding.Building().Damage;
+    }
+
     public override void Attack(int attackNumber)
     {
         if (_turretAttackState.AttackOneByOne())

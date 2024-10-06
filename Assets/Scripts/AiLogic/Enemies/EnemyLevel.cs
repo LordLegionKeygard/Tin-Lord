@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLevel : BaseLevel
+public class EnemyLevel : MonoBehaviour
 {
+    [SerializeField] private AiLevelInformation _aiLevelInfo;
+    public AiLevelInformation GetAiLevelInformation() => _aiLevelInfo;
     [SerializeField] private int _level;
-    public override int GetLevel() => _level;
+    public int GetLevel() => _level;
 
     public void SetLevel(int spawnerLevel)
     {

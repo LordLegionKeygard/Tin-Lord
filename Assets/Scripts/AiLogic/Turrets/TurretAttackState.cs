@@ -11,6 +11,11 @@ public class TurretAttackState : TurretState
     private int _currentAttack;
     public bool AttackOneByOne() => _attackOneByOne;
 
+    [Header("Minigun")]
+    [SerializeField] private bool _isMinigun;
+    [SerializeField] private TurretDamage _turretDamage;
+    [SerializeField] private TurretGunRotation _turretGunRotation;
+
     public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
         if (aiDestinationSetter.CurrentTarget == null) return _combatState;
@@ -92,7 +97,16 @@ public class TurretAttackState : TurretState
 
     private void PerformAttack(TurretStateChanger stateChanger, BaseAnimator animator)
     {
-        animator.AttackAnim(_currentAttack);
+        if (_isMinigun)
+        {
+            _turretDamage.Attack(0);
+            _turretGunRotation.SetRotateToggle(true);
+        }
+        else
+        {
+            animator.AttackAnim(_currentAttack);
+        }
+
         stateChanger.AttackToggle(false);
         stateChanger.CurrentAttackRecoveryTime = _turretBuilding.Building().AttackRecoveryTime;
         _currentAttack = 0;

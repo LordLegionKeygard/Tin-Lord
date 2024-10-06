@@ -18,10 +18,10 @@ public class Building : ScriptableObject
     public GameObject DestroyVFXPrefab;
 
     [Header("Turret")]
-    public int Level;
+    public int Damage;
+    public float AttackRecoveryTime;
     public float AttackRadius;
     public float RotationSpeed;
-    public float AttackRecoveryTime;
     public int KnockbackPoints;
 }
 
