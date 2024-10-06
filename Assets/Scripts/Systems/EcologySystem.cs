@@ -50,6 +50,8 @@ public class EcologySystem : MonoBehaviour
     {
         _totalEcology = _ecologyTileInfoList.Sum(tile => tile.Amount);
 
+        CheckLimitEcology();
+
         _totalEcologyText.color = _totalEcology < 0 ? Colors.WarningYellow : Colors.TextGrey;
         _warningSign.SetActive(_totalEcology <= -50);
 
@@ -58,6 +60,12 @@ public class EcologySystem : MonoBehaviour
         _totalEcologyText.text = ecologyString;
 
         _setupRenderSettings.UpdateRenderSettings(_totalEcology);
+    }
+
+    private void CheckLimitEcology()
+    {
+        if(_totalEcology < -99) _totalEcology = -99;
+        else if (_totalEcology > 99) _totalEcology = 99;
     }
 
     private void OnDestroy()
