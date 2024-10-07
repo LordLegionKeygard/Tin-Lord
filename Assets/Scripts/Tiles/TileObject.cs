@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
@@ -8,6 +6,7 @@ public class TileObject : MonoBehaviour
 {
     [Inject] PlayerResources _playerResources;
     [Inject] SelectTilePanel _selectTilePanel;
+    [SerializeField] private TileObject[] _neighbourTiles;
     private GroundTile _groundTile;
     private BuildingTile _buildingTile;
     private TileEcology _tileEcology;
@@ -23,6 +22,7 @@ public class TileObject : MonoBehaviour
     private bool _isHaveResourceRequired = true;
     private bool _isBuildingDestroyedNow;
     public bool IsBuildingDestroyedNow() => _isBuildingDestroyedNow;
+    public void ToggleIsBuildingDestroyedNow(bool state) => _isBuildingDestroyedNow = state;
     public GroundTile GroundTileObject() => _groundTile;
     public BuildingTile BuildingTileObject() => _buildingTile;
     public BuildingHealth BuildingHealth() => _buildingHealth;
@@ -35,7 +35,12 @@ public class TileObject : MonoBehaviour
     public float CurrentResourceRequiredAmount() => _currentResourceRequiredAmount;
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
-    public void ToggleIsBuildingDestroyedNow(bool state) => _isBuildingDestroyedNow = state;
+
+    //Neighbours
+    public GroundTile GetNeighbourGroundTile(int number) => _neighbourTiles[number].GroundTileObject();
+    public GroundTile[] GetNeighbourGroundTilesArray() => _neighbourTiles.Select(tile => tile.GroundTileObject()).ToArray();
+    public BuildingTile GetNeighbourBuildingTile(int number) => _neighbourTiles[number].BuildingTileObject();
+    public BuildingTile[] GetNeighbourBuildingTilesArray() => _neighbourTiles.Select(tile => tile.BuildingTileObject()).ToArray();
 
     private void Awake()
     {
@@ -77,6 +82,15 @@ public class TileObject : MonoBehaviour
         _currentModifier = CalculateCurrentModifier();
         _buildingProductionView.RefreshModifierView();
         ChangeResourceProduction();
+    }
+
+    public void SetNeighbourTiles(TileObject[] array)
+    {
+        for (int i = 0; i < _neighbourTiles.Length; i++)
+        {
+            if (array[i] == null) continue;
+            _neighbourTiles[i] = array[i];
+        }
     }
 
     private float CalculateCurrentModifier()

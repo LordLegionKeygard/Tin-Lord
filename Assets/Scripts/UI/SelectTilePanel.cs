@@ -224,6 +224,7 @@ public class SelectTilePanel : MonoBehaviour
         var currentGroundTile = tileObject.GroundTileObject().CurrentGroundTile();
         var currentBuildingTile = haveBuildingTile ? tileObject.BuildingTileObject().CurrentBuildingTile() : null;
         var isRoad = currentGroundTile.GroundTileView == GroundTileViewEnum.Road;
+        var isForwardRoad = tileObject.GroundTileObject().IsForwardRoad();
         var isBase = currentGroundTile.GroundTileView == GroundTileViewEnum.BaseFoundation;
         var isWater = currentGroundTile.IsWater;
         var isHaveProdictionResources = currentBuildingTile?.IsHaveProdictionResources() ?? false;
@@ -235,7 +236,7 @@ public class SelectTilePanel : MonoBehaviour
         var haveRotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() != null : false;
 
         var onOffButtonState = haveBuildingTile && isHaveProdictionResources;
-        var buildButtonState = (!haveBuildingTile || isCanUpgrade || isCanRepair) && !isRoad && (!isWater || tileObject.GroundTileObject().IsBridge());
+        var buildButtonState = isRoad ? (!haveBuildingTile || isCanUpgrade || isCanRepair) && isForwardRoad : (!haveBuildingTile || isCanUpgrade || isCanRepair) && !isRoad && (!isWater || tileObject.GroundTileObject().IsBridge());
         var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
         var destroyButtonState = haveBuildingTile || (!isRoad && !isBase && (!isWater || isLastRiverTile));
 

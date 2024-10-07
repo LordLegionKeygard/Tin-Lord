@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class SetTileNeighbours : MonoBehaviour
 {
-    public List<GroundTile> GroundTiles;
+    public List<TileObject> TileObjects;
 
     public void SetNeighbours()
     {
-        for (int i = 0; i < GroundTiles.Count; i++)
+        for (int i = 0; i < TileObjects.Count; i++)
         {
-            GroundTiles[i].SetNeighbourTiles(new GroundTile[] {(i + 20 > GroundTiles.Count - 1) ? null : GroundTiles[i + 20],
-                                                            (i + 21 > GroundTiles.Count - 1) ? null : GroundTiles[i].transform.position.x == 190 ? null : GroundTiles[i + 21],
-                                                            (i + 1 > GroundTiles.Count - 1) ? null : GroundTiles[i].transform.position.x == 190 ? null : GroundTiles[i + 1],
-                                                            (i - 19 < 0) ? null : GroundTiles[i].transform.position.x == 190 ? null : GroundTiles[i - 19],
-                                                            (i - 20 < 0) ? null : GroundTiles[i - 20],
-                                                            (i - 21 < 0) ? null : GroundTiles[i].transform.position.x == 0 ? null : GroundTiles[i - 21],
-                                                            (i - 1 < 0) ? null : GroundTiles[i].transform.position.x == 0 ? null : GroundTiles[i - 1],
-                                                            (i + 19 > GroundTiles.Count - 1) ? null : GroundTiles[i].transform.position.x == 0 ? null : GroundTiles[i + 19],  });
+            TileObjects[i].SetNeighbourTiles(new TileObject[] {(i + 20 > TileObjects.Count - 1) ? null : TileObjects[i + 20],
+                                                            (i + 21 > TileObjects.Count - 1) ? null : TileObjects[i].transform.position.x == 190 ? null : TileObjects[i + 21],
+                                                            (i + 1 > TileObjects.Count - 1) ? null : TileObjects[i].transform.position.x == 190 ? null : TileObjects[i + 1],
+                                                            (i - 19 < 0) ? null : TileObjects[i].transform.position.x == 190 ? null : TileObjects[i - 19],
+                                                            (i - 20 < 0) ? null : TileObjects[i - 20],
+                                                            (i - 21 < 0) ? null : TileObjects[i].transform.position.x == 0 ? null : TileObjects[i - 21],
+                                                            (i - 1 < 0) ? null : TileObjects[i].transform.position.x == 0 ? null : TileObjects[i - 1],
+                                                            (i + 19 > TileObjects.Count - 1) ? null : TileObjects[i].transform.position.x == 0 ? null : TileObjects[i + 19],  });
         }
     }
 }

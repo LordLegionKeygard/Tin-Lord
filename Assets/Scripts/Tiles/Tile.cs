@@ -18,6 +18,7 @@ public class Tile : ScriptableObject
     public bool IsWater;
     public bool IsFourTile;
     public bool IsTurret;
+    public bool IsProtective;
     public Tile[] BuildingTypes;
     public ProductionOnGroundResources[] ProductionOnGroundResources;
 
@@ -92,7 +93,8 @@ public enum BuildingTileViewEnum
     ConcreteProduction = 12,
     SteamProduction = 13,
     ComponentsProduction = 14,
-    AttackSructures = 15,
+    AttackingStructures = 15,
+    PretectiveStructures = 16,
 }
 
 public enum TileDirectionEnum

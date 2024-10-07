@@ -36,7 +36,7 @@ public class MapBuilder : MonoBehaviour
             {
                 var newObject = _diContainer.InstantiatePrefab(_tile, new Vector3(k * 10, 10.8f, i * 10), Quaternion.identity, null);
                 _tileObjects[i, k] = newObject;
-                _setTileNeighbours.GroundTiles.Add(_tileObjects[i, k].GetComponent<GroundTile>());
+                _setTileNeighbours.TileObjects.Add(_tileObjects[i, k].GetComponent<TileObject>());
                 newObject.transform.SetParent(_parentTransform);
             }
         }

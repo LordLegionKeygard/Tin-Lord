@@ -7,9 +7,9 @@ public class SetTilesId : MonoBehaviour
     [SerializeField] private SetTileNeighbours _setTileNeighbours;
     public void SetId()
     {
-        for (int i = 0; i < _setTileNeighbours.GroundTiles.Count; i++)
+        for (int i = 0; i < _setTileNeighbours.TileObjects.Count; i++)
         {
-            _setTileNeighbours.GroundTiles[i].SetId(i);
+            _setTileNeighbours.TileObjects[i].SetId(i);
         }
     }
 }

@@ -67,9 +67,9 @@ public class TileDetector : MonoBehaviour
         {
             if (_canSetTile && !IsPointerOverUISystem.IsPointerOverUI)
             {
-                if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
+                if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River)
                 {
-                    if (!CanSetRiver()) return;
+                    if (!CanSetRiver() || _currentTileObject.BuildingTileObject().HaveTile()) return;
                     if (_currentTileObject.GroundTileObject().HaveTile() && !_tileSystem.IsHaveRiver) return;
                     if (_currentTileObject.GroundTileObject().HaveTile())
                     {
@@ -114,7 +114,7 @@ public class TileDetector : MonoBehaviour
         var newTileObject = gameObject.GetComponent<TileObject>();
         UnselectLastTile(true);
 
-        if (newTileObject.GroundTileObject().HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
+        if (newTileObject.GroundTileObject().HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River)
         {
             _currentTileObject = newTileObject;
             if (!newTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Road) || !_tileSystem.IsHaveRiver)
@@ -124,7 +124,7 @@ public class TileDetector : MonoBehaviour
             }
             else //если это дорога и есть река
             {
-                if (_currentTileObject.GroundTileObject().IsForwardRoad())
+                if (_currentTileObject.GroundTileObject().IsForwardRoad() && !_currentTileObject.BuildingTileObject().HaveTile())
                 {
                     for (int i = 0; i < 8; i++)
                     {

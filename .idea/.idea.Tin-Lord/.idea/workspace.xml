@@ -6,26 +6,53 @@
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Character/Building/Building_CharacterAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Character/Building/Building_CharacterAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/Resources/Concrete_OffsetMove.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/Resources/Concrete_OffsetMove.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/12_ConcreteProduction/2_ConcreteProduction_Automixer/core1_MatSG.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/12_ConcreteProduction/2_ConcreteProduction_Automixer/core1_MatSG.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/12_ConcreteProduction/2_ConcreteProduction_Automixer/inner_sup_MatSG.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/12_ConcreteProduction/2_ConcreteProduction_Automixer/inner_sup_MatSG.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/12_ConcreteProduction/2_ConcreteProduction_Automixer/out_conduit_MatSG.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/12_ConcreteProduction/2_ConcreteProduction_Automixer/out_conduit_MatSG.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/12_ConcreteProduction/2_ConcreteProduction_Automixer/outer_sup2_MatSG.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/12_ConcreteProduction/2_ConcreteProduction_Automixer/outer_sup2_MatSG.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/CharacterBuilding.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/CharacterBuilding.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/12_ConcreteProduction.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/12_ConcreteProduction.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/15_AttackSructures.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/15_AttackSructures.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/Tile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/Tile.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/World.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Animator/Character/CharacterBuildingAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Animator/Character/CharacterBuildingAnimator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character/CharacterView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Static/AnimatorStrings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Static/AnimatorStrings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/OffsetMove_ShaderGraph.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/OffsetMove_ShaderGraph.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/Resources/Concrete_BaseColor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/Environment/Resources/Concrete_BaseColor.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/BuildingIcons/12_ConcreteProduction/1_ManualMixing.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/UI/BuildingIcons/12_ConcreteProduction/1_ManualMixing.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/ConfigsLoader/ConfigLoaderTileBuildings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/ConfigsLoader/ConfigLoaderTileBuildings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInformation.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInformation.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/BuildingTypes/15_AttackSructures.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/BuildingTypes/15_AttackSructures.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackSructures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackSructures/57_F1-Delta.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackSructures/57_F1-Delta.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackSructures/58_M1-Specter.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackSructures/58_M1-Specter.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackSructures/59_P3-Indicator.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackSructures/59_P3-Indicator.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/0_Plain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/0_Plain.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/10_Ground.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/10_Ground.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/11_CoalDeposits.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/11_CoalDeposits.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/12_Highland.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/12_Highland.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/16_Oasis.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/16_Oasis.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/18_ScarceCoalDeposits.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/18_ScarceCoalDeposits.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/1_Meadow.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/1_Meadow.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/20_BlackDesert.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/20_BlackDesert.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/21_DriedOasis.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/21_DriedOasis.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/5_IronDeposits.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/5_IronDeposits.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/6_CopperDeposits.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/6_CopperDeposits.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/8_Desert.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/8_Desert.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/9_BarrenLand.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/9_BarrenLand.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ConfigsLoader/ConfigLoaderBuildings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ConfigsLoader/ConfigLoaderBuildings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/MapBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/MapBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/GroundTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/GroundTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/SetTileNeighbours.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/SetTileNeighbours.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/SetTilesId.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/SetTilesId.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileRiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileRiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileRoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileRoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BuildTypesPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/BuildTypesPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/BuildingIcons/15_AttackSructures.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/BuildingIcons/15_AttackSructures/_F1-Delta.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/BuildingIcons/15_AttackSructures/_F1-Delta.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/BuildingIcons/15_AttackSructures/_M1-Specter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/BuildingIcons/15_AttackSructures/_M1-Specter.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/BuildingIcons/15_AttackSructures/_P3-Indicator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/BuildingIcons/15_AttackSructures/_P3-Indicator.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,10 +119,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20736">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="20736" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -127,6 +154,8 @@
       <workItem from="1726605239453" duration="1000" />
       <workItem from="1726759966737" duration="5000" />
       <workItem from="1726847502410" duration="6000" />
+      <workItem from="1728320428711" duration="1113000" />
+      <workItem from="1728327624318" duration="87000" />
     </task>
     <servers />
   </component>
@@ -158,6 +187,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingTile.cs</url>
+          <line>36</line>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Tiles\Building\BuildingTile.cs" containingFunctionPresentation="Method 'SpawnBuildingTile'">
+            <startOffsets>
+              <option value="1732" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1760" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

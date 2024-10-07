@@ -57,11 +57,14 @@ public class ConfigLoaderBuildings : ScriptableObject
             {
                 _allBuildings[i].RotationSpeed = rotationSpeed;
             }
+            else _allBuildings[i].RotationSpeed = 0;
+            
 
             if (float.TryParse(config.AttackRadius, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRadius))
             {
                 _allBuildings[i].AttackRadius = attackRadius;
             }
+            else _allBuildings[i].AttackRadius = 0;
 
             _allBuildings[i].Damage = config.Damage;
             _allBuildings[i].KnockbackPoints = config.KnockbackPoints;
@@ -70,6 +73,7 @@ public class ConfigLoaderBuildings : ScriptableObject
             {
                 _allBuildings[i].AttackRecoveryTime = attackRecoveryTime;
             }
+            else _allBuildings[i].AttackRecoveryTime = 0;
 
 
 #if UNITY_EDITOR

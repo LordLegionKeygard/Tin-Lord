@@ -23,12 +23,14 @@ MonoBehaviour:
   GroundEcology: 4
   IsWater: 0
   IsFourTile: 0
+  IsTurret: 0
   BuildingTypes:
   - {fileID: 11400000, guid: 147750dcd60d8704bbf754bd005c7a82, type: 2}
   - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
   - {fileID: 11400000, guid: 806c4d977d8c2bd48861a74945b2872b, type: 2}
   - {fileID: 11400000, guid: dcec068b1e342ea48a05e4aa00f359fa, type: 2}
   - {fileID: 11400000, guid: 0201f24a41783a74b835b447a2b63c8c, type: 2}
+  - {fileID: 11400000, guid: f75a197b363f67549bc847eb987e8084, type: 2}
   ProductionOnGroundResources:
   - ProductionOnGroundResource: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046,
       type: 2}

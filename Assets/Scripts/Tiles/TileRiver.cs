@@ -102,11 +102,7 @@ public class TileRiver : MonoBehaviour
             return RiverTypeEnum.Lake;
         }
 
-        return _isLake
-            ? RiverTypeEnum.LakeExit
-            : _isLastRiverTile
-                ? RiverTypeEnum.RiverEnd 
-                : RiverTypeEnum.RiverForward;
+        return _isLake ? RiverTypeEnum.LakeExit : _isLastRiverTile ? RiverTypeEnum.RiverEnd : RiverTypeEnum.RiverForward;
     }
     
     private void SetRiverToTile()
