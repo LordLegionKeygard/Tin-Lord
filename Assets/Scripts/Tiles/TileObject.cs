@@ -37,10 +37,11 @@ public class TileObject : MonoBehaviour
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
 
     //Neighbours
-    public GroundTile GetNeighbourGroundTile(int number) => _neighbourTiles[number].GroundTileObject();
-    public GroundTile[] GetNeighbourGroundTilesArray() => _neighbourTiles.Select(tile => tile.GroundTileObject()).ToArray();
-    public BuildingTile GetNeighbourBuildingTile(int number) => _neighbourTiles[number].BuildingTileObject();
-    public BuildingTile[] GetNeighbourBuildingTilesArray() => _neighbourTiles.Select(tile => tile.BuildingTileObject()).ToArray();
+    public GroundTile GetNeighbourGroundTile(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number].GroundTileObject() : null;
+    public GroundTile[] GetNeighbourGroundTilesArray() => _neighbourTiles.Where(tile => tile != null).Select(tile => tile.GroundTileObject()).ToArray();
+    public BuildingTile GetNeighbourBuildingTile(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number].BuildingTileObject() : null;
+
+    public BuildingTile[] GetNeighbourBuildingTilesArray() => _neighbourTiles.Where(tile => tile != null).Select(tile => tile.BuildingTileObject()).ToArray();
 
     private void Awake()
     {
