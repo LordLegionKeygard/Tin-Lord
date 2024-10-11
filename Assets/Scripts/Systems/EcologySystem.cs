@@ -52,7 +52,7 @@ public class EcologySystem : MonoBehaviour
 
         CheckLimitEcology();
 
-        _totalEcologyText.color = _totalEcology < 0 ? Colors.WarningYellow : Colors.TextGrey;
+        _totalEcologyText.color = _totalEcology < 0 ? Colors.WarningYellow : Colors.Grey;
         _warningSign.SetActive(_totalEcology <= -50);
 
         var ecologyString = Mathf.Abs(_totalEcology).ToString("D2");

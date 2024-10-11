@@ -76,6 +76,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "BuildButton",
+                    "type": "Button",
+                    "id": "06c30258-fee4-4a99-a443-cab48f85fd90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SelectNumbers",
+                    "type": "Value",
+                    "id": "864f5e5b-2ae5-4b19-a94f-e5638763d716",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -224,6 +242,17 @@
                 },
                 {
                     "name": "",
+                    "id": "7193169a-4733-40db-972f-2e0c29aa2c70",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightMouseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "336b1044-82a3-43b0-980a-5e544f96c2d6",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -235,8 +264,19 @@
                 },
                 {
                     "name": "",
+                    "id": "8f4687a7-fe2f-4beb-a617-d6756332d6f0",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GameSpeedPause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d3a05c32-1ead-4a17-9eb0-6971043e3829",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/f2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -247,7 +287,7 @@
                 {
                     "name": "",
                     "id": "c984e855-503a-49de-b719-884d10d7c775",
-                    "path": "<Keyboard>/2",
+                    "path": "<Keyboard>/f3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -258,11 +298,88 @@
                 {
                     "name": "",
                     "id": "feb42330-0dfd-46e6-bed4-8563e2bb74f6",
-                    "path": "<Keyboard>/3",
+                    "path": "<Keyboard>/f4",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "GameSpeedTriple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7034a339-d8f8-4ce8-b9ef-7bd0f3d96c01",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BuildButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21219169-1d9e-423c-9e02-42b5581808eb",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectNumbers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad7ef95f-004d-40f7-9941-184cdf488080",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectNumbers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e151b235-007c-4c63-ba1d-ebcdff5b2828",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectNumbers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a50e4fe-3f35-498d-921f-9e9b1d0aee25",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectNumbers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0a3fd94-0842-4d12-ae48-380ddffc8cbe",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectNumbers",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e44d8a6-2eeb-4d50-83ac-0b08346e1542",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectNumbers",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

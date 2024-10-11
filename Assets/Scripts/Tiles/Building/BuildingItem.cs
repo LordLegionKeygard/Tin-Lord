@@ -8,7 +8,7 @@ public class BuildingItem : MonoBehaviour
 {
     [Inject] private PlayerResources _playerResources;
     [SerializeField] private Tile _currentTile;
-    [SerializeField] private TileObject _currentTileObject;
+    private TileObject _currentTileObject;
 
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _nameText;

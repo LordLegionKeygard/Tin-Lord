@@ -80,7 +80,7 @@ public class SelectTilePanel : MonoBehaviour
     {
         _objectTransform.DOAnchorPosY(-700, 0.3f).SetUpdate(true);
         _buildsPanel.gameObject.SetActive(false);
-        _buildTypesPanelLine.SetActive(false);
+        SetBuildTypesPanelAndLineVisibility(false);
     }
 
     public void SetInfo(TileObject tileObject)
@@ -98,7 +98,7 @@ public class SelectTilePanel : MonoBehaviour
         SetRequiredResourcePanelVisibility(haveBuildingTile, currentBuilding);
         SetProductionResourcePanelVisibility(haveBuildingTile, currentBuilding);
         SetReceptPanelVisibility(haveBuildingTile, tileObject.CurrentResourceRecept());
-        SetBuildTypesPanelVisibility(false);
+        SetBuildTypesPanelAndLineVisibility(false);
         SetOnOffButtonColor();
 
         if (haveBuildingTile && buildingTile.IsHaveProdictionResources())
@@ -122,7 +122,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetOnOffButtonColor()
     {
-        _onOffImage.color = _tileObject.IsBuildingWork ? Colors.TextGrey : Color.black;
+        _onOffImage.color = _tileObject.IsBuildingWork ? Colors.Grey : Color.black;
     }
 
     private void SetTextFields(TileObject tileObject, Tile buildingTile, bool haveBuildingTile, Building building)
@@ -213,7 +213,7 @@ public class SelectTilePanel : MonoBehaviour
         _receptPanelLine.SetActive(state);
     }
 
-    private void SetBuildTypesPanelVisibility(bool state)
+    private void SetBuildTypesPanelAndLineVisibility(bool state)
     {
         _buildTypesPanelObject.SetActive(state);
         _buildTypesPanelLine.SetActive(state);
@@ -248,12 +248,19 @@ public class SelectTilePanel : MonoBehaviour
         SetButtonsPanelVisibility(onOffButtonState || buildButtonState || destroyButtonState);
     }
 
+    public void PlayerInputBuildButton()
+    {
+        if(!_buildButton.activeInHierarchy || _tileObject == null) return;
+
+        BuildButton();
+    }
+
 
     public void BuildButton()
     {
         if (!_tileObject.BuildingTileObject().HaveTile() && !_buildTypesPanelObject.activeInHierarchy)
         {
-            SetBuildTypesPanelVisibility(true);
+            SetBuildTypesPanelAndLineVisibility(true);
             _buildTypesPanel.SpawnBuildingTypesInScrollView(_tileObject, this);
         }
         else if (_tileObject.BuildingTileObject().HaveTile() && !_buildsPanel.gameObject.activeInHierarchy)
@@ -302,12 +309,12 @@ public class SelectTilePanel : MonoBehaviour
     public void CloseBuildPanelAndRefreshInfo()
     {
         _buildsPanel.gameObject.SetActive(false);
-        SetBuildTypesPanelVisibility(false);
+        SetBuildTypesPanelAndLineVisibility(false);
         PanelViewToggle(true);
         SetInfo(_tileObject);
     }
 
-    public void ChangeResourceRequired(Resource resource) // для работы
+    public void ChangeResourceRequired(Resource resource)
     {
         var resourcesForWork = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork;
 
