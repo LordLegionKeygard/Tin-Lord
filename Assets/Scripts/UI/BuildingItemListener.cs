@@ -8,6 +8,6 @@ public class BuildingItemListener : MonoBehaviour, IPointerEnterHandler
     [SerializeField] private BuildingItem _buildingItem;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _buildingItem.SetViewFromListener();
+        _buildingItem.SelectView();
     }
 }

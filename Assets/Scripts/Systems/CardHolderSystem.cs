@@ -46,11 +46,10 @@ public class CardHolderSystem : MonoBehaviour
 
     public void CancelSelectCard()
     {
-        _tileDetector.Clear();
         if (_currentSelectCardObject == null) return;
 
         _currentSelectCardObject.CardObjectViewToggle(false);
-        Clear();
+        ClearCardHolderSystem();
     }
 
     public void AddNewCards(Tile[] tiles)
@@ -100,6 +99,7 @@ public class CardHolderSystem : MonoBehaviour
             if (cardToRemove == _currentSelectCardObject)
             {
                 CancelSelectCard();
+                _tileDetector.ClearTileDetector();
             }
 
             cardsToRemove.Add(cardToRemove);
@@ -132,13 +132,13 @@ public class CardHolderSystem : MonoBehaviour
 
         _currentCards.Remove(_currentSelectCardObject);
         Destroy(_currentSelectCardObject.gameObject);
-        Clear();
+        ClearCardHolderSystem();
         _cardsLayout.RearrangeCards(_currentCards);
     }
 
     public void SelectCardInCardHolder(CardObject newCardObject)
     {
-        _tileDetector.Clear();
+        _tileDetector.ClearTileDetector();
         if (_currentSelectCardObject != null) _currentSelectCardObject.CardObjectViewToggle(false);
         _currentSelectCardObject = newCardObject;
     }
@@ -166,7 +166,7 @@ public class CardHolderSystem : MonoBehaviour
         AddNewRandomCards(2);
     }
 
-    private void Clear()
+    private void ClearCardHolderSystem()
     {
         _currentSelectCardObject = null;
     }

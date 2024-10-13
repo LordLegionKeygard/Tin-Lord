@@ -35,14 +35,18 @@ public class PlayerInputSystem : MonoBehaviour
     private delegate void SelectNumbers(InputAction.CallbackContext context);
     private SelectNumbers _selectNumbers;
 
+    public delegate void Escape();
+    private Escape _escape;
+
 
     [Header("Links")]
     [SerializeField] private TileDetector _tileDetector;
-    [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private CameraMovement _cameraMovement;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
+    [SerializeField] private BuildsPanel _buildsPanel;
+    [SerializeField] private UIPanels _uiPanels;
 
     private void Awake()
     {
@@ -79,19 +83,21 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInput.actions["GameSpeedTriple"].performed += _ => _gameSpeedTriple((int)GameSpeedEnum.Triple);
         _playerInput.actions["BuildButton"].performed += _ => _buildButton();
         _playerInput.actions["SelectNumbers"].performed += ctx => _selectNumbers(ctx);
+        _playerInput.actions["Escape"].performed += _ => _escape();
     }
 
     private void SetupDelegates()
     {
         cameraZoom = new CameraZoom(_cameraMovement.ZoomCamera);
         _leftMouseClick = new LeftMouseClick(_tileDetector.InputOnTile);
-        _rightMouseClick = new RightMouseClick(_cardHolderSystem.CancelSelectCard);
+        _rightMouseClick = new RightMouseClick(_uiPanels.ClearAndCancelCardHolderAndTileDetector);
         _gameSpeedPause = new GameSpeedPause(_gameSpeedSystem.ChangeGameSpeed);
         _gameSpeedDefault = new GameSpeedDefault(_gameSpeedSystem.ChangeGameSpeed);
         _gameSpeedDouble = new GameSpeedDouble(_gameSpeedSystem.ChangeGameSpeed);
         _gameSpeedTriple = new GameSpeedTriple(_gameSpeedSystem.ChangeGameSpeed);
         _buildButton = new BuildButton(_selectTilePanel.PlayerInputBuildButton);
         _selectNumbers = new SelectNumbers(OnNumberInput);
+        _escape = new Escape(_uiPanels.EscapeClick);
     }
 
     private void OnNumberInput(InputAction.CallbackContext context)
@@ -100,7 +106,15 @@ public class PlayerInputSystem : MonoBehaviour
         int pressedNumber;
         if (int.TryParse(key, out pressedNumber))
         {
-            _buildTypesPanel.PlayerInputBuildTypesButton(pressedNumber);
+            if (_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildsPanel))
+            {
+                _buildsPanel.PlyerInputBuildItemButton(pressedNumber);
+            }
+            else
+            {
+                _buildTypesPanel.PlayerInputBuildTypesButton(pressedNumber);
+            }
+
         }
     }
 
@@ -127,5 +141,6 @@ public class PlayerInputSystem : MonoBehaviour
         _gameSpeedTriple = delegate { };
         _buildButton = delegate { };
         _selectNumbers = delegate { };
+        _escape = delegate { };
     }
 }

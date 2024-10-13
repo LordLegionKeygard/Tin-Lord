@@ -60,7 +60,7 @@ public class Language : MonoBehaviour
         _text[10, 0] = "";
         _text[10, 1] = "";
 
-        _text[11, 0] = "Producation modifier";
+        _text[11, 0] = "Production modifier";
         _text[11, 1] = "Модификатор добычи";
 
         _text[12, 0] = "Day";

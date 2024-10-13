@@ -12,6 +12,8 @@ public class BuildsPanel : MonoBehaviour
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private BuildingResourcesView _buildingResourcesView;
+    [SerializeField] private ScrollToCard _scrollToCard;
+    [SerializeField] private BuildTypesPanel _buildTypesPanel;
 
     public void SpawnBuildingItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel, Tile tile) //все здания в типе
     {
@@ -28,13 +30,13 @@ public class BuildsPanel : MonoBehaviour
         }
     }
 
-    private void Spawn(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile, BuildingState buildingState)
+    private void Spawn(TileObject tileObject, SelectTilePanel selectTilePanel, int index, Tile tile, BuildingState buildingState)
     {
         var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
         item.transform.SetParent(_content);
 
         var buildingItem = item.GetComponent<BuildingItem>();
-        buildingItem.SetBuildingInfo(tileObject, selectTilePanel, level, tile, buildingState, _buildingResourcesView, this);
+        buildingItem.SetBuildingInfo(tileObject, selectTilePanel, index, tile, buildingState, _buildingResourcesView, this);
         _buildingsList.Add(buildingItem);
     }
 
@@ -50,7 +52,7 @@ public class BuildsPanel : MonoBehaviour
         var isFullHealth = tileObject.BuildingHealth().IsFullHealth();
         var level = tileObject.BuildingTileObject().CurrentBuildingLevel();
 
-        if(!isFullHealth)
+        if (!isFullHealth)
         {
             Spawn(tileObject, selectTilePanel, level, tile, BuildingState.Repair);
         }
@@ -58,6 +60,26 @@ public class BuildsPanel : MonoBehaviour
         for (int i = level; i < length.Length; i++)
         {
             Spawn(tileObject, selectTilePanel, i + 1, tile, BuildingState.UpgradeBuilding);
+        }
+    }
+
+    public void PlyerInputBuildItemButton(int number)
+    {
+        if (_buildingsList.Count == 0 || _buildingsList.Count <= number - 1) return;
+
+        var foundBuilding = _buildingsList[number - 1];
+
+        if (foundBuilding != null)
+        {            
+            if (foundBuilding.IsSelect())
+            {
+                foundBuilding.BuildOrUpgrade();
+            }
+            else
+            {
+                _scrollToCard.SelectCard(number - 1, _buildingsList.Count - 1);
+                foundBuilding.SelectView();
+            }
         }
     }
 
@@ -81,5 +103,6 @@ public class BuildsPanel : MonoBehaviour
     private void OnDisable()
     {
         ClearListObjects();
+        _buildTypesPanel.UnselectAllTypes();
     }
 }

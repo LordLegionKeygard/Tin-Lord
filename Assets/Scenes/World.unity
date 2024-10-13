@@ -1233,7 +1233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &123557430
@@ -2105,7 +2105,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &229933150
@@ -2200,11 +2200,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tileDetector: {fileID: 1545635260}
-  _cardHolderSystem: {fileID: 719482899}
   _cameraMovement: {fileID: 2087665852}
   _gameSpeedSystem: {fileID: 113995860}
   _selectTilePanel: {fileID: 996670363}
   _buildTypesPanel: {fileID: 123557430}
+  _buildsPanel: {fileID: 990686408}
+  _uiPanels: {fileID: 1187211066}
 --- !u!114 &235649846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2271,6 +2272,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 864f5e5b-2ae5-4b19-a94f-e5638763d716
     m_ActionName: Player/SelectNumbers[/Keyboard/1,/Keyboard/2,/Keyboard/3,/Keyboard/4,/Keyboard/5,/Keyboard/6]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 56b7a96c-d67a-4d29-b516-9baa4d3178d8
+    m_ActionName: Player/Escape[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -11587,9 +11592,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 990686405}
-  - component: {fileID: 990686408}
-  - component: {fileID: 990686407}
   - component: {fileID: 990686406}
+  - component: {fileID: 990686407}
+  - component: {fileID: 990686408}
+  - component: {fileID: 990686409}
   m_Layer: 5
   m_Name: BuildsPanel
   m_TagString: Untagged
@@ -11619,7 +11625,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 250, y: -171}
-  m_SizeDelta: {x: 500, y: 332}
+  m_SizeDelta: {x: 500, y: 325}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990686406
 MonoBehaviour:
@@ -11677,6 +11683,22 @@ MonoBehaviour:
   _rectTransform: {fileID: 990686405}
   _scrollRect: {fileID: 886640496}
   _buildingResourcesView: {fileID: 996670367}
+  _scrollToCard: {fileID: 990686409}
+  _buildTypesPanel: {fileID: 123557430}
+--- !u!114 &990686409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990686404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bbbb65c21de884a813a07a028e40bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scrollRect: {fileID: 886640496}
+  _content: {fileID: 1283143377}
 --- !u!1001 &991078765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11941,22 +11963,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildTypesPanel: {fileID: 123557430}
   _buildsPanel: {fileID: 990686408}
+  _uiPanels: {fileID: 1187211066}
   _buildButton: {fileID: 1932544576}
   _onOffButton: {fileID: 1801811375}
   _rotateButton: {fileID: 1814450973}
   _destroyButton: {fileID: 1479184727}
   _objectTransform: {fileID: 996670362}
   _onOffImage: {fileID: 1822658936}
-  _buildTypesPanelObject: {fileID: 123557428}
-  _buildTypesPanelLine: {fileID: 969065435}
-  _requiredResourcePanelObject: {fileID: 771855989}
-  _requiredResourcePanelLine: {fileID: 522139666}
-  _productionResourcePanelObject: {fileID: 2100549522}
-  _productionResourcePanelLine: {fileID: 463250208}
-  _receptPanelObject: {fileID: 519326171}
-  _receptPanelLine: {fileID: 367989748}
-  _buttonsPanel: {fileID: 1674868693}
-  _buildingLine: {fileID: 269631267}
   _groundTileNameText: {fileID: 1026794234}
   _buildingNameText: {fileID: 1279078230}
   _buildingLevelText: {fileID: 1900655861}
@@ -13739,6 +13752,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1187211065}
+  - component: {fileID: 1187211066}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -13754,7 +13768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187211064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.108775, y: 8.3937845, z: -13.39243}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13763,6 +13777,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187211066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187211064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6af1bff2bff4dd4cb3fe4d9bf348fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardHolderSystem: {fileID: 719482899}
+  _tileDetector: {fileID: 1545635260}
+  _panels:
+  - {fileID: 990686404}
+  - {fileID: 123557428}
+  - {fileID: 969065435}
+  - {fileID: 771855989}
+  - {fileID: 522139666}
+  - {fileID: 2100549522}
+  - {fileID: 463250208}
+  - {fileID: 519326171}
+  - {fileID: 367989748}
+  - {fileID: 1674868693}
+  - {fileID: 269631267}
 --- !u!1 &1205929006
 GameObject:
   m_ObjectHideFlags: 0
@@ -14233,7 +14273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1270537335

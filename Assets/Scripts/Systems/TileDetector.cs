@@ -12,6 +12,8 @@ public class TileDetector : MonoBehaviour
     private Transform _lastRayCastTransform;
     private bool _canSetTile = false;
 
+    public bool IsHaveCurrentSelectedTileObject() => _currentTileObject == null ? false : true;
+
     private void Awake()
     {
         CustomEvents.OnBuildingDestroyedNow += CheckCurrentTileObject;
@@ -19,11 +21,11 @@ public class TileDetector : MonoBehaviour
 
     private void CheckCurrentTileObject(int tileId)
     {
-        if(_currentTileObject == null) return;
+        if (_currentTileObject == null) return;
         if (_currentTileObject.GetId() == tileId)
         {
             UnselectLastTile(true);
-            Clear();
+            ClearTileDetector();
         }
     }
 
@@ -56,7 +58,7 @@ public class TileDetector : MonoBehaviour
 
             if (IsPointerOverUISystem.IsPointerOverUI)
             {
-                Clear();
+                ClearTileDetector();
             }
         }
     }
@@ -91,7 +93,7 @@ public class TileDetector : MonoBehaviour
                 _currentTileObject.GroundTileObject().SetGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
                 _currentTileObject.GroundTileObject().SpawnGroundTile();
                 if (_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();
-                Clear();
+                ClearTileDetector();
                 _cardHolderSystem.RemoveCurrentCard();
             }
         }
@@ -261,7 +263,7 @@ public class TileDetector : MonoBehaviour
         else return true;
     }
 
-    public void Clear()
+    public void ClearTileDetector()
     {
         if (_cardHolderSystem.CheckCurrentCardHolderSelectedTileIsFourTile())
         {

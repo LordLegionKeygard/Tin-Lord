@@ -8,6 +8,7 @@ public class BuildingItem : MonoBehaviour
 {
     [Inject] private PlayerResources _playerResources;
     [SerializeField] private Tile _currentTile;
+    public int GetBuildingLevel() => _currentTile.Buildings[_buildingIndex - 1].BuildingLevel;
     private TileObject _currentTileObject;
 
     [Header("View")]
@@ -21,8 +22,9 @@ public class BuildingItem : MonoBehaviour
     private BuildingState _currentBuildingState;
     private BuildingResourcesView _buildingResourcesView;
     private BuildsPanel _buildsPanel;
-    private int _upgradeToLevel;
+    private int _buildingIndex;
     private bool _isSelect;
+    public bool IsSelect() => _isSelect;
     private bool _resourcesEnough;
 
     private void Start()
@@ -30,13 +32,13 @@ public class BuildingItem : MonoBehaviour
         CustomEvents.OnTimeTickAfterResourcesChanged += SetTextColor;
     }
 
-    public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int level, Tile tile, BuildingState buildingState, BuildingResourcesView buildingResourcesView, BuildsPanel buildsPanel)
+    public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int index, Tile tile, BuildingState buildingState, BuildingResourcesView buildingResourcesView, BuildsPanel buildsPanel)
     {
         _currentBuildingState = buildingState;
         _selectTilePanel = selectTilePanel;
         _currentTileObject = tileObject;
         _currentTile = tile;
-        _upgradeToLevel = level;
+        _buildingIndex = index;
         _buildingResourcesView = buildingResourcesView;
         _buildsPanel = buildsPanel;
 
@@ -45,7 +47,7 @@ public class BuildingItem : MonoBehaviour
 
     private void UpdateView()
     {
-        var building = _currentTile.Buildings[_upgradeToLevel - 1];
+        var building = _currentTile.Buildings[_buildingIndex - 1];
 
         _nameText.text = _currentBuildingState == BuildingState.Repair ? Language.TextStatic[4] : building.Name[Language.LanguageNumber];
         _icon.sprite = building.BuildingSprite;
@@ -67,7 +69,7 @@ public class BuildingItem : MonoBehaviour
         SetTextColor();
     }
 
-    public void SetViewFromListener()
+    public void SelectView()
     {
         _buildsPanel.UnselectAllBuildings();
         SelectToggleState(true);
@@ -84,11 +86,11 @@ public class BuildingItem : MonoBehaviour
             case BuildingState.FirstBuild:
                 if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase();
 
-                _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _upgradeToLevel, _currentTileObject); //спавним впервые здание на тайле определенного лвла
+                _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _buildingIndex, _currentTileObject); //спавним впервые здание на тайле определенного лвла
                 break;
             case BuildingState.UpgradeBuilding:
                 _playerResources.AddResourcesAfterDestroyBuilding(_currentTileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild); // возвращаем часть ресурсов за прошлое здание
-                _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_upgradeToLevel, _currentTileObject); //улучшаем здание
+                _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_buildingIndex, _currentTileObject); //улучшаем здание
                 break;
             case BuildingState.Repair:
                 _currentTileObject.BuildingHealth().Repair();
@@ -100,7 +102,7 @@ public class BuildingItem : MonoBehaviour
 
     public ResourcesForBuildWrapper[] GetResources()
     {
-        var building = _currentTile.Buildings[_upgradeToLevel - 1];
+        var building = _currentTile.Buildings[_buildingIndex - 1];
 
         if (_currentBuildingState == BuildingState.Repair)
         {
