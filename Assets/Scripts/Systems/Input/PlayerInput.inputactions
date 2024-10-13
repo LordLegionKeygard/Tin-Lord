@@ -78,15 +78,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "BuildButton",
-                    "type": "Button",
-                    "id": "06c30258-fee4-4a99-a443-cab48f85fd90",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "SelectNumbers",
                     "type": "Value",
                     "id": "864f5e5b-2ae5-4b19-a94f-e5638763d716",
@@ -99,6 +90,42 @@
                     "name": "Escape",
                     "type": "Button",
                     "id": "56b7a96c-d67a-4d29-b516-9baa4d3178d8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BuildTileButton",
+                    "type": "Button",
+                    "id": "06c30258-fee4-4a99-a443-cab48f85fd90",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RotateTileButton",
+                    "type": "Button",
+                    "id": "d69b1321-759a-422f-8bbe-7e1dfeae9286",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DestroyTileButton",
+                    "type": "Button",
+                    "id": "60f9d263-c5c7-457b-bef4-88b3abfac255",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "WorkTileButton",
+                    "type": "Button",
+                    "id": "717621ce-f847-4071-86ff-0401cf965fad",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -306,28 +333,6 @@
                 },
                 {
                     "name": "",
-                    "id": "7034a339-d8f8-4ce8-b9ef-7bd0f3d96c01",
-                    "path": "<Keyboard>/backquote",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "BuildButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "02de75af-1681-415a-8f55-f055120bd7c9",
-                    "path": "<Keyboard>/b",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "BuildButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "21219169-1d9e-423c-9e02-42b5581808eb",
                     "path": "<Keyboard>/1",
                     "interactions": "",
@@ -400,6 +405,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06e9b0c5-a502-4236-90ec-d3f8974ac508",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateTileButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b6a3c6c-ec5f-49ed-804a-97aa39dae686",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DestroyTileButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7034a339-d8f8-4ce8-b9ef-7bd0f3d96c01",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BuildTileButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f7f1528-fe26-4174-af55-3f5b53ee83e3",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WorkTileButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

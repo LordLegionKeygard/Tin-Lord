@@ -12,7 +12,7 @@ public class SelectTilePanel : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private GameObject _buildButton;
-    [SerializeField] private GameObject _onOffButton;
+    [SerializeField] private GameObject _workButton;
     [SerializeField] private GameObject _rotateButton;
     [SerializeField] private GameObject _destroyButton;
     [SerializeField] private RectTransform _objectTransform;
@@ -68,7 +68,7 @@ public class SelectTilePanel : MonoBehaviour
     private void HideInfoPanel()
     {
         _objectTransform.DOAnchorPosY(-700, 0.3f).SetUpdate(true);
-        
+
         _uiPanels.SetBuildTypesPanelAndLineVisibility(false);
         _uiPanels.TogglePanel(UIPanelsEnum.BuildsPanel, false);
     }
@@ -198,7 +198,7 @@ public class SelectTilePanel : MonoBehaviour
         var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
         var destroyButtonState = haveBuildingTile || (!isRoad && !isBase && (!isWater || isLastRiverTile));
 
-        _onOffButton.SetActive(onOffButtonState);
+        _workButton.SetActive(onOffButtonState);
         _buildButton.SetActive(buildButtonState);
         _rotateButton.SetActive(rotateButtonState);
         _destroyButton.SetActive(destroyButtonState);
@@ -206,16 +206,10 @@ public class SelectTilePanel : MonoBehaviour
         _uiPanels.SetButtonsPanelVisibility(onOffButtonState || buildButtonState || destroyButtonState);
     }
 
-    public void PlayerInputBuildButton()
+    public void BuildOnTile()
     {
         if (!_buildButton.activeInHierarchy || _tileObject == null) return;
 
-        BuildButton();
-    }
-
-
-    public void BuildButton()
-    {
         if (!_tileObject.BuildingTileObject().HaveTile() && !_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildTypesPanel))
         {
             _uiPanels.SetBuildTypesPanelAndLineVisibility(true);
@@ -228,8 +222,10 @@ public class SelectTilePanel : MonoBehaviour
         }
     }
 
-    public void ToggleBuildingWorkButton()
+    public void ToggleBuildingWork()
     {
+        if(!_workButton.activeInHierarchy || _tileObject == null) return;
+
         _tileObject.IsBuildingWork = !_tileObject.IsBuildingWork;
         SetOnOffButtonColor();
 
@@ -240,8 +236,11 @@ public class SelectTilePanel : MonoBehaviour
         CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());
     }
 
-    public void RotateButton()
+    public void RotateTile()
     {
+
+        if(!_rotateButton.activeInHierarchy || _tileObject == null) return;
+
         var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
         var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() : null;
 
@@ -249,8 +248,10 @@ public class SelectTilePanel : MonoBehaviour
         if (rotationViewBuilding != null) rotationViewBuilding.Rotate();
     }
 
-    public void DestroyButton()
+    public void DestroyTile()
     {
+        if(!_destroyButton.activeInHierarchy || _tileObject == null) return;
+
         if (!_tileObject.BuildingTileObject().HaveTile())
         {
             _tileObject.GroundTileObject().DestroyGroundTile();

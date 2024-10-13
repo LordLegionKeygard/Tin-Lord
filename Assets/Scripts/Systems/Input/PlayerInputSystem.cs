@@ -3,40 +3,45 @@ using UnityEngine.InputSystem;
 public class PlayerInputSystem : MonoBehaviour
 {
     public static PlayerInputSystem Instance;
-
     private PlayerInput _playerInput;
 
+    //CameraControl
     public Vector2 MoveInput { get; private set; }
-
     private delegate void CameraZoom(InputAction.CallbackContext context);
     private CameraZoom cameraZoom;
 
+    //MouseClick
     private delegate void LeftMouseClick();
     private LeftMouseClick _leftMouseClick;
-
     private delegate void RightMouseClick();
     private RightMouseClick _rightMouseClick;
 
+    // GameSpeed
     private delegate void GameSpeedPause(int gameSpeed);
     private GameSpeedPause _gameSpeedPause;
-
     private delegate void GameSpeedDefault(int gameSpeed);
     private GameSpeedDefault _gameSpeedDefault;
-
     private delegate void GameSpeedDouble(int gameSpeed);
     private GameSpeedDouble _gameSpeedDouble;
-
     private delegate void GameSpeedTriple(int gameSpeed);
     private GameSpeedTriple _gameSpeedTriple;
 
-    private delegate void BuildButton();
-    private BuildButton _buildButton;
-
-    private delegate void SelectNumbers(InputAction.CallbackContext context);
-    private SelectNumbers _selectNumbers;
-
+    //UserInterface
     public delegate void Escape();
     private Escape _escape;
+
+    //SelectTilePanel
+    private delegate void SelectNumbers(InputAction.CallbackContext context);
+    private SelectNumbers _selectNumbers;
+    private delegate void BuildTileButton();
+    private BuildTileButton _buildTileButton;
+    public delegate void RotateTileButton();
+    private RotateTileButton _rotateTileButton;
+    public delegate void DestroyTileButton();
+    private DestroyTileButton _destroyTileButton;
+
+    public delegate void WorkTileButton();
+    private WorkTileButton _workTileButton;
 
 
     [Header("Links")]
@@ -74,30 +79,54 @@ public class PlayerInputSystem : MonoBehaviour
 
     private void SetupInputActions()
     {
+        //CameraControl
         _playerInput.actions["CameraZoom"].started += ctx => cameraZoom(ctx);
+
+        //MouseClick
         _playerInput.actions["LeftMouseClick"].performed += _ => _leftMouseClick();
         _playerInput.actions["RightMouseClick"].performed += _ => _rightMouseClick();
+
+        //GameSpeed
         _playerInput.actions["GameSpeedPause"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Pause);
         _playerInput.actions["GameSpeedDefault"].performed += _ => _gameSpeedDefault((int)GameSpeedEnum.Default);
         _playerInput.actions["GameSpeedDouble"].performed += _ => _gameSpeedDouble((int)GameSpeedEnum.Double);
         _playerInput.actions["GameSpeedTriple"].performed += _ => _gameSpeedTriple((int)GameSpeedEnum.Triple);
-        _playerInput.actions["BuildButton"].performed += _ => _buildButton();
-        _playerInput.actions["SelectNumbers"].performed += ctx => _selectNumbers(ctx);
+
+        //UserInterface
         _playerInput.actions["Escape"].performed += _ => _escape();
+
+        //SelectTilePanel
+        _playerInput.actions["SelectNumbers"].performed += ctx => _selectNumbers(ctx);
+        _playerInput.actions["BuildTileButton"].performed += _ => _buildTileButton();
+        _playerInput.actions["RotateTileButton"].performed += _ => _rotateTileButton();
+        _playerInput.actions["DestroyTileButton"].performed += _ => _destroyTileButton();
+        _playerInput.actions["WorkTileButton"].performed += _ => _workTileButton();
     }
 
     private void SetupDelegates()
     {
+        //CameraControl
         cameraZoom = new CameraZoom(_cameraMovement.ZoomCamera);
+
+        //MouseClick
         _leftMouseClick = new LeftMouseClick(_tileDetector.InputOnTile);
         _rightMouseClick = new RightMouseClick(_uiPanels.ClearAndCancelCardHolderAndTileDetector);
+
+        //GameSpeed
         _gameSpeedPause = new GameSpeedPause(_gameSpeedSystem.ChangeGameSpeed);
         _gameSpeedDefault = new GameSpeedDefault(_gameSpeedSystem.ChangeGameSpeed);
         _gameSpeedDouble = new GameSpeedDouble(_gameSpeedSystem.ChangeGameSpeed);
         _gameSpeedTriple = new GameSpeedTriple(_gameSpeedSystem.ChangeGameSpeed);
-        _buildButton = new BuildButton(_selectTilePanel.PlayerInputBuildButton);
-        _selectNumbers = new SelectNumbers(OnNumberInput);
+
+        //UserInterface
         _escape = new Escape(_uiPanels.EscapeClick);
+
+        //SelectTilePanel
+        _selectNumbers = new SelectNumbers(OnNumberInput);
+        _buildTileButton = new BuildTileButton(_selectTilePanel.BuildOnTile);
+        _rotateTileButton = new RotateTileButton(_selectTilePanel.RotateTile);
+        _destroyTileButton = new DestroyTileButton(_selectTilePanel.DestroyTile);
+        _workTileButton = new WorkTileButton(_selectTilePanel.ToggleBuildingWork);
     }
 
     private void OnNumberInput(InputAction.CallbackContext context)
@@ -133,14 +162,24 @@ public class PlayerInputSystem : MonoBehaviour
     {
         InputToggle(false);
 
+        //MouseClick
         _leftMouseClick = delegate { };
         _rightMouseClick = delegate { };
+
+        //GameSpeed
         _gameSpeedPause = delegate { };
         _gameSpeedDefault = delegate { };
         _gameSpeedDouble = delegate { };
         _gameSpeedTriple = delegate { };
-        _buildButton = delegate { };
-        _selectNumbers = delegate { };
+
+        //UserInterface
         _escape = delegate { };
+
+        //SelectTilePanel
+        _selectNumbers = delegate { };
+        _buildTileButton = delegate { };
+        _rotateTileButton = delegate { };
+        _destroyTileButton = delegate { };
+        _workTileButton = delegate { };
     }
 }
