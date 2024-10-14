@@ -71,8 +71,10 @@ public enum GroundTileViewEnum
     DesertRiver = 18,
     ScarceCoalDeposits = 19,
     BaseFoundation = 20,
-    BlackDesert = 21, 
+    BlackDesert = 21,
     DriedOasis = 22,
+    Volcano = 23,
+    BlazingField = 24,
 }
 
 public enum BuildingTileViewEnum

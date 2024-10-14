@@ -53,6 +53,7 @@ public class GroundTile : MonoBehaviour
 
 
     //Other
+    public bool IsHaveBuildingTypes() => _currentGroundTile.BuildingTypes.Length > 0;
     public GameObject CurrentGroundTileObject() => _currentGroundTileObject;
     public void SetGroundTile(Tile tile) => _currentGroundTile = tile;
     public Tile CurrentGroundTile() => _currentGroundTile;
@@ -73,7 +74,7 @@ public class GroundTile : MonoBehaviour
     {
         for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
         {
-            if (!IsNeedCheck(i, true)) continue;
+            if (!IsCheckTiles(i, true)) continue;
 
             if (_tileObject.GetNeighbourGroundTile(i).IsWaterTile())
             {
@@ -162,7 +163,14 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Plain:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
@@ -193,7 +201,14 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Meadow:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
@@ -216,7 +231,14 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Highland:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Mountain))
                     {
@@ -231,7 +253,7 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.River:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
@@ -259,7 +281,7 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.PollutedRiver:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
 
                     if (_tileObject.GetNeighbourGroundTile(i).IsWaterTile())
                     {
@@ -272,7 +294,14 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Ground:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
@@ -294,7 +323,14 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Forest:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.BlackDesert) ||
@@ -318,7 +354,7 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.DesertRiver:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
@@ -327,9 +363,6 @@ public class GroundTile : MonoBehaviour
                         SpawnGroundTile();
                         return;
                     }
-
-
-                    if (!IsNeedCheck(i, true)) continue;
 
                     if (_tileObject.GetNeighbourGroundTile(i).IsWaterTile())
                     {
@@ -343,7 +376,14 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Desert:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
@@ -366,7 +406,14 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.CoalDeposits:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
@@ -381,7 +428,14 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Barrenland:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Mountain))
                     {
@@ -394,7 +448,14 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Oasis:
                 for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
                 {
-                    if (!IsNeedCheck(i, true)) continue;
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
+                        SpawnGroundTile();
+                        return;
+                    }
 
                     if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver) ||
@@ -402,6 +463,22 @@ public class GroundTile : MonoBehaviour
                         _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Barrenland))
                     {
                         SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.DriedOasis));
+                        SpawnGroundTile();
+                        return;
+                    }
+                }
+                break;
+
+            case GroundTileViewEnum.IronDeposits or GroundTileViewEnum.CopperDeposits or GroundTileViewEnum.OilSwamp
+                or GroundTileViewEnum.DeadForest or GroundTileViewEnum.ScarceCoalDeposits or GroundTileViewEnum.BlackDesert
+                or GroundTileViewEnum.DriedOasis:
+                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                {
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.BlazingField));
                         SpawnGroundTile();
                         return;
                     }
@@ -415,7 +492,7 @@ public class GroundTile : MonoBehaviour
         _tileView.ViewToggle(state, selectTileEnum);
     }
 
-    public bool IsNeedCheck(int i, bool cross)
+    public bool IsCheckTiles(int i, bool cross)
     {
         if (cross)
         {

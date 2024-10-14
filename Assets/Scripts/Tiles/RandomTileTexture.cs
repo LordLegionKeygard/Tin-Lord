@@ -12,6 +12,7 @@ public class RandomTileTexture : MonoBehaviour
     {
         var rnd = Random.Range(0, _base.Length);
         _meshRenderer.material.SetTexture("_BaseMap", _base[rnd]);
-        _meshRenderer.material.SetTexture("_DetailNormalMap", _normal[rnd]);
+        _meshRenderer.material.EnableKeyword ("_NORMALMAP");
+        _meshRenderer.material.SetTexture("_BumpMap", _normal[rnd]);
     }
 }
