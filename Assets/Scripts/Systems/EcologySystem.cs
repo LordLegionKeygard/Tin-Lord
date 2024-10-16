@@ -7,6 +7,8 @@ using UnityEngine;
 public class EcologySystem : MonoBehaviour
 {
     [SerializeField] private int _totalEcology;
+    [SerializeField] private int _tilesEcology;
+    [SerializeField] private int _radiation;
     [SerializeField] private TextMeshProUGUI _totalEcologyText;
     [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
     [SerializeField] private GameObject _warningSign;
@@ -47,10 +49,18 @@ public class EcologySystem : MonoBehaviour
         UpdateTotalEcology();
     }
 
+    public void ChangeRadiation(int amount)
+    {
+        _radiation += amount;
+        UpdateTotalEcology();
+    }
+
     private void UpdateTotalEcology()
     {
-        int previousEcology = _totalEcology;
-        _totalEcology = _ecologyTileInfoList.Sum(tile => tile.Amount);
+        int previousTotalEcology = _totalEcology;
+        _tilesEcology = _ecologyTileInfoList.Sum(tile => tile.Amount);
+
+        _totalEcology = _tilesEcology + _radiation;
 
         CheckLimitEcology();
 
@@ -58,8 +68,8 @@ public class EcologySystem : MonoBehaviour
         {
             StopCoroutine(_changeTextCoroutine);
         }
-        
-        _changeTextCoroutine = StartCoroutine(ChangeTextSmoothly(previousEcology, _totalEcology));
+
+        _changeTextCoroutine = StartCoroutine(ChangeTextSmoothly(previousTotalEcology, _totalEcology));
 
         _setupRenderSettings.UpdateRenderSettings(_totalEcology);
     }
@@ -76,7 +86,7 @@ public class EcologySystem : MonoBehaviour
             yield return null;
         }
 
-        
+
         UpdateEcologyText(newValue);
     }
 
@@ -91,8 +101,8 @@ public class EcologySystem : MonoBehaviour
 
     private void CheckLimitEcology()
     {
-        if (_totalEcology < -99) _totalEcology = -99;
-        else if (_totalEcology > 99) _totalEcology = 99;
+        if (_tilesEcology < -99) _tilesEcology = -99;
+        else if (_tilesEcology > 99) _tilesEcology = 99;
     }
 
     private void OnDestroy()
