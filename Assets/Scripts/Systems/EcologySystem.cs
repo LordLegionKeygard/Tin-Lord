@@ -10,8 +10,9 @@ public class EcologySystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _totalEcologyText;
     [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
     [SerializeField] private GameObject _warningSign;
+    private float _changeTextDuration = 1;
     private SetupRenderSettings _setupRenderSettings;
-
+    private Coroutine _changeTextCoroutine;
 
     private void Awake()
     {
@@ -48,23 +49,49 @@ public class EcologySystem : MonoBehaviour
 
     private void UpdateTotalEcology()
     {
+        int previousEcology = _totalEcology;
         _totalEcology = _ecologyTileInfoList.Sum(tile => tile.Amount);
 
         CheckLimitEcology();
 
-        _totalEcologyText.color = _totalEcology < 0 ? Colors.WarningYellow : Colors.Grey;
-        _warningSign.SetActive(_totalEcology <= -50);
-
-        var ecologyString = Mathf.Abs(_totalEcology).ToString("D2");
-
-        _totalEcologyText.text = ecologyString;
+        if (_changeTextCoroutine != null)
+        {
+            StopCoroutine(_changeTextCoroutine);
+        }
+        
+        _changeTextCoroutine = StartCoroutine(ChangeTextSmoothly(previousEcology, _totalEcology));
 
         _setupRenderSettings.UpdateRenderSettings(_totalEcology);
     }
 
+    private IEnumerator ChangeTextSmoothly(int oldValue, int newValue)
+    {
+        float elapsed = 0f;
+
+        while (elapsed < _changeTextDuration)
+        {
+            elapsed += Time.deltaTime;
+            int currentValue = Mathf.RoundToInt(Mathf.Lerp(oldValue, newValue, elapsed / _changeTextDuration));
+            UpdateEcologyText(currentValue);
+            yield return null;
+        }
+
+        
+        UpdateEcologyText(newValue);
+    }
+
+    private void UpdateEcologyText(int ecologyValue)
+    {
+        _totalEcologyText.color = ecologyValue < 0 ? Colors.WarningYellow : Colors.Grey;
+        _warningSign.SetActive(ecologyValue <= -50);
+
+        var ecologyString = Mathf.Abs(ecologyValue).ToString("D2");
+        _totalEcologyText.text = ecologyString;
+    }
+
     private void CheckLimitEcology()
     {
-        if(_totalEcology < -99) _totalEcology = -99;
+        if (_totalEcology < -99) _totalEcology = -99;
         else if (_totalEcology > 99) _totalEcology = 99;
     }
 
