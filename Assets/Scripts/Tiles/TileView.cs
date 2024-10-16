@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
@@ -27,7 +25,7 @@ public class TileView : MonoBehaviour
                 _selectView.transform.position += new Vector3(5, 0, 5);
                 _mesh.material = _fourTileMaterial;
                 break;
-            case GroundTileViewEnum.Mountain or GroundTileViewEnum.OilSwamp or GroundTileViewEnum.Volcano:
+            case GroundTileViewEnum.Mountain or GroundTileViewEnum.OilSwamp or GroundTileViewEnum.Volcano or GroundTileViewEnum.OvergrownMountain:
                 _selectView.transform.localPosition = new Vector3(-0.35f, 0.5f, -0.35f);
                 break;
         }
@@ -48,7 +46,6 @@ public class TileView : MonoBehaviour
                 break;
         }
     }
-
 
     public void ViewToggle(bool state, SelectTileEnum selectTileEnum)
     {

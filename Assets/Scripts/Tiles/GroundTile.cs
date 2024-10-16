@@ -484,7 +484,23 @@ public class GroundTile : MonoBehaviour
                     }
                 }
                 break;
+
+            case GroundTileViewEnum.Mountain:
+                if(IsCheckAllCross(GroundTileViewEnum.Meadow))
+                {
+                    SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.OvergrownMountain));
+                    SpawnGroundTile();
+                }
+                break;
         }
+    }
+
+    public bool IsCheckAllCross(GroundTileViewEnum _groundTileViewEnum)
+    {
+        return _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.North).CheckTileView(_groundTileViewEnum) &&
+        _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.East).CheckTileView(_groundTileViewEnum) &&
+        _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.West).CheckTileView(_groundTileViewEnum) &&
+        _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.South).CheckTileView(_groundTileViewEnum);
     }
 
     public void SelectTile(bool state, SelectTileEnum selectTileEnum)
