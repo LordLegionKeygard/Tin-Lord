@@ -101,8 +101,8 @@ public class EcologySystem : MonoBehaviour
 
     private void CheckLimitEcology()
     {
-        if (_tilesEcology < -99) _tilesEcology = -99;
-        else if (_tilesEcology > 99) _tilesEcology = 99;
+        if (_totalEcology < -99) _totalEcology = -99;
+        else if (_totalEcology > 99) _totalEcology = 99;
     }
 
     private void OnDestroy()

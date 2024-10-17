@@ -112,7 +112,7 @@ public class CardHolderSystem : MonoBehaviour
         foreach (var cardToRemove in cardsToRemove)
         {
             RectTransform cardRect = cardToRemove.GetComponent<RectTransform>();
-            removeSequence.Join(cardRect.DOAnchorPosY(300, 0.5f).SetEase(Ease.InOutQuad)
+            removeSequence.Join(cardRect.DOAnchorPosY(300, 0.5f).SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
                     cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.Linear).SetUpdate(true).OnComplete(() =>

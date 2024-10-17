@@ -10,11 +10,25 @@ public class TimeTickSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _dayText;
     [SerializeField] private EveryTickResourcesProduction _everyTickResourcesExtraction;
     [SerializeField] private EveryTickResourcesRequired _everyTickResourcesRequired;
-    [SerializeField] private EnemiesSpawnerSystem _enemiesSpawnerSystem;
+
     private float _endTime = 25;
     private int _currentDay = 0;
     [SerializeField] private float _currentTime = 0f;
     private bool _isPaused = false;
+
+    private float _totalGameTime = 0f; // Общее игровое время в секундах
+
+    public float TickSpeed() => _tickSpeed;
+    public bool IsPause() => _isPaused;
+    public int CurrentTick() => _currentTick;
+    public float EndTime() => _endTime;
+    public int CurrentDay() => _currentDay;
+
+    // Метод для получения общего игрового времени
+    public float GetTotalGameTime()
+    {
+        return _totalGameTime;
+    }
 
     private void Awake()
     {
@@ -31,6 +45,7 @@ public class TimeTickSystem : MonoBehaviour
         if (_isPaused || !_tilesSystem.IsHaveBase()) return;
 
         _currentTime += Time.deltaTime;
+        _totalGameTime += Time.deltaTime;
 
         if (_currentTime >= _tickSpeed)
         {
