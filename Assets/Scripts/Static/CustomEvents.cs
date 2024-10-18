@@ -13,6 +13,12 @@ public class CustomEvents
         OnSpawnRoadComplete?.Invoke();
     }
 
+    public static event Action<GameEventType> OnGameEventStart;
+    public static void FireGameEventStart(GameEventType gameEventType)
+    {
+        OnGameEventStart?.Invoke(gameEventType);
+    }
+
     public static event Action<int> OnBuildingDestroyedNow;
     public static void FireBuildingDestroyedNow(int tileId)
     {
