@@ -6,12 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Card.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DayEventSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DayEventSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/15_AttackSructures/_AttackSructures_P3-Indicator.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/15_AttackSructures/_AttackSructures_P3-Indicator.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Environment/_Buildings/15_AttackSructures/_AttackSructures_P3-Indicator.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Environment/_Buildings/15_AttackSructures/_AttackSructures_P3-Indicator.fbx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/World.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/CardHolderSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/CardHolderSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/TimeTickSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/TimeTickSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CardStartAnimate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CardStartAnimate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CardsLayout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CardsLayout.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_AO.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_AO.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_Base.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_Base.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_Normal.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,10 +82,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="2356">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16752">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="2356" />
+      <option name="pid" value="16752" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -116,6 +120,7 @@
       <workItem from="1728320428711" duration="1113000" />
       <workItem from="1728327624318" duration="87000" />
       <workItem from="1729188000290" duration="1006000" />
+      <workItem from="1729257622207" duration="2703000" />
     </task>
     <servers />
   </component>
