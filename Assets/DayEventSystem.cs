@@ -5,15 +5,24 @@ using UnityEngine.UI;
 public class DayEventSystem : MonoBehaviour
 {
     [Header("Event Settings")]
-    [SerializeField] private GameEventInfo[] _allGameEvents;          // Массив доступных событий
-    [SerializeField] private GameObject _gameEventPrefab;         // Префаб EventIcon
-    [SerializeField] private RectTransform _container;           // Панель, где будут размещаться иконки
-    [SerializeField] private float eventMoveDuration = 25f;       // Продолжительность движения иконки (например, один день)
+    [SerializeField] private TimeTickSystem _timeTickSystem;
+    [SerializeField] private GameEventInfo[] _allGameEvents;
+    [SerializeField] private GameObject _gameEventPrefab;
+    [SerializeField] private RectTransform _container;
+    private float _eventMoveDuration; 
+    private int _dayBeforeSpawnEvent = 3;
 
     private void Start()
     {
         CustomEvents.OnDayEnd += OnDayEnd;
         CustomEvents.OnGameEventStart += ActiveGameEvent;
+
+        SetEventDuration();
+    }
+
+    private void SetEventDuration()
+    {
+        _eventMoveDuration = _timeTickSystem.TickSpeed() * _timeTickSystem.EndTime() * _dayBeforeSpawnEvent;
     }
 
     private void OnDayEnd(int currentDay)
@@ -30,13 +39,17 @@ public class DayEventSystem : MonoBehaviour
         // Создаём экземпляр префаба EventIcon
         var prefab = Instantiate(_gameEventPrefab, _container);
 
-        // Определяем позиции
-        Vector2 startPosition = new Vector2(_container.rect.width / 2f, 0f);    // Правый край панели
-        Vector2 endPosition = new Vector2(-_container.rect.width / 2f, 0f);     // Левый край панели
+        // Добавляем отступы
+        float offset = 10f; // Настройте по необходимости
+
+        // Определяем позиции с учётом отступов
+        Vector2 startPosition = new Vector2(_container.rect.width / 2f + offset, 0f);    // Правый край панели с отступом
+        Vector2 endPosition = new Vector2(-_container.rect.width / 2f - offset, 0f);     // Левый край панели с отступом
+
 
         // Инициализируем движение
         var gameEventView = prefab.GetComponent<GameEventView>();
-        gameEventView.Initialize(info, startPosition, endPosition, eventMoveDuration);
+        gameEventView.Initialize(info, startPosition, endPosition, _eventMoveDuration);
     }
 
     public void ActiveGameEvent(GameEventType gameEventType)

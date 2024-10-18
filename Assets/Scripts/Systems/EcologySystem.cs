@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
 public class EcologySystem : MonoBehaviour
 {
+    [SerializeField] private RectTransform _gearRectTransform;
     [SerializeField] private int _totalEcology;
     [SerializeField] private int _tilesEcology;
     [SerializeField] private int _radiation;
@@ -15,6 +17,7 @@ public class EcologySystem : MonoBehaviour
     private float _changeTextDuration = 1;
     private SetupRenderSettings _setupRenderSettings;
     private Coroutine _changeTextCoroutine;
+    private float _currentRotationAngle = 0f;
 
     private void Awake()
     {
@@ -70,6 +73,7 @@ public class EcologySystem : MonoBehaviour
         }
 
         _changeTextCoroutine = StartCoroutine(ChangeTextSmoothly(previousTotalEcology, _totalEcology));
+        UpdateGearRotation(previousTotalEcology, _totalEcology);  // Передаем старое и новое значение экологии
 
         _setupRenderSettings.UpdateRenderSettings(_totalEcology);
     }
@@ -85,15 +89,37 @@ public class EcologySystem : MonoBehaviour
             UpdateEcologyText(currentValue);
             yield return null;
         }
-
-
         UpdateEcologyText(newValue);
+    }
+
+    private void UpdateGearRotation(int previousEcology, int newEcology)
+    {
+        int changeAmount = newEcology - previousEcology;
+
+        if (changeAmount == 0) return;
+
+        _warningSign.SetActive(false);
+
+        float rotationAngle = changeAmount > 0 ? 45f : -45f;
+
+        _gearRectTransform.DOKill();
+
+        _currentRotationAngle += rotationAngle;
+
+        _gearRectTransform.DORotate(new Vector3(0, 0, _currentRotationAngle), _changeTextDuration)
+            .OnComplete(() => UpdateWarningSign(newEcology));
+    }
+
+
+
+    private void UpdateWarningSign(int ecologyValue)
+    {
+        _warningSign.SetActive(ecologyValue <= -50);
     }
 
     private void UpdateEcologyText(int ecologyValue)
     {
-        _totalEcologyText.color = ecologyValue < 0 ? Colors.WarningYellow : Colors.Grey;
-        _warningSign.SetActive(ecologyValue <= -50);
+        _totalEcologyText.color = ecologyValue < 0 ? Colors.WarningYellow : ecologyValue > 50 ? Colors.LightGreen : Colors.Grey;
 
         var ecologyString = Mathf.Abs(ecologyValue).ToString("D2");
         _totalEcologyText.text = ecologyString;

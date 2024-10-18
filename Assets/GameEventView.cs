@@ -22,6 +22,7 @@ public class GameEventView : MonoBehaviour
 
     public void Initialize(GameEventInfo gameEventInfo, Vector2 startPos, Vector2 endPos, float moveDuration)
     {
+        rectTransform.anchoredPosition = startPos;
         _gameEventInfo = gameEventInfo;
         _image.sprite = _gameEventInfo.EventIcon;
         startPosition = startPos;
