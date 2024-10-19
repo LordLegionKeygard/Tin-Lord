@@ -27,7 +27,7 @@ public class DayEventSystem : MonoBehaviour
 
     private void OnDayEnd(int currentDay)
     {
-        SpawnRandomEvent();
+        // SpawnRandomEvent();
     }
 
     private void SpawnRandomEvent()
