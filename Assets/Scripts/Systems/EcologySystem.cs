@@ -12,6 +12,7 @@ public class EcologySystem : MonoBehaviour
     [SerializeField] private int _tilesEcology;
     [SerializeField] private int _radiation;
     [SerializeField] private TextMeshProUGUI _totalEcologyText;
+    [SerializeField] private TextMeshProUGUI _radiationText;
     [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
     [SerializeField] private GameObject _warningSign;
     private float _changeTextDuration = 1;
@@ -55,6 +56,7 @@ public class EcologySystem : MonoBehaviour
     public void ChangeRadiation(int amount)
     {
         _radiation += amount;
+        _radiationText.text = $"{Language.TextStatic[5]} {_radiation}";
         UpdateTotalEcology();
     }
 

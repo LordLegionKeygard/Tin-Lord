@@ -38,10 +38,11 @@ public class BuildingHealth : BaseHealth
         {
             _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
             _healthSlider = _healthSliderObject.GetComponent<HealthSlider>();
-            _healthSlider.SetMaxHealth(MaxHealth);
             _healthSlider.SetHeightOffset(-3.5f);
             _healthSlider.SetObjectTransform(transform);
         }
+        
+        _healthSlider.SetMaxHealth(MaxHealth);
     }
 
     public void SetNewBuildingHealth(Building building)

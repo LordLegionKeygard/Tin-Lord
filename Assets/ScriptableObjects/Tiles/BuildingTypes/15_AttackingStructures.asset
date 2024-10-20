@@ -24,10 +24,13 @@ MonoBehaviour:
   IsWater: 0
   IsFourTile: 0
   IsTurret: 1
+  IsProtective: 0
   BuildingTypes: []
   ProductionOnGroundResources: []
   BuildingTileView: 15
   Buildings:
+  - {fileID: 11400000, guid: 8b5374a909413a9489f6d40f49027d12, type: 2}
+  - {fileID: 11400000, guid: 03d0e1fc476beab4ab04b292d94a0c9a, type: 2}
   - {fileID: 11400000, guid: b29b266bea933544e898fe0f31249b31, type: 2}
   - {fileID: 11400000, guid: 8e80b532c2642344f80813d8bb238902, type: 2}
   - {fileID: 11400000, guid: b2908d4b70fb693449a32f2238e62f9d, type: 2}

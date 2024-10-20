@@ -42,8 +42,8 @@ public class Language : MonoBehaviour
         _text[4, 0] = "Repair";
         _text[4, 1] = "Починить";
 
-        _text[5, 0] = "";
-        _text[5, 1] = "";
+        _text[5, 0] = "RADIATION";
+        _text[5, 1] = "РАДИАЦИЯ";
 
         _text[6, 0] = "Production resource";
         _text[6, 1] = "Добываемый ресурс";

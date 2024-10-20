@@ -7,9 +7,11 @@ public class TurretStop : MonoBehaviour
     private AIPath _aIPath;
     private AIDestinationSetter _aIDestinationSetter;
     private TurretStateChanger _turretStateChanger;
+    private Animator _animator;
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         _aIPath = GetComponent<AIPath>();
         _aIDestinationSetter = GetComponent<AIDestinationSetter>();
         _turretStateChanger = GetComponent<TurretStateChanger>();
@@ -27,6 +29,7 @@ public class TurretStop : MonoBehaviour
 
     public void StopTurretLogic()
     {
+        if (_animator != null) _animator.enabled = false;
         _aIPath.enabled = false;
         _aIDestinationSetter.enabled = false;
         _turretStateChanger.enabled = false;

@@ -10,25 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 57_F1-Delta
+  m_Name: 61_P3-Indicator
   m_EditorClassIdentifier: 
   Name:
-  - F1-Delta
-  - "\u04241-\u0414\u0435\u043B\u044C\u0442\u0430"
-  BuildingLevel: 1
-  BuildingSprite: {fileID: 21300000, guid: 31eb31e901942cb498572b7b5cbc3a30, type: 3}
-  BuildingEcology: -1
-  BuildingHealth: 20
+  - P3-Indicator
+  - "\u041F3-\u0418\u043D\u0434\u0438\u043A\u0430\u0442\u043E\u0440"
+  BuildingLevel: 5
+  BuildingSprite: {fileID: 21300000, guid: 1aca842a9a4c3324d862fb9a7b876e12, type: 3}
+  BuildingEcology: -5
+  BuildingHealth: 50
   ResourceExtractedAmount: 0
   ResourcesForBuild:
   - ResourcesForBuild: 10
-    RecourcesForBuildAmount: 5
+    RecourcesForBuildAmount: 20
+  - ResourcesForBuild: 16
+    RecourcesForBuildAmount: 4
+  - ResourcesForBuild: 18
+    RecourcesForBuildAmount: 2
+  - ResourcesForBuild: 19
+    RecourcesForBuildAmount: 1
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
     type: 3}
-  Damage: 2
-  AttackRecoveryTime: 1
-  AttackRadius: 50
-  RotationSpeed: 0.4
-  KnockbackPoints: 5
+  Damage: 5
+  AttackRecoveryTime: 0.4
+  AttackRadius: 60
+  RotationSpeed: 0.2
+  KnockbackPoints: 25

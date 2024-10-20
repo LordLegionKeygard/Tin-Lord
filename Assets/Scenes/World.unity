@@ -1442,7 +1442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &140215575
 Transform:
   m_ObjectHideFlags: 0
@@ -8451,11 +8451,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4721036f466c86a4d94c149b6ee8f790, type: 2}
   - {fileID: 11400000, guid: 419af5759a767c14cb33898e99882029, type: 2}
   - {fileID: 11400000, guid: 4a4396315f837f14fa447567d9b23600, type: 2}
+  - {fileID: 11400000, guid: 922a878113ad15b44b539c3a539a69f5, type: 2}
   - {fileID: 11400000, guid: 0436ec09a8dc5fb4498827cdea0315b2, type: 2}
   - {fileID: 11400000, guid: 834e6c1dfd5dcf74480dac385be07c7c, type: 2}
-  - {fileID: 11400000, guid: 97f1b6228cde2e5418d1ae0edc79dd37, type: 2}
-  - {fileID: 11400000, guid: 1d16e623860e89c42bc950034593fb28, type: 2}
-  - {fileID: 11400000, guid: 8761841c2c7edee4eb25be03abd002cb, type: 2}
+  - {fileID: 11400000, guid: 3f79d7498863a8d48b1eb22f90ae331b, type: 2}
+  - {fileID: 11400000, guid: adc20fa2d0fb7a04499607598b1290d7, type: 2}
   _currentCards: []
   _currentSelectCardObject: {fileID: 0}
 --- !u!1001 &729276258
@@ -9700,6 +9700,7 @@ MonoBehaviour:
   _bulletPrefabs:
   - {fileID: 100000, guid: 0e86efd1b37b2d54b9546087122331c9, type: 3}
   - {fileID: 100000, guid: 9eb9ea98b46ae964287c7efa89b2d59b, type: 3}
+  - {fileID: 2364496237868873579, guid: 870ce35035069d2478e13d79b9a6144b, type: 3}
 --- !u!1 &830401404
 GameObject:
   m_ObjectHideFlags: 0
@@ -10868,9 +10869,9 @@ RectTransform:
   m_Father: {fileID: 677763023}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -221.10295}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 442.2059}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &951569891
@@ -12899,9 +12900,9 @@ RectTransform:
   m_Father: {fileID: 677763023}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -598.97064}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 289.5295}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1056405590
@@ -15504,9 +15505,9 @@ RectTransform:
   m_Father: {fileID: 677763023}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -904.9204}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 298.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368340030
@@ -17010,6 +17011,7 @@ MonoBehaviour:
   _tilesEcology: 0
   _radiation: 0
   _totalEcologyText: {fileID: 1205929008}
+  _radiationText: {fileID: 2132169645}
   _ecologyTileInfoList: []
   _warningSign: {fileID: 927541603}
 --- !u!114 &1554564403
