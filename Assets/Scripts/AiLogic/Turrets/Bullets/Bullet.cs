@@ -70,5 +70,6 @@ public enum BulletEnum
     BasicX1 = 0,
     BasicX2 = 1,
     BallistaBolt = 2,
+    CannonBall = 3,
 }
 
