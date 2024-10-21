@@ -71,6 +71,8 @@ public class SelectTilePanel : MonoBehaviour
 
         _uiPanels.SetBuildTypesPanelAndLineVisibility(false);
         _uiPanels.TogglePanel(UIPanelsEnum.BuildsPanel, false);
+
+        Clear();
     }
 
     public void SetInfo(TileObject tileObject)
@@ -194,7 +196,7 @@ public class SelectTilePanel : MonoBehaviour
         var haveRotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() != null : false;
 
         var onOffButtonState = haveBuildingTile && isHaveProdictionResources;
-        var buildButtonState = isRoad ? (!haveBuildingTile || isCanUpgrade || isCanRepair) && isForwardRoad : (!haveBuildingTile || isCanUpgrade || isCanRepair) && !isRoad && (!isWater || tileObject.GroundTileObject().IsBridge()) && tileObject.GroundTileObject().IsHaveBuildingTypes();
+        var buildButtonState = isRoad ? (!haveBuildingTile || isCanUpgrade || isCanRepair) && isForwardRoad : (!haveBuildingTile || isCanUpgrade || isCanRepair) && !isRoad && (!isWater || tileObject.GroundTileObject().IsBridge());
         var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
         var destroyButtonState = haveBuildingTile || (!isRoad && !isBase && (!isWater || isLastRiverTile));
 
@@ -224,7 +226,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ToggleBuildingWork()
     {
-        if(!_workButton.activeInHierarchy || _tileObject == null) return;
+        if (!_workButton.activeInHierarchy || _tileObject == null) return;
 
         _tileObject.IsBuildingWork = !_tileObject.IsBuildingWork;
         SetOnOffButtonColor();
@@ -238,8 +240,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void RotateTile()
     {
-
-        if(!_rotateButton.activeInHierarchy || _tileObject == null) return;
+        if (!_rotateButton.activeInHierarchy || _tileObject == null) return;
 
         var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
         var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() : null;
@@ -250,7 +251,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void DestroyTile()
     {
-        if(!_destroyButton.activeInHierarchy || _tileObject == null) return;
+        if (!_destroyButton.activeInHierarchy || _tileObject == null) return;
 
         if (!_tileObject.BuildingTileObject().HaveTile())
         {
@@ -291,5 +292,10 @@ public class SelectTilePanel : MonoBehaviour
     public void ChangeResourceProduction(Resource resource, ResourceRecept[] resourceRecept)
     {
         _tileObject.SetResourceProduction(resource, resourceRecept);
+    }
+
+    private void Clear()
+    {
+        _tileObject = null;
     }
 }

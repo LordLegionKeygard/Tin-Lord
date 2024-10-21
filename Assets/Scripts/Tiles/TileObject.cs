@@ -125,7 +125,7 @@ public class TileObject : MonoBehaviour
 
     public void ChangeResourceProduction()
     {
-        if (_buildingTile.CurrentBuildingTile() == null || GroundTileObject().IsHaveBuildingTypes() || _buildingTile.CurrentBuildingTile().IsTurret) return;
+        if (_buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() || _buildingTile.CurrentBuildingTile().IsTurret || _buildingTile.CurrentBuildingTile().IsProtective) return;
         // Debug.Log("ChangeResourceProduction - CheckCount");
 
         var resourceWrapper = _buildingTile.CurrentBuilding();
