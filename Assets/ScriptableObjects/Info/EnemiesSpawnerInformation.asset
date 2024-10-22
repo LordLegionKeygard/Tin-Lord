@@ -13,19 +13,13 @@ MonoBehaviour:
   m_Name: EnemiesSpawnerInformation
   m_EditorClassIdentifier: 
   Spawners:
-  - DaySpawn: 1
-    MinCount: 5
-    MaxCount: 10
+  - DaySpawn: 60
+    MinCount: 10
+    MaxCount: 20
     EnemiesSpawnerInfo:
     - EnemyPrefab: {fileID: 5297197506641602335, guid: b5f961f9c792dd34fb1aab6273d0b924,
         type: 3}
       EnemyLevel: 2
-    - EnemyPrefab: {fileID: 6419468576447285572, guid: b113d9956ba06dc459df23f183b0c9ff,
-        type: 3}
-      EnemyLevel: 4
-    - EnemyPrefab: {fileID: 1444144861235826408, guid: 752668b4bcd8eb04080cc2a98cdcd183,
-        type: 3}
-      EnemyLevel: 6
   - DaySpawn: 2
     MinCount: 6
     MaxCount: 10
