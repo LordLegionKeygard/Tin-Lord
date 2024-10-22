@@ -198,7 +198,7 @@ public class SelectTilePanel : MonoBehaviour
         var onOffButtonState = haveBuildingTile && isHaveProdictionResources;
         var buildButtonState = isRoad ? (!haveBuildingTile || isCanUpgrade || isCanRepair) && isForwardRoad : (!haveBuildingTile || isCanUpgrade || isCanRepair) && !isRoad && (!isWater || tileObject.GroundTileObject().IsBridge());
         var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
-        var destroyButtonState = haveBuildingTile || (!isRoad && !isBase && (!isWater || isLastRiverTile));
+        var destroyButtonState = (haveBuildingTile || (!isRoad && (!isWater || isLastRiverTile))) && !isBase;
 
         _workButton.SetActive(onOffButtonState);
         _buildButton.SetActive(buildButtonState);

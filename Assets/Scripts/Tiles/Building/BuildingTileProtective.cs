@@ -28,9 +28,9 @@ public class BuildingTileProtective : MonoBehaviour
 
         if (_groundTile.CurrentGroundTile().GroundTileView == GroundTileViewEnum.Road)
         {
-            if (CheckSolo()) 
+            if (CheckSolo())
             {
-                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(ProtectiveTypeEnum.Gate, _groundTile.GetRoadAngle() + 90);
+                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(ProtectiveTypeEnum.Gate, _groundTile.GetRoadAngle() + 90, _buildingTile.CurrentBuildingLevel());
             }
             else SetForward(ProtectiveTypeEnum.Gate);
         }
@@ -38,7 +38,7 @@ public class BuildingTileProtective : MonoBehaviour
         {
             if (CheckSolo())
             {
-                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(_protectiveType, 0);
+                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(_protectiveType, 0, _buildingTile.CurrentBuildingLevel());
                 return;
             }
 
@@ -84,7 +84,7 @@ public class BuildingTileProtective : MonoBehaviour
             _buildingTile.NeightbourTileIsProtective((int)TileDirectionEnum.South) &&
             _buildingTile.NeightbourTileIsProtective((int)TileDirectionEnum.West))
         {
-            _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(_protectiveType, 0);
+            _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(_protectiveType, 0, _buildingTile.CurrentBuildingLevel());
             return true;
         }
         return false;
@@ -110,7 +110,7 @@ public class BuildingTileProtective : MonoBehaviour
                 _buildingTile.NeightbourTileIsProtective((int)directions[i].Item2) &&
                 _buildingTile.NeightbourTileIsProtective((int)directions[i].Item3))
             {
-                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(directions[i].Item4, directions[i].Item5);
+                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(directions[i].Item4, directions[i].Item5, _buildingTile.CurrentBuildingLevel());
                 return true;
             }
         }
@@ -133,7 +133,7 @@ public class BuildingTileProtective : MonoBehaviour
         {
             if (_buildingTile.NeightbourTileIsProtective((int)directions[i].Item1) && _buildingTile.NeightbourTileIsProtective((int)directions[i].Item2))
             {
-                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(directions[i].Item3, directions[i].Item4);
+                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(directions[i].Item3, directions[i].Item4, _buildingTile.CurrentBuildingLevel());
                 return true;
             }
         }
@@ -156,7 +156,7 @@ public class BuildingTileProtective : MonoBehaviour
         {
             if (_buildingTile.NeightbourTileIsProtective((int)direction))
             {
-                tileRiver.SetBuildingProtective(type, rotation);
+                tileRiver.SetBuildingProtective(type, rotation, _buildingTile.CurrentBuildingLevel());
                 break;
             }
         }

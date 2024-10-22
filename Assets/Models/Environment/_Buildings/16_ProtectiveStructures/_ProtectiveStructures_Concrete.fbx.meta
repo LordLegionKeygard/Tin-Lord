@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 7cd4d4ac48868a542bec4113acc299ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: ConcreteBlocks
     second: {fileID: 2100000, guid: d013d3687bf9ec24486f91cb9bcc7441, type: 2}
   - first:
