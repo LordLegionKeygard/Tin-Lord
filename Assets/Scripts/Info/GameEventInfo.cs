@@ -10,7 +10,11 @@ public class GameEventInfo : ScriptableObject
 public enum GameEventType
 {
     RadiationIncrease = 0,
-    RadiationDecrease = 1,
-    AcidRain = 2,
-    MeteorStrike = 3,
+    RadiationIncreaseMedium = 1,
+    RadiationIncreaseStrong = 2,
+    RadiationDecrease = 3,
+    RadiationDecreaseMedium = 4,
+    RadiationDecreaseStrong = 5,
+    AcidRain = 6,
+    MeteorStrike = 7,
 }

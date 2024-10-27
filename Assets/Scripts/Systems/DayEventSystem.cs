@@ -9,8 +9,11 @@ public class DayEventSystem : MonoBehaviour
     [SerializeField] private GameEventInfo[] _allGameEvents;
     [SerializeField] private GameObject _gameEventPrefab;
     [SerializeField] private RectTransform _container;
-    private float _eventMoveDuration; 
+    private float _eventMoveDuration;
     private int _dayBeforeSpawnEvent = 3;
+
+    [Header("Other")]
+    [SerializeField] private EcologySystem _ecologySystem;
 
     private void Start()
     {
@@ -27,7 +30,12 @@ public class DayEventSystem : MonoBehaviour
 
     private void OnDayEnd(int currentDay)
     {
-        // SpawnRandomEvent();
+        var rnd = Random.Range(0, 100);
+
+        if (rnd > 60)
+        {
+            SpawnRandomEvent();
+        }
     }
 
     private void SpawnRandomEvent()
@@ -54,7 +62,31 @@ public class DayEventSystem : MonoBehaviour
 
     public void ActiveGameEvent(GameEventType gameEventType)
     {
-        Debug.Log($"Произошло событие: {gameEventType}!");
+        switch (gameEventType)
+        {
+            case GameEventType.RadiationIncrease:
+                _ecologySystem.ChangeRadiation(3);
+                break;
+            case GameEventType.RadiationIncreaseMedium:
+                _ecologySystem.ChangeRadiation(6);
+                break;
+            case GameEventType.RadiationIncreaseStrong:
+                _ecologySystem.ChangeRadiation(9);
+                break;
+            case GameEventType.RadiationDecrease:
+                _ecologySystem.ChangeRadiation(-3);
+                break;
+            case GameEventType.RadiationDecreaseMedium:
+                _ecologySystem.ChangeRadiation(-6);
+                break;
+            case GameEventType.RadiationDecreaseStrong:
+                _ecologySystem.ChangeRadiation(-9);
+                break;
+            case GameEventType.AcidRain:
+                break;
+            case GameEventType.MeteorStrike:
+                break;
+        }
     }
 
     private void OnDestroy()

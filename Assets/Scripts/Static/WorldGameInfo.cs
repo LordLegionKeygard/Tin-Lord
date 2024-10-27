@@ -14,4 +14,7 @@ public class WorldGameInfo
     //Turret
     public const float TurretMaximumAttackAngle = 10;
     public const float TurretMinimumAttackAngle = -10;
+
+    //Radiadtion
+    public const int MaximumRadiation = 50;
 }

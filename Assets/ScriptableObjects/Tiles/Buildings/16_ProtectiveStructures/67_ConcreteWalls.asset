@@ -21,6 +21,8 @@ MonoBehaviour:
   BuildingHealth: 90
   ResourceExtractedAmount: 0
   ResourcesForBuild:
+  - ResourcesForBuild: 10
+    RecourcesForBuildAmount: 5
   - ResourcesForBuild: 13
     RecourcesForBuildAmount: 10
   ResourcesForWork: []

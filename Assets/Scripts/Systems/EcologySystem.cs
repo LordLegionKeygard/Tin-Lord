@@ -4,6 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EcologySystem : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class EcologySystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _radiationText;
     [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
     [SerializeField] private GameObject _warningSign;
+    [SerializeField] private Image _radiationIcon;
+    [SerializeField] private Sprite[] _radiationSprites;
     private float _changeTextDuration = 1;
     private SetupRenderSettings _setupRenderSettings;
     private Coroutine _changeTextCoroutine;
@@ -56,7 +59,10 @@ public class EcologySystem : MonoBehaviour
     public void ChangeRadiation(int amount)
     {
         _radiation += amount;
+        if (_radiation < 0) _radiation = 0;
+        if (_radiation > WorldGameInfo.MaximumRadiation) _radiation = WorldGameInfo.MaximumRadiation;
         _radiationText.text = $"{Language.TextStatic[5]} {_radiation}";
+        _radiationIcon.sprite = _radiation < 25 ? _radiationSprites[0] : _radiationSprites[1];
         UpdateTotalEcology();
     }
 
@@ -65,7 +71,7 @@ public class EcologySystem : MonoBehaviour
         int previousTotalEcology = _totalEcology;
         _tilesEcology = _ecologyTileInfoList.Sum(tile => tile.Amount);
 
-        _totalEcology = _tilesEcology + _radiation;
+        _totalEcology = _tilesEcology - _radiation;
 
         CheckLimitEcology();
 
