@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 80a9eb70d012bed49a2c0df79a363840
+guid: a1b92471ae9ba194ba86d43ac9350a6d
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GateT1
+    second: {fileID: 2100000, guid: 03731c75f8c38ed4bb9d3fb2e7b87629, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -93,7 +98,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.005
+    globalScale: 0.5
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
