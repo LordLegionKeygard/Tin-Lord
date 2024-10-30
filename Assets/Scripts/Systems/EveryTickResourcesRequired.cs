@@ -56,6 +56,8 @@ public class EveryTickResourcesRequired : MonoBehaviour
                 {
                     if (info.ResourceForWork != null) _playerResources.ChangeResource(info.ResourceForWork.ResourceEnum, -info.ResourceForWorkAmount);
 
+                    if(info.ResourceRecept == null) continue; //это здание требует ресурс для работы, но ничего не создает, например "Очистка экологии"
+
                     for (int k = 0; k < info.ResourceRecept.Length; k++)
                     {
                         _playerResources.ChangeResource(info.ResourceRecept[k].ResourceForRecept.ResourceEnum, -info.ResourceRecept[k].ResourcesForReceptAmount);

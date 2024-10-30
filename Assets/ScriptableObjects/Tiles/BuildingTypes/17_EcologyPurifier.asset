@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 17_EcologyPurifier
+  m_EditorClassIdentifier: 
+  Name:
+  - Ecology Purifier
+  - "\u041E\u0447\u0438\u0441\u0442\u043A\u0430 \u042D\u043A\u043E\u043B\u043E\u0433\u0438\u0438"
+  TileObject: {fileID: 5128493445474986613, guid: 2c2afe9ea2c408640b64f9aced01379a,
+    type: 3}
+  Icon: {fileID: 0}
+  TileTypeEnum: 1
+  GroundTileView: 0
+  GroundEcology: 0
+  IsWater: 0
+  IsFourTile: 0
+  IsTurret: 0
+  IsProtective: 0
+  IsEcologyBuilding: 1
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: 17
+  Buildings:
+  - {fileID: 11400000, guid: 669662283e2e37943b8ec6bf484a2139, type: 2}
+  - {fileID: 11400000, guid: bccb355c7eae0bb459eb002f79d10bf7, type: 2}
+  - {fileID: 11400000, guid: 71a9698b78ab5f6419ac9ba8d51937b8, type: 2}

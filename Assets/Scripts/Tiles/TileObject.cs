@@ -54,7 +54,7 @@ public class TileObject : MonoBehaviour
     {
         var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
         if (!haveResourcesForWork) return false;
-        if (_currentResourceRecept.Length == 0) return true;
+        if (_currentResourceRecept == null || _currentResourceRecept.Length == 0) return true;
 
         var haveResourceForRecept = _currentResourceRecept.All(recept =>
         _playerResources.ResourceEnough(recept.ResourceForRecept.ResourceEnum, recept.ResourcesForReceptAmount));
@@ -78,7 +78,7 @@ public class TileObject : MonoBehaviour
 
     public void SetResourceModifier()
     {
-        if (_buildingTile.CurrentBuildingTile() == null || !_buildingTile.CurrentBuildingTile().IsHaveProdictionResources()) return;
+        if (_buildingTile.CurrentBuildingTile() == null || (!_buildingTile.CurrentBuildingTile().IsHaveProductionResources() && !_buildingTile.CurrentBuildingTile().IsEcologyBuilding)) return;
 
         _currentModifier = CalculateCurrentModifier();
         _buildingProductionView.RefreshModifierView();
@@ -125,8 +125,8 @@ public class TileObject : MonoBehaviour
 
     public void ChangeResourceProduction()
     {
-        if (_buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() || _buildingTile.CurrentBuildingTile().IsTurret || _buildingTile.CurrentBuildingTile().IsProtective) return;
-        // Debug.Log("ChangeResourceProduction - CheckCount");
+        if (_buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() ||
+           _buildingTile.CurrentBuildingTile().IsTurret || _buildingTile.CurrentBuildingTile().IsProtective || _buildingTile.CurrentBuildingTile().IsEcologyBuilding) return;
 
         var resourceWrapper = _buildingTile.CurrentBuilding();
         var resourcesProduction = IsBuildingWork

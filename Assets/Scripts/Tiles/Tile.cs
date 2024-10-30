@@ -19,13 +19,14 @@ public class Tile : ScriptableObject
     public bool IsFourTile;
     public bool IsTurret;
     public bool IsProtective;
+    public bool IsEcologyBuilding;
     public Tile[] BuildingTypes;
     public ProductionOnGroundResources[] ProductionOnGroundResources;
 
     [Header("Building")]
     public BuildingTileViewEnum BuildingTileView;
     public Building[] Buildings;
-    public bool IsHaveProdictionResources() => Buildings[0].ResourcesProduction.Length > 0;
+    public bool IsHaveProductionResources() => Buildings[0].ResourcesProduction.Length > 0; //берем 0 здание так как у нас обычно все здания определенного типа имеют ресурс или нет
 }
 
 [System.Serializable]
@@ -98,6 +99,7 @@ public enum BuildingTileViewEnum
     ComponentsProduction = 14,
     AttackingStructures = 15,
     PretectiveStructures = 16,
+    EcologyPurifier = 17,
 }
 
 public enum TileDirectionEnum

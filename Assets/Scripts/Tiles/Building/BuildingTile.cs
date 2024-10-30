@@ -22,6 +22,7 @@ public class BuildingTile : MonoBehaviour
    public Building CurrentBuilding() => _currentBuildingTile.Buildings[_buildingLevels.CurrentBuildingLevel() - 1];
 
    public bool IsProtectiveTile() => _currentBuildingTile == null ? false : _currentBuildingTile.IsProtective;
+   public bool IsEcologyBuilding() => _currentBuildingTile == null ? false : _currentBuildingTile.IsEcologyBuilding;
    public bool NeightbourTileIsProtective(int number) => _tileObject.GetNeighbourBuildingTile(number) == null ? false : _tileObject.GetNeighbourBuildingTile(number).IsProtectiveTile();
 
    public bool IsCanUpgrade() => _currentBuildingTile != null ? CurrentBuildingLevel() < _currentBuildingTile.Buildings.Length : false;
@@ -130,7 +131,9 @@ public class BuildingTile : MonoBehaviour
       }
       else
       {
-         _tileObject.SetResourceRequied(CurrentBuilding().ResourcesForWork[0].ResourceForWork, CurrentBuilding().ResourcesForWork[0].ResourcesForWorkAmount, CurrentBuilding().ResourcesProduction[0].ResourceRecept); //ставим 0 ресурс из массива
+         var resourceRecept = CurrentBuilding().ResourcesProduction.Length == 0 ? null : CurrentBuilding().ResourcesProduction[0].ResourceRecept; //при спавне здания ставим 0 ресурс из массива
+         var resourcesForWork = CurrentBuilding().ResourcesForWork[0];
+         _tileObject.SetResourceRequied(resourcesForWork.ResourceForWork, resourcesForWork.ResourcesForWorkAmount, resourceRecept);
       }
    }
 }

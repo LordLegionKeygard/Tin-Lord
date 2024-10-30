@@ -6,16 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DayEventSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DayEventSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/15_AttackSructures/_AttackSructures_P3-Indicator.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/15_AttackSructures/_AttackSructures_P3-Indicator.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Environment/_Buildings/15_AttackSructures/_AttackSructures_P3-Indicator.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Environment/_Buildings/15_AttackSructures/_AttackSructures_P3-Indicator.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/Black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/Black.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/World.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_AO.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_AO.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_Base.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_Base.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_Normal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Environment/_Buildings/15_AttackSructures/_P3-Indicator/_P3-Indicator_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/ConfigsLoader/ConfigLoaderTileBuildings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/ConfigsLoader/ConfigLoaderTileBuildings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/0_Plain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/0_Plain.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/14_PollutedRiver.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/14_PollutedRiver.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/15_DeadForest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/15_DeadForest.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/16_Oasis.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/16_Oasis.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/17_DesertRiver.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/17_DesertRiver.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/3_Forest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/3_Forest.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/URP/UniversalRenderPipelineAsset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/URP/UniversalRenderPipelineAsset_Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/EveryTickResourcesRequired.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/EveryTickResourcesRequired.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingProductionView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingProductionView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingTile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +30,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53aac14d88ba4477acc998b039cfd73a15ae00/7e/042def82/Object.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -82,10 +91,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16752">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13952">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="16752" />
+      <option name="pid" value="13952" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -121,6 +130,9 @@
       <workItem from="1728327624318" duration="87000" />
       <workItem from="1729188000290" duration="1006000" />
       <workItem from="1729257622207" duration="2703000" />
+      <workItem from="1730246539565" duration="776000" />
+      <workItem from="1730247546849" duration="66000" />
+      <workItem from="1730248013301" duration="1039000" />
     </task>
     <servers />
   </component>
@@ -152,6 +164,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Systems/EveryTickResourcesRequired.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Systems\EveryTickResourcesRequired.cs" containingFunctionPresentation="Method 'ChangeResourceRequired'">
+            <startOffsets>
+              <option value="913" />
+            </startOffsets>
+            <endOffsets>
+              <option value="914" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs</url>
+          <line>144</line>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Tiles\TileObject.cs" containingFunctionPresentation="Method 'SetResourceRequied'">
+            <startOffsets>
+              <option value="6440" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6568" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -93,14 +93,18 @@ public class SelectTilePanel : MonoBehaviour
         _uiPanels.SetBuildTypesPanelAndLineVisibility(false);
         SetOnOffButtonColor();
 
-        if (haveBuildingTile && buildingTile.IsHaveProdictionResources())
+        if (haveBuildingTile)
         {
-            _productionResourcePanel.SetButtonView(tileObject.BuildingTileObject().CurrentBuilding(), tileObject.CurrentResourceProduction());
             if (tileObject.CurrentResourceRequired() != null)
             {
                 _requiredResourcePanel.UpdateButtonsView(_tileObject);
             }
-            _receptPanel.UpdateReceptView(tileObject.CurrentResourceRecept());
+
+            if (buildingTile.IsHaveProductionResources())
+            {
+                _productionResourcePanel.SetButtonView(tileObject.BuildingTileObject().CurrentBuilding(), tileObject.CurrentResourceProduction());
+                _receptPanel.UpdateReceptView(tileObject.CurrentResourceRecept());
+            }
         }
 
         SetButtonStates(tileObject, haveBuildingTile);
@@ -118,14 +122,14 @@ public class SelectTilePanel : MonoBehaviour
         _buildingNameText.text = haveBuildingTile ? $"{Language.TextStatic[2]}: {building.Name[Language.LanguageNumber]}" : $"{Language.TextStatic[2]}: -";
         _buildingLevelText.text = haveBuildingTile ? $"{Language.TextStatic[3]}: {tileObject.BuildingTileObject().CurrentBuildingLevel()}" : $"{Language.TextStatic[3]}: -";
 
-        _productionModifierText.text = haveBuildingTile && buildingTile.IsHaveProdictionResources()
+        _productionModifierText.text = haveBuildingTile && buildingTile.IsHaveProductionResources()
      ? $"{Language.TextStatic[11]}: <color={(tileObject.CurrentModifier() == 0 ? Colors.HexColorWarningYellow : Colors.HexColorWhite)}>x{tileObject.CurrentModifier()}</color>"
      : $"{Language.TextStatic[11]}: -";
     }
 
     private void SetProductionText(TileObject tileObject, Tile buildingTile, bool haveBuildingTile, Building buildings)
     {
-        if (haveBuildingTile && buildingTile.IsHaveProdictionResources())
+        if (haveBuildingTile && buildingTile.IsHaveProductionResources())
         {
             var isUseRources = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork.Length != 0;
             var productionName = $"{tileObject.CurrentResourceProduction().Name[Language.LanguageNumber]} ";
@@ -161,7 +165,8 @@ public class SelectTilePanel : MonoBehaviour
     {
         string textColor;
 
-        if (haveBuildingTile && buildingTile.IsHaveProdictionResources() && tileObject.CurrentResourceRequired() != null && tileObject.IsHaveRequiredResource())
+        if (haveBuildingTile && tileObject.CurrentResourceRequired() != null && tileObject.IsHaveRequiredResource() &&
+            (buildingTile.IsHaveProductionResources() || buildingTile.IsEcologyBuilding))
         {
             textColor = Colors.HexColorWhite;
         }
@@ -170,7 +175,7 @@ public class SelectTilePanel : MonoBehaviour
             textColor = Colors.HexColorWarningYellow;
         }
 
-        _requiredResources.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && buildingTile.IsHaveProdictionResources() && tileObject.CurrentResourceRequired() != null ? $"{tileObject.CurrentResourceRequired().Name[Language.LanguageNumber]} {tileObject.CurrentResourceRequiredAmount()}" : "-")}</color>";
+        _requiredResources.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && (buildingTile.IsHaveProductionResources() || buildingTile.IsEcologyBuilding) && tileObject.CurrentResourceRequired() != null ? $"{tileObject.CurrentResourceRequired().Name[Language.LanguageNumber]} {tileObject.CurrentResourceRequiredAmount()}" : "-")}</color>";
     }
 
     private void SetEcologyTexts(TileObject tileObject)
@@ -187,15 +192,15 @@ public class SelectTilePanel : MonoBehaviour
         var isForwardRoad = tileObject.GroundTileObject().IsForwardRoad();
         var isBase = currentGroundTile.GroundTileView == GroundTileViewEnum.BaseFoundation;
         var isWater = currentGroundTile.IsWater;
-        var isHaveProdictionResources = currentBuildingTile?.IsHaveProdictionResources() ?? false;
+        var isHaveProdictionResources = currentBuildingTile?.IsHaveProductionResources() ?? false;
         var isCanUpgrade = tileObject.BuildingTileObject().IsCanUpgrade();
         var isLastRiverTile = tileObject.GroundTileObject().GetLastRiverTile();
         var isCanRepair = !tileObject.BuildingHealth().IsFullHealth();
 
         var haveRotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>() != null;
-        var haveRotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() != null : false;
+        var haveRotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() && _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() != null;
 
-        var onOffButtonState = haveBuildingTile && isHaveProdictionResources;
+        var onOffButtonState = haveBuildingTile && (isHaveProdictionResources || tileObject.BuildingTileObject().IsEcologyBuilding());
         var buildButtonState = isRoad ? (!haveBuildingTile || isCanUpgrade || isCanRepair) && isForwardRoad : (!haveBuildingTile || isCanUpgrade || isCanRepair) && !isRoad;
         var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
         var destroyButtonState = (haveBuildingTile || (!isRoad && (!isWater || isLastRiverTile))) && !isBase;
