@@ -231,13 +231,12 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ToggleBuildingWork()
     {
-        if (!_workButton.activeInHierarchy || _tileObject == null) return;
+        if (!_workButton.activeInHierarchy || _tileObject == null || !_tileObject.IsHaveRequiredResource()) return;
 
         _tileObject.IsBuildingWork = !_tileObject.IsBuildingWork;
         SetOnOffButtonColor();
 
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
-        if (!_tileObject.IsHaveRequiredResource()) return;
 
         _tileObject.ChangeResourceProduction();
         CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());

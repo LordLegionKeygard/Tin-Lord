@@ -43,8 +43,8 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels = _currentBuildingTileObject.GetComponent<BuildingLevels>();
       _buildingLevels.SetBuildingLevelView(level, tileObject);
       tileObject.IsBuildingWork = true;
-      CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
+      CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
       _buildingLevels.CheckBuildingProductionView();
       if (CurrentBuilding().ResourcesProduction.Length != 0) tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
 
@@ -58,8 +58,8 @@ public class BuildingTile : MonoBehaviour
       _tileObject = tileObject;
 
       _buildingLevels.SetBuildingLevelView(level, tileObject);
-      CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
+      CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
       _buildingLevels.CheckBuildingProductionView();
       if (CurrentBuilding().ResourcesProduction.Length != 0) tileObject.SetResourceProduction(tileObject.CurrentResourceProduction(), tileObject.CurrentResourceRecept());
 

@@ -16,7 +16,17 @@ public class TileEcology : MonoBehaviour
         var baseBuildingEcology = haveBuildingTile ? _tileObject.BuildingTileObject().CurrentBuilding().BuildingEcology : 0;
 
         var groundEcology = _tileObject.GroundTileObject().CurrentGroundTile().GroundEcology;
-        var buildingEcology = haveBuildingTile ? (_tileObject.IsBuildingWork ? baseBuildingEcology : baseBuildingEcology / 2) : 0;
+
+        int buildingEcology;
+
+        if (_tileObject.BuildingTileObject().IsEcologyBuilding())
+        {
+            buildingEcology = haveBuildingTile ? _tileObject.IsBuildingWork ? _tileObject.BuildingTileObject().CurrentBuilding().BuildingEcologyPurifier : baseBuildingEcology : 0;
+        }
+        else
+        {
+            buildingEcology = haveBuildingTile ? _tileObject.IsBuildingWork ? baseBuildingEcology : baseBuildingEcology / 2 : 0;
+        }
 
         switch (getEcologyEnum)
         {

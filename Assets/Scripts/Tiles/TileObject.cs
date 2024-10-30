@@ -52,8 +52,12 @@ public class TileObject : MonoBehaviour
     }
     public bool IsHaveRequiredResource()
     {
-        var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length != 0 ? _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount) : true;
-        if (!haveResourcesForWork) return false;
+        var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length == 0 || _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount);
+        if (!haveResourcesForWork)
+        {
+            IsBuildingWork = false;
+            return false;
+        }
         if (_currentResourceRecept == null || _currentResourceRecept.Length == 0) return true;
 
         var haveResourceForRecept = _currentResourceRecept.All(recept =>
@@ -113,6 +117,9 @@ public class TileObject : MonoBehaviour
         if (state != _isHaveResourceRequired || needCheck)
         {
             _isHaveResourceRequired = state;
+
+            CustomEvents.FireChangeEcology(TileEcology().GetEcology(GetEcologyEnum.Total), GetId(), false); //обновляем экологию здания, после изменения состояния его работы
+
             CheckBuildingView();
             ChangeResourceProduction();
         }
@@ -120,7 +127,7 @@ public class TileObject : MonoBehaviour
 
     public void CheckBuildingView()
     {
-        if (_buildingProductionView != null) _buildingProductionView.CheckMainBuildingView();
+        _buildingProductionView?.CheckMainBuildingView();
     }
 
     public void ChangeResourceProduction()

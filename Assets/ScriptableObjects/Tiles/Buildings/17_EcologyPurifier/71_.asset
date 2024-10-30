@@ -17,7 +17,7 @@ MonoBehaviour:
   - "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E"
   BuildingLevel: 3
   BuildingSprite: {fileID: 21300000, guid: baf8d9595cbcda34993ee40ea7265379, type: 3}
-  BuildingEcology: 0
+  BuildingEcology: -1
   BuildingHealth: 8
   ResourceExtractedAmount: 0
   ResourcesForBuild:
@@ -32,3 +32,4 @@ MonoBehaviour:
   AttackRadius: 0
   RotationSpeed: 0
   KnockbackPoints: 0
+  BuildingEcologyPurifier: 15

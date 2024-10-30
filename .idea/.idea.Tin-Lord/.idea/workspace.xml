@@ -6,20 +6,81 @@
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/Black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Environment/_Buildings/Black.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/World.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/ConfigsLoader/ConfigLoaderTileBuildings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/ConfigsLoader/ConfigLoaderTileBuildings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/0_Plain.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/0_Plain.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/14_PollutedRiver.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/14_PollutedRiver.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/15_DeadForest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/15_DeadForest.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/16_Oasis.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/16_Oasis.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/17_DesertRiver.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/17_DesertRiver.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/3_Forest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Grounds/3_Forest.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/URP/UniversalRenderPipelineAsset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/URP/UniversalRenderPipelineAsset_Renderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/EveryTickResourcesRequired.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/EveryTickResourcesRequired.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingProductionView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingProductionView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/0_Shelter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/0_Shelter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/1_House.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/1_House.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/2_Village.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/2_Village.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/3_Settlement.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/3_Settlement.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/4_Town.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/4_Town.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/5_City.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/5_City.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/6_IndustrialCity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/6_IndustrialCity.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/7_Megapolis.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/0_Base/7_Megapolis.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/10_StoneBlockProduction/43_StoneCuttingTable.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/10_StoneBlockProduction/43_StoneCuttingTable.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/10_StoneBlockProduction/44_StoneCuttingWorkbrench.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/10_StoneBlockProduction/44_StoneCuttingWorkbrench.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/10_StoneBlockProduction/45_StoneCuttingFactory.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/10_StoneBlockProduction/45_StoneCuttingFactory.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/11_SmeltingProduction/46_ClayFurnace.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/11_SmeltingProduction/46_ClayFurnace.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/11_SmeltingProduction/47_StoneSmeltery.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/11_SmeltingProduction/47_StoneSmeltery.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/11_SmeltingProduction/48_SmeltingFurnace.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/11_SmeltingProduction/48_SmeltingFurnace.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/11_SmeltingProduction/49_BlastFurnace.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/11_SmeltingProduction/49_BlastFurnace.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/12_ConcreteProduction/50_ManualMixing.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/12_ConcreteProduction/50_ManualMixing.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/12_ConcreteProduction/51_Automixer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/12_ConcreteProduction/51_Automixer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/12_ConcreteProduction/52_ConcreteFactory.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/12_ConcreteProduction/52_ConcreteFactory.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/13_SteamProduction/53_Boiler.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/13_SteamProduction/53_Boiler.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/13_SteamProduction/54_BigBoiler.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/13_SteamProduction/54_BigBoiler.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/13_SteamProduction/55_SteamGeneratorComplex.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/13_SteamProduction/55_SteamGeneratorComplex.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/14_ComponentsProduction/56_ComponentsWorkbench.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/14_ComponentsProduction/56_ComponentsWorkbench.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/14_ComponentsProduction/57_ComponentsWorkshop.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/14_ComponentsProduction/57_ComponentsWorkshop.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/14_ComponentsProduction/58_ComponentsFactory.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/14_ComponentsProduction/58_ComponentsFactory.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/59_Ballista.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/59_Ballista.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/60_Cannon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/60_Cannon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/61_F1-Delta.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/61_F1-Delta.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/62_M1-Specter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/62_M1-Specter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/63_P3-Indicator.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/15_AttackingStructures/63_P3-Indicator.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/16_ProtectiveStructures/65_WoodenWalls.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/16_ProtectiveStructures/65_WoodenWalls.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/16_ProtectiveStructures/66_StoneWalls.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/16_ProtectiveStructures/66_StoneWalls.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/16_ProtectiveStructures/67_ConcreteWalls.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/16_ProtectiveStructures/67_ConcreteWalls.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/16_ProtectiveStructures/68_SteelWalls.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/16_ProtectiveStructures/68_SteelWalls.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/17_EcologyPurifier/69_Filter.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/17_EcologyPurifier/69_Filter.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/17_EcologyPurifier/70_BioTurbine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/17_EcologyPurifier/70_BioTurbine.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/17_EcologyPurifier/71_.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/17_EcologyPurifier/71_.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/1_ElectricPowerIndustry/10_SteamEngine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/1_ElectricPowerIndustry/10_SteamEngine.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/1_ElectricPowerIndustry/11_ThermalPowerPlant.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/1_ElectricPowerIndustry/11_ThermalPowerPlant.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/1_ElectricPowerIndustry/8_SolarPanel.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/1_ElectricPowerIndustry/8_SolarPanel.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/1_ElectricPowerIndustry/9_WindGenerator.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/1_ElectricPowerIndustry/9_WindGenerator.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/12_ManualMining.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/12_ManualMining.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/13_CoalMine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/13_CoalMine.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/14_SteamCoalRig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/14_SteamCoalRig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/15_DrillingRig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/2_CoalMining/15_DrillingRig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/3_OreMining/16_ManualMining.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/3_OreMining/16_ManualMining.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/3_OreMining/17_Mine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/3_OreMining/17_Mine.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/3_OreMining/18_SteamPoweredDrill.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/3_OreMining/18_SteamPoweredDrill.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/3_OreMining/19_BucketwheelExcavator.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/3_OreMining/19_BucketwheelExcavator.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/4_WoodExtraction/20_ManualMining.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/4_WoodExtraction/20_ManualMining.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/4_WoodExtraction/21_TableSaw.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/4_WoodExtraction/21_TableSaw.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/4_WoodExtraction/22_SteamSawmill.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/4_WoodExtraction/22_SteamSawmill.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/4_WoodExtraction/23_ElectroSawmill.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/4_WoodExtraction/23_ElectroSawmill.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/5_SandMining/24_ManualMining.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/5_SandMining/24_ManualMining.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/5_SandMining/25_SteamSandRig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/5_SandMining/25_SteamSandRig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/5_SandMining/26_Excavator.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/5_SandMining/26_Excavator.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/5_SandMining/27_BucketwheelExcavator.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/5_SandMining/27_BucketwheelExcavator.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/6_OilProduction/28_HandPump.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/6_OilProduction/28_HandPump.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/6_OilProduction/29_SteamPump.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/6_OilProduction/29_SteamPump.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/6_OilProduction/30_Pumpjack.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/6_OilProduction/30_Pumpjack.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/6_OilProduction/31_OilRig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/6_OilProduction/31_OilRig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/7_StoneMining/32_ManualMining.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/7_StoneMining/32_ManualMining.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/7_StoneMining/33_StoneMine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/7_StoneMining/33_StoneMine.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/7_StoneMining/34_SteamPoweredDrill.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/7_StoneMining/34_SteamPoweredDrill.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/7_StoneMining/35_DrillingRig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/7_StoneMining/35_DrillingRig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/8_LandWaterExtraction/36_Well.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/8_LandWaterExtraction/36_Well.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/8_LandWaterExtraction/37_WindPump.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/8_LandWaterExtraction/37_WindPump.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/8_LandWaterExtraction/38_SteamPump.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/8_LandWaterExtraction/38_SteamPump.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/8_LandWaterExtraction/39_ElectricPump.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/8_LandWaterExtraction/39_ElectricPump.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/9_Bridge/40_WoodenBridge.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/9_Bridge/40_WoodenBridge.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/9_Bridge/41_StoneBridge.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/9_Bridge/41_StoneBridge.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/9_Bridge/42_MetalBridge.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/Buildings/9_Bridge/42_MetalBridge.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/Building.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileEcology.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileEcology.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs" afterDir="false" />
     </list>
@@ -91,10 +152,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13952">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="18244">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="13952" />
+      <option name="pid" value="18244" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -133,6 +194,8 @@
       <workItem from="1730246539565" duration="776000" />
       <workItem from="1730247546849" duration="66000" />
       <workItem from="1730248013301" duration="1039000" />
+      <workItem from="1730298511175" duration="135000" />
+      <workItem from="1730299853657" duration="138000" />
     </task>
     <servers />
   </component>
@@ -179,14 +242,14 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs</url>
-          <line>144</line>
-          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Tiles\TileObject.cs" containingFunctionPresentation="Method 'SetResourceRequied'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/SelectTilePanel.cs</url>
+          <line>130</line>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\UI\SelectTilePanel.cs" containingFunctionPresentation="Method 'SetProductionText'">
             <startOffsets>
-              <option value="6440" />
+              <option value="5201" />
             </startOffsets>
             <endOffsets>
-              <option value="6568" />
+              <option value="5202" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />

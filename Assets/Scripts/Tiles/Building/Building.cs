@@ -24,6 +24,9 @@ public class Building : ScriptableObject
     public float AttackRadius;
     public float RotationSpeed;
     public int KnockbackPoints;
+
+    [Header("EcologyBuilding")]
+    public int BuildingEcologyPurifier; // кол-во очков экологии которое дает здание по очистке экологии
 }
 
 [System.Serializable]
