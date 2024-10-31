@@ -28,7 +28,7 @@ public class BuildingLevels : MonoBehaviour
         _buildingLevels[_currentBuildingLevel - 1].SetActive(true);
     }
 
-    public void CheckBuildingProductionView()
+    public void SetBuildingProductionView()
     {
         if (_buildingProductionView != null) _buildingProductionView.SetCurrentTileObject(_tileObject);
     }

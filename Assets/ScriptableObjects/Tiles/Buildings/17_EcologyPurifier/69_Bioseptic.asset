@@ -21,8 +21,10 @@ MonoBehaviour:
   BuildingHealth: 4
   ResourceExtractedAmount: 0
   ResourcesForBuild:
-  - ResourcesForBuild: 0
+  - ResourcesForBuild: 10
     RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 6
+    RecourcesForBuildAmount: 20
   ResourcesForWork:
   - ResourceForWork: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61, type: 2}
     ResourcesForWorkAmount: 1

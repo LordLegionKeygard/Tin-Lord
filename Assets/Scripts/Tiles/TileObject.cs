@@ -18,9 +18,10 @@ public class TileObject : MonoBehaviour
     private Resource _currentResourceRequired;
     private ResourceRecept[] _currentResourceRecept;
     private float _currentResourceRequiredAmount;
-    public bool IsBuildingWork;
+    private bool _isBuildingWork;
     private bool _isHaveResourceRequired = true;
     private bool _isBuildingDestroyedNow;
+    public bool IsBuildingWork() => _isBuildingWork;
     public bool IsBuildingDestroyedNow() => _isBuildingDestroyedNow;
     public void ToggleIsBuildingDestroyedNow(bool state) => _isBuildingDestroyedNow = state;
     public GroundTile GroundTileObject() => _groundTile;
@@ -35,6 +36,7 @@ public class TileObject : MonoBehaviour
     public float CurrentResourceRequiredAmount() => _currentResourceRequiredAmount;
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
+    public void SetBuildingWork(bool state) => _isBuildingWork = state;
 
     //Neighbours
     public GroundTile GetNeighbourGroundTile(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number].GroundTileObject() : null;
@@ -55,7 +57,10 @@ public class TileObject : MonoBehaviour
         var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length == 0 || _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount);
         if (!haveResourcesForWork)
         {
-            IsBuildingWork = false;
+            if (_buildingTile.IsEcologyBuilding())
+            {
+                _isBuildingWork = false; // отключаем полностью только здания по очистке экологии, если закончился ресурс
+            }
             return false;
         }
         if (_currentResourceRecept == null || _currentResourceRecept.Length == 0) return true;
@@ -133,10 +138,11 @@ public class TileObject : MonoBehaviour
     public void ChangeResourceProduction()
     {
         if (_buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() ||
-           _buildingTile.CurrentBuildingTile().IsTurret || _buildingTile.CurrentBuildingTile().IsProtective || _buildingTile.CurrentBuildingTile().IsEcologyBuilding) return;
+           _buildingTile.CurrentBuildingTile().IsTurret || _buildingTile.CurrentBuildingTile().IsProtective || _buildingTile.CurrentBuildingTile().IsEcologyBuilding
+           || _buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base) return;
 
         var resourceWrapper = _buildingTile.CurrentBuilding();
-        var resourcesProduction = IsBuildingWork
+        var resourcesProduction = _isBuildingWork
             ? _currentResourceRequired == null && _currentResourceRecept == null
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier
             : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0) : 0;

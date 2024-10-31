@@ -21,11 +21,11 @@ public class TileEcology : MonoBehaviour
 
         if (_tileObject.BuildingTileObject().IsEcologyBuilding())
         {
-            buildingEcology = haveBuildingTile ? _tileObject.IsBuildingWork ? _tileObject.BuildingTileObject().CurrentBuilding().BuildingEcologyPurifier : baseBuildingEcology : 0;
+            buildingEcology = haveBuildingTile ? _tileObject.IsBuildingWork() ? _tileObject.BuildingTileObject().CurrentBuilding().BuildingEcologyPurifier : baseBuildingEcology : 0;
         }
         else
         {
-            buildingEcology = haveBuildingTile ? _tileObject.IsBuildingWork ? baseBuildingEcology : baseBuildingEcology / 2 : 0;
+            buildingEcology = haveBuildingTile ? _tileObject.IsBuildingWork() ? baseBuildingEcology : baseBuildingEcology / 2 : 0;
         }
 
         switch (getEcologyEnum)

@@ -49,7 +49,7 @@ public class EveryTickResourcesRequired : MonoBehaviour
         for (int i = 0; i < _resourcesRequiresTilesInfoList.Count; i++)
         {
             var info = _resourcesRequiresTilesInfoList[i];
-            if (info.TileObject.IsBuildingWork)
+            if (info.TileObject.IsBuildingWork())
             {
                 info.TileObject.CheckResourceRequired(false);
                 if (info.TileObject.IsHaveRequiredResource())

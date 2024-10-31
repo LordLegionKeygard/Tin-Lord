@@ -113,7 +113,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetOnOffButtonColor()
     {
-        _onOffImage.color = _tileObject.IsBuildingWork ? Colors.Grey : Color.black;
+        _onOffImage.color = _tileObject.IsBuildingWork() ? Colors.Grey : Color.black;
     }
 
     private void SetTextFields(TileObject tileObject, Tile buildingTile, bool haveBuildingTile, Building building)
@@ -137,13 +137,13 @@ public class SelectTilePanel : MonoBehaviour
 
             if (isUseRources)
             {
-                productionAmount = tileObject.IsHaveRequiredResource() && tileObject.IsBuildingWork
+                productionAmount = tileObject.IsHaveRequiredResource() && tileObject.IsBuildingWork()
                     ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString()
                     : "0";
             }
             else
             {
-                productionAmount = tileObject.IsBuildingWork
+                productionAmount = tileObject.IsBuildingWork()
                     ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString()
                     : "0";
             }
@@ -231,15 +231,17 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ToggleBuildingWork()
     {
-        if (!_workButton.activeInHierarchy || _tileObject == null || !_tileObject.IsHaveRequiredResource()) return;
+        if (!_workButton.activeInHierarchy || _tileObject == null) return;
 
-        _tileObject.IsBuildingWork = !_tileObject.IsBuildingWork;
+        if(_tileObject.BuildingTileObject().IsEcologyBuilding() && !_tileObject.IsHaveRequiredResource()) return;
+
+        _tileObject.SetBuildingWork(!_tileObject.IsBuildingWork());
         SetOnOffButtonColor();
 
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
 
         _tileObject.ChangeResourceProduction();
-        CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());
+        CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork() ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());
     }
 
     public void RotateTile()

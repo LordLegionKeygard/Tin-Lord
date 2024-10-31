@@ -64,7 +64,7 @@ public class BuildingProductionView : MonoBehaviour
 
     public void CheckMainBuildingView()
     {
-        if ((_tileObject.CurrentModifier() > 0 || _tileObject.BuildingTileObject().IsEcologyBuilding()) && _tileObject.IsHaveRequiredResource() && _tileObject.IsBuildingWork)
+        if ((_tileObject.CurrentModifier() > 0 || _tileObject.BuildingTileObject().IsEcologyBuilding()) && _tileObject.IsHaveRequiredResource() && _tileObject.IsBuildingWork())
         {
             SetMainView(true);
         }
@@ -145,9 +145,9 @@ public class BuildingProductionView : MonoBehaviour
 
     private void ChangeActiveObjects()
     {
-        if (!_tileObject.IsBuildingWork)
+        if (!_tileObject.IsBuildingWork())
         {
-            // ресурсы должны отключаться когда здание выключено, чтобы визуально было лучше понятно, поэтому нет смысла вызывать этот метод, если они выключены
+            // ресурсы должны отключаться когда здание выключено, чтобы визуально было лучше понятно, поэтому нет смысла вызывать этот метод, если здание не работает
             return;
         }
 
