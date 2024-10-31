@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 71_WasteNeutralizer
+  m_EditorClassIdentifier: 
+  Name:
+  - Waste Neutralizer
+  - "\u041D\u0435\u0439\u0442\u0440\u0430\u043B\u0438\u0437\u0430\u0442\u043E\u0440
+    \u041E\u0442\u0445\u043E\u0434\u043E\u0432"
+  BuildingLevel: 3
+  BuildingSprite: {fileID: 21300000, guid: baf8d9595cbcda34993ee40ea7265379, type: 3}
+  BuildingEcology: -1
+  BuildingHealth: 8
+  ResourceExtractedAmount: 0
+  ResourcesForBuild:
+  - ResourcesForBuild: 0
+    RecourcesForBuildAmount: 10
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 27b850f65039e4244ac4286f6c1c897b, type: 2}
+    ResourcesForWorkAmount: 1
+  - ResourceForWork: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
+    ResourcesForWorkAmount: 1
+  - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
+    ResourcesForWorkAmount: 1
+  ResourcesProduction: []
+  DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
+    type: 3}
+  Damage: 0
+  AttackRecoveryTime: 0
+  AttackRadius: 0
+  RotationSpeed: 0
+  KnockbackPoints: 0
+  BuildingEcologyPurifier: 15

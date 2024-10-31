@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +19,8 @@ public class RequiredResourcePanel : MonoBehaviour
             { ResourceEnum.Coal, (_buttons[1], _select[1]) },
             { ResourceEnum.Oil, (_buttons[2], _select[2]) },
             { ResourceEnum.Electricity, (_buttons[3], _select[3]) },
-            { ResourceEnum.Steam, (_buttons[4], _select[4]) }
+            { ResourceEnum.Steam, (_buttons[4], _select[4]) },
+            {ResourceEnum.Water, (_buttons[5], _select[5]) },
         };
     }
 
