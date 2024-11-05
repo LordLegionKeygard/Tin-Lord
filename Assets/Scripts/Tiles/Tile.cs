@@ -17,9 +17,6 @@ public class Tile : ScriptableObject
     public int GroundEcology;
     public bool IsWater;
     public bool IsFourTile;
-    public bool IsTurret;
-    public bool IsProtective;
-    public bool IsEcologyBuilding;
     public Tile[] BuildingTypes;
     public ProductionOnGroundResources[] ProductionOnGroundResources;
 
@@ -100,6 +97,9 @@ public enum BuildingTileViewEnum
     AttackingStructures = 15,
     PretectiveStructures = 16,
     EcologyPurifier = 17,
+    MemoryRecovery = 18,
+    RadioCommunication = 19,
+
 }
 
 public enum TileDirectionEnum

@@ -20,9 +20,8 @@ public class BuildingTile : MonoBehaviour
    public GameObject CurrentBuildingTileObject() => _currentBuildingTileObject;
    public int CurrentBuildingLevel() => _buildingLevels.CurrentBuildingLevel();
    public Building CurrentBuilding() => _currentBuildingTile.Buildings[_buildingLevels.CurrentBuildingLevel() - 1];
-
-   public bool IsProtectiveTile() => _currentBuildingTile == null ? false : _currentBuildingTile.IsProtective;
-   public bool IsEcologyBuilding() => _currentBuildingTile == null ? false : _currentBuildingTile.IsEcologyBuilding;
+   public bool IsProtectiveTile() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.PretectiveStructures;
+   public bool IsEcologyBuilding() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier;
    public bool NeightbourTileIsProtective(int number) => _tileObject.GetNeighbourBuildingTile(number) == null ? false : _tileObject.GetNeighbourBuildingTile(number).IsProtectiveTile();
 
    public bool IsCanUpgrade() => _currentBuildingTile != null ? CurrentBuildingLevel() < _currentBuildingTile.Buildings.Length : false;

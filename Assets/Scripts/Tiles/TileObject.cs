@@ -87,7 +87,7 @@ public class TileObject : MonoBehaviour
 
     public void SetResourceModifier()
     {
-        if (_buildingTile.CurrentBuildingTile() == null || (!_buildingTile.CurrentBuildingTile().IsHaveProductionResources() && !_buildingTile.CurrentBuildingTile().IsEcologyBuilding)) return;
+        if (_buildingTile.CurrentBuildingTile() == null || (!_buildingTile.CurrentBuildingTile().IsHaveProductionResources() && !_buildingTile.IsEcologyBuilding())) return;
 
         _currentModifier = CalculateCurrentModifier();
         _buildingProductionView.RefreshModifierView();
@@ -138,8 +138,9 @@ public class TileObject : MonoBehaviour
     public void ChangeResourceProduction()
     {
         if (_buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() ||
-           _buildingTile.CurrentBuildingTile().IsTurret || _buildingTile.CurrentBuildingTile().IsProtective || _buildingTile.CurrentBuildingTile().IsEcologyBuilding
-           || _buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base) return;
+           (_buildingTile.CurrentBuildingTile().BuildingTileView is BuildingTileViewEnum.AttackingStructures or
+            BuildingTileViewEnum.PretectiveStructures or BuildingTileViewEnum.EcologyPurifier or BuildingTileViewEnum.Base
+            or BuildingTileViewEnum.RadioCommunication)) return;
 
         var resourceWrapper = _buildingTile.CurrentBuilding();
         var resourcesProduction = _isBuildingWork

@@ -116,20 +116,20 @@ public class SelectTilePanel : MonoBehaviour
         _onOffImage.color = _tileObject.IsBuildingWork() ? Colors.Grey : Color.black;
     }
 
-    private void SetTextFields(TileObject tileObject, Tile buildingTile, bool haveBuildingTile, Building building)
+    private void SetTextFields(TileObject tileObject, Tile tile, bool haveBuildingTile, Building building)
     {
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _buildingNameText.text = haveBuildingTile ? $"{Language.TextStatic[2]}: {building.Name[Language.LanguageNumber]}" : $"{Language.TextStatic[2]}: -";
         _buildingLevelText.text = haveBuildingTile ? $"{Language.TextStatic[3]}: {tileObject.BuildingTileObject().CurrentBuildingLevel()}" : $"{Language.TextStatic[3]}: -";
 
-        _productionModifierText.text = haveBuildingTile && buildingTile.IsHaveProductionResources()
+        _productionModifierText.text = haveBuildingTile && tile.IsHaveProductionResources()
      ? $"{Language.TextStatic[11]}: <color={(tileObject.CurrentModifier() == 0 ? Colors.HexColorWarningYellow : Colors.HexColorWhite)}>x{tileObject.CurrentModifier()}</color>"
      : $"{Language.TextStatic[11]}: -";
     }
 
-    private void SetProductionText(TileObject tileObject, Tile buildingTile, bool haveBuildingTile, Building buildings)
+    private void SetProductionText(TileObject tileObject, Tile tile, bool haveBuildingTile, Building buildings)
     {
-        if (haveBuildingTile && buildingTile.IsHaveProductionResources())
+        if (haveBuildingTile && tile.IsHaveProductionResources())
         {
             var isUseRources = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork.Length != 0;
             var productionName = $"{tileObject.CurrentResourceProduction().Name[Language.LanguageNumber]} ";
@@ -161,12 +161,12 @@ public class SelectTilePanel : MonoBehaviour
 
     }
 
-    private void SetRequiredText(TileObject tileObject, Tile buildingTile, bool haveBuildingTile)
+    private void SetRequiredText(TileObject tileObject, Tile tile, bool haveBuildingTile)
     {
         string textColor;
 
         if (haveBuildingTile && tileObject.CurrentResourceRequired() != null && tileObject.IsHaveRequiredResource() &&
-            (buildingTile.IsHaveProductionResources() || buildingTile.IsEcologyBuilding))
+            (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier))
         {
             textColor = Colors.HexColorWhite;
         }
@@ -175,7 +175,7 @@ public class SelectTilePanel : MonoBehaviour
             textColor = Colors.HexColorWarningYellow;
         }
 
-        _requiredResources.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && (buildingTile.IsHaveProductionResources() || buildingTile.IsEcologyBuilding) && tileObject.CurrentResourceRequired() != null ? $"{tileObject.CurrentResourceRequired().Name[Language.LanguageNumber]} {tileObject.CurrentResourceRequiredAmount()}" : "-")}</color>";
+        _requiredResources.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier) && tileObject.CurrentResourceRequired() != null ? $"{tileObject.CurrentResourceRequired().Name[Language.LanguageNumber]} {tileObject.CurrentResourceRequiredAmount()}" : "-")}</color>";
     }
 
     private void SetEcologyTexts(TileObject tileObject)

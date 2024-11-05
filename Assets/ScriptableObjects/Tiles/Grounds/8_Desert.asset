@@ -24,6 +24,8 @@ MonoBehaviour:
   IsWater: 0
   IsFourTile: 0
   IsTurret: 0
+  IsProtective: 0
+  IsEcologyBuilding: 0
   BuildingTypes:
   - {fileID: 11400000, guid: 147750dcd60d8704bbf754bd005c7a82, type: 2}
   - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
@@ -31,6 +33,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dcec068b1e342ea48a05e4aa00f359fa, type: 2}
   - {fileID: 11400000, guid: 0201f24a41783a74b835b447a2b63c8c, type: 2}
   - {fileID: 11400000, guid: f75a197b363f67549bc847eb987e8084, type: 2}
+  - {fileID: 11400000, guid: be68f6783623e0a478b7d4e803d1832e, type: 2}
+  - {fileID: 11400000, guid: 9689564738aacee4f9bdcbade4fb180a, type: 2}
   ProductionOnGroundResources:
   - ProductionOnGroundResource: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046,
       type: 2}
