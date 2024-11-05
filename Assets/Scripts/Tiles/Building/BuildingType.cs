@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BuildingType : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _nameText;
+
     [SerializeField] private Image _image;
     private Tile _currentBuildingTypeTile;
     private TileObject _currentTileObject;
@@ -21,8 +21,6 @@ public class BuildingType : MonoBehaviour
         _currentBuildingTypeTile = buildingTypeTile;
         _buildsPanel = buildsPanel;
         _buildTypesPanel = buildTypesPanel;
-
-        _nameText.text = _currentBuildingTypeTile.Name[Language.LanguageNumber];
     }
 
     public void SelectTypeButton()
@@ -31,6 +29,7 @@ public class BuildingType : MonoBehaviour
         _buildsPanel.SpawnBuildingItemsInScrollView(_currentTileObject, _selectTilePanel, _currentBuildingTypeTile); //спавним список зданий этого типа
         _buildTypesPanel.UnselectAllTypes();
         ToggleSelectView(true);
+        _buildTypesPanel.SetBuildingTypeText(_currentBuildingTypeTile.Name[Language.LanguageNumber]);
     }
 
     public void ToggleSelectView(bool state)

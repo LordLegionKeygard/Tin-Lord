@@ -57,8 +57,8 @@ public class Language : MonoBehaviour
         _text[9, 0] = "Components";
         _text[9, 1] = "Компоненты";
 
-        _text[10, 0] = "";
-        _text[10, 1] = "";
+        _text[10, 0] = "Select building type";
+        _text[10, 1] = "Выберите тип здания";
 
         _text[11, 0] = "Production modifier";
         _text[11, 1] = "Модификатор добычи";

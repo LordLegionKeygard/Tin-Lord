@@ -1,18 +1,22 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class BuildTypesPanel : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
+    [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TilesSystem _tileSystem;
     [SerializeField] private BuildingType _buildingType;
-    [SerializeField] private Transform _content;
-    private List<BuildingType> _buildingTypesList = new List<BuildingType>();
+    [SerializeField] private RectTransform _content;
+    private List<BuildingType> _buildingTypesList = new();
     [SerializeField] private BuildsPanel _buildsPanel;
 
     public void SpawnBuildingTypesInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel)
     {
+        ResetText();
         var buildingTypeTiles = _tileSystem.TakeGroundTile(tileObject.GroundTileObject().CurrentGroundTile().GroundTileView).BuildingTypes;
 
         if (tileObject.GroundTileObject().IsBridge())
@@ -39,6 +43,8 @@ public class BuildTypesPanel : MonoBehaviour
                 _buildingTypesList.Add(item.gameObject.GetComponent<BuildingType>());
             }
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(_content);
     }
 
     public void PlayerInputBuildTypesButton(int number)
@@ -54,6 +60,15 @@ public class BuildTypesPanel : MonoBehaviour
         {
             _buildingTypesList[i].ToggleSelectView(false);
         }
+
+        ResetText();
+    }
+
+    public void ResetText() => SetBuildingTypeText(Language.TextStatic[10]);
+
+    public void SetBuildingTypeText(string text)
+    {
+        _nameText.text = text;
     }
 
     public void ClearListObjects()
@@ -68,5 +83,6 @@ public class BuildTypesPanel : MonoBehaviour
     private void OnDisable()
     {
         ClearListObjects();
+        ResetText();
     }
 }
