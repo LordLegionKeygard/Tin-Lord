@@ -82819,6 +82819,7 @@ GameObject:
   - component: {fileID: 5128493445474986610}
   - component: {fileID: 8142879596173701983}
   - component: {fileID: -6135255595458968081}
+  - component: {fileID: 5117036162057821377}
   m_Layer: 0
   m_Name: 0_Base
   m_TagString: Untagged
@@ -82879,6 +82880,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsForRotate:
   - {fileID: 4052141766415362070}
+--- !u!114 &5117036162057821377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128493445474986613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914cc685328b9574993329eaa1ec37bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterBuildingAnimators: []
+  _armIk: []
+  _turnOffObjects:
+  - {fileID: 8406397653254673930}
+  - {fileID: 1017618481228582661}
+  - {fileID: 8185007943470544074}
+  - {fileID: 8597196276312399924}
+  - {fileID: 3652802840864805532}
+  - {fileID: 6117399984216609986}
+  - {fileID: 1579024782010857964}
+  - {fileID: 5199767432694725541}
+  - {fileID: 7438894677869075682}
+  - {fileID: 2826285380748135608}
+  - {fileID: 7573697569246430549}
+  - {fileID: 7035815724636754169}
+  - {fileID: 23332361654853885}
+  - {fileID: 23318689290871177}
+  - {fileID: 22672532696667615}
+  - {fileID: 23119878224437929}
+  - {fileID: 23094920765790649}
+  - {fileID: 23094921364572391}
+  _turnOnObjects: []
+  _animators: []
+  _rotateArounds:
+  - {fileID: 6009225744701560896}
+  - {fileID: 8268422902412881636}
+  - {fileID: 8274312387589179531}
+  - {fileID: 8475496516364891499}
+  _changeViewIfModifier: 0
+  _additionalturnOffObjects: []
+  _additionalturnOnObjects: []
+  _needSetResourceView: 0
+  _resourceViewMeshRenders: []
+  _resourceViewActiveGameObjects: []
 --- !u!1 &5192268922908223899
 GameObject:
   m_ObjectHideFlags: 0

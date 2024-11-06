@@ -25,6 +25,9 @@ MonoBehaviour:
   IsFourTile: 1
   BuildingTypes:
   - {fileID: 11400000, guid: 5c4aaa2ef2c0b1545aeec4fc198783da, type: 2}
-  ProductionOnGroundResources: []
+  ProductionOnGroundResources:
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 23814b4f35f760d44b89c897c3a239b8,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1
   BuildingTileView: -1
   Buildings: []
