@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 public class BuildingType : MonoBehaviour
 {
 
     [SerializeField] private Image _image;
+    [SerializeField] private Image _icon;
     private Tile _currentBuildingTypeTile;
     private TileObject _currentTileObject;
     private SelectTilePanel _selectTilePanel;
@@ -21,6 +19,7 @@ public class BuildingType : MonoBehaviour
         _currentBuildingTypeTile = buildingTypeTile;
         _buildsPanel = buildsPanel;
         _buildTypesPanel = buildTypesPanel;
+        _icon.sprite = buildingTypeTile.Icon;
     }
 
     public void SelectTypeButton()
