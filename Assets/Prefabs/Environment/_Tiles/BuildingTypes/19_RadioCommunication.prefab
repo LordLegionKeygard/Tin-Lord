@@ -101,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _randomRange: 1.5
   _isChangePosition: 1
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
+  _isChangeRotation: 0
+  _isFixed90Rotation: 0
 --- !u!1 &1643763031437463597
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,8 +354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _randomRange: 1.5
   _isChangePosition: 1
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
+  _isChangeRotation: 0
+  _isFixed90Rotation: 0
 --- !u!1 &3180026499172790207
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,8 +455,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _randomRange: 1.5
   _isChangePosition: 1
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
+  _isChangeRotation: 0
+  _isFixed90Rotation: 0
 --- !u!1 &3235721680769636656
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +703,7 @@ GameObject:
   - component: {fileID: 8142879596173701983}
   - component: {fileID: 157841661575827762}
   - component: {fileID: -6135255595458968081}
+  - component: {fileID: 1174743447703373896}
   m_Layer: 0
   m_Name: 19_RadioCommunication
   m_TagString: Untagged
@@ -781,6 +782,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsForRotate:
   - {fileID: 4052141766415362070}
+--- !u!114 &1174743447703373896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128493445474986613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5212500333000617080
 GameObject:
   m_ObjectHideFlags: 0

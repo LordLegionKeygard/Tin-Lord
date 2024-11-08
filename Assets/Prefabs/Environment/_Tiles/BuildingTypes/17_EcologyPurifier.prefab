@@ -577,7 +577,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2053142716579907845}
-  - component: {fileID: 8167481870030270390}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -604,22 +603,6 @@ Transform:
   m_Father: {fileID: 6547895352890119026}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8167481870030270390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672500949884425151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _randomRange: 0
-  _isChangePosition: 0
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
 --- !u!1 &2891188212007837891
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,7 +689,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2372311694632048954}
-  - component: {fileID: 4119412861959278051}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -731,22 +713,6 @@ Transform:
   m_Father: {fileID: 1581708338737848770}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4119412861959278051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3145751447664853888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _randomRange: 0
-  _isChangePosition: 0
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
 --- !u!1 &3235721680769636656
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,6 +868,7 @@ GameObject:
   - component: {fileID: 8142879596173701983}
   - component: {fileID: 157841661575827762}
   - component: {fileID: -6135255595458968081}
+  - component: {fileID: 1395422920748733332}
   m_Layer: 0
   m_Name: 17_EcologyPurifier
   m_TagString: Untagged
@@ -985,6 +952,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsForRotate:
   - {fileID: 4052141766415362070}
+--- !u!114 &1395422920748733332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128493445474986613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5165159134924835433
 GameObject:
   m_ObjectHideFlags: 0
@@ -5960,7 +5939,6 @@ GameObject:
   - component: {fileID: 8849519688584358765}
   - component: {fileID: 5575479223762183368}
   - component: {fileID: 7675509914218434562}
-  - component: {fileID: 2014010798023238463}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -6040,22 +6018,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2014010798023238463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8179697911019680215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _randomRange: 0
-  _isChangePosition: 0
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
 --- !u!1 &8762547938904865416
 GameObject:
   m_ObjectHideFlags: 0

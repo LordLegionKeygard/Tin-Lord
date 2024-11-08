@@ -1054,7 +1054,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3730241883919346046}
-  - component: {fileID: 5552977428881815693}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -1085,22 +1084,6 @@ Transform:
   m_Father: {fileID: 2696899410802448327}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5552977428881815693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1852568513643267206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _randomRange: 0
-  _isChangePosition: 0
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
 --- !u!1 &2014322387448703166
 GameObject:
   m_ObjectHideFlags: 0
@@ -6602,6 +6585,7 @@ GameObject:
   - component: {fileID: 4178699270900791544}
   - component: {fileID: 4194924955760464721}
   - component: {fileID: 1861899223972456689}
+  - component: {fileID: 6307583151833150475}
   m_Layer: 0
   m_Name: 12_ConcreteProduction
   m_TagString: Untagged
@@ -6688,6 +6672,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsForRotate:
   - {fileID: 2696899411291575605}
+--- !u!114 &6307583151833150475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2696899411291575605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2696899411397877262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6855,8 +6851,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _randomRange: 0.5
   _isChangePosition: 1
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
+  _isChangeRotation: 0
+  _isFixed90Rotation: 0
 --- !u!1 &3037842779092626613
 GameObject:
   m_ObjectHideFlags: 0
@@ -13169,7 +13165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _randomRange: 0.5
   _isChangePosition: 1
-  _isChangeRotation: 1
+  _isChangeRotation: 0
   _isFixed90Rotation: 0
 --- !u!1 &5520915916827315238
 GameObject:
