@@ -14,6 +14,9 @@ public class Colors : MonoBehaviour
     public static string HexColorWhite = "#FFFFFF";
     public static string HexColorWarningYellow = "#FFA800";
 
+    //MemoryRecovery
+    public static readonly Color MemoryOn = new Color(0, 3, 12, 1);
+
     public Color[] SelectTileView;
 
     private void Awake()

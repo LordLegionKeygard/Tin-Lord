@@ -36,6 +36,9 @@ public class BuildingProductionView : MonoBehaviour
     [SerializeField] private ResourceViewMeshRenders[] _resourceViewMeshRenders;
     [SerializeField] private ResourceViewActiveGameObjects[] _resourceViewActiveGameObjects;
 
+    [Header("MemoryRecovery")]
+    [SerializeField] private MeshRenderer[] _meshRenderers;
+
 
     public void SetCurrentTileObject(TileObject tileObject)
     {
@@ -109,6 +112,12 @@ public class BuildingProductionView : MonoBehaviour
         foreach (var item in _turnOnObjects)
         {
             item.SetActive(!state);
+        }
+
+        foreach (var item in _meshRenderers)
+        {
+            var material = item.material;
+            material.SetColor("_EmissionColor", state ? Colors.MemoryOn * 1.5f : Color.white * 0);
         }
     }
 

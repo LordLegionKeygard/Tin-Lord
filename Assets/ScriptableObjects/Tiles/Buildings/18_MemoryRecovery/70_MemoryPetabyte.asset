@@ -14,15 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name:
   - Memory Petabyte
-  - "\u041F\u0435\u0442\u0430\u0431\u0430\u0439\u0442 \u043F\u0430\u043C\u044F\u0442\u0438"
+  - "\u041F\u0435\u0442\u0430\u0431\u0430\u0439\u0442 \u041F\u0430\u043C\u044F\u0442\u0438"
   BuildingLevel: 6
   BuildingSprite: {fileID: 21300000, guid: d74365c9dbba8944f8e9213aeb134589, type: 3}
   BuildingEcology: -6
   BuildingHealth: 14
   ResourceExtractedAmount: 2
   ResourcesForBuild:
-  - ResourcesForBuild: 0
-    RecourcesForBuildAmount: 5
+  - ResourcesForBuild: 11
+    RecourcesForBuildAmount: 20
+  - ResourcesForBuild: 13
+    RecourcesForBuildAmount: 20
+  - ResourcesForBuild: 16
+    RecourcesForBuildAmount: 15
+  - ResourcesForBuild: 18
+    RecourcesForBuildAmount: 10
+  - ResourcesForBuild: 19
+    RecourcesForBuildAmount: 8
   ResourcesForWork:
   - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
     ResourcesForWorkAmount: 1
