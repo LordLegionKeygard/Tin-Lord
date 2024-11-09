@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class EarthquakeEffect : MonoBehaviour
+public class EarthquakeEvent : MonoBehaviour
 {
     [SerializeField] private SetTileNeighbours _setTileNeighbours;
     [SerializeField] private TilesSystem _tilesSystem;
@@ -42,11 +42,12 @@ public class EarthquakeEffect : MonoBehaviour
     {
         for (int i = 0; i < _setTileNeighbours.TileObjects.Count; i++)
         {
-            if(_setTileNeighbours.TileObjects[i].GroundTileObject().CheckTileView(GroundTileViewEnum.Mountain))
+            var tileObject = _setTileNeighbours.TileObjects[i];
+            if(tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Mountain))
             {
-                _setTileNeighbours.TileObjects[i].BuildingTileObject().DestroyBuildingTile(true);
-                _setTileNeighbours.TileObjects[i].GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Volcano));
-                _setTileNeighbours.TileObjects[i].GroundTileObject().SpawnGroundTile();
+                tileObject.BuildingTileObject().DestroyBuildingTile(true);
+                tileObject.GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Volcano));
+                tileObject.GroundTileObject().SpawnGroundTile();
                 return;
             }
         }

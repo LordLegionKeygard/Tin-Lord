@@ -41,7 +41,7 @@ public class BuildingHealth : BaseHealth
             _healthSlider.SetHeightOffset(-3.5f);
             _healthSlider.SetObjectTransform(transform);
         }
-        
+
         _healthSlider.SetMaxHealth(MaxHealth);
     }
 
@@ -57,6 +57,7 @@ public class BuildingHealth : BaseHealth
 
     public override void CalculateDamage(float damage, int knockBackPoints)
     {
+        if (!_buildingTile.HaveTile()) return;
         if (IsDeath()) return;
         TakeDamage(damage, knockBackPoints);
     }

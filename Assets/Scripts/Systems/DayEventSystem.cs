@@ -14,7 +14,8 @@ public class DayEventSystem : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private EcologySystem _ecologySystem;
-    [SerializeField] private EarthquakeEffect _earthquakeEffect;
+    [SerializeField] private EarthquakeEvent _earthquakeEvent;
+    [SerializeField] private AcidRainEvent _acidRainEvent;
 
     private void Start()
     {
@@ -84,13 +85,13 @@ public class DayEventSystem : MonoBehaviour
                 _ecologySystem.ChangeRadiation(-9);
                 break;
             case GameEventType.AcidRain:
-
+                _acidRainEvent.StartAcidRain();
                 break;
             case GameEventType.MeteorStrike:
 
                 break;
             case GameEventType.Earthquake:
-                _earthquakeEffect.StartEarthquake();
+                _earthquakeEvent.StartEarthquake();
                 break;
         }
     }
