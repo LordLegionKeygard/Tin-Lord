@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 25_Rift
+  m_EditorClassIdentifier: 
+  Name:
+  - Rift
+  - "\u0420\u0430\u0437\u043B\u043E\u043C"
+  TileObject: {fileID: 7546311966536835712, guid: 08c876149ccccf44aa398ea4344ee60e,
+    type: 3}
+  Icon: {fileID: 21300000, guid: d9505f389e386dd4cbd1916799b6cf3b, type: 3}
+  TileTypeEnum: 0
+  GroundTileView: 26
+  GroundEcology: -3
+  IsWater: 0
+  IsFourTile: 0
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: -1
+  Buildings: []

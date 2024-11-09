@@ -74,6 +74,8 @@ public enum GroundTileViewEnum
     Volcano = 23,
     BlazingField = 24,
     OvergrownMountain = 25,
+    Rift = 26,
+    Crater = 27,
 }
 
 public enum BuildingTileViewEnum

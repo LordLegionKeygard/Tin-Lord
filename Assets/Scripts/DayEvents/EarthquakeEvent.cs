@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class EarthquakeEvent : MonoBehaviour
     public void StartEarthquake()
     {
         _transform.position = new Vector3(_transform.position.x, _initialYPosition, _transform.position.z);
-        
+
         Sequence shakeSequence = DOTween.Sequence();
 
         int shakeCount = Mathf.CeilToInt(_shakeDuration / (_shakeSpeed * 2));
@@ -40,16 +41,54 @@ public class EarthquakeEvent : MonoBehaviour
 
     private void OnShakeMidway()
     {
-        for (int i = 0; i < _setTileNeighbours.TileObjects.Count; i++)
+        var rnd = Random.Range(0, 2);
+        var validTiles = new List<TileObject>();
+
+        if (rnd == 0)
         {
-            var tileObject = _setTileNeighbours.TileObjects[i];
-            if(tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Mountain))
+            // Собираем все тайлы, которые соответствуют условию "Mountain"
+            foreach (var tileObject in _setTileNeighbours.TileObjects)
             {
-                tileObject.BuildingTileObject().DestroyBuildingTile(true);
-                tileObject.GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Volcano));
-                tileObject.GroundTileObject().SpawnGroundTile();
-                return;
+                if (tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Mountain))
+                {
+                    validTiles.Add(tileObject);
+                }
+            }
+
+            // Если есть подходящие тайлы, выбираем случайный и выполняем действия
+            if (validTiles.Count > 0)
+            {
+                var randomTile = validTiles[Random.Range(0, validTiles.Count)];
+                randomTile.BuildingTileObject().DestroyBuildingTile(true);
+                randomTile.GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Volcano));
+                randomTile.GroundTileObject().SpawnGroundTile();
+            }
+        }
+        else
+        {
+            // Собираем все тайлы, которые НЕ являются "BaseFoundation"
+            foreach (var tileObject in _setTileNeighbours.TileObjects)
+            {
+                if (tileObject.GroundTileObject().CurrentGroundTile() != null 
+                && !tileObject.GroundTileObject().IsWaterTile()
+                && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.BaseFoundation) 
+                && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Crater)
+                && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Road)
+                && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Rift))
+                {
+                    validTiles.Add(tileObject);
+                }
+            }
+
+            // Если есть подходящие тайлы, выбираем случайный и выполняем действия
+            if (validTiles.Count > 0)
+            {
+                var randomTile = validTiles[Random.Range(0, validTiles.Count)];
+                randomTile.BuildingTileObject().DestroyBuildingTile(true);
+                randomTile.GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Rift));
+                randomTile.GroundTileObject().SpawnGroundTile();
             }
         }
     }
+
 }
