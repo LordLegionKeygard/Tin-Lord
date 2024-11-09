@@ -17,4 +17,5 @@ public enum GameEventType
     RadiationDecreaseStrong = 5,
     AcidRain = 6,
     MeteorStrike = 7,
+    Earthquake = 8,
 }

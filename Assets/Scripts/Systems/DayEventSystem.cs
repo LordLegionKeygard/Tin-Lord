@@ -14,6 +14,7 @@ public class DayEventSystem : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private EcologySystem _ecologySystem;
+    [SerializeField] private EarthquakeEffect _earthquakeEffect;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class DayEventSystem : MonoBehaviour
         var prefab = Instantiate(_gameEventPrefab, _container);
 
         // Добавляем отступы
-        float offset = 10f; // Настройте по необходимости
+        float offset = 10f;
 
         // Определяем позиции с учётом отступов
         Vector2 startPosition = new Vector2(_container.rect.width / 2f + offset, 0f);    // Правый край панели с отступом
@@ -83,8 +84,13 @@ public class DayEventSystem : MonoBehaviour
                 _ecologySystem.ChangeRadiation(-9);
                 break;
             case GameEventType.AcidRain:
+
                 break;
             case GameEventType.MeteorStrike:
+
+                break;
+            case GameEventType.Earthquake:
+                _earthquakeEffect.StartEarthquake();
                 break;
         }
     }

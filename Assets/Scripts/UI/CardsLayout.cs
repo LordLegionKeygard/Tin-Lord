@@ -1,5 +1,5 @@
+using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 
 public class CardsLayout : MonoBehaviour
@@ -10,41 +10,105 @@ public class CardsLayout : MonoBehaviour
     [SerializeField] private int maxCards = 9;
     [SerializeField] private float leftPadding = 84;
     [SerializeField] private float bottomPadding = 92;
-    private RectTransform _panelRectTransform;
-    public int MaxCards() => maxCards;
 
-    private void Awake()
-    {
-        _panelRectTransform = GetComponent<RectTransform>();
-    }
+    // Коэффициент сглаживания для адаптации скорости анимаций
+    [SerializeField] private float smoothingFactor = 0.5f;
+
+    private Dictionary<RectTransform, float> targetPositions = new Dictionary<RectTransform, float>();
+
+    public int MaxCards() => maxCards;
 
     public void PositionNewCard(CardObject card, int index)
     {
         RectTransform cardRect = card.GetComponent<RectTransform>();
-        float initialY = -bottomPadding; // начальная позиция по Y
-        float targetY = bottomPadding; // целевая позиция по Y
+        if (cardRect == null) return;
 
+        float initialY = -bottomPadding;
+        float targetY = bottomPadding;
+
+        // Устанавливаем начальную позицию
         cardRect.anchoredPosition = new Vector2(GetCardPosition(index), initialY);
 
-        // Анимация появления карты
-        cardRect.DOAnchorPosY(targetY, 0.5f).SetEase(Ease.Linear).SetUpdate(true);
+        // Запускаем анимацию поднятия
+        StartCoroutine(AnimateYPosition(cardRect, targetY, 0.5f));
     }
 
     public void RearrangeCards(List<CardObject> cards)
     {
-        // Перемещаем все карты на нужные позиции с анимацией
         for (int i = 0; i < cards.Count; i++)
         {
-            RectTransform cardRect = cards[i].GetComponent<RectTransform>();
+            var card = cards[i];
+            if (card == null) continue;
+
+            RectTransform cardRect = card.GetComponent<RectTransform>();
+            if (cardRect == null) continue;
+
             float targetX = GetCardPosition(i);
-            cardRect.DOAnchorPosX(targetX, 0.5f).SetEase(Ease.Linear).SetUpdate(true);
+
+            // Проверяем, если карта уже имеет целевую позицию и она не изменилась, пропускаем
+            if (targetPositions.TryGetValue(cardRect, out float existingTargetX) && Mathf.Approximately(existingTargetX, targetX))
+            {
+                continue;
+            }
+
+            // Обновляем целевую позицию и запускаем анимацию
+            targetPositions[cardRect] = targetX;
+            StartCoroutine(AnimateXPosition(cardRect, targetX, 0.5f));
         }
+    }
+
+    private IEnumerator AnimateYPosition(RectTransform rectTransform, float targetY, float duration)
+    {
+        if (rectTransform == null) yield break;
+
+        float startY = rectTransform.anchoredPosition.y;
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
+        {
+            if (rectTransform == null) yield break;
+
+            // Используем нелинейную функцию для сглаживания timeScale на высоких скоростях
+            float adjustedTimeScale = Mathf.Pow(Time.timeScale, 0.5f);
+            float adjustedDeltaTime = Mathf.Lerp(Time.unscaledDeltaTime, Time.deltaTime, smoothingFactor * adjustedTimeScale);
+
+            elapsedTime += adjustedDeltaTime;
+            float newY = Mathf.Lerp(startY, targetY, elapsedTime / duration);
+            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, newY);
+            yield return null;
+        }
+
+        if (rectTransform != null)
+            rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, targetY);
+    }
+
+    private IEnumerator AnimateXPosition(RectTransform rectTransform, float targetX, float duration)
+    {
+        if (rectTransform == null) yield break;
+
+        float startX = rectTransform.anchoredPosition.x;
+        float elapsedTime = 0;
+
+        while (elapsedTime < duration)
+        {
+            if (rectTransform == null) yield break;
+
+            float adjustedTimeScale = Mathf.Pow(Time.timeScale, 0.5f);
+            float adjustedDeltaTime = Mathf.Lerp(Time.unscaledDeltaTime, Time.deltaTime, smoothingFactor * adjustedTimeScale);
+
+            elapsedTime += adjustedDeltaTime;
+            float newX = Mathf.Lerp(startX, targetX, elapsedTime / duration);
+            rectTransform.anchoredPosition = new Vector2(newX, rectTransform.anchoredPosition.y);
+            yield return null;
+        }
+
+        if (rectTransform != null)
+            rectTransform.anchoredPosition = new Vector2(targetX, rectTransform.anchoredPosition.y);
     }
 
     private float GetCardPosition(int index)
     {
-        float startX = leftPadding; // начинаем с левого края
-        return startX + index * (cardWidth + spacing); // позиция для каждой карты
+        float startX = leftPadding;
+        return startX + index * (cardWidth + spacing);
     }
 }
-

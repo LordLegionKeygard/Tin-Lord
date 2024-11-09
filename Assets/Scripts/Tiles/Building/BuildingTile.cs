@@ -105,6 +105,8 @@ public class BuildingTile : MonoBehaviour
 
    public void DestroyBuildingTile(bool isDeath)
    {
+      if (_currentBuildingTile == null) return;
+
       if (!isDeath) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild);
 
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.PretectiveStructures)
