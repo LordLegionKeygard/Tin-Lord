@@ -11,9 +11,6 @@ public class CardsLayout : MonoBehaviour
     [SerializeField] private float leftPadding = 84;
     [SerializeField] private float bottomPadding = 92;
 
-    // Коэффициент сглаживания для адаптации скорости анимаций
-    [SerializeField] private float smoothingFactor = 0.5f;
-
     private Dictionary<RectTransform, float> targetPositions = new Dictionary<RectTransform, float>();
 
     public int MaxCards() => maxCards;
@@ -45,13 +42,11 @@ public class CardsLayout : MonoBehaviour
 
             float targetX = GetCardPosition(i);
 
-            // Проверяем, если карта уже имеет целевую позицию и она не изменилась, пропускаем
             if (targetPositions.TryGetValue(cardRect, out float existingTargetX) && Mathf.Approximately(existingTargetX, targetX))
             {
                 continue;
             }
 
-            // Обновляем целевую позицию и запускаем анимацию
             targetPositions[cardRect] = targetX;
             StartCoroutine(AnimateXPosition(cardRect, targetX, 0.5f));
         }
@@ -68,11 +63,7 @@ public class CardsLayout : MonoBehaviour
         {
             if (rectTransform == null) yield break;
 
-            // Используем нелинейную функцию для сглаживания timeScale на высоких скоростях
-            float adjustedTimeScale = Mathf.Pow(Time.timeScale, 0.5f);
-            float adjustedDeltaTime = Mathf.Lerp(Time.unscaledDeltaTime, Time.deltaTime, smoothingFactor * adjustedTimeScale);
-
-            elapsedTime += adjustedDeltaTime;
+            elapsedTime += Time.unscaledDeltaTime; // Используем только Time.unscaledDeltaTime для независимости от timeScale
             float newY = Mathf.Lerp(startY, targetY, elapsedTime / duration);
             rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, newY);
             yield return null;
@@ -93,10 +84,7 @@ public class CardsLayout : MonoBehaviour
         {
             if (rectTransform == null) yield break;
 
-            float adjustedTimeScale = Mathf.Pow(Time.timeScale, 0.5f);
-            float adjustedDeltaTime = Mathf.Lerp(Time.unscaledDeltaTime, Time.deltaTime, smoothingFactor * adjustedTimeScale);
-
-            elapsedTime += adjustedDeltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
             float newX = Mathf.Lerp(startX, targetX, elapsedTime / duration);
             rectTransform.anchoredPosition = new Vector2(newX, rectTransform.anchoredPosition.y);
             yield return null;
