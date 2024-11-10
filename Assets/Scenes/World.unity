@@ -5388,6 +5388,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1d16e623860e89c42bc950034593fb28, type: 2}
   - {fileID: 11400000, guid: 8761841c2c7edee4eb25be03abd002cb, type: 2}
   - {fileID: 11400000, guid: d3dc8bec0d235e745af37f9bdbf49828, type: 2}
+  - {fileID: 11400000, guid: f87084d6ab539a841ab605542a643875, type: 2}
   _allBuildingTiles:
   - {fileID: 11400000, guid: 5c4aaa2ef2c0b1545aeec4fc198783da, type: 2}
   - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
@@ -11183,9 +11184,9 @@ RectTransform:
   m_Father: {fileID: 677763023}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -238.55}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 477.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &951569891
@@ -13292,9 +13293,9 @@ RectTransform:
   m_Father: {fileID: 677763023}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -632.23956}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 286.2791}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1056405590
@@ -14657,6 +14658,7 @@ GameObject:
   - component: {fileID: 1267664135}
   - component: {fileID: 1267664136}
   - component: {fileID: 1267664137}
+  - component: {fileID: 1267664138}
   m_Layer: 0
   m_Name: DayEventSystem
   m_TagString: Untagged
@@ -14693,13 +14695,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeTickSystem: {fileID: 805278403}
   _allGameEvents:
-  - {fileID: 11400000, guid: 9f1032a85967ad244a6e279af0c61b47, type: 2}
+  - {fileID: 11400000, guid: f0fe6c302849e3645a8ab3899aae67a0, type: 2}
   _gameEventPrefab: {fileID: 3037033760886540125, guid: db1370692c418e547ba8fb454b6c350d,
     type: 3}
   _container: {fileID: 2050836582}
   _ecologySystem: {fileID: 1554564402}
   _earthquakeEvent: {fileID: 1267664136}
   _acidRainEvent: {fileID: 1267664137}
+  _meteorStrikeEvent: {fileID: 1267664138}
 --- !u!114 &1267664136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14712,6 +14715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080bf87310c457341bae7f8896ced7f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawnPrefab: {fileID: 0}
   _setTileNeighbours: {fileID: 813738597}
   _tilesSystem: {fileID: 445736964}
   _transform: {fileID: 1591200571}
@@ -14727,9 +14731,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad0569d183f48a42aa472c08253cdd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _setTileNeighbours: {fileID: 813738597}
-  _rainPrefab: {fileID: 2237583446777946787, guid: 6a0f2cd058dd1434882d2f57f59dd903,
+  _spawnPrefab: {fileID: 2237583446777946787, guid: 6a0f2cd058dd1434882d2f57f59dd903,
     type: 3}
+  _setTileNeighbours: {fileID: 813738597}
+--- !u!114 &1267664138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267664133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2579f8379fb3eeb428d52525f9675659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPrefab: {fileID: 7678044810649144867, guid: 07dd7a1acd5187143b6a0b889681918c,
+    type: 3}
+  _setTileNeighbours: {fileID: 813738597}
+  _tilesSystem: {fileID: 445736964}
 --- !u!1 &1270537333
 GameObject:
   m_ObjectHideFlags: 0
@@ -15929,9 +15949,9 @@ RectTransform:
   m_Father: {fileID: 677763023}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185, y: -936.42914}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 370, y: 298.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368340030

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 26_Crater
+  m_EditorClassIdentifier: 
+  Name:
+  - Crater
+  - "\u041A\u0440\u0430\u0442\u0435\u0440"
+  TileObject: {fileID: 1783138857758652465, guid: cc2331eca4172bc418a25eb96597c3f1,
+    type: 3}
+  Icon: {fileID: 21300000, guid: 325bafba7b147b24fa86fcda3baeb987, type: 3}
+  TileTypeEnum: 0
+  GroundTileView: 27
+  GroundEcology: -2
+  IsWater: 0
+  IsFourTile: 0
+  BuildingTypes: []
+  ProductionOnGroundResources: []
+  BuildingTileView: -1
+  Buildings: []

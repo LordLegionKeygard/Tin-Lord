@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class EarthquakeEvent : MonoBehaviour
+public class EarthquakeEvent : BaseDayEvent
 {
-    [SerializeField] private SetTileNeighbours _setTileNeighbours;
     [SerializeField] private TilesSystem _tilesSystem;
     [SerializeField] private Transform _transform;
     private float _initialYPosition = 10.8f;
@@ -12,7 +11,7 @@ public class EarthquakeEvent : MonoBehaviour
     private float _shakeDuration = 2;
     private float _shakeSpeed = 0.07f;
 
-    public void StartEarthquake()
+    public override void StartEvent()
     {
         _transform.position = new Vector3(_transform.position.x, _initialYPosition, _transform.position.z);
 
@@ -47,7 +46,7 @@ public class EarthquakeEvent : MonoBehaviour
         if (rnd == 0)
         {
             // Собираем все тайлы, которые соответствуют условию "Mountain"
-            foreach (var tileObject in _setTileNeighbours.TileObjects)
+            foreach (var tileObject in SetTileNeighbours().TileObjects)
             {
                 if (tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Mountain))
                 {
@@ -67,7 +66,7 @@ public class EarthquakeEvent : MonoBehaviour
         else
         {
             // Собираем все тайлы, которые НЕ являются "BaseFoundation"
-            foreach (var tileObject in _setTileNeighbours.TileObjects)
+            foreach (var tileObject in SetTileNeighbours().TileObjects)
             {
                 if (tileObject.GroundTileObject().CurrentGroundTile() != null 
                 && !tileObject.GroundTileObject().IsWaterTile()

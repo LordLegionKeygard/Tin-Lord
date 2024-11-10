@@ -13,6 +13,7 @@ public class BuildingHealth : BaseHealth
     public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
     public bool IsFullHealth() => CurrentHealth == MaxHealth;
+    public float GetHealthPercent(int percent) => MaxHealth * percent / 100; 
 
     public override bool IsDeath()
     {
@@ -55,7 +56,7 @@ public class BuildingHealth : BaseHealth
         UpdateSlider();
     }
 
-    public override void CalculateDamage(float damage, int knockBackPoints)
+    public override void CalculateDamage(float damage, int knockBackPoints = 0)
     {
         if (!_buildingTile.HaveTile()) return;
         if (IsDeath()) return;

@@ -29,7 +29,7 @@ public class AcidRainDealDamage : MonoBehaviour
 
         foreach (var buildingHealth in _allBuildingHealths)
         {
-            buildingHealth.CalculateDamage(_damage, 0);
+            buildingHealth.CalculateDamage(_damage);
         }
 
         if (_repeatCount == 0)
