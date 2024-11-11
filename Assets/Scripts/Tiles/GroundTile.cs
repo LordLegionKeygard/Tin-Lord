@@ -120,7 +120,7 @@ public class GroundTile : MonoBehaviour
         _tileObject.GetNeighbourGroundTile(2).TurnOffTileCollider();
     }
 
-    public void SpawnGroundTile()
+    public void SpawnGroundTile(GroundTileViewEnum groundTileViewEnum = GroundTileViewEnum.None)
     {
         if (_currentGroundTile == null) return;
 
@@ -133,6 +133,8 @@ public class GroundTile : MonoBehaviour
         _currentGroundTileObject = _diContainer.InstantiatePrefab(_currentGroundTile.TileObject, _groundParent.position, Quaternion.identity, null);
 
         _currentGroundTileObject.transform.SetParent(_groundParent);
+
+        if (groundTileViewEnum != GroundTileViewEnum.None) _currentGroundTileObject.GetComponent<RiftSetTileMaterial>().SetMaterial(groundTileViewEnum); //для рифта передаем прошлый тайл
 
         RefreshGroundTile();
         UpdateNeighbourGroundTiles();
@@ -486,7 +488,7 @@ public class GroundTile : MonoBehaviour
                 break;
 
             case GroundTileViewEnum.Mountain:
-                if(IsCheckAllCross(GroundTileViewEnum.Meadow))
+                if (IsCheckAllCross(GroundTileViewEnum.Meadow))
                 {
                     SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.OvergrownMountain));
                     SpawnGroundTile();

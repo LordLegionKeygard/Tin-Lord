@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7546311965952987958}
   - component: {fileID: 7546311965952987956}
   - component: {fileID: 7546311965952987957}
-  - component: {fileID: 7482205227592463924}
   - component: {fileID: 6310219340912995533}
   m_Layer: 0
   m_Name: Model
@@ -63,7 +62,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a11956a3e9d3304f93714174d703d9c, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7cd4d4ac48868a542bec4113acc299ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,29 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7482205227592463924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7546311965952987959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e98368dbcb655da438dde914b707456a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meshRenderer: {fileID: 7546311965952987957}
-  _base:
-  - {fileID: 2800000, guid: 4b139675145f8414a92005cc4bf239ab, type: 3}
-  - {fileID: 2800000, guid: 22f43498e04187b438111c120eac6f1d, type: 3}
-  - {fileID: 2800000, guid: 0285f7164fa6f2645b514caf389b7379, type: 3}
-  - {fileID: 2800000, guid: 7c5f7ae2e6da8804cba3771b643dbd0d, type: 3}
-  _normal:
-  - {fileID: 2800000, guid: 711eee47b9adaca4f98ace0dffd73014, type: 3}
-  - {fileID: 2800000, guid: 33cc8973c066c0845bdf05b60c3de268, type: 3}
-  - {fileID: 2800000, guid: 965f083fe3f7d6f4797615d0e6ea594f, type: 3}
-  - {fileID: 2800000, guid: 4495efac3fea5d14fb3b504f73c30e0a, type: 3}
 --- !u!114 &6310219340912995533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +109,7 @@ GameObject:
   - component: {fileID: 4506515772083227875}
   - component: {fileID: 8408890014697382310}
   - component: {fileID: 4695421303794708911}
+  - component: {fileID: 5061736987277083264}
   m_Layer: 0
   m_Name: Tile_Rift
   m_TagString: Untagged
@@ -195,6 +173,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 2974799177717364401
+  uniqueID: 2048807767327083218
   updateError: 1
   checkTime: 0.2
+--- !u!114 &5061736987277083264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7546311966536835712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3264884ace72aad4dac5721475a5872b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 7546311965952987957}
+  _allMaterials:
+  - {fileID: 2100000, guid: af6a0e3282da28b47825f2f591c18b10, type: 2}
+  - {fileID: 2100000, guid: cea6587837678094dbdc1dd5d38a6b0c, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: ce6f42d419bab1549aa69636616fdeb7, type: 2}
+  - {fileID: 2100000, guid: ec9a3f1b0b4f82743858c8111152004e, type: 2}
+  - {fileID: 2100000, guid: 317563a7f9da8dc4caf75f4c9c01ebe8, type: 2}
+  - {fileID: 2100000, guid: d49b42fb4ba2fb74fafe27ed8817d967, type: 2}
+  - {fileID: 2100000, guid: 6bf0f9f998619904585489bb6abebf9f, type: 2}
+  - {fileID: 2100000, guid: 3b18d0037ea59cf4289db93213a4cc83, type: 2}
+  - {fileID: 2100000, guid: 6bf0f9f998619904585489bb6abebf9f, type: 2}
+  - {fileID: 2100000, guid: d37c385d331b2d0419e3cefb61834c2b, type: 2}
+  - {fileID: 2100000, guid: f5779c13fd1dc1347b6b6a41dbd21f1f, type: 2}
+  - {fileID: 2100000, guid: ec9a3f1b0b4f82743858c8111152004e, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 23da216ba87380845b5f71f594aa2e05, type: 2}
+  - {fileID: 2100000, guid: 9e05084cb8f992a49a5e97c74b62ab7d, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 1230e93546706e94bb0a222e4e610dd6, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: 29a3f293c1bffeb4ca65882793245f34, type: 2}
+  - {fileID: 2100000, guid: 1d436cce141259c4eba37a9e7b58916c, type: 2}
+  - {fileID: 0}
+  - {fileID: 2100000, guid: abb2bb2702db2794db930101e017b957, type: 2}
+  - {fileID: 2100000, guid: cea6587837678094dbdc1dd5d38a6b0c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
