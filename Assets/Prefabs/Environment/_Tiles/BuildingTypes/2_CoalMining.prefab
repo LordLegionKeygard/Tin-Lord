@@ -1684,7 +1684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4090368076162504388
 Transform:
   m_ObjectHideFlags: 0
@@ -31632,6 +31632,7 @@ MonoBehaviour:
   _needSetResourceView: 0
   _resourceViewMeshRenders: []
   _resourceViewActiveGameObjects: []
+  _meshRenderers: []
 --- !u!114 &8466782093270549725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37988,6 +37989,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6711043272925231500}
     m_Modifications:
+    - target: {fileID: 1448361973950278558, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1465559260884618939, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: _characterWorkType

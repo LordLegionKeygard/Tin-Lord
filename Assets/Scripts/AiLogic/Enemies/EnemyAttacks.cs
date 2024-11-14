@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class EnemyAttacks : MonoBehaviour
 {
-    [SerializeField] private EnemyAttackInfo[] _attacks;
+    [SerializeField] private AttackInfo[] _attacks;
     public float MaxAtkRange() => _maxAttackRange + _bonusDistance;
     private float _bonusDistance;
     public float GetBonusAttackDistance() => _bonusDistance;
-    public EnemyAttackInfo[] GetCreatureAttacks() => _attacks;
+    public AttackInfo[] GetCreatureAttacks() => _attacks;
 
     protected float _maxAttackRange;
 

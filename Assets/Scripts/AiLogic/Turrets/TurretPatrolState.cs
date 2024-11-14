@@ -24,6 +24,24 @@ public class TurretPatrolState : TurretState
     {
         stateChanger.CanRotateForwardToggle(false);
 
+        Transform bestTarget = FindNearestTargetInRange(stateChanger);
+
+        if (bestTarget != null)
+        {
+            aiDestinationSetter.CurrentTarget = bestTarget;
+            _creatureDamage.SetTargetHealth(bestTarget.GetComponent<BaseHealth>());
+            return _turretCombatState;
+        }
+        else
+        {
+            if (_isMinigun) _turretGunRotation.SetRotateToggle(false);
+        }
+
+        return this;
+    }
+
+    private Transform FindNearestTargetInRange(TurretStateChanger stateChanger)
+    {
         Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.AttackRadius(), stateChanger.DetectionLayer());
 
         Transform bestTarget = null;
@@ -47,18 +65,7 @@ public class TurretPatrolState : TurretState
             }
         }
 
-        if (bestTarget != null)
-        {
-            aiDestinationSetter.CurrentTarget = bestTarget;
-            _creatureDamage.SetTargetHealth(bestTarget.GetComponent<BaseHealth>());
-            return _turretCombatState;
-        }
-        else
-        {
-            if (_isMinigun) _turretGunRotation.SetRotateToggle(false);
-        }
-
-        return this;
+        return bestTarget;
     }
 
     public void PatrolToRandomPosition()

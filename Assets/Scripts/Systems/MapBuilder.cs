@@ -18,6 +18,8 @@ public class MapBuilder : MonoBehaviour
     private int _iterations = 0;
     private int _startX = 6;
     private int _startY = 4;
+    private List<GameObject> _roadTiles = new List<GameObject>(); // Список тайлов дороги в правильном порядке
+    public List<GameObject> GetRoadTiles() => _roadTiles;
 
 
     private void Start()
@@ -51,7 +53,10 @@ public class MapBuilder : MonoBehaviour
     {
         await Task.Delay(40);
 
-        _tileObjects[nextX, nextY].GetComponent<TileRoad>().SetRoadTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Road));
+        var tileObject = _tileObjects[nextX, nextY];
+        tileObject.GetComponent<TileRoad>().SetRoadTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Road));
+
+        _roadTiles.Add(tileObject); // Добавляем тайл дороги в список
 
         if (_iterations > 45 || (nextY == _startY && _startX == nextX - 1))
         {

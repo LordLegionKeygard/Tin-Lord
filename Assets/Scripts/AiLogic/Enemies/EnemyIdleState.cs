@@ -42,7 +42,7 @@ public class EnemyIdleState : EnemyState
 
         foreach (var collider in colliders)
         {
-            BaseHealth targetHealth = collider.transform.GetComponent<BaseHealth>();
+            BaseHealth targetHealth = collider.GetComponent<BaseHealth>();
 
             if (targetHealth != null && !targetHealth.IsDeath())
             {
