@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BuildingTileProtective : MonoBehaviour
@@ -28,11 +25,7 @@ public class BuildingTileProtective : MonoBehaviour
 
         if (_groundTile.CurrentGroundTile().GroundTileView == GroundTileViewEnum.Road)
         {
-            if (CheckSolo())
-            {
-                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(ProtectiveTypeEnum.Gate, _groundTile.GetRoadAngle() + 90, _buildingTile.CurrentBuildingLevel());
-            }
-            else SetForward(ProtectiveTypeEnum.Gate);
+            _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(ProtectiveTypeEnum.Gate, _groundTile.GetRoadAngle() + 90, _buildingTile.CurrentBuildingLevel());
         }
         else
         {
