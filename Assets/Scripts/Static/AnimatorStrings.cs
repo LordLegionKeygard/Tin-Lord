@@ -23,6 +23,8 @@ public class AnimatorStrings : MonoBehaviour
     public static readonly int Attack = Animator.StringToHash("Attack");
     public static readonly int Death = Animator.StringToHash("Death");
 
+    [Header("Tiles")]
+     public static readonly int GateState = Animator.StringToHash("GateState");
 
     public static readonly Dictionary<CharacterWorkType, int> WorkTriggers = new Dictionary<CharacterWorkType, int>
     {

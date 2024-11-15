@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6124768669419014804}
   - component: {fileID: 6124768669419014803}
   - component: {fileID: 5448208571138123766}
+  - component: {fileID: 3334971829351761483}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -35,9 +36,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6124768669419014793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 75.7, y: 10.8, z: 59.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6013772091500561635}
   - {fileID: 6124768670046092501}
@@ -137,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e317ebddf64a08489f2b7fed8714321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 1.5
   _canMove: 1
 --- !u!114 &6124768669419014801
 MonoBehaviour:
@@ -169,7 +170,7 @@ MonoBehaviour:
   CurrentHealth: 0
   _healthSliderPrefab: {fileID: 404669213447232347, guid: f42866fee4e52c74088725892e2e972a,
     type: 3}
-  _sliderHeightOffset: 4
+  _sliderHeightOffset: 8
 --- !u!114 &6124768669419014804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +210,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPatrolState: {fileID: 6124768669728522292}
+--- !u!114 &3334971829351761483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6124768669419014793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c64063bfd8817404c88474fb83bd7375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6124768669728522290
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,11 +266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0dc52ad133a8ba48a0fe984a71f44c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 6124768669419014794}
+  _playerMove: {fileID: 3334971829351761483}
   _playerSpeed: {fileID: 6124768669419014800}
   _combatState: {fileID: 6124768671223808653}
   _creatureDamage: {fileID: 6124768669419014804}
-  _patrolRotationSpeed: 1
+  _patrolPath: {fileID: 5448208571138123766}
 --- !u!1 &6124768670046092500
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +463,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -463668959794155322, guid: d7f62e2184866824b9a7df1500df39a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: eabfa604726f44346a728f447fc3d3b0, type: 2}
     - target: {fileID: 919132149155446097, guid: d7f62e2184866824b9a7df1500df39a3,
         type: 3}
       propertyPath: m_Name

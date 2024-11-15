@@ -4,19 +4,46 @@ using UnityEngine;
 public class PlayerPatrolPath : MonoBehaviour
 {
     [SerializeField] private PlayerPatrolState _playerPatrolState;
+    private List<TileObject> _roadTileObjects;
 
-    public void InitializePatrolPoints(List<GameObject> roadTiles, int startIndex)
+    public void InitializePatrolPoints(List<TileObject> roadTiles, int startIndex)
     {
-        List<Vector3> patrolPoints = new List<Vector3>();
+        _playerPatrolState.InitializePatrol(startIndex);
+        _roadTileObjects = roadTiles;
+    }
 
-        foreach (var tile in roadTiles)
-        {
-            if (tile != null)
-            {
-                patrolPoints.Add(tile.transform.position);
-            }
-        }
+    public int GetNextPointIndex(int currentIndex, int direction)
+    {
+        return (currentIndex + direction + _roadTileObjects.Count) % _roadTileObjects.Count;
+    }
 
-        _playerPatrolState.InitializePatrol(startIndex, patrolPoints);
+    public int GetPreviousPointIndex(int currentIndex, int direction)
+    {
+        return (currentIndex - direction + _roadTileObjects.Count) % _roadTileObjects.Count;
+    }
+
+    public bool CheckTileForGate(int index)
+    {
+        var tile = _roadTileObjects[index];
+        var hasBuilding = tile.BuildingTileObject().HaveTile();
+        var buildingTileView = hasBuilding ? tile.BuildingTileObject().CurrentBuildingTile().BuildingTileView : BuildingTileViewEnum.None;
+
+        return hasBuilding && buildingTileView == BuildingTileViewEnum.PretectiveStructures;
+    }
+
+    public bool ShouldChangeDirection(int index)
+    {
+        var tile = _roadTileObjects[index];
+        var isWaterTile = tile.GroundTileObject().IsWaterTile();
+        var hasBuilding = tile.BuildingTileObject().HaveTile();
+        var buildingTileView = hasBuilding ? tile.BuildingTileObject().CurrentBuildingTile().BuildingTileView : BuildingTileViewEnum.None;
+
+        return (isWaterTile && !hasBuilding) || (isWaterTile && hasBuilding && buildingTileView != BuildingTileViewEnum.Bridge);
+    }
+
+    public TileObject GetTile(int index)
+    {
+        return _roadTileObjects[index];
     }
 }
+

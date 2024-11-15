@@ -1,22 +1,19 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPatrolState : PlayerState
 {
-    [SerializeField] private Transform _player;
+    [SerializeField] private PlayerMove _playerMove;
     [SerializeField] private PlayerSpeed _playerSpeed;
     [SerializeField] private PlayerCombatState _combatState;
     [SerializeField] private BaseDamage _creatureDamage;
+    [SerializeField] private PlayerPatrolPath _patrolPath;
 
-    [Header("Patrol")]
-    [SerializeField] private float _patrolRotationSpeed = 1;
-    private List<Vector3> _patrolPoints;
     private int _currentPatrolPointIndex = 0;
+    private int _nextPointNumber = 1;
     private bool _isInitialized = false;
 
-    public void InitializePatrol(int startIndex, List<Vector3> patrolPoints)
+    public void InitializePatrol(int startIndex)
     {
-        _patrolPoints = patrolPoints;
         _currentPatrolPointIndex = startIndex;
         _isInitialized = true;
     }
@@ -25,7 +22,6 @@ public class PlayerPatrolState : PlayerState
     {
         if (!_isInitialized)
         {
-            // Если патруль не инициализирован, выходим из метода
             return this;
         }
 
@@ -41,6 +37,38 @@ public class PlayerPatrolState : PlayerState
 
         Patrol();
         return this;
+    }
+
+    private void Patrol()
+    {
+        int nextPointIndex = _patrolPath.GetNextPointIndex(_currentPatrolPointIndex, _nextPointNumber);
+        int previousPointIndex = _patrolPath.GetPreviousPointIndex(_currentPatrolPointIndex, _nextPointNumber);
+
+        if (_patrolPath.CheckTileForGate(nextPointIndex))
+        {
+            _patrolPath.GetTile(nextPointIndex).BuildingTileObject().CurrentBuildingTileProtective().ControlGate(true);
+        }
+
+        if (_patrolPath.CheckTileForGate(previousPointIndex))
+        {
+            _patrolPath.GetTile(previousPointIndex).BuildingTileObject().CurrentBuildingTileProtective().ControlGate(false);
+        }
+
+        if (_patrolPath.ShouldChangeDirection(nextPointIndex))
+        {
+            _nextPointNumber *= -1;
+        }
+
+        Vector3 nextPoint = _patrolPath.GetTile(nextPointIndex).transform.position;
+
+        // Используем PlayerMove для передвижения
+        _playerMove.MoveTo(nextPoint, _playerSpeed.Speed());
+
+        // Если достигли точки, обновляем индекс
+        if (Vector3.Distance(_playerMove.transform.position, nextPoint) <= 0.1f)
+        {
+            _currentPatrolPointIndex = nextPointIndex;
+        }
     }
 
     private BaseHealth FindNearestTargetInRange(PlayerStateChanger stateChanger)
@@ -68,35 +96,6 @@ public class PlayerPatrolState : PlayerState
 
         return nearestTarget;
     }
-
-    private void Patrol()
-    {
-        // Определяем индекс следующей точки
-        int nextPointIndex = (_currentPatrolPointIndex + 1) % _patrolPoints.Count;
-        Vector3 nextPoint = _patrolPoints[nextPointIndex];
-        float distanceToNextPoint = Vector3.Distance(_player.position, nextPoint);
-
-        if (distanceToNextPoint > 0.1f)
-        {
-            // Плавно поворачиваемся к следующей точке
-            Vector3 direction = (nextPoint - _player.position).normalized;
-            if (direction != Vector3.zero)
-            {
-                Quaternion lookRotation = Quaternion.LookRotation(direction);
-                _player.rotation = Quaternion.Slerp(_player.rotation, lookRotation, Time.deltaTime * _patrolRotationSpeed);
-            }
-
-            // Двигаемся к следующей точке
-            _player.position = Vector3.MoveTowards(_player.position, nextPoint, Time.deltaTime * _playerSpeed.Speed());
-        }
-        else
-        {
-            // Обновляем текущий индекс патруля
-            _currentPatrolPointIndex = nextPointIndex;
-        }
-    }
-
-
 
     private void SetCombatTarget(AIDestinationSetter aiDestinationSetter, BaseHealth targetHealth, PlayerStateChanger stateChanger)
     {

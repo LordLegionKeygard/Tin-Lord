@@ -5,6 +5,7 @@ public class BuildingTileProtective : MonoBehaviour
     [SerializeField] private ProtectiveTypeEnum _protectiveType = ProtectiveTypeEnum.None;
     private BuildingTile _buildingTile;
     private GroundTile _groundTile;
+    private BuildingGateView _buildingGateView;
 
     private void Awake()
     {
@@ -23,15 +24,19 @@ public class BuildingTileProtective : MonoBehaviour
             return;
         }
 
+        _buildingGateView = _buildingTile.CurrentBuildingTileObject().GetComponent<BuildingGateView>();
+
+        var prepareBuildingProtective = _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>();
+
         if (_groundTile.CurrentGroundTile().GroundTileView == GroundTileViewEnum.Road)
         {
-            _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(ProtectiveTypeEnum.Gate, _groundTile.GetRoadAngle() + 90, _buildingTile.CurrentBuildingLevel());
+            prepareBuildingProtective.SetBuildingProtective(ProtectiveTypeEnum.Gate, _groundTile.GetRoadAngle() + 90, _buildingTile.CurrentBuildingLevel());
         }
         else
         {
             if (CheckSolo())
             {
-                _buildingTile.CurrentBuildingTileObject().GetComponent<PrepareBuildingProtective>().SetBuildingProtective(_protectiveType, 0, _buildingTile.CurrentBuildingLevel());
+                prepareBuildingProtective.SetBuildingProtective(_protectiveType, 0, _buildingTile.CurrentBuildingLevel());
                 return;
             }
 
@@ -153,5 +158,12 @@ public class BuildingTileProtective : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void ControlGate(bool open)
+    {
+        if (_buildingGateView == null) return;
+
+        _buildingGateView.ControlGateView(open);
     }
 }
