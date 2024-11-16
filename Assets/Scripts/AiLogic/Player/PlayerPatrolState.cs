@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerPatrolState : PlayerState
 {
     [SerializeField] private PlayerMove _playerMove;
-    [SerializeField] private PlayerSpeed _playerSpeed;
     [SerializeField] private PlayerCombatState _combatState;
     [SerializeField] private BaseDamage _creatureDamage;
     [SerializeField] private PlayerPatrolPath _patrolPath;
@@ -18,7 +17,7 @@ public class PlayerPatrolState : PlayerState
         _isInitialized = true;
     }
 
-    public override PlayerState Tick(PlayerStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, PlayerAttacks attacks)
+    public override PlayerState Tick(PlayerStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, PlayerAttacks attacks, PlayerSpeed playerSpeed)
     {
         if (!_isInitialized)
         {
@@ -35,6 +34,7 @@ public class PlayerPatrolState : PlayerState
             return _combatState;
         }
 
+        playerSpeed.CanMove();
         Patrol();
         return this;
     }
@@ -62,7 +62,7 @@ public class PlayerPatrolState : PlayerState
         Vector3 nextPoint = _patrolPath.GetTile(nextPointIndex).transform.position;
 
         // Используем PlayerMove для передвижения
-        _playerMove.MoveTo(nextPoint, _playerSpeed.Speed());
+        _playerMove.MoveTo(nextPoint);
 
         // Если достигли точки, обновляем индекс
         if (Vector3.Distance(_playerMove.transform.position, nextPoint) <= 0.1f)

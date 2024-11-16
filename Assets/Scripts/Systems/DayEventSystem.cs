@@ -35,7 +35,7 @@ public class DayEventSystem : MonoBehaviour
     {
         var rnd = Random.Range(0, 100);
 
-        if (rnd > 1)
+        if (rnd < WorldGameInfo.DayEventChance)
         {
             SpawnRandomEvent();
         }

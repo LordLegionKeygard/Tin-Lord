@@ -16,16 +16,7 @@ public class PlayerAnimator : BaseAnimator
 
     public void Update()
     {
-        // if (_ai.reachedEndOfPath)
-        // {
-        //     Animator.SetFloat(AnimatorStrings.Speed, 0, 0.1f, Time.deltaTime);
-        // }
-        // else
-        // {
-        //     Vector3 relVelocity = transform.InverseTransformDirection(_ai.velocity);
-        //     relVelocity.y = 0;
-        //     Animator.SetFloat(AnimatorStrings.Speed, relVelocity.magnitude / Animator.transform.lossyScale.x, 0.2f, Time.deltaTime);
-        // }
+        Animator.SetFloat(AnimatorStrings.Speed, _playerSpeed.Speed(), 0.1f, Time.deltaTime);
     }
 
     public void RandomTakeDamage()

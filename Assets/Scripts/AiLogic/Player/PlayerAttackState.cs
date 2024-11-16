@@ -6,7 +6,7 @@ public class PlayerAttackState : PlayerState
     private AttackInfo _currentAttack;
     private AttackInfo _attackInfo;
 
-    public override PlayerState Tick(PlayerStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, PlayerAttacks attacks)
+    public override PlayerState Tick(PlayerStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, PlayerAttacks attacks, PlayerSpeed playerSpeed)
     {
        if (aiDestinationSetter.CurrentTarget == null) return _combatState;
 

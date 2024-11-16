@@ -5,10 +5,12 @@ public class PlayerCombatState : PlayerState
     [SerializeField] private PlayerAttackState _attackState;
     [SerializeField] private PlayerPatrolState _patrolState;
 
-    public override PlayerState Tick(PlayerStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, PlayerAttacks attacks)
+    public override PlayerState Tick(PlayerStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, PlayerAttacks attacks, PlayerSpeed playerSpeed)
     {
         if (aiDestinationSetter.CurrentTarget != null)
         {
+            playerSpeed.CantMove();
+
             stateChanger.CanRotateForwardToggle(true);
 
             if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))
@@ -23,7 +25,7 @@ public class PlayerCombatState : PlayerState
             }
             else if (stateChanger.DistanceToTarget() > attacks.MaxAtkRange())
             {
-                return _patrolState; // так как не можем преследовать
+                return _patrolState;
             }
             else
             {

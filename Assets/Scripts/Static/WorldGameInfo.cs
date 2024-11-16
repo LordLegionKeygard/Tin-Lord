@@ -17,4 +17,7 @@ public class WorldGameInfo
 
     //Radiadtion
     public const int MaximumRadiation = 50;
+
+    //DayEvent
+    public const int DayEventChance = 20;
 }

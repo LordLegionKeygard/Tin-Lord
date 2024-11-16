@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
@@ -8,12 +6,10 @@ public class EnemySpeed : MonoBehaviour
     [SerializeField] private float _runSpeed;
     [SerializeField] private bool _canMove = true;
     private AIPath _aiPath;
-    private Animator _animator;
 
     private void Awake()
     {
         _aiPath = GetComponent<AIPath>();
-        _animator = GetComponent<Animator>();
     }
 
     public void CanRun()

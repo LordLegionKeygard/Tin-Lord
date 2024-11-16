@@ -6,6 +6,7 @@ public class PlayerStateChanger : BaseAiStateChanger
     [SerializeField] private PlayerState _currentState;
     private BaseHealth _baseHealth;
     private PlayerAttacks _playerAttacks;
+    private PlayerSpeed _playerSpeed;
 
     [Header("Detection")]
     [SerializeField] private float _detectionRadius = 50;
@@ -18,6 +19,7 @@ public class PlayerStateChanger : BaseAiStateChanger
         base.Awake();
         _playerAttacks = GetComponent<PlayerAttacks>();
         _baseHealth = GetComponent<PlayerHealth>();
+        _playerSpeed = GetComponent<PlayerSpeed>();
     }
 
     public override void Update()
@@ -42,7 +44,7 @@ public class PlayerStateChanger : BaseAiStateChanger
     {
         if (_currentState != null)
         {
-            PlayerState nextState = _currentState.Tick(this, _baseHealth, BaseAnimator, AiDestinationSetter, _playerAttacks);
+            PlayerState nextState = _currentState.Tick(this, _baseHealth, BaseAnimator, AiDestinationSetter, _playerAttacks, _playerSpeed);
 
             if (nextState != null)
             {
