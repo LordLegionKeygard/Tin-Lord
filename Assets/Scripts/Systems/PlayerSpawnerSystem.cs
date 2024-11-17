@@ -5,19 +5,20 @@ public class PlayerSpawnerSystem : MonoBehaviour
 {
     [Inject] DiContainer _diContainer;
     [SerializeField] private MapBuilder _mapBuilder;
-    [SerializeField] private GameObject _playerPrefab;
+    [SerializeField] private GameObject[] _playerPrefabs;
+    [SerializeField] private Transform _parent;
 
     private void Start()
     {
-        CustomEvents.OnSpawnRoadComplete += SpawnPlayer;
+
     }
 
     private void OnDestroy()
     {
-        CustomEvents.OnSpawnRoadComplete -= SpawnPlayer;
+
     }
 
-    private void SpawnPlayer()
+    private void SpawnPlayer(PlayerType playerType)
     {
         var roadTiles = _mapBuilder.GetRoadTiles();
 
@@ -27,10 +28,18 @@ public class PlayerSpawnerSystem : MonoBehaviour
 
         Vector3 spawnPosition = randomTile.transform.position;
 
-        var player = _diContainer.InstantiatePrefab(_playerPrefab, spawnPosition, Quaternion.identity, null);
+        var player = _diContainer.InstantiatePrefab(_playerPrefabs[(int)playerType], spawnPosition, Quaternion.identity, _parent);
 
         var patrolPath = player.GetComponent<PlayerPatrolPath>();
 
         patrolPath.InitializePatrolPoints(roadTiles, randomIndex);
     }
+}
+
+[System.Serializable]
+public enum PlayerType
+{
+    Tank = 0,
+    Sniper = 1,
+    Engineer = 2,
 }

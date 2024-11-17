@@ -15,6 +15,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private GameObject _workButton;
     [SerializeField] private GameObject _rotateButton;
     [SerializeField] private GameObject _destroyButton;
+    [SerializeField] private GameObject _robotButton;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private Image _onOffImage;
 
@@ -209,11 +210,13 @@ public class SelectTilePanel : MonoBehaviour
         var buildButtonState = canRepairOrUpgrade && notRoadOrForwardRoad && groundHaveBuildings;
         var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
         var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase;
+        var robotButtonState = haveBuildingNow && isBase;
 
         _workButton.SetActive(onOffButtonState);
         _buildButton.SetActive(buildButtonState);
         _rotateButton.SetActive(rotateButtonState);
         _destroyButton.SetActive(destroyButtonState);
+        _robotButton.SetActive(robotButtonState);
 
         _uiPanels.SetButtonsPanelVisibility(onOffButtonState || buildButtonState || destroyButtonState);
     }

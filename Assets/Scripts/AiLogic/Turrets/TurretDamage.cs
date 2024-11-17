@@ -3,7 +3,7 @@ using Zenject;
 
 public class TurretDamage : BaseDamage
 {
-    [Inject] readonly BulletsPool _bulletsPool;
+    [Inject] private readonly BulletsPool _pool;
     private TurretBuilding _turretBuilding;
     [SerializeField] private TurretAttackState _turretAttackState;
     [SerializeField] private BulletEnum _bulletType;
@@ -20,7 +20,7 @@ public class TurretDamage : BaseDamage
         Damage = _turretBuilding.Building().Damage;
     }
 
-    public override void Attack(int attackNumber)
+    public override void Shoot(int attackNumber)
     {
         if (_turretAttackState.AttackOneByOne())
         {
@@ -31,14 +31,14 @@ public class TurretDamage : BaseDamage
 
         var currentPoint = _firePoints.Length == 1 ? _firePoints[0] : _firePoints[attackNumber];
 
-        GameObject bullet = _bulletsPool.GetBullet(_bulletType);
+        GameObject bullet = _pool.GetBullet(_bulletType);
         bullet.transform.SetPositionAndRotation(currentPoint.position, currentPoint.rotation);
 
         if (bullet.TryGetComponent<Bullet>(out var bulletScript))
         {
             bulletScript.SetTarget(CurrentTargetBaseHealth);
             bulletScript.SetDamage(Damage, _turretBuilding.Building().KnockbackPoints);
-            bulletScript.SetBulletPool(_bulletsPool, _bulletType);
+            bulletScript.SetBulletPool(_pool, _bulletType);
         }
     }
 }

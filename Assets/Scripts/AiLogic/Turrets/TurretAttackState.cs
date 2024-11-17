@@ -99,7 +99,7 @@ public class TurretAttackState : TurretState
     {
         if (_isMinigun)
         {
-            _turretDamage.Attack(0);
+            _turretDamage.Shoot(0);
             _turretGunRotation.SetRotateToggle(true);
         }
         else

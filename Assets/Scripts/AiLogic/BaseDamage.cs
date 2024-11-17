@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseDamage : MonoBehaviour
 {
-    
+
     protected BaseHealth CurrentTargetBaseHealth;
     protected BaseAttackVFX BaseAttackVFX;
     protected float Damage;
@@ -19,7 +19,7 @@ public class BaseDamage : MonoBehaviour
 
     public virtual void SetDamage()
     {
-        
+
     }
 
     public void SetTargetHealth(BaseHealth baseHealth)
@@ -32,5 +32,10 @@ public class BaseDamage : MonoBehaviour
         if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(attackNumber);
         if (CurrentTargetBaseHealth == null) return;
         CurrentTargetBaseHealth.CalculateDamage(Damage, 0);
+    }
+
+    public virtual void Shoot(int attackNumber)
+    {
+
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BulletsPool : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _bulletPrefabs; // Список всех префабов пуль
+    [SerializeField] private List<GameObject> _bulletPrefabs;
     private int _poolSize = 5;
     private Dictionary<BulletEnum, Queue<GameObject>> _bulletPools;
 
@@ -11,10 +11,9 @@ public class BulletsPool : MonoBehaviour
     {
         _bulletPools = new Dictionary<BulletEnum, Queue<GameObject>>();
 
-        // Создаем пулы для каждого типа пули (с учетом порядка в списке)
         for (int i = 0; i < _bulletPrefabs.Count; i++)
         {
-            BulletEnum bulletType = (BulletEnum)i; // Преобразуем индекс в тип пули
+            BulletEnum bulletType = (BulletEnum)i;
             Queue<GameObject> pool = new Queue<GameObject>();
 
             for (int j = 0; j < _poolSize; j++)
@@ -24,7 +23,7 @@ public class BulletsPool : MonoBehaviour
                 pool.Enqueue(bullet);
             }
 
-            _bulletPools[bulletType] = pool; // Привязываем пул к типу пули
+            _bulletPools[bulletType] = pool;
         }
     }
 
@@ -42,17 +41,15 @@ public class BulletsPool : MonoBehaviour
             }
             else
             {
-                // Если пул закончился, создаем новую пулю и расширяем пул
                 GameObject bullet = Instantiate(_bulletPrefabs[(int)bulletType], transform);
                 bullet.SetActive(true);
 
-                // Добавляем новую пулю в пул для будущего использования
                 _bulletPools[bulletType].Enqueue(bullet);
                 return bullet;
             }
         }
 
-        return null; // Возвращаем null, если тип пули не найден
+        return null;
     }
 
     public void ReturnBullet(BulletEnum bulletType, GameObject bullet)

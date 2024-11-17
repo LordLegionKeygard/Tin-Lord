@@ -16,7 +16,7 @@ public class PlayerAnimator : BaseAnimator
 
     public void Update()
     {
-        Animator.SetFloat(AnimatorStrings.Speed, _playerSpeed.Speed(), 0.1f, Time.deltaTime);
+        Animator.SetFloat(AnimatorStrings.Speed, _playerSpeed.Speed(), 0, Time.deltaTime);
     }
 
     public void RandomTakeDamage()

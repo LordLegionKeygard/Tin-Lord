@@ -19,7 +19,7 @@ public class PlayerDamage : BaseDamage
         Damage = _playerLevel.GetPlayerLevelInformation().PhysAttack[_playerLevel.GetLevel()];
     }
 
-    public override void Attack(int attackNumber)
+    public override void Shoot(int attackNumber)
     {
         if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(attackNumber);
 

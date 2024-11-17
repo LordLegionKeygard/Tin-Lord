@@ -9,8 +9,10 @@ public class PlayerStateChanger : BaseAiStateChanger
     private PlayerSpeed _playerSpeed;
 
     [Header("Detection")]
-    [SerializeField] private float _detectionRadius = 50;
-    public float DetectionRadius() => _detectionRadius;
+    private float _defaultDetectionRadius = 35;
+    private float _currentDetectionRadius;
+    private float _extraAimDetectionRadius = 7;
+    public float DetectionRadius() => _currentDetectionRadius;
     [SerializeField] private LayerMask _detectionLayer;
     public LayerMask DetectionLayer() => _detectionLayer;
 
@@ -20,6 +22,10 @@ public class PlayerStateChanger : BaseAiStateChanger
         _playerAttacks = GetComponent<PlayerAttacks>();
         _baseHealth = GetComponent<PlayerHealth>();
         _playerSpeed = GetComponent<PlayerSpeed>();
+    }
+    private void Start()
+    {
+        _currentDetectionRadius = _defaultDetectionRadius;
     }
 
     public override void Update()
@@ -56,5 +62,10 @@ public class PlayerStateChanger : BaseAiStateChanger
     private void SwitchToNextState(PlayerState state)
     {
         _currentState = state;
+    }
+
+    public void AimDetectionRadius(string state)
+    {
+        _currentDetectionRadius = state == "true" ? _defaultDetectionRadius + _extraAimDetectionRadius : _defaultDetectionRadius;
     }
 }

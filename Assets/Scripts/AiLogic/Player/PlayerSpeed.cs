@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerSpeed : MonoBehaviour
 {
     [SerializeField] private float _defaultSpeed = 1.5f;
-    private float _currentSpeed;
+    [SerializeField] private float _currentSpeed;
     public float Speed() => _currentSpeed;
     [SerializeField] private bool _canMove = true;
 
