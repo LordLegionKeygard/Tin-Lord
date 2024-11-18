@@ -7,9 +7,10 @@ public class RobotStateChanger : BaseAiStateChanger
     private BaseHealth _baseHealth;
     private RobotAttacks _robotAttacks;
     private RobotSpeed _robotSpeed;
+    private RobotLevel _robotLevel;
 
     [Header("Detection")]
-    private float _defaultDetectionRadius = 35;
+    private float _defaultDetectionRadius;
     private float _currentDetectionRadius;
     private float _extraAimDetectionRadius = 7;
     public float DetectionRadius() => _currentDetectionRadius;
@@ -22,9 +23,11 @@ public class RobotStateChanger : BaseAiStateChanger
         _robotAttacks = GetComponent<RobotAttacks>();
         _baseHealth = GetComponent<RobotHealth>();
         _robotSpeed = GetComponent<RobotSpeed>();
+        _robotLevel = GetComponent<RobotLevel>();
     }
     private void Start()
     {
+        _defaultDetectionRadius = _robotLevel.GetRobotInformation().DetectionRadius;
         _currentDetectionRadius = _defaultDetectionRadius;
     }
 

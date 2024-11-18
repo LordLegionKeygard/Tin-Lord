@@ -78,6 +78,18 @@ public class Language : MonoBehaviour
         _text[16, 0] = "Building ecology: ";
         _text[16, 1] = "Экология здания: ";
 
+        _text[17, 0] = "Level: ";
+        _text[17, 1] = "Уровень: ";
+
+        _text[18, 0] = "Durability: ";
+        _text[18, 1] = "Прочность: ";
+
+        _text[19, 0] = "Melee damage: ";
+        _text[19, 1] = "Урон в ближнем бою: ";
+
+        _text[20, 0] = "Range damage: ";
+        _text[20, 1] = "Урон в дальнем бою: ";
+
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }

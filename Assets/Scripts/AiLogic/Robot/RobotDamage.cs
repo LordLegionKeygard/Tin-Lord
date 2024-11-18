@@ -14,9 +14,11 @@ public class RobotDamage : BaseDamage
         _robotLevel = GetComponent<RobotLevel>();
     }
 
-    public override void SetDamage()
-    {
-        Damage = _robotLevel.GetRobotInformation().PhysAttack[_robotLevel.GetLevel()];
+    public override void Attack(int attackNumber)
+    {  
+        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(attackNumber);
+        if (CurrentTargetBaseHealth == null) return;
+        CurrentTargetBaseHealth.CalculateDamage(_robotLevel.GetRobotInformation().MeleeDamage[_robotLevel.GetLevel()], 0); 
     }
 
     public override void Shoot(int attackNumber)
@@ -31,7 +33,7 @@ public class RobotDamage : BaseDamage
         if (bullet.TryGetComponent<Bullet>(out var bulletScript))
         {
             bulletScript.SetTarget(CurrentTargetBaseHealth);
-            bulletScript.SetDamage(Damage, 0);
+            bulletScript.SetDamage(_robotLevel.GetRobotInformation().RangeDamage[_robotLevel.GetLevel()], 0);
             bulletScript.SetBulletPool(_bulletsPool, _bulletType);
         }
     }

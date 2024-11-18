@@ -44,7 +44,7 @@ public class RobotHealth : BaseHealth
     private void SetStartStats()
     {
         _isDeath = false;
-        MaxHealth = _robotLevel.GetRobotInformation().Health[_robotLevel.GetLevel()];
+        MaxHealth = _robotLevel.GetRobotInformation().Durability[_robotLevel.GetLevel()];
         CurrentHealth = MaxHealth;
         CreateHealthBar();
         UpdateSlider();

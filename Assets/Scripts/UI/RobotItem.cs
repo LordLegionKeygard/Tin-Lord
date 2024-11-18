@@ -18,7 +18,7 @@ public class RobotItem : MonoBehaviour
     [SerializeField] private Image _backImage;
 
     [Header("Other")]
-    [SerializeField] private PlayerSpawnerSystem _robotSpawnerSystem;
+    [SerializeField] private CurrentRobotSystem _currentRobotSystem;
     [SerializeField] private ResourcesView _robotResourcesView;
     private bool _resourcesEnough;
 
@@ -43,6 +43,7 @@ public class RobotItem : MonoBehaviour
     public void SelectToggleState(bool state)
     {
         _isSelect = state;
+        _robotPanel.UpdateTexts(_robotInformation);
         SetTextColor();
     }
 
@@ -58,10 +59,10 @@ public class RobotItem : MonoBehaviour
 
     public ResourcesForBuildWrapper[] GetResources()
     {
-        if (_robotSpawnerSystem.HaveRobot() && !_robotSpawnerSystem.RobotDeath())
+        if (_currentRobotSystem.HaveRobot() && !_currentRobotSystem.RobotDeath())
         {
             // Получаем здоровье робота
-            var robotHealth = _robotSpawnerSystem.GetComponent<RobotHealth>();
+            var robotHealth = _currentRobotSystem.GetComponent<RobotHealth>();
             float healthPercentage = (float)(robotHealth.MaxHealth - robotHealth.CurrentHealth) / robotHealth.MaxHealth;
 
             // Пропорционально рассчитываем ресурсы для ремонта

@@ -7,7 +7,10 @@ public class RobotInformation : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
     public Sprite RobotSprite;
-    [SerializeField] public float[] Health;
-    [SerializeField] public int[] PhysAttack;
+    public RobotType RobotType;
+    public float DetectionRadius;
+    public float[] Durability;
+    public int[] MeleeDamage;
+    public int[] RangeDamage;
     public ResourcesForBuildWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства робота
 }

@@ -16,19 +16,17 @@ MonoBehaviour:
   - Titan - 1V
   - "\u0422\u0438\u0442\u0430\u043D -1\u0412"
   RobotSprite: {fileID: 21300000, guid: 076011a10360da04aaa8622127599df9, type: 3}
-  Health:
-  - 0
+  RobotType: 0
+  DetectionRadius: 35
+  Durability:
+  - 3
   - 6
-  - 7
-  - 8
   - 9
-  - 10
-  - 11
   - 12
-  - 13
-  - 14
   - 15
-  PhysAttack: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  - 18
+  MeleeDamage: 0300000006000000090000000c0000000f00000012000000
+  RangeDamage: 010000000200000003000000040000000500000006000000
   ResourcesForBuild:
   - ResourcesForBuild: 11
     RecourcesForBuildAmount: 10
