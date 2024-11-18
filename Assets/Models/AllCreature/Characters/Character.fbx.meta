@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Mecha_03
+    second: {fileID: 2100000, guid: aa8a6d86abceaef49ba3a3d839482468, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Mecha_Eyes
     second: {fileID: 2100000, guid: b0e2acae930b401488c65a8b1d125097, type: 2}
   materials:

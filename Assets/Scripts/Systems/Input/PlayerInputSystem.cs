@@ -39,9 +39,10 @@ public class PlayerInputSystem : MonoBehaviour
     private RotateTileButton _rotateTileButton;
     public delegate void DestroyTileButton();
     private DestroyTileButton _destroyTileButton;
-
     public delegate void WorkTileButton();
     private WorkTileButton _workTileButton;
+    public delegate void RobotPanelButton();
+    private RobotPanelButton _robotPanelButton;
 
 
     [Header("Links")]
@@ -101,6 +102,8 @@ public class PlayerInputSystem : MonoBehaviour
         _playerInput.actions["RotateTileButton"].performed += _ => _rotateTileButton();
         _playerInput.actions["DestroyTileButton"].performed += _ => _destroyTileButton();
         _playerInput.actions["WorkTileButton"].performed += _ => _workTileButton();
+        _playerInput.actions["RobotPanelButton"].performed += _ => _robotPanelButton();
+
     }
 
     private void SetupDelegates()
@@ -127,6 +130,7 @@ public class PlayerInputSystem : MonoBehaviour
         _rotateTileButton = new RotateTileButton(_selectTilePanel.RotateTile);
         _destroyTileButton = new DestroyTileButton(_selectTilePanel.DestroyTile);
         _workTileButton = new WorkTileButton(_selectTilePanel.ToggleBuildingWork);
+        _robotPanelButton = new RobotPanelButton(_selectTilePanel.RobotPanelOpen);
     }
 
     private void OnNumberInput(InputAction.CallbackContext context)
@@ -181,5 +185,6 @@ public class PlayerInputSystem : MonoBehaviour
         _rotateTileButton = delegate { };
         _destroyTileButton = delegate { };
         _workTileButton = delegate { };
+        _robotPanelButton = delegate { };
     }
 }

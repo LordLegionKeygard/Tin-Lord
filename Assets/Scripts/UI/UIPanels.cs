@@ -9,6 +9,15 @@ public class UIPanels : MonoBehaviour
 
     [Header("SelectTilePanels & Lines")]
     [SerializeField] private GameObject[] _panels;
+    [Header("Panel Logic")]
+    [SerializeField] private SelectTilePanel _selectTilePanel;
+    [SerializeField] private RobotPanel _robotPanel;
+
+    public void PanelsViewToggle(bool selectTilePanel, bool robotPanel)
+    {
+        _selectTilePanel.PanelViewToggle(selectTilePanel);
+        _robotPanel.PanelViewToggle(robotPanel);
+    }
 
     public bool ActiveInHierarchy(UIPanelsEnum panelEnum) => _panels[(int)panelEnum].activeInHierarchy;
 

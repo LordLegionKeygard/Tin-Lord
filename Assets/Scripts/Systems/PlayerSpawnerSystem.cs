@@ -5,8 +5,14 @@ public class PlayerSpawnerSystem : MonoBehaviour
 {
     [Inject] DiContainer _diContainer;
     [SerializeField] private MapBuilder _mapBuilder;
-    [SerializeField] private GameObject[] _playerPrefabs;
+    [SerializeField] private GameObject[] _robotsPrefabs;
     [SerializeField] private Transform _parent;
+
+    [Header("CurrentRobot")]
+    private GameObject _currentRobotPrefab;
+    private RobotHealth _currentRobotHealth;
+    public bool HaveRobot() => _currentRobotPrefab != null;
+    public bool RobotDeath() => _currentRobotHealth.IsDeath();
 
     private void Start()
     {
@@ -18,26 +24,26 @@ public class PlayerSpawnerSystem : MonoBehaviour
 
     }
 
-    private void SpawnPlayer(PlayerType playerType)
+    private void SpawnPlayer(RobotType robotType)
     {
         var roadTiles = _mapBuilder.GetRoadTiles();
-
 
         int randomIndex = Random.Range(0, roadTiles.Count);
         var randomTile = roadTiles[randomIndex];
 
         Vector3 spawnPosition = randomTile.transform.position;
 
-        var player = _diContainer.InstantiatePrefab(_playerPrefabs[(int)playerType], spawnPosition, Quaternion.identity, _parent);
+        _currentRobotPrefab = _diContainer.InstantiatePrefab(_robotsPrefabs[(int)robotType], spawnPosition, Quaternion.identity, _parent);
 
-        var patrolPath = player.GetComponent<PlayerPatrolPath>();
+        _currentRobotHealth = _currentRobotPrefab.GetComponent<RobotHealth>();
+        var patrolPath = _currentRobotPrefab.GetComponent<RobotPatrolPath>();
 
         patrolPath.InitializePatrolPoints(roadTiles, randomIndex);
     }
 }
 
 [System.Serializable]
-public enum PlayerType
+public enum RobotType
 {
     Tank = 0,
     Sniper = 1,

@@ -11,7 +11,7 @@ public class BuildsPanel : MonoBehaviour
     [SerializeField] private Transform _content;
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private ScrollRect _scrollRect;
-    [SerializeField] private BuildingResourcesView _buildingResourcesView;
+    [SerializeField] private ResourcesView _buildingResourcesView;
     [SerializeField] private ScrollToCard _scrollToCard;
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
 

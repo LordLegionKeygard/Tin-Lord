@@ -8,6 +8,7 @@ public class TileDetector : MonoBehaviour
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TilesSystem _tileSystem;
     [SerializeField] private SelectTilePanel _selectTilePanel;
+    [SerializeField] private UIPanels _uiPanels;
     [SerializeField] private BuildsPanel _buildsPanel;
     private Transform _lastRayCastTransform;
     private bool _canSetTile = false;
@@ -210,7 +211,7 @@ public class TileDetector : MonoBehaviour
         {
             _currentTileObject = newTileObject;
             _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.TileSelect);
-            _selectTilePanel.PanelViewToggle(true);
+            _uiPanels.PanelsViewToggle(true, false);
             _selectTilePanel.SetInfo(_currentTileObject);
         }
     }
@@ -220,7 +221,7 @@ public class TileDetector : MonoBehaviour
         if (_currentTileObject != null)
         {
             _currentTileObject.GroundTileObject().SelectTile(false, SelectTileEnum.EmptyTileSelect);
-            if (isPanelView) _selectTilePanel.PanelViewToggle(false);
+            if (isPanelView) _uiPanels.PanelsViewToggle(false, false);
         }
     }
 
@@ -234,7 +235,7 @@ public class TileDetector : MonoBehaviour
             if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(false, SelectTileEnum.EmptyTileSelect);
             if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(false, SelectTileEnum.EmptyTileSelect);
             if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(false, SelectTileEnum.EmptyTileSelect);
-            if (isPanelView) _selectTilePanel.PanelViewToggle(false);
+            if (isPanelView) _uiPanels.PanelsViewToggle(false, false);
         }
     }
 
