@@ -13,7 +13,7 @@ public class ResourcesView : MonoBehaviour
     [SerializeField] private Image[] _icons;
     [SerializeField] private TextMeshProUGUI[] _amountText;
 
-    public void SetBuildingResourcesView(ResourcesForBuildWrapper[] resources)
+    public void SetResourcesView(ResourcesForBuildWrapper[] resources)
     {
         ResetCells();
 

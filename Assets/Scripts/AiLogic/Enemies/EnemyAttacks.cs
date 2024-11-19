@@ -25,7 +25,7 @@ public class EnemyAttacks : MonoBehaviour
     {
         if (tile != null)
         {
-            _bonusDistance = tile.IsFourTile ? WorldGameInfo.FourTileDistance - WorldGameInfo.TileDistance : 0;
+            _bonusDistance = tile.IsFourTile ? WorldGameInfo.EnemyReachedFourTileDistance - WorldGameInfo.EnemyReachedTileDistance : 0;
         }
         else
         {

@@ -16,7 +16,6 @@ public class RobotDamage : BaseDamage
 
     public override void Attack(int attackNumber)
     {  
-        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(attackNumber);
         if (CurrentTargetBaseHealth == null) return;
         CurrentTargetBaseHealth.CalculateDamage(_robotLevel.GetRobotInformation().MeleeDamage[_robotLevel.GetLevel()], 0); 
     }

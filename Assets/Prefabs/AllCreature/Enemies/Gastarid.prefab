@@ -2011,7 +2011,7 @@ GameObject:
   - component: {fileID: 6422065118168572971}
   - component: {fileID: 6422065118168572970}
   - component: {fileID: 6422065118168572969}
-  - component: {fileID: 6422065118168572968}
+  - component: {fileID: 4750436183813437325}
   - component: {fileID: 6422065118168572983}
   - component: {fileID: 689195765503960421}
   - component: {fileID: 6422065118168572981}
@@ -2149,7 +2149,7 @@ MonoBehaviour:
   rotationSpeed: 360
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
-  endReachedDistance: 9
+  endReachedDistance: 5
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
@@ -2200,8 +2200,8 @@ MonoBehaviour:
   _detectionRadius: 50
   _detectionLayer:
     serializedVersion: 2
-    m_Bits: 8
---- !u!114 &6422065118168572968
+    m_Bits: 264
+--- !u!114 &4750436183813437325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2210,20 +2210,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6419468576447285572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bd1bb9f5800bb546b357cd155683949, type: 3}
+  m_Script: {fileID: 11500000, guid: 174e0d39fd5c8a34db05020f3f65fa7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _takeDamageFX:
-  - {fileID: 1379687761388206, guid: 612fc26611deac34ca2ace49e8db64d2, type: 3}
-  - {fileID: 1062706298221994, guid: 880829e573f3bd547a392a8121795fd2, type: 3}
-  - {fileID: 1773671868869290, guid: afd3a39611dffa04eb57d1791f8b313b, type: 3}
-  - {fileID: 1835477299728120, guid: 98ceda76bf806a14a80c20c9edfad7ae, type: 3}
-  - {fileID: 1992822808985176, guid: 3c0fe87ffa23d30468f28f12ab4b41b4, type: 3}
-  - {fileID: 1467475997020756, guid: fd53e430a9d80ba47b8861aa2a4a0622, type: 3}
-  - {fileID: 1732386157228432, guid: 3e59383a67cc678498de93fdeacb7779, type: 3}
-  - {fileID: 1242668725453158, guid: 2b491acaf5c3f174ebb0f7e6aea13910, type: 3}
-  - {fileID: 1943797493643154, guid: db7712d7e28513b43b3436a2b1e52045, type: 3}
-  - {fileID: 1912625953125092, guid: 4a7b0b077aec9c84eb7fb8b9f716f372, type: 3}
+  _vfxType: 0
 --- !u!114 &6422065118168572983
 MonoBehaviour:
   m_ObjectHideFlags: 0

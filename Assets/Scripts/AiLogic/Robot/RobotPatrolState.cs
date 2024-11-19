@@ -19,7 +19,7 @@ public class RobotPatrolState : RobotState
 
     public override RobotState Tick(RobotStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, RobotAttacks attacks, RobotSpeed playerSpeed)
     {
-        if (!_isInitialized)
+        if (!_isInitialized || health.IsDeath())
         {
             return this;
         }

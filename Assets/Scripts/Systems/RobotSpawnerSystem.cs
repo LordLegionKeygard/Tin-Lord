@@ -9,7 +9,7 @@ public class RobotSpawnerSystem : MonoBehaviour
     [SerializeField] private Transform _parent;
     [SerializeField] private CurrentRobotSystem _currentRobotSystem;
 
-    private void SpawnRobot(RobotType robotType)
+    public void SpawnRobot(RobotType robotType)
     {
         var roadTiles = _mapBuilder.GetRoadTiles();
 

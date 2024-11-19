@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
-using UnityEngine.PlayerLoop;
 
 public class PlayerResources : MonoBehaviour
 {
@@ -47,7 +44,7 @@ public class PlayerResources : MonoBehaviour
         UpdateAllTexts();
     }
 
-    public bool ResourcesForBuildEnough(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
+    public bool ResourcesEnough(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
     {
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {

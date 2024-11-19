@@ -10,6 +10,7 @@ public class RobotHealth : BaseHealth
     private RobotAnimator _robotAnimator;
     private RobotLevel _robotLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
+    public bool FullHealth() => CurrentHealth == MaxHealth;
 
     private void Awake()
     {
@@ -21,9 +22,17 @@ public class RobotHealth : BaseHealth
     public void Start()
     {
         SetStartStats();
+
+        CustomEvents.OnRepairRobot += Repair;
     }
 
-    public override void CalculateDamage(float damage, int knockBackPoints)
+    private void Repair()
+    {
+        CurrentHealth = MaxHealth;
+        UpdateSlider();
+    }
+
+    public override void CalculateDamage(float damage, int knockBackPoints = 0)
     {
         base.CalculateDamage(damage, knockBackPoints);
         _takeDamageVFX.SpawnTakeDamageVFX();
@@ -59,16 +68,17 @@ public class RobotHealth : BaseHealth
     {
         base.Death();
         _robotAnimator.DeathAnim();
+        CustomEvents.FireRobotDie();
 
         StartCoroutine(FadeAndDestroy());
     }
 
     private IEnumerator FadeAndDestroy()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(WorldGameInfo.RobotDieDelay);
 
-        float duration = 3f;
-        float elapsedTime = 0f;
+        float duration = WorldGameInfo.RobotDieDuration;
+        float elapsedTime = 0;
         Vector3 startPosition = transform.position;
         Vector3 targetPosition = new Vector3(startPosition.x, startPosition.y - 4, startPosition.z);
 
@@ -80,5 +90,10 @@ public class RobotHealth : BaseHealth
         }
 
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnRepairRobot -= Repair;
     }
 }

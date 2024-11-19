@@ -55,12 +55,12 @@ public class BuildingItem : MonoBehaviour
 
     private void SetTextColor()
     {
-        _resourcesEnough = _playerResources.ResourcesForBuildEnough(GetResources());
+        _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
         _button.enabled = _resourcesEnough;
         _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.LightGrey : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _isSelect ? Color.white : Colors.LightGrey;
         _backImage.color = _isSelect ? Color.white : Colors.LightGrey;
-        if (_isSelect) _buildingResourcesView.SetBuildingResourcesView(GetResources());
+        if (_isSelect) _buildingResourcesView.SetResourcesView(GetResources());
     }
 
     public void SelectToggleState(bool state)
@@ -73,7 +73,7 @@ public class BuildingItem : MonoBehaviour
     {
         _buildsPanel.UnselectAllBuildings();
         SelectToggleState(true);
-        _buildingResourcesView.SetBuildingResourcesView(GetResources());
+        _buildingResourcesView.SetResourcesView(GetResources());
     }
 
     public void BuildOrUpgrade()

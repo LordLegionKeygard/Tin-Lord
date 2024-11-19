@@ -90,6 +90,9 @@ public class Language : MonoBehaviour
         _text[20, 0] = "Range damage: ";
         _text[20, 1] = "Урон в дальнем бою: ";
 
+        _text[21, 0] = "Robots";
+        _text[21, 1] = "Роботы";
+
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }

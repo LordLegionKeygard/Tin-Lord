@@ -8,8 +8,9 @@ public class WorldGameInfo
     public const string BuildingGridId = "1534982770";
 
     //EnemyReachedDistance
-    public const int TileDistance = 9;
-    public const int FourTileDistance = 12;
+    public const int EnemyReachedRobotDistance = 5;
+    public const int EnemyReachedTileDistance = 9;
+    public const int EnemyReachedFourTileDistance = 12;
 
     //Turret
     public const float TurretMaximumAttackAngle = 10;
@@ -20,4 +21,8 @@ public class WorldGameInfo
 
     //DayEvent
     public const int DayEventChance = 20;
+
+    //Robot
+    public const float RobotDieDelay = 5;
+    public const float RobotDieDuration = 3;
 }

@@ -10,6 +10,7 @@ public class CurrentRobotSystem : MonoBehaviour
     public bool HaveRobot() => _currentRobot != null;
     public bool RobotDeath() => _currentRobotHealth.IsDeath();
     public int RobotLevel() => _currentRobotLevel.GetLevel();
+    public RobotHealth RobotHealth() => _currentRobotHealth;
     public RobotPatrolPath RobotPatrolPath() => _currentRobotPatrolPath;
 
 
@@ -20,6 +21,6 @@ public class CurrentRobotSystem : MonoBehaviour
         _currentRobotHealth = _currentRobot.GetComponent<RobotHealth>();
         _currentRobotLevel = _currentRobot.GetComponent<RobotLevel>();
         _currentRobotPatrolPath = _currentRobot.GetComponent<RobotPatrolPath>();
-        _robotsData.SetNewRobotLevel(robotType, RobotLevel());
+        _robotsData.SetNewRobot(robotType, RobotLevel());
     }
 }

@@ -106,4 +106,5 @@ public class VFXConfig
 public enum DamageVFXType
 {
     RedBlood = 0,
+    MetalSpark = 1,
 }

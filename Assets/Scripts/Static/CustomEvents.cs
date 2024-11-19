@@ -66,4 +66,16 @@ public class CustomEvents
     {
         OnSetBase?.Invoke();
     }
+
+    public static event Action OnRepairRobot;
+    public static void FireRepairRobot()
+    {
+        OnRepairRobot?.Invoke();
+    }
+
+    public static event Action OnRobotDie;
+    public static void FireRobotDie()
+    {
+        OnRobotDie?.Invoke();
+    }
 }

@@ -6,6 +6,7 @@ public class ChangeLanguage : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingsText;
     [SerializeField] private TextMeshProUGUI[] _resourceTypesPanel;
     [SerializeField] private TextMeshProUGUI _receptText;
+    [SerializeField] private TextMeshProUGUI _robotPanelText;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class ChangeLanguage : MonoBehaviour
         _resourceTypesPanel[2].text = Language.TextStatic[9];
 
         _receptText.text = Language.TextStatic[1];
+        _robotPanelText.text = Language.TextStatic[21];
 
     }
 }

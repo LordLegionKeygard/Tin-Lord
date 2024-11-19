@@ -50,11 +50,4 @@ public class BaseHealth : MonoBehaviour
         if (_healthSliderObject == null) return;
         Destroy(_healthSliderObject);
     }
-
-
-
-    public virtual void Heal(float amount)
-    {
-
-    }
 }

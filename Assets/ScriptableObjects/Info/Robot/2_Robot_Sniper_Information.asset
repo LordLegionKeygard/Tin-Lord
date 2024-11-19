@@ -16,15 +16,15 @@ MonoBehaviour:
   - Aim Bot
   - "\u041F\u0440\u0438\u0446\u0435\u043B\u044C\u043D\u044B\u0439 \u0411\u043E\u0442"
   RobotSprite: {fileID: 21300000, guid: ec0e820456c9bd34f83d8f9942486f4a, type: 3}
-  RobotType: 0
+  RobotType: 1
   DetectionRadius: 0
   Durability:
-  - 1
-  - 2
   - 3
-  - 4
-  - 5
   - 6
+  - 9
+  - 12
+  - 15
+  - 18
   MeleeDamage: 010000000200000003000000040000000500000006000000
   RangeDamage: 0300000006000000090000000c0000000f00000012000000
   ResourcesForBuild:
