@@ -45,9 +45,4 @@ public class RobotAnimator : BaseAnimator
         base.ResetAttackAnimation();
         _robotSpeed.CanMove();
     }
-
-    public void DeathAnim()
-    {
-        Animator.SetBool(AnimatorStrings.Death, true);
-    }
 }

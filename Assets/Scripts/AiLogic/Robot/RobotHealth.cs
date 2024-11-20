@@ -7,16 +7,18 @@ public class RobotHealth : BaseHealth
     [Inject] private readonly HealthCanvas _healthCanvas;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private float _sliderHeightOffset;
-    private RobotAnimator _robotAnimator;
     private RobotLevel _robotLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
+    private AnimationToRagdoll _animationToRagdoll;
+    private CapsuleCollider _capsuleCollider;
     public bool FullHealth() => CurrentHealth == MaxHealth;
 
     private void Awake()
     {
         _robotLevel = GetComponent<RobotLevel>();
         _takeDamageVFX = GetComponent<BaseTakeDamageVFX>();
-        _robotAnimator = GetComponent<RobotAnimator>();
+        _animationToRagdoll = GetComponent<AnimationToRagdoll>();
+        _capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     public void Start()
@@ -67,7 +69,8 @@ public class RobotHealth : BaseHealth
     public override void Death()
     {
         base.Death();
-        _robotAnimator.DeathAnim();
+        _capsuleCollider.enabled = false;
+        _animationToRagdoll.RagdollOn();
         CustomEvents.FireRobotDie();
 
         StartCoroutine(FadeAndDestroy());
@@ -76,6 +79,8 @@ public class RobotHealth : BaseHealth
     private IEnumerator FadeAndDestroy()
     {
         yield return new WaitForSeconds(WorldGameInfo.RobotDieDelay);
+
+        _animationToRagdoll.KinematicToggle(true);
 
         float duration = WorldGameInfo.RobotDieDuration;
         float elapsedTime = 0;

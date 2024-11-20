@@ -23,6 +23,6 @@ public class WorldGameInfo
     public const int DayEventChance = 20;
 
     //Robot
-    public const float RobotDieDelay = 5;
+    public const float RobotDieDelay = 10;
     public const float RobotDieDuration = 3;
 }
