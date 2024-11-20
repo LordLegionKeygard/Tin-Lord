@@ -4,20 +4,13 @@ using Zenject;
 public class RobotDamage : BaseDamage
 {
     [Inject] readonly BulletsPool _bulletsPool;
-    private RobotLevel _robotLevel;
     [SerializeField] private BulletEnum _bulletType;
     [SerializeField] private Transform[] _firePoints;
-
-    public override void Awake()
-    {
-        base.Awake();
-        _robotLevel = GetComponent<RobotLevel>();
-    }
 
     public override void Attack(int attackNumber)
     {  
         if (CurrentTargetBaseHealth == null) return;
-        CurrentTargetBaseHealth.CalculateDamage(_robotLevel.GetRobotInformation().MeleeDamage[_robotLevel.GetLevel()], 0); 
+        CurrentTargetBaseHealth.CalculateDamage(RobotsData.Instance.GetCurrentMeleeDamage(), 0); 
     }
 
     public override void Shoot(int attackNumber)
@@ -32,7 +25,7 @@ public class RobotDamage : BaseDamage
         if (bullet.TryGetComponent<Bullet>(out var bulletScript))
         {
             bulletScript.SetTarget(CurrentTargetBaseHealth);
-            bulletScript.SetDamage(_robotLevel.GetRobotInformation().RangeDamage[_robotLevel.GetLevel()], 0);
+            bulletScript.SetDamage(RobotsData.Instance.GetCurrentRangeDamage(), 0);
             bulletScript.SetBulletPool(_bulletsPool, _bulletType);
         }
     }

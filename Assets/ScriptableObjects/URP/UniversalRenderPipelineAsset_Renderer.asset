@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26b8cda2614cfd49b62617c9c17c63c, type: 3}
   m_Name: CRTRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   shader: {fileID: 4800000, guid: 6f2fcdc189458914eb8a323f19e3a27b, type: 3}
   screenBend: 6
   vignetteSize: 5.7
-  vignetteSmooth: 3
-  vignetteRound: 48
+  vignetteSmooth: 7.25
+  vignetteRound: 36.875
   shadowlines: 50
   shadowlinesSpeed: -5
   shadowlinesAlpha: 0
   noiseSize: 50
   noiseSpeed: 10
-  noiseAlpha: 0
+  noiseAlpha: 0.00875
   brightness: -0.12
   contrast: 0.82
-  colorize: 1
+  colorize: 0.75
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

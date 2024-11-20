@@ -80,7 +80,6 @@ GameObject:
   - component: {fileID: 6124768669419014797}
   - component: {fileID: 7702254113061682339}
   - component: {fileID: 6124768669419014800}
-  - component: {fileID: 6124768669419014801}
   - component: {fileID: 6124768669419014802}
   - component: {fileID: 6124768669419014804}
   - component: {fileID: 6828330069480643035}
@@ -221,20 +220,6 @@ MonoBehaviour:
   _defaultSpeed: 1.5
   _currentSpeed: 0
   _canMove: 1
---- !u!114 &6124768669419014801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6124768669419014793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f23d946e3b0fc41bea1d5f0a892b59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _robotInformation: {fileID: 11400000, guid: 030717f6d0d5411479587e69f22685d1, type: 2}
-  _level: 1
 --- !u!114 &6124768669419014802
 MonoBehaviour:
   m_ObjectHideFlags: 0

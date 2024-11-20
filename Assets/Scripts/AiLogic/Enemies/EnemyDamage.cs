@@ -14,6 +14,6 @@ public class EnemyDamage : BaseDamage
 
     public override void SetDamage()
     {
-        Damage = _enemyLevel.GetAiLevelInformation().PhysAttack[_enemyLevel.GetLevel()];
+        Damage = _enemyLevel.GetInformation().PhysAttack[_enemyLevel.GetLevel()];
     }
 }

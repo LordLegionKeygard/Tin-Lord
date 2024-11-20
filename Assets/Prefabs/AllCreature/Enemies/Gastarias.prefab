@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vfxType: 0
-  Height: 0
 --- !u!114 &5297197506641602330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa43f09e48f75f1469f385adf2b4ac6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aiLevelInfo: {fileID: 11400000, guid: 50969a87dad4a9848934d8bb32581dbe, type: 2}
+  _information: {fileID: 11400000, guid: 50969a87dad4a9848934d8bb32581dbe, type: 2}
   _level: 1
 --- !u!114 &5297197506641602328
 MonoBehaviour:

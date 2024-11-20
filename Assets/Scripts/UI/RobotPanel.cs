@@ -7,15 +7,17 @@ public class RobotPanel : MonoBehaviour
 {
     [SerializeField] RobotItem[] _robotItems;
     [SerializeField] private RectTransform _objectTransform;
-    [SerializeField] private RobotsData _robotData;
     [SerializeField] private CurrentRobotSystem _currentRobotSystem;
+    private RobotInformation _currentSelectRobotInfo;
+    public RobotType GetCurrentRobotType() => _currentSelectRobotInfo != null ? _currentSelectRobotInfo.RobotType : RobotType.None;
 
-    [Header("Texts")]
-    [SerializeField] private TextMeshProUGUI _level;
-    [SerializeField] private TextMeshProUGUI _experience;
-    [SerializeField] private TextMeshProUGUI _durability;
-    [SerializeField] private TextMeshProUGUI _meleeDamage;
-    [SerializeField] private TextMeshProUGUI _rangeDamage;
+    [Header("View")]
+    [SerializeField] private TextMeshProUGUI _levelText;
+    [SerializeField] private TextMeshProUGUI _experienceText;
+    [SerializeField] private TextMeshProUGUI _durabilityText;
+    [SerializeField] private TextMeshProUGUI _meleeDamageText;
+    [SerializeField] private TextMeshProUGUI _rangeDamageText;
+    [SerializeField] private Slider _expSlider;
 
     [Header("Button")]
     [SerializeField] private Button _destroyButton;
@@ -24,32 +26,22 @@ public class RobotPanel : MonoBehaviour
 
     private void Start()
     {
-        CustomEvents.OnRobotDie += UpdateDestroyButton;
+        CustomEvents.OnRobotDie += UpdateDestroyButtonState;
     }
 
     public void PanelViewToggle(bool state)
     {
         if (state)
         {
-            ShowInfoPanel();
+            _objectTransform.DOAnchorPosX(-250, 0.3f).SetUpdate(true);
         }
         else
         {
-            HideInfoPanel();
+            _objectTransform.DOAnchorPosX(250, 0.3f).SetUpdate(true);
         }
     }
 
-    private void ShowInfoPanel()
-    {
-        _objectTransform.DOAnchorPosX(-250, 0.3f).SetUpdate(true);
-    }
-
-    private void HideInfoPanel()
-    {
-        _objectTransform.DOAnchorPosX(250, 0.3f).SetUpdate(true);
-    }
-
-    public void UnselectAllRobots()
+    public void DeselectAllRobotItems()
     {
         for (int i = 0; i < _robotItems.Length; i++)
         {
@@ -57,24 +49,56 @@ public class RobotPanel : MonoBehaviour
         }
     }
 
-    public void UpdateTexts(RobotInformation robotInformation)
+    public void RefreshAllRobotItemsView()
     {
-        var type = robotInformation.RobotType;
-        var level = _robotData.GetRobotDataLevel(type);
-        _level.text = Language.TextStatic[17] + level.ToString();
-        _durability.text = Language.TextStatic[18] + robotInformation.Durability[level].ToString();
-        _meleeDamage.text = Language.TextStatic[19] + robotInformation.MeleeDamage[level].ToString();
-        _rangeDamage.text = Language.TextStatic[20] + robotInformation.RangeDamage[level].ToString();
+        for (int i = 0; i < _robotItems.Length; i++)
+        {
+            _robotItems[i].SetButtonAndTextColor();
+        }
+    }
+
+    public void UpdateRobotInfo(RobotInformation selectRobotInfo)
+    {
+        _currentSelectRobotInfo = selectRobotInfo;
+
+        UpdateLevelAndExperience();
+        UpdateStatTexts();
+    }
+
+    public void UpdateStatTexts()
+    {
+        if (_currentSelectRobotInfo == null) return;
+
+        var level = RobotsData.Instance.GetSelectRobotDataLevel(_currentSelectRobotInfo.RobotType);
+
+        _durabilityText.text = $"{Language.TextStatic[18]} {_currentSelectRobotInfo.Durability[level]}";
+        _meleeDamageText.text = $"{Language.TextStatic[19]} {_currentSelectRobotInfo.MeleeDamage[level]}";
+        _rangeDamageText.text = $"{Language.TextStatic[20]} {_currentSelectRobotInfo.RangeDamage[level]}";
+    }
+
+    public void UpdateLevelAndExperience()
+    {
+        if (_currentSelectRobotInfo == null) return;
+
+        var type = _currentSelectRobotInfo.RobotType;
+        var level = RobotsData.Instance.GetSelectRobotDataLevel(type);
+        var maxExp = RobotsData.Instance.GetSelectRobotMaxExpForLevel(type);
+        var currentExp = RobotsData.Instance.GetSelectRobotExperience(type);
+
+        _levelText.text = $"{Language.TextStatic[17]} {level}";
+        _expSlider.maxValue = maxExp;
+        _expSlider.value = currentExp;
+        _experienceText.text = $"{currentExp} / {maxExp}";
     }
 
     public void DestroyRobbotButton()
     {
         var robotHealth = _currentRobotSystem.RobotHealth();
         robotHealth.CalculateDamage(robotHealth.MaxHealth);
-        UpdateDestroyButton();
+        UpdateDestroyButtonState();
     }
 
-    public void UpdateDestroyButton()
+    public void UpdateDestroyButtonState()
     {
         var state = _currentRobotSystem.HaveRobot() && !_currentRobotSystem.RobotDeath();
         _destroyButton.interactable = state;
@@ -83,6 +107,6 @@ public class RobotPanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnRobotDie -= UpdateDestroyButton;
+        CustomEvents.OnRobotDie -= UpdateDestroyButtonState;
     }
 }

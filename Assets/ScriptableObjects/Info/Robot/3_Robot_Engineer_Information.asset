@@ -17,16 +17,17 @@ MonoBehaviour:
   - "\u041F\u0430\u0442\u0447 - 08"
   RobotSprite: {fileID: 21300000, guid: b645f779f10bebd4b87441cf811aa916, type: 3}
   RobotType: 2
-  DetectionRadius: 0
+  DetectionRadius: 5
   Durability:
+  - 0
   - 6
   - 12
   - 18
   - 24
   - 30
   - 36
-  MeleeDamage: 020000000400000006000000080000000a0000000c000000
-  RangeDamage: 000000000000000000000000000000000000000000000000
+  MeleeDamage: 00000000020000000400000006000000080000000a0000000c000000
+  RangeDamage: 00000000000000000000000000000000000000000000000000000000
   ResourcesForBuild:
   - ResourcesForBuild: 17
     RecourcesForBuildAmount: 10

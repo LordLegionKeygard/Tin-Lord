@@ -2,25 +2,21 @@ using UnityEngine;
 
 public class CurrentRobotSystem : MonoBehaviour
 {
-    [SerializeField] private RobotsData _robotsData;
     private GameObject _currentRobot;
-    private RobotHealth _currentRobotHealth;
-    private RobotLevel _currentRobotLevel;
-    private RobotPatrolPath _currentRobotPatrolPath;
+    private RobotHealth _robotHealth;
+    private RobotPatrolPath _robotPatrolPath;
     public bool HaveRobot() => _currentRobot != null;
-    public bool RobotDeath() => _currentRobotHealth.IsDeath();
-    public int RobotLevel() => _currentRobotLevel.GetLevel();
-    public RobotHealth RobotHealth() => _currentRobotHealth;
-    public RobotPatrolPath RobotPatrolPath() => _currentRobotPatrolPath;
+    public bool RobotDeath() => _robotHealth.IsDeath();
+    public RobotHealth RobotHealth() => _robotHealth;
+    public RobotPatrolPath RobotPatrolPath() => _robotPatrolPath;
 
 
 
     public void SetNewRobot(GameObject newRobot, RobotType robotType)
     {
         _currentRobot = newRobot;
-        _currentRobotHealth = _currentRobot.GetComponent<RobotHealth>();
-        _currentRobotLevel = _currentRobot.GetComponent<RobotLevel>();
-        _currentRobotPatrolPath = _currentRobot.GetComponent<RobotPatrolPath>();
-        _robotsData.SetNewRobot(robotType, RobotLevel());
+        _robotHealth = _currentRobot.GetComponent<RobotHealth>();
+        _robotPatrolPath = _currentRobot.GetComponent<RobotPatrolPath>();
+        RobotsData.Instance.SetNewRobotType(robotType);
     }
 }

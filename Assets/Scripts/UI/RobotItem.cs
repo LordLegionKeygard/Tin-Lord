@@ -10,7 +10,6 @@ public class RobotItem : MonoBehaviour
     [SerializeField] private RobotInformation _robotInformation;
     [SerializeField] private RobotPanel _robotPanel;
     [SerializeField] private RobotSpawnerSystem _robotSpawnerSystem;
-    [SerializeField] private RobotsData _robotsData;
     private bool _isSelect;
 
     [Header("View")]
@@ -45,13 +44,13 @@ public class RobotItem : MonoBehaviour
 
     public void SelectView()
     {
-        _robotPanel.UnselectAllRobots();
+        _robotPanel.DeselectAllRobotItems();
 
         SelectToggleState(true);
 
         if (!_currentRobotSystem.HaveRobot() ||
         (_currentRobotSystem.HaveRobot() && !_currentRobotSystem.RobotDeath() &&
-        !_currentRobotSystem.RobotHealth().FullHealth() && _robotInformation.RobotType == _robotsData.GetRobotType()))
+        !_currentRobotSystem.RobotHealth().FullHealth() && _robotInformation.RobotType == RobotsData.Instance.GetRobotType()))
         {
             _robotResourcesView.SetResourcesView(GetResources());
         }
@@ -62,16 +61,16 @@ public class RobotItem : MonoBehaviour
     public void SelectToggleState(bool state)
     {
         _isSelect = state;
-        _robotPanel.UpdateTexts(_robotInformation);
+        _robotPanel.UpdateRobotInfo(_robotInformation);
         SetButtonAndTextColor();
     }
 
-    private void SetButtonAndTextColor()
+    public void SetButtonAndTextColor()
     {
         _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
-        _button.enabled = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == _robotsData.GetRobotType() ? _currentRobotSystem.RobotHealth().FullHealth() || _currentRobotSystem.RobotHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
+        _button.enabled = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsData.Instance.GetRobotType() ? _currentRobotSystem.RobotHealth().FullHealth() || _currentRobotSystem.RobotHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
         _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.LightGrey : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
-        _icon.color = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == _robotsData.GetRobotType() ? Color.white : Color.black : _isSelect ? Color.white : Colors.LightGrey;
+        _icon.color = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsData.Instance.GetRobotType() ? Color.white : Color.black : _isSelect ? Color.white : Colors.LightGrey;
         _backImage.color = _isSelect ? Color.white : Colors.LightGrey;
         // if (_isSelect) _robotResourcesView.SetBuildingResourcesView(GetResources());
     }
@@ -110,8 +109,8 @@ public class RobotItem : MonoBehaviour
         else
         {
             _robotSpawnerSystem.SpawnRobot(_robotInformation.RobotType);
-            _robotPanel.UnselectAllRobots();
-            _robotPanel.UpdateDestroyButton();
+            _robotPanel.RefreshAllRobotItemsView();
+            _robotPanel.UpdateDestroyButtonState();
         }
     }
 

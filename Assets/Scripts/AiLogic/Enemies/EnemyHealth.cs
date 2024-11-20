@@ -52,7 +52,7 @@ public class EnemyHealth : BaseHealth
     private void SetStartStats()
     {
         _isDeath = false;
-        MaxHealth = _enemyLevel.GetAiLevelInformation().Health[_enemyLevel.GetLevel()];
+        MaxHealth = _enemyLevel.GetInformation().Health[_enemyLevel.GetLevel()];
         CurrentHealth = MaxHealth;
         CreateHealthBar();
         UpdateSlider();
@@ -70,6 +70,8 @@ public class EnemyHealth : BaseHealth
         _characterController.enabled = false;
         _aiPath.enabled = false;
         _enemyAnimator.DeathAnim();
+
+        CustomEvents.FireChangeExperience(_enemyLevel.GetExperience());
 
         StartCoroutine(FadeAndDestroy());
     }

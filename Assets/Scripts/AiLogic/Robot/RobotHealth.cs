@@ -7,7 +7,6 @@ public class RobotHealth : BaseHealth
     [Inject] private readonly HealthCanvas _healthCanvas;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private float _sliderHeightOffset;
-    private RobotLevel _robotLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
     private AnimationToRagdoll _animationToRagdoll;
     private CapsuleCollider _capsuleCollider;
@@ -15,7 +14,6 @@ public class RobotHealth : BaseHealth
 
     private void Awake()
     {
-        _robotLevel = GetComponent<RobotLevel>();
         _takeDamageVFX = GetComponent<BaseTakeDamageVFX>();
         _animationToRagdoll = GetComponent<AnimationToRagdoll>();
         _capsuleCollider = GetComponent<CapsuleCollider>();
@@ -55,7 +53,7 @@ public class RobotHealth : BaseHealth
     private void SetStartStats()
     {
         _isDeath = false;
-        MaxHealth = _robotLevel.GetRobotInformation().Durability[_robotLevel.GetLevel()];
+        MaxHealth = RobotsData.Instance.GetCurrentDurability();
         CurrentHealth = MaxHealth;
         CreateHealthBar();
         UpdateSlider();
