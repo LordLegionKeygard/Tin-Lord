@@ -84,4 +84,10 @@ public class CustomEvents
     {
         OnChangeExperience?.Invoke(value);
     }
+
+    public static Action<int> OnBuildingTakeDamage;
+    public static void FireBuildingTakeDamage(int id)
+    {
+        OnBuildingTakeDamage?.Invoke(id);
+    }
 }

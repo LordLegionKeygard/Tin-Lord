@@ -61,6 +61,7 @@ public class BuildingHealth : BaseHealth
         if (!_buildingTile.HaveTile()) return;
         if (IsDeath()) return;
         TakeDamage(damage, knockBackPoints);
+        CustomEvents.FireBuildingTakeDamage(_tileObject.GetId());
     }
 
     public override void Death()

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SelectTilePanel : MonoBehaviour
 {
     [Header("Main")]
-    [SerializeField] private RobotPanel _robotPanel; 
+    [SerializeField] private RobotPanel _robotPanel;
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanels _uiPanels;
@@ -41,6 +41,11 @@ public class SelectTilePanel : MonoBehaviour
         _requiredResourcePanel = GetComponent<RequiredResourcePanel>();
         _productionResourcePanel = GetComponent<ProductionResourcePanel>();
         _receptPanel = GetComponent<ReceptPanel>();
+    }
+
+    private void Start()
+    {
+        CustomEvents.OnBuildingTakeDamage += RefreshShowInfo;
     }
 
     public void RefreshShowInfo(int tileId)
@@ -319,5 +324,10 @@ public class SelectTilePanel : MonoBehaviour
     private void Clear()
     {
         _tileObject = null;
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnBuildingTakeDamage -= RefreshShowInfo;
     }
 }
