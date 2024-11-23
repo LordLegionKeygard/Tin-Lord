@@ -78,8 +78,8 @@ public class Language : MonoBehaviour
         _text[16, 0] = "Building ecology: ";
         _text[16, 1] = "Экология здания: ";
 
-        _text[17, 0] = "Level: ";
-        _text[17, 1] = "Уровень: ";
+        _text[17, 0] = "";
+        _text[17, 1] = "";
 
         _text[18, 0] = "Durability: ";
         _text[18, 1] = "Прочность: ";

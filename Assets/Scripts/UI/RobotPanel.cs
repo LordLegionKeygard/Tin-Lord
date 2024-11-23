@@ -85,7 +85,7 @@ public class RobotPanel : MonoBehaviour
         var maxExp = RobotsData.Instance.GetSelectRobotMaxExpForLevel(type);
         var currentExp = RobotsData.Instance.GetSelectRobotExperience(type);
 
-        _levelText.text = $"{Language.TextStatic[17]} {level}";
+        _levelText.text = $"{level}";
         _expSlider.maxValue = maxExp;
         _expSlider.value = currentExp;
         _experienceText.text = $"{currentExp} / {maxExp}";
