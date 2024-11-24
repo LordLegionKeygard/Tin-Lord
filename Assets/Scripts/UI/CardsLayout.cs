@@ -10,6 +10,7 @@ public class CardsLayout : MonoBehaviour
     [SerializeField] private int maxCards = 9;
     [SerializeField] private float leftPadding = 84;
     [SerializeField] private float bottomPadding = 92;
+    private float _duration = 0.5f;
 
     private Dictionary<RectTransform, float> targetPositions = new Dictionary<RectTransform, float>();
 
@@ -27,7 +28,7 @@ public class CardsLayout : MonoBehaviour
         cardRect.anchoredPosition = new Vector2(GetCardPosition(index), initialY);
 
         // Запускаем анимацию поднятия
-        StartCoroutine(AnimateYPosition(cardRect, targetY, 0.5f));
+        StartCoroutine(AnimateYPosition(cardRect, targetY));
     }
 
     public void RearrangeCards(List<CardObject> cards)
@@ -48,23 +49,23 @@ public class CardsLayout : MonoBehaviour
             }
 
             targetPositions[cardRect] = targetX;
-            StartCoroutine(AnimateXPosition(cardRect, targetX, 0.5f));
+            StartCoroutine(AnimateXPosition(cardRect, targetX));
         }
     }
 
-    private IEnumerator AnimateYPosition(RectTransform rectTransform, float targetY, float duration)
+    private IEnumerator AnimateYPosition(RectTransform rectTransform, float targetY)
     {
         if (rectTransform == null) yield break;
 
         float startY = rectTransform.anchoredPosition.y;
         float elapsedTime = 0;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < _duration)
         {
             if (rectTransform == null) yield break;
 
             elapsedTime += Time.unscaledDeltaTime; // Используем только Time.unscaledDeltaTime для независимости от timeScale
-            float newY = Mathf.Lerp(startY, targetY, elapsedTime / duration);
+            float newY = Mathf.Lerp(startY, targetY, elapsedTime / _duration);
             rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, newY);
             yield return null;
         }
@@ -73,19 +74,19 @@ public class CardsLayout : MonoBehaviour
             rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, targetY);
     }
 
-    private IEnumerator AnimateXPosition(RectTransform rectTransform, float targetX, float duration)
+    private IEnumerator AnimateXPosition(RectTransform rectTransform, float targetX)
     {
         if (rectTransform == null) yield break;
 
         float startX = rectTransform.anchoredPosition.x;
         float elapsedTime = 0;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < _duration)
         {
             if (rectTransform == null) yield break;
 
             elapsedTime += Time.unscaledDeltaTime;
-            float newX = Mathf.Lerp(startX, targetX, elapsedTime / duration);
+            float newX = Mathf.Lerp(startX, targetX, elapsedTime / _duration);
             rectTransform.anchoredPosition = new Vector2(newX, rectTransform.anchoredPosition.y);
             yield return null;
         }

@@ -1,14 +1,23 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private float _speed = 80;
+    public bool _needTimeAfterHit;
     private Transform _targetTransform;
-    private float _speed = 80;
     private float _damage;
     private int _knockbackPoints;
     private BulletsPool _bulletsPool;
     private BulletEnum _bulletEnum;
     private BaseHealth _targetHealth;
+    private float _duration = 0.5f;
+    private bool _isHitTarget;
+
+    private void OnEnable()
+    {
+        _isHitTarget = false;
+    }
 
     public void SetTarget(BaseHealth targetHealth)
     {
@@ -42,14 +51,16 @@ public class Bullet : MonoBehaviour
         Vector3 direction = _targetTransform.position - transform.position;
         float distanceThisFrame = _speed * Time.deltaTime;
 
-        if (direction.magnitude <= distanceThisFrame)
+        if (direction.magnitude <= distanceThisFrame && !_isHitTarget)
         {
+            _isHitTarget = true;
             HitTarget();
             return;
         }
 
-        transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+        if (_isHitTarget) return;
 
+        transform.Translate(direction.normalized * distanceThisFrame, Space.World);
         transform.LookAt(_targetTransform);
     }
 
@@ -58,6 +69,23 @@ public class Bullet : MonoBehaviour
         if (_targetHealth != null)
         {
             _targetHealth.CalculateDamage(_damage, _knockbackPoints);
+        }
+
+        if (_needTimeAfterHit)
+        {
+            StartCoroutine(nameof(ReturnBulletCoroutine));
+        }
+        else _bulletsPool.ReturnBullet(_bulletEnum, gameObject);
+    }
+
+    private IEnumerator ReturnBulletCoroutine()
+    {
+        float elapsedTime = 0;
+
+        while (elapsedTime < _duration)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
 
         _bulletsPool.ReturnBullet(_bulletEnum, gameObject);
@@ -73,5 +101,6 @@ public enum BulletEnum
     BasicX2 = 1,
     BallistaBolt = 2,
     CannonBall = 3,
+    Robot_SniperRiffle_Bullet = 4,
 }
 
