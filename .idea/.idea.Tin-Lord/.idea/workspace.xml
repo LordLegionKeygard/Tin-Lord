@@ -6,11 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/BuildingType.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/BuildingType.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/BuildingTypes/0_Base.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/BuildingTypes/0_Base.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/BuildingTypes/1_ElectricPowerIndustry.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Tiles/BuildingTypes/1_ElectricPowerIndustry.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Building/BuildingType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/Panels/SelectTilePanel/Buttons/BuildingUpgrade_Icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/UI/Panels/SelectTilePanel/Buttons/BuildingUpgrade_Icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_Aim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_Aim.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_Idle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_Idle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_PrepareAim.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_PrepareAim.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_Shoot.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_Shoot.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_Walk.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Character/Robot/2_Robot_Sniper/Robot_Sniper_Walk.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Robots/2_Robot_Sniper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Robots/2_Robot_Sniper.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,10 +85,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="13244">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="13244" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -127,6 +132,7 @@
       <workItem from="1730896046519" duration="9000" />
       <workItem from="1730896657801" duration="23000" />
       <workItem from="1731343506810" duration="1000" />
+      <workItem from="1732547877927" duration="72000" />
     </task>
     <servers />
   </component>
@@ -147,19 +153,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Tiles/TileRiver.cs</url>
-          <line>37</line>
-          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Tiles\TileRiver.cs" containingFunctionPresentation="Method 'PrepareRiver'">
-            <startOffsets>
-              <option value="1008" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1035" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Systems/EveryTickResourcesRequired.cs</url>
           <line>28</line>
           <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Systems\EveryTickResourcesRequired.cs" containingFunctionPresentation="Method 'ChangeResourceRequired'">
@@ -171,6 +164,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotDamage.cs</url>
+          <line>10</line>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\AiLogic\Robot\RobotDamage.cs" containingFunctionPresentation="Method 'Attack'">
+            <startOffsets>
+              <option value="285" />
+            </startOffsets>
+            <endOffsets>
+              <option value="286" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
