@@ -14,7 +14,7 @@ public class BulletsPool : MonoBehaviour
         for (int i = 0; i < _bulletPrefabs.Count; i++)
         {
             BulletEnum bulletType = (BulletEnum)i;
-            Queue<GameObject> pool = new Queue<GameObject>();
+            Queue<GameObject> pool = new();
 
             for (int j = 0; j < _poolSize; j++)
             {

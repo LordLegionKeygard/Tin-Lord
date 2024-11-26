@@ -79,6 +79,12 @@ public class CustomEvents
         OnRobotDie?.Invoke();
     }
 
+    public static event Action OnRobotTakeDamage;
+    public static void FireRobotTakeDamage()
+    {
+        OnRobotTakeDamage?.Invoke();
+    }
+
     public static Action<int> OnChangeExperience;
     public static void FireChangeExperience(int value)
     {

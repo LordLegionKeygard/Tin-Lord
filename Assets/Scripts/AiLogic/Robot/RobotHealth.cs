@@ -62,6 +62,7 @@ public class RobotHealth : BaseHealth
     public override void TakeDamage(float damage, int knockBackPoints)
     {
         base.TakeDamage(damage, knockBackPoints);
+        CustomEvents.FireRobotTakeDamage();
     }
 
     public override void Death()

@@ -97,6 +97,7 @@ public class Bullet : MonoBehaviour
 [System.Serializable]
 public enum BulletEnum
 {
+    None = -1,
     BasicX1 = 0,
     BasicX2 = 1,
     BallistaBolt = 2,

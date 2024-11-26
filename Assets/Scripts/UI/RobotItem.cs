@@ -22,12 +22,17 @@ public class RobotItem : MonoBehaviour
     [SerializeField] private CurrentRobotSystem _currentRobotSystem;
     [SerializeField] private ResourcesView _robotResourcesView;
     private bool _resourcesEnough;
-    private bool _repair;
+    public bool CanRepair() => _currentRobotSystem.HaveRobot() &&
+                                !_currentRobotSystem.RobotDeath() &&
+                                !_currentRobotSystem.RobotHealth().FullHealth() &&
+                                _robotInformation.RobotType == RobotsData.Instance.GetRobotType();
+
 
     private void Start()
     {
         UpdateView();
         CustomEvents.OnRobotDie += UpdateViewAfterRobotDie;
+        CustomEvents.OnRobotTakeDamage += UpdateView;
     }
 
     private void UpdateViewAfterRobotDie()
@@ -38,24 +43,25 @@ public class RobotItem : MonoBehaviour
 
     public void UpdateView()
     {
-        _nameText.text = _robotInformation.Name[Language.LanguageNumber];
+        _nameText.text = CanRepair() ? $"{Language.TextStatic[4]} {_robotInformation.Name[Language.LanguageNumber]}" : _robotInformation.Name[Language.LanguageNumber];
         _icon.sprite = _robotInformation.RobotSprite;
+        if (_isSelect) UpdateResourceCells();
     }
 
     public void SelectView()
     {
         _robotPanel.DeselectAllRobotItems();
-
         SelectToggleState(true);
+        UpdateResourceCells();
+    }
 
-        if (!_currentRobotSystem.HaveRobot() ||
-        (_currentRobotSystem.HaveRobot() && !_currentRobotSystem.RobotDeath() &&
-        !_currentRobotSystem.RobotHealth().FullHealth() && _robotInformation.RobotType == RobotsData.Instance.GetRobotType()))
+    public void UpdateResourceCells()
+    {
+        if (!_currentRobotSystem.HaveRobot() || CanRepair())
         {
             _robotResourcesView.SetResourcesView(GetResources());
         }
         else _robotResourcesView.ResetCells();
-
     }
 
     public void SelectToggleState(bool state)
@@ -72,14 +78,11 @@ public class RobotItem : MonoBehaviour
         _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.LightGrey : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsData.Instance.GetRobotType() ? Color.white : Color.black : _isSelect ? Color.white : Colors.LightGrey;
         _backImage.color = _isSelect ? Color.white : Colors.LightGrey;
-        // if (_isSelect) _robotResourcesView.SetBuildingResourcesView(GetResources());
     }
 
     public ResourcesForBuildWrapper[] GetResources()
     {
-        _repair = _currentRobotSystem.HaveRobot() && !_currentRobotSystem.RobotDeath();
-
-        if (_repair)
+        if (CanRepair())
         {
             var robotHealth = _currentRobotSystem.RobotHealth();
             float healthPercentage = (float)(robotHealth.MaxHealth - robotHealth.CurrentHealth) / robotHealth.MaxHealth;
@@ -102,9 +105,10 @@ public class RobotItem : MonoBehaviour
         _playerResources.UseResourcesForBuilding(GetResources());
 
 
-        if (_repair)
+        if (CanRepair())
         {
             CustomEvents.FireRepairRobot();
+            UpdateView();
         }
         else
         {
@@ -117,5 +121,6 @@ public class RobotItem : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnRobotDie -= UpdateViewAfterRobotDie;
+        CustomEvents.OnRobotTakeDamage -= UpdateView;
     }
 }
