@@ -4,32 +4,31 @@ using UnityEngine;
 public class EnemyAttacks : MonoBehaviour
 {
     [SerializeField] private AttackInfo[] _attacks;
-    public float MaxAtkRange() => _maxAttackRange + _bonusDistance;
-    private float _bonusDistance;
-    public float GetBonusAttackDistance() => _bonusDistance;
+    private float _defaultMaxAttackRange;
+    private float _maxAttackRange;
+    public float MaxAtkRange() => _maxAttackRange;
     public AttackInfo[] GetCreatureAttacks() => _attacks;
-
-    protected float _maxAttackRange;
 
     private void Awake()
     {
-        CalculateMaxAttack();
+        CalculateDefaultMaxAttack();
     }
 
-    private void CalculateMaxAttack()
+    private void CalculateDefaultMaxAttack()
     {
         if (_attacks.Length == 0) return;
-        _maxAttackRange = _attacks.Max(attack => attack.MaximumDistanceNeededToAttack);
+        _defaultMaxAttackRange = _attacks.Max(attack => attack.MaximumDistanceNeededToAttack);
+        
     }
     public void UpdateCreatureAttackDistance(Tile tile)
     {
         if (tile != null)
         {
-            _bonusDistance = tile.IsFourTile ? WorldGameInfo.EnemyReachedFourTileDistance - WorldGameInfo.EnemyReachedTileDistance : 0;
+            _maxAttackRange = tile.IsFourTile ? WorldGameInfo.EnemyReachedFourTileDistance + _defaultMaxAttackRange : WorldGameInfo.EnemyReachedTileDistance + _defaultMaxAttackRange;
         }
         else
         {
-            _bonusDistance = 0;
+            _maxAttackRange = WorldGameInfo.EnemyReachedRobotDistance + _defaultMaxAttackRange;
         }
     }
 }

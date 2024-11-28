@@ -38,6 +38,7 @@ public class RobotItem : MonoBehaviour
     private void UpdateViewAfterRobotDie()
     {
         var time = WorldGameInfo.RobotDieDelay + WorldGameInfo.RobotDieDuration + 0.1f;
+        _icon.color = Color.black;
         Invoke(nameof(SetButtonAndTextColor), time);
     }
 
@@ -45,7 +46,11 @@ public class RobotItem : MonoBehaviour
     {
         _nameText.text = CanRepair() ? $"{Language.TextStatic[4]} {_robotInformation.Name[Language.LanguageNumber]}" : _robotInformation.Name[Language.LanguageNumber];
         _icon.sprite = _robotInformation.RobotSprite;
-        if (_isSelect) UpdateResourceCells();
+        if (_isSelect)
+        {
+            SetButtonAndTextColor();
+            UpdateResourceCells();
+        }
     }
 
     public void SelectView()
@@ -76,7 +81,7 @@ public class RobotItem : MonoBehaviour
         _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
         _button.enabled = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsData.Instance.GetRobotType() ? _currentRobotSystem.RobotHealth().FullHealth() || _currentRobotSystem.RobotHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
         _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.LightGrey : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
-        _icon.color = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsData.Instance.GetRobotType() ? Color.white : Color.black : _isSelect ? Color.white : Colors.LightGrey;
+        _icon.color = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsData.Instance.GetRobotType() && !_currentRobotSystem.RobotHealth().IsDeath() ? Color.white : Color.black : _isSelect ? Color.white : Colors.LightGrey;
         _backImage.color = _isSelect ? Color.white : Colors.LightGrey;
     }
 

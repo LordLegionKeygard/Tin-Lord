@@ -1,4 +1,5 @@
 using System.Collections;
+using Pathfinding;
 using UnityEngine;
 
 public class EnemyIdleState : EnemyState
@@ -6,7 +7,7 @@ public class EnemyIdleState : EnemyState
     [SerializeField] private EnemyPursueTargetState _pursueTargetState;
     [SerializeField] private AIDestinationSetter _aiDestinationSetter;
     [SerializeField] private BaseDamage _creatureDamage;
-    [SerializeField] private EnemyReachedDistance _creatureReachedDistance;
+    [SerializeField] private AIPath _aiPath;
 
     private void Start()
     {
@@ -66,8 +67,8 @@ public class EnemyIdleState : EnemyState
             ? (buildingTile.IsFourTile ? targetHealth.GetFoutTileTransform() : targetHealth.gameObject.transform)
             : targetHealth.gameObject.transform;
 
-        _creatureReachedDistance.UpdateAiEndReachedDistance(buildingTile);
         attacks.UpdateCreatureAttackDistance(buildingTile);
+        _aiPath.endReachedDistance = attacks.MaxAtkRange();
 
         _aiDestinationSetter.CurrentTarget = targetTransform;
         _creatureDamage.SetTargetHealth(targetHealth);

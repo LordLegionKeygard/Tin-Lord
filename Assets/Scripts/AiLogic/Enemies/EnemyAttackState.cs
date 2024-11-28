@@ -26,7 +26,7 @@ public class EnemyAttackState : EnemyState
 
         if (_currentAttack != null)
         {
-            if (IsTargetWithinAttackRange(stateChanger, _currentAttack, attacks.GetBonusAttackDistance()))
+            if (IsTargetWithinAttackRange(stateChanger, _currentAttack, attacks.MaxAtkRange()))
             {
                 if (IsTargetInAttackAngle(viewableAngle, _currentAttack))
                 {
@@ -45,7 +45,7 @@ public class EnemyAttackState : EnemyState
         else
         {
             _attackInfo = SelectNextAttack(attacks);
-            if (IsTargetWithinAttackRange(stateChanger, _attackInfo, attacks.GetBonusAttackDistance())
+            if (IsTargetWithinAttackRange(stateChanger, _attackInfo, attacks.MaxAtkRange())
                 && IsTargetInAttackAngle(viewableAngle, _attackInfo))
             {
                 _currentAttack = _attackInfo;
@@ -69,11 +69,11 @@ public class EnemyAttackState : EnemyState
         return new Vector3(targetPos.x, transform.position.y, targetPos.z) - transform.position;
     }
 
-    private bool IsTargetWithinAttackRange(EnemyStateChanger stateChanger, AttackInfo attack, float bonusDistance)
+    private bool IsTargetWithinAttackRange(EnemyStateChanger stateChanger, AttackInfo attack, float maxAttackRange)
     {
         float distanceToTarget = stateChanger.DistanceToTarget();
         return distanceToTarget >= attack.MinimumDistanceNeededToAttack
-               && distanceToTarget <= attack.MaximumDistanceNeededToAttack + bonusDistance;
+               && distanceToTarget <= maxAttackRange;
     }
 
     private bool IsTargetInAttackAngle(float viewableAngle, AttackInfo attack)

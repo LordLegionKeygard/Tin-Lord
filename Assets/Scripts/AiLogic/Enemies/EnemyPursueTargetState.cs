@@ -16,6 +16,8 @@ public class EnemyPursueTargetState : EnemyState
 
             stateChanger.CanRotateForwardToggle(false);
 
+            // Debug.Log($"DistanceToTarget {stateChanger.DistanceToTarget()} <= MaxAtkRange {attacks.MaxAtkRange()}");
+
             if (stateChanger.DistanceToTarget() <= attacks.MaxAtkRange())
             {
                 return _combatState;

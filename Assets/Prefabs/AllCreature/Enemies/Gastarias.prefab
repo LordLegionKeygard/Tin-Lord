@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 5297197506641602328}
   - component: {fileID: 5297197506641602350}
   - component: {fileID: 2790023429454111717}
-  - component: {fileID: 5297197506641602348}
   - component: {fileID: 5297197506641602349}
   - component: {fileID: 5297197506641602322}
   m_Layer: 6
@@ -291,18 +290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc79d534b197594abeec2eab06a5eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5297197506641602348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5297197506641602335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9d69f37129d4bc40b6c5b23606f04f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5297197506641602349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attacks:
   - {fileID: 11400000, guid: 13c55bf2632ab704cb17244b98b2a676, type: 2}
+  _defaultMaxAttackRange: 0
+  _maxAttackRange: 0
 --- !u!114 &5297197506641602322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,7 +589,7 @@ MonoBehaviour:
   _pursueTargetState: {fileID: 5297197508355060044}
   _aiDestinationSetter: {fileID: 5297197506641602326}
   _creatureDamage: {fileID: 2790023429454111717}
-  _creatureReachedDistance: {fileID: 5297197506641602348}
+  _aiPath: {fileID: 5297197506641602321}
 --- !u!1 &5297197507194286267
 GameObject:
   m_ObjectHideFlags: 0
