@@ -1317,7 +1317,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 6
-  m_Radius: 0.6
+  m_Radius: 0.4
   m_SlopeLimit: 90
   m_StepOffset: 2
   m_SkinWidth: 0.08
@@ -1561,8 +1561,6 @@ MonoBehaviour:
   _attacks:
   - {fileID: 11400000, guid: a065882c28e160f49859f1d0635644fe, type: 2}
   - {fileID: 11400000, guid: af27a580f552b5d4e885130ad1952fd9, type: 2}
-  _defaultMaxAttackRange: 0
-  _maxAttackRange: 0
 --- !u!114 &5290578712437865080
 MonoBehaviour:
   m_ObjectHideFlags: 0
