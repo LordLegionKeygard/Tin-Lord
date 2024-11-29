@@ -14,7 +14,10 @@ public class RobotStateChanger : BaseAiStateChanger
     private float _extraAimDetectionRadius = 7;
     public float DetectionRadius() => _currentDetectionRadius;
     [SerializeField] private LayerMask _detectionLayer;
+    [SerializeField] private LayerMask _buildingDetectionLayer;
     public LayerMask DetectionLayer() => _detectionLayer;
+    public LayerMask BuildingDetectionLayer() => _buildingDetectionLayer;
+
 
     public override void Awake()
     {

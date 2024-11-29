@@ -13,7 +13,7 @@ public class BuildingHealth : BaseHealth
     public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
     public bool IsFullHealth() => CurrentHealth == MaxHealth;
-    public float GetHealthPercent(int percent) => MaxHealth * percent / 100; 
+    public float GetHealthPercent(int percent) => MaxHealth * percent / 100;
 
     public override bool IsDeath()
     {
@@ -27,10 +27,23 @@ public class BuildingHealth : BaseHealth
         _tileObject = GetComponent<TileObject>();
     }
 
-    public void Repair()
+    public void FullRepair()
     {
         CurrentHealth = MaxHealth;
         UpdateSlider();
+    }
+
+    public void SlowTimeRepair(float repairRate)
+    {
+        if (CurrentHealth < MaxHealth)
+        {
+            CurrentHealth += Time.deltaTime * repairRate; // RepairRate — скорость ремонта
+            if (CurrentHealth > MaxHealth)
+            {
+                CurrentHealth = MaxHealth;
+            }
+            UpdateSlider();
+        }
     }
 
     private void CreateHealthBar()

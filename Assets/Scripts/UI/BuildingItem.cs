@@ -93,7 +93,7 @@ public class BuildingItem : MonoBehaviour
                 _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_buildingIndex, _currentTileObject); //улучшаем здание
                 break;
             case BuildingState.Repair:
-                _currentTileObject.BuildingHealth().Repair();
+                _currentTileObject.BuildingHealth().FullRepair();
                 break;
         }
 

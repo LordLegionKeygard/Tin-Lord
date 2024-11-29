@@ -3,6 +3,7 @@ using UnityEngine;
 public class RobotPatrolState : RobotState
 {
     [SerializeField] private RobotMove _robotMove;
+    [SerializeField] private RobotRepairState _repairState;
     [SerializeField] private RobotCombatState _combatState;
     [SerializeField] private BaseDamage _creatureDamage;
     [SerializeField] private RobotPatrolPath _patrolPath;
@@ -32,6 +33,16 @@ public class RobotPatrolState : RobotState
         {
             SetCombatTarget(aiDestinationSetter, targetHealth, stateChanger);
             return _combatState;
+        }
+
+        if (_repairState != null)
+        {
+            BuildingHealth buildingToRepair = FindNearestBuildingToRepair(stateChanger);
+            if (buildingToRepair != null)
+            {
+                _repairState.SetRepairTarget(buildingToRepair);
+                return _repairState;
+            }
         }
 
         playerSpeed.CanMove();
@@ -95,6 +106,32 @@ public class RobotPatrolState : RobotState
         }
 
         return nearestTarget;
+    }
+
+    private BuildingHealth FindNearestBuildingToRepair(RobotStateChanger stateChanger)
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, WorldGameInfo.RobotEngineerRepairBuildingsDistance, stateChanger.BuildingDetectionLayer());
+
+        BuildingHealth nearestBuilding = null;
+        float nearestDistance = Mathf.Infinity;
+
+        foreach (var collider in colliders)
+        {
+            BuildingHealth buildingHealth = collider.GetComponent<BuildingHealth>();
+
+            if (buildingHealth != null && !buildingHealth.IsDeath() && !buildingHealth.IsFullHealth())
+            {
+                float distanceToBuilding = Vector3.Distance(transform.position, buildingHealth.transform.position);
+
+                if (distanceToBuilding < nearestDistance)
+                {
+                    nearestDistance = distanceToBuilding;
+                    nearestBuilding = buildingHealth;
+                }
+            }
+        }
+
+        return nearestBuilding;
     }
 
     private void SetCombatTarget(AIDestinationSetter aiDestinationSetter, BaseHealth targetHealth, RobotStateChanger stateChanger)

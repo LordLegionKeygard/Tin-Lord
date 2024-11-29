@@ -10,6 +10,9 @@ public class RobotMove : MonoBehaviour
         _robotSpeed = GetComponent<RobotSpeed>();
     }
 
+    /// <summary>
+    /// Для передвижения и вращения при патрулировании
+    /// </summary>
     public void MoveTo(Vector3 targetPosition)
     {
         float speed = _robotSpeed.Speed();
@@ -30,5 +33,15 @@ public class RobotMove : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
         }
+    }
+
+    /// <summary>
+    /// Метод для поворота робота-инженера к зданию для починки
+    /// </summary>
+    public void RotateTo(Vector3 targetPosition)
+    {
+        Vector3 direction = (targetPosition - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * _rotationSpeed);
     }
 }
