@@ -46,9 +46,9 @@ public class EnemyAnimator : BaseAnimator
         ResetAttackAnimation();
     }
 
-    public override void AttackAnim(int attackNumber)
+    public override void AttackAnimation(int attackNumber)
     {
-        base.AttackAnim(attackNumber);
+        base.AttackAnimation(attackNumber);
         _creatureSpeed.CantMove();
     }
 

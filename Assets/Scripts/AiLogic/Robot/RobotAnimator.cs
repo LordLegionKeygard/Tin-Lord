@@ -34,9 +34,9 @@ public class RobotAnimator : BaseAnimator
         ResetAttackAnimation();
     }
 
-    public override void AttackAnim(int attackNumber)
+    public override void AttackAnimation(int attackNumber)
     {
-        base.AttackAnim(attackNumber);
+        base.AttackAnimation(attackNumber);
         _robotSpeed.CantMove();
     }
 

@@ -17,6 +17,7 @@ public class RobotRepairState : RobotState
     {
         if (_targetBuilding == null || _targetBuilding.IsDeath() || _targetBuilding.IsFullHealth())
         {
+            animator.RepairAnimation(false);
             return _patrolState;
         }
 
@@ -25,25 +26,27 @@ public class RobotRepairState : RobotState
         BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
         if (targetHealth != null)
         {
+            animator.RepairAnimation(false);
             SetCombatTarget(aiDestinationSetter, targetHealth, stateChanger);
             return _combatState;
         }
 
         PerformRepair();
+        animator.RepairAnimation(true);
         return this;
     }
 
     private void PerformRepair()
     {
-        // Вращаемся к зданию
         _robotMove.RotateTo(_targetBuilding.transform.position);
 
-        // Начинаем ремонт
-        _targetBuilding.SlowTimeRepair(1);
+        var repairRate = 1 + RobotsData.Instance.CurrentLevel() * 0.1f;
 
-        // Если здание полностью починено, возвращаемся к патрулированию
+        _targetBuilding.SlowTimeRepair(repairRate);
+
         if (_targetBuilding.IsFullHealth())
         {
+            CustomEvents.FireRobotFullRepairBuilding(_targetBuilding.GetTileObject().GetId());
             _targetBuilding = null;
         }
     }

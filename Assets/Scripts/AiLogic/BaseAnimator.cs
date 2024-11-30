@@ -11,7 +11,7 @@ public class BaseAnimator : MonoBehaviour
         Animator = GetComponent<Animator>();
     }
 
-    public virtual void AttackAnim(int attackNumber)
+    public virtual void AttackAnimation(int attackNumber)
     {
         Animator.SetInteger(AnimatorStrings.Attack, attackNumber);
         Invoke(nameof(ResetAttackAnimation), 0.5f);
@@ -20,5 +20,10 @@ public class BaseAnimator : MonoBehaviour
     public virtual void ResetAttackAnimation()
     {
         Animator.SetInteger(AnimatorStrings.Attack, 0);
+    }
+
+    public void RepairAnimation(bool state)
+    {
+        Animator.SetBool(AnimatorStrings.Repair, state);
     }
 }

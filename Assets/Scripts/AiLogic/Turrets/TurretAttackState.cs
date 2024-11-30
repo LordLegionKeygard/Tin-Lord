@@ -104,7 +104,7 @@ public class TurretAttackState : TurretState
         }
         else
         {
-            animator.AttackAnim(_currentAttack);
+            animator.AttackAnimation(_currentAttack);
         }
 
         stateChanger.AttackToggle(false);

@@ -14,6 +14,7 @@ public class BuildingHealth : BaseHealth
     public override Transform GetFoutTileTransform() => _fourTileTransform;
     public bool IsFullHealth() => CurrentHealth == MaxHealth;
     public float GetHealthPercent(int percent) => MaxHealth * percent / 100;
+    public TileObject GetTileObject() => _tileObject;
 
     public override bool IsDeath()
     {

@@ -88,7 +88,7 @@ public class EnemyAttackState : EnemyState
 
     private void PerformAttack(EnemyStateChanger stateChanger, BaseAnimator animator)
     {
-        animator.AttackAnim(_currentAttack.ActionNumber);
+        animator.AttackAnimation(_currentAttack.ActionNumber);
         stateChanger.AttackToggle(false);
         stateChanger.CurrentAttackRecoveryTime = _currentAttack.RecoveryTime;
         _currentAttack = null;

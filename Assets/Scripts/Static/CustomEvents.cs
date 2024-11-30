@@ -96,4 +96,10 @@ public class CustomEvents
     {
         OnBuildingTakeDamage?.Invoke(id);
     }
+
+    public static Action<int> OnRobotFullRepairBuilding;
+    public static void FireRobotFullRepairBuilding(int id)
+    {
+        OnRobotFullRepairBuilding?.Invoke(id);
+    }
 }

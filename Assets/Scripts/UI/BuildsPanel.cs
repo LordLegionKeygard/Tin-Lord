@@ -70,7 +70,7 @@ public class BuildsPanel : MonoBehaviour
         var foundBuilding = _buildingsList[number - 1];
 
         if (foundBuilding != null)
-        {            
+        {
             if (foundBuilding.IsSelect())
             {
                 foundBuilding.BuildOrUpgrade();

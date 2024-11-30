@@ -46,6 +46,7 @@ public class SelectTilePanel : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnBuildingTakeDamage += RefreshShowInfo;
+        CustomEvents.OnRobotFullRepairBuilding += CheckBuildingRepairFromRobot;
     }
 
     public void RefreshShowInfo(int tileId)
@@ -243,6 +244,16 @@ public class SelectTilePanel : MonoBehaviour
         }
     }
 
+    private void CheckBuildingRepairFromRobot(int tileId)
+    {
+        if (_tileObject == null) return;
+
+        if (_tileObject.GetId() == tileId)
+        {
+            CloseBuildPanelAndRefreshInfo();
+        }
+    }
+
     public void ToggleBuildingWork()
     {
         if (!_workButton.activeInHierarchy || _tileObject == null) return;
@@ -329,5 +340,6 @@ public class SelectTilePanel : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnBuildingTakeDamage -= RefreshShowInfo;
+        CustomEvents.OnRobotFullRepairBuilding -= CheckBuildingRepairFromRobot;
     }
 }

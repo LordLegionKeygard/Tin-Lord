@@ -88,7 +88,7 @@ public class RobotAttackState : RobotState
 
     private void PerformAttack(RobotStateChanger stateChanger, BaseAnimator animator)
     {
-        animator.AttackAnim(_currentAttack.ActionNumber);
+        animator.AttackAnimation(_currentAttack.ActionNumber);
         stateChanger.AttackToggle(false);
         stateChanger.CurrentAttackRecoveryTime = _currentAttack.RecoveryTime;
         _currentAttack = null;
