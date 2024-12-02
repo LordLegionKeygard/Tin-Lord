@@ -10,6 +10,8 @@ public class RobotPanel : MonoBehaviour
     [SerializeField] private CurrentRobotSystem _currentRobotSystem;
     private RobotInformation _currentSelectRobotInfo;
     public RobotType GetCurrentRobotType() => _currentSelectRobotInfo != null ? _currentSelectRobotInfo.RobotType : RobotType.None;
+    private bool _active;
+    public bool PanelActive() => _active;
 
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _levelText;
@@ -29,8 +31,24 @@ public class RobotPanel : MonoBehaviour
         CustomEvents.OnRobotDie += UpdateDestroyButtonState;
     }
 
+    public void PlayerInputRobotItemButton(int number)
+    {
+        var robotitem = _robotItems[number - 1];
+
+        if(robotitem.IsSelect())
+        {
+            robotitem.CreateOrRepairRobot();
+        }
+        else
+        {
+            robotitem.SelectView();
+        }
+    }
+
     public void PanelViewToggle(bool state)
     {
+        _active = state;
+
         if (state)
         {
             _objectTransform.DOAnchorPosX(-250, 0.3f).SetUpdate(true);

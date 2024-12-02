@@ -53,6 +53,7 @@ public class PlayerInputSystem : MonoBehaviour
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanels _uiPanels;
+    [SerializeField] private RobotPanel _robotPanel;
 
     private void Awake()
     {
@@ -139,7 +140,11 @@ public class PlayerInputSystem : MonoBehaviour
         int pressedNumber;
         if (int.TryParse(key, out pressedNumber))
         {
-            if (_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildsPanel))
+            if(_robotPanel.PanelActive())
+            {
+                _robotPanel.PlayerInputRobotItemButton(pressedNumber);
+            }
+            else if (_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildsPanel))
             {
                 _buildsPanel.PlyerInputBuildItemButton(pressedNumber);
             }

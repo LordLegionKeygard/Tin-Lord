@@ -11,6 +11,7 @@ public class RobotItem : MonoBehaviour
     [SerializeField] private RobotPanel _robotPanel;
     [SerializeField] private RobotSpawnerSystem _robotSpawnerSystem;
     private bool _isSelect;
+    public bool IsSelect() => _isSelect;
 
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _nameText;
@@ -106,6 +107,8 @@ public class RobotItem : MonoBehaviour
 
     public void CreateOrRepairRobot()
     {
+        if(!_button.enabled) return;
+        
         _robotResourcesView.ResetCells();
         _playerResources.UseResourcesForBuilding(GetResources());
 
