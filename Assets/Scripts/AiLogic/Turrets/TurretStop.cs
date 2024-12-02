@@ -16,7 +16,7 @@ public class TurretStop : MonoBehaviour
         _aIDestinationSetter = GetComponent<AIDestinationSetter>();
         _turretStateChanger = GetComponent<TurretStateChanger>();
 
-        CustomEvents.OnBuildingDestroyedNow += CheckStopTurret;
+        CustomEvents.OnBuildingDestroyed += CheckStopTurret;
     }
 
     private void CheckStopTurret(int id)
@@ -37,6 +37,6 @@ public class TurretStop : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnBuildingDestroyedNow -= CheckStopTurret;
+        CustomEvents.OnBuildingDestroyed -= CheckStopTurret;
     }
 }

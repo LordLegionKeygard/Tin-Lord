@@ -19,10 +19,10 @@ public class CustomEvents
         OnGameEventStart?.Invoke(gameEventType);
     }
 
-    public static event Action<int> OnBuildingDestroyedNow;
-    public static void FireBuildingDestroyedNow(int tileId)
+    public static event Action<int> OnBuildingDestroyed;
+    public static void FireBuildingDestroyed(int tileId)
     {
-        OnBuildingDestroyedNow?.Invoke(tileId);
+        OnBuildingDestroyed?.Invoke(tileId);
     }
 
     public static event Action OnTimeTickAfterResourcesChanged;

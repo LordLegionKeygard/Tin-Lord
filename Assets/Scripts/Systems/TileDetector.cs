@@ -17,7 +17,7 @@ public class TileDetector : MonoBehaviour
 
     private void Awake()
     {
-        CustomEvents.OnBuildingDestroyedNow += CheckCurrentTileObject;
+        CustomEvents.OnBuildingDestroyed += CheckCurrentTileObject;
     }
 
     private void CheckCurrentTileObject(int tileId)
@@ -280,6 +280,6 @@ public class TileDetector : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnBuildingDestroyedNow -= CheckCurrentTileObject;
+        CustomEvents.OnBuildingDestroyed -= CheckCurrentTileObject;
     }
 }

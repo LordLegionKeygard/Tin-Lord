@@ -88,7 +88,7 @@ public class BuildingHealth : BaseHealth
         base.Death();
         //тут логика для отключения всего
         _tileObject.ToggleIsBuildingDestroyedNow(true);
-        CustomEvents.FireBuildingDestroyedNow(_tileObject.GetId());
+        CustomEvents.FireBuildingDestroyed(_tileObject.GetId());
         StartCoroutine(FadeAndDestroy());
     }
 
