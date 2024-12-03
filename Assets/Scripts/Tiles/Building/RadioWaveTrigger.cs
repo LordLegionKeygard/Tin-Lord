@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RadioWaveTrigger : MonoBehaviour
@@ -8,7 +7,7 @@ public class RadioWaveTrigger : MonoBehaviour
     [SerializeField] private SphereCollider _effectCollider;
     [SerializeField] private ParticleSystem _vfx;
     [SerializeField] private BuildingLevels _buildingLevels;
-    private HashSet<EnemySpeed> _enemiesInRange = new HashSet<EnemySpeed>();
+    private HashSet<EnemyDebuff> _enemiesInRange = new HashSet<EnemyDebuff>();
 
     private void Start()
     {
@@ -23,7 +22,7 @@ public class RadioWaveTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var enemySpeed = other.GetComponent<EnemySpeed>();
+        var enemySpeed = other.GetComponent<EnemyDebuff>();
         if (enemySpeed != null)
         {
             enemySpeed.ChangeSlow(-slowEffectMultiplier);
@@ -34,7 +33,7 @@ public class RadioWaveTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        var enemySpeed = other.GetComponent<EnemySpeed>();
+        var enemySpeed = other.GetComponent<EnemyDebuff>();
         if (enemySpeed != null)
         {
             enemySpeed.ChangeSlow(+slowEffectMultiplier);
@@ -59,13 +58,14 @@ public class RadioWaveTrigger : MonoBehaviour
 
     private void ClearAllEffects(int id)
     {
+        _effectCollider.enabled = false;
         if (_buildingLevels.CurrentTileObject().GetId() != id) return;
 
         foreach (var enemy in _enemiesInRange)
         {
             if (enemy != null)
             {
-                enemy.ChangeSlow(+slowEffectMultiplier); // Снимаем эффект
+                enemy.ChangeSlow(+slowEffectMultiplier);
             }
         }
         _enemiesInRange.Clear();

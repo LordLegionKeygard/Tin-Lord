@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 2790023429454111717}
   - component: {fileID: 5297197506641602349}
   - component: {fileID: 5297197506641602322}
+  - component: {fileID: 697666406926311594}
   m_Layer: 6
   m_Name: Gastarias
   m_TagString: Untagged
@@ -232,7 +233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canMove: 1
   _defaultSpeed: 3
-  _speedMultiplier: 1
 --- !u!114 &-7088573509781597760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +317,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &697666406926311594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5297197506641602335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 5297197507033874159}
+  _speedFactor: 1
 --- !u!1 &5297197506744857744
 GameObject:
   m_ObjectHideFlags: 0

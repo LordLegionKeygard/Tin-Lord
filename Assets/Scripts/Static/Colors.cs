@@ -17,6 +17,9 @@ public class Colors : MonoBehaviour
     //MemoryRecovery
     public static readonly Color MemoryOn = new Color(0, 3, 12, 1);
 
+    //Enemies Debuff
+    public static readonly Color SlowEmission = new Color(0.02f, 0.04f, 0.15f, 1);
+
     public Color[] SelectTileView;
 
     private void Awake()

@@ -2019,6 +2019,7 @@ GameObject:
   - component: {fileID: 2568893202589810215}
   - component: {fileID: 6422065118168572960}
   - component: {fileID: 6422065118168572975}
+  - component: {fileID: 6778614795102788167}
   m_Layer: 6
   m_Name: Gastarid
   m_TagString: Untagged
@@ -2227,7 +2228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canMove: 1
   _defaultSpeed: 6
-  _speedMultiplier: 1
 --- !u!114 &689195765503960421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2313,6 +2313,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6778614795102788167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419468576447285572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 6410801428157024128}
+  _speedFactor: 1
 --- !u!1 &6419482771480529498
 GameObject:
   m_ObjectHideFlags: 0

@@ -1280,6 +1280,7 @@ GameObject:
   - component: {fileID: 2502988496846022424}
   - component: {fileID: 3202737524755143386}
   - component: {fileID: 5290578712437865080}
+  - component: {fileID: 2951236172171021503}
   m_Layer: 6
   m_Name: Gastaroid
   m_TagString: Untagged
@@ -1488,7 +1489,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canMove: 1
   _defaultSpeed: 7
-  _speedMultiplier: 1
 --- !u!114 &3142442439015776861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1574,6 +1574,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2951236172171021503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444144861235826408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1578422724545199102}
+  _speedFactor: 1
 --- !u!1 &1444145727361937564
 GameObject:
   m_ObjectHideFlags: 0
