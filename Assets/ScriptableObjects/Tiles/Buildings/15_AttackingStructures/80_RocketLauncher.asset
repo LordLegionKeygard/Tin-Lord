@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 80_RocketLauncher
+  m_EditorClassIdentifier: 
+  Name:
+  - Rocket Launcher
+  - "\u0420\u0430\u043A\u0435\u0442\u043D\u0430\u044F \u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
+  BuildingLevel: 6
+  BuildingSprite: {fileID: 21300000, guid: 4d604ebaaff97e44fbc08b21b299b83f, type: 3}
+  BuildingEcology: -6
+  BuildingHealth: 300
+  ResourceExtractedAmount: 0
+  ResourcesForBuild:
+  - ResourcesForBuild: 11
+    RecourcesForBuildAmount: 25
+  - ResourcesForBuild: 17
+    RecourcesForBuildAmount: 15
+  - ResourcesForBuild: 19
+    RecourcesForBuildAmount: 5
+  ResourcesForWork: []
+  ResourcesProduction: []
+  DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
+    type: 3}
+  Damage: 5
+  AttackRecoveryTime: 2
+  AttackRadius: 60
+  RotationSpeed: 0.3
+  KnockbackPoints: 25
+  BuildingEcologyPurifier: 0

@@ -904,7 +904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4650006163535676505}
   m_Layer: 0
-  m_Name: 4 - M1-Specter
+  m_Name: 5 - Minigun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,7 +924,7 @@ Transform:
   m_Children:
   - {fileID: 8364891370847231806}
   m_Father: {fileID: 8584051389690625642}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1698553611594853063
 GameObject:
@@ -1224,7 +1224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5679101379674438899}
   m_Layer: 0
-  m_Name: 3 - F1-Delta
+  m_Name: 4 - Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1244,7 +1244,7 @@ Transform:
   m_Children:
   - {fileID: 9192974337167024496}
   m_Father: {fileID: 8584051389690625642}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2143781312291674939
 GameObject:
@@ -1554,7 +1554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c85b3a8dedb4842b631128eeaf61e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _takeDamageFX: []
+  _vfxType: 0
 --- !u!114 &3232266982051074051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2985,7 +2985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c85b3a8dedb4842b631128eeaf61e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _takeDamageFX: []
+  _vfxType: 0
 --- !u!114 &3740979349390679736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4185,7 +4185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c85b3a8dedb4842b631128eeaf61e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _takeDamageFX: []
+  _vfxType: 0
 --- !u!114 &2367057872115112775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4959,7 +4959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c85b3a8dedb4842b631128eeaf61e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _takeDamageFX: []
+  _vfxType: 0
 --- !u!114 &3381543514812375452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6139,6 +6139,37 @@ Transform:
   m_Father: {fileID: 5020087640717782768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.228}
+--- !u!1 &7639125813075591726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4784253480037886233}
+  m_Layer: 0
+  m_Name: 3 - Howitzer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4784253480037886233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639125813075591726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8584051389690625642}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7709537228697365157
 GameObject:
   m_ObjectHideFlags: 0
@@ -6417,7 +6448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c85b3a8dedb4842b631128eeaf61e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _takeDamageFX: []
+  _vfxType: 0
 --- !u!114 &294214429065811002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6894,6 +6925,37 @@ Transform:
   m_Father: {fileID: 1674834544981291866}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -4.36465, y: 90.24603, z: -179.14378}
+--- !u!1 &8160165086149217823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4584488505633462271}
+  m_Layer: 0
+  m_Name: 7 - LaserCannon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4584488505633462271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160165086149217823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8584051389690625642}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8185584322262058353
 GameObject:
   m_ObjectHideFlags: 0
@@ -7099,6 +7161,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &8335578156554433203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6843229934952059978}
+  m_Layer: 0
+  m_Name: 6 - RocketLauncher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6843229934952059978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8335578156554433203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8584051389690625642}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8400004428791364034
 GameObject:
   m_ObjectHideFlags: 0
@@ -7141,7 +7234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8584051389108107693}
   m_Layer: 0
-  m_Name: 5 - P3-Indicator
+  m_Name: 8 - BattleshipTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7155,13 +7248,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8584051389108107690}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.000000029802322, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5555080716603289418}
   m_Father: {fileID: 8584051389690625642}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8584051389690625643
 GameObject:
@@ -7193,8 +7286,11 @@ Transform:
   m_Children:
   - {fileID: 6342996429601119251}
   - {fileID: 8999703558405295203}
+  - {fileID: 4784253480037886233}
   - {fileID: 5679101379674438899}
   - {fileID: 4650006163535676505}
+  - {fileID: 6843229934952059978}
+  - {fileID: 4584488505633462271}
   - {fileID: 8584051389108107693}
   m_Father: {fileID: 8584051389970830520}
   m_RootOrder: 0
@@ -7249,8 +7345,11 @@ MonoBehaviour:
   _buildingLevels:
   - {fileID: 8400004428791364034}
   - {fileID: 2840754924991713996}
+  - {fileID: 7639125813075591726}
   - {fileID: 2104568305378516240}
   - {fileID: 1449062064247602131}
+  - {fileID: 8335578156554433203}
+  - {fileID: 8160165086149217823}
   - {fileID: 8584051389108107690}
   _currentBuildingLevel: 0
 --- !u!114 &7528537526270710493
