@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 4_Turret
+  m_Name: 6_RocketLauncher
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Speed
@@ -61,7 +61,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cf9838dc1b482684db4aac02ef361d79, type: 2}
+  m_Motion: {fileID: 7400000, guid: 517a827cef3454847a8eab1f42449b56, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
