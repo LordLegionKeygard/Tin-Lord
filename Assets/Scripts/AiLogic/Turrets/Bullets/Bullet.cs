@@ -103,5 +103,6 @@ public enum BulletEnum
     BallistaBolt = 2,
     CannonBall = 3,
     Robot_SniperRiffle_Bullet = 4,
+    HowitzerBullet = 5,
 }
 
