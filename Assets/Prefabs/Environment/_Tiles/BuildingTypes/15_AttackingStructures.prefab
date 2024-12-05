@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 6932562901064885030}
   - component: {fileID: 8784385080024375354}
   m_Layer: 0
-  m_Name: Howitzer_Parent
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1409,7 +1409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348502490346342123}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1574,7 +1574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5679101379674438899}
   m_Layer: 0
-  m_Name: 3 - Turret
+  m_Name: 3 - TurretGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1671,7 +1671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2167219007506409355}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1716,7 +1716,7 @@ GameObject:
   - component: {fileID: 5334293581158750380}
   - component: {fileID: 7739262858332815}
   m_Layer: 0
-  m_Name: Turret_Parent
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2270,7 +2270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7105442161101465905}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2479,7 +2479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 877089013091797525}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3312,7 +3312,7 @@ GameObject:
   - component: {fileID: 8719285422043222950}
   - component: {fileID: 5300526902608189367}
   m_Layer: 0
-  m_Name: BattleshipTower_Parent
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4512,7 +4512,7 @@ GameObject:
   - component: {fileID: 5986964967466746207}
   - component: {fileID: 9044172608399875825}
   m_Layer: 0
-  m_Name: CannonParent
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4843,7 +4843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3342981248156691647}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5429,7 +5429,7 @@ GameObject:
   - component: {fileID: 7100236537475276832}
   - component: {fileID: 5136473443680426668}
   m_Layer: 0
-  m_Name: Minigun_Parent
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6068,7 +6068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8362187047501229944}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6932,7 +6932,7 @@ GameObject:
   - component: {fileID: 8165360351906807090}
   - component: {fileID: 997066396814560973}
   m_Layer: 0
-  m_Name: Ballista_Parent
+  m_Name: Body
   m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
