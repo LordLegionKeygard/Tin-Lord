@@ -260,6 +260,9 @@ MonoBehaviour:
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 64
+  _buildingDetectionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &7702254113061682339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ae1d4d1530f1c40ad889ff6689c745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabVFX: {fileID: 1892133220914832, guid: e3c3a591f352f844db91b8b47a68fb34, type: 3}
+  _explosionPrefab: {fileID: 1892133220914832, guid: e3c3a591f352f844db91b8b47a68fb34,
+    type: 3}
   _spawnPoint: {fileID: 8776381487140137850}
 --- !u!1 &6124768669728522290
 GameObject:
@@ -472,6 +476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _robotMove: {fileID: 3334971829351761483}
+  _repairState: {fileID: 0}
   _combatState: {fileID: 6124768671223808653}
   _creatureDamage: {fileID: 6124768669419014804}
   _patrolPath: {fileID: 5448208571138123766}

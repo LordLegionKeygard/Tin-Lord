@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RobotSniperExplosionSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefabVFX;
+    [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private Transform _spawnPoint;
 
     private void Start()
@@ -14,7 +14,8 @@ public class RobotSniperExplosionSpawner : MonoBehaviour
 
     private void SpawnExplosion()
     {
-        Instantiate(_prefabVFX, _spawnPoint.position, Quaternion.identity);
+        var prefab = Instantiate(_explosionPrefab, _spawnPoint.position, Quaternion.identity);
+        prefab.GetComponent<Explosion>().SetDamage(RobotsData.Instance.GetCurrentRangeDamage() * 5, 100);
     }
 
     private void OnDestroy()
