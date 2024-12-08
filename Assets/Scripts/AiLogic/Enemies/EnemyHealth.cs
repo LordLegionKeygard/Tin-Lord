@@ -31,7 +31,7 @@ public class EnemyHealth : BaseHealth
         SetStartStats();
     }
 
-    public override void CalculateDamage(float damage, int knockBackPoints)
+    public override void CalculateDamage(float damage, float knockBackPoints)
     {
         base.CalculateDamage(damage, knockBackPoints);
         _takeDamageVFX.SpawnTakeDamageVFX();
@@ -58,7 +58,7 @@ public class EnemyHealth : BaseHealth
         UpdateSlider();
     }
 
-    public override void TakeDamage(float damage, int knockBackPoints)
+    public override void TakeDamage(float damage, float knockBackPoints)
     {
         base.TakeDamage(damage, knockBackPoints);
         _creatureKnockBackController.TakeKnockbackPoints(knockBackPoints);

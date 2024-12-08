@@ -54,32 +54,15 @@ public class ConfigLoaderBuildings : ScriptableObject
             _allBuildings[i].ResourcesProduction = ParseExtractedResources(config.ExtractedResources, config.ResourceRecept);
             _allBuildings[i].BuildingHealth = config.BuildingHealth;
 
-            if (float.TryParse(config.RotationSpeed, NumberStyles.Float, CultureInfo.InvariantCulture, out float rotationSpeed))
-            {
-                _allBuildings[i].RotationSpeed = rotationSpeed;
-            }
-            else _allBuildings[i].RotationSpeed = 0;
-            
-
-            if (float.TryParse(config.AttackRadius, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRadius))
-            {
-                _allBuildings[i].AttackRadius = attackRadius;
-            }
-            else _allBuildings[i].AttackRadius = 0;
-
-            _allBuildings[i].Damage = config.Damage;
-            _allBuildings[i].KnockbackPoints = config.KnockbackPoints;
-
-            if (float.TryParse(config.AttackRecoveryTime, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRecoveryTime))
-            {
-                _allBuildings[i].AttackRecoveryTime = attackRecoveryTime;
-            }
-            else _allBuildings[i].AttackRecoveryTime = 0;
-
+            _allBuildings[i].RotationSpeed = float.TryParse(config.RotationSpeed, NumberStyles.Float, CultureInfo.InvariantCulture, out float rotationSpeed)? rotationSpeed: 0;
+            _allBuildings[i].AttackRadius = float.TryParse(config.AttackRadius, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRadius)? attackRadius: 0;
+            _allBuildings[i].Damage = float.TryParse(config.Damage, NumberStyles.Float, CultureInfo.InvariantCulture, out float damage)? damage: 0;
+            _allBuildings[i].KnockbackPoints = float.TryParse(config.KnockbackPoints, NumberStyles.Float, CultureInfo.InvariantCulture, out float knockbackPoints)? knockbackPoints: 0;
+            _allBuildings[i].AttackRecoveryTime = float.TryParse(config.AttackRecoveryTime, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRecoveryTime)? attackRecoveryTime: 0;
 
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(_allBuildings[i]);
-#endif        
+#endif
         }
     }
 
@@ -264,7 +247,7 @@ public class BuildingConfigs
     //Turrets
     public string RotationSpeed;
     public string AttackRadius;
-    public int Damage;
-    public int KnockbackPoints;
+    public string Damage;
+    public string KnockbackPoints;
     public string AttackRecoveryTime;
 }

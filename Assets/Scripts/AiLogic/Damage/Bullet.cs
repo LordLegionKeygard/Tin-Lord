@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public bool _needTimeAfterHit;
     private Transform _targetTransform;
     protected float _damage;
-    protected int _knockbackPoints;
+    protected float _knockbackPoints;
     private BulletsPool _bulletsPool;
     private BulletEnum _bulletEnum;
     protected BaseHealth _targetHealth;
@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void SetDamage(float damageAmount, int knockback)
+    public void SetDamage(float damageAmount, float knockback)
     {
         _damage = damageAmount;
         _knockbackPoints = knockback;

@@ -32,7 +32,7 @@ public class RobotHealth : BaseHealth
         UpdateSlider();
     }
 
-    public override void CalculateDamage(float damage, int knockBackPoints = 0)
+    public override void CalculateDamage(float damage, float knockBackPoints = 0)
     {
         base.CalculateDamage(damage, knockBackPoints);
         _takeDamageVFX.SpawnTakeDamageVFX();
@@ -59,7 +59,7 @@ public class RobotHealth : BaseHealth
         UpdateSlider();
     }
 
-    public override void TakeDamage(float damage, int knockBackPoints)
+    public override void TakeDamage(float damage, float knockBackPoints)
     {
         base.TakeDamage(damage, knockBackPoints);
         CustomEvents.FireRobotTakeDamage();

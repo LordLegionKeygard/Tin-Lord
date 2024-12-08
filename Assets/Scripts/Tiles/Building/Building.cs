@@ -19,11 +19,11 @@ public class Building : ScriptableObject
     public GameObject DestroyVFXPrefab;
 
     [Header("Turret")]
-    public int Damage;
+    public float Damage;
     public float AttackRecoveryTime;
     public float AttackRadius;
     public float RotationSpeed;
-    public int KnockbackPoints;
+    public float KnockbackPoints;
 
     [Header("EcologyBuilding")]
     public int BuildingEcologyPurifier; // кол-во очков экологии которое дает здание по очистке экологии

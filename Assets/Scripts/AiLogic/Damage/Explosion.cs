@@ -3,9 +3,9 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     private float _damage;
-    private int _knockbackPoints;
+    private float _knockbackPoints;
 
-    public void SetDamage(float damageAmount, int knockback)
+    public void SetDamage(float damageAmount, float knockback)
     {
         _damage = damageAmount;
         _knockbackPoints = knockback;

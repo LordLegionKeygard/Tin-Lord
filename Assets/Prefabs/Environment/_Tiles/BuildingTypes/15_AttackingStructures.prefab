@@ -64,6 +64,37 @@ Transform:
   m_Father: {fileID: 4650006163535676505}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &77491860086895139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2184776282562572851}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2184776282562572851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77491860086895139}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.2564, z: 0.588}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1270713471002450595}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &257503859717329740
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +544,8 @@ MonoBehaviour:
   _turretCombatState: {fileID: 4431824854880737592}
   _isMinigun: 0
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
 --- !u!1 &528068642420416606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1422,9 @@ Transform:
   m_LocalPosition: {x: -0.00006748657, y: 0.1864909, z: -0.059209716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2184776282562572851}
+  - {fileID: 8263501458122855856}
   m_Father: {fileID: 1270713471002407813}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1975,6 +2010,8 @@ MonoBehaviour:
   _turretCombatState: {fileID: 6527214018946395622}
   _isMinigun: 1
   _turretGunRotation: {fileID: 1597471401054559959}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
 --- !u!1 &2104568305378516240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,6 +2790,8 @@ MonoBehaviour:
   _turretCombatState: {fileID: 3259908806267902046}
   _isMinigun: 0
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
 --- !u!1 &2473572428732237133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3336,8 +3375,10 @@ MonoBehaviour:
   _patrolState: {fileID: 4698885217497921250}
   _combatState: {fileID: 6776269221412260068}
   _isMinigun: 0
-  _turretDamage: {fileID: 0}
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
+  _turretDamage: {fileID: 0}
 --- !u!1 &2999027236424750854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3891,8 +3932,141 @@ MonoBehaviour:
   _patrolState: {fileID: 3558175490679918083}
   _combatState: {fileID: 3259908806267902046}
   _isMinigun: 0
-  _turretDamage: {fileID: 0}
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
+  _turretDamage: {fileID: 0}
+--- !u!1 &3353987926806589568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8263501458122855856}
+  - component: {fileID: 2352888140172594514}
+  m_Layer: 0
+  m_Name: LineRenderer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8263501458122855856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3353987926806589568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.2564, z: 0.588}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1270713471002450595}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &2352888140172594514
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3353987926806589568}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 90c749cbb5372aa4798ebfb4a0e0396c, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.5053488
+        value: 0.1976062
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
 --- !u!1 &3431228058701262968
 GameObject:
   m_ObjectHideFlags: 0
@@ -4412,8 +4586,10 @@ MonoBehaviour:
   _patrolState: {fileID: 297863033788183669}
   _combatState: {fileID: 7133581256150429954}
   _isMinigun: 0
-  _turretDamage: {fileID: 0}
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
+  _turretDamage: {fileID: 0}
 --- !u!1 &3515545009342314748
 GameObject:
   m_ObjectHideFlags: 0
@@ -4497,8 +4673,10 @@ MonoBehaviour:
   _patrolState: {fileID: 389025380287167617}
   _combatState: {fileID: 4431824854880737592}
   _isMinigun: 0
-  _turretDamage: {fileID: 0}
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
+  _turretDamage: {fileID: 0}
 --- !u!1 &3585746931509451355
 GameObject:
   m_ObjectHideFlags: 0
@@ -5698,6 +5876,8 @@ MonoBehaviour:
   _turretCombatState: {fileID: 786885562710030989}
   _isMinigun: 0
   _turretGunRotation: {fileID: 0}
+  _isLaser: 1
+  _turretLaser: {fileID: 4441931433314384934}
 --- !u!1 &5286939136353589909
 GameObject:
   m_ObjectHideFlags: 0
@@ -6203,6 +6383,8 @@ MonoBehaviour:
   _turretCombatState: {fileID: 1374911170967737018}
   _isMinigun: 0
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
 --- !u!1 &5847908334807633834
 GameObject:
   m_ObjectHideFlags: 0
@@ -6221,9 +6403,9 @@ GameObject:
   - component: {fileID: 7965327559190838719}
   - component: {fileID: 7471537664173914481}
   - component: {fileID: 6160977690767515803}
-  - component: {fileID: 2397292664121987986}
   - component: {fileID: 6337883881350747282}
   - component: {fileID: 8786677553477400705}
+  - component: {fileID: 4441931433314384934}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -6276,7 +6458,7 @@ Animator:
   m_GameObject: {fileID: 5847908334807633834}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ac1745d3795ac6443b6c421242e418ec, type: 2}
+  m_Controller: {fileID: 9100000, guid: 341357a5ea77e084c83677b92c4c4cb6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6427,33 +6609,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turretAttackState: {fileID: 6732027865537792587}
-  _bulletType: 6
-  _firePoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &2397292664121987986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5847908334807633834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b64779f328519e4080b5554bdcdc829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _particleSystems:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _bulletType: -1
+  _firePoints: []
 --- !u!114 &6337883881350747282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6466,7 +6623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f8b313e14c18b74eab38c76b7e50fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _building: {fileID: 11400000, guid: c5035eed188afa0438c2c4168be822ed, type: 2}
+  _building: {fileID: 11400000, guid: 730adafa3de586a40bbce1557ffb41d1, type: 2}
 --- !u!114 &8786677553477400705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6480,6 +6637,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingLevels: {fileID: 7759801266027362676}
+--- !u!114 &4441931433314384934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5847908334807633834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096fa390646df044b9d9d9a3c133e3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firePoint: {fileID: 2184776282562572851}
+  _lineRenderer: {fileID: 2352888140172594514}
 --- !u!1 &5924571689395763895
 GameObject:
   m_ObjectHideFlags: 0
@@ -7487,6 +7658,8 @@ MonoBehaviour:
   _turretCombatState: {fileID: 6776269221412260068}
   _isMinigun: 0
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
 --- !u!1 &6269207349863085508
 GameObject:
   m_ObjectHideFlags: 0
@@ -7537,8 +7710,10 @@ MonoBehaviour:
   _patrolState: {fileID: 4358446773627071915}
   _combatState: {fileID: 1374911170967737018}
   _isMinigun: 0
-  _turretDamage: {fileID: 0}
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
+  _turretDamage: {fileID: 0}
 --- !u!1 &6440023083273794084
 GameObject:
   m_ObjectHideFlags: 0
@@ -8416,8 +8591,10 @@ MonoBehaviour:
   _patrolState: {fileID: 6014673522229659386}
   _combatState: {fileID: 6527214018946395622}
   _isMinigun: 1
-  _turretDamage: {fileID: 3381543514812375452}
   _turretGunRotation: {fileID: 1597471401054559959}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
+  _turretDamage: {fileID: 3381543514812375452}
 --- !u!1 &7415001712552241458
 GameObject:
   m_ObjectHideFlags: 0
@@ -8462,14 +8639,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 505c241505f31d54694bd7eada98b8e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attacksNumber: 6
-  _attackOneByOne: 1
+  _attacksNumber: 1
+  _attackOneByOne: 0
   _turretBuilding: {fileID: 6337883881350747282}
   _patrolState: {fileID: 957712387587233722}
   _combatState: {fileID: 786885562710030989}
   _isMinigun: 0
-  _turretDamage: {fileID: 0}
   _turretGunRotation: {fileID: 0}
+  _isLaser: 1
+  _turretLaser: {fileID: 4441931433314384934}
+  _turretDamage: {fileID: 6160977690767515803}
 --- !u!1 &7415100744715651441
 GameObject:
   m_ObjectHideFlags: 0
@@ -8566,6 +8745,8 @@ MonoBehaviour:
   _turretCombatState: {fileID: 3810505717208880284}
   _isMinigun: 0
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
 --- !u!1 &7505373892082819843
 GameObject:
   m_ObjectHideFlags: 0
@@ -10479,6 +10660,8 @@ MonoBehaviour:
   _turretCombatState: {fileID: 7133581256150429954}
   _isMinigun: 0
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
 --- !u!1 &8715211435930139321
 GameObject:
   m_ObjectHideFlags: 0
@@ -11037,8 +11220,10 @@ MonoBehaviour:
   _patrolState: {fileID: 6294441056446208205}
   _combatState: {fileID: 3810505717208880284}
   _isMinigun: 0
-  _turretDamage: {fileID: 0}
   _turretGunRotation: {fileID: 0}
+  _isLaser: 0
+  _turretLaser: {fileID: 0}
+  _turretDamage: {fileID: 0}
 --- !u!1 &9172991641779002555
 GameObject:
   m_ObjectHideFlags: 0

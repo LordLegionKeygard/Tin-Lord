@@ -6,14 +6,14 @@ public class BaseKnockBack : MonoBehaviour
 {
     public int MaxKnockbackPoints = 100;
     public int MinimumKnockbackPoints = 30;
-    public int CurrentKnockBackPoints;
+    public float CurrentKnockBackPoints;
 
     public virtual void Awake()
     {
 
     }
 
-    public void TakeKnockbackPoints(int knockBackPoints)
+    public void TakeKnockbackPoints(float knockBackPoints)
     {
         CurrentKnockBackPoints += knockBackPoints;
         CheckKnockBack();

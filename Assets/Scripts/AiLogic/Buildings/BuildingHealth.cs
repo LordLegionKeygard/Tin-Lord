@@ -70,7 +70,7 @@ public class BuildingHealth : BaseHealth
         UpdateSlider();
     }
 
-    public override void CalculateDamage(float damage, int knockBackPoints = 0)
+    public override void CalculateDamage(float damage, float knockBackPoints = 0)
     {
         if (!_buildingTile.HaveTile()) return;
         if (IsDeath()) return;

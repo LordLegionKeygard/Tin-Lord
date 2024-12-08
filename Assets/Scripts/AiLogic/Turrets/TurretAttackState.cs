@@ -13,12 +13,22 @@ public class TurretAttackState : TurretState
 
     [Header("Minigun")]
     [SerializeField] private bool _isMinigun;
-    [SerializeField] private TurretDamage _turretDamage;
     [SerializeField] private TurretGunRotation _turretGunRotation;
+
+    [Header("LaserCannon")]
+    [SerializeField] private bool _isLaser;
+    [SerializeField] private TurretLaser _turretLaser;
+
+    [Header("For Minigun and Laser Only")]
+    [SerializeField] private TurretDamage _turretDamage;
 
     public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
-        if (aiDestinationSetter.CurrentTarget == null) return _combatState;
+        if (aiDestinationSetter.CurrentTarget == null)
+        {
+            if (_isLaser) _turretLaser.LaserToggle(false);
+            return _combatState;
+        }
 
         stateChanger.CanRotateForwardToggle(true);
 
@@ -32,7 +42,11 @@ public class TurretAttackState : TurretState
         Vector3 targetDirection = GetDirectionToTarget(targetPos);
         float viewableAngle = Vector3.Angle(targetDirection, transform.forward);
 
-        if (!stateChanger.CanAttack()) return _combatState;
+        if (!stateChanger.CanAttack())
+        {
+            if (_isLaser) _turretLaser.LaserToggle(false);
+            return _combatState;
+        }
 
         if (_currentAttack != 0)
         {
@@ -101,6 +115,10 @@ public class TurretAttackState : TurretState
         {
             _turretDamage.Shoot(0);
             _turretGunRotation.SetRotateToggle(true);
+        }
+        else if (_isLaser)
+        {
+            _turretLaser.LaserToggle(true);
         }
         else
         {
