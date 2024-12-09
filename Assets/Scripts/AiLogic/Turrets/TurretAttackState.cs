@@ -11,24 +11,12 @@ public class TurretAttackState : TurretState
     private int _currentAttack;
     public bool AttackOneByOne() => _attackOneByOne;
 
-    [Header("Minigun")]
-    [SerializeField] private bool _isMinigun;
-    [SerializeField] private TurretGunRotation _turretGunRotation;
-    [SerializeField] private TurretMinigunAttack _turretMinigun;
-
-    [Header("LaserCannon")]
-    [SerializeField] private bool _isLaser;
-    [SerializeField] private TurretLaserAttack _turretLaser;
-
-    [Header("For Minigun and Laser Only")]
-    [SerializeField] private TurretDamage _turretDamage;
 
     public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
         if (aiDestinationSetter.CurrentTarget == null)
         {
-            if (_isMinigun) _turretMinigun.AttackToggle(false);
-            if (_isLaser) _turretLaser.AttackToggle(false);
+            stateChanger.StopAllAttacks(); ;
             return _combatState;
         }
 
@@ -37,6 +25,7 @@ public class TurretAttackState : TurretState
         if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))
         {
             aiDestinationSetter.CurrentTarget = null;
+            stateChanger.StopAllAttacks();
             return _patrolState;
         }
 
@@ -46,8 +35,7 @@ public class TurretAttackState : TurretState
 
         if (!stateChanger.CanAttack())
         {
-            if (_isMinigun) _turretMinigun.AttackToggle(false);
-            if (_isLaser) _turretLaser.AttackToggle(false);
+            stateChanger.StopAllAttacks();
             return _combatState;
         }
 
@@ -114,19 +102,8 @@ public class TurretAttackState : TurretState
 
     private void PerformAttack(TurretStateChanger stateChanger, BaseAnimator animator)
     {
-        if (_isMinigun)
-        {
-            _turretMinigun.AttackToggle(true);
-            _turretGunRotation.SetRotateToggle(true);
-        }
-        else if (_isLaser)
-        {
-            _turretLaser.AttackToggle(true);
-        }
-        else
-        {
-            animator.AttackAnimation(_currentAttack);
-        }
+        stateChanger.StartAllAttacks();
+        if (animator != null) animator.AttackAnimation(_currentAttack);
 
         stateChanger.AttackToggle(false);
         stateChanger.CurrentAttackRecoveryTime = _turretBuilding.Building().AttackRecoveryTime;

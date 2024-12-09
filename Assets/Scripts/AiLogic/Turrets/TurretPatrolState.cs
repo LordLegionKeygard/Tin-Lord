@@ -10,15 +10,6 @@ public class TurretPatrolState : TurretState
     private Coroutine _patrolTimerCoroutine;
     private float _currentPatrolTimer;
 
-    [Header("Minigun")]
-    [SerializeField] private bool _isMinigun;
-    [SerializeField] private TurretGunRotation _turretGunRotation;
-    [SerializeField] private TurretMinigunAttack _turretMinigun;
-
-    [Header("LaserCannon")]
-    [SerializeField] private bool _isLaser;
-    [SerializeField] private TurretLaserAttack _turretLaser;
-
     private void Start()
     {
         var rnd = Random.Range(1, 10);
@@ -28,12 +19,7 @@ public class TurretPatrolState : TurretState
     public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
         stateChanger.CanRotateForwardToggle(false);
-        if (_isMinigun)
-        {
-            _turretMinigun.AttackToggle(false);
-            _turretGunRotation.SetRotateToggle(false);
-        }
-        if (_isLaser) _turretLaser.AttackToggle(false);
+        stateChanger.StopAllAttacks();
 
         Transform bestTarget = FindNearestTargetInRange(stateChanger);
 

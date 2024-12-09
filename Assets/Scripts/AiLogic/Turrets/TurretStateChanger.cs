@@ -3,6 +3,7 @@ using UnityEngine;
 public class TurretStateChanger : BaseAiStateChanger
 {
     [SerializeField] private TurretState _currentState;
+    private ITurretAttack[] _attackComponents;
     private TurretBuilding _turretBuilding;
 
     [Header("Detection")]
@@ -14,10 +15,11 @@ public class TurretStateChanger : BaseAiStateChanger
     {
         base.Awake();
         _turretBuilding = GetComponent<TurretBuilding>();
+        _attackComponents = GetComponents<ITurretAttack>();
     }
 
     public override void Update()
-    {       
+    {
         HandleAttackRecoveryTime();
 
         if (IsCanRotate() && AiDestinationSetter.CurrentTarget != null)
@@ -48,5 +50,21 @@ public class TurretStateChanger : BaseAiStateChanger
     private void SwitchToNextState(TurretState state)
     {
         _currentState = state;
+    }
+
+    public void StartAllAttacks()
+    {
+        foreach (var attack in _attackComponents)
+        {
+            attack.StartAttack();
+        }
+    }
+
+    public void StopAllAttacks()
+    {
+        foreach (var attack in _attackComponents)
+        {
+            attack.StopAttack();
+        }
     }
 }

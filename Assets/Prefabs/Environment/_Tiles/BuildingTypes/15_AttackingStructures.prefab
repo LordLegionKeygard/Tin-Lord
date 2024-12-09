@@ -542,11 +542,6 @@ MonoBehaviour:
   _rotateObject: {fileID: 4539514839331439214}
   _creatureDamage: {fileID: 3740979349390679736}
   _turretCombatState: {fileID: 4431824854880737592}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
 --- !u!1 &528068642420416606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,11 +2004,6 @@ MonoBehaviour:
   _rotateObject: {fileID: 6056459878700753010}
   _creatureDamage: {fileID: 3381543514812375452}
   _turretCombatState: {fileID: 6527214018946395622}
-  _isMinigun: 1
-  _turretGunRotation: {fileID: 1597471401054559959}
-  _turretMinigun: {fileID: 7346118420073165207}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
 --- !u!1 &2104568305378516240
 GameObject:
   m_ObjectHideFlags: 0
@@ -2790,11 +2780,6 @@ MonoBehaviour:
   _rotateObject: {fileID: 8177464149665861594}
   _creatureDamage: {fileID: 5846043797820635378}
   _turretCombatState: {fileID: 3259908806267902046}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
 --- !u!1 &2473572428732237133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3377,12 +3362,6 @@ MonoBehaviour:
   _turretBuilding: {fileID: 8261314187909332495}
   _patrolState: {fileID: 4698885217497921250}
   _combatState: {fileID: 6776269221412260068}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
-  _turretDamage: {fileID: 0}
 --- !u!1 &2999027236424750854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,12 +3914,6 @@ MonoBehaviour:
   _turretBuilding: {fileID: 6932562901064885030}
   _patrolState: {fileID: 3558175490679918083}
   _combatState: {fileID: 3259908806267902046}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
-  _turretDamage: {fileID: 0}
 --- !u!1 &3353987926806589568
 GameObject:
   m_ObjectHideFlags: 0
@@ -4590,12 +4563,6 @@ MonoBehaviour:
   _turretBuilding: {fileID: 5729923435506815406}
   _patrolState: {fileID: 297863033788183669}
   _combatState: {fileID: 7133581256150429954}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
-  _turretDamage: {fileID: 0}
 --- !u!1 &3515545009342314748
 GameObject:
   m_ObjectHideFlags: 0
@@ -4678,12 +4645,6 @@ MonoBehaviour:
   _turretBuilding: {fileID: 8719285422043222950}
   _patrolState: {fileID: 389025380287167617}
   _combatState: {fileID: 4431824854880737592}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
-  _turretDamage: {fileID: 0}
 --- !u!1 &3585746931509451355
 GameObject:
   m_ObjectHideFlags: 0
@@ -5881,11 +5842,6 @@ MonoBehaviour:
   _rotateObject: {fileID: 1200644874617235537}
   _creatureDamage: {fileID: 6160977690767515803}
   _turretCombatState: {fileID: 786885562710030989}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 1
-  _turretLaser: {fileID: 4441931433314384934}
 --- !u!1 &5286939136353589909
 GameObject:
   m_ObjectHideFlags: 0
@@ -6389,11 +6345,6 @@ MonoBehaviour:
   _rotateObject: {fileID: 2167219007506409393}
   _creatureDamage: {fileID: 3232266982051074051}
   _turretCombatState: {fileID: 1374911170967737018}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
 --- !u!1 &5847908334807633834
 GameObject:
   m_ObjectHideFlags: 0
@@ -6415,6 +6366,7 @@ GameObject:
   - component: {fileID: 6337883881350747282}
   - component: {fileID: 8786677553477400705}
   - component: {fileID: 4441931433314384934}
+  - component: {fileID: 5960342618192076095}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -6661,6 +6613,19 @@ MonoBehaviour:
   attackInterval: 0.5
   _firePoint: {fileID: 2184776282562572851}
   _lineRenderer: {fileID: 2352888140172594514}
+--- !u!114 &5960342618192076095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5847908334807633834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb9c1d53facce94db3a0c0491aa45e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turretLaser: {fileID: 4441931433314384934}
 --- !u!1 &5924571689395763895
 GameObject:
   m_ObjectHideFlags: 0
@@ -7042,6 +7007,7 @@ GameObject:
   - component: {fileID: 7100236537475276832}
   - component: {fileID: 5136473443680426668}
   - component: {fileID: 7346118420073165207}
+  - component: {fileID: 7546022630418126585}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -7268,6 +7234,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackInterval: 0.2
+--- !u!114 &7546022630418126585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6056459878700596242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fea4817ef28a840a5961dcb7dc87f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turretGunRotation: {fileID: 1597471401054559959}
+  _turretMinigun: {fileID: 7346118420073165207}
 --- !u!1 &6056459878700596244
 GameObject:
   m_ObjectHideFlags: 0
@@ -7680,11 +7660,6 @@ MonoBehaviour:
   _rotateObject: {fileID: 7512559915987679742}
   _creatureDamage: {fileID: 7058372989609181159}
   _turretCombatState: {fileID: 6776269221412260068}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
 --- !u!1 &6269207349863085508
 GameObject:
   m_ObjectHideFlags: 0
@@ -7734,12 +7709,6 @@ MonoBehaviour:
   _turretBuilding: {fileID: 5334293581158750380}
   _patrolState: {fileID: 4358446773627071915}
   _combatState: {fileID: 1374911170967737018}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
-  _turretDamage: {fileID: 0}
 --- !u!1 &6440023083273794084
 GameObject:
   m_ObjectHideFlags: 0
@@ -8616,12 +8585,6 @@ MonoBehaviour:
   _turretBuilding: {fileID: 7100236537475276832}
   _patrolState: {fileID: 6014673522229659386}
   _combatState: {fileID: 6527214018946395622}
-  _isMinigun: 1
-  _turretGunRotation: {fileID: 1597471401054559959}
-  _turretMinigun: {fileID: 7346118420073165207}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
-  _turretDamage: {fileID: 3381543514812375452}
 --- !u!1 &7415001712552241458
 GameObject:
   m_ObjectHideFlags: 0
@@ -8671,12 +8634,6 @@ MonoBehaviour:
   _turretBuilding: {fileID: 6337883881350747282}
   _patrolState: {fileID: 957712387587233722}
   _combatState: {fileID: 786885562710030989}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 1
-  _turretLaser: {fileID: 4441931433314384934}
-  _turretDamage: {fileID: 6160977690767515803}
 --- !u!1 &7415100744715651441
 GameObject:
   m_ObjectHideFlags: 0
@@ -8771,11 +8728,6 @@ MonoBehaviour:
   _rotateObject: {fileID: 5122691790636856666}
   _creatureDamage: {fileID: 2367057872115112775}
   _turretCombatState: {fileID: 3810505717208880284}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
 --- !u!1 &7505373892082819843
 GameObject:
   m_ObjectHideFlags: 0
@@ -10687,11 +10639,6 @@ MonoBehaviour:
   _rotateObject: {fileID: 6956745041316661571}
   _creatureDamage: {fileID: 294214429065811002}
   _turretCombatState: {fileID: 7133581256150429954}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
 --- !u!1 &8715211435930139321
 GameObject:
   m_ObjectHideFlags: 0
@@ -11249,12 +11196,6 @@ MonoBehaviour:
   _turretBuilding: {fileID: 5986964967466746207}
   _patrolState: {fileID: 6294441056446208205}
   _combatState: {fileID: 3810505717208880284}
-  _isMinigun: 0
-  _turretGunRotation: {fileID: 0}
-  _turretMinigun: {fileID: 0}
-  _isLaser: 0
-  _turretLaser: {fileID: 0}
-  _turretDamage: {fileID: 0}
 --- !u!1 &9172991641779002555
 GameObject:
   m_ObjectHideFlags: 0
