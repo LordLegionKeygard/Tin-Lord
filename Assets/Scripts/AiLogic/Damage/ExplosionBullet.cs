@@ -11,7 +11,7 @@ public class ExplosionBullet : Bullet
         if (_targetHealth != null)
         {
             var prefab = Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
-            prefab.GetComponent<Explosion>().SetDamage(_damage, _knockbackPoints);
+            prefab.GetComponent<Explosion>().SetDamage(_damage * 0.5f, _knockbackPoints);
         }
     }
 }

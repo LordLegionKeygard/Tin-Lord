@@ -13,10 +13,11 @@ public class TurretPatrolState : TurretState
     [Header("Minigun")]
     [SerializeField] private bool _isMinigun;
     [SerializeField] private TurretGunRotation _turretGunRotation;
+    [SerializeField] private TurretMinigunAttack _turretMinigun;
 
     [Header("LaserCannon")]
     [SerializeField] private bool _isLaser;
-    [SerializeField] private TurretLaser _turretLaser;
+    [SerializeField] private TurretLaserAttack _turretLaser;
 
     private void Start()
     {
@@ -27,8 +28,12 @@ public class TurretPatrolState : TurretState
     public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
         stateChanger.CanRotateForwardToggle(false);
-        if (_isMinigun) _turretGunRotation.SetRotateToggle(false);
-        if (_isLaser) _turretLaser.LaserToggle(false);
+        if (_isMinigun)
+        {
+            _turretMinigun.AttackToggle(false);
+            _turretGunRotation.SetRotateToggle(false);
+        }
+        if (_isLaser) _turretLaser.AttackToggle(false);
 
         Transform bestTarget = FindNearestTargetInRange(stateChanger);
 

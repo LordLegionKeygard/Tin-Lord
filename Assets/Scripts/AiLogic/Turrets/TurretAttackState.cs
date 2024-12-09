@@ -14,10 +14,11 @@ public class TurretAttackState : TurretState
     [Header("Minigun")]
     [SerializeField] private bool _isMinigun;
     [SerializeField] private TurretGunRotation _turretGunRotation;
+    [SerializeField] private TurretMinigunAttack _turretMinigun;
 
     [Header("LaserCannon")]
     [SerializeField] private bool _isLaser;
-    [SerializeField] private TurretLaser _turretLaser;
+    [SerializeField] private TurretLaserAttack _turretLaser;
 
     [Header("For Minigun and Laser Only")]
     [SerializeField] private TurretDamage _turretDamage;
@@ -26,7 +27,8 @@ public class TurretAttackState : TurretState
     {
         if (aiDestinationSetter.CurrentTarget == null)
         {
-            if (_isLaser) _turretLaser.LaserToggle(false);
+            if (_isMinigun) _turretMinigun.AttackToggle(false);
+            if (_isLaser) _turretLaser.AttackToggle(false);
             return _combatState;
         }
 
@@ -44,7 +46,8 @@ public class TurretAttackState : TurretState
 
         if (!stateChanger.CanAttack())
         {
-            if (_isLaser) _turretLaser.LaserToggle(false);
+            if (_isMinigun) _turretMinigun.AttackToggle(false);
+            if (_isLaser) _turretLaser.AttackToggle(false);
             return _combatState;
         }
 
@@ -113,12 +116,12 @@ public class TurretAttackState : TurretState
     {
         if (_isMinigun)
         {
-            _turretDamage.Shoot(0);
+            _turretMinigun.AttackToggle(true);
             _turretGunRotation.SetRotateToggle(true);
         }
         else if (_isLaser)
         {
-            _turretLaser.LaserToggle(true);
+            _turretLaser.AttackToggle(true);
         }
         else
         {
