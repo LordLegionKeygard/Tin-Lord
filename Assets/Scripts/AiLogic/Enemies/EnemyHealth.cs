@@ -15,6 +15,12 @@ public class EnemyHealth : BaseHealth
     private CharacterController _characterController;
     private EnemyLevel _enemyLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
+    private EnemyCenterPoint _enemyCenterPoint;
+
+    public override Transform GetTransform()
+    {
+        return _enemyCenterPoint.GetTransform();
+    }
 
     private void Awake()
     {
@@ -24,6 +30,7 @@ public class EnemyHealth : BaseHealth
         _takeDamageVFX = GetComponent<BaseTakeDamageVFX>();
         _aiPath = GetComponent<AIPath>();
         _enemyAnimator = GetComponent<EnemyAnimator>();
+        _enemyCenterPoint = GetComponent<EnemyCenterPoint>();
     }
 
     public void Start()

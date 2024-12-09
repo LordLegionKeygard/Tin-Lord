@@ -36,7 +36,7 @@ public class TurretDamage : BaseDamage
 
         if (bullet.TryGetComponent<Bullet>(out var bulletScript))
         {
-            bulletScript.SetTarget(CurrentTargetBaseHealth);
+            bulletScript.SetTarget(CurrentTargetBaseHealth, CurrentTargetTransform);
             bulletScript.SetDamage(Damage, _turretBuilding.Building().KnockbackPoints);
             bulletScript.SetBulletPool(_pool, _bulletType);
         }

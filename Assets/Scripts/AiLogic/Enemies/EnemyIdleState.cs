@@ -71,7 +71,7 @@ public class EnemyIdleState : EnemyState
         _aiPath.endReachedDistance = attacks.MaxAtkRange();
 
         _aiDestinationSetter.CurrentTarget = targetTransform;
-        _creatureDamage.SetTargetHealth(targetHealth);
+        _creatureDamage.SetTarget(targetHealth, targetHealth.transform); // пока что враги ближнего боя и не стреляют поэтому передает трансформ здоровья цели
     }
 
     private void SetBaseTarget()

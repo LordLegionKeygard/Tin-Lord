@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class TurretPatrolState : TurretState
 {
+    [SerializeField] private TurretBuilding _turretBuilding;
     [SerializeField] private Transform _rotateObject;
-    private float _patrolRotationSpeed = 10;
     [SerializeField] private BaseDamage _creatureDamage;
     [SerializeField] private TurretCombatState _turretCombatState;
     private Coroutine _patrolTimerCoroutine;
@@ -21,24 +21,31 @@ public class TurretPatrolState : TurretState
         stateChanger.CanRotateForwardToggle(false);
         stateChanger.StopAllAttacks();
 
-        Transform bestTarget = FindNearestTargetInRange(stateChanger);
+        BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
 
-        if (bestTarget != null)
+        if (targetHealth != null)
         {
-            aiDestinationSetter.CurrentTarget = bestTarget;
-            _creatureDamage.SetTargetHealth(bestTarget.GetComponent<BaseHealth>());
+            SetTarget(aiDestinationSetter, targetHealth);
             return _turretCombatState;
         }
 
         return this;
     }
 
-    private Transform FindNearestTargetInRange(TurretStateChanger stateChanger)
+    private void SetTarget(AIDestinationSetter aiDestinationSetter, BaseHealth targetHealth)
+    {
+        aiDestinationSetter.CurrentTarget = targetHealth.transform;
+        var targetTransform = targetHealth.gameObject.GetComponent<EnemyCenterPoint>().GetTransform();
+        aiDestinationSetter.SetTargetTransform(targetTransform);
+        _creatureDamage.SetTarget(targetHealth, targetTransform);
+    }
+
+    private BaseHealth FindNearestTargetInRange(TurretStateChanger stateChanger)
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.AttackRadius(), stateChanger.DetectionLayer());
 
-        Transform bestTarget = null;
-        float closestAngle = float.MaxValue;
+        BaseHealth nearestTarget = null;
+        float closestAngle = Mathf.Infinity;
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -54,11 +61,11 @@ public class TurretPatrolState : TurretState
             if (angleToTarget < closestAngle)
             {
                 closestAngle = angleToTarget;
-                bestTarget = targetHealth.transform;
+                nearestTarget = targetHealth;
             }
         }
 
-        return bestTarget;
+        return nearestTarget;
     }
 
     public void PatrolToRandomPosition()
@@ -82,7 +89,7 @@ public class TurretPatrolState : TurretState
         while (Quaternion.Angle(_rotateObject.rotation, targetRotation) > 0.01f) // Пока не достигнем цели
         {
             // Вращаем объект с постоянной скоростью
-            _rotateObject.rotation = Quaternion.RotateTowards(_rotateObject.rotation, targetRotation, _patrolRotationSpeed * Time.deltaTime);
+            _rotateObject.rotation = Quaternion.RotateTowards(_rotateObject.rotation, targetRotation, _turretBuilding.Building().RotationSpeed * Time.deltaTime);
 
             yield return null;
         }

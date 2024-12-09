@@ -31,7 +31,8 @@ public class RobotPatrolState : RobotState
 
         if (targetHealth != null)
         {
-            SetCombatTarget(aiDestinationSetter, targetHealth, stateChanger);
+            stateChanger.AttackToggle(true);
+            SetTarget(aiDestinationSetter, targetHealth);
             return _combatState;
         }
 
@@ -48,6 +49,14 @@ public class RobotPatrolState : RobotState
         playerSpeed.CanMove();
         Patrol();
         return this;
+    }
+
+    private void SetTarget(AIDestinationSetter aiDestinationSetter, BaseHealth targetHealth)
+    {
+        aiDestinationSetter.CurrentTarget = targetHealth.transform;
+        var targetTransform = targetHealth.gameObject.GetComponent<EnemyCenterPoint>().GetTransform();
+        aiDestinationSetter.SetTargetTransform(targetTransform);
+        _creatureDamage.SetTarget(targetHealth, targetTransform);
     }
 
     private void Patrol()
@@ -87,19 +96,21 @@ public class RobotPatrolState : RobotState
         Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.DetectionRadius(), stateChanger.DetectionLayer());
 
         BaseHealth nearestTarget = null;
-        float nearestDistance = Mathf.Infinity;
+        float closestAngle = Mathf.Infinity;
 
-        foreach (var collider in colliders)
+        for (int i = 0; i < colliders.Length; i++)
         {
-            BaseHealth targetHealth = collider.GetComponent<BaseHealth>();
+            BaseHealth targetHealth = colliders[i].GetComponent<BaseHealth>();
 
             if (targetHealth != null && !targetHealth.IsDeath())
             {
-                float distanceToTarget = Vector3.Distance(transform.position, targetHealth.transform.position);
+                // Вычисляем направление до цели
+                Vector3 directionToTarget = (colliders[i].transform.position - transform.position).normalized;
+                float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
 
-                if (distanceToTarget < nearestDistance)
+                if (angleToTarget < closestAngle)
                 {
-                    nearestDistance = distanceToTarget;
+                    closestAngle = angleToTarget;
                     nearestTarget = targetHealth;
                 }
             }
@@ -132,12 +143,5 @@ public class RobotPatrolState : RobotState
         }
 
         return nearestBuilding;
-    }
-
-    private void SetCombatTarget(AIDestinationSetter aiDestinationSetter, BaseHealth targetHealth, RobotStateChanger stateChanger)
-    {
-        stateChanger.AttackToggle(true);
-        aiDestinationSetter.CurrentTarget = targetHealth.transform;
-        _creatureDamage.SetTargetHealth(targetHealth);
     }
 }

@@ -26,4 +26,8 @@ public class WorldGameInfo
     public const float RobotEngineerRepairBuildingsDistance = 5.5f;
     public const float RobotDieDelay = 10;
     public const float RobotDieDuration = 3;
+
+    //Bullets
+    public const float BulletHeightOffset = 2.0f; // Смещение по высоте
+    public const float BulletLateralOffset = -1.5f; // Горизонтальное смещение
 }

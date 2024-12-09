@@ -28,7 +28,7 @@ public class TurretStateChanger : BaseAiStateChanger
 
             var targetDirection = new Vector3(t.x, transform.position.y, t.z) - transform.position;
 
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 3 * Time.deltaTime * _turretBuilding.Building().RotationSpeed, 0);
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, _turretBuilding.Building().RotationSpeed * Time.deltaTime, 0);
 
             transform.rotation = Quaternion.LookRotation(newDirection);
         }

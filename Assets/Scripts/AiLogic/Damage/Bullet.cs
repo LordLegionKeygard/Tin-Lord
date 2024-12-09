@@ -5,26 +5,37 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed = 80;
     public bool _needTimeAfterHit;
-    private Transform _targetTransform;
     protected float _damage;
     protected float _knockbackPoints;
     private BulletsPool _bulletsPool;
     private BulletEnum _bulletEnum;
     protected BaseHealth _targetHealth;
+    private Transform _targetTransform;
     private float _duration = 0.5f;
     private bool _isHitTarget;
+    private Camera _mainCamera;
+    private Vector3 _cameraForwardNormalized;
+
+    private void Start()
+    {
+        // Кэшируем камеру и её направление
+        _mainCamera = Camera.main;
+        _cameraForwardNormalized = _mainCamera.transform.forward;
+        _cameraForwardNormalized.y = 0; // Убираем вертикальную составляющую
+        _cameraForwardNormalized.Normalize();
+    }
 
     private void OnEnable()
     {
         _isHitTarget = false;
     }
 
-    public void SetTarget(BaseHealth targetHealth)
+    public void SetTarget(BaseHealth targetHealth, Transform newTransform)
     {
         _targetHealth = targetHealth;
         if (_targetHealth != null)
         {
-            _targetTransform = _targetHealth.transform;
+            _targetTransform = newTransform;
         }
     }
 
@@ -48,7 +59,10 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        Vector3 direction = _targetTransform.position - transform.position;
+        // Рассчитываем скорректированную позицию цели
+        Vector3 adjustedTargetPosition = AdjustTargetPosition(_targetTransform.position);
+
+        Vector3 direction = adjustedTargetPosition - transform.position;
         float distanceThisFrame = _speed * Time.deltaTime;
 
         if (direction.magnitude <= distanceThisFrame && !_isHitTarget)
@@ -61,7 +75,18 @@ public class Bullet : MonoBehaviour
         if (_isHitTarget) return;
 
         transform.Translate(direction.normalized * distanceThisFrame, Space.World);
-        transform.LookAt(_targetTransform);
+        transform.LookAt(adjustedTargetPosition);
+    }
+
+    private Vector3 AdjustTargetPosition(Vector3 targetPosition)
+    {
+        // Смещение по высоте
+        targetPosition.y += WorldGameInfo.BulletHeightOffset;
+
+        // Горизонтальное смещение на основе нормализованного направления камеры
+        targetPosition += _cameraForwardNormalized * WorldGameInfo.BulletLateralOffset;
+
+        return targetPosition;
     }
 
     public virtual void HitTarget()
@@ -91,7 +116,6 @@ public class Bullet : MonoBehaviour
         _bulletsPool.ReturnBullet(_bulletEnum, gameObject);
     }
 }
-
 
 
 [System.Serializable]

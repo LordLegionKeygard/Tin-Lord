@@ -24,7 +24,7 @@ public class RobotDamage : BaseDamage
 
         if (bullet.TryGetComponent<Bullet>(out var bulletScript))
         {
-            bulletScript.SetTarget(CurrentTargetBaseHealth);
+            bulletScript.SetTarget(CurrentTargetBaseHealth, CurrentTargetTransform);
             bulletScript.SetDamage(RobotsData.Instance.GetCurrentRangeDamage(), 0);
             bulletScript.SetBulletPool(_bulletsPool, _bulletType);
         }

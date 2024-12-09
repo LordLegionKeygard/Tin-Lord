@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
@@ -14,6 +12,8 @@ public class BaseHealth : MonoBehaviour
     public virtual Transform GetFoutTileTransform() => transform;
 
     public virtual bool IsDeath() => _isDeath;
+
+    public virtual Transform GetTransform() => transform;
 
     public virtual void CalculateDamage(float damage, float knockBackPoints)
     {
