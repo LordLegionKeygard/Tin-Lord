@@ -30,4 +30,9 @@ public class WorldGameInfo
     //Bullets
     public const float BulletHeightOffset = 2.0f; // Смещение по высоте
     public const float BulletLateralOffset = -1.5f; // Горизонтальное смещение
+
+    //TurretPatrol
+    public const float MinTurretPatrolTime = 5;
+    public const float MaxTurretPatrolTime = 15;
+    public const float TurretPatrolRotateSpeedFactor = 0.5f;
 }

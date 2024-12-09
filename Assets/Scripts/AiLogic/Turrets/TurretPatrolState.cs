@@ -9,6 +9,7 @@ public class TurretPatrolState : TurretState
     [SerializeField] private TurretCombatState _turretCombatState;
     private Coroutine _patrolTimerCoroutine;
     private float _currentPatrolTimer;
+    private float _targetYRotation;
 
     private void Start()
     {
@@ -28,6 +29,8 @@ public class TurretPatrolState : TurretState
             SetTarget(aiDestinationSetter, targetHealth);
             return _turretCombatState;
         }
+
+        RotateTowardsTarget();
 
         return this;
     }
@@ -76,33 +79,28 @@ public class TurretPatrolState : TurretState
             StopPatrolTimerCoroutine();
         }
 
-        // Начинаем поворот к случайной позиции
-        float randomYRotation = Random.Range(0, 360);
-        _patrolTimerCoroutine = StartCoroutine(RotateToRandomPosition(randomYRotation));
-    }
-
-    // Корутин для плавного поворота на случайную позицию
-    private IEnumerator RotateToRandomPosition(float targetYRotation)
-    {
-        Quaternion targetRotation = Quaternion.Euler(0, targetYRotation, 0);
-
-        while (Quaternion.Angle(_rotateObject.rotation, targetRotation) > 0.01f) // Пока не достигнем цели
-        {
-            // Вращаем объект с постоянной скоростью
-            _rotateObject.rotation = Quaternion.RotateTowards(_rotateObject.rotation, targetRotation, _turretBuilding.Building().RotationSpeed * Time.deltaTime);
-
-            yield return null;
-        }
-
-        // После поворота запускаем новый патруль
+        // Устанавливаем случайное направление для поворота
+        _targetYRotation = Random.Range(0, 360);
         StartPatrolTimer();
     }
 
+    private void RotateTowardsTarget()
+    {
+        // Целевая ротация
+        Vector3 targetDirection = Quaternion.Euler(0, _targetYRotation, 0) * Vector3.forward;
+
+        // Плавное вращение
+        Vector3 newDirection = Vector3.RotateTowards(_rotateObject.forward, targetDirection, 
+        _turretBuilding.Building().RotationSpeed * WorldGameInfo.TurretPatrolRotateSpeedFactor * Time.deltaTime, 0);
+
+        // Применяем новую ротацию
+        _rotateObject.rotation = Quaternion.LookRotation(newDirection);
+    }
 
     private void StartPatrolTimer()
     {
         StopPatrolTimerCoroutine();
-        _currentPatrolTimer = Random.Range(1, 10);
+        _currentPatrolTimer = Random.Range(WorldGameInfo.MinTurretPatrolTime, WorldGameInfo.MaxTurretPatrolTime);
         _patrolTimerCoroutine = StartCoroutine(PatrolTimerCoroutine(_currentPatrolTimer));
     }
 
