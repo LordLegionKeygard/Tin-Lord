@@ -9,7 +9,6 @@ public class TurretLaserAttack : TurretBaseAttack
     private Transform _transformPoint;
     private bool _laserActive;
     private float _tilingFactor = 0.35f;
-    private static readonly int TilingProperty = Shader.PropertyToID("_Tiling");
 
     private void Start()
     {
@@ -69,7 +68,7 @@ public class TurretLaserAttack : TurretBaseAttack
 
         // Устанавливаем X на основе длины лазера, Y остается равным 1
         Vector2 tiling = new Vector2(laserLength * _tilingFactor, 1);
-        laserMaterial.SetVector(TilingProperty, tiling);
+        laserMaterial.SetVector("_Tiling", tiling);
     }
 
     private Vector3 AdjustTargetPosition(Vector3 targetPosition)
