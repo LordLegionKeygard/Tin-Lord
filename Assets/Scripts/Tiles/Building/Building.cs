@@ -6,6 +6,7 @@ public class Building : ScriptableObject
     public string[] Name; //0 eng, 1 rus
     public int BuildingLevel;
     public Sprite BuildingSprite;
+    public float ConstructionTime;
     public int BuildingEcology;
     public float BuildingHealth;
     public float ResourceExtractedAmount; // кол-во создаваемого ресурса за 1 тик времени

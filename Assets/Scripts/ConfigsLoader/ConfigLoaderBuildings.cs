@@ -47,18 +47,18 @@ public class ConfigLoaderBuildings : ScriptableObject
             BuildingConfigs config = _configs[i];
             _allBuildings[i].BuildingLevel = config.Level;
             _allBuildings[i].Name = new[] { config.EnglishName, config.RussianName };
+            _allBuildings[i].ConstructionTime = ParseFloat(config.ConstructionTime);
             _allBuildings[i].BuildingEcology = config.BuildingEcology;
             _allBuildings[i].ResourceExtractedAmount = ParseFloat(config.ResourceExtractedAmount);
             _allBuildings[i].ResourcesForBuild = ParseResources(config.ResourcesForBuild);
             _allBuildings[i].ResourcesForWork = ParseResourcesForWork(config.ResourcesForWork);
             _allBuildings[i].ResourcesProduction = ParseExtractedResources(config.ExtractedResources, config.ResourceRecept);
             _allBuildings[i].BuildingHealth = config.BuildingHealth;
-
-            _allBuildings[i].RotationSpeed = float.TryParse(config.RotationSpeed, NumberStyles.Float, CultureInfo.InvariantCulture, out float rotationSpeed)? rotationSpeed: 0;
-            _allBuildings[i].AttackRadius = float.TryParse(config.AttackRadius, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRadius)? attackRadius: 0;
-            _allBuildings[i].Damage = float.TryParse(config.Damage, NumberStyles.Float, CultureInfo.InvariantCulture, out float damage)? damage: 0;
-            _allBuildings[i].KnockbackPoints = float.TryParse(config.KnockbackPoints, NumberStyles.Float, CultureInfo.InvariantCulture, out float knockbackPoints)? knockbackPoints: 0;
-            _allBuildings[i].AttackRecoveryTime = float.TryParse(config.AttackRecoveryTime, NumberStyles.Float, CultureInfo.InvariantCulture, out float attackRecoveryTime)? attackRecoveryTime: 0;
+            _allBuildings[i].RotationSpeed = ParseFloat(config.RotationSpeed);
+            _allBuildings[i].AttackRadius = ParseFloat(config.AttackRadius);
+            _allBuildings[i].Damage = ParseFloat(config.Damage);
+            _allBuildings[i].KnockbackPoints = ParseFloat(config.KnockbackPoints);
+            _allBuildings[i].AttackRecoveryTime = ParseFloat(config.AttackRecoveryTime);
 
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(_allBuildings[i]);
@@ -236,6 +236,7 @@ public class BuildingConfigs
     public int Level;
     public string EnglishName;
     public string RussianName;
+    public string ConstructionTime;
     public int BuildingEcology;
     public string ResourceExtractedAmount;
     public string ResourcesForBuild;
