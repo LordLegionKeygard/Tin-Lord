@@ -8,12 +8,12 @@ public class TurretLaserAttack : TurretBaseAttack
     private Vector3 _cameraForwardNormalized;
     private Transform _transformPoint;
     private bool _laserActive;
+    private float _tilingFactor = 0.35f;
+    private static readonly int TilingProperty = Shader.PropertyToID("_Tiling");
 
     private void Start()
     {
         _mainCamera = Camera.main;
-
-        // Предрасчёт нормализованного направления камеры
         _cameraForwardNormalized = _mainCamera.transform.forward;
         _cameraForwardNormalized.y = 0;
         _cameraForwardNormalized.Normalize();
@@ -49,11 +49,27 @@ public class TurretLaserAttack : TurretBaseAttack
 
     private void UpdateLaser()
     {
-        _lineRenderer.SetPosition(0, _firePoint.position);
+        Vector3 startPosition = _firePoint.position;
+        Vector3 endPosition = AdjustTargetPosition(_transformPoint.position);
 
-        // Рассчитываем смещённую позицию цели
-        Vector3 adjustedTargetPosition = AdjustTargetPosition(_transformPoint.position);
-        _lineRenderer.SetPosition(1, adjustedTargetPosition);
+        _lineRenderer.SetPosition(0, startPosition);
+        _lineRenderer.SetPosition(1, endPosition);
+
+        // Вычисляем длину лазера
+        float laserLength = Vector3.Distance(startPosition, endPosition);
+
+        // Устанавливаем значение _Tiling в зависимости от длины лазера
+        UpdateLaserTiling(laserLength);
+    }
+
+    private void UpdateLaserTiling(float laserLength)
+    {
+        // Получаем текущий материал LineRenderer
+        Material laserMaterial = _lineRenderer.material;
+
+        // Устанавливаем X на основе длины лазера, Y остается равным 1
+        Vector2 tiling = new Vector2(laserLength * _tilingFactor, 1);
+        laserMaterial.SetVector(TilingProperty, tiling);
     }
 
     private Vector3 AdjustTargetPosition(Vector3 targetPosition)
