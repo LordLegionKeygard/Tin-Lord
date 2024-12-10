@@ -87,9 +87,10 @@ public class SelectTilePanel : MonoBehaviour
     {
         _tileObject = tileObject;
 
-        var buildingTile = tileObject.BuildingTileObject().CurrentBuildingTile();
-        var haveBuildingTile = tileObject.BuildingTileObject().HaveTile();
-        var currentBuilding = haveBuildingTile ? tileObject.BuildingTileObject().CurrentBuilding() : null;
+        var buildingTileObject = tileObject.BuildingTileObject();
+        var buildingTile = buildingTileObject.CurrentBuildingTile();
+        var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingTileGameObject();
+        var currentBuilding = haveBuildingTile ? buildingTileObject.CurrentBuilding() : null;
 
         SetTextFields(tileObject, buildingTile, haveBuildingTile, currentBuilding);
         SetProductionText(tileObject, buildingTile, haveBuildingTile, currentBuilding);
@@ -110,12 +111,12 @@ public class SelectTilePanel : MonoBehaviour
 
             if (buildingTile.IsHaveProductionResources())
             {
-                _productionResourcePanel.SetButtonView(tileObject.BuildingTileObject().CurrentBuilding(), tileObject.CurrentResourceProduction());
+                _productionResourcePanel.SetButtonView(buildingTileObject.CurrentBuilding(), tileObject.CurrentResourceProduction());
                 _receptPanel.UpdateReceptView(tileObject.CurrentResourceRecept());
             }
         }
 
-        SetButtonStates(tileObject, haveBuildingTile);
+        SetButtonStates(haveBuildingTile);
     }
 
 
@@ -192,31 +193,33 @@ public class SelectTilePanel : MonoBehaviour
         _buildingEcologyText.text = $"{Language.TextStatic[16]}{tileObject.TileEcology().GetEcology(GetEcologyEnum.Building)}";
     }
 
-    private void SetButtonStates(TileObject tileObject, bool haveBuildingNow)
+    private void SetButtonStates(bool haveBuildingNow)
     {
-        var currentGroundTile = tileObject.GroundTileObject().CurrentGroundTile();
-        var currentBuildingTile = haveBuildingNow ? tileObject.BuildingTileObject().CurrentBuildingTile() : null;
+        var currentGroundTile = _tileObject.GroundTileObject().CurrentGroundTile();
+        var buildingTile = _tileObject.BuildingTileObject();
+        var currentBuildingTile = haveBuildingNow ? buildingTile.CurrentBuildingTile() : null;
 
         var isRoad = currentGroundTile.GroundTileView == GroundTileViewEnum.Road;
-        var isForwardRoad = tileObject.GroundTileObject().IsForwardRoad();
+        var isForwardRoad = _tileObject.GroundTileObject().IsForwardRoad();
         var isBase = currentGroundTile.GroundTileView == GroundTileViewEnum.BaseFoundation;
         var isWater = currentGroundTile.IsWater;
         var haveProdictionResources = currentBuildingTile?.IsHaveProductionResources() ?? false;
-        var canUpgrade = tileObject.BuildingTileObject().IsCanUpgrade();
-        var isLastRiverTile = tileObject.GroundTileObject().GetLastRiverTile();
-        var canRepair = !tileObject.BuildingHealth().IsFullHealth();
+        var canUpgrade = buildingTile.IsCanUpgrade();
+        var isLastRiverTile = _tileObject.GroundTileObject().GetLastRiverTile();
+        var canRepair = !_tileObject.BuildingHealth().IsFullHealth();
         var groundHaveBuildings = currentGroundTile.BuildingTypes.Length > 0;
+        var isConstructionNow = buildingTile.ConstructionNow();
 
         bool canRepairOrUpgrade = !haveBuildingNow || canUpgrade || canRepair;
         bool notRoadOrForwardRoad = !isRoad || isForwardRoad;
 
         var haveRotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>() != null;
-        var haveRotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() && _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() != null;
+        var haveRotationViewBuilding = buildingTile.HaveTile() && buildingTile.HaveBuildingTileGameObject() && buildingTile.GetComponent<RotationView>() != null;
 
-        var onOffButtonState = haveBuildingNow && (haveProdictionResources || tileObject.BuildingTileObject().IsEcologyBuilding());
-        var buildButtonState = canRepairOrUpgrade && notRoadOrForwardRoad && groundHaveBuildings;
+        var onOffButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
+        var buildButtonState = canRepairOrUpgrade && notRoadOrForwardRoad && groundHaveBuildings && !isConstructionNow;
         var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
-        var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase;
+        var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase && !isConstructionNow;
         var robotButtonState = haveBuildingNow && isBase;
 
         _workButton.SetActive(onOffButtonState);
@@ -251,6 +254,7 @@ public class SelectTilePanel : MonoBehaviour
         if (_tileObject.GetId() == tileId)
         {
             CloseBuildPanelAndRefreshInfo();
+            SetInfo(_tileObject);
         }
     }
 

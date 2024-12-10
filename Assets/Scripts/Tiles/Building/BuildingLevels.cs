@@ -11,7 +11,6 @@ public class BuildingLevels : MonoBehaviour
     [SerializeField] private int _currentBuildingLevel;
     private BuildingProductionView _buildingProductionView;
     private TileObject _tileObject;
-    public int CurrentBuildingLevel() => _currentBuildingLevel;
     public TileObject CurrentTileObject() => _tileObject;
 
     private void Awake()

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthSlider : MonoBehaviour
+public class BaseSlider : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
     [SerializeField] private RectTransform _sliderTransform;
@@ -14,9 +14,9 @@ public class HealthSlider : MonoBehaviour
         _mainCamera = Camera.main;
     }
 
-    public void SetHealth(float health)
+    public void SetValue(float value)
     {
-        _slider.value = health;
+        _slider.value = value;
         CheckSliderActive();
     }
 
@@ -30,10 +30,15 @@ public class HealthSlider : MonoBehaviour
         _heightOffset = value;
     }
 
-    public void SetMaxHealth(float maxHealth)
+    public void SetupHealth(float maxValue)
     {
-        _slider.maxValue = maxHealth;
-        _slider.value = maxHealth;
+        _slider.maxValue = maxValue;
+        _slider.value = maxValue;
+    }
+
+    public void SetupConstruction(float maxValue)
+    {
+        _slider.maxValue = maxValue;
     }
 
     public void SetObjectTransform(Transform transform) => _objectTransform = transform;

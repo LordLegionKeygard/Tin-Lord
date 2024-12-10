@@ -86,7 +86,9 @@ public class BuildingItem : MonoBehaviour
             case BuildingState.FirstBuild:
                 if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase();
 
-                _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _buildingIndex, _currentTileObject); //спавним впервые здание на тайле определенного лвла
+                // _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _buildingIndex, _currentTileObject); //спавним впервые здание на тайле определенного лвла
+                _currentTileObject.BuildingTileObject().StartConstructingBuilding(_currentTile, _buildingIndex, _currentTileObject);
+                _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;
             case BuildingState.UpgradeBuilding:
                 _playerResources.AddResourcesAfterDestroyBuilding(_currentTileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild); // возвращаем часть ресурсов за прошлое здание
@@ -94,10 +96,10 @@ public class BuildingItem : MonoBehaviour
                 break;
             case BuildingState.Repair:
                 _currentTileObject.BuildingHealth().FullRepair();
+                _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;
         }
 
-        _selectTilePanel.CloseBuildPanelAndRefreshInfo();
     }
 
     public ResourcesForBuildWrapper[] GetResources()

@@ -15,7 +15,7 @@ public class RobotRepairState : RobotState
 
     public override RobotState Tick(RobotStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, RobotAttacks attacks, RobotSpeed playerSpeed)
     {
-        if (_targetBuilding == null || _targetBuilding.IsDeath() || _targetBuilding.IsFullHealth())
+        if (_targetBuilding == null || _targetBuilding.IsDeath() || _targetBuilding.IsFullHealth() || _targetBuilding.IsContructionNow())
         {
             animator.RepairAnimation(false);
             return _patrolState;

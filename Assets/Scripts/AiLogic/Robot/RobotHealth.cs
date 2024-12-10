@@ -43,8 +43,8 @@ public class RobotHealth : BaseHealth
         if (_healthSliderObject == null)
         {
             _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
-            _healthSlider = _healthSliderObject.GetComponent<HealthSlider>();
-            _healthSlider.SetMaxHealth(MaxHealth);
+            _healthSlider = _healthSliderObject.GetComponent<BaseSlider>();
+            _healthSlider.SetupHealth(MaxHealth);
             _healthSlider.SetHeightOffset(_sliderHeightOffset);
             _healthSlider.SetObjectTransform(transform);
         }

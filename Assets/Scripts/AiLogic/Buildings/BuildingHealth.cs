@@ -10,6 +10,8 @@ public class BuildingHealth : BaseHealth
     [SerializeField] private Transform _fourTileTransform;
     private BuildingTile _buildingTile;
     private TileObject _tileObject;
+    private bool _isConstructionNow;
+    public bool IsContructionNow() => _isConstructionNow;
     public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
     public bool IsFullHealth() => CurrentHealth == MaxHealth;
@@ -47,26 +49,27 @@ public class BuildingHealth : BaseHealth
         }
     }
 
-    private void CreateHealthBar()
+    private void CreateHealthSlider()
     {
         if (_healthSliderObject == null)
         {
             _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
-            _healthSlider = _healthSliderObject.GetComponent<HealthSlider>();
+            _healthSlider = _healthSliderObject.GetComponent<BaseSlider>();
             _healthSlider.SetHeightOffset(-3.5f);
             _healthSlider.SetObjectTransform(transform);
         }
 
-        _healthSlider.SetMaxHealth(MaxHealth);
+        _healthSlider.SetupHealth(MaxHealth);
     }
 
-    public void SetNewBuildingHealth(Building building)
+    public void SetNewBuildingHealth(Building building, bool isConstruction)
     {
         _isDeath = false;
+        _isConstructionNow = isConstruction;
         MaxHealth = building.BuildingHealth;
-        CurrentHealth = MaxHealth;
+        CurrentHealth = _isConstructionNow ? 1 : MaxHealth;
 
-        CreateHealthBar();
+        CreateHealthSlider();
         UpdateSlider();
     }
 
@@ -74,8 +77,22 @@ public class BuildingHealth : BaseHealth
     {
         if (!_buildingTile.HaveTile()) return;
         if (IsDeath()) return;
-        TakeDamage(damage, knockBackPoints);
+
+        var extraDamage = _isConstructionNow ? 3 : 1;
+        TakeDamage(damage * extraDamage, knockBackPoints);
         CustomEvents.FireBuildingTakeDamage(_tileObject.GetId());
+    }
+
+    public void ConstructionIncreaseHealth(float amount)
+    {
+        if (IsDeath()) return;
+
+        CurrentHealth += amount;
+        if (CurrentHealth > MaxHealth)
+        {
+            CurrentHealth = MaxHealth;
+        }
+        UpdateSlider();
     }
 
     public override void Death()
@@ -86,7 +103,6 @@ public class BuildingHealth : BaseHealth
         }
 
         base.Death();
-        //тут логика для отключения всего
         _tileObject.ToggleIsBuildingDestroyedNow(true);
         CustomEvents.FireBuildingDestroyed(_tileObject.GetId());
         StartCoroutine(FadeAndDestroy());
@@ -96,16 +112,20 @@ public class BuildingHealth : BaseHealth
     {
         var spawnPos = _buildingTile.CurrentBuildingTile().IsFourTile ? _fourTileTransform.position : transform.position;
         Instantiate(_buildingTile.CurrentBuilding().DestroyVFXPrefab, spawnPos, Quaternion.identity);
-        float duration = 5f;
-        float elapsedTime = 0f;
-        Vector3 startPosition = _buildingTile.CurrentBuildingTileObject().transform.position;
-        Vector3 targetPosition = new Vector3(startPosition.x, startPosition.y - 12, startPosition.z);
 
-        while (elapsedTime < duration)
+        if (!_isConstructionNow)
         {
-            _buildingTile.CurrentBuildingTileObject().transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            float duration = 5f;
+            float elapsedTime = 0f;
+            Vector3 startPosition = _buildingTile.CurrentBuildingTileObject().transform.position;
+            Vector3 targetPosition = new Vector3(startPosition.x, startPosition.y - 12, startPosition.z);
+
+            while (elapsedTime < duration)
+            {
+                _buildingTile.CurrentBuildingTileObject().transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
         }
 
         _buildingTile.DestroyBuildingTile(IsDeath());

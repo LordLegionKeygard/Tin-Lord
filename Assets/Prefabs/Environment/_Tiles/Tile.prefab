@@ -190,9 +190,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28878902da99b9488beb309e755a157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _constructionSliderPrefab: {fileID: 404669213447232347, guid: 2ae9554a078b6f144b58673c99c1d010,
+    type: 3}
   _currentBuildingTile: {fileID: 0}
   _buildingParent: {fileID: 1685772399035195807}
-  _currentBuildingTileObject: {fileID: 0}
+  _currentBuildingTileGameObject: {fileID: 0}
   _buildingLevels: {fileID: 0}
 --- !u!114 &8647205754676832079
 MonoBehaviour:

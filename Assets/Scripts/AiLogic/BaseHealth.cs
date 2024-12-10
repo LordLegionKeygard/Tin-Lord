@@ -5,7 +5,7 @@ public class BaseHealth : MonoBehaviour
     public float MaxHealth;
     public float CurrentHealth;
     protected bool _isDeath;
-    protected HealthSlider _healthSlider;
+    protected BaseSlider _healthSlider;
     protected GameObject _healthSliderObject;
 
     public virtual Tile BuildingTile() => null;
@@ -30,7 +30,7 @@ public class BaseHealth : MonoBehaviour
     public virtual void UpdateSlider()
     {
         if (IsDeath()) return;
-        _healthSlider.SetHealth(CurrentHealth);
+        _healthSlider.SetValue(CurrentHealth);
         CheckDeath();
     }
 
