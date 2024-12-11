@@ -34,7 +34,7 @@ public class BuildingTile : MonoBehaviour
       _buildingTileProtective = GetComponent<BuildingTileProtective>();
    }
 
-   public void StartConstructingBuilding(Tile tile, int level, TileObject tileObject)
+   public void FirstConstructingBuilding(Tile tile, int level, TileObject tileObject)
    {
       _isConstructionNow = true;
       _currentBuildingTile = tile;
@@ -65,10 +65,10 @@ public class BuildingTile : MonoBehaviour
       }
 
       _isConstructionNow = false;
-      SpawnBuildingTile();
+      FirstSpawnBuilding();
    }
 
-   public void SpawnBuildingTile()
+   public void FirstSpawnBuilding()
    {
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase();
 
@@ -89,20 +89,54 @@ public class BuildingTile : MonoBehaviour
       _currentTileObject.CheckResourceRequired(true);
    }
 
-   public void UpgradeBuildingTile(int level, TileObject tileObject)
+   public void UpgradeConstructingBuilding(int newLevel, TileObject tileObject)
    {
+      _isConstructionNow = true;
       _currentTileObject = tileObject;
+      float constructionTime = _currentBuildingTile.Buildings[newLevel - 1].ConstructionTime;
 
-      _buildingLevels.SetBuildingLevelView(level, tileObject);
+      _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), isConstruction: true);
+      StartCoroutine(UpgradeBuildingTimer(constructionTime, newLevel));
+   }
+
+   private IEnumerator UpgradeBuildingTimer(float constructionTime, int newLevel)
+   {
+      float elapsed = 0f;
+
+      while (elapsed < constructionTime)
+      {
+         if (_buildingHealth.IsDeath())
+         {
+            _isConstructionNow = false;
+            yield break;
+         }
+
+         elapsed += Time.deltaTime;
+         float healthIncrement = _buildingHealth.MaxHealth / constructionTime * Time.deltaTime;
+         _buildingHealth.ConstructionIncreaseHealth(healthIncrement);
+         yield return null;
+      }
+
+      _isConstructionNow = false;
+      UpgradeBuilding(newLevel, _currentLevel);
+   }
+
+   public void UpgradeBuilding(int newLevel, int oldLevel)
+   {
+      _currentLevel = newLevel;
+
+      _buildingLevels.SetBuildingLevelView(_currentLevel, _currentTileObject);
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
-      CustomEvents.FireChangeEcology(tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), tileObject.GetId(), false);
+      CustomEvents.FireChangeEcology(_currentTileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _currentTileObject.GetId(), false);
       _buildingLevels.SetBuildingProductionView();
-      if (CurrentBuilding().ResourcesProduction.Length != 0) tileObject.SetResourceProduction(tileObject.CurrentResourceProduction(), tileObject.CurrentResourceRecept());
+      if (CurrentBuilding().ResourcesProduction.Length != 0) _currentTileObject.SetResourceProduction(_currentTileObject.CurrentResourceProduction(), _currentTileObject.CurrentResourceRecept());
 
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), false);
 
       if (IsProtectiveTile()) UpdateProtectiveTiles();
-      tileObject.CheckResourceRequired(true);
+      _currentTileObject.CheckResourceRequired(true);
+
+      _playerResources.AddResourcesAfterDestroyBuilding(_currentTileObject.BuildingTileObject()._currentBuildingTile.Buildings[oldLevel - 1].ResourcesForBuild); // возвращаем часть ресурсов за прошлое здание
    }
 
    private void UpdateProtectiveTiles()

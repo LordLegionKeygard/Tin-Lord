@@ -84,22 +84,17 @@ public class BuildingItem : MonoBehaviour
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
-                if (_currentTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase();
-
-                // _currentTileObject.BuildingTileObject().SpawnBuildingTile(_currentTile, _buildingIndex, _currentTileObject); //спавним впервые здание на тайле определенного лвла
-                _currentTileObject.BuildingTileObject().StartConstructingBuilding(_currentTile, _buildingIndex, _currentTileObject);
-                _selectTilePanel.CloseBuildPanelAndRefreshInfo();
+                _currentTileObject.BuildingTileObject().FirstConstructingBuilding(_currentTile, _buildingIndex, _currentTileObject);
                 break;
             case BuildingState.UpgradeBuilding:
-                _playerResources.AddResourcesAfterDestroyBuilding(_currentTileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild); // возвращаем часть ресурсов за прошлое здание
-                _currentTileObject.BuildingTileObject().UpgradeBuildingTile(_buildingIndex, _currentTileObject); //улучшаем здание
+                _currentTileObject.BuildingTileObject().UpgradeConstructingBuilding(_buildingIndex, _currentTileObject);
                 break;
             case BuildingState.Repair:
                 _currentTileObject.BuildingHealth().FullRepair();
-                _selectTilePanel.CloseBuildPanelAndRefreshInfo();
                 break;
         }
 
+        _selectTilePanel.CloseBuildPanelAndRefreshInfo();
     }
 
     public ResourcesForBuildWrapper[] GetResources()
