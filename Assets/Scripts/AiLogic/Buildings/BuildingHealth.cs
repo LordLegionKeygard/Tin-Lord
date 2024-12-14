@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
 
@@ -15,7 +14,8 @@ public class BuildingHealth : BaseHealth
     public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
     public bool IsFullHealth() => CurrentHealth == MaxHealth;
-    public float GetHealthPercent(int percent) => MaxHealth * percent / 100;
+    public float CalculateHealthFromPercent(int percent) => MaxHealth * percent / 100;
+    public float GetCurrentHealthPercent() => CurrentHealth / MaxHealth;
     public TileObject GetTileObject() => _tileObject;
 
     public override bool IsDeath()

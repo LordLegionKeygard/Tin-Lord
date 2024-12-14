@@ -15,6 +15,7 @@ public class ChangeLanguage : MonoBehaviour
         _resourceTypesPanel[0].text = Language.TextStatic[7];
         _resourceTypesPanel[1].text = Language.TextStatic[8];
         _resourceTypesPanel[2].text = Language.TextStatic[9];
+        _resourceTypesPanel[3].text = Language.TextStatic[17];
 
         _receptText.text = Language.TextStatic[1];
         _robotPanelText.text = Language.TextStatic[21];

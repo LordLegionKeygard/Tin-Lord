@@ -35,12 +35,15 @@ public class PlayerResources : MonoBehaviour
         UpdateAllTexts();
     }
 
-    public void AddResourcesAfterDestroyBuilding(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
+    public void AddResourcesAfterDestroyBuilding(ResourcesForBuildWrapper[] resourcesForBuildWrapper, float buildingHealthPercent)
     {
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
-            _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourcesForBuild].Amount += resourcesForBuildWrapper[i].RecourcesForBuildAmount / 2;
+            float healthFactor = Mathf.Clamp01(buildingHealthPercent); // Убеждаемся, что значение в пределах [0, 1]
+            float returnedAmount = resourcesForBuildWrapper[i].RecourcesForBuildAmount / 2 * healthFactor;
+            _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourcesForBuild].Amount += returnedAmount;
         }
+
         UpdateAllTexts();
     }
 

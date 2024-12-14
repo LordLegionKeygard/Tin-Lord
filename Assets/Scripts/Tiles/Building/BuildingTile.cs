@@ -16,6 +16,7 @@ public class BuildingTile : MonoBehaviour
    private TileObject _currentTileObject;
    private int _currentLevel;
    private bool _isConstructionNow;
+   private float _previousBuildingHealthPercent;
    public bool ConstructionNow() => _isConstructionNow;
    public bool HaveTile() => _currentBuildingTile != null;
    public Tile CurrentBuildingTile() => _currentBuildingTile;
@@ -94,6 +95,7 @@ public class BuildingTile : MonoBehaviour
       _isConstructionNow = true;
       _currentTileObject = tileObject;
       float constructionTime = _currentBuildingTile.Buildings[newLevel - 1].ConstructionTime;
+      _previousBuildingHealthPercent = tileObject.BuildingHealth().GetCurrentHealthPercent();
 
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), isConstruction: true);
       StartCoroutine(UpgradeBuildingTimer(constructionTime, newLevel));
@@ -121,7 +123,7 @@ public class BuildingTile : MonoBehaviour
       UpgradeBuilding(newLevel, _currentLevel);
    }
 
-   public void UpgradeBuilding(int newLevel, int oldLevel)
+   public void UpgradeBuilding(int newLevel, int previousLevel)
    {
       _currentLevel = newLevel;
 
@@ -136,7 +138,9 @@ public class BuildingTile : MonoBehaviour
       if (IsProtectiveTile()) UpdateProtectiveTiles();
       _currentTileObject.CheckResourceRequired(true);
 
-      _playerResources.AddResourcesAfterDestroyBuilding(_currentTileObject.BuildingTileObject()._currentBuildingTile.Buildings[oldLevel - 1].ResourcesForBuild); // возвращаем часть ресурсов за прошлое здание
+      var previousBuilding = _currentTileObject.BuildingTileObject()._currentBuildingTile.Buildings[previousLevel - 1].ResourcesForBuild;
+
+      _playerResources.AddResourcesAfterDestroyBuilding(previousBuilding, _previousBuildingHealthPercent); // возвращаем часть ресурсов за прошлое здание
    }
 
    private void UpdateProtectiveTiles()
@@ -176,7 +180,7 @@ public class BuildingTile : MonoBehaviour
    {
       if (_currentBuildingTile == null) return;
 
-      if (!isDeath) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild);
+      if (!isDeath) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
 
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.PretectiveStructures)
       {

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 0;
+    public static int LanguageNumber = 1;
     private string[,] _text = new string[100, 2];
     public static string[] TextStatic = new string[100];
 
@@ -78,8 +78,8 @@ public class Language : MonoBehaviour
         _text[16, 0] = "Building ecology: ";
         _text[16, 1] = "Экология здания: ";
 
-        _text[17, 0] = "";
-        _text[17, 1] = "";
+        _text[17, 0] = "Other";
+        _text[17, 1] = "Другое";
 
         _text[18, 0] = "Durability: ";
         _text[18, 1] = "Прочность: ";

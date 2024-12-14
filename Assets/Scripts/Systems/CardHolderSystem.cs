@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 public class CardHolderSystem : MonoBehaviour
 {
+    [Inject] PlayerResources _playerResources;
+
     [Header("Test")]
     [SerializeField] private bool _addAllCards;
     [SerializeField] private bool _dontRemoveCards;
@@ -117,6 +120,7 @@ public class CardHolderSystem : MonoBehaviour
                 {
                     cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.Linear).SetUpdate(true).OnComplete(() =>
                     {
+                        _playerResources.ChangeResource(ResourceEnum.RefinedEnergy, 0.5f);
                         Destroy(cardToRemove.gameObject);
                     });
                 }));

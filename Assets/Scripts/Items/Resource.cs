@@ -17,6 +17,7 @@ public enum ResourceType
     Resource = 0,
     Material = 1,
     Component = 2,
+    Other = 3,
 }
 
 public enum ResourceEnum
@@ -45,4 +46,5 @@ public enum ResourceEnum
     Engine = 20,
     ElectricEngine = 21,
     MemoryFragment = 22,
+    RefinedEnergy = 23,
 }

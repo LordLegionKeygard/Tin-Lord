@@ -37,7 +37,7 @@ public class MeteorStrikeDayEvent : BaseDayEvent
     {
         yield return new WaitForSeconds(_delay);
 
-        TileObject().BuildingHealth().CalculateDamage(TileObject().BuildingHealth().GetHealthPercent(_meteorDamagePercent));
+        TileObject().BuildingHealth().CalculateDamage(TileObject().BuildingHealth().CalculateHealthFromPercent(_meteorDamagePercent));
     }
 
     private IEnumerator DestroyBuildingCoroutine()
