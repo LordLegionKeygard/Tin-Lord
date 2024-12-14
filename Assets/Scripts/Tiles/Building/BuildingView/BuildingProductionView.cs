@@ -75,7 +75,7 @@ public class BuildingProductionView : MonoBehaviour
         {
             SetMainView(false);
         }
-        _selectTilePanel.RefreshShowInfo(_tileObject.GetId());
+        _selectTilePanel.RefreshInfoAfterTakeDamage(_tileObject.GetId());
         if (_needSetResourceView) SetResourceView();
     }
 

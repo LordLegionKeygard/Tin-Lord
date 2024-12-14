@@ -14,6 +14,7 @@ public class Tile : ScriptableObject
 
     [Header("Ground")]
     public GroundTileViewEnum GroundTileView;
+    public int EnergyBeam;
     public int GroundEcology;
     public bool IsWater;
     public bool IsFourTile;

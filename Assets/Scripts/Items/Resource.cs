@@ -46,5 +46,5 @@ public enum ResourceEnum
     Engine = 20,
     ElectricEngine = 21,
     MemoryFragment = 22,
-    RefinedEnergy = 23,
+    BeamEnergy = 23,
 }

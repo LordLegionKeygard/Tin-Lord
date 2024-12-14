@@ -164,7 +164,7 @@ public class TileObject : MonoBehaviour
         _currentResourceRecept = resourceRecept;
         SetResourceModifier();
         ChangeResourceProduction();
-        _selectTilePanel.SetInfo(this);
+        _selectTilePanel.RefreshInfo();
         CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount, _currentResourceRecept);
     }
 }

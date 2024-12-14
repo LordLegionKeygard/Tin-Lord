@@ -212,7 +212,8 @@ public class TileDetector : MonoBehaviour
             _currentTileObject = newTileObject;
             _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.TileSelect);
             _uiPanels.PanelsViewToggle(true, false);
-            _selectTilePanel.SetInfo(_currentTileObject);
+            _selectTilePanel.SetTile(_currentTileObject);
+            _selectTilePanel.RefreshInfo();
         }
     }
 

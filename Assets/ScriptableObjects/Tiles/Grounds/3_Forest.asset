@@ -20,12 +20,10 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 6c4828f65c3432e428d697f754a589f2, type: 3}
   TileTypeEnum: 0
   GroundTileView: 4
+  EnergyBeam: 14
   GroundEcology: 5
   IsWater: 0
   IsFourTile: 0
-  IsTurret: 0
-  IsProtective: 0
-  IsEcologyBuilding: 0
   BuildingTypes:
   - {fileID: 11400000, guid: af5bae1ce98b11748b6ce75629ca4056, type: 2}
   - {fileID: 11400000, guid: 806c4d977d8c2bd48861a74945b2872b, type: 2}

@@ -45,14 +45,14 @@ public class SelectTilePanel : MonoBehaviour
 
     private void Start()
     {
-        CustomEvents.OnBuildingTakeDamage += RefreshShowInfo;
+        CustomEvents.OnBuildingTakeDamage += RefreshInfoAfterTakeDamage;
         CustomEvents.OnRobotFullRepairBuilding += CheckBuildingRepairFromRobot;
     }
 
-    public void RefreshShowInfo(int tileId)
+    public void RefreshInfoAfterTakeDamage(int tileId)
     {
         if (_tileObject == null || _tileObject.GetId() != tileId) return;
-        SetInfo(_tileObject);
+        RefreshInfo();
     }
 
     public void PanelViewToggle(bool state)
@@ -83,36 +83,38 @@ public class SelectTilePanel : MonoBehaviour
         Clear();
     }
 
-    public void SetInfo(TileObject tileObject)
+    public void SetTile(TileObject tileObject)
     {
         _tileObject = tileObject;
+    }
 
-        var buildingTileObject = tileObject.BuildingTileObject();
+    public void RefreshInfo()
+    {
+        var buildingTileObject = _tileObject.BuildingTileObject();
         var buildingTile = buildingTileObject.CurrentBuildingTile();
         var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingTileGameObject();
         var currentBuilding = haveBuildingTile ? buildingTileObject.CurrentBuilding() : null;
 
-        SetTextFields(tileObject, buildingTile, haveBuildingTile, currentBuilding);
-        SetProductionText(tileObject, buildingTile, haveBuildingTile, currentBuilding);
-        SetRequiredText(tileObject, buildingTile, haveBuildingTile);
-        SetEcologyTexts(tileObject);
+        SetTextFields(_tileObject, buildingTile, haveBuildingTile, currentBuilding);
+        SetProductionText(_tileObject, buildingTile, haveBuildingTile, currentBuilding);
+        SetRequiredText(_tileObject, buildingTile, haveBuildingTile);
+        SetEcologyTexts(_tileObject);
         _uiPanels.SetRequiredResourcePanelVisibility(haveBuildingTile, currentBuilding);
         _uiPanels.SetProductionResourcePanelVisibility(haveBuildingTile, currentBuilding);
-        _uiPanels.SetReceptPanelVisibility(haveBuildingTile, tileObject.CurrentResourceRecept());
-        _uiPanels.SetBuildTypesPanelAndLineVisibility(false);
+        _uiPanels.SetReceptPanelVisibility(haveBuildingTile, _tileObject.CurrentResourceRecept());
         SetOnOffButtonColor();
 
         if (haveBuildingTile)
         {
-            if (tileObject.CurrentResourceRequired() != null)
+            if (_tileObject.CurrentResourceRequired() != null)
             {
                 _requiredResourcePanel.UpdateButtonsView(_tileObject);
             }
 
             if (buildingTile.IsHaveProductionResources())
             {
-                _productionResourcePanel.SetButtonView(buildingTileObject.CurrentBuilding(), tileObject.CurrentResourceProduction());
-                _receptPanel.UpdateReceptView(tileObject.CurrentResourceRecept());
+                _productionResourcePanel.SetButtonView(buildingTileObject.CurrentBuilding(), _tileObject.CurrentResourceProduction());
+                _receptPanel.UpdateReceptView(_tileObject.CurrentResourceRecept());
             }
         }
 
@@ -254,7 +256,7 @@ public class SelectTilePanel : MonoBehaviour
         if (_tileObject.GetId() == tileId)
         {
             CloseBuildPanelAndRefreshInfo();
-            SetInfo(_tileObject);
+            RefreshInfo();
         }
     }
 
@@ -311,7 +313,7 @@ public class SelectTilePanel : MonoBehaviour
         _uiPanels.TogglePanel(UIPanelsEnum.BuildsPanel, false);
         _uiPanels.SetBuildTypesPanelAndLineVisibility(false);
         PanelViewToggle(true);
-        SetInfo(_tileObject);
+        RefreshInfo();
     }
 
     public void ChangeResourceRequired(Resource resource)
@@ -341,7 +343,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnBuildingTakeDamage -= RefreshShowInfo;
+        CustomEvents.OnBuildingTakeDamage -= RefreshInfoAfterTakeDamage;
         CustomEvents.OnRobotFullRepairBuilding -= CheckBuildingRepairFromRobot;
     }
 }
