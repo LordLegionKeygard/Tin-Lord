@@ -117,18 +117,18 @@ public class BuildingHealth : BaseHealth
         {
             float duration = 5f;
             float elapsedTime = 0f;
-            Vector3 startPosition = _buildingTile.CurrentBuildingTileObject().transform.position;
+            Vector3 startPosition = _buildingTile.CurrentBuildingTileGameObject().transform.position;
             Vector3 targetPosition = new Vector3(startPosition.x, startPosition.y - 12, startPosition.z);
 
             while (elapsedTime < duration)
             {
-                _buildingTile.CurrentBuildingTileObject().transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+                _buildingTile.CurrentBuildingTileGameObject().transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
         }
 
-        _buildingTile.DestroyBuildingTile(IsDeath());
+        _buildingTile.DestroyBuildingTile(CurrentHealth > 0);
         _tileObject.ToggleIsBuildingDestroyedNow(false);
     }
 }

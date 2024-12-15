@@ -127,11 +127,11 @@ public class PlayerInputSystem : MonoBehaviour
 
         //SelectTilePanel
         _selectNumbers = new SelectNumbers(OnNumberInput);
-        _buildTileButton = new BuildTileButton(_selectTilePanel.BuildOnTile);
-        _rotateTileButton = new RotateTileButton(_selectTilePanel.RotateTile);
-        _destroyTileButton = new DestroyTileButton(_selectTilePanel.DestroyTile);
-        _workTileButton = new WorkTileButton(_selectTilePanel.ToggleBuildingWork);
-        _robotPanelButton = new RobotPanelButton(_selectTilePanel.RobotPanelOpen);
+        _buildTileButton = new BuildTileButton(_selectTilePanel.BuildButton);
+        _rotateTileButton = new RotateTileButton(_selectTilePanel.RotateButton);
+        _destroyTileButton = new DestroyTileButton(_selectTilePanel.DestroyButton);
+        _workTileButton = new WorkTileButton(_selectTilePanel.ToggleBuildingWorkButton);
+        _robotPanelButton = new RobotPanelButton(_selectTilePanel.RobotPanelButton);
     }
 
     private void OnNumberInput(InputAction.CallbackContext context)

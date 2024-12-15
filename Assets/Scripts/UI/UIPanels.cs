@@ -13,7 +13,7 @@ public class UIPanels : MonoBehaviour
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private RobotPanel _robotPanel;
 
-    public void PanelsViewToggle(bool selectTilePanel, bool robotPanel)
+    public void MainPanelsViewToggle(bool selectTilePanel, bool robotPanel)
     {
         _selectTilePanel.PanelViewToggle(selectTilePanel);
         _robotPanel.PanelViewToggle(robotPanel);
@@ -84,6 +84,18 @@ public class UIPanels : MonoBehaviour
         _panels[10].SetActive(state);
         _panels[9].SetActive(state);
     }
+
+    public void CloseAllBuildsPanels()
+    {
+        SetBuildTypesPanelAndLineVisibility(false);
+        TogglePanel(UIPanelsEnum.BuildsPanel, false);
+    }
+
+    public void CloseAllBuildsAndDestroyPanel()
+    {
+        CloseAllBuildsPanels();
+        TogglePanel(UIPanelsEnum.DestroyPanel, false);
+    }
 }
 
 public enum UIPanelsEnum
@@ -100,4 +112,5 @@ public enum UIPanelsEnum
     ReceptPanelLine = 8,
     ButtonsPanel = 9,
     BuildingLine = 10,
+    DestroyPanel = 11,
 }

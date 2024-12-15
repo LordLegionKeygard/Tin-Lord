@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 0;
+    public static int LanguageNumber = 1;
     private string[,] _text = new string[100, 2];
     public static string[] TextStatic = new string[100];
 
@@ -92,6 +92,18 @@ public class Language : MonoBehaviour
 
         _text[21, 0] = "Robots";
         _text[21, 1] = "Роботы";
+
+        _text[22, 0] = "Demolish the building?";
+        _text[22, 1] = "Разрушить здание?";
+
+        _text[23, 0] = "After destruction you will receive:";
+        _text[23, 1] = "После разрушения вы получите:";
+
+        _text[24, 0] = "Destroy the landscape?";
+        _text[24, 1] = "Уничтожить ландшафт?";
+
+        _text[25, 0] = "Destruction requires:";
+        _text[25, 1] = "Для уничтожения требуется:";
 
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];

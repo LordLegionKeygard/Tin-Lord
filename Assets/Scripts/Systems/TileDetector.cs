@@ -210,7 +210,7 @@ public class TileDetector : MonoBehaviour
         {
             _currentTileObject = newTileObject;
             _currentTileObject.GroundTileObject().SelectTile(true);
-            _uiPanels.PanelsViewToggle(true, false);
+            _uiPanels.MainPanelsViewToggle(true, false);
             _selectTilePanel.SetTile(_currentTileObject);
             _selectTilePanel.RefreshInfo();
         }
@@ -221,7 +221,7 @@ public class TileDetector : MonoBehaviour
         if (_currentTileObject != null)
         {
             _currentTileObject.GroundTileObject().SelectTile(false);
-            if (isPanelView) _uiPanels.PanelsViewToggle(false, false);
+            if (isPanelView) _uiPanels.MainPanelsViewToggle(false, false);
         }
     }
 
@@ -235,7 +235,7 @@ public class TileDetector : MonoBehaviour
             if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(false);
             if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(false);
             if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(false);
-            if (isPanelView) _uiPanels.PanelsViewToggle(false, false);
+            if (isPanelView) _uiPanels.MainPanelsViewToggle(false, false);
         }
     }
 

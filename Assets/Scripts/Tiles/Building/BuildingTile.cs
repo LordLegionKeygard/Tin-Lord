@@ -20,7 +20,7 @@ public class BuildingTile : MonoBehaviour
    public bool ConstructionNow() => _isConstructionNow;
    public bool HaveTile() => _currentBuildingTile != null;
    public Tile CurrentBuildingTile() => _currentBuildingTile;
-   public GameObject CurrentBuildingTileObject() => _currentBuildingTileGameObject;
+   public GameObject CurrentBuildingTileGameObject() => _currentBuildingTileGameObject;
    public bool HaveBuildingTileGameObject() => _currentBuildingTileGameObject != null;
    public int CurrentBuildingLevel() => _currentLevel;
    public Building CurrentBuilding() => _currentBuildingTile.Buildings[_currentLevel - 1];
@@ -176,11 +176,11 @@ public class BuildingTile : MonoBehaviour
       return true;
    }
 
-   public void DestroyBuildingTile(bool isDeath)
+   public void DestroyBuildingTile(bool needReturnResources)
    {
       if (_currentBuildingTile == null) return;
 
-      if (!isDeath) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
+      if (needReturnResources) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
 
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.PretectiveStructures)
       {

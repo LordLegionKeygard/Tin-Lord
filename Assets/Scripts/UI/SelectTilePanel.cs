@@ -2,14 +2,18 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 using UnityEngine.UI;
+using Zenject;
 
 public class SelectTilePanel : MonoBehaviour
 {
-    [Header("Main")]
+    [Inject] private PlayerResources _playerResources;
+
+    [Header("Panels")]
     [SerializeField] private RobotPanel _robotPanel;
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanels _uiPanels;
+    [SerializeField] private DestroyPanel _destroyPanel;
 
     [Header("Objects")]
     [SerializeField] private GameObject _buildButton;
@@ -18,7 +22,10 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private GameObject _destroyButton;
     [SerializeField] private GameObject _robotButton;
     [SerializeField] private RectTransform _objectTransform;
-    [SerializeField] private Image _onOffImage;
+
+    [Header("Button Icons")]
+    [SerializeField] private Image _workButtonIcon;
+    [SerializeField] private Image _destroyButtonIcon;
 
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI _groundTileNameText;
@@ -46,13 +53,14 @@ public class SelectTilePanel : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnBuildingTakeDamage += RefreshInfoAfterTakeDamage;
-        CustomEvents.OnRobotFullRepairBuilding += CheckBuildingRepairFromRobot;
+        CustomEvents.OnRobotFullRepairBuilding += CheckBuildingFullRepairFromRobot;
     }
 
     public void RefreshInfoAfterTakeDamage(int tileId)
     {
         if (_tileObject == null || _tileObject.GetId() != tileId) return;
         RefreshInfo();
+        RefreshDestroyPanelInfoAfterBuildingTakeDamage();
     }
 
     public void PanelViewToggle(bool state)
@@ -69,7 +77,6 @@ public class SelectTilePanel : MonoBehaviour
 
     private void ShowInfoPanel()
     {
-        _uiPanels.TogglePanel(UIPanelsEnum.BuildTypesPanel, false);
         _objectTransform.DOAnchorPosY(0, 0.3f).SetUpdate(true);
     }
 
@@ -77,8 +84,7 @@ public class SelectTilePanel : MonoBehaviour
     {
         _objectTransform.DOAnchorPosY(-700, 0.3f).SetUpdate(true);
 
-        _uiPanels.SetBuildTypesPanelAndLineVisibility(false);
-        _uiPanels.TogglePanel(UIPanelsEnum.BuildsPanel, false);
+        _uiPanels.CloseAllBuildsAndDestroyPanel();
 
         Clear();
     }
@@ -104,7 +110,8 @@ public class SelectTilePanel : MonoBehaviour
         _uiPanels.SetRequiredResourcePanelVisibility(haveBuildingTile, currentBuilding);
         _uiPanels.SetProductionResourcePanelVisibility(haveBuildingTile, currentBuilding);
         _uiPanels.SetReceptPanelVisibility(haveBuildingTile, _tileObject.CurrentResourceRecept());
-        SetOnOffButtonColor();
+        WorkButtonIconChangeColor();
+        DestroyButtonChangeColor();
 
         if (haveBuildingTile)
         {
@@ -124,9 +131,9 @@ public class SelectTilePanel : MonoBehaviour
     }
 
 
-    private void SetOnOffButtonColor()
+    private void WorkButtonIconChangeColor()
     {
-        _onOffImage.color = _tileObject.IsBuildingWork() ? Colors.Grey : Color.black;
+        _workButtonIcon.color = _tileObject.IsBuildingWork() ? Colors.Grey : Color.black;
     }
 
     private void SetTextFields(TileObject tileObject, Tile tile, bool haveBuildingTile, Building building)
@@ -235,9 +242,23 @@ public class SelectTilePanel : MonoBehaviour
         _uiPanels.SetButtonsPanelVisibility(onOffButtonState || buildButtonState || destroyButtonState);
     }
 
-    public void BuildOnTile()
+    private void CheckBuildingFullRepairFromRobot(int tileId)
+    {
+        if (_tileObject == null) return;
+
+        if (_tileObject.GetId() == tileId)
+        {
+            CloseBuildPanelAndRefreshInfo();
+            RefreshInfo();
+        }
+    }
+
+    public void BuildButton()
     {
         if (!_buildButton.activeInHierarchy || _tileObject == null) return;
+
+        _uiPanels.TogglePanel(UIPanelsEnum.DestroyPanel, false);
+        DestroyButtonChangeColor();
 
         if (!_tileObject.BuildingTileObject().HaveTile() && !_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildTypesPanel))
         {
@@ -251,25 +272,14 @@ public class SelectTilePanel : MonoBehaviour
         }
     }
 
-    private void CheckBuildingRepairFromRobot(int tileId)
-    {
-        if (_tileObject == null) return;
-
-        if (_tileObject.GetId() == tileId)
-        {
-            CloseBuildPanelAndRefreshInfo();
-            RefreshInfo();
-        }
-    }
-
-    public void ToggleBuildingWork()
+    public void ToggleBuildingWorkButton()
     {
         if (!_workButton.activeInHierarchy || _tileObject == null) return;
 
         if (_tileObject.BuildingTileObject().IsEcologyBuilding() && !_tileObject.IsHaveRequiredResource()) return;
 
         _tileObject.SetBuildingWork(!_tileObject.IsBuildingWork());
-        SetOnOffButtonColor();
+        WorkButtonIconChangeColor();
 
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
 
@@ -277,33 +287,62 @@ public class SelectTilePanel : MonoBehaviour
         CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork() ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());
     }
 
-    public void RotateTile()
+    public void RotateButton()
     {
         if (!_rotateButton.activeInHierarchy || _tileObject == null) return;
 
         var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
-        var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileObject().GetComponent<RotationView>() : null;
+        var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileGameObject().GetComponent<RotationView>() : null;
 
         if (rotationViewGround != null) rotationViewGround.Rotate();
         if (rotationViewBuilding != null) rotationViewBuilding.Rotate();
     }
 
-    public void DestroyTile()
+    public void DestroyButton()
     {
         if (!_destroyButton.activeInHierarchy || _tileObject == null) return;
 
-        if (!_tileObject.BuildingTileObject().HaveTile())
+        _uiPanels.CloseAllBuildsPanels();
+
+        if (!_destroyPanel.gameObject.activeInHierarchy)
         {
-            _tileObject.GroundTileObject().DestroyGroundTile();
-            PanelViewToggle(false);
+            _destroyPanel.gameObject.SetActive(true);
+            DestroyButtonChangeColor();
+            _destroyPanel.SetInfo(_tileObject.BuildingTileObject().HaveTile(), _tileObject);
+            return;
         }
-        else
+
+        var groundTileObject = _tileObject.GroundTileObject();
+
+        if (_tileObject.BuildingTileObject().HaveTile())
         {
             _tileObject.BuildingHealth().Death();
         }
+        else if (!_tileObject.BuildingTileObject().HaveTile() && _playerResources.ResourceEnough(ResourceEnum.BeamEnergy, groundTileObject.CurrentGroundTile().EnergyBeam))
+        {
+            _playerResources.ChangeResource(ResourceEnum.BeamEnergy, -groundTileObject.CurrentGroundTile().EnergyBeam);
+            groundTileObject.DestroyGroundTile();
+            PanelViewToggle(false);
+        }
+
+        _destroyPanel.gameObject.SetActive(false);
+        DestroyButtonChangeColor();
     }
 
-    public void RobotPanelOpen()
+    private void DestroyButtonChangeColor()
+    {
+        _destroyButtonIcon.color = _destroyPanel.gameObject.activeInHierarchy ? Colors.WarningYellow : Colors.Grey;
+    }
+
+    private void RefreshDestroyPanelInfoAfterBuildingTakeDamage()
+    {
+        if (_destroyPanel.gameObject.activeInHierarchy && _tileObject.BuildingTileObject().HaveTile())
+        {
+            _destroyPanel.SetInfo(_tileObject.BuildingTileObject().HaveTile(), _tileObject);
+        }
+    }
+
+    public void RobotPanelButton()
     {
         PanelViewToggle(false);
         _robotPanel.PanelViewToggle(true);
@@ -312,8 +351,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void CloseBuildPanelAndRefreshInfo()
     {
-        _uiPanels.TogglePanel(UIPanelsEnum.BuildsPanel, false);
-        _uiPanels.SetBuildTypesPanelAndLineVisibility(false);
+        _uiPanels.CloseAllBuildsPanels();
         PanelViewToggle(true);
         RefreshInfo();
     }
@@ -346,6 +384,6 @@ public class SelectTilePanel : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnBuildingTakeDamage -= RefreshInfoAfterTakeDamage;
-        CustomEvents.OnRobotFullRepairBuilding -= CheckBuildingRepairFromRobot;
+        CustomEvents.OnRobotFullRepairBuilding -= CheckBuildingFullRepairFromRobot;
     }
 }

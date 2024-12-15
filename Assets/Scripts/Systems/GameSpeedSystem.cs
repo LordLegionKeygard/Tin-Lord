@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class GameSpeedSystem : MonoBehaviour
 {
-    [SerializeField] private bool _isPause;
     [SerializeField] private Image[] _images;
     [SerializeField] private Sprite[] _spriteOn;
     [SerializeField] private Sprite[] _spriteOff;
     [SerializeField] private GameSpeedEnum _currentGameSpeedEnum = GameSpeedEnum.Default;
+    private bool _isPause;
 
     public void ChangeGameSpeed(int gameSpeed)
     {
