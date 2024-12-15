@@ -21,9 +21,12 @@ public class TileObject : MonoBehaviour
     private bool _isBuildingWork;
     private bool _isHaveResourceRequired = true;
     private bool _isBuildingDestroyedNow;
+    private bool _isGroundDestroyedNow;
     public bool IsBuildingWork() => _isBuildingWork;
     public bool IsBuildingDestroyedNow() => _isBuildingDestroyedNow;
     public void ToggleIsBuildingDestroyedNow(bool state) => _isBuildingDestroyedNow = state;
+    public bool IsGroundDestroyedNow() => _isGroundDestroyedNow;
+    public void ToggleIsGroundDestroyedNow(bool state) => _isGroundDestroyedNow = state;
     public GroundTile GroundTileObject() => _groundTile;
     public BuildingTile BuildingTileObject() => _buildingTile;
     public BuildingHealth BuildingHealth() => _buildingHealth;

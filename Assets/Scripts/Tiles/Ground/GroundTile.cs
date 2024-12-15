@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -6,14 +7,16 @@ public class GroundTile : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
     [Inject] private TilesSystem _tilesSystem;
-    [SerializeField] private Tile _currentGroundTile;
     [SerializeField] private Transform _groundParent;
-    [SerializeField] private GameObject _currentGroundTileObject;
     [SerializeField] private TileObject _tileObject;
+    private Tile _currentGroundTile;
+    private GameObject _currentGroundTileObject;
     private int _groundModelRotation;
     private TileView _tileView;
     private TileRiver _tileRiver;
     private TileRoad _tileRoad;
+
+    [SerializeField] private GameObject _laserDestructionVFX;
 
 
     //LastRiverTile
@@ -85,6 +88,7 @@ public class GroundTile : MonoBehaviour
 
     public void DestroyGroundTile()
     {
+        _tileObject.ToggleIsGroundDestroyedNow(true);
         if (GetLastRiverTile())
         {
             _tileRiver.Reset();
@@ -96,7 +100,7 @@ public class GroundTile : MonoBehaviour
         _currentGroundTile = null;
         _groundModelRotation = 0;
         CustomEvents.FireChangeEcology(0, _tileObject.GetId(), true);
-        SelectTile(false, SelectTileEnum.TileSelect);
+        SelectTile(false);
 
         if (IsForwardRoad())
         {
@@ -105,13 +109,31 @@ public class GroundTile : MonoBehaviour
         }
         else
         {
-            _tileView.PlayAnimation(TileAnimationsEnum.Destroy, () =>
-            {
-                Destroy(_currentGroundTileObject);
-                transform.localScale = Vector3.one * 1;
-            });
+            StartCoroutine(nameof(DestroyViewCoroutine));
         }
     }
+
+    private IEnumerator DestroyViewCoroutine()
+    {
+        Instantiate(_laserDestructionVFX, transform.position, Quaternion.identity);
+
+        float delay = 0.2f;
+        float elapsed = 0f;
+
+        while (elapsed < delay)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        _tileView.PlayAnimation(TileAnimationsEnum.Destroy, () =>
+        {
+            Destroy(_currentGroundTileObject);
+            transform.localScale = Vector3.one * 1;
+            _tileObject.ToggleIsGroundDestroyedNow(false);
+        });
+    }
+
 
     public void TurnOffFourTileNeighboursCollider()
     {
@@ -505,7 +527,7 @@ public class GroundTile : MonoBehaviour
         _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.South).CheckTileView(_groundTileViewEnum);
     }
 
-    public void SelectTile(bool state, SelectTileEnum selectTileEnum)
+    public void SelectTile(bool state, SelectTileEnum selectTileEnum = SelectTileEnum.TileSelect)
     {
         _tileView.ViewToggle(state, selectTileEnum);
     }

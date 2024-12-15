@@ -158,6 +158,8 @@ public class TileDetector : MonoBehaviour
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
+        if(newTileObject.IsGroundDestroyedNow()) return;
+
         if (_cardHolderSystem.CheckCurrentCardHolderSelectedTileIsFourTile())
         {
             UnselectLastX4Tiles(true);
@@ -199,10 +201,7 @@ public class TileDetector : MonoBehaviour
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
-        if (newTileObject.IsBuildingDestroyedNow())
-        {
-            return;
-        }
+        if (newTileObject.IsBuildingDestroyedNow()) return;
 
         UnselectLastTile(false);
         _buildsPanel.gameObject.SetActive(false);
@@ -210,7 +209,7 @@ public class TileDetector : MonoBehaviour
         if (newTileObject.GroundTileObject().HaveTile())
         {
             _currentTileObject = newTileObject;
-            _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.TileSelect);
+            _currentTileObject.GroundTileObject().SelectTile(true);
             _uiPanels.PanelsViewToggle(true, false);
             _selectTilePanel.SetTile(_currentTileObject);
             _selectTilePanel.RefreshInfo();
@@ -221,7 +220,7 @@ public class TileDetector : MonoBehaviour
     {
         if (_currentTileObject != null)
         {
-            _currentTileObject.GroundTileObject().SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            _currentTileObject.GroundTileObject().SelectTile(false);
             if (isPanelView) _uiPanels.PanelsViewToggle(false, false);
         }
     }
@@ -232,10 +231,10 @@ public class TileDetector : MonoBehaviour
         {
             var groundTile = _currentTileObject.GroundTileObject();
 
-            groundTile.SelectTile(false, SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(false, SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(false, SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(false, SelectTileEnum.EmptyTileSelect);
+            groundTile.SelectTile(false);
+            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(false);
+            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(false);
+            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(false);
             if (isPanelView) _uiPanels.PanelsViewToggle(false, false);
         }
     }

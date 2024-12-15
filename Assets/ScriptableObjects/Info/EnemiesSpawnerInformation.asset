@@ -20,37 +20,9 @@ MonoBehaviour:
     - EnemyPrefab: {fileID: 5297197506641602335, guid: b5f961f9c792dd34fb1aab6273d0b924,
         type: 3}
       EnemyLevel: 2
-  - DaySpawn: 2
-    MinCount: 6
-    MaxCount: 10
-    EnemiesSpawnerInfo:
-    - EnemyPrefab: {fileID: 5297197506641602335, guid: b5f961f9c792dd34fb1aab6273d0b924,
-        type: 3}
-      EnemyLevel: 2
-  - DaySpawn: 3
-    MinCount: 6
-    MaxCount: 10
-    EnemiesSpawnerInfo:
-    - EnemyPrefab: {fileID: 5297197506641602335, guid: b5f961f9c792dd34fb1aab6273d0b924,
-        type: 3}
-      EnemyLevel: 2
-  - DaySpawn: 4
-    MinCount: 6
-    MaxCount: 10
-    EnemiesSpawnerInfo:
-    - EnemyPrefab: {fileID: 5297197506641602335, guid: b5f961f9c792dd34fb1aab6273d0b924,
-        type: 3}
-      EnemyLevel: 2
-  - DaySpawn: 5
-    MinCount: 6
-    MaxCount: 10
-    EnemiesSpawnerInfo:
-    - EnemyPrefab: {fileID: 5297197506641602335, guid: b5f961f9c792dd34fb1aab6273d0b924,
-        type: 3}
-      EnemyLevel: 2
   - DaySpawn: 6
     MinCount: 6
-    MaxCount: 10
+    MaxCount: 60
     EnemiesSpawnerInfo:
     - EnemyPrefab: {fileID: 5297197506641602335, guid: b5f961f9c792dd34fb1aab6273d0b924,
         type: 3}

@@ -90,6 +90,8 @@ public class SelectTilePanel : MonoBehaviour
 
     public void RefreshInfo()
     {
+        if (_tileObject == null) return;
+
         var buildingTileObject = _tileObject.BuildingTileObject();
         var buildingTile = buildingTileObject.CurrentBuildingTile();
         var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingTileGameObject();

@@ -41,7 +41,7 @@ public class TileView : MonoBehaviour
                     .OnComplete(onComplete);
                 break;
             case TileAnimationsEnum.Destroy:
-                transform.DOScale(0, 0.2f).SetEase(Ease.InOutSine).SetUpdate(true)
+                transform.DOScale(0, 2f).SetEase(Ease.InOutSine).SetUpdate(true)
                     .OnComplete(onComplete);
                 break;
         }

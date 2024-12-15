@@ -6,10 +6,10 @@ public class BuildingTile : MonoBehaviour
 {
    [Inject] private DiContainer _diContainer;
    [Inject] private PlayerResources _playerResources;
-   [SerializeField] private Tile _currentBuildingTile;
    [SerializeField] private Transform _buildingParent;
-   [SerializeField] private GameObject _currentBuildingTileGameObject;
-   [SerializeField] private BuildingLevels _buildingLevels;
+   private BuildingLevels _buildingLevels;
+   private GameObject _currentBuildingTileGameObject;
+   private Tile _currentBuildingTile;
    private BuildingHealth _buildingHealth;
    private BuildingTileProtective _buildingTileProtective;
    public BuildingTileProtective CurrentBuildingTileProtective() => _buildingTileProtective;
