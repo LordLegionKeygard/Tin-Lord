@@ -98,7 +98,7 @@ public enum BuildingTileViewEnum
     SteamProduction = 13,
     ComponentsProduction = 14,
     AttackingStructures = 15,
-    PretectiveStructures = 16,
+    ProtectiveStructures = 16,
     EcologyPurifier = 17,
     MemoryRecovery = 18,
     RadioCommunication = 19,

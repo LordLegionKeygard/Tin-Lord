@@ -214,6 +214,7 @@ public class TileDetector : MonoBehaviour
             _selectTilePanel.SetTile(_currentTileObject);
             _selectTilePanel.RefreshInfo();
         }
+        else ClearTileDetector();
     }
 
     public void UnselectLastTile(bool isPanelView)

@@ -105,6 +105,7 @@ public class BuildingHealth : BaseHealth
         base.Death();
         _tileObject.ToggleIsBuildingDestroyedNow(true);
         CustomEvents.FireBuildingDestroyed(_tileObject.GetId());
+        _tileObject.ClearBuildingInfoAndProduction();
         StartCoroutine(FadeAndDestroy());
     }
 

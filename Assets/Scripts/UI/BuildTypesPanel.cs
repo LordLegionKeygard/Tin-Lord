@@ -30,7 +30,7 @@ public class BuildTypesPanel : MonoBehaviour
         {
             var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.GetComponent<BuildingType>().SetBuildingType(_tileSystem.TakeBuildingTile(BuildingTileViewEnum.PretectiveStructures), tileObject, selectTilePanel, _buildsPanel, this);
+            item.GetComponent<BuildingType>().SetBuildingType(_tileSystem.TakeBuildingTile(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel, _buildsPanel, this);
             _buildingTypesList.Add(item.gameObject.GetComponent<BuildingType>());
         }
         else

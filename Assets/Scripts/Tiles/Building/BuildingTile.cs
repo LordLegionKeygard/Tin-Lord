@@ -24,7 +24,7 @@ public class BuildingTile : MonoBehaviour
    public bool HaveBuildingTileGameObject() => _currentBuildingTileGameObject != null;
    public int CurrentBuildingLevel() => _currentLevel;
    public Building CurrentBuilding() => _currentBuildingTile.Buildings[_currentLevel - 1];
-   public bool IsProtectiveTile() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.PretectiveStructures;
+   public bool IsProtectiveTile() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.ProtectiveStructures;
    public bool IsEcologyBuilding() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier;
    public bool NeightbourTileIsProtective(int number) => _currentTileObject.GetNeighbourBuildingTile(number) == null ? false : _currentTileObject.GetNeighbourBuildingTile(number).IsProtectiveTile();
    public bool IsCanUpgrade() => _currentBuildingTile != null ? CurrentBuildingLevel() < _currentBuildingTile.Buildings.Length : false;
@@ -176,23 +176,22 @@ public class BuildingTile : MonoBehaviour
       return true;
    }
 
-   public void DestroyBuildingTile(bool needReturnResources)
+   public void DestroyBuildingTile(bool isUpgrade)
    {
       if (_currentBuildingTile == null) return;
 
-      if (needReturnResources) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
+      if (isUpgrade) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
 
-      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.PretectiveStructures)
+      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.ProtectiveStructures)
       {
          _buildingTileProtective.Reset();
          _currentBuildingTile = null; //иначе стена не туда повернет, так как соседа IsWall найдет в цикле
 
          RefreshProtectiveNeighbourTiles();
       }
-      _buildingHealth.DestroyHealthSlider();
+      if (!isUpgrade) _buildingHealth.DestroyHealthSlider();
       _currentBuildingTile = null;
       _currentLevel = 0;
-      _currentTileObject.ClearBuildingInfo();
       CustomEvents.FireChangeEcology(_currentTileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _currentTileObject.GetId(), false);
 
       var tileObjectsView = _currentTileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<TileObjectsView>();

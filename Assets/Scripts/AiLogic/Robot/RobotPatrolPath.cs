@@ -28,7 +28,7 @@ public class RobotPatrolPath : MonoBehaviour
         var hasBuilding = tile.BuildingTileObject().HaveTile();
         var buildingTileView = hasBuilding ? tile.BuildingTileObject().CurrentBuildingTile().BuildingTileView : BuildingTileViewEnum.None;
 
-        return hasBuilding && buildingTileView == BuildingTileViewEnum.PretectiveStructures;
+        return hasBuilding && buildingTileView == BuildingTileViewEnum.ProtectiveStructures;
     }
 
     public bool ShouldChangeDirection(int index)

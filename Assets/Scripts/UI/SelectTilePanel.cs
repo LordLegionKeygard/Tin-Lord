@@ -100,7 +100,7 @@ public class SelectTilePanel : MonoBehaviour
 
         var buildingTileObject = _tileObject.BuildingTileObject();
         var buildingTile = buildingTileObject.CurrentBuildingTile();
-        var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingTileGameObject();
+        var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingTileGameObject() && !buildingTileObject.ConstructionNow();
         var currentBuilding = haveBuildingTile ? buildingTileObject.CurrentBuilding() : null;
 
         SetTextFields(_tileObject, buildingTile, haveBuildingTile, currentBuilding);
