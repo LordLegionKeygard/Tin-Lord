@@ -158,7 +158,7 @@ public class TileDetector : MonoBehaviour
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
-        if(newTileObject.IsGroundDestroyedNow()) return;
+        if (newTileObject.IsGroundDestroyedNow()) return;
 
         if (_cardHolderSystem.CheckCurrentCardHolderSelectedTileIsFourTile())
         {
@@ -204,7 +204,7 @@ public class TileDetector : MonoBehaviour
         if (newTileObject.IsBuildingDestroyedNow()) return;
 
         UnselectLastTile(false);
-        _buildsPanel.gameObject.SetActive(false);
+        _selectTilePanel.ResetPanels();
 
         if (newTileObject.GroundTileObject().HaveTile())
         {
@@ -217,16 +217,20 @@ public class TileDetector : MonoBehaviour
         else ClearTileDetector();
     }
 
-    public void UnselectLastTile(bool isPanelView)
+    public void UnselectLastTile(bool isResetMainPanels)
     {
         if (_currentTileObject != null)
         {
             _currentTileObject.GroundTileObject().SelectTile(false);
-            if (isPanelView) _uiPanels.MainPanelsViewToggle(false, false);
+
+            if (isResetMainPanels)
+            {
+                _selectTilePanel.ResetPanels();
+            }
         }
     }
 
-    public void UnselectLastX4Tiles(bool isPanelView)
+    public void UnselectLastX4Tiles(bool isResetMainPanels)
     {
         if (_currentTileObject != null)
         {
@@ -236,7 +240,11 @@ public class TileDetector : MonoBehaviour
             if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(false);
             if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(false);
             if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(false);
-            if (isPanelView) _uiPanels.MainPanelsViewToggle(false, false);
+
+            if (isResetMainPanels)
+            {
+                _selectTilePanel.ResetPanels();
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIPanels : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class UIPanels : MonoBehaviour
         else if (_panels[1].activeInHierarchy)
         {
             SetBuildTypesPanelAndLineVisibility(false);
+        }
+        else if (_panels[11].activeInHierarchy)
+        {
+            _selectTilePanel.DestroyPanelToggleAndRefreshButtonColor(false);
         }
         else if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() || _tileDetector.IsHaveCurrentSelectedTileObject())
         {

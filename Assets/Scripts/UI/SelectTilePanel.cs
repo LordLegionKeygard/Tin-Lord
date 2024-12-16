@@ -67,26 +67,22 @@ public class SelectTilePanel : MonoBehaviour
     {
         if (state)
         {
-            ShowInfoPanel();
+            _objectTransform.DOAnchorPosY(0, 0.3f).SetUpdate(true);
         }
         else
         {
-            HideInfoPanel();
+            _objectTransform.DOAnchorPosY(-700, 0.3f).SetUpdate(true);
+
+            ResetPanels();
+            Clear();
         }
     }
 
-    private void ShowInfoPanel()
+    public void ResetPanels()
     {
-        _objectTransform.DOAnchorPosY(0, 0.3f).SetUpdate(true);
-    }
-
-    private void HideInfoPanel()
-    {
-        _objectTransform.DOAnchorPosY(-700, 0.3f).SetUpdate(true);
-
+        // _uiPanels.MainPanelsViewToggle(false, false);
         _uiPanels.CloseAllBuildsAndDestroyPanel();
-
-        Clear();
+        DestroyPanelToggleAndRefreshButtonColor(false);
     }
 
     public void SetTile(TileObject tileObject)
@@ -306,8 +302,7 @@ public class SelectTilePanel : MonoBehaviour
 
         if (!_destroyPanel.gameObject.activeInHierarchy)
         {
-            _destroyPanel.gameObject.SetActive(true);
-            DestroyButtonChangeColor();
+            DestroyPanelToggleAndRefreshButtonColor(true);
             _destroyPanel.SetInfo(_tileObject.BuildingTileObject().HaveTile(), _tileObject);
             return;
         }
@@ -325,8 +320,7 @@ public class SelectTilePanel : MonoBehaviour
             PanelViewToggle(false);
         }
 
-        _destroyPanel.gameObject.SetActive(false);
-        DestroyButtonChangeColor();
+        DestroyPanelToggleAndRefreshButtonColor(false);
     }
 
     private void DestroyButtonChangeColor()
@@ -354,6 +348,12 @@ public class SelectTilePanel : MonoBehaviour
         _uiPanels.CloseAllBuildsPanels();
         PanelViewToggle(true);
         RefreshInfo();
+    }
+
+    public void DestroyPanelToggleAndRefreshButtonColor(bool state)
+    {
+        _uiPanels.TogglePanel(UIPanelsEnum.DestroyPanel, state);
+        DestroyButtonChangeColor();
     }
 
     public void ChangeResourceRequired(Resource resource)

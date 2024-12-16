@@ -30,13 +30,13 @@ public class BaseSlider : MonoBehaviour
         _heightOffset = value;
     }
 
-    public void SetupHealth(float maxValue)
+    public void SetupAllHealthValue(float maxValue)
     {
         _slider.maxValue = maxValue;
         _slider.value = maxValue;
     }
 
-    public void SetupConstruction(float maxValue)
+    public void SetupMaxHealth(float maxValue)
     {
         _slider.maxValue = maxValue;
     }

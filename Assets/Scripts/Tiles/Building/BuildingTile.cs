@@ -35,7 +35,7 @@ public class BuildingTile : MonoBehaviour
       _buildingTileProtective = GetComponent<BuildingTileProtective>();
    }
 
-   public void FirstConstructingBuilding(Tile tile, int level, TileObject tileObject)
+   public void ConstructingBuilding(Tile tile, int level, TileObject tileObject)
    {
       _isConstructionNow = true;
       _currentBuildingTile = tile;
@@ -66,10 +66,10 @@ public class BuildingTile : MonoBehaviour
       }
 
       _isConstructionNow = false;
-      FirstSpawnBuilding();
+      SpawnBuilding();
    }
 
-   public void FirstSpawnBuilding()
+   public void SpawnBuilding()
    {
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase();
 
@@ -90,22 +90,28 @@ public class BuildingTile : MonoBehaviour
       _currentTileObject.CheckResourceRequired(true);
    }
 
-   public void UpgradeConstructingBuilding(int newLevel, TileObject tileObject)
+   public void UpgradeBaseBuilding(int newLevel, TileObject tileObject)
    {
       _isConstructionNow = true;
-      _currentTileObject = tileObject;
+      _currentLevel = newLevel;
       float constructionTime = _currentBuildingTile.Buildings[newLevel - 1].ConstructionTime;
       _previousBuildingHealthPercent = tileObject.BuildingHealth().GetCurrentHealthPercent();
 
-      _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), isConstruction: true);
-      StartCoroutine(UpgradeBuildingTimer(constructionTime, newLevel));
+      _buildingHealth.SetUpgradeBuildingHealth(CurrentBuilding(), isConstruction: true);
+      StartCoroutine(UpgradeBaseTimer(constructionTime, newLevel));
    }
 
-   private IEnumerator UpgradeBuildingTimer(float constructionTime, int newLevel)
+   private IEnumerator UpgradeBaseTimer(float constructionTime, int newLevel)
    {
-      float elapsed = 0f;
+      float startHealth = _buildingHealth.CurrentHealth;
+      float maxHealth = _buildingHealth.MaxHealth;
+      _isConstructionNow = true;
 
-      while (elapsed < constructionTime)
+      // Рассчитываем скорость восстановления здоровья в секунду без помех
+      float healthPerSecond = (maxHealth - startHealth) / constructionTime;
+
+      // Пока здоровье здания не достигнет максимума, продолжаем "строить"
+      while (_buildingHealth.CurrentHealth < maxHealth)
       {
          if (_buildingHealth.IsDeath())
          {
@@ -113,15 +119,22 @@ public class BuildingTile : MonoBehaviour
             yield break;
          }
 
-         elapsed += Time.deltaTime;
-         float healthIncrement = _buildingHealth.MaxHealth / constructionTime * Time.deltaTime;
-         _buildingHealth.ConstructionIncreaseHealth(healthIncrement);
+         float dt = Time.deltaTime;
+
+         // Прибавляем здоровье, исходя из скорости восстановления
+         float increment = healthPerSecond * dt;
+         _buildingHealth.ConstructionIncreaseHealth(increment);
+
+         // Если здание атакуется и здоровье уменьшается, 
+         // то цикл будет дольше, пока здоровье снова не восстановится до максимума.
+
          yield return null;
       }
 
       _isConstructionNow = false;
       UpgradeBuilding(newLevel, _currentLevel);
    }
+
 
    public void UpgradeBuilding(int newLevel, int previousLevel)
    {
@@ -133,7 +146,7 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels.SetBuildingProductionView();
       if (CurrentBuilding().ResourcesProduction.Length != 0) _currentTileObject.SetResourceProduction(_currentTileObject.CurrentResourceProduction(), _currentTileObject.CurrentResourceRecept());
 
-      _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), false);
+      // _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), false);
 
       if (IsProtectiveTile()) UpdateProtectiveTiles();
       _currentTileObject.CheckResourceRequired(true);

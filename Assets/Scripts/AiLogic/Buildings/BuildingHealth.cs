@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Zenject;
+using DG.Tweening;
 
 public class BuildingHealth : BaseHealth
 {
@@ -59,7 +60,7 @@ public class BuildingHealth : BaseHealth
             _healthSlider.SetObjectTransform(transform);
         }
 
-        _healthSlider.SetupHealth(MaxHealth);
+        _healthSlider.SetupAllHealthValue(MaxHealth);
     }
 
     public void SetNewBuildingHealth(Building building, bool isConstruction)
@@ -72,6 +73,15 @@ public class BuildingHealth : BaseHealth
         CreateHealthSlider();
         UpdateSlider();
     }
+
+    public void SetUpgradeBuildingHealth(Building building, bool isConstruction)
+    {
+        _isConstructionNow = isConstruction;
+        MaxHealth = building.BuildingHealth;
+        _healthSlider.SetupMaxHealth(MaxHealth);
+        UpdateSlider();
+    }
+
 
     public override void CalculateDamage(float damage, float knockBackPoints = 0)
     {

@@ -29,7 +29,7 @@ public class BaseHealth : MonoBehaviour
 
 	public virtual void UpdateSlider()
 	{
-		if (IsDeath() || _healthSlider == null) return;
+		if (IsDeath()) return;
 		_healthSlider.SetValue(CurrentHealth);
 		CheckDeath();
 	}
