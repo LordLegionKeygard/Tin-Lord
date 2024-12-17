@@ -12,6 +12,7 @@ public class BuildingTile : MonoBehaviour
    private Tile _currentBuildingTile;
    private BuildingHealth _buildingHealth;
    private BuildingTileProtective _buildingTileProtective;
+   private BuildingTileTransform _buildingTileTransform;
    public BuildingTileProtective CurrentBuildingTileProtective() => _buildingTileProtective;
    private TileObject _currentTileObject;
    private int _currentLevel;
@@ -30,10 +31,12 @@ public class BuildingTile : MonoBehaviour
    public bool NeightbourTileIsProtective(int number) => _currentTileObject.GetNeighbourBuildingTile(number) == null ? false : _currentTileObject.GetNeighbourBuildingTile(number).IsProtectiveTile();
    public bool IsCanUpgrade() => _currentBuildingTile != null ? CurrentBuildingLevel() < _currentBuildingTile.Buildings.Length : false;
 
+
    private void Awake()
    {
       _buildingHealth = GetComponent<BuildingHealth>();
       _buildingTileProtective = GetComponent<BuildingTileProtective>();
+      _buildingTileTransform = GetComponent<BuildingTileTransform>();
    }
 
    public void SpawnDestroyVFX()
@@ -49,8 +52,10 @@ public class BuildingTile : MonoBehaviour
       _currentLevel = level;
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), isConstruction: true);
 
+      _buildingTileTransform.CachedRandomTransform(CurrentBuilding());
       _constructionPrefab = Instantiate(CurrentBuilding().ConstructionPrefab, tileObject.transform.position, Quaternion.identity);
       _constructionPrefab.transform.SetParent(_buildingParent);
+      _buildingTileTransform.SetCachedTransform(_constructionPrefab.transform, CurrentBuilding());
       StartCoroutine(BuildingTimer());
    }
 
@@ -75,8 +80,6 @@ public class BuildingTile : MonoBehaviour
       }
 
       _isConstructionNow = false;
-      Destroy(_constructionPrefab);
-
       SpawnBuilding();
    }
 
@@ -85,7 +88,9 @@ public class BuildingTile : MonoBehaviour
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase();
 
       _currentBuildingTileGameObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
+      Destroy(_constructionPrefab);
       _currentBuildingTileGameObject.transform.SetParent(_buildingParent);
+      _buildingTileTransform.SetCachedTransform(_currentBuildingTileGameObject.transform, CurrentBuilding());
       _buildingLevels = _currentBuildingTileGameObject.GetComponent<BuildingLevels>();
       _buildingLevels.SetBuildingLevelView(_currentLevel, _currentTileObject);
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
@@ -132,7 +137,6 @@ public class BuildingTile : MonoBehaviour
 
       UpgradeBuilding(newLevel, _currentLevel);
    }
-
 
 
    public void UpgradeBuilding(int newLevel, int previousLevel)

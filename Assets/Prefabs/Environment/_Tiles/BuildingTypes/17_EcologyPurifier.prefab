@@ -868,7 +868,6 @@ GameObject:
   - component: {fileID: 8142879596173701983}
   - component: {fileID: 157841661575827762}
   - component: {fileID: -6135255595458968081}
-  - component: {fileID: 1395422920748733332}
   m_Layer: 0
   m_Name: 17_EcologyPurifier
   m_TagString: Untagged
@@ -938,6 +937,7 @@ MonoBehaviour:
   _needSetResourceView: 0
   _resourceViewMeshRenders: []
   _resourceViewActiveGameObjects: []
+  _meshRenderers: []
 --- !u!114 &-6135255595458968081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,18 +952,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsForRotate:
   - {fileID: 4052141766415362070}
---- !u!114 &1395422920748733332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5128493445474986613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5165159134924835433
 GameObject:
   m_ObjectHideFlags: 0

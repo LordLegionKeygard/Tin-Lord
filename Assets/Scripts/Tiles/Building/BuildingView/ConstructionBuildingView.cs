@@ -72,9 +72,7 @@ public class ConstructionBuildingView : MonoBehaviour
         {
             if (material == null) continue;
 
-            material.SetFloat(ShaderDisplacement, 1 - progress);
-            material.SetFloat(ShaderHologramDisplacement, progress);
-            material.SetFloat(ShaderDissolve, progress);
+            material.SetFloat(ShaderDisplacement, progress);
         }
     }
 }

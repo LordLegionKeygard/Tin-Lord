@@ -1684,7 +1684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4090368076162504388
 Transform:
   m_ObjectHideFlags: 0
@@ -31541,7 +31541,6 @@ GameObject:
   - component: {fileID: 1859720921515297850}
   - component: {fileID: 3448757496672497119}
   - component: {fileID: 6255177977933028247}
-  - component: {fileID: 8466782093270549725}
   - component: {fileID: 343737142560799089}
   m_Layer: 0
   m_Name: 2_CoalMining
@@ -31633,18 +31632,6 @@ MonoBehaviour:
   _resourceViewMeshRenders: []
   _resourceViewActiveGameObjects: []
   _meshRenderers: []
---- !u!114 &8466782093270549725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8169984115598653667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &343737142560799089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31917,7 +31904,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6711043272925231500}
-  - component: {fileID: 2581777527862171925}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -31943,22 +31929,6 @@ Transform:
   m_Father: {fileID: 4090368076162504388}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2581777527862171925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8319142745092601128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _randomRange: 2.5
-  _isChangePosition: 1
-  _isChangeRotation: 1
-  _isFixed90Rotation: 0
 --- !u!1 &8502092232670669782
 GameObject:
   m_ObjectHideFlags: 0

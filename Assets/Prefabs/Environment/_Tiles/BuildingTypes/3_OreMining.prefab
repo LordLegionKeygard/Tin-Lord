@@ -18627,7 +18627,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6545069000830013485}
-  - component: {fileID: 9119842374667116982}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -18652,22 +18651,6 @@ Transform:
   m_Father: {fileID: 3840464621302355301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9119842374667116982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4404350796171023309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _randomRange: 2.5
-  _isChangePosition: 1
-  _isChangeRotation: 1
-  _isFixed90Rotation: 0
 --- !u!1 &4406680567008162851
 GameObject:
   m_ObjectHideFlags: 0
@@ -24435,7 +24418,6 @@ GameObject:
   - component: {fileID: 5027250661803429680}
   - component: {fileID: 4710617721217205378}
   - component: {fileID: 1219016426172381604}
-  - component: {fileID: 4816890882749510033}
   - component: {fileID: -1597978326898294835}
   m_Layer: 0
   m_Name: 3_OreMining
@@ -24572,18 +24554,6 @@ MonoBehaviour:
     - {fileID: 4263918120291042713}
     - {fileID: 7546898685393810171}
   _meshRenderers: []
---- !u!114 &4816890882749510033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5027250661803429687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1597978326898294835
 MonoBehaviour:
   m_ObjectHideFlags: 0

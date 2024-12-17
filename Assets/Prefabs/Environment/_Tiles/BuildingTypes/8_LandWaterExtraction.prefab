@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 849499288992232889}
   - component: {fileID: 2899163478662622293}
-  - component: {fileID: 7716142637339097294}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -58,22 +57,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7716142637339097294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36547451496460035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _randomRange: 1.5
-  _isChangePosition: 0
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
 --- !u!1 &50877713515233418
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +626,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1384633254016042951}
   - component: {fileID: 1384633254006958113}
-  - component: {fileID: 5011487320990155706}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -690,22 +672,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5011487320990155706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384633254016343015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _randomRange: 1
-  _isChangePosition: 1
-  _isChangeRotation: 0
-  _isFixed90Rotation: 0
 --- !u!1 &1394417824328087720
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +681,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3741297297288714111}
-  - component: {fileID: 629421407299258344}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -741,22 +706,6 @@ Transform:
   m_Father: {fileID: 5746593529489641404}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &629421407299258344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394417824328087720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320a3e506a46aa64396fa843436a3124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _randomRange: 2.5
-  _isChangePosition: 1
-  _isChangeRotation: 1
-  _isFixed90Rotation: 1
 --- !u!1 &1542440237289904520
 GameObject:
   m_ObjectHideFlags: 0

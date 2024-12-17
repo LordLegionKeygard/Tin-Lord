@@ -28,6 +28,12 @@ public class Building : ScriptableObject
 
     [Header("EcologyBuilding")]
     public int BuildingEcologyPurifier; // кол-во очков экологии которое дает здание по очистке экологии
+
+    [Header("RandomTransformOnTile")]
+    [Range(0f, 2.5f)] public float RandomRange;
+    public bool IsChangePosition;
+    public bool IsChangeRotation;
+    public bool IsFixed90Rotation;
 }
 
 [System.Serializable]
