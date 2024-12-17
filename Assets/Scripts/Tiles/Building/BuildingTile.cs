@@ -19,6 +19,7 @@ public class BuildingTile : MonoBehaviour
    private bool _isConstructionNow;
    private float _previousBuildingHealthPercent;
    private GameObject _constructionPrefab;
+   private ConstructionBuildingView _constructionView;
    public bool ConstructionNow() => _isConstructionNow;
    public bool HaveTile() => _currentBuildingTile != null;
    public Tile CurrentBuildingTile() => _currentBuildingTile;
@@ -53,9 +54,12 @@ public class BuildingTile : MonoBehaviour
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), isConstruction: true);
 
       _buildingTileTransform.CachedRandomTransform(CurrentBuilding());
-      _constructionPrefab = Instantiate(CurrentBuilding().ConstructionPrefab, tileObject.transform.position, Quaternion.identity);
-      _constructionPrefab.transform.SetParent(_buildingParent);
-      _buildingTileTransform.SetCachedTransform(_constructionPrefab.transform, CurrentBuilding());
+      if (CurrentBuilding().ConstructionPrefab != null)
+      {
+         _constructionPrefab = Instantiate(CurrentBuilding().ConstructionPrefab, tileObject.transform.position, Quaternion.identity);
+         _constructionPrefab.transform.SetParent(_buildingParent);
+         _buildingTileTransform.SetCachedTransform(_constructionPrefab.transform, CurrentBuilding());
+      }
       StartCoroutine(BuildingTimer());
    }
 
@@ -63,7 +67,11 @@ public class BuildingTile : MonoBehaviour
    {
       _isConstructionNow = true;
 
-      var constructionView = _constructionPrefab.GetComponent<ConstructionBuildingView>();
+      if (CurrentBuilding().ConstructionPrefab != null)
+      {
+         _constructionView = _constructionPrefab.GetComponent<ConstructionBuildingView>();
+      }
+
 
       while (_buildingHealth.CurrentHealth < _buildingHealth.MaxHealth)
       {
@@ -74,7 +82,7 @@ public class BuildingTile : MonoBehaviour
          }
 
          _buildingHealth.ConstructionIncreaseHealth(WorldGameInfo.ConstructionSpeed * Time.deltaTime);
-         constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth, _buildingHealth.MaxHealth);
+         if (CurrentBuilding().ConstructionPrefab != null) _constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth, _buildingHealth.MaxHealth);
 
          yield return null;
       }

@@ -58,7 +58,7 @@ public class EarthquakeEvent : BaseDayEvent
             if (validTiles.Count > 0)
             {
                 var randomTile = validTiles[Random.Range(0, validTiles.Count)];
-                randomTile.BuildingTileObject().DestroyBuildingTile(true);
+                randomTile.BuildingHealth().Death();
                 randomTile.GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Volcano));
                 randomTile.GroundTileObject().SpawnGroundTile();
             }
@@ -84,7 +84,7 @@ public class EarthquakeEvent : BaseDayEvent
             {
                 var randomTile = validTiles[Random.Range(0, validTiles.Count)];
                 var previousGroundTileViewEnum = randomTile.GroundTileObject().CurrentGroundTile().GroundTileView;
-                randomTile.BuildingTileObject().DestroyBuildingTile(true);
+                randomTile.BuildingHealth().Death();
                 randomTile.GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Rift));
                 randomTile.GroundTileObject().SpawnGroundTile(previousGroundTileViewEnum);
             }
