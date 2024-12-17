@@ -20,6 +20,11 @@ public class CameraMovement : MonoBehaviour
     private float _maxHeight = 60;
     private float _zoomSpeed = 4;
 
+    [Header("Mouse Dragging")]
+    private bool _isDragging = false;
+    private Vector2 lastMousePosition;
+    private float _dragSpeed;
+
     [Header("Edge Movement")]
     [SerializeField, Range(0f, 0.1f)] private float edgeTolerance = 0.05f;
     private Vector3 targetPosition;
@@ -44,6 +49,7 @@ public class CameraMovement : MonoBehaviour
     private void ChangeMaxSpeed()
     {
         _currentMaxSpeed = _camera.orthographicSize * 1.4f;
+        _dragSpeed = _camera.orthographicSize * 0.05f;
     }
 
     private void Update()
@@ -56,6 +62,38 @@ public class CameraMovement : MonoBehaviour
         UpdateCameraPosition();
         UpdateLimits();
         ChangeMaxSpeed();
+        HandleMouseDrag();
+    }
+
+    private void HandleMouseDrag()
+    {
+        // Проверяем нажатие левой кнопки мыши
+        if (Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUISystem.IsPointerOverUI)
+        {
+            _isDragging = true;
+            lastMousePosition = Mouse.current.position.ReadValue();
+        }
+
+        // Проверяем отпускание левой кнопки мыши
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            _isDragging = false;
+        }
+
+        // Если тянем мышью при зажатой левой кнопке
+        if (_isDragging)
+        {
+            Vector2 currentMousePosition = Mouse.current.position.ReadValue();
+            Vector2 delta = currentMousePosition - lastMousePosition;
+            lastMousePosition = currentMousePosition;
+
+            // Направление перемещения камеры при перетаскивании:
+            // При смещении мыши вправо - камера двигается влево, и наоборот.
+            // Аналогично по вертикали.
+            Vector3 moveDirection = (-GetCameraRight() * delta.x + -GetCameraForward() * delta.y) * _dragSpeed;
+
+            transform.position += moveDirection * Time.unscaledDeltaTime;
+        }
     }
 
     private void UpdateVelocity()
@@ -111,8 +149,8 @@ public class CameraMovement : MonoBehaviour
 
     public void ZoomCamera(InputAction.CallbackContext callBack)
     {
-        if(IsPointerOverUISystem.IsPointerOverUI) return;
-        
+        if (IsPointerOverUISystem.IsPointerOverUI) return;
+
         float inputValue = -callBack.ReadValue<Vector2>().y / 100f;
 
         if (Mathf.Abs(inputValue) > 0.1f)
