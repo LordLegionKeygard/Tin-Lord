@@ -47,7 +47,6 @@ public class ConfigLoaderBuildings : ScriptableObject
             BuildingConfigs config = _configs[i];
             _allBuildings[i].BuildingLevel = config.Level;
             _allBuildings[i].Name = new[] { config.EnglishName, config.RussianName };
-            _allBuildings[i].ConstructionTime = ParseFloat(config.ConstructionTime);
             _allBuildings[i].BuildingEcology = config.BuildingEcology;
             _allBuildings[i].ResourceExtractedAmount = ParseFloat(config.ResourceExtractedAmount);
             _allBuildings[i].ResourcesForBuild = ParseResources(config.ResourcesForBuild);
@@ -236,7 +235,6 @@ public class BuildingConfigs
     public int Level;
     public string EnglishName;
     public string RussianName;
-    public string ConstructionTime;
     public int BuildingEcology;
     public string ResourceExtractedAmount;
     public string ResourcesForBuild;

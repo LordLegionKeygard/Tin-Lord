@@ -80,7 +80,6 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ResetPanels()
     {
-        // _uiPanels.MainPanelsViewToggle(false, false);
         _uiPanels.CloseAllBuildsAndDestroyPanel();
         DestroyPanelToggleAndRefreshButtonColor(false);
     }

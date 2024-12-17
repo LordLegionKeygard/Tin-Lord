@@ -35,4 +35,7 @@ public class WorldGameInfo
     public const float MinTurretPatrolTime = 5;
     public const float MaxTurretPatrolTime = 15;
     public const float TurretPatrolRotateSpeedFactor = 0.5f;
+
+    //Buildings
+    public const float ConstructionSpeed = 20;
 }

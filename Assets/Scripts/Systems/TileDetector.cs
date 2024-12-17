@@ -226,6 +226,7 @@ public class TileDetector : MonoBehaviour
             if (isResetMainPanels)
             {
                 _selectTilePanel.ResetPanels();
+                _uiPanels.MainPanelsViewToggle(false, false);
             }
         }
     }
@@ -244,6 +245,7 @@ public class TileDetector : MonoBehaviour
             if (isResetMainPanels)
             {
                 _selectTilePanel.ResetPanels();
+                _uiPanels.MainPanelsViewToggle(false, false);
             }
         }
     }
