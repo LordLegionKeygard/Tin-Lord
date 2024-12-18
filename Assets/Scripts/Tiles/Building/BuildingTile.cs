@@ -46,20 +46,22 @@ public class BuildingTile : MonoBehaviour
       Instantiate(CurrentBuilding().DestroyVFXPrefab, spawnPos, Quaternion.identity);
    }
 
+   private void SpawnConstructionPrefab()
+   {
+      _constructionPrefab = Instantiate(CurrentBuilding().ConstructionPrefab, _buildingParent.position, Quaternion.identity);
+      _constructionPrefab.transform.SetParent(_buildingParent);
+      _buildingTileTransform.SetCachedTransform(_constructionPrefab.transform, CurrentBuilding());
+   }
+
    public void ConstructingBuilding(Tile tile, int level, TileObject tileObject)
    {
       _currentBuildingTile = tile;
       _currentTileObject = tileObject;
       _currentLevel = level;
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), isConstruction: true);
-
       _buildingTileTransform.CachedRandomTransform(CurrentBuilding());
-      if (CurrentBuilding().ConstructionPrefab != null)
-      {
-         _constructionPrefab = Instantiate(CurrentBuilding().ConstructionPrefab, tileObject.transform.position, Quaternion.identity);
-         _constructionPrefab.transform.SetParent(_buildingParent);
-         _buildingTileTransform.SetCachedTransform(_constructionPrefab.transform, CurrentBuilding());
-      }
+
+      SpawnConstructionPrefab();
       StartCoroutine(BuildingTimer());
    }
 
@@ -67,11 +69,7 @@ public class BuildingTile : MonoBehaviour
    {
       _isConstructionNow = true;
 
-      if (CurrentBuilding().ConstructionPrefab != null)
-      {
-         _constructionView = _constructionPrefab.GetComponent<ConstructionBuildingView>();
-      }
-
+      _constructionView = _constructionPrefab.GetComponent<ConstructionBuildingView>();
 
       while (_buildingHealth.CurrentHealth < _buildingHealth.MaxHealth)
       {
@@ -82,7 +80,7 @@ public class BuildingTile : MonoBehaviour
          }
 
          _buildingHealth.ConstructionIncreaseHealth(WorldGameInfo.ConstructionSpeed * Time.deltaTime);
-         if (CurrentBuilding().ConstructionPrefab != null) _constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth, _buildingHealth.MaxHealth);
+         _constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth, _buildingHealth.MaxHealth);
 
          yield return null;
       }
@@ -118,14 +116,18 @@ public class BuildingTile : MonoBehaviour
    {
       _currentLevel = newLevel;
       _previousBuildingHealthPercent = tileObject.BuildingHealth().GetCurrentHealthPercent();
-
       _buildingHealth.SetUpgradeBuildingHealth(CurrentBuilding(), isConstruction: true);
+      _buildingLevels.DisableAllBuilding();
+      SpawnConstructionPrefab();
       StartCoroutine(UpgradeBaseTimer(newLevel));
    }
 
    private IEnumerator UpgradeBaseTimer(int newLevel)
    {
+      var previousHealth = _buildingHealth.CurrentHealth;
       _isConstructionNow = true;
+
+      _constructionView = _constructionPrefab.GetComponent<ConstructionBuildingView>();
 
       while (_buildingHealth.CurrentHealth < _buildingHealth.MaxHealth)
       {
@@ -136,6 +138,7 @@ public class BuildingTile : MonoBehaviour
          }
 
          _buildingHealth.ConstructionIncreaseHealth(WorldGameInfo.ConstructionSpeed * Time.deltaTime);
+         _constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth - previousHealth, _buildingHealth.MaxHealth - previousHealth);
 
          yield return null;
       }

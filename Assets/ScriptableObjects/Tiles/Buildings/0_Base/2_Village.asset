@@ -17,9 +17,8 @@ MonoBehaviour:
   - "\u0414\u0435\u0440\u0435\u0432\u043D\u044F"
   BuildingLevel: 3
   BuildingSprite: {fileID: 21300000, guid: d751d95747b9cd046b14b5ecab663eed, type: 3}
-  ConstructionTime: 15
   BuildingEcology: -3
-  BuildingHealth: 1500
+  BuildingHealth: 750
   ResourceExtractedAmount: 0.7
   ResourcesForBuild:
   - ResourcesForBuild: 0
@@ -39,9 +38,15 @@ MonoBehaviour:
     ResourceRecept: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
     type: 3}
+  ConstructionPrefab: {fileID: 3524751305471625266, guid: c71b9ac292c75124db1e3ce1faa8001c,
+    type: 3}
   Damage: 0
   AttackRecoveryTime: 0
   AttackRadius: 0
   RotationSpeed: 0
   KnockbackPoints: 0
   BuildingEcologyPurifier: 0
+  RandomRange: 0
+  IsChangePosition: 0
+  IsChangeRotation: 0
+  IsFixed90Rotation: 0

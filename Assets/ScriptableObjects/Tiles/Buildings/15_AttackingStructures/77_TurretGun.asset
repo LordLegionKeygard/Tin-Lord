@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 77_Turret
+  m_Name: 77_TurretGun
   m_EditorClassIdentifier: 
   Name:
   - Turret Gun
@@ -29,7 +29,8 @@ MonoBehaviour:
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
     type: 3}
-  ConstructionPrefab: {fileID: 0}
+  ConstructionPrefab: {fileID: 414988364262512770, guid: 4457794648b5eca42baec2134c4ffc96,
+    type: 3}
   Damage: 2
   AttackRecoveryTime: 1
   AttackRadius: 50

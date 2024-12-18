@@ -27,6 +27,11 @@ public class BuildingLevels : MonoBehaviour
         _buildingLevels[_currentBuildingLevel - 1].SetActive(true);
     }
 
+    public void DisableAllBuilding()
+    {
+        foreach (var item in _buildingLevels) item.SetActive(false);
+    }
+
     public void SetBuildingProductionView()
     {
         if (_buildingProductionView != null) _buildingProductionView.SetCurrentTileObject(_tileObject);
