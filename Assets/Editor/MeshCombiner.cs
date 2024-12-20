@@ -79,7 +79,6 @@ public class MeshCombiner : EditorWindow
         {
             AssetDatabase.CreateAsset(combinedMesh, path);
             AssetDatabase.SaveAssets();
-            Debug.Log("Mesh сохранён по пути: " + path);
         }
         else
         {

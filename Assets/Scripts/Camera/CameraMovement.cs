@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform cameraTransform;
+    [SerializeField] private CardHolderSystem _cardHolderSystem;
 
     [Header("Horizontal Translation")]
     [SerializeField] private float _currentMaxSpeed;
@@ -68,7 +69,7 @@ public class CameraMovement : MonoBehaviour
     private void HandleMouseDrag()
     {
         // Проверяем нажатие левой кнопки мыши
-        if (Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUISystem.IsPointerOverUI)
+        if (Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUISystem.IsPointerOverUI && !_cardHolderSystem.IsHaveCurrentSelectedCardObject())
         {
             _isDragging = true;
             lastMousePosition = Mouse.current.position.ReadValue();

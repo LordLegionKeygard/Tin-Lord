@@ -83,7 +83,7 @@ public class EcologySystem : MonoBehaviour
         _changeTextCoroutine = StartCoroutine(ChangeTextSmoothly(previousTotalEcology, _totalEcology));
         UpdateGearRotation(previousTotalEcology, _totalEcology);  // Передаем старое и новое значение экологии
 
-        _setupRenderSettings.UpdateRenderSettings(_totalEcology);
+        // _setupRenderSettings.UpdateRenderSettings(_totalEcology);
     }
 
     private IEnumerator ChangeTextSmoothly(int oldValue, int newValue)

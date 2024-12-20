@@ -21,6 +21,7 @@ Shader "SciFiURP/InvisibilityRefraction"
 		_Metallic("Metallic", Range( 0 , 1)) = 0
 		[ASEEnd]_Smoothness("Smoothness", Range( 0 , 1)) = 0
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
+		_ShaderDisplacement("Shader Displacement", Range(0,1)) = 0.0
 
 		//_TransmissionShadow( "Transmission Shadow", Range( 0, 1 ) ) = 0.5
 		//_TransStrength( "Trans Strength", Range( 0, 50 ) ) = 1
@@ -1712,7 +1713,6 @@ Shader "SciFiURP/InvisibilityRefraction"
 		
 	}
 	/*ase_lod*/
-	CustomEditor "UnityEditor.ShaderGraph.PBRMasterGUI"
 	Fallback "Hidden/InternalErrorShader"
 	
 }
