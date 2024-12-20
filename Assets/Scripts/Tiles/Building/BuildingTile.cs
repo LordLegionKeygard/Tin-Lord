@@ -99,9 +99,9 @@ public class BuildingTile : MonoBehaviour
       _buildingTileTransform.SetCachedTransform(_currentBuildingTileGameObject.transform, CurrentBuilding());
       _buildingLevels = _currentBuildingTileGameObject.GetComponent<BuildingLevels>();
       _buildingLevels.SetBuildingLevelView(_currentLevel, _currentTileObject);
+      _buildingLevels.SetBuildingProductionView();
       SetResourceRequiredAfterSpawnOrUpgradeBuilding();
       CustomEvents.FireChangeEcology(_currentTileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _currentTileObject.GetId(), false);
-      _buildingLevels.SetBuildingProductionView();
       if (CurrentBuilding().ResourcesProduction.Length != 0) _currentTileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
 
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), false);
