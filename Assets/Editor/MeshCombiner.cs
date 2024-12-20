@@ -85,7 +85,5 @@ public class MeshCombiner : EditorWindow
         {
             Debug.LogWarning("Сохранение Mesh отменено.");
         }
-
-        Debug.Log("Объединение завершено, объект в сцене не создан.");
     }
 }
