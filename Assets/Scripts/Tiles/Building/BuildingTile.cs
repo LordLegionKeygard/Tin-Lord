@@ -50,7 +50,7 @@ public class BuildingTile : MonoBehaviour
    {
       _constructionPrefab = Instantiate(CurrentBuilding().ConstructionPrefab, _buildingParent.position, Quaternion.identity);
       _constructionPrefab.transform.SetParent(_buildingParent);
-      _buildingTileTransform.SetCachedTransform(_constructionPrefab.transform, CurrentBuilding());
+      _buildingTileTransform.SetCachedTransform(_constructionPrefab.transform, CurrentBuilding(), _currentTileObject);
    }
 
    public void ConstructingBuilding(Tile tile, int level, TileObject tileObject)
@@ -96,7 +96,7 @@ public class BuildingTile : MonoBehaviour
       _currentBuildingTileGameObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
       Destroy(_constructionPrefab);
       _currentBuildingTileGameObject.transform.SetParent(_buildingParent);
-      _buildingTileTransform.SetCachedTransform(_currentBuildingTileGameObject.transform, CurrentBuilding());
+      _buildingTileTransform.SetCachedTransform(_currentBuildingTileGameObject.transform, CurrentBuilding(), _currentTileObject);
       _buildingLevels = _currentBuildingTileGameObject.GetComponent<BuildingLevels>();
       _buildingLevels.SetBuildingLevelView(_currentLevel, _currentTileObject);
       _buildingLevels.SetBuildingProductionView();
