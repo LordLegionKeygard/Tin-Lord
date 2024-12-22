@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 3_SteamGeneratorComplex_Construction
+  m_Shader: {fileID: 4800000, guid: 1cd159e1986c35c449e8c34ba289703d, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _1001_Base_Color:
+        m_Texture: {fileID: 2800000, guid: f8b6b2d6cf795c84f9f02d42d2720e06, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _1001_Mixed_AO:
+        m_Texture: {fileID: 2800000, guid: 689b1cbee7b42d14ea3d5e22e818f064, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AO:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LineNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: fab06a9fb45246b4ca41a6dbb4abf4a9, type: 3}
+        m_Scale: {x: 4, y: 4}
+        m_Offset: {x: 0, y: 0}
+    - _Noise_22:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 5, y: 5}
+        m_Offset: {x: 0, y: 0}
+    - _Noises:
+        m_Texture: {fileID: 2800000, guid: f1207d4022cb6064babe32558defc32c, type: 3}
+        m_Scale: {x: 25, y: 25}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaCutoff: 0.5
+    - _ChromaticAberration: 0.147
+    - _Cutoff: 0.5
+    - _Float0: 700
+    - _Float1: 1
+    - _Float2: 0
+    - _Float3: 0
+    - _LineWidth: -1
+    - _Metallic: 0
+    - _ObjectHigh: 7.1
+    - _ObjectHigh1: 2
+    - _ObjectLow: 0
+    - _ObjectLow1: -2
+    - _Refraction: 0.99
+    - _ShaderDisplacement: 0
+    - _Smoothness: 0
+    - __dirty: 0
+    m_Colors:
+    - _AlbedoColor: {r: 0.21176471, g: 0.44705883, b: 0.81960785, a: 1}
+    - _Color0: {r: 1, g: 0, b: 0, a: 0}
+    - _Color1: {r: 0, g: 0, b: 0, a: 0}
+    - _Color2: {r: 1.0192971, g: 1.1721917, b: 4.867144, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _LineColor: {r: 0, g: 0, b: 0, a: 0.23921569}
+    - _NoiseEmissionColor: {r: 32, g: 32, b: 32, a: 0}
+  m_BuildTextureStacks: []
