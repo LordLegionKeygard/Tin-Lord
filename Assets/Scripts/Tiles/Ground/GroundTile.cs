@@ -116,6 +116,7 @@ public class GroundTile : MonoBehaviour
     private IEnumerator DestroyViewCoroutine()
     {
         Instantiate(_laserDestructionVFX, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.LaserDestruction, transform.position);
 
         float delay = 0.2f;
         float elapsed = 0f;
