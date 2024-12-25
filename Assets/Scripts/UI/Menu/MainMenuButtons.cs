@@ -1,10 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class MainMenuButtons : MonoBehaviour
 {
+    [Inject] WorldSaveGame WorldSaveGame;
     [SerializeField] private GameObject _settingsPanel;
+
+    public void NewGame()
+    {
+        CustomEvents.FireFade(FadeType.StartFade);
+        WorldSaveGame.NewGame();
+    }
+
     public void OpenSettings()
     {
         _settingsPanel.SetActive(true);

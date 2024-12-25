@@ -102,4 +102,28 @@ public class CustomEvents
     {
         OnRobotFullRepairBuilding?.Invoke(id);
     }
+
+    public static Action OnDataLoad;
+    public static void FireDataLoad()
+    {
+        OnDataLoad?.Invoke();
+    }
+
+    public static Action<SceneEnum, float, bool> OnLoadScene;
+    public static void FireLoadScene(SceneEnum sceneEnum, float timeInSec, bool isLoadData)
+    {
+        OnLoadScene?.Invoke(sceneEnum, timeInSec, isLoadData);
+    }
+
+    public static Action<FadeType> OnFade;
+    public static void FireFade(FadeType fadeType)
+    {
+        OnFade?.Invoke(fadeType);
+    }
+
+    public static Action<bool> OnLoadingScreenToggle;
+    public static void FireLoadingScreenToggle(bool state)
+    {
+        OnLoadingScreenToggle?.Invoke(state);
+    }
 }

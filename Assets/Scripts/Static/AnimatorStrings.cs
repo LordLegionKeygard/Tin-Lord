@@ -25,7 +25,7 @@ public class AnimatorStrings : MonoBehaviour
     public static readonly string Repair = "Repair";
 
     [Header("Tiles")]
-     public static readonly int GateState = Animator.StringToHash("GateState");
+    public static readonly int GateState = Animator.StringToHash("GateState");
 
     public static readonly Dictionary<CharacterWorkType, int> WorkTriggers = new Dictionary<CharacterWorkType, int>
     {
@@ -40,4 +40,7 @@ public class AnimatorStrings : MonoBehaviour
         { CharacterWorkType.StickMix, StickMix },
         { CharacterWorkType.ComponentsCraft, ComponentsCraft},
     };
+
+    [Header("Ui")]
+    public static readonly int FadeOut = Animator.StringToHash("fadeOut");
 }

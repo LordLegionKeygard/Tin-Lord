@@ -117,6 +117,9 @@ public class Language : MonoBehaviour
         _text[29, 0] = "Quit";
         _text[29, 1] = "Выход";
 
+        _text[30, 0] = "Loading";
+        _text[30, 1] = "Загрузка";
+
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Globalization;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Config", menuName = "TinLord/Configs/Buildings")]
@@ -9,6 +8,7 @@ public class ConfigLoaderBuildings : ScriptableObject
     [SerializeField] private Building[] _allBuildings;
     [SerializeField] private Resource[] _allResources;
     private List<BuildingConfigs> _configs;
+    public int AllBuidingsCount() => _allBuildings.Length;
 
 #if UNITY_EDITOR
     public void Load()
