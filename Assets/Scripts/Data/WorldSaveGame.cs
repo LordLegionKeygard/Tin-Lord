@@ -6,6 +6,7 @@ public class WorldSaveGame : MonoBehaviour
 
     [Header("Save Data Writer")]
     private SaveGameDataWriter _saveGameDataWriter;
+    public SaveGameDataWriter GetSaveGameDataWriter() => _saveGameDataWriter;
 
     [Header("Current Character Data")]
     public CommandCenterSaveData CommandCenterSaveData;

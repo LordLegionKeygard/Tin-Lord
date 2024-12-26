@@ -4,7 +4,27 @@ using Zenject;
 public class MainMenuButtons : MonoBehaviour
 {
     [Inject] WorldSaveGame WorldSaveGame;
+    [SerializeField] private GameObject _continueButtonObject;
     [SerializeField] private GameObject _settingsPanel;
+
+    private void Start()
+    {
+        UpdateContinueButton();
+    }
+
+    private void UpdateContinueButton()
+    {
+        if (WorldSaveGame.GetSaveGameDataWriter().CheckIfSaveFileExists())
+        {
+            _continueButtonObject.SetActive(true);
+        }
+    }
+
+    public void Continue()
+    {
+        CustomEvents.FireFade(FadeType.StartFade);
+        WorldSaveGame.LoadCommandCenterGameData();
+    }
 
     public void NewGame()
     {

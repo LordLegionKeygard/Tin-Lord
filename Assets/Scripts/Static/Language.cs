@@ -105,11 +105,11 @@ public class Language : MonoBehaviour
         _text[25, 0] = "Destruction requires:";
         _text[25, 1] = "Для уничтожения требуется:";
 
-        _text[26, 0] = "New game";
-        _text[26, 1] = "Новая игра";
+        _text[26, 0] = "Continue game";
+        _text[26, 1] = "Продолжить игру";
 
-        _text[27, 0] = "Continue game";
-        _text[27, 1] = "Продолжить игру";
+        _text[27, 0] = "New game";
+        _text[27, 1] = "Новая игра";
 
         _text[28, 0] = "Settings";
         _text[28, 1] = "Настройки";
