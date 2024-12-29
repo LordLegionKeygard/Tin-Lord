@@ -33,7 +33,7 @@ public class BuildingType : MonoBehaviour
 
     public void ToggleSelectView(bool state)
     {
-        _image.color = state ? Color.white : Colors.Grey;
+        _image.color = state ? Color.white : Colors.GreySeven;
     }
 }
 

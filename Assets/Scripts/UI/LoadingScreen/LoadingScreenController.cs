@@ -32,7 +32,7 @@ public class LoadingScreenController : MonoBehaviour
                 CustomEvents.FireFade(FadeType.FadeOut);
                 ScreenToggle(false);
                 break;
-            case (int)SceneEnum.Planet:
+            case (int)SceneEnum.World:
                  //TO  вызываем FadeOut и ScreenToggle сами после спавна скорее всего
                 break;
         }

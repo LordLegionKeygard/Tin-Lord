@@ -120,6 +120,9 @@ public class Language : MonoBehaviour
         _text[30, 0] = "Loading";
         _text[30, 1] = "Загрузка";
 
+        _text[31, 0] = "Are you sure you want to start a new game?\n\nYour past save will be overwritten.";
+        _text[31, 1] = "Вы уверены, что хотите начать новую игру?\n\nВаше прошлое сохранения будет перезаписано.";
+
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }

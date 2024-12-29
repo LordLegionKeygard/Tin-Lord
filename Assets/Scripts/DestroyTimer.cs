@@ -6,7 +6,6 @@ public class DestroyTimer : MonoBehaviour
 
     private void Start()
     {
-
         Destroy(gameObject, _destroyTime);
     }
 }

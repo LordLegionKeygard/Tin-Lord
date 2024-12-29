@@ -127,7 +127,7 @@ public class EcologySystem : MonoBehaviour
 
     private void UpdateEcologyText(int ecologyValue)
     {
-        _totalEcologyText.color = ecologyValue < 0 ? Colors.WarningYellow : ecologyValue > 50 ? Colors.LightGreen : Colors.Grey;
+        _totalEcologyText.color = ecologyValue < 0 ? Colors.WarningYellow : ecologyValue > 50 ? Colors.LightGreen : Colors.GreySeven;
 
         var ecologyString = Mathf.Abs(ecologyValue).ToString("D2");
         _totalEcologyText.text = ecologyString;

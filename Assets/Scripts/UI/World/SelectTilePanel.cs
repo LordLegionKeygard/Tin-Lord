@@ -128,7 +128,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void WorkButtonIconChangeColor()
     {
-        _workButtonIcon.color = _tileObject.IsBuildingWork() ? Colors.Grey : Color.black;
+        _workButtonIcon.color = _tileObject.IsBuildingWork() ? Colors.GreySeven : Color.black;
     }
 
     private void SetTextFields(TileObject tileObject, Tile tile, bool haveBuildingTile, Building building)
@@ -324,7 +324,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void DestroyButtonChangeColor()
     {
-        _destroyButtonIcon.color = _destroyPanel.gameObject.activeInHierarchy ? Colors.WarningYellow : Colors.Grey;
+        _destroyButtonIcon.color = _destroyPanel.gameObject.activeInHierarchy ? Colors.WarningYellow : Colors.GreySeven;
     }
 
     private void RefreshDestroyPanelInfoAfterBuildingTakeDamage()

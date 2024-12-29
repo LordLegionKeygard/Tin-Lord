@@ -47,9 +47,4 @@ public class AudioManager : MonoBehaviour
         EventInstance eventInstance = RuntimeManager.CreateInstance(eventReference);
         return eventInstance;
     }
-
-    internal void PlayerOneShot(object eventReference, Vector3 position)
-    {
-        throw new NotImplementedException();
-    }
 }

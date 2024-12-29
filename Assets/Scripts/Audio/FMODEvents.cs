@@ -5,7 +5,8 @@ public class FMODEvents : MonoBehaviour
 {
     public static FMODEvents Instance;
 
-    // [Header("UiSFX")]
+    [Header("UiSFX")]
+    public EventReference DefaultClick;
 
 
     [Header("Environment")]

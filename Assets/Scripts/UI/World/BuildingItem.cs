@@ -57,9 +57,9 @@ public class BuildingItem : MonoBehaviour
     {
         _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
         _button.enabled = _resourcesEnough;
-        _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.LightGrey : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
-        _icon.color = _isSelect ? Color.white : Colors.LightGrey;
-        _backImage.color = _isSelect ? Color.white : Colors.LightGrey;
+        _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
+        _icon.color = _isSelect ? Color.white : Colors.GreyEight;
+        _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
         if (_isSelect) _buildingResourcesView.SetResourcesView(GetResources());
     }
 
