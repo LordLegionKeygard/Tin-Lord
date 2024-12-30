@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MeteorStrikeDayEvent : BaseDayEvent
+public class MeteorStrikeGameEvent : BaseGameEvent
 {
     [SerializeField] private TilesSystem _tilesSystem;
     private float _delay = 1.5f;

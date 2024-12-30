@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseDayEvent : MonoBehaviour
+public class BaseGameEvent : MonoBehaviour
 {
     [SerializeField] private GameObject _spawnPrefab;
     [SerializeField] private SetTileNeighbours _setTileNeighbours;

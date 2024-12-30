@@ -14,9 +14,9 @@ public class DayEventSystem : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private EcologySystem _ecologySystem;
-    [SerializeField] private EarthquakeEvent _earthquakeEvent;
-    [SerializeField] private AcidRainDayEvent _acidRainEvent;
-    [SerializeField] private MeteorStrikeDayEvent _meteorStrikeEvent;
+    [SerializeField] private EarthquakeGameEvent _earthquakeEvent;
+    [SerializeField] private AcidRainGameEvent _acidRainEvent;
+    [SerializeField] private MeteorStrikeGameEvent _meteorStrikeEvent;
 
     private void Start()
     {

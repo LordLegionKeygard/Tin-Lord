@@ -29,7 +29,7 @@ public class BuildingItem : MonoBehaviour
 
     private void Start()
     {
-        CustomEvents.OnTimeTickAfterResourcesChanged += SetTextColor;
+        CustomEvents.OnTimeTickAfterResourcesChanged += RefreshView;
     }
 
     public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int index, Tile tile, BuildingState buildingState, ResourcesView buildingResourcesView, BuildsPanel buildsPanel)
@@ -53,7 +53,7 @@ public class BuildingItem : MonoBehaviour
         _icon.sprite = building.BuildingSprite;
     }
 
-    private void SetTextColor()
+    private void RefreshView()
     {
         _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
         _button.enabled = _resourcesEnough;
@@ -66,7 +66,7 @@ public class BuildingItem : MonoBehaviour
     public void SelectToggleState(bool state)
     {
         _isSelect = state;
-        SetTextColor();
+        RefreshView();
     }
 
     public void SelectView()
@@ -132,7 +132,7 @@ public class BuildingItem : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnTimeTickAfterResourcesChanged -= SetTextColor;
+        CustomEvents.OnTimeTickAfterResourcesChanged -= RefreshView;
     }
 }
 

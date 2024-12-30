@@ -123,6 +123,69 @@ public class Language : MonoBehaviour
         _text[31, 0] = "Are you sure you want to start a new game?\n\nYour past save will be overwritten.";
         _text[31, 1] = "Вы уверены, что хотите начать новую игру?\n\nВаше прошлое сохранения будет перезаписано.";
 
+        _text[32, 0] = "Select a mission";
+        _text[32, 1] = "Выберите миссию";
+
+        _text[33, 0] = "Duration:";
+        _text[33, 1] = "Длительность:";
+
+        _text[34, 0] = "Ecology level:";
+        _text[34, 1] = "Уровень экологии:";
+
+        _text[35, 0] = "Starting resources:";
+        _text[35, 1] = "Начальные ресурсы:";
+
+        _text[36, 0] = "Objectives:";
+        _text[36, 1] = "Цели:";
+
+        _text[37, 0] = "";
+        _text[37, 1] = "";
+
+        _text[38, 0] = "";
+        _text[38, 1] = "";
+
+        _text[39, 0] = "";
+        _text[39, 1] = "";
+
+        _text[40, 0] = "";
+        _text[40, 1] = "";
+
+        _text[41, 0] = "";
+        _text[41, 1] = "";
+
+        _text[42, 0] = "";
+        _text[42, 1] = "";
+
+        _text[43, 0] = "";
+        _text[43, 1] = "";
+
+        _text[44, 0] = "";
+        _text[44, 1] = "";
+
+        _text[45, 0] = "";
+        _text[45, 1] = "";
+
+        _text[46, 0] = "";
+        _text[46, 1] = "";
+
+        _text[47, 0] = "";
+        _text[47, 1] = "";
+
+        _text[48, 0] = "";
+        _text[48, 1] = "";
+
+        _text[49, 0] = "";
+        _text[49, 1] = "";
+
+        _text[50, 0] = "";
+        _text[50, 1] = "";
+
+        _text[51, 0] = "";
+        _text[51, 1] = "";
+
+        _text[52, 0] = "";
+        _text[52, 1] = "";
+
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
     }

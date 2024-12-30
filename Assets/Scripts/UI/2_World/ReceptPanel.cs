@@ -27,12 +27,12 @@ public class ReceptPanel : MonoBehaviour
 
             if (_playerResources.ResourceEnough(resourceRecept[i].ResourceForRecept.ResourceEnum, resourceRecept[i].ResourcesForReceptAmount))
             {
-                _receptCellResourceText[i].text = $"{resourceRecept[i].ResourcesForReceptAmount} x";
+                _receptCellResourceText[i].text = $"{resourceRecept[i].ResourcesForReceptAmount}";
 
             }
             else
             {
-                _receptCellResourceText[i].text = $"<color={Colors.HexColorWarningYellow}>{resourceRecept[i].ResourcesForReceptAmount} x</color>";
+                _receptCellResourceText[i].text = $"<color={Colors.HexColorWarningYellow}>{resourceRecept[i].ResourcesForReceptAmount}</color>";
             }
         }
     }

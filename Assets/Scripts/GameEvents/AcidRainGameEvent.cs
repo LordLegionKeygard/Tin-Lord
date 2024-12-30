@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class AcidRainDayEvent : BaseDayEvent
+public class AcidRainGameEvent : BaseGameEvent
 {
     public override void StartEvent()
     {

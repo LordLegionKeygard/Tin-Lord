@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class EarthquakeEvent : BaseDayEvent
+public class EarthquakeGameEvent : BaseGameEvent
 {
     [SerializeField] private TilesSystem _tilesSystem;
     [SerializeField] private Transform _transform;
