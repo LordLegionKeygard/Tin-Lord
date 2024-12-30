@@ -11,7 +11,7 @@ public class Building : ScriptableObject
     public float ResourceExtractedAmount; // кол-во создаваемого ресурса за 1 тик времени
 
     [Header("Requires")]
-    public ResourcesForBuildWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства здания
+    public ResourceWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства здания
     public ResourcesForWorkWrapper[] ResourcesForWork; // кол-во ресурсов для работы здания
     public ResourcesProductionWrapper[] ResourcesProduction; // кол-во ресурсов которые может создавать здание
 
@@ -37,10 +37,10 @@ public class Building : ScriptableObject
 }
 
 [System.Serializable]
-public class ResourcesForBuildWrapper
+public class ResourceWrapper
 {
-    public ResourceEnum ResourcesForBuild;
-    public int RecourcesForBuildAmount;
+    public ResourceEnum ResourceEnum;
+    public int RecourceAmount;
 }
 
 [System.Serializable]

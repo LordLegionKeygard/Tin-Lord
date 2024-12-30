@@ -8,7 +8,6 @@ public class MissionItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _missionNameText;
     [SerializeField] private Image _missionIcon;
     [SerializeField] private Image _backImage;
-    [SerializeField] private GameObject _targetPosition;
 
     [Header("Other")]
     [SerializeField] private Mission _mission;
@@ -38,7 +37,6 @@ public class MissionItem : MonoBehaviour
         _missionNameText.color = _isSelect ? Color.white : Colors.GreyEight;
         _missionIcon.color = _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
-        _targetPosition.SetActive(_isSelect);
     }
 
     public void SelectToggleView(bool state)

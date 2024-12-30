@@ -9,6 +9,7 @@ public class CommandCenterSaveData
 {
     public int MemoryFragment;
     public bool[] BuildingsLearned;
+    public int CurrentMissionId;
 }
 
 

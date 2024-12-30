@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class CommandCenterChangeLanguage : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _missionNameText;
+    [SerializeField] private TextMeshProUGUI _headerText;
 
     private void Start()
     {
-        _missionNameText.text = Language.TextStatic[32];
+        _headerText.text = Language.TextStatic[32];
     }
 }

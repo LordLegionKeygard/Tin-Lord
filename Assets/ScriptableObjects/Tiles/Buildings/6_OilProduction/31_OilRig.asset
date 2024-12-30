@@ -21,12 +21,12 @@ MonoBehaviour:
   BuildingHealth: 200
   ResourceExtractedAmount: 1
   ResourcesForBuild:
-  - ResourcesForBuild: 11
-    RecourcesForBuildAmount: 50
-  - ResourcesForBuild: 18
-    RecourcesForBuildAmount: 20
-  - ResourcesForBuild: 21
-    RecourcesForBuildAmount: 1
+  - ResourceEnum: 11
+    RecourceAmount: 50
+  - ResourceEnum: 18
+    RecourceAmount: 20
+  - ResourceEnum: 21
+    RecourceAmount: 1
   ResourcesForWork:
   - ResourceForWork: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
     ResourcesForWorkAmount: 1

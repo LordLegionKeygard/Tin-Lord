@@ -25,6 +25,7 @@ public class WorldSaveGame : MonoBehaviour
         {
             MemoryFragment = 0,
             BuildingsLearned = new bool[_configLoaderBuildings.AllBuidingsCount()],
+            CurrentMissionId = 0,
         };
 
         _saveGameDataWriter.WriteCharacterDataToSaveFile(CommandCenterSaveData);

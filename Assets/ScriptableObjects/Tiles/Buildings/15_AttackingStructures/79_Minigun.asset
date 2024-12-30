@@ -21,12 +21,12 @@ MonoBehaviour:
   BuildingHealth: 250
   ResourceExtractedAmount: 0
   ResourcesForBuild:
-  - ResourcesForBuild: 10
-    RecourcesForBuildAmount: 20
-  - ResourcesForBuild: 16
-    RecourcesForBuildAmount: 15
-  - ResourcesForBuild: 17
-    RecourcesForBuildAmount: 10
+  - ResourceEnum: 10
+    RecourceAmount: 20
+  - ResourceEnum: 16
+    RecourceAmount: 15
+  - ResourceEnum: 17
+    RecourceAmount: 10
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,

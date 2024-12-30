@@ -9,16 +9,9 @@ public class Mission : ScriptableObject
     public int MissionId;
     public int Duration; //в днях
     public int StartEcology;
-    public StartResourceWrapper[] StartResources;
+    public ResourceWrapper[] StartResources;
     public ObjectiveWrapper[] Objectives;
-    [TextAreaAttribute(1, 8)] public string[] Description;
-}
-
-[System.Serializable]
-public class StartResourceWrapper
-{
-    public Resource StartResource;
-    public float StartResourceAmount;
+    [TextArea(1, 8)] public string[] Description;
 }
 
 [System.Serializable]

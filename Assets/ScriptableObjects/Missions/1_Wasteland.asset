@@ -16,14 +16,16 @@ MonoBehaviour:
   - Wasteland II
   - "\u041F\u0443\u0441\u0442\u043E\u0448\u044C II"
   MissionSprite: {fileID: 21300000, guid: b518ad1d7aaeebd44ad06e1a929de449, type: 3}
-  MissionId: 0
-  Duration: 0
-  StartEcology: 0
+  MissionId: 1
+  Duration: 200
+  StartEcology: -10
   StartResources:
-  - StartResource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
-    StartResourceAmount: 50
-  - StartResource: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216, type: 2}
-    StartResourceAmount: 30
+  - ResourceEnum: 0
+    RecourceAmount: 100
+  - ResourceEnum: 1
+    RecourceAmount: 50
+  - ResourceEnum: 4
+    RecourceAmount: 25
   Objectives:
   - ObjectiveEnum: 3
     ObjectiveAmount: 100

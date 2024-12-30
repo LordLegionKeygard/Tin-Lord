@@ -123,8 +123,8 @@ public class Language : MonoBehaviour
         _text[31, 0] = "Are you sure you want to start a new game?\n\nYour past save will be overwritten.";
         _text[31, 1] = "Вы уверены, что хотите начать новую игру?\n\nВаше прошлое сохранения будет перезаписано.";
 
-        _text[32, 0] = "Select a mission";
-        _text[32, 1] = "Выберите миссию";
+        _text[32, 0] = "Command Center";
+        _text[32, 1] = "Командный Центр";
 
         _text[33, 0] = "Duration:";
         _text[33, 1] = "Длительность:";
@@ -138,23 +138,23 @@ public class Language : MonoBehaviour
         _text[36, 0] = "Objectives:";
         _text[36, 1] = "Цели:";
 
-        _text[37, 0] = "";
-        _text[37, 1] = "";
+        _text[37, 0] = "days";
+        _text[37, 1] = "дней";
 
-        _text[38, 0] = "";
-        _text[38, 1] = "";
+        _text[38, 0] = "unlimited";
+        _text[38, 1] = "неограниченно";
 
-        _text[39, 0] = "";
-        _text[39, 1] = "";
+        _text[39, 0] = "Restore the ecology to";
+        _text[39, 1] = "Восстановить экологию до";
 
-        _text[40, 0] = "";
-        _text[40, 1] = "";
+        _text[40, 0] = "Kill {0} enemies";
+        _text[40, 1] = "Убить {0} врагов";
 
-        _text[41, 0] = "";
-        _text[41, 1] = "";
+        _text[41, 0] = "Construct {0} buildings";
+        _text[41, 1] = "Построить {0} зданий";
 
-        _text[42, 0] = "";
-        _text[42, 1] = "";
+        _text[42, 0] = "Survive {0} days";
+        _text[42, 1] = "Выжить {0} дней";
 
         _text[43, 0] = "";
         _text[43, 1] = "";

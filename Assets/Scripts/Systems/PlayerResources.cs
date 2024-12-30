@@ -26,32 +26,32 @@ public class PlayerResources : MonoBehaviour
         }
     }
 
-    public void UseResourcesForBuilding(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
+    public void UseResourcesForBuilding(ResourceWrapper[] resourcesForBuildWrapper)
     {
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
-            _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourcesForBuild].Amount -= resourcesForBuildWrapper[i].RecourcesForBuildAmount;
+            _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount -= resourcesForBuildWrapper[i].RecourceAmount;
         }
         UpdateAllTexts();
     }
 
-    public void AddResourcesAfterDestroyBuilding(ResourcesForBuildWrapper[] resourcesForBuildWrapper, float buildingHealthPercent)
+    public void AddResourcesAfterDestroyBuilding(ResourceWrapper[] resourcesForBuildWrapper, float buildingHealthPercent)
     {
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
             float healthFactor = Mathf.Clamp01(buildingHealthPercent); // Убеждаемся, что значение в пределах [0, 1]
-            float returnedAmount = resourcesForBuildWrapper[i].RecourcesForBuildAmount / 2 * healthFactor;
-            _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourcesForBuild].Amount += returnedAmount;
+            float returnedAmount = resourcesForBuildWrapper[i].RecourceAmount / 2 * healthFactor;
+            _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount += returnedAmount;
         }
 
         UpdateAllTexts();
     }
 
-    public bool ResourcesEnough(ResourcesForBuildWrapper[] resourcesForBuildWrapper)
+    public bool ResourcesEnough(ResourceWrapper[] resourcesForBuildWrapper)
     {
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
-            if (resourcesForBuildWrapper[i].RecourcesForBuildAmount > _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourcesForBuild].Amount)
+            if (resourcesForBuildWrapper[i].RecourceAmount > _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount)
             {
                 return false;
             }

@@ -10,5 +10,5 @@ public class RobotInformation : ScriptableObject
     public float[] Durability;
     public int[] MeleeDamage;
     public int[] RangeDamage;
-    public ResourcesForBuildWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства робота
+    public ResourceWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства робота
 }

@@ -20,7 +20,7 @@ public class BuildingItem : MonoBehaviour
     [Header("Other")]
     private SelectTilePanel _selectTilePanel;
     private BuildingState _currentBuildingState;
-    private ResourcesView _buildingResourcesView;
+    private WorldResourcesView _buildingResourcesView;
     private BuildsPanel _buildsPanel;
     private int _buildingIndex;
     private bool _isSelect;
@@ -32,7 +32,7 @@ public class BuildingItem : MonoBehaviour
         CustomEvents.OnTimeTickAfterResourcesChanged += RefreshView;
     }
 
-    public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int index, Tile tile, BuildingState buildingState, ResourcesView buildingResourcesView, BuildsPanel buildsPanel)
+    public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int index, Tile tile, BuildingState buildingState, WorldResourcesView buildingResourcesView, BuildsPanel buildsPanel)
     {
         _currentBuildingState = buildingState;
         _selectTilePanel = selectTilePanel;
@@ -105,7 +105,7 @@ public class BuildingItem : MonoBehaviour
         _selectTilePanel.CloseBuildPanelAndRefreshInfo();
     }
 
-    public ResourcesForBuildWrapper[] GetResources()
+    public ResourceWrapper[] GetResources()
     {
         var building = _currentTile.Buildings[_buildingIndex - 1];
 
@@ -117,10 +117,10 @@ public class BuildingItem : MonoBehaviour
 
             // Пропорционально рассчитываем ресурсы для ремонта
             return building.ResourcesForBuild
-                .Select(resource => new ResourcesForBuildWrapper
+                .Select(resource => new ResourceWrapper
                 {
-                    ResourcesForBuild = resource.ResourcesForBuild,
-                    RecourcesForBuildAmount = Mathf.CeilToInt(resource.RecourcesForBuildAmount * healthPercentage)
+                    ResourceEnum = resource.ResourceEnum,
+                    RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage)
                 })
                 .ToArray();
         }

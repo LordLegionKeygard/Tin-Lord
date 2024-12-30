@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DestroyPanel : MonoBehaviour
 {
-    [SerializeField] private ResourcesView _resourcesView;
+    [SerializeField] private WorldResourcesView _resourcesView;
     [SerializeField] private TextMeshProUGUI _headerText;
     [SerializeField] private TextMeshProUGUI _descriptionText;
 
@@ -20,12 +20,12 @@ public class DestroyPanel : MonoBehaviour
         }
         else
         {
-            _resourcesView.SetResourcesView(new ResourcesForBuildWrapper[]
+            _resourcesView.SetResourcesView(new ResourceWrapper[]
             {
-                new ResourcesForBuildWrapper
+                new ResourceWrapper
                 {
-                    ResourcesForBuild = ResourceEnum.BeamEnergy,
-                    RecourcesForBuildAmount = tileObject.GroundTileObject().CurrentGroundTile().EnergyBeam,
+                    ResourceEnum = ResourceEnum.BeamEnergy,
+                    RecourceAmount = tileObject.GroundTileObject().CurrentGroundTile().EnergyBeam,
                 }
             });
         }

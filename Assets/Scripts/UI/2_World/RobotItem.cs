@@ -21,7 +21,7 @@ public class RobotItem : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private CurrentRobotSystem _currentRobotSystem;
-    [SerializeField] private ResourcesView _robotResourcesView;
+    [SerializeField] private WorldResourcesView _robotResourcesView;
     private bool _resourcesEnough;
     public bool CanRepair() => _currentRobotSystem.HaveRobot() &&
                                 !_currentRobotSystem.RobotDeath() &&
@@ -86,7 +86,7 @@ public class RobotItem : MonoBehaviour
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
     }
 
-    public ResourcesForBuildWrapper[] GetResources()
+    public ResourceWrapper[] GetResources()
     {
         if (CanRepair())
         {
@@ -94,10 +94,10 @@ public class RobotItem : MonoBehaviour
             float healthPercentage = (float)(robotHealth.MaxHealth - robotHealth.CurrentHealth) / robotHealth.MaxHealth;
 
             return _robotInformation.ResourcesForBuild
-                .Select(resource => new ResourcesForBuildWrapper
+                .Select(resource => new ResourceWrapper
                 {
-                    ResourcesForBuild = resource.ResourcesForBuild,
-                    RecourcesForBuildAmount = Mathf.CeilToInt(resource.RecourcesForBuildAmount * healthPercentage)
+                    ResourceEnum = resource.ResourceEnum,
+                    RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage)
                 })
                 .ToArray();
         }

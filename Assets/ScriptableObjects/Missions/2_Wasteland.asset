@@ -16,14 +16,14 @@ MonoBehaviour:
   - Wasteland III
   - "\u041F\u0443\u0441\u0442\u043E\u0448\u044C III"
   MissionSprite: {fileID: 21300000, guid: b518ad1d7aaeebd44ad06e1a929de449, type: 3}
-  MissionId: 0
-  Duration: 0
-  StartEcology: 0
+  MissionId: 2
+  Duration: 100
+  StartEcology: -20
   StartResources:
-  - StartResource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
-    StartResourceAmount: 15
-  - StartResource: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216, type: 2}
-    StartResourceAmount: 15
+  - ResourceEnum: 0
+    RecourceAmount: 50
+  - ResourceEnum: 1
+    RecourceAmount: 25
   Objectives:
   - ObjectiveEnum: 0
     ObjectiveAmount: 100

@@ -155,10 +155,10 @@ public class ConfigLoaderBuildings : ScriptableObject
             : 0f;
     }
 
-    private ResourcesForBuildWrapper[] ParseResources(string resources)
+    private ResourceWrapper[] ParseResources(string resources)
     {
         string[] parts = resources.Split('/');
-        List<ResourcesForBuildWrapper> buildWrapperList = new List<ResourcesForBuildWrapper>();
+        List<ResourceWrapper> buildWrapperList = new List<ResourceWrapper>();
 
         foreach (string part in parts)
         {
@@ -169,10 +169,10 @@ public class ConfigLoaderBuildings : ScriptableObject
             {
                 if (System.Enum.IsDefined(typeof(ResourceEnum), resourceValue))
                 {
-                    buildWrapperList.Add(new ResourcesForBuildWrapper
+                    buildWrapperList.Add(new ResourceWrapper
                     {
-                        ResourcesForBuild = (ResourceEnum)resourceValue,
-                        RecourcesForBuildAmount = amount
+                        ResourceEnum = (ResourceEnum)resourceValue,
+                        RecourceAmount = amount
                     });
                 }
                 else
