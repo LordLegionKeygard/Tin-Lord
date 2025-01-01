@@ -5,14 +5,14 @@ using Zenject;
 
 public class MainMenuButtons : MonoBehaviour
 {
-    [Inject] WorldSaveGame WorldSaveGame;
+    [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private TextMeshProUGUI[] _buttonsText;
     [SerializeField] private GameObject _continueButtonObject;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _areYouSurePanel;
 
-    private bool HaveSaveData() => WorldSaveGame.GetSaveGameDataWriter().CheckIfSaveFileExists();
+    private bool HaveSaveData() => CommandCenterSaveGame.GetSaveGameDataWriter().CheckIfSaveFileExists();
 
     private void Start()
     {
@@ -31,7 +31,7 @@ public class MainMenuButtons : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
-        WorldSaveGame.LoadCommandCenterGameData();
+        CommandCenterSaveGame.LoadCommandCenterGameData();
     }
 
     public void NewGame()
@@ -45,7 +45,7 @@ public class MainMenuButtons : MonoBehaviour
         else
         {
             CustomEvents.FireFade(FadeType.StartFade);
-            WorldSaveGame.NewGame();
+            CommandCenterSaveGame.NewGame();
         }
     }
 
@@ -67,7 +67,7 @@ public class MainMenuButtons : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
         _areYouSurePanel.SetActive(false);
-        WorldSaveGame.NewGame();
+        CommandCenterSaveGame.NewGame();
         _continueButtonObject.SetActive(false);
     }
 

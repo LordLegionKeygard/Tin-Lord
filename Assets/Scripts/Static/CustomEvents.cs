@@ -126,4 +126,22 @@ public class CustomEvents
     {
         OnLoadingScreenToggle?.Invoke(state);
     }
+
+    public static Action<bool, int> OnTooltipToggle;
+    public static void FireTooltipToggle(bool state, int toolTipNumer)
+    {
+        OnTooltipToggle?.Invoke(state, toolTipNumer);
+    }
+
+    public static Action OnCloseTooltips;
+    public static void FireCloseTooltips()
+    {
+        OnCloseTooltips?.Invoke();
+    }
+
+    public static Action<float, float, string> OnUpdateToolTip;
+    public static void FireUpdateToolTipTransform(float x, float y, string text)
+    {
+        OnUpdateToolTip.Invoke(x, y, text);
+    }
 }

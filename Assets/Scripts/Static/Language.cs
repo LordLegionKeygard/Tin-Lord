@@ -156,8 +156,8 @@ public class Language : MonoBehaviour
         _text[42, 0] = "Survive {0} days";
         _text[42, 1] = "Выжить {0} дней";
 
-        _text[43, 0] = "";
-        _text[43, 1] = "";
+        _text[43, 0] = "Memory Fragments:";
+        _text[43, 1] = "Фрагментов Памяти:";
 
         _text[44, 0] = "";
         _text[44, 1] = "";

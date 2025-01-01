@@ -5,6 +5,7 @@ using System;
 public class PlayerResources : MonoBehaviour
 {
     [SerializeField] private PlayerResourcesWrapper[] _resourcesWrapper;
+    public float GetResource(ResourceEnum resourceEnum) => _resourcesWrapper[(int)resourceEnum].Amount;
 
     private void Start()
     {

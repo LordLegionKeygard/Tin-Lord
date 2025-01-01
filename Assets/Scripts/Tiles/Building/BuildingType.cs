@@ -12,6 +12,8 @@ public class BuildingType : MonoBehaviour
     private BuildsPanel _buildsPanel;
     private BuildTypesPanel _buildTypesPanel;
 
+    public Tile CurrentTile() => _currentBuildingTypeTile;
+
     public void SetBuildingType(Tile buildingTypeTile, TileObject tileObject, SelectTilePanel selectTilePanel, BuildsPanel buildsPanel, BuildTypesPanel buildTypesPanel)
     {
         _selectTilePanel = selectTilePanel;

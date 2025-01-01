@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class MissionPanel : MonoBehaviour
 {
+    public int LastOpenedMissionId;
     [SerializeField] private MissionItem[] _missionItems;
     [SerializeField] private TextMeshProUGUI _durationText;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
@@ -13,6 +14,7 @@ public class MissionPanel : MonoBehaviour
     [SerializeField] private GameObject[] _activeObjects;
     [SerializeField] private CommandCenterResourcesView _resourcesView;
     [SerializeField] private RectTransform _objectivesRectTransform;
+    [SerializeField] private GameObject _loadMissionButton;
     private Mission _currentMission;
 
 
@@ -22,6 +24,8 @@ public class MissionPanel : MonoBehaviour
 
         UnselectAllMission();
         UnactiveAll();
+
+        //проверяем есть ли файл сохранения с названием id данной миссии, если да включаем кнопку _loadMissionButton
 
         _durationText.text = _currentMission.Duration == 0 ? $"{Language.TextStatic[33]} {Language.TextStatic[38]}" : $"{Language.TextStatic[33]} {_currentMission.Duration} {Language.TextStatic[37]}";
         _ecologyLevelText.text = $"{Language.TextStatic[34]} {_currentMission.StartEcology}";

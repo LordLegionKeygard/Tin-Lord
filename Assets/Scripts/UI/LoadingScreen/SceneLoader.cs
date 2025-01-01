@@ -6,7 +6,7 @@ using Zenject;
 
 public class SceneLoader : MonoBehaviour
 {
-    [Inject] private WorldSaveGame _worldSaveGame;
+    [Inject] private CommandCenterSaveGame _worldSaveGame;
     // [Inject] private WorldSaveSettings _worldSaveSettings;
     [SerializeField] private LoadingScreenController _loadingScreenController;
     public float LoadingProgress;
@@ -27,7 +27,7 @@ public class SceneLoader : MonoBehaviour
     {
         yield return new WaitForSeconds(timeInSec);
         if (_worldSaveGame.SaveLoad == null && isLoadData)
-            _worldSaveGame.SaveLoad = FindObjectOfType<SaveLoad>();
+            _worldSaveGame.SaveLoad = FindObjectOfType<CommandCenterSaveLoad>();
 
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync((int)sceneEnum);
 

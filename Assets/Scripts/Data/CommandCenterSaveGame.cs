@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class WorldSaveGame : MonoBehaviour
+public class CommandCenterSaveGame : MonoBehaviour
 {
-    public SaveLoad SaveLoad;
+    public CommandCenterSaveLoad SaveLoad;
 
     [Header("Save Data Writer")]
-    private SaveGameDataWriter _saveGameDataWriter;
-    public SaveGameDataWriter GetSaveGameDataWriter() => _saveGameDataWriter;
+    private CommandCenterGameDataWriter _saveGameDataWriter;
+    public CommandCenterGameDataWriter GetSaveGameDataWriter() => _saveGameDataWriter;
 
     [Header("Current Character Data")]
     public CommandCenterSaveData CommandCenterSaveData;
@@ -16,17 +16,19 @@ public class WorldSaveGame : MonoBehaviour
 
     private void Awake()
     {
-        _saveGameDataWriter = new SaveGameDataWriter(Application.persistentDataPath, _fileName);
+        _saveGameDataWriter = new CommandCenterGameDataWriter(Application.persistentDataPath, _fileName);
     }
 
     public void NewGame()
     {
         CommandCenterSaveData = new CommandCenterSaveData
         {
-            MemoryFragment = 0,
+            MemoryFragments = 0,
+            LastOpenedMissionId = 0,
             BuildingsLearned = new bool[_configLoaderBuildings.AllBuidingsCount()],
-            CurrentMissionId = 0,
         };
+
+        CommandCenterSaveData.BuildingsLearned[0] = true; // Base
 
         _saveGameDataWriter.WriteCharacterDataToSaveFile(CommandCenterSaveData);
 
@@ -59,7 +61,7 @@ public class WorldSaveGame : MonoBehaviour
     {
         _saveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         _saveGameDataWriter.DataSaveFileName = _fileName;
-        
+
         CommandCenterSaveData = _saveGameDataWriter.LoadCommandCenterDataFromJson();
 
         CustomEvents.FireLoadScene(SceneEnum.CommandCenter, 5f, true);

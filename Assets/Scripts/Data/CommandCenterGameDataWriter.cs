@@ -2,12 +2,12 @@ using System;
 using System.IO;
 using UnityEngine;
 
-public class SaveGameDataWriter
+public class CommandCenterGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
     public string DataSaveFileName = "";
 
-    public SaveGameDataWriter(string SaveDataDirectoryPath, string DataSaveFileName)
+    public CommandCenterGameDataWriter(string SaveDataDirectoryPath, string DataSaveFileName)
     {
         this.SaveDataDirectoryPath = SaveDataDirectoryPath;
         this.DataSaveFileName = DataSaveFileName;
