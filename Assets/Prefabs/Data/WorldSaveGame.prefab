@@ -48,8 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SaveLoad: {fileID: 0}
   CommandCenterSaveData:
-    MemoryFragment: 0
+    MemoryFragments: 0
     BuildingsLearned: 
+    LastOpenedMissionId: 0
   _fileName: SaveGameFile.txt
   _configLoaderBuildings: {fileID: 11400000, guid: 95310d04327c16542acbd12da77a67d4,
     type: 2}
