@@ -28,7 +28,8 @@ public class CommandCenterSaveGame : MonoBehaviour
             BuildingsLearned = new bool[_configLoaderBuildings.AllBuidingsCount()],
         };
 
-        CommandCenterSaveData.BuildingsLearned[0] = true; // Base
+        CommandCenterSaveData.BuildingsLearned[0] = true; // Shelter
+        CommandCenterSaveData.BuildingsLearned[12] = true; // CoalMining
 
         _saveGameDataWriter.WriteCharacterDataToSaveFile(CommandCenterSaveData);
 
