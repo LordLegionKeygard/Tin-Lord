@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-public class MapBuilder : MonoBehaviour
+public class TileMapBuilder : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
     [Inject] private TilesSystem _tilesSystem;
@@ -13,6 +13,7 @@ public class MapBuilder : MonoBehaviour
     [SerializeField] private SetTileNeighbours _setTileNeighbours;
     [SerializeField] private SetTilesId _setTilesId;
     [SerializeField] private GameObject[,] _tileObjects = new GameObject[WorldGameInfo.MapWidth, WorldGameInfo.MapLength];
+    [SerializeField] private GameObject[] _terrains;
 
     [Header("Road")]
     private int _iterations = 0;
@@ -21,13 +22,27 @@ public class MapBuilder : MonoBehaviour
     private List<TileObject> _roadTiles = new List<TileObject>(); // Список тайлов дороги в правильном порядке
     public List<TileObject> GetRoadTiles() => _roadTiles;
 
-
-    private void Start()
+    public void BuildMap(bool isStartMission)
     {
+        _terrains[(int)CurrentMissionInfo.Instance.CurrentMission().TerrainEnum].SetActive(true);
         SpawnTiles();
         _setTileNeighbours.SetNeighbours();
         _setTilesId.SetId();
-        SpawnRoad();
+        //показать название уровня?
+        if(isStartMission)
+        {
+            SpawnRoad();
+        }
+        else
+        {
+            //загружаем тайлы из даты
+        }
+    }
+
+
+    private void Start()
+    {
+        // SpawnRoad();
     }
 
     private void SpawnTiles()

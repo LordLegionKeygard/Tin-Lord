@@ -3,7 +3,7 @@ using Zenject;
 
 public class CommandCenterSaveLoad : MonoBehaviour
 {
-    [Inject] private CommandCenterSaveGame _commandCenterSaveGame;
+    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
     [SerializeField] private MissionPanel _missionPanel;
 

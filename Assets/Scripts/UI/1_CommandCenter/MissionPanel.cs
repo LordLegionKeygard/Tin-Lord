@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,15 +19,19 @@ public class MissionPanel : MonoBehaviour
     [SerializeField] private RectTransform _objectivesRectTransform;
     [SerializeField] private GameObject _loadMissionButton;
     private Mission _currentMission;
+    private bool _isContinueMission;
 
 
     public void RefreshInfo(Mission mission)
     {
         _currentMission = mission;
         WorldSaveGame.ChangeSelectedMissionId(_currentMission.MissionId.ToString());
+        _loadMissionButton.SetActive(WorldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists(_currentMission.MissionId.ToString()));
 
         UnselectAllMission();
         UnactiveAll();
+
+
 
         //проверяем есть ли файл сохранения с названием id данной миссии, если да включаем кнопку _loadMissionButton
 
@@ -85,13 +90,22 @@ public class MissionPanel : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
-        WorldSaveGame.NewMission(_currentMission);
+        _isContinueMission = false;
+        StartCoroutine(nameof(PrepareLoad));
     }
 
     public void LoadMission()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
-        WorldSaveGame.LoadMissionGameData();
+        _isContinueMission = true;
+        StartCoroutine(nameof(PrepareLoad));
+    }
+
+    private IEnumerator PrepareLoad()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        if (_isContinueMission) WorldSaveGame.LoadMissionGameData();
+        else WorldSaveGame.NewMission(_currentMission);
     }
 }

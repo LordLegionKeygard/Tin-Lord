@@ -40,7 +40,4 @@ public class AnimatorStrings : MonoBehaviour
         { CharacterWorkType.StickMix, StickMix },
         { CharacterWorkType.ComponentsCraft, ComponentsCraft},
     };
-
-    [Header("Ui")]
-    public static readonly int FadeOut = Animator.StringToHash("fadeOut");
 }

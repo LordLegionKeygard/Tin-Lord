@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using Zenject;
 
 public class MeteorStrikeGameEvent : BaseGameEvent
 {
-    [SerializeField] private TilesSystem _tilesSystem;
+    [Inject] private readonly TilesSystem _tilesSystem;
     private float _delay = 1.5f;
     private int _meteorDamagePercent = 30;
     public override void StartEvent()

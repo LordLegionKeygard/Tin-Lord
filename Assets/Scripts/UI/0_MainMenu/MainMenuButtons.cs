@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,8 +12,9 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private GameObject _continueButtonObject;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _areYouSurePanel;
+    private bool _isContinueGame;
 
-    private bool HaveSaveData() => CommandCenterSaveGame.GetSaveGameDataWriter().CheckIfSaveFileExists();
+    private bool HaveSaveData() => CommandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
 
     private void Start()
     {
@@ -27,13 +29,6 @@ public class MainMenuButtons : MonoBehaviour
         }
     }
 
-    public void Continue()
-    {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
-        CustomEvents.FireFade(FadeType.StartFade);
-        CommandCenterSaveGame.LoadGameData();
-    }
-
     public void NewGame()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
@@ -45,8 +40,24 @@ public class MainMenuButtons : MonoBehaviour
         else
         {
             CustomEvents.FireFade(FadeType.StartFade);
-            CommandCenterSaveGame.NewGame();
+            _isContinueGame = false;
+            StartCoroutine(nameof(PrepareLoad));
         }
+    }
+
+    public void Continue()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        CustomEvents.FireFade(FadeType.StartFade);
+        _isContinueGame = true;
+        StartCoroutine(nameof(PrepareLoad));
+    }
+
+    private IEnumerator PrepareLoad()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        if (_isContinueGame) CommandCenterSaveGame.LoadGameData();
+        else CommandCenterSaveGame.NewGame();
     }
 
     public void Settings()

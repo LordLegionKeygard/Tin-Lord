@@ -24,12 +24,10 @@ public class CommandCenterSaveGameDataWriter
             {
                 string saveDataToLoad = "";
 
-                using (FileStream stream = new FileStream(savePath, FileMode.Open))
+                using (FileStream stream = new(savePath, FileMode.Open))
                 {
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        saveDataToLoad = reader.ReadToEnd();
-                    }
+                    using StreamReader reader = new(stream);
+                    saveDataToLoad = reader.ReadToEnd();
                 }
                 loadedSaveData = JsonUtility.FromJson<CommandCenterSaveData>(saveDataToLoad);
             }
@@ -56,13 +54,9 @@ public class CommandCenterSaveGameDataWriter
 
             string dataToStore = JsonUtility.ToJson(characterData, true);
 
-            using (FileStream stream = new FileStream(savePath, FileMode.Create))
-            {
-                using (StreamWriter writer = new StreamWriter(stream))
-                {
-                    writer.Write(dataToStore);
-                }
-            }
+            using FileStream stream = new(savePath, FileMode.Create);
+            using StreamWriter writer = new(stream);
+            writer.Write(dataToStore);
         }
         catch (Exception exception)
         {

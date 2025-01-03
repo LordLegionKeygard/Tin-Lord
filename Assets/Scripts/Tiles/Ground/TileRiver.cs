@@ -5,7 +5,7 @@ using Zenject;
 
 public class TileRiver : MonoBehaviour
 {
-    [Inject] private TilesSystem _tilesSystem;
+    [Inject] private readonly TilesSystem _tilesSystem;
     private GroundTile _groundTile;
     [SerializeField] private RiverTypeEnum _riverType = RiverTypeEnum.None;
     [SerializeField] private bool _isLastRiverTile;
@@ -24,7 +24,7 @@ public class TileRiver : MonoBehaviour
     {
         if (_riverType == RiverTypeEnum.Lake)
         {
-            _tilesSystem.IsHaveRiver = false;
+            _tilesSystem.SetIsHaveRiver(false);
             _isLake = false;
         }
 
@@ -39,10 +39,10 @@ public class TileRiver : MonoBehaviour
         _isBridge = isBridge;
         _isLastRiverTile = riverNumber < 2;
 
-        if (!_tilesSystem.IsHaveRiver || (afterDestroy && _riverType == RiverTypeEnum.LakeExit))
+        if (!_tilesSystem.IsHaveRiver() || (afterDestroy && _riverType == RiverTypeEnum.LakeExit))
         {
             _riverType = RiverTypeEnum.Lake;
-            _tilesSystem.IsHaveRiver = true;
+            _tilesSystem.SetIsHaveRiver(true);
             _isLake = true;
             _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(_riverType, 0);
         }

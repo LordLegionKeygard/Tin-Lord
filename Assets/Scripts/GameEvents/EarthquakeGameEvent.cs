@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 public class EarthquakeGameEvent : BaseGameEvent
 {
-    [SerializeField] private TilesSystem _tilesSystem;
+    [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Transform _transform;
     private float _initialYPosition = 10.8f;
     private float _shakeAmplitude = 0.2f;

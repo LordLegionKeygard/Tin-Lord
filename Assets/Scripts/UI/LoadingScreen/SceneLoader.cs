@@ -5,8 +5,8 @@ using Zenject;
 
 public class SceneLoader : MonoBehaviour
 {
-    [Inject] private CommandCenterSaveGame _commandCenterSaveGame;
-    [Inject] private WorldSaveGame _worldCenterSaveGame;
+    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
+    [Inject] private readonly WorldSaveGame _worldCenterSaveGame;
     // [Inject] private WorldSaveSettings _worldSaveSettings;
     [SerializeField] private LoadingScreenController _loadingScreenController;
     public float LoadingProgress;
@@ -36,6 +36,7 @@ public class SceneLoader : MonoBehaviour
 
             yield return null;
         }
+
         System.Threading.Tasks.Task task = _loadingScreenController.CheckCurrentScene();
 
         if (isLoadData)

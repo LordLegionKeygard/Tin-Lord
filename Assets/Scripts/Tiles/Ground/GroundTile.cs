@@ -6,7 +6,7 @@ using Zenject;
 public class GroundTile : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
-    [Inject] private TilesSystem _tilesSystem;
+    [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Transform _groundParent;
     [SerializeField] private TileObject _tileObject;
     private Tile _currentGroundTile;

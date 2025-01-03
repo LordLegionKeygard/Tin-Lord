@@ -4,7 +4,7 @@ using Zenject;
 public class RobotSpawnerSystem : MonoBehaviour
 {
     [Inject] DiContainer _diContainer;
-    [SerializeField] private MapBuilder _mapBuilder;
+    [SerializeField] private TileMapBuilder _mapBuilder;
     [SerializeField] private GameObject[] _robotsPrefabs;
     [SerializeField] private Transform _parent;
     [SerializeField] private CurrentRobotSystem _currentRobotSystem;

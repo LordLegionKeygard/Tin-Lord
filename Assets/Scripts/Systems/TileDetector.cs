@@ -1,12 +1,13 @@
 using UnityEngine;
+using Zenject;
 
 public class TileDetector : MonoBehaviour
 {
+    [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private TileObject _currentTileObject;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
-    [SerializeField] private TilesSystem _tileSystem;
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private UIPanels _uiPanels;
     [SerializeField] private BuildsPanel _buildsPanel;
@@ -73,7 +74,7 @@ public class TileDetector : MonoBehaviour
                 if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River)
                 {
                     if (!CanSetRiver() || _currentTileObject.BuildingTileObject().HaveTile()) return;
-                    if (_currentTileObject.GroundTileObject().HaveTile() && !_tileSystem.IsHaveRiver) return;
+                    if (_currentTileObject.GroundTileObject().HaveTile() && !_tilesSystem.IsHaveRiver()) return;
                     if (_currentTileObject.GroundTileObject().HaveTile())
                     {
                         if (!_currentTileObject.GroundTileObject().IsForwardRoad()) return;
@@ -120,7 +121,7 @@ public class TileDetector : MonoBehaviour
         if (newTileObject.GroundTileObject().HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River)
         {
             _currentTileObject = newTileObject;
-            if (!newTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Road) || !_tileSystem.IsHaveRiver)
+            if (!newTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Road) || !_tilesSystem.IsHaveRiver())
             {
                 _currentTileObject.GroundTileObject().SelectTile(true, SelectTileEnum.ErrorSelect);
                 return true;
@@ -252,7 +253,7 @@ public class TileDetector : MonoBehaviour
 
     private bool CanSetRiver()
     {
-        if (_tileSystem.IsHaveRiver)
+        if (_tilesSystem.IsHaveRiver())
         {
             var riverNumber = 0;
             var lastRiver = false;

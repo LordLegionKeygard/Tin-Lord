@@ -7,8 +7,8 @@ using Zenject;
 public class BuildTypesPanel : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
+    [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private TextMeshProUGUI _nameText;
-    [SerializeField] private TilesSystem _tileSystem;
     [SerializeField] private BuildingType _buildingType;
     [SerializeField] private RectTransform _content;
     private List<BuildingType> _buildingTypesList = new();
@@ -17,20 +17,20 @@ public class BuildTypesPanel : MonoBehaviour
     public void SpawnBuildingTypesInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel)
     {
         ResetText();
-        var buildingTypeTiles = _tileSystem.TakeGroundTile(tileObject.GroundTileObject().CurrentGroundTile().GroundTileView).BuildingTypes;
+        var buildingTypeTiles = _tilesSystem.TakeGroundTile(tileObject.GroundTileObject().CurrentGroundTile().GroundTileView).BuildingTypes;
 
         if (tileObject.GroundTileObject().IsBridge())
         {
             var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.GetComponent<BuildingType>().SetBuildingType(_tileSystem.TakeBuildingTile(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel, _buildsPanel, this);
+            item.GetComponent<BuildingType>().SetBuildingType(_tilesSystem.TakeBuildingTile(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel, _buildsPanel, this);
             _buildingTypesList.Add(item.gameObject.GetComponent<BuildingType>());
         }
         else if (tileObject.GroundTileObject().IsForwardRoad())
         {
             var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.GetComponent<BuildingType>().SetBuildingType(_tileSystem.TakeBuildingTile(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel, _buildsPanel, this);
+            item.GetComponent<BuildingType>().SetBuildingType(_tilesSystem.TakeBuildingTile(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel, _buildsPanel, this);
             _buildingTypesList.Add(item.gameObject.GetComponent<BuildingType>());
         }
         else

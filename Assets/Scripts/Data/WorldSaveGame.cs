@@ -7,6 +7,7 @@ public class WorldSaveGame : MonoBehaviour
 
     [Header("Save Data Writer")]
     private WorldSaveGameDataWriter _worldGameSaveDataWriter;
+    public WorldSaveGameDataWriter GetWorldGameSaveDataWriter() => _worldGameSaveDataWriter;
 
     [Header("CurrentWorldData")]
     public WorldSaveData CurrentWorldSaveData;
@@ -29,23 +30,9 @@ public class WorldSaveGame : MonoBehaviour
         CurrentWorldSaveData = new WorldSaveData
         {
             MissionId = mission.MissionId,
-            MissionName = mission.Name,
-            Day = 0,
-            StartEcology = mission.StartEcology,
-            Radiation = 0,
-            GameSpeed = 1,
-            ObjectivesData = new ObjectiveDataWrapper[mission.Objectives.Length],
+            IsStartMission = true,
             ResourcesData = new int[_resourceSpritesInfo.Sprites.Length],
         };
-
-        for (int i = 0; i < mission.Objectives.Length; i++)
-        {
-            CurrentWorldSaveData.ObjectivesData[i] = new ObjectiveDataWrapper
-            {
-                ObjectiveEnumNumber = (int)mission.Objectives[i].ObjectiveEnum,
-                ObjectiveAmount = mission.Objectives[i].ObjectiveAmount,
-            };
-        }
 
         for (int i = 0; i < mission.StartResources.Length; i++)
         {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Mission", menuName = "TinLord/Mission")]
+[CreateAssetMenu(fileName = "Mission", menuName = "TinLord/WorldMap/Mission")]
 
 public class Mission : ScriptableObject
 {
@@ -9,6 +9,7 @@ public class Mission : ScriptableObject
     public int MissionId;
     public int Duration; //в днях
     public int StartEcology;
+    public TerrainEnum TerrainEnum;
     public ResourceWrapper[] StartResources;
     public ObjectiveWrapper[] Objectives;
     [TextArea(1, 8)] public string[] Description;
@@ -28,5 +29,10 @@ public enum ObjectiveEnum
     KillEnemies = 1,
     ConstructBuilding = 2,
     SurviveDays = 3,
+}
 
+[System.Serializable]
+public enum TerrainEnum
+{
+    WasteLand = 0,
 }

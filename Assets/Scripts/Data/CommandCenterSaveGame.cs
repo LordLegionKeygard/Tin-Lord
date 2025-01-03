@@ -6,7 +6,7 @@ public class CommandCenterSaveGame : MonoBehaviour
 
     [Header("SaveDataWriter")]
     private CommandCenterSaveGameDataWriter _commandCenterSaveGameDataWriter;
-    public CommandCenterSaveGameDataWriter GetSaveGameDataWriter() => _commandCenterSaveGameDataWriter;
+    public CommandCenterSaveGameDataWriter GetCommandCenterSaveGameDataWriter() => _commandCenterSaveGameDataWriter;
 
     [Header("CurrentCommandCenterData")]
     public CommandCenterSaveData CommandCenterSaveData;

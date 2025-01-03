@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +8,7 @@ public class GameSpeedSystem : MonoBehaviour
     [SerializeField] private Sprite[] _spriteOff;
     [SerializeField] private GameSpeedEnum _currentGameSpeedEnum = GameSpeedEnum.Default;
     private bool _isPause;
+    public bool IsPause() => _isPause;
 
     public void ChangeGameSpeed(int gameSpeed)
     {

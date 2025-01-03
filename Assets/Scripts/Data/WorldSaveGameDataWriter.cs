@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using UnityEngine;
 
-public class WorldSaveGameDataWriter : MonoBehaviour
+public class WorldSaveGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
     private string _worldDataSaveFileName = "Mission_";
@@ -24,12 +24,10 @@ public class WorldSaveGameDataWriter : MonoBehaviour
             {
                 string saveDataToLoad = "";
 
-                using (FileStream stream = new FileStream(savePath, FileMode.Open))
+                using (FileStream stream = new(savePath, FileMode.Open))
                 {
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        saveDataToLoad = reader.ReadToEnd();
-                    }
+                    using StreamReader reader = new(stream);
+                    saveDataToLoad = reader.ReadToEnd();
                 }
                 loadedSaveData = JsonUtility.FromJson<WorldSaveData>(saveDataToLoad);
             }
@@ -56,13 +54,9 @@ public class WorldSaveGameDataWriter : MonoBehaviour
 
             string dataToStore = JsonUtility.ToJson(worldData, true);
 
-            using (FileStream stream = new FileStream(savePath, FileMode.Create))
-            {
-                using (StreamWriter writer = new StreamWriter(stream))
-                {
-                    writer.Write(dataToStore);
-                }
-            }
+            using FileStream stream = new(savePath, FileMode.Create);
+            using StreamWriter writer = new(stream);
+            writer.Write(dataToStore);
         }
         catch (Exception exception)
         {
@@ -75,9 +69,11 @@ public class WorldSaveGameDataWriter : MonoBehaviour
         File.Delete(Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + missionId + ".txt"));
     }
 
-    // public bool CheckIfSaveFileExists()
-    // {
+    public bool CheckIfSaveFileExists(string missionId)
+    {
+        if (File.Exists(Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + missionId + ".txt"))) return true;
 
-    // } 
+        else return false;
+    } 
 
 }

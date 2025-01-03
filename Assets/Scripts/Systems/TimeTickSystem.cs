@@ -1,38 +1,27 @@
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class TimeTickSystem : MonoBehaviour
 {
+    [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private float _tickSpeed;
     [SerializeField] private int _currentTick;
     [SerializeField] private TimeView _timeView;
-    [SerializeField] private TilesSystem _tilesSystem;
     [SerializeField] private TextMeshProUGUI _dayText;
     [SerializeField] private EveryTickResourcesProduction _everyTickResourcesExtraction;
     [SerializeField] private EveryTickResourcesRequired _everyTickResourcesRequired;
-
-    private float _endTime = 25;
-    private int _currentDay = 0;
+    [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private float _currentTime = 0f;
-    private bool _isPaused = false;
-
-    private float _totalGameTime = 0f; // Общее игровое время в секундах
-
+    private readonly float _endTime = 25;
+    private int _currentDay = 0;
     public float TickSpeed() => _tickSpeed;
-    public bool IsPause() => _isPaused;
-    public int CurrentTick() => _currentTick;
     public float EndTime() => _endTime;
-    public int CurrentDay() => _currentDay;
 
-    // Метод для получения общего игрового времени
-    public float GetTotalGameTime()
+    public void LoadCurrentDay(int day)
     {
-        return _totalGameTime;
-    }
-
-    private void Awake()
-    {
-        CustomEvents.OnPauseChanged += TogglePause;
+        _currentDay = day;
+        UpdateDayText();
     }
 
     private void Start()
@@ -42,10 +31,9 @@ public class TimeTickSystem : MonoBehaviour
 
     private void Update()
     {
-        if (_isPaused || !_tilesSystem.IsHaveBase()) return;
+        if (_gameSpeedSystem.IsPause() || !_tilesSystem.IsHaveBase()) return;
 
         _currentTime += Time.deltaTime;
-        _totalGameTime += Time.deltaTime;
 
         if (_currentTime >= _tickSpeed)
         {
@@ -75,15 +63,5 @@ public class TimeTickSystem : MonoBehaviour
     private void UpdateDayText()
     {
         _dayText.text = $"{Language.TextStatic[12]} {_currentDay}";
-    }
-
-    public void TogglePause(bool isPause)
-    {
-        _isPaused = isPause;
-    }
-
-    private void OnDestroy()
-    {
-        CustomEvents.OnPauseChanged -= TogglePause;
     }
 }

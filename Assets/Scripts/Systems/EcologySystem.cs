@@ -8,16 +8,22 @@ using UnityEngine.UI;
 
 public class EcologySystem : MonoBehaviour
 {
-    [SerializeField] private RectTransform _gearRectTransform;
-    [SerializeField] private int _totalEcology;
+    [Header("Ecology")]
     [SerializeField] private int _tilesEcology;
     [SerializeField] private int _radiation;
+    [SerializeField] private int _missionEcology;
+    [SerializeField] private int _totalEcology;
+
+    [Header("View")]
+    [SerializeField] private RectTransform _gearRectTransform;
     [SerializeField] private TextMeshProUGUI _totalEcologyText;
     [SerializeField] private TextMeshProUGUI _radiationText;
-    [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
     [SerializeField] private GameObject _warningSign;
     [SerializeField] private Image _radiationIcon;
     [SerializeField] private Sprite[] _radiationSprites;
+
+    [Header("Other")]
+    [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
     private float _changeTextDuration = 1;
     private SetupRenderSettings _setupRenderSettings;
     private Coroutine _changeTextCoroutine;
@@ -25,8 +31,19 @@ public class EcologySystem : MonoBehaviour
 
     private void Awake()
     {
-        CustomEvents.OnChangeEcology += ChangeEcology;
         _setupRenderSettings = GetComponent<SetupRenderSettings>();
+    }
+
+    private void Start()
+    {
+        CustomEvents.OnChangeEcology += ChangeEcology;
+        CustomEvents.OnDataLoad += UpdateTotalEcology;
+    }
+
+    public void LoadEcology(int radiation)
+    {
+        _missionEcology = CurrentMissionInfo.Instance.CurrentMission().StartEcology;
+        _radiation = radiation;
     }
 
     public void ChangeEcology(int amount, int tileId, bool remove)
@@ -71,7 +88,7 @@ public class EcologySystem : MonoBehaviour
         int previousTotalEcology = _totalEcology;
         _tilesEcology = _ecologyTileInfoList.Sum(tile => tile.Amount);
 
-        _totalEcology = _tilesEcology - _radiation;
+        _totalEcology = _tilesEcology - _radiation + _missionEcology;
 
         CheckLimitEcology();
 
@@ -142,6 +159,7 @@ public class EcologySystem : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnChangeEcology -= ChangeEcology;
+        CustomEvents.OnDataLoad -= UpdateTotalEcology;
     }
 }
 

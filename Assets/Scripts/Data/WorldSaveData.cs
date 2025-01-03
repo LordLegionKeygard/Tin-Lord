@@ -10,16 +10,12 @@ public class WorldSaveData
 {
     [Header("Main")]
     public int MissionId;
-    public string[] MissionName; //0 eng, 1 rus
+    public bool IsStartMission;
 
     [Header("UpPanel")]
     public int Day;
-    public int StartEcology;
     public int Radiation;
     public int GameSpeed; //    Pause = 0, Default = 1, Double = 2, Triple = 3,
-
-    [Header("Objectives")]
-    public ObjectiveDataWrapper[] ObjectivesData;
 
     [Header("Experience")]
     public RobotDataWrapper[] RobotsData; //Tank = 0, Sniper = 1, Engineer = 2,
@@ -28,7 +24,8 @@ public class WorldSaveData
     public int[] ResourcesData;
 
     [Header("Planet")]
-    //isHaveRiver ???
+    public bool IsHaveRiver; // возможно данные не нужны, при установке зданий эти значения сами установятся
+    public bool IsHaveBase;
     public TileDataWrapper[] TilesData;
 }
 
@@ -51,13 +48,6 @@ public class TileDataWrapper
     public bool IsBuildingWork;
 
     //соседи тайла?
-}
-
-[System.Serializable]
-public class ObjectiveDataWrapper
-{
-    public int ObjectiveEnumNumber;
-    public int ObjectiveAmount;
 }
 
 
