@@ -12,7 +12,7 @@ public class MapBuilder : MonoBehaviour
     [SerializeField] private Transform _parentTransform;
     [SerializeField] private SetTileNeighbours _setTileNeighbours;
     [SerializeField] private SetTilesId _setTilesId;
-    [SerializeField] private GameObject[,] _tileObjects = new GameObject[16, 20];
+    [SerializeField] private GameObject[,] _tileObjects = new GameObject[WorldGameInfo.MapWidth, WorldGameInfo.MapLength];
 
     [Header("Road")]
     private int _iterations = 0;

@@ -2,20 +2,19 @@ using System;
 using System.IO;
 using UnityEngine;
 
-public class CommandCenterGameDataWriter
+public class CommandCenterSaveGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
-    public string DataSaveFileName = "";
+    private string _mainDataSaveFileName = "MainSave.txt";
 
-    public CommandCenterGameDataWriter(string SaveDataDirectoryPath, string DataSaveFileName)
+    public CommandCenterSaveGameDataWriter(string saveDataDirectoryPath)
     {
-        this.SaveDataDirectoryPath = SaveDataDirectoryPath;
-        this.DataSaveFileName = DataSaveFileName;
+        SaveDataDirectoryPath = saveDataDirectoryPath;
     }
 
     public CommandCenterSaveData LoadCommandCenterDataFromJson()
     {
-        string savePath = Path.Combine(SaveDataDirectoryPath, DataSaveFileName);
+        string savePath = Path.Combine(SaveDataDirectoryPath, _mainDataSaveFileName);
 
         CommandCenterSaveData loadedSaveData = null;
 
@@ -46,9 +45,9 @@ public class CommandCenterGameDataWriter
         return loadedSaveData;
     }
 
-    public void WriteCharacterDataToSaveFile(CommandCenterSaveData characterData)
+    public void WriteCommandCenterDataToSaveFile(CommandCenterSaveData characterData)
     {
-        string savePath = Path.Combine(SaveDataDirectoryPath, DataSaveFileName);
+        string savePath = Path.Combine(SaveDataDirectoryPath, _mainDataSaveFileName);
 
         try
         {
@@ -73,12 +72,12 @@ public class CommandCenterGameDataWriter
 
     public void DeleteSaveFile()
     {
-        File.Delete(Path.Combine(SaveDataDirectoryPath, DataSaveFileName));
+        File.Delete(Path.Combine(SaveDataDirectoryPath, _mainDataSaveFileName));
     }
 
     public bool CheckIfSaveFileExists()
     {
-        if (File.Exists(Path.Combine(SaveDataDirectoryPath, DataSaveFileName))) return true;
+        if (File.Exists(Path.Combine(SaveDataDirectoryPath, _mainDataSaveFileName))) return true;
 
         else return false;
     }

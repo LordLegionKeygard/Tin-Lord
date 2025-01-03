@@ -76,7 +76,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89f0e441c7ac834389e35b198e2f4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _worldSaveGame: {fileID: 1835275965481422206, guid: 8eb1f54904b835d46a42254c64f9f7d1,
+  _commandCenterSaveGame: {fileID: 1835275965481422206, guid: 8eb1f54904b835d46a42254c64f9f7d1,
+    type: 3}
+  _worldSaveGame: {fileID: 5702877176854245849, guid: 171ad162fb5689146b4210e9f8191b4b,
+    type: 3}
+  _sceneLoader: {fileID: 2251492903385146076, guid: f2b246b9060d73f4a9ef81e85c0ad51f,
     type: 3}
 --- !u!114 &5359155276691388246
 MonoBehaviour:

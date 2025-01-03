@@ -31,7 +31,7 @@ public class MainMenuButtons : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
-        CommandCenterSaveGame.LoadCommandCenterGameData();
+        CommandCenterSaveGame.LoadGameData();
     }
 
     public void NewGame()

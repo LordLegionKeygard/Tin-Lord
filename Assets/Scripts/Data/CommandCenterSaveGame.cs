@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class CommandCenterSaveGame : MonoBehaviour
 {
-    public CommandCenterSaveLoad SaveLoad;
+    public CommandCenterSaveLoad CommandCenterSaveLoad;
 
-    [Header("Save Data Writer")]
-    private CommandCenterGameDataWriter _saveGameDataWriter;
-    public CommandCenterGameDataWriter GetSaveGameDataWriter() => _saveGameDataWriter;
+    [Header("SaveDataWriter")]
+    private CommandCenterSaveGameDataWriter _commandCenterSaveGameDataWriter;
+    public CommandCenterSaveGameDataWriter GetSaveGameDataWriter() => _commandCenterSaveGameDataWriter;
 
-    [Header("Current Character Data")]
+    [Header("CurrentCommandCenterData")]
     public CommandCenterSaveData CommandCenterSaveData;
-    [SerializeField] private string _fileName;
+
+    [Header("Other")]
     [SerializeField] private ConfigLoaderBuildings _configLoaderBuildings;
 
 
     private void Awake()
     {
-        _saveGameDataWriter = new CommandCenterGameDataWriter(Application.persistentDataPath, _fileName);
+        _commandCenterSaveGameDataWriter = new CommandCenterSaveGameDataWriter(Application.persistentDataPath);
     }
 
     public void NewGame()
@@ -30,41 +31,35 @@ public class CommandCenterSaveGame : MonoBehaviour
 
         CommandCenterSaveData.BuildingsLearned[0] = true; // Shelter
         CommandCenterSaveData.BuildingsLearned[12] = true; // CoalMining
+        CommandCenterSaveData.BuildingsLearned[16] = true; // OreManualMining
+        CommandCenterSaveData.BuildingsLearned[20] = true; // WoodManualMining
+        CommandCenterSaveData.BuildingsLearned[32] = true; // StoneManualMining
 
-        _saveGameDataWriter.WriteCharacterDataToSaveFile(CommandCenterSaveData);
+        _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 
+        Invoke(nameof(LoadGameData), 2f);
+        
         Debug.Log("SaveNewGame");
-        Debug.Log("File saved new game as: " + _fileName);
-
-        Invoke(nameof(LoadCommandCenterGameData), 2f);
     }
 
-    public void DeleteGameData()
-    {
-        _saveGameDataWriter.DeleteSaveFile();
-    }
-
+    // public void DeleteCommandCenterGameData() //не используется так как мы перезаписываем данные
+    // {
+    //     _commandCenterSaveGameDataWriter.DeleteSaveFile();
+    // }
 
     public void SaveGameData()
     {
-        _saveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        _saveGameDataWriter.DataSaveFileName = _fileName;
+        _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
+        CommandCenterSaveLoad.SaveData(ref CommandCenterSaveData);
+        _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 
-        SaveLoad.SaveData(ref CommandCenterSaveData);
-
-        _saveGameDataWriter.WriteCharacterDataToSaveFile(CommandCenterSaveData);
-
-        Debug.Log("Save");
-        Debug.Log("File saved as: " + _fileName);
+        Debug.Log("Save CommandCenter");
     }
 
-    public void LoadCommandCenterGameData()
+    public void LoadGameData()
     {
-        _saveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        _saveGameDataWriter.DataSaveFileName = _fileName;
-
-        CommandCenterSaveData = _saveGameDataWriter.LoadCommandCenterDataFromJson();
-
+        _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
+        CommandCenterSaveData = _commandCenterSaveGameDataWriter.LoadCommandCenterDataFromJson();
         CustomEvents.FireLoadScene(SceneEnum.CommandCenter, 5f, true);
     }
 }

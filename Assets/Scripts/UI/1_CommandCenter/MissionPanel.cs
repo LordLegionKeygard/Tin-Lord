@@ -1,9 +1,11 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class MissionPanel : MonoBehaviour
 {
+    [Inject] readonly WorldSaveGame WorldSaveGame;
     public int LastOpenedMissionId;
     [SerializeField] private MissionItem[] _missionItems;
     [SerializeField] private TextMeshProUGUI _durationText;
@@ -21,6 +23,7 @@ public class MissionPanel : MonoBehaviour
     public void RefreshInfo(Mission mission)
     {
         _currentMission = mission;
+        WorldSaveGame.ChangeSelectedMissionId(_currentMission.MissionId.ToString());
 
         UnselectAllMission();
         UnactiveAll();
@@ -76,5 +79,19 @@ public class MissionPanel : MonoBehaviour
         {
             item.SelectToggleView(false);
         }
+    }
+
+    public void StartNewMission()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        CustomEvents.FireFade(FadeType.StartFade);
+        WorldSaveGame.NewMission(_currentMission);
+    }
+
+    public void LoadMission()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        CustomEvents.FireFade(FadeType.StartFade);
+        WorldSaveGame.LoadMissionGameData();
     }
 }

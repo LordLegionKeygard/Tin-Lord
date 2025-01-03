@@ -28,6 +28,7 @@ public class MissionItem : MonoBehaviour
 
     public void SelectMissionItem()
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         _missionPanel.RefreshInfo(_mission);
         SelectToggleView(true);
     }

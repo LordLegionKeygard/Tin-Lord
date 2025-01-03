@@ -23,6 +23,7 @@ public class WorldGameInfo
     public const int DayEventChance = 20;
 
     //Robot
+    public const int RobotsCount = 3;
     public const float RobotEngineerRepairBuildingsDistance = 5.5f;
     public const float RobotDieDelay = 10;
     public const float RobotDieDuration = 3;
@@ -38,4 +39,8 @@ public class WorldGameInfo
 
     //Buildings
     public const float ConstructionSpeed = 20;
+    
+    //Map
+    public const int MapWidth = 16;
+    public const int MapLength = 20;
 }

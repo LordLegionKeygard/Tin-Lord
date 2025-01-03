@@ -9,7 +9,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
 
     private void Awake()
     {
-        _commandCenterSaveGame.SaveLoad = this;
+        _commandCenterSaveGame.CommandCenterSaveLoad = this;
     }
 
     public void SaveData(ref CommandCenterSaveData currentSaveData)
