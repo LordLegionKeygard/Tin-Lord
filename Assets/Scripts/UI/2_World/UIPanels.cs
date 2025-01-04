@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIPanels : MonoBehaviour
 {
@@ -13,6 +10,7 @@ public class UIPanels : MonoBehaviour
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private RobotPanel _robotPanel;
+    [SerializeField] private EscapePanel _escapePanel;
 
     public void MainPanelsViewToggle(bool selectTilePanel, bool robotPanel)
     {
@@ -42,7 +40,7 @@ public class UIPanels : MonoBehaviour
         }
         else
         {
-            //Включение EscapePanel
+            _escapePanel.PanelViewToggle();
         }
     }
 

@@ -54,7 +54,7 @@ public class MeteorStrikeGameEvent : BaseGameEvent
         yield return new WaitForSeconds(_delay);
 
         TileObject().BuildingTileObject().DestroyBuildingTile(true);
-        TileObject().GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Crater));
+        TileObject().GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Crater));
         TileObject().GroundTileObject().SpawnGroundTile();
     }
 }

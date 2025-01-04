@@ -159,14 +159,14 @@ public class Language : MonoBehaviour
         _text[43, 0] = "Memory Fragments:";
         _text[43, 1] = "Фрагментов Памяти:";
 
-        _text[44, 0] = "";
-        _text[44, 1] = "";
+        _text[44, 0] = "Continue";
+        _text[44, 1] = "Продолжить";
 
-        _text[45, 0] = "";
-        _text[45, 1] = "";
+        _text[45, 0] = "Restart";
+        _text[45, 1] = "Перезапуск";
 
-        _text[46, 0] = "";
-        _text[46, 1] = "";
+        _text[46, 0] = "Menu";
+        _text[46, 1] = "Меню";
 
         _text[47, 0] = "";
         _text[47, 1] = "";

@@ -8,7 +8,7 @@ public class PlayerInputSystem : MonoBehaviour
     //CameraControl
     public Vector2 MoveInput { get; private set; }
     private delegate void CameraZoom(InputAction.CallbackContext context);
-    private CameraZoom cameraZoom;
+    private CameraZoom _cameraZoom;
 
     //MouseClick
     private delegate void LeftMouseClick();
@@ -82,7 +82,7 @@ public class PlayerInputSystem : MonoBehaviour
     private void SetupInputActions()
     {
         //CameraControl
-        _playerInput.actions["CameraZoom"].started += ctx => cameraZoom(ctx);
+        _playerInput.actions["CameraZoom"].started += ctx => _cameraZoom(ctx);
 
         //MouseClick
         _playerInput.actions["LeftMouseClick"].performed += _ => _leftMouseClick();
@@ -110,7 +110,7 @@ public class PlayerInputSystem : MonoBehaviour
     private void SetupDelegates()
     {
         //CameraControl
-        cameraZoom = new CameraZoom(_cameraMovement.ZoomCamera);
+        _cameraZoom = new CameraZoom(_cameraMovement.ZoomCamera);
 
         //MouseClick
         _leftMouseClick = new LeftMouseClick(_tileDetector.InputOnTile);
@@ -170,6 +170,8 @@ public class PlayerInputSystem : MonoBehaviour
     private void OnDestroy()
     {
         InputToggle(false);
+
+        _cameraZoom = delegate { };
 
         //MouseClick
         _leftMouseClick = delegate { };

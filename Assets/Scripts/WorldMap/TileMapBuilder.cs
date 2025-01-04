@@ -33,16 +33,6 @@ public class TileMapBuilder : MonoBehaviour
         {
             SpawnRoad();
         }
-        else
-        {
-            //загружаем тайлы из даты
-        }
-    }
-
-
-    private void Start()
-    {
-        // SpawnRoad();
     }
 
     private void SpawnTiles()
@@ -69,7 +59,7 @@ public class TileMapBuilder : MonoBehaviour
         await Task.Delay(40);
 
         var tileObject = _tileObjects[nextX, nextY];
-        tileObject.GetComponent<TileRoad>().SetRoadTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Road));
+        tileObject.GetComponent<TileRoad>().SetRoadTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Road));
 
         _roadTiles.Add(tileObject.GetComponent<TileObject>()); // Добавляем тайл дороги в список
 

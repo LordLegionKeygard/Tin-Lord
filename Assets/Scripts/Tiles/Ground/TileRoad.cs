@@ -38,7 +38,8 @@ public class TileRoad : MonoBehaviour
 
         foreach (var (dir1, dir2, roadType, angle) in roadDirections)
         {
-            if (_groundTile.NeighbourGroundTile((int)dir1).CheckTileView(GroundTileViewEnum.Road) && _groundTile.NeighbourGroundTile((int)dir2).CheckTileView(GroundTileViewEnum.Road))
+            if ((_groundTile.NeighbourGroundTile((int)dir1).CheckTileView(GroundTileViewEnum.Road) || _groundTile.NeighbourGroundTile((int)dir1).IsBridge())
+              && (_groundTile.NeighbourGroundTile((int)dir2).CheckTileView(GroundTileViewEnum.Road) || _groundTile.NeighbourGroundTile((int)dir2).IsBridge()))
             {
                 _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRoad>().SetRoad(roadType, angle);
 

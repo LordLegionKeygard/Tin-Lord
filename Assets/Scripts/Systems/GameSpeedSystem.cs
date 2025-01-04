@@ -6,7 +6,8 @@ public class GameSpeedSystem : MonoBehaviour
     [SerializeField] private Image[] _images;
     [SerializeField] private Sprite[] _spriteOn;
     [SerializeField] private Sprite[] _spriteOff;
-    [SerializeField] private GameSpeedEnum _currentGameSpeedEnum = GameSpeedEnum.Default;
+    [SerializeField] private Button[] _speedButtons; 
+    private GameSpeedEnum _currentGameSpeedEnum = GameSpeedEnum.Default;
     private bool _isPause;
     public bool IsPause() => _isPause;
 
@@ -39,6 +40,14 @@ public class GameSpeedSystem : MonoBehaviour
         }
 
         _images[(int)_currentGameSpeedEnum].sprite = _spriteOn[(int)_currentGameSpeedEnum];
+    }
+
+    public void SpeedButtonInteractableToggle(bool escapePanelIsOpen)
+    {
+        foreach (var item in _speedButtons)
+        {
+            item.interactable = !escapePanelIsOpen;
+        }
     }
 }
 

@@ -50,7 +50,7 @@ public class CommandCenterSaveGameDataWriter
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(savePath));
-            Debug.Log("Save Path " + savePath);
+            // Debug.Log("Save Path " + savePath);
 
             string dataToStore = JsonUtility.ToJson(characterData, true);
 

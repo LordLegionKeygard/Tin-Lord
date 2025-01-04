@@ -15,12 +15,15 @@ public class TimeTickSystem : MonoBehaviour
     [SerializeField] private float _currentTime = 0f;
     private readonly float _endTime = 25;
     private int _currentDay = 0;
-    public float TickSpeed() => _tickSpeed;
-    public float EndTime() => _endTime;
+    public float GetTickSpeed() => _tickSpeed;
+    public float GetEndTime() => _endTime;
+    public float GetCurrentTime() => _currentTime;
+    public int GetCurrentDay() => _currentDay;
 
-    public void LoadCurrentDay(int day)
+    public void LoadCurrentDay(int day, float time)
     {
         _currentDay = day;
+        _currentTime = time;
         UpdateDayText();
     }
 

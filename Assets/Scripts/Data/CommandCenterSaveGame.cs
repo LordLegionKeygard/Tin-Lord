@@ -39,7 +39,7 @@ public class CommandCenterSaveGame : MonoBehaviour
 
         Invoke(nameof(LoadGameData), 2f);
         
-        Debug.Log("SaveNewGame");
+        // Debug.Log("SaveNewGame");
     }
 
     // public void DeleteCommandCenterGameData() //не используется так как мы перезаписываем данные
@@ -53,7 +53,7 @@ public class CommandCenterSaveGame : MonoBehaviour
         CommandCenterSaveLoad.SaveData(ref CommandCenterSaveData);
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 
-        Debug.Log("Save CommandCenter");
+        // Debug.Log("Save CommandCenter");
     }
 
     public void LoadGameData()

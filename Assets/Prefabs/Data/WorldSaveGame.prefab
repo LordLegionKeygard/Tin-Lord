@@ -47,15 +47,16 @@ MonoBehaviour:
   WorldSaveLoad: {fileID: 0}
   CurrentWorldSaveData:
     MissionId: 0
-    MissionName: []
+    IsStartMission: 0
     Day: 0
-    StartEcology: 0
     Radiation: 0
     GameSpeed: 0
-    ObjectivesData: []
     RobotsData: []
     ResourcesData: 
+    Cards: 
+    IsHaveRiver: 0
+    IsHaveBase: 0
     TilesData: []
-  _fileName: Mission_
   _resourceSpritesInfo: {fileID: 11400000, guid: c6da34594b03e45418fa3ee091b7a8e8,
     type: 2}
+  _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}

@@ -5,6 +5,7 @@ using Zenject;
 
 public class CardHolderSystem : MonoBehaviour
 {
+    [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] PlayerResources _playerResources;
 
     [Header("Test")]
@@ -31,20 +32,45 @@ public class CardHolderSystem : MonoBehaviour
     {
         CustomEvents.OnDayEnd += AddCardsAfterDayEnd;
         CustomEvents.OnSetBase += AddCardAfterSetBase;
-        CustomEvents.OnSpawnRoadComplete += AddStartGameCards;
     }
 
-    private void AddStartGameCards()
+    public void LoadCards(bool isStartMission, int[] cards)
     {
-        if (_addAllCards)
+        if (isStartMission)
         {
-            AddNewCards(_availableCards);
-            AddNewCards(new Tile[] { _startCards[0] });
+            if (_addAllCards)
+            {
+                AddNewCards(_availableCards);
+                AddNewCards(new Tile[] { _startCards[0] });
+            }
+            else
+            {
+                AddNewCards(_startCards);
+            }
         }
         else
         {
-            AddNewCards(_startCards);
+            var loadCards = new Tile[cards.Length];
+
+            for (int i = 0; i < cards.Length; i++)
+            {
+                loadCards[i] = _tilesSystem.GetGroundTileForNumber(cards[i]);
+            }
+
+            AddNewCards(loadCards);
         }
+    }
+
+    public int[] GetAllCards()
+    {
+        var cards = new int[_currentCards.Count];
+
+        for (int i = 0; i < _currentCards.Count; i++)
+        {
+            cards[i] = (int)_currentCards[i].GetTile().GroundTileView;
+        }
+
+        return cards;
     }
 
     public void CancelSelectCard()
@@ -179,6 +205,5 @@ public class CardHolderSystem : MonoBehaviour
     {
         CustomEvents.OnDayEnd -= AddCardsAfterDayEnd;
         CustomEvents.OnSetBase -= AddCardAfterSetBase;
-        CustomEvents.OnSpawnRoadComplete -= AddStartGameCards;
     }
 }

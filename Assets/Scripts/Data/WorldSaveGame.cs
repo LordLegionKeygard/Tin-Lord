@@ -14,6 +14,7 @@ public class WorldSaveGame : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private ResourceSpritesInfo _resourceSpritesInfo;
+    [SerializeField] private AllMissionsInfo _allMissionsInfo;
 
     private void Awake()
     {
@@ -29,9 +30,10 @@ public class WorldSaveGame : MonoBehaviour
     {
         CurrentWorldSaveData = new WorldSaveData
         {
-            MissionId = mission.MissionId,
             IsStartMission = true,
-            ResourcesData = new int[_resourceSpritesInfo.Sprites.Length],
+            MissionId = mission.MissionId,
+            GameSpeed = (int)GameSpeedEnum.Default,
+            ResourcesData = new float[_resourceSpritesInfo.Sprites.Length],
         };
 
         for (int i = 0; i < mission.StartResources.Length; i++)
@@ -46,24 +48,29 @@ public class WorldSaveGame : MonoBehaviour
         Debug.Log("SaveNewMission");
     }
 
-    public void DeleteCommandCenterGameData() //будет использоваться в случае проигрыша на мисии
+    public void DeleteMissionGameData() //будет использоваться в случае проигрыша на миссии
     {
-        _worldGameSaveDataWriter.DeleteSaveFile(_selectedMissionId);
+        _worldGameSaveDataWriter.DeleteMissionSaveFile(_selectedMissionId);
+    }
+
+    public void DeleteAllMissionsGameData()
+    {
+        _worldGameSaveDataWriter.DeleteAllMissionsSaveFiles(_allMissionsInfo.AllMissions.Length);
     }
 
     public void SaveMissionGameData()
     {
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        WorldSaveLoad.SaveData(ref CurrentWorldSaveData);
+        WorldSaveLoad.SaveMissionData(ref CurrentWorldSaveData);
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _selectedMissionId);
 
-        Debug.Log("Save Mission");
+        // Debug.Log("Save Mission");
     }
 
     public void ResetMissionGameData()
     {
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        WorldSaveLoad.ResetData(ref CurrentWorldSaveData);
+        WorldSaveLoad.ResetMissionData(ref CurrentWorldSaveData);
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _selectedMissionId);
     }
 

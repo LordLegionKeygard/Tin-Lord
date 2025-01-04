@@ -28,7 +28,7 @@ public class DayEventSystem : MonoBehaviour
 
     private void SetEventDuration()
     {
-        _eventMoveDuration = _timeTickSystem.TickSpeed() * _timeTickSystem.EndTime() * _dayBeforeSpawnEvent;
+        _eventMoveDuration = _timeTickSystem.GetTickSpeed() * _timeTickSystem.GetEndTime() * _dayBeforeSpawnEvent;
     }
 
     private void OnDayEnd(int currentDay)

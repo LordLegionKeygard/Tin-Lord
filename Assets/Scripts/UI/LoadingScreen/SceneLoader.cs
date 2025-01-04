@@ -26,7 +26,7 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator LoadScene(SceneEnum sceneEnum, float timeInSec, bool isLoadData)
     {
-        yield return new WaitForSeconds(timeInSec);
+        yield return new WaitForSecondsRealtime(timeInSec);
 
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync((int)sceneEnum);
 
@@ -42,7 +42,7 @@ public class SceneLoader : MonoBehaviour
         if (isLoadData)
         {
             if (sceneEnum == SceneEnum.CommandCenter) _commandCenterSaveGame.CommandCenterSaveLoad.LoadData(ref _commandCenterSaveGame.CommandCenterSaveData);
-            else if (sceneEnum == SceneEnum.World) _worldCenterSaveGame.WorldSaveLoad.LoadData(ref _worldCenterSaveGame.CurrentWorldSaveData);
+            else if (sceneEnum == SceneEnum.World) _worldCenterSaveGame.WorldSaveLoad.LoadMissionData(ref _worldCenterSaveGame.CurrentWorldSaveData);
             // _worldSaveSettings.SaveLoadSettings.SetAllSettingsFromData();
         }
     }

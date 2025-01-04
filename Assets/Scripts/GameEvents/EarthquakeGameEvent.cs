@@ -60,7 +60,7 @@ public class EarthquakeGameEvent : BaseGameEvent
             {
                 var randomTile = validTiles[Random.Range(0, validTiles.Count)];
                 randomTile.BuildingHealth().Death();
-                randomTile.GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Volcano));
+                randomTile.GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Volcano));
                 randomTile.GroundTileObject().SpawnGroundTile();
             }
         }
@@ -86,7 +86,7 @@ public class EarthquakeGameEvent : BaseGameEvent
                 var randomTile = validTiles[Random.Range(0, validTiles.Count)];
                 var previousGroundTileViewEnum = randomTile.GroundTileObject().CurrentGroundTile().GroundTileView;
                 randomTile.BuildingHealth().Death();
-                randomTile.GroundTileObject().SetGroundTile(_tilesSystem.TakeGroundTile(GroundTileViewEnum.Rift));
+                randomTile.GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Rift));
                 randomTile.GroundTileObject().SpawnGroundTile(previousGroundTileViewEnum);
             }
         }

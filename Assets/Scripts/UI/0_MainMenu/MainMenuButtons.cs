@@ -7,6 +7,7 @@ using Zenject;
 public class MainMenuButtons : MonoBehaviour
 {
     [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
+    [Inject] readonly WorldSaveGame WorldSaveGame;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private TextMeshProUGUI[] _buttonsText;
     [SerializeField] private GameObject _continueButtonObject;
@@ -56,8 +57,20 @@ public class MainMenuButtons : MonoBehaviour
     private IEnumerator PrepareLoad()
     {
         yield return new WaitForSecondsRealtime(1);
-        if (_isContinueGame) CommandCenterSaveGame.LoadGameData();
-        else CommandCenterSaveGame.NewGame();
+        if (_isContinueGame)
+        {
+            CommandCenterSaveGame.LoadGameData();
+        }
+        else
+        {
+            StartNewGame();
+        }
+    }
+
+    private void StartNewGame()
+    {
+        WorldSaveGame.DeleteAllMissionsGameData();
+        CommandCenterSaveGame.NewGame();
     }
 
     public void Settings()
@@ -78,7 +91,7 @@ public class MainMenuButtons : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
         _areYouSurePanel.SetActive(false);
-        CommandCenterSaveGame.NewGame();
+        StartNewGame();
         _continueButtonObject.SetActive(false);
     }
 

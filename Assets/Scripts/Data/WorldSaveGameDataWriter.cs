@@ -64,9 +64,21 @@ public class WorldSaveGameDataWriter
         }
     }
 
-    public void DeleteSaveFile(string missionId)
+    public void DeleteMissionSaveFile(string missionId)
     {
         File.Delete(Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + missionId + ".txt"));
+    }
+
+    public void DeleteAllMissionsSaveFiles(int missionsNumber)
+    {
+        for (int i = 0; i < missionsNumber; i++)
+        {
+            var missionPath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + i + ".txt");
+            if (File.Exists(missionPath))
+            {
+                File.Delete(missionPath);
+            }
+        }
     }
 
     public bool CheckIfSaveFileExists(string missionId)

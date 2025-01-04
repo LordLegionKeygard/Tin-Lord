@@ -12,6 +12,27 @@ public class PlayerResources : MonoBehaviour
         UpdateAllTexts();
     }
 
+    public void LoadResources(float[] resourcesData)
+    {
+        for (int i = 0; i < _resourcesWrapper.Length; i++)
+        {
+            _resourcesWrapper[i].Amount = resourcesData[i];
+        }
+        UpdateAllTexts();
+    }
+
+    public float[] GetAllResourcesAmount()
+    {
+        var resources = new float[_resourcesWrapper.Length];
+
+        for (int i = 0; i < _resourcesWrapper.Length; i++)
+        {
+            resources[i] = _resourcesWrapper[i].Amount;
+        }
+
+        return resources;
+    }
+
     public void ChangeResource(ResourceEnum resourceEnum, float amount)
     {
         var resources = _resourcesWrapper[(int)resourceEnum];

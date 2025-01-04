@@ -24,10 +24,12 @@ public class EcologySystem : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
-    private float _changeTextDuration = 1;
+    private readonly float _changeTextDuration = 1;
     private SetupRenderSettings _setupRenderSettings;
     private Coroutine _changeTextCoroutine;
     private float _currentRotationAngle = 0f;
+
+    public int GetRadiation() => _radiation;
 
     private void Awake()
     {
@@ -44,6 +46,8 @@ public class EcologySystem : MonoBehaviour
     {
         _missionEcology = CurrentMissionInfo.Instance.CurrentMission().StartEcology;
         _radiation = radiation;
+        UpdateRadiationView();
+        UpdateTotalEcology();
     }
 
     public void ChangeEcology(int amount, int tileId, bool remove)
@@ -76,11 +80,16 @@ public class EcologySystem : MonoBehaviour
     public void ChangeRadiation(int amount)
     {
         _radiation += amount;
+        UpdateRadiationView();
+        UpdateTotalEcology();
+    }
+
+    private void UpdateRadiationView()
+    {
         if (_radiation < 0) _radiation = 0;
         if (_radiation > WorldGameInfo.MaximumRadiation) _radiation = WorldGameInfo.MaximumRadiation;
         _radiationText.text = $"{Language.TextStatic[5]} {_radiation}";
         _radiationIcon.sprite = _radiation < 25 ? _radiationSprites[0] : _radiationSprites[1];
-        UpdateTotalEcology();
     }
 
     private void UpdateTotalEcology()

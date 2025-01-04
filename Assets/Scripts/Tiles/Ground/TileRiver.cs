@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -7,13 +5,18 @@ public class TileRiver : MonoBehaviour
 {
     [Inject] private readonly TilesSystem _tilesSystem;
     private GroundTile _groundTile;
-    [SerializeField] private RiverTypeEnum _riverType = RiverTypeEnum.None;
-    [SerializeField] private bool _isLastRiverTile;
-    private int _riverNumber;
     private bool _isLake;
-    public bool IsLastRiverTile() => _isLastRiverTile;
-    [SerializeField] private bool _isBridge;
+    private int _riverNumber;
+    private bool _isBridge;
+    private bool _isLastRiverTile;
+    private RiverTypeEnum _riverType = RiverTypeEnum.None;
+    private int _riverRotation;
+    public bool IsLake() => _isLake;
+    public int GetRiverNumber() => _riverNumber;
     public bool IsBridge() => _isBridge;
+    public bool IsLastRiverTile() => _isLastRiverTile;
+    public RiverTypeEnum GetRiverTypeEnum() => _riverType;
+    public int GetRiverRotation() => _riverRotation;
 
     private void Awake()
     {
@@ -28,9 +31,23 @@ public class TileRiver : MonoBehaviour
             _isLake = false;
         }
 
+        _riverNumber = 0;
         _isBridge = false;
         _isLastRiverTile = false;
         _riverType = RiverTypeEnum.None;
+        _riverRotation = 0;
+    }
+
+    public void LoadRiver(TileDataWrapper data)
+    {
+        _isLake = data.IsLake;
+        _riverNumber = data.RiverNumber;
+        _isBridge = data.IsBridge;
+        _isLastRiverTile = data.IsLastRiverTile;
+        _riverType = (RiverTypeEnum)data.RiverType;
+        _riverRotation = data.RiverRotation;
+
+        _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(_riverType, _riverRotation);
     }
 
     public void PrepareRiver(int riverNumber, bool isBridge, bool afterDestroy)
@@ -44,7 +61,8 @@ public class TileRiver : MonoBehaviour
             _riverType = RiverTypeEnum.Lake;
             _tilesSystem.SetIsHaveRiver(true);
             _isLake = true;
-            _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(_riverType, 0);
+            _riverRotation = 0;
+            _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(_riverType, _riverRotation);
         }
         else
         {
@@ -77,7 +95,8 @@ public class TileRiver : MonoBehaviour
         {
             if (_groundTile.NeighbourTileIsWater((int)riverDirections[i].Item1) && _groundTile.NeighbourTileIsWater((int)riverDirections[i].Item2))
             {
-                _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(riverDirections[i].Item3, riverDirections[i].Item4);
+                _riverRotation = riverDirections[i].Item4;
+                _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(riverDirections[i].Item3, _riverRotation);
                 return true;
             }
         }
@@ -88,13 +107,13 @@ public class TileRiver : MonoBehaviour
     private void CheckForward()
     {
         _riverType = CheckRiverType();
-        
+
         if (_riverType == RiverTypeEnum.LakeExit) _isLastRiverTile = false;
         if (_isBridge) _riverType = _isLastRiverTile ? RiverTypeEnum.RiverBridgeEnd : RiverTypeEnum.RiverBridge;
 
         SetRiverToTile();
     }
-    
+
     private RiverTypeEnum CheckRiverType()
     {
         if (_isLake && _riverNumber == 0)
@@ -104,7 +123,7 @@ public class TileRiver : MonoBehaviour
 
         return _isLake ? RiverTypeEnum.LakeExit : _isLastRiverTile ? RiverTypeEnum.RiverEnd : RiverTypeEnum.RiverForward;
     }
-    
+
     private void SetRiverToTile()
     {
         (TileDirectionEnum, RiverTypeEnum, int)[] riverDirections = new (TileDirectionEnum, RiverTypeEnum, int)[]
@@ -120,8 +139,9 @@ public class TileRiver : MonoBehaviour
             if (_groundTile.NeighbourTileIsWater((int)direction) || _riverType == RiverTypeEnum.Lake)
             {
                 var tileRiver = _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>();
-                tileRiver.SetRiver(type, rotation);
-                _groundTile.SetGroundModelRotation(rotation);
+                _riverRotation = rotation;
+                tileRiver.SetRiver(type, _riverRotation);
+                _groundTile.SetGroundModelRotation(_riverRotation);
                 break;
             }
         }

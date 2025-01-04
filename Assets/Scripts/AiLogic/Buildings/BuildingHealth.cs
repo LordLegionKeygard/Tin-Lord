@@ -107,7 +107,7 @@ public class BuildingHealth : BaseHealth
 
     public override void Death()
     {
-        if (_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base)
+        if (_buildingTile.HaveTile() && _buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base)
         {
             CustomEvents.FireBaseDestroy();
         }
