@@ -1788,7 +1788,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &113995860
 MonoBehaviour:
@@ -2234,7 +2234,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &140215576
 MonoBehaviour:
@@ -3326,7 +3326,7 @@ GameObject:
   - component: {fileID: 235649846}
   - component: {fileID: 235649845}
   m_Layer: 0
-  m_Name: PlayerInputSystem
+  m_Name: WorldInputSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3345,7 +3345,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 7
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &235649845
 MonoBehaviour:
@@ -4778,7 +4778,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &293398808
 MonoBehaviour:
@@ -6920,7 +6920,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &420835639
 MonoBehaviour:
@@ -9472,7 +9472,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &538257746
 MonoBehaviour:
@@ -9633,7 +9633,7 @@ GameObject:
   - component: {fileID: 544316898}
   - component: {fileID: 544316897}
   m_Layer: 5
-  m_Name: MenuText (TMP)
+  m_Name: CenterText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9679,7 +9679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Menu
+  m_text: Center
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e1b157f1f8f6ba142909c14d51ee7c09, type: 2}
   m_sharedMaterial: {fileID: 1966234766411983577, guid: e1b157f1f8f6ba142909c14d51ee7c09,
@@ -13896,7 +13896,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &805278403
 MonoBehaviour:
@@ -14830,7 +14830,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &867932145
 MonoBehaviour:
@@ -15499,7 +15499,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &918200240
 MonoBehaviour:
@@ -18310,7 +18310,6 @@ Transform:
   - {fileID: 1545635259}
   - {fileID: 719482898}
   - {fileID: 1883004002}
-  - {fileID: 235649844}
   - {fileID: 293398807}
   - {fileID: 113995859}
   - {fileID: 1267664134}
@@ -18321,6 +18320,7 @@ Transform:
   - {fileID: 538257745}
   - {fileID: 140215575}
   - {fileID: 918200239}
+  - {fileID: 235649844}
   - {fileID: 813738595}
   - {fileID: 1569963498}
   m_Father: {fileID: 0}
@@ -19760,6 +19760,7 @@ MonoBehaviour:
   - {fileID: 634450770}
   _selectTilePanel: {fileID: 996670363}
   _robotPanel: {fileID: 1531971658}
+  _panelDoMove: {fileID: 1018350059}
   _escapePanel: {fileID: 1482156331}
 --- !u!1 &1193426228
 GameObject:
@@ -20364,7 +20365,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1267664135
 MonoBehaviour:
@@ -24401,7 +24402,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1070021033}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1554564402
 MonoBehaviour:
@@ -30595,7 +30596,7 @@ GameObject:
   - component: {fileID: 1969595376}
   - component: {fileID: 1969595375}
   m_Layer: 5
-  m_Name: MenuButton
+  m_Name: CenterButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30667,8 +30668,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1482156331}
-        m_TargetAssemblyTypeName: EscapePanel, Assembly-CSharp
-        m_MethodName: MenuButton
+        m_TargetAssemblyTypeName: EscapePanelWorld, Assembly-CSharp
+        m_MethodName: CenterButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

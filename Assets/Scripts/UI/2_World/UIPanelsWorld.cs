@@ -1,16 +1,18 @@
 using UnityEngine;
 
-public class UIPanels : MonoBehaviour
+public class UIPanelsWorld : MonoBehaviour
 {
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TileDetector _tileDetector;
 
     [Header("SelectTilePanels & Lines")]
     [SerializeField] private GameObject[] _panels;
+
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private RobotPanel _robotPanel;
-    [SerializeField] private EscapePanel _escapePanel;
+    [SerializeField] private PanelDoMove _panelDoMove;
+    [SerializeField] private EscapePanelWorld _escapePanel;
 
     public void MainPanelsViewToggle(bool selectTilePanel, bool robotPanel)
     {
@@ -37,6 +39,10 @@ public class UIPanels : MonoBehaviour
         else if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() || _tileDetector.IsHaveCurrentSelectedTileObject())
         {
             ClearAndCancelCardHolderAndTileDetector();
+        }
+        else if(_panelDoMove.IsOpen())
+        {
+            _panelDoMove.PanelClose();
         }
         else
         {

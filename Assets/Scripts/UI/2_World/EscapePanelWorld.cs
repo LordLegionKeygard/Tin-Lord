@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
-public class EscapePanel : MonoBehaviour
+public class EscapePanelWorld : MonoBehaviour
 {
     [Inject] private readonly WorldSaveGame _worldSaveGame;
     [SerializeField] private RectTransform _objectTransform;
@@ -38,7 +38,7 @@ public class EscapePanel : MonoBehaviour
         PanelViewToggle();
     }
 
-    public void MenuButton()
+    public void CenterButton()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);

@@ -1,5 +1,5 @@
 
-public class CommandCenterResourcesView : BaseResourceView
+public class ResourcesViewCommandCenter : BaseResourceView
 {
     public override void SetResourcesView(ResourceWrapper[] resources)
     {

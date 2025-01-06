@@ -9,7 +9,7 @@ public class TileDetector : MonoBehaviour
     [SerializeField] private TileObject _currentTileObject;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private SelectTilePanel _selectTilePanel;
-    [SerializeField] private UIPanels _uiPanels;
+    [SerializeField] private UIPanelsWorld _uiPanels;
     [SerializeField] private BuildsPanel _buildsPanel;
     private Transform _lastRayCastTransform;
     private bool _canSetTile = false;

@@ -1,0 +1,50 @@
+using System.Collections;
+using DG.Tweening;
+using UnityEngine;
+using Zenject;
+
+public class EscapePanelCommandCenter : MonoBehaviour
+{
+    [Inject] private readonly CommandCenterSaveGame _saveGame;
+    [SerializeField] private RectTransform _objectTransform;
+    [SerializeField] private GameObject _escapePanelBackgroundBlack;
+    private bool _isOpen;
+
+    public void PanelViewToggle()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EscapePanel, transform.position);
+
+        _isOpen = !_isOpen;
+
+        _escapePanelBackgroundBlack.SetActive(_isOpen);
+
+        if (_isOpen)
+        {
+            _objectTransform.DOAnchorPosY(-62f, 0.8f).SetUpdate(true);
+        }
+        else
+        {
+            _objectTransform.DOAnchorPosY(100, 0.8f).SetUpdate(true);
+        }
+    }
+
+    public void ContinueButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        PanelViewToggle();
+    }
+
+    public void MenuButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        CustomEvents.FireFade(FadeType.StartFade);
+        StartCoroutine(nameof(PrepareLoad));
+    }
+
+    private IEnumerator PrepareLoad()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        _saveGame.SaveGameData(true);
+
+    }
+}

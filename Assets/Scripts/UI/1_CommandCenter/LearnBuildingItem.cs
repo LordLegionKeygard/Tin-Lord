@@ -60,6 +60,6 @@ public class LearnBuildingItem : MonoBehaviour
         _isLearn = true;
         RefreshView();
 
-        CommandCenterSaveGame.SaveGameData();
+        CommandCenterSaveGame.SaveGameData(false);
     }
 }

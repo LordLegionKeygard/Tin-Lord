@@ -12,7 +12,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private RobotPanel _robotPanel;
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
-    [SerializeField] private UIPanels _uiPanels;
+    [SerializeField] private UIPanelsWorld _uiPanels;
     [SerializeField] private DestroyPanel _destroyPanel;
 
     [Header("Objects")]

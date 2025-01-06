@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PlayerInputSystem : MonoBehaviour
+public class InputSystemWorld : MonoBehaviour
 {
-    public static PlayerInputSystem Instance;
+    public static InputSystemWorld Instance;
     private PlayerInput _playerInput;
 
     //CameraControl
@@ -52,7 +52,7 @@ public class PlayerInputSystem : MonoBehaviour
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
-    [SerializeField] private UIPanels _uiPanels;
+    [SerializeField] private UIPanelsWorld _uiPanels;
     [SerializeField] private RobotPanel _robotPanel;
 
     private void Awake()

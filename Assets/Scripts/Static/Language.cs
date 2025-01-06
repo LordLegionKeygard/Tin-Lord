@@ -165,11 +165,11 @@ public class Language : MonoBehaviour
         _text[45, 0] = "Restart";
         _text[45, 1] = "Перезапуск";
 
-        _text[46, 0] = "Menu";
-        _text[46, 1] = "Меню";
+        _text[46, 0] = "Center";
+        _text[46, 1] = "Центр";
 
-        _text[47, 0] = "";
-        _text[47, 1] = "";
+        _text[47, 0] = "Main menu";
+        _text[47, 1] = "Главное Меню";
 
         _text[48, 0] = "";
         _text[48, 1] = "";

@@ -15,7 +15,7 @@ public class MissionPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _objectiveText;
     [SerializeField] private TextMeshProUGUI[] _objectiveTexts;
     [SerializeField] private GameObject[] _activeObjects;
-    [SerializeField] private CommandCenterResourcesView _resourcesView;
+    [SerializeField] private ResourcesViewCommandCenter _resourcesView;
     [SerializeField] private RectTransform _objectivesRectTransform;
     [SerializeField] private GameObject _loadMissionButton;
     private Mission _currentMission;

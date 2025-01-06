@@ -1,11 +1,12 @@
 using TMPro;
 using UnityEngine;
 
-public class CommandCenterChangeLanguage : MonoBehaviour
+public class ChangeLanguageCommandCenter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _headerText;
     [SerializeField] private TextMeshProUGUI[] _buildingTypesNameTexts;
     [SerializeField] private Tile[] _buildingTypesTiles;
+    [SerializeField] private TextMeshProUGUI[] _escapeTexts;
 
 
     private void Start()
@@ -16,5 +17,9 @@ public class CommandCenterChangeLanguage : MonoBehaviour
         {
             _buildingTypesNameTexts[i].text = _buildingTypesTiles[i].Name[Language.LanguageNumber];
         }
+
+        _escapeTexts[0].text = Language.TextStatic[44];
+        _escapeTexts[1].text = Language.TextStatic[28];
+        _escapeTexts[2].text = Language.TextStatic[47];
     }
 }

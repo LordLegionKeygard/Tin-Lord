@@ -9,8 +9,11 @@ public class PanelDoMove : MonoBehaviour
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private ScrollRect _scrollRect;
     private bool _isOpen = false;
+    public bool IsOpen() => _isOpen;
+    
     public void PanelMove()
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         _isOpen = !_isOpen;
 
         if (_isOpen)
@@ -22,5 +25,11 @@ public class PanelDoMove : MonoBehaviour
         {
             _objectTransform.DOAnchorPosX(-_positionX, _moveSpeed).SetUpdate(true);
         }
+    }
+
+    public void PanelClose()
+    {
+        _isOpen = false;
+        _objectTransform.DOAnchorPosX(-_positionX, _moveSpeed).SetUpdate(true);
     }
 }
