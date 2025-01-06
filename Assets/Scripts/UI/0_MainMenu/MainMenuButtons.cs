@@ -1,4 +1,5 @@
 using System.Collections;
+using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private GameObject _continueButtonObject;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _areYouSurePanel;
+    [SerializeField] private MusicFade _musicFade;
     private bool _isContinueGame;
 
     private bool HaveSaveData() => CommandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
@@ -33,6 +35,7 @@ public class MainMenuButtons : MonoBehaviour
     public void NewGame()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+
         if (HaveSaveData())
         {
             _areYouSurePanel.SetActive(true);
@@ -49,6 +52,7 @@ public class MainMenuButtons : MonoBehaviour
     public void Continue()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+
         CustomEvents.FireFade(FadeType.StartFade);
         _isContinueGame = true;
         StartCoroutine(nameof(PrepareLoad));
@@ -56,7 +60,9 @@ public class MainMenuButtons : MonoBehaviour
 
     private IEnumerator PrepareLoad()
     {
+        _musicFade.FadeOutMusic();
         yield return new WaitForSecondsRealtime(1);
+
         if (_isContinueGame)
         {
             CommandCenterSaveGame.LoadGameData();
@@ -91,7 +97,8 @@ public class MainMenuButtons : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
         _areYouSurePanel.SetActive(false);
-        StartNewGame();
+        _isContinueGame = false;
+        StartCoroutine(nameof(PrepareLoad));
         _continueButtonObject.SetActive(false);
     }
 

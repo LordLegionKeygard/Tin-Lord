@@ -14,12 +14,7 @@ public class BuildingsLearnPanel : MonoBehaviour
 
     private void Start()
     {
-        CustomEvents.OnDataLoad += SetupData;
-    }
-
-    public void SetupData()
-    {
-        UpdateText();
+        CustomEvents.OnDataLoad += UpdateText;
     }
 
     private void UpdateText()
@@ -35,6 +30,6 @@ public class BuildingsLearnPanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnDataLoad -= SetupData;
+        CustomEvents.OnDataLoad -= UpdateText;
     }
 }

@@ -44,7 +44,7 @@ public class RobotDataWrapper
 public class TileDataWrapper
 {
     public int GroundTileId;
-    public int GroundTileRotation;
+    public float GroundTileRotation;
     public int BuildingTileId;
     public int BuildingTileRotation;
     public float BuildingHealth;
@@ -56,8 +56,6 @@ public class TileDataWrapper
     public bool IsLastRiverTile;
     public int RiverType;
     public int RiverRotation;
-
-    //соседи тайла?
 }
 
 

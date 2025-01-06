@@ -18,4 +18,12 @@ public class RotationView : MonoBehaviour
             _objectsForRotate[i].transform.Rotate(rotationAxis, rotationAngle);
         }
     }
+
+    public void LoadRotate(float value)
+    {
+        for (int i = 0; i < _objectsForRotate.Length; i++)
+        {
+            _objectsForRotate[i].transform.Rotate(rotationAxis, value);
+        }
+    }
 }

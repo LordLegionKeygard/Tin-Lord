@@ -9,7 +9,6 @@ public class SceneLoader : MonoBehaviour
     [Inject] private readonly WorldSaveGame _worldCenterSaveGame;
     // [Inject] private WorldSaveSettings _worldSaveSettings;
     [SerializeField] private LoadingScreenController _loadingScreenController;
-    public float LoadingProgress;
 
     private void Start()
     {
@@ -17,7 +16,6 @@ public class SceneLoader : MonoBehaviour
     }
     private void LoadSceneAsynchronously(SceneEnum sceneEnum, float timeInSec, bool isLoadData)
     {
-        LoadingProgress = 0;
         _loadingScreenController.ScreenToggle(true);
         if (isLoadData) CheckSaveLoad(sceneEnum);
         StartCoroutine(LoadScene(sceneEnum, timeInSec, isLoadData));
@@ -32,8 +30,6 @@ public class SceneLoader : MonoBehaviour
 
         while (!loadOperation.isDone)
         {
-            LoadingProgress = Mathf.Clamp01(loadOperation.progress / 0.9f) + 0.5f;
-
             yield return null;
         }
 

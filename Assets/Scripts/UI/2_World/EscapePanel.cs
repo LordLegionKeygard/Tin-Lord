@@ -13,7 +13,8 @@ public class EscapePanel : MonoBehaviour
 
     public void PanelViewToggle()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EscapePanel, transform.position);
+
         _isOpen = !_isOpen;
 
         _gameSpeedSystem.SpeedButtonInteractableToggle(_isOpen);
@@ -22,25 +23,31 @@ public class EscapePanel : MonoBehaviour
         if (_isOpen)
         {
             _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Pause);
-            _objectTransform.DOAnchorPosY(-185.5f, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(-185.5f, 0.8f).SetUpdate(true);
         }
         else
         {
             _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default);
-            _objectTransform.DOAnchorPosY(-55, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(-55, 0.8f).SetUpdate(true);
         }
+    }
+
+    public void ContinueButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        PanelViewToggle();
     }
 
     public void MenuButton()
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
-        _worldSaveGame.SaveMissionGameData();
         StartCoroutine(nameof(PrepareLoad));
     }
 
     private IEnumerator PrepareLoad()
     {
         yield return new WaitForSecondsRealtime(1);
-        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, 5f, true);
+        _worldSaveGame.SaveMissionGameData(true);
     }
 }

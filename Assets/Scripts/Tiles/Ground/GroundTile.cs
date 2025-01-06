@@ -177,12 +177,15 @@ public class GroundTile : MonoBehaviour
 
         // if (_currentGroundTile.GroundTileView != GroundTileViewEnum.None) _currentGroundTileObject.GetComponent<RiftSetTileMaterial>().SetMaterial(_currentGroundTile.GroundTileView);
 
-        if(IsWaterTile()) _tileRiver.LoadRiver(tileDataWrapper);
-        
+        if (IsWaterTile()) _tileRiver.LoadRiver(tileDataWrapper);
+
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceProduction();
         _tileObject.SetResourceModifier();
+
+        var rotationView = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
+        if (rotationView != null) rotationView.LoadRotate(tileDataWrapper.GroundTileRotation);
     }
 
     private void UpdateNeighbourGroundTiles()

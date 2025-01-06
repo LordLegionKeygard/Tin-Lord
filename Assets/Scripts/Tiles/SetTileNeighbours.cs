@@ -35,7 +35,7 @@ public class SetTileNeighbours : MonoBehaviour
             tilesData[i] = new TileDataWrapper
             {
                 GroundTileId = groundHaveTile ? (int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView : (int)GroundTileViewEnum.None,
-                GroundTileRotation = 0,
+                GroundTileRotation = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTileObject().transform.eulerAngles.y : 0,
                 BuildingTileId = buildingHaveTile ? (int)tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView : (int)BuildingTileViewEnum.None,
                 BuildingTileRotation = 0,
                 BuildingHealth = buildingHaveTile ? tileObject.BuildingHealth().CurrentHealth : 0,
@@ -48,7 +48,6 @@ public class SetTileNeighbours : MonoBehaviour
                 RiverType = isWater ? (int)riverTile.GetRiverTypeEnum() : (int)RiverTypeEnum.None,
                 RiverRotation = riverTile.GetRiverRotation(),
             };
-
         }
         return tilesData;
     }

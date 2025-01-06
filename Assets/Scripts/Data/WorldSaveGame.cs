@@ -58,13 +58,12 @@ public class WorldSaveGame : MonoBehaviour
         _worldGameSaveDataWriter.DeleteAllMissionsSaveFiles(_allMissionsInfo.AllMissions.Length);
     }
 
-    public void SaveMissionGameData()
+    public void SaveMissionGameData(bool loadCommandCenter)
     {
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         WorldSaveLoad.SaveMissionData(ref CurrentWorldSaveData);
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _selectedMissionId);
-
-        // Debug.Log("Save Mission");
+        if (loadCommandCenter) CustomEvents.FireLoadScene(SceneEnum.CommandCenter, 5f, true);
     }
 
     public void ResetMissionGameData()

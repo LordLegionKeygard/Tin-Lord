@@ -7,6 +7,7 @@ public class FMODEvents : MonoBehaviour
 
     [Header("UiSFX")]
     public EventReference DefaultClick;
+    public EventReference EscapePanel;
 
 
     [Header("Environment")]

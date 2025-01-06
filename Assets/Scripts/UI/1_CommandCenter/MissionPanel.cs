@@ -6,7 +6,7 @@ using Zenject;
 
 public class MissionPanel : MonoBehaviour
 {
-    [Inject] readonly WorldSaveGame WorldSaveGame;
+    [Inject] private readonly WorldSaveGame _worldSaveGame;
     public int LastOpenedMissionId;
     [SerializeField] private MissionItem[] _missionItems;
     [SerializeField] private TextMeshProUGUI _durationText;
@@ -25,8 +25,8 @@ public class MissionPanel : MonoBehaviour
     public void RefreshInfo(Mission mission)
     {
         _currentMission = mission;
-        WorldSaveGame.ChangeSelectedMissionId(_currentMission.MissionId.ToString());
-        _loadMissionButton.SetActive(WorldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists(_currentMission.MissionId.ToString()));
+        _worldSaveGame.ChangeSelectedMissionId(_currentMission.MissionId.ToString());
+        _loadMissionButton.SetActive(_worldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists(_currentMission.MissionId.ToString()));
 
         UnselectAllMission();
         UnactiveAll();
@@ -105,7 +105,7 @@ public class MissionPanel : MonoBehaviour
     private IEnumerator PrepareLoad()
     {
         yield return new WaitForSecondsRealtime(1);
-        if (_isContinueMission) WorldSaveGame.LoadMissionGameData();
-        else WorldSaveGame.NewMission(_currentMission);
+        if (_isContinueMission) _worldSaveGame.LoadMissionGameData();
+        else _worldSaveGame.NewMission(_currentMission);
     }
 }
