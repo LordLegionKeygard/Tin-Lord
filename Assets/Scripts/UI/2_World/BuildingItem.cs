@@ -79,6 +79,8 @@ public class BuildingItem : MonoBehaviour
 
     public void BuildOrUpgrade()
     {
+        if(!_resourcesEnough) return;
+        
         _buildingResourcesView.ResetCells();
         _playerResources.UseResourcesForBuilding(GetResources());
 

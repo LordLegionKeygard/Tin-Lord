@@ -45,7 +45,7 @@ public class WorldSaveGame : MonoBehaviour
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _selectedMissionId);
         Invoke(nameof(LoadMissionGameData), 2f);
 
-        Debug.Log("SaveNewMission");
+        // Debug.Log("SaveNewMission");
     }
 
     public void DeleteMissionGameData() //будет использоваться в случае проигрыша на миссии

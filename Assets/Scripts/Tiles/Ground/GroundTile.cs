@@ -11,7 +11,7 @@ public class GroundTile : MonoBehaviour
     [SerializeField] private TileObject _tileObject;
     private Tile _currentGroundTile;
     private GameObject _currentGroundTileObject;
-    private int _groundModelRotation;
+    private float _groundModelRotation;
     private TileView _tileView;
     private TileRiver _tileRiver;
     private TileRoad _tileRoad;
@@ -47,8 +47,8 @@ public class GroundTile : MonoBehaviour
     public bool NeighbourTileIsWater(int number) => _tileObject.GetNeighbourGroundTile(number) == null ? false : _tileObject.GetNeighbourGroundTile(number).IsWaterTile();
 
     //ModelRotation
-    public int GroundModelRotation() => _groundModelRotation;
-    public void SetGroundModelRotation(int rotation) => _groundModelRotation = rotation;
+    public float GroundModelRotation() => _groundModelRotation;
+    public void SetGroundModelRotation(float rotation) => _groundModelRotation = rotation;
 
     //Road
     public bool IsForwardRoad() => _tileRoad.IsForwardRoad();
@@ -183,9 +183,14 @@ public class GroundTile : MonoBehaviour
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceProduction();
         _tileObject.SetResourceModifier();
+        _tileRoad.LoadForwardRoad(tileDataWrapper.GroundData.IsForwardRoad);
 
-        var rotationView = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
-        if (rotationView != null) rotationView.LoadRotate(tileDataWrapper.GroundData.GroundTileRotation);
+        if (_tileObject.GroundTileObject().CurrentGroundTileObject().TryGetComponent<RotationView>(out var rotationView))
+        {
+            rotationView.LoadRotate(tileDataWrapper.GroundData.GroundTileRotation);
+        }
+
+        _tileObject.GroundTileObject().SetGroundModelRotation(tileDataWrapper.GroundData.GroundModelRotation);
     }
 
     private void UpdateNeighbourGroundTiles()

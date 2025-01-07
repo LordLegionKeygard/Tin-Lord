@@ -83186,8 +83186,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5128493445474986610}
   - component: {fileID: 8142879596173701983}
-  - component: {fileID: -6135255595458968081}
   - component: {fileID: 5117036162057821377}
+  - component: {fileID: -6135255595458968081}
   m_Layer: 0
   m_Name: 0_Base
   m_TagString: Untagged
@@ -83234,20 +83234,6 @@ MonoBehaviour:
   - {fileID: 3936447943853043453}
   - {fileID: 8880761185114220731}
   _currentBuildingLevel: 0
---- !u!114 &-6135255595458968081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5128493445474986613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe65b2b613eab44d9f17cd1d6a0cf3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _objectsForRotate:
-  - {fileID: 4052141766415362070}
 --- !u!114 &5117036162057821377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83298,6 +83284,20 @@ MonoBehaviour:
   _resourceViewMeshRenders: []
   _resourceViewActiveGameObjects: []
   _meshRenderers: []
+--- !u!114 &-6135255595458968081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5128493445474986613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe65b2b613eab44d9f17cd1d6a0cf3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectsForRotate:
+  - {fileID: 4052141766415362070}
 --- !u!1 &5134738551692019300
 GameObject:
   m_ObjectHideFlags: 0

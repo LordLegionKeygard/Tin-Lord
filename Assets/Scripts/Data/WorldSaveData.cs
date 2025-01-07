@@ -53,6 +53,8 @@ public class GroundData
 {
     public int GroundTileId;
     public float GroundTileRotation;
+    public float GroundModelRotation;
+    public bool IsForwardRoad;
 }
 
 [System.Serializable]

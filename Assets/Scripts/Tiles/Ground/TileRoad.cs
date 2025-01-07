@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TileRoad : MonoBehaviour
@@ -21,6 +19,11 @@ public class TileRoad : MonoBehaviour
         _groundTile.SetGroundTile(tile);
         _groundTile.SpawnGroundTile();
     }
+
+    public void LoadForwardRoad(bool state)
+    {
+        _isForwardRoad = state;
+    }   
 
     private void PrepareRoads()
     {

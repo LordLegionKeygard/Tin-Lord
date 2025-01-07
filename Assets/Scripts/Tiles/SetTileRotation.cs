@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Сетит значение в groundTile, чтобы здание могло считать текущую позицию.
+/// Сетит значение в groundTile, чтобы здание могло считать текущую позицию, используется например для моста
 /// </summary>
 public class SetTileRotation : MonoBehaviour
 {

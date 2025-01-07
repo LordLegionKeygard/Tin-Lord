@@ -33,13 +33,16 @@ public class SetTileNeighbours : MonoBehaviour
             var isWater = tileObject.GroundTileObject().IsWaterTile();
             var riverTile = tileObject.GroundTileObject().CurrentTileRiver();
             var buildingTileGameObject = tileObject.BuildingTileObject().CurrentBuildingGameObject();
+            var haveRotationView = buildingHaveTile && buildingTileGameObject.GetComponent<RotationView>() != null;
 
             tilesData[i] = new TileDataWrapper
             {
                 GroundData = new GroundData
                 {
                     GroundTileId = groundHaveTile ? (int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView : (int)GroundTileViewEnum.None,
-                    GroundTileRotation = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTileObject().transform.eulerAngles.y : 0
+                    GroundTileRotation = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTileObject().transform.eulerAngles.y : 0,
+                    GroundModelRotation = groundHaveTile ? tileObject.GroundTileObject().GroundModelRotation() : 0,
+                    IsForwardRoad = groundHaveTile ? tileObject.GroundTileObject().IsForwardRoad() : false
                 },
                 BuildingData = new BuildingData
                 {
@@ -50,7 +53,7 @@ public class SetTileNeighbours : MonoBehaviour
                     BuildingTilePositionY = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionY() : 0,
                     BuildingTilePositionX = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionX() : 0,
                     BuildingTilePositionZ = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionZ() : 0,
-                    BuildingRotation = buildingHaveTile ? buildingTileGameObject.GetComponent<RotationView>().GetObjectRotation() : 0
+                    BuildingRotation = buildingHaveTile && haveRotationView ? buildingTileGameObject.GetComponent<RotationView>().GetObjectRotation() : 0
                 },
                 WaterData = new WaterData
                 {
