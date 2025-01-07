@@ -30,6 +30,7 @@ public class BuildingItem : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnTimeTickAfterResourcesChanged += RefreshView;
+        RefreshView();
     }
 
     public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int index, Tile tile, BuildingState buildingState, WorldResourcesView buildingResourcesView, BuildsPanel buildsPanel)
@@ -84,7 +85,7 @@ public class BuildingItem : MonoBehaviour
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
-                _currentTileObject.BuildingTileObject().ConstructingBuilding(_currentTile, _buildingIndex, _currentTileObject);
+                _currentTileObject.BuildingTileObject().ConstructingBuilding(_currentTile, _buildingIndex);
                 break;
             case BuildingState.UpgradeBuilding:
                 if (_currentTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.BaseFoundation))
@@ -94,7 +95,7 @@ public class BuildingItem : MonoBehaviour
                 else
                 {
                     _currentTileObject.BuildingTileObject().DestroyBuildingTile(true);
-                    _currentTileObject.BuildingTileObject().ConstructingBuilding(_currentTile, _buildingIndex, _currentTileObject);
+                    _currentTileObject.BuildingTileObject().ConstructingBuilding(_currentTile, _buildingIndex);
                 }
                 break;
             case BuildingState.Repair:

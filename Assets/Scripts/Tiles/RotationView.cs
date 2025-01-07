@@ -11,6 +11,8 @@ public class RotationView : MonoBehaviour
     private float rotationAngle = 90f;
     private Vector3 rotationAxis = Vector3.up;
 
+    public float GetObjectRotation() => _objectsForRotate[0].transform.localEulerAngles.y;
+
     public void Rotate()
     {
         for (int i = 0; i < _objectsForRotate.Length; i++)
@@ -23,7 +25,7 @@ public class RotationView : MonoBehaviour
     {
         for (int i = 0; i < _objectsForRotate.Length; i++)
         {
-            _objectsForRotate[i].transform.Rotate(rotationAxis, value);
+            _objectsForRotate[i].transform.localRotation = Quaternion.Euler(_objectsForRotate[i].transform.rotation.x, value, _objectsForRotate[i].transform.rotation.z);
         }
     }
 }

@@ -192,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingParent: {fileID: 1685772399035195807}
+  _tileObject: {fileID: 3503825946145213506}
 --- !u!114 &8647205754676832079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,9 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69ababdc5427e5f43b9487cd979a9ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _riverType: -1
-  _isLastRiverTile: 0
-  _isBridge: 0
 --- !u!114 &9176713146945725742
 MonoBehaviour:
   m_ObjectHideFlags: 0

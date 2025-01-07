@@ -71,7 +71,7 @@ public class WorldSaveLoad : MonoBehaviour
         //Tiles
         _tilesSystem.SetIsHaveBase(currentSaveData.IsHaveBase);
         _tilesSystem.SetIsHaveRiver(currentSaveData.IsHaveRiver);
-        _setTileNeighbours.LoadGroundTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
+        _setTileNeighbours.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
 
         CustomEvents.FireDataLoad();
     }

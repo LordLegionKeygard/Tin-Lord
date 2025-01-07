@@ -24,6 +24,6 @@ public class LoadingGearRotation : MonoBehaviour
         // Вращаем объект бесконечно вокруг оси Z
         transform.DORotate(new Vector3(0f, 0f, 360f * direction + _startRotationZ), _duration, RotateMode.FastBeyond360)
             .SetEase(Ease.Linear) // Равномерное вращение
-            .SetLoops(-1, LoopType.Incremental); // Бесконечный цикл
+            .SetLoops(-1, LoopType.Incremental).SetUpdate(true); // Бесконечный цикл
     }
 }

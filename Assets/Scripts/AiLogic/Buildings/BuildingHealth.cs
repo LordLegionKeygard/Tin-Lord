@@ -82,6 +82,13 @@ public class BuildingHealth : BaseHealth
         UpdateSlider();
     }
 
+    public void LoadBuildingHealth(Building building, float currentHealth)
+    {
+        MaxHealth = building.BuildingHealth;
+        CurrentHealth = currentHealth;
+        CreateHealthSlider();
+        UpdateSlider();
+    }
 
     public override void CalculateDamage(float damage, float knockBackPoints = 0)
     {
@@ -128,12 +135,12 @@ public class BuildingHealth : BaseHealth
         {
             float duration = 5f;
             float elapsedTime = 0f;
-            Vector3 startPosition = _buildingTile.CurrentBuildingTileGameObject().transform.position;
+            Vector3 startPosition = _buildingTile.CurrentBuildingGameObject().transform.position;
             Vector3 targetPosition = new Vector3(startPosition.x, startPosition.y - 12, startPosition.z);
 
             while (elapsedTime < duration)
             {
-                _buildingTile.CurrentBuildingTileGameObject().transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+                _buildingTile.CurrentBuildingGameObject().transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }

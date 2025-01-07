@@ -168,9 +168,9 @@ public class GroundTile : MonoBehaviour
         _tileObject.SetResourceModifier();
     }
 
-    public void LoadGroundTile(int viewNumber, TileDataWrapper tileDataWrapper)
+    public void LoadGroundTile(TileDataWrapper tileDataWrapper)
     {
-        _currentGroundTile = _tilesSystem.GetGroundTileForNumber(viewNumber);
+        _currentGroundTile = _tilesSystem.GetGroundTileForNumber(tileDataWrapper.GroundData.GroundTileId);
 
         _currentGroundTileObject = _diContainer.InstantiatePrefab(_currentGroundTile.TileObject, _groundParent.position, Quaternion.identity, null);
         _currentGroundTileObject.transform.SetParent(_groundParent);
@@ -185,7 +185,7 @@ public class GroundTile : MonoBehaviour
         _tileObject.SetResourceModifier();
 
         var rotationView = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
-        if (rotationView != null) rotationView.LoadRotate(tileDataWrapper.GroundTileRotation);
+        if (rotationView != null) rotationView.LoadRotate(tileDataWrapper.GroundData.GroundTileRotation);
     }
 
     private void UpdateNeighbourGroundTiles()

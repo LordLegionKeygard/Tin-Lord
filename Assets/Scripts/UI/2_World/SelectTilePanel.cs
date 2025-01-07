@@ -95,7 +95,7 @@ public class SelectTilePanel : MonoBehaviour
 
         var buildingTileObject = _tileObject.BuildingTileObject();
         var buildingTile = buildingTileObject.CurrentBuildingTile();
-        var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingTileGameObject() && !buildingTileObject.ConstructionNow();
+        var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingGameObject() && !buildingTileObject.ConstructionNow();
         var currentBuilding = haveBuildingTile ? buildingTileObject.CurrentBuilding() : null;
 
         SetTextFields(_tileObject, buildingTile, haveBuildingTile, currentBuilding);
@@ -220,7 +220,7 @@ public class SelectTilePanel : MonoBehaviour
         bool notRoadOrForwardRoad = !isRoad || isForwardRoad;
 
         var haveRotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>() != null;
-        var haveRotationViewBuilding = buildingTile.HaveTile() && buildingTile.HaveBuildingTileGameObject() && buildingTile.GetComponent<RotationView>() != null;
+        var haveRotationViewBuilding = buildingTile.HaveTile() && buildingTile.HaveBuildingGameObject() && buildingTile.GetComponent<RotationView>() != null;
 
         var onOffButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
         var buildButtonState = canRepairOrUpgrade && notRoadOrForwardRoad && groundHaveBuildings && !isConstructionNow;
@@ -287,7 +287,7 @@ public class SelectTilePanel : MonoBehaviour
         if (!_rotateButton.activeInHierarchy || _tileObject == null) return;
 
         var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
-        var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingTileGameObject().GetComponent<RotationView>() : null;
+        var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() : null;
 
         if (rotationViewGround != null) rotationViewGround.Rotate();
         if (rotationViewBuilding != null) rotationViewBuilding.Rotate();

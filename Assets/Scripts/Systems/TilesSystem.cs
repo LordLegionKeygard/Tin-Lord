@@ -14,7 +14,8 @@ public class TilesSystem : MonoBehaviour
     public void SetIsHaveBase(bool state) => _isHaveBase = state;
     public Tile GetGroundTileForEnum(GroundTileViewEnum tileView) => _allGroundTiles[(int)tileView - 1];
     public Tile GetGroundTileForNumber(int number) => _allGroundTiles[number - 1];
-    public Tile GetBuildingTile(BuildingTileViewEnum tileView) => _allBuildingTiles[(int)tileView];
+    public Tile GetBuildingTileForEnum(BuildingTileViewEnum tileView) => _allBuildingTiles[(int)tileView];
+    public Tile GetBuildingTileForNumber(int number) => _allBuildingTiles[number];
 
     private void Start()
     {

@@ -43,13 +43,35 @@ public class RobotDataWrapper
 [System.Serializable]
 public class TileDataWrapper
 {
+    public GroundData GroundData;
+    public BuildingData BuildingData;
+    public WaterData WaterData;
+}
+
+[System.Serializable]
+public class GroundData
+{
     public int GroundTileId;
     public float GroundTileRotation;
-    public int BuildingTileId;
-    public int BuildingTileRotation;
+}
+
+[System.Serializable]
+public class BuildingData
+{
+    public int BuildingTileTypeId;
+    public int BuildingTileLevel;
     public float BuildingHealth;
     public bool IsBuildingWork;
+    public float BuildingTilePositionX;
+    public float BuildingTilePositionY;
+    public float BuildingTilePositionZ;
+    public float BuildingRotation;
+}
 
+
+[System.Serializable]
+public class WaterData
+{
     public bool IsLake;
     public int RiverNumber;
     public bool IsBridge;

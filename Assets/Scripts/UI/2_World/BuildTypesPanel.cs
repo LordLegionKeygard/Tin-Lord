@@ -23,14 +23,14 @@ public class BuildTypesPanel : MonoBehaviour
         {
             var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.GetComponent<BuildingType>().SetBuildingType(_tilesSystem.GetBuildingTile(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel, _buildsPanel, this);
+            item.GetComponent<BuildingType>().SetBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel, _buildsPanel, this);
             _buildingTypesList.Add(item.gameObject.GetComponent<BuildingType>());
         }
         else if (tileObject.GroundTileObject().IsForwardRoad())
         {
             var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
             item.transform.SetParent(_content);
-            item.GetComponent<BuildingType>().SetBuildingType(_tilesSystem.GetBuildingTile(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel, _buildsPanel, this);
+            item.GetComponent<BuildingType>().SetBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel, _buildsPanel, this);
             _buildingTypesList.Add(item.gameObject.GetComponent<BuildingType>());
         }
         else

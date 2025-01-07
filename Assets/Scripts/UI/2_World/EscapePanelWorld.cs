@@ -22,7 +22,7 @@ public class EscapePanelWorld : MonoBehaviour
 
         if (_isOpen)
         {
-            _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Pause);
+            if (_gameSpeedSystem.CurrentGameSpeedEnum() != GameSpeedEnum.Pause) _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Pause);
             _objectTransform.DOAnchorPosY(-185.5f, 0.8f).SetUpdate(true);
         }
         else

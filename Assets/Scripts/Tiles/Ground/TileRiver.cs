@@ -40,12 +40,12 @@ public class TileRiver : MonoBehaviour
 
     public void LoadRiver(TileDataWrapper data)
     {
-        _isLake = data.IsLake;
-        _riverNumber = data.RiverNumber;
-        _isBridge = data.IsBridge;
-        _isLastRiverTile = data.IsLastRiverTile;
-        _riverType = (RiverTypeEnum)data.RiverType;
-        _riverRotation = data.RiverRotation;
+        _isLake = data.WaterData.IsLake;
+        _riverNumber = data.WaterData.RiverNumber;
+        _isBridge = data.WaterData.IsBridge;
+        _isLastRiverTile = data.WaterData.IsLastRiverTile;
+        _riverType = (RiverTypeEnum)data.WaterData.RiverType;
+        _riverRotation = data.WaterData.RiverRotation;
 
         _groundTile.CurrentGroundTileObject().GetComponent<PrepareTileRiver>().SetRiver(_riverType, _riverRotation);
     }

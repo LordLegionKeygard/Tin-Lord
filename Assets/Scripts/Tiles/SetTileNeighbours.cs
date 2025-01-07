@@ -32,35 +32,55 @@ public class SetTileNeighbours : MonoBehaviour
             var buildingHaveTile = tileObject.BuildingTileObject().HaveTile();
             var isWater = tileObject.GroundTileObject().IsWaterTile();
             var riverTile = tileObject.GroundTileObject().CurrentTileRiver();
+            var buildingTileGameObject = tileObject.BuildingTileObject().CurrentBuildingGameObject();
+
             tilesData[i] = new TileDataWrapper
             {
-                GroundTileId = groundHaveTile ? (int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView : (int)GroundTileViewEnum.None,
-                GroundTileRotation = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTileObject().transform.eulerAngles.y : 0,
-                BuildingTileId = buildingHaveTile ? (int)tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView : (int)BuildingTileViewEnum.None,
-                BuildingTileRotation = 0,
-                BuildingHealth = buildingHaveTile ? tileObject.BuildingHealth().CurrentHealth : 0,
-                IsBuildingWork = buildingHaveTile && tileObject.IsBuildingWork(),
-
-                IsLake = isWater && riverTile.IsLake(),
-                RiverNumber = isWater ? riverTile.GetRiverNumber() : 0,
-                IsBridge = isWater && riverTile.IsBridge(),
-                IsLastRiverTile = isWater && riverTile.IsLastRiverTile(),
-                RiverType = isWater ? (int)riverTile.GetRiverTypeEnum() : (int)RiverTypeEnum.None,
-                RiverRotation = riverTile.GetRiverRotation(),
+                GroundData = new GroundData
+                {
+                    GroundTileId = groundHaveTile ? (int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView : (int)GroundTileViewEnum.None,
+                    GroundTileRotation = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTileObject().transform.eulerAngles.y : 0
+                },
+                BuildingData = new BuildingData
+                {
+                    BuildingTileTypeId = buildingHaveTile ? (int)tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView : -1,
+                    BuildingTileLevel = buildingHaveTile ? tileObject.BuildingTileObject().CurrentBuildingLevel() : -1,
+                    BuildingHealth = buildingHaveTile ? tileObject.BuildingHealth().CurrentHealth : 0,
+                    IsBuildingWork = buildingHaveTile && tileObject.IsBuildingWork(),
+                    BuildingTilePositionY = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionY() : 0,
+                    BuildingTilePositionX = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionX() : 0,
+                    BuildingTilePositionZ = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionZ() : 0,
+                    BuildingRotation = buildingHaveTile ? buildingTileGameObject.GetComponent<RotationView>().GetObjectRotation() : 0
+                },
+                WaterData = new WaterData
+                {
+                    IsLake = isWater && riverTile.IsLake(),
+                    RiverNumber = isWater ? riverTile.GetRiverNumber() : 0,
+                    IsBridge = isWater && riverTile.IsBridge(),
+                    IsLastRiverTile = isWater && riverTile.IsLastRiverTile(),
+                    RiverType = isWater ? (int)riverTile.GetRiverTypeEnum() : (int)RiverTypeEnum.None,
+                    RiverRotation = isWater ? riverTile.GetRiverRotation() : 0
+                }
             };
         }
+
         return tilesData;
     }
 
-    public void LoadGroundTiles(TileDataWrapper[] tilesData, bool isStartMission)
+
+    public void LoadTiles(TileDataWrapper[] tilesData, bool isStartMission)
     {
-        if(isStartMission) return;
+        if (isStartMission) return;
 
         for (int i = 0; i < TileObjects.Count; i++)
         {
-            if(tilesData[i].GroundTileId == 0) continue;
+            if (tilesData[i].GroundData.GroundTileId == (int)GroundTileViewEnum.None) continue;
 
-            TileObjects[i].GroundTileObject().LoadGroundTile(tilesData[i].GroundTileId, tilesData[i]);
+            TileObjects[i].GroundTileObject().LoadGroundTile(tilesData[i]);
+
+            if (tilesData[i].BuildingData.BuildingTileTypeId == (int)BuildingTileViewEnum.None) continue;
+
+            TileObjects[i].BuildingTileObject().LoadBuildingTile(tilesData[i]);
         }
 
         CustomEvents.FireSpawnRoadComplete();
