@@ -5,12 +5,25 @@ using System;
 public class PlayerResources : MonoBehaviour
 {
     [SerializeField] private PlayerResourcesWrapper[] _resourcesWrapper;
-    public float GetResource(ResourceEnum resourceEnum) => _resourcesWrapper[(int)resourceEnum].Amount;
+    public Resource GetResourceForNumber(int number) => _resourcesWrapper[number].Resource;
+    public int GetResourceNumberForResource(Resource resource)
+    {
+        for (int i = 0; i < _resourcesWrapper.Length; i++)
+        {
+            if(resource == _resourcesWrapper[i].Resource)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 
     private void Start()
     {
         UpdateAllTexts();
     }
+
 
     public void LoadResources(float[] resourcesData)
     {

@@ -117,10 +117,10 @@ public class InputSystemWorld : MonoBehaviour
         _rightMouseClick = new RightMouseClick(_uiPanels.ClearAndCancelCardHolderAndTileDetector);
 
         //GameSpeed
-        _gameSpeedPause = new GameSpeedPause(_gameSpeedSystem.ChangeGameSpeed);
-        _gameSpeedDefault = new GameSpeedDefault(_gameSpeedSystem.ChangeGameSpeed);
-        _gameSpeedDouble = new GameSpeedDouble(_gameSpeedSystem.ChangeGameSpeed);
-        _gameSpeedTriple = new GameSpeedTriple(_gameSpeedSystem.ChangeGameSpeed);
+        _gameSpeedPause = new GameSpeedPause(_gameSpeedSystem.InputChangeGameSpeed);
+        _gameSpeedDefault = new GameSpeedDefault(_gameSpeedSystem.InputChangeGameSpeed);
+        _gameSpeedDouble = new GameSpeedDouble(_gameSpeedSystem.InputChangeGameSpeed);
+        _gameSpeedTriple = new GameSpeedTriple(_gameSpeedSystem.InputChangeGameSpeed);
 
         //UserInterface
         _escape = new Escape(_uiPanels.EscapeClick);

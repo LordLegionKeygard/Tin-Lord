@@ -14,8 +14,8 @@ public class TileObject : MonoBehaviour
     private BuildingHealth _buildingHealth;
     private int _id;
     private float _currentModifier;
-    private Resource _currentResourceProduction;
-    private Resource _currentResourceRequired;
+    [SerializeField] private Resource _currentResourceProduction;
+    [SerializeField] private Resource _currentResourceRequired;
     private ResourceRecept[] _currentResourceRecept;
     private float _currentResourceRequiredAmount;
     private bool _isBuildingWork;
@@ -76,12 +76,18 @@ public class TileObject : MonoBehaviour
 
     public void ClearBuildingInfoAndProduction()
     {
-        _currentResourceProduction = null;
         _currentResourceRequired = null;
         _currentResourceRequiredAmount = 0;
+        _currentResourceRecept = null;
+        _currentResourceProduction = null;
         _buildingProductionView = null;
         _currentModifier = 0;
-        _currentResourceRecept = null;
+        CustomEvents.FireChangeResourceProduction(ResourceEnum.None, 0, _id, true);
+        CustomEvents.FireChangeResourceRequired(this, null, 0, null);
+    }
+
+    public void ClearResourceProductionAndRequiredWhenBuildingConstruct()
+    {
         CustomEvents.FireChangeResourceProduction(ResourceEnum.None, 0, _id, true);
         CustomEvents.FireChangeResourceRequired(this, null, 0, null);
     }
@@ -161,6 +167,22 @@ public class TileObject : MonoBehaviour
         CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount, _currentResourceRecept);
     }
 
+    public void SetNewResourceRequiredAfterUpgradeBuilding(ResourcesForWorkWrapper[] allResourcesForWorkWrapper, ResourceRecept[] resourceRecepts)
+    {
+        for (int i = 0; i < allResourcesForWorkWrapper.Length; i++)
+        {
+            if (_currentResourceRequired == allResourcesForWorkWrapper[i].ResourceForWork) //если находим текущий ресурс для работы у нового здания, значит ничего менять не нужно
+            {
+                //здесь не требуется обновлять требуемые ресурсы как у производимых, потому что метод SetResourceProduction() вызывает FireChangeResourceRequired()
+                return;
+            }
+        }
+
+        //если текущий для работы ресурс не совпадает с ресурсами для работы нового здания, значит текущий ресурс больше нельзя использовать, обновляем на [0]
+        var wrapper = allResourcesForWorkWrapper[0];
+        SetResourceRequied(wrapper.ResourceForWork, wrapper.ResourcesForWorkAmount, resourceRecepts);
+    }
+
     public void SetResourceProduction(Resource resource, ResourceRecept[] resourceRecept)
     {
         _currentResourceProduction = resource;
@@ -169,5 +191,19 @@ public class TileObject : MonoBehaviour
         ChangeResourceProduction();
         _selectTilePanel.RefreshInfo();
         CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount, _currentResourceRecept);
+    }
+
+    public void SetNewResourceProductionAfterUpgradeBuilding(ResourcesProductionWrapper[] allResourcesProductionWrapper)
+    {
+        for (int i = 0; i < allResourcesProductionWrapper.Length; i++)
+        {
+            if (_currentResourceProduction == allResourcesProductionWrapper[i].ProductionResource)
+            {
+                SetResourceProduction(allResourcesProductionWrapper[i].ProductionResource, allResourcesProductionWrapper[i].ResourceRecept);
+                return;
+            }
+        }
+
+        SetResourceProduction(allResourcesProductionWrapper[0].ProductionResource, allResourcesProductionWrapper[0].ResourceRecept);
     }
 }

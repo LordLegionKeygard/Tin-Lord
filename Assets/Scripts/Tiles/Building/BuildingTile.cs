@@ -54,6 +54,7 @@ public class BuildingTile : MonoBehaviour
       _currentLevel = level;
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), isConstruction: true);
       _buildingTileTransform.CachedRandomTransform(CurrentBuilding());
+      _tileObject.ClearResourceProductionAndRequiredWhenBuildingConstruct();
 
       SpawnConstructionPrefab();
       StartCoroutine(BuildingTimer());
@@ -101,10 +102,9 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels = _currentBuildingGameObject.GetComponent<BuildingLevels>();
       _buildingLevels.SetBuildingLevelView(_currentLevel, _tileObject);
       _buildingLevels.SetBuildingProductionView();
-      SetResourceRequiredAfterSpawnOrUpgradeBuilding();
+      PrepareSetResourceRequired();
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
-      if (CurrentBuilding().ResourcesProduction.Length != 0) _tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
-
+      if (CurrentBuilding().ResourcesProduction.Length != 0) _tileObject.SetNewResourceProductionAfterUpgradeBuilding(CurrentBuilding().ResourcesProduction);
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), false);
 
       if (IsProtectiveTile()) UpdateProtectiveTiles();
@@ -119,6 +119,8 @@ public class BuildingTile : MonoBehaviour
       _previousBuildingHealthPercent = tileObject.BuildingHealth().GetCurrentHealthPercent();
       _buildingHealth.SetUpgradeBuildingHealth(CurrentBuilding(), isConstruction: true);
       _buildingLevels.DisableAllBuilding();
+      _tileObject.ClearResourceProductionAndRequiredWhenBuildingConstruct();
+
       SpawnConstructionPrefab();
       StartCoroutine(UpgradeBaseTimer(newLevel));
    }
@@ -147,19 +149,19 @@ public class BuildingTile : MonoBehaviour
       _isConstructionNow = false;
       Destroy(_constructionPrefab);
 
-      UpgradeBuilding(newLevel, _currentLevel);
+      SetupBaseBuilding(newLevel, _currentLevel);
    }
 
 
-   public void UpgradeBuilding(int newLevel, int previousLevel)
+   public void SetupBaseBuilding(int newLevel, int previousLevel)
    {
       _currentLevel = newLevel;
 
       _buildingLevels.SetBuildingLevelView(_currentLevel, _tileObject);
-      SetResourceRequiredAfterSpawnOrUpgradeBuilding();
+      PrepareSetResourceRequired();
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
       _buildingLevels.SetBuildingProductionView();
-      if (CurrentBuilding().ResourcesProduction.Length != 0) _tileObject.SetResourceProduction(_tileObject.CurrentResourceProduction(), _tileObject.CurrentResourceRecept());
+      _tileObject.SetResourceProduction(_tileObject.CurrentResourceProduction(), _tileObject.CurrentResourceRecept());
 
       if (IsProtectiveTile()) UpdateProtectiveTiles();
       _tileObject.CheckResourceRequired(true);
@@ -225,19 +227,46 @@ public class BuildingTile : MonoBehaviour
       Destroy(_currentBuildingGameObject);
    }
 
-   public void SetResourceRequiredAfterSpawnOrUpgradeBuilding()
+   public void PrepareSetResourceRequired()
    {
+      var resourceRecept = CurrentBuilding().ResourcesProduction.Length == 0 ? null : CurrentBuilding().ResourcesProduction[0].ResourceRecept;
+      var resourcesForWork = CurrentBuilding().ResourcesForWork;
+
       if (CurrentBuilding().ResourcesForWork.Length == 0)
       {
-         if (CurrentBuilding().ResourcesProduction.Length == 0) _tileObject.SetResourceRequied(null, 0, null);
-         else _tileObject.SetResourceRequied(null, 0, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
+         _tileObject.SetResourceRequied(null, 0, resourceRecept);
       }
       else
       {
-         var resourceRecept = CurrentBuilding().ResourcesProduction.Length == 0 ? null : CurrentBuilding().ResourcesProduction[0].ResourceRecept; //при спавне здания ставим 0 ресурс из массива
-         var resourcesForWork = CurrentBuilding().ResourcesForWork[0];
-         _tileObject.SetResourceRequied(resourcesForWork.ResourceForWork, resourcesForWork.ResourcesForWorkAmount, resourceRecept);
+         _tileObject.SetNewResourceRequiredAfterUpgradeBuilding(resourcesForWork, resourceRecept);
       }
+   }
+
+   public void LoadResourceRequired(BuildingData data)
+   {
+      var resource = data.RequiredResource < 0 ? null : _playerResources.GetResourceForNumber(data.RequiredResource);
+      var amount = data.RequiredResourceAmount;
+      var recept = CurrentBuilding().ResourcesProduction.Length == 0 ? null : CurrentBuilding().ResourcesProduction[0].ResourceRecept;
+      _tileObject.SetResourceRequied(resource, amount, recept);
+   }
+
+   public void LoadResourceProduction(BuildingData data)
+   {
+      if (CurrentBuilding().ResourcesProduction.Length == 0) return;
+
+      var resource = _playerResources.GetResourceForNumber(data.ResourceProduction);
+      ResourceRecept[] recept = null;
+      // _tileObject.SetNewResourceProductionAfterUpgradeBuilding(CurrentBuilding().ResourcesProduction);
+
+      for (int i = 0; i < CurrentBuilding().ResourcesProduction.Length; i++)
+      {
+         if (resource == CurrentBuilding().ResourcesProduction[i].ProductionResource)
+         {
+            recept = CurrentBuilding().ResourcesProduction[i].ResourceRecept;
+         }
+      }
+
+      _tileObject.SetResourceProduction(resource, recept);
    }
 
    public void LoadBuildingTile(TileDataWrapper tileDataWrapper)
@@ -246,16 +275,15 @@ public class BuildingTile : MonoBehaviour
       _currentLevel = tileDataWrapper.BuildingData.BuildingTileLevel;
 
       _currentBuildingGameObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
-      // Destroy(_constructionPrefab);
       _currentBuildingGameObject.transform.SetParent(_buildingParent);
       _buildingTileTransform.LoadTransform(tileDataWrapper.BuildingData);
       _buildingTileTransform.SetTransform(_currentBuildingGameObject.transform, CurrentBuilding(), _tileObject);
       _buildingLevels = _currentBuildingGameObject.GetComponent<BuildingLevels>();
       _buildingLevels.SetBuildingLevelView(_currentLevel, _tileObject);
       _buildingLevels.SetBuildingProductionView();
-      SetResourceRequiredAfterSpawnOrUpgradeBuilding();
+      LoadResourceRequired(tileDataWrapper.BuildingData);
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
-      if (CurrentBuilding().ResourcesProduction.Length != 0) _tileObject.SetResourceProduction(CurrentBuilding().ResourcesProduction[0].ProductionResource, CurrentBuilding().ResourcesProduction[0].ResourceRecept);
+      LoadResourceProduction(tileDataWrapper.BuildingData);
 
       _buildingHealth.LoadBuildingHealth(CurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth);
 

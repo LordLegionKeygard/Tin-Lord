@@ -112,7 +112,7 @@ public class SelectTilePanel : MonoBehaviour
         {
             if (_tileObject.CurrentResourceRequired() != null)
             {
-                _requiredResourcePanel.UpdateButtonsView(_tileObject);
+                _requiredResourcePanel.UpdateButtonsView(_tileObject, true);
             }
 
             if (buildingTile.IsHaveProductionResources())
@@ -367,7 +367,7 @@ public class SelectTilePanel : MonoBehaviour
             }
         }
 
-        _requiredResourcePanel.UpdateButtonsView(_tileObject);
+        _requiredResourcePanel.UpdateButtonsView(_tileObject, false);
     }
 
     public void ChangeResourceProduction(Resource resource, ResourceRecept[] resourceRecept)

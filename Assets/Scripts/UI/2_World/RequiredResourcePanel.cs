@@ -24,12 +24,12 @@ public class RequiredResourcePanel : MonoBehaviour
         };
     }
 
-    public void UpdateButtonsView(TileObject tileObject)
+    public void UpdateButtonsView(TileObject tileObject, bool upgradeBuilding)
     {
         var resourceEnum = tileObject.CurrentResourceRequired().ResourceEnum;
         var resourcesForWork = tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork;
 
-        if (resourceEnum == _lastResourceEnum && _tileObject == tileObject)
+        if (resourceEnum == _lastResourceEnum && _tileObject == tileObject && !upgradeBuilding)
         {
             return; // Нет необходимости обновлять, если ресурс и объект те же
         }

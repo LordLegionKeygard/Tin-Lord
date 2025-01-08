@@ -6,12 +6,19 @@ public class GameSpeedSystem : MonoBehaviour
     [SerializeField] private Image[] _images;
     [SerializeField] private Sprite[] _spriteOn;
     [SerializeField] private Sprite[] _spriteOff;
-    [SerializeField] private Button[] _speedButtons; 
+    [SerializeField] private Button[] _speedButtons;
     private GameSpeedEnum _currentGameSpeedEnum = GameSpeedEnum.Default;
     public GameSpeedEnum CurrentGameSpeedEnum() => _currentGameSpeedEnum;
     private bool _isPause;
     public bool IsPause() => _isPause;
+    private bool _canChangeGameSpeed = true;
 
+    public void InputChangeGameSpeed(int gameSpeed)
+    {
+        if (!_canChangeGameSpeed) return;
+        ChangeGameSpeed(gameSpeed);
+    }
+    
     public void ChangeGameSpeed(int gameSpeed)
     {
         GameSpeedEnum gameSpeedEnum = (GameSpeedEnum)gameSpeed;
@@ -45,6 +52,7 @@ public class GameSpeedSystem : MonoBehaviour
 
     public void SpeedButtonInteractableToggle(bool escapePanelIsOpen)
     {
+        _canChangeGameSpeed = !escapePanelIsOpen;
         foreach (var item in _speedButtons)
         {
             item.interactable = !escapePanelIsOpen;

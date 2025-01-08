@@ -68,6 +68,9 @@ public class BuildingData
     public float BuildingTilePositionY;
     public float BuildingTilePositionZ;
     public float BuildingRotation;
+    public int RequiredResource;
+    public float RequiredResourceAmount;
+    public int ResourceProduction;
 }
 
 

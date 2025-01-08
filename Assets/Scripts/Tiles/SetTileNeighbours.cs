@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class SetTileNeighbours : MonoBehaviour
 {
+    [Inject] readonly PlayerResources _playerResources;
     public List<TileObject> TileObjects;
 
     public void SetNeighbours()
@@ -34,6 +36,8 @@ public class SetTileNeighbours : MonoBehaviour
             var riverTile = tileObject.GroundTileObject().CurrentTileRiver();
             var buildingTileGameObject = tileObject.BuildingTileObject().CurrentBuildingGameObject();
             var haveRotationView = buildingHaveTile && buildingTileGameObject.GetComponent<RotationView>() != null;
+            var haveRequiredResource = buildingHaveTile && tileObject.CurrentResourceRequired() != null;
+            var haveProductionResource = buildingHaveTile && tileObject.CurrentResourceProduction() != null;
 
             tilesData[i] = new TileDataWrapper
             {
@@ -53,7 +57,11 @@ public class SetTileNeighbours : MonoBehaviour
                     BuildingTilePositionY = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionY() : 0,
                     BuildingTilePositionX = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionX() : 0,
                     BuildingTilePositionZ = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionZ() : 0,
-                    BuildingRotation = buildingHaveTile && haveRotationView ? buildingTileGameObject.GetComponent<RotationView>().GetObjectRotation() : 0
+                    BuildingRotation = buildingHaveTile && haveRotationView ? buildingTileGameObject.GetComponent<RotationView>().GetObjectRotation() : 0,
+
+                    RequiredResource = haveRequiredResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceRequired()) : -1,
+                    RequiredResourceAmount = buildingHaveTile ? tileObject.CurrentResourceRequiredAmount() : 0,
+                    ResourceProduction = haveProductionResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceProduction()) : -1
                 },
                 WaterData = new WaterData
                 {
