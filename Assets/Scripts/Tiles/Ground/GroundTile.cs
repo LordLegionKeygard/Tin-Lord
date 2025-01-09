@@ -15,7 +15,6 @@ public class GroundTile : MonoBehaviour
     private TileView _tileView;
     private TileRiver _tileRiver;
     private TileRoad _tileRoad;
-
     [SerializeField] private GameObject _laserDestructionVFX;
 
 
@@ -143,7 +142,7 @@ public class GroundTile : MonoBehaviour
         _tileObject.GetNeighbourGroundTile(2).TurnOffTileCollider();
     }
 
-    public void SpawnGroundTile(GroundTileViewEnum groundTileViewEnum = GroundTileViewEnum.None)
+    public void SpawnGroundTile(GroundTileViewEnum previousGroundTileViewEnum = GroundTileViewEnum.None)
     {
         if (_currentGroundTile == null) return;
 
@@ -157,7 +156,12 @@ public class GroundTile : MonoBehaviour
 
         _currentGroundTileObject.transform.SetParent(_groundParent);
 
-        if (groundTileViewEnum != GroundTileViewEnum.None) _currentGroundTileObject.GetComponent<RiftSetTileMaterial>().SetMaterial(groundTileViewEnum); //для рифта передаем прошлый тайл
+        if (previousGroundTileViewEnum != GroundTileViewEnum.None) // его передает только ивент EarcthQuake при землетрясении
+        {
+            _tileObject.SetRiftViewNumber((int)previousGroundTileViewEnum);
+            var riftSetTileMaterial = _currentGroundTileObject.GetComponent<RiftSetTileMaterial>();
+            riftSetTileMaterial.SetMaterial(previousGroundTileViewEnum); //для рифта передаем прошлый тайл
+        }
 
         RefreshGroundTile();
         UpdateNeighbourGroundTiles();
@@ -175,8 +179,6 @@ public class GroundTile : MonoBehaviour
         _currentGroundTileObject = _diContainer.InstantiatePrefab(_currentGroundTile.TileObject, _groundParent.position, Quaternion.identity, null);
         _currentGroundTileObject.transform.SetParent(_groundParent);
 
-        // if (_currentGroundTile.GroundTileView != GroundTileViewEnum.None) _currentGroundTileObject.GetComponent<RiftSetTileMaterial>().SetMaterial(_currentGroundTile.GroundTileView);
-
         if (IsWaterTile()) _tileRiver.LoadRiver(tileDataWrapper);
 
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
@@ -191,6 +193,12 @@ public class GroundTile : MonoBehaviour
         }
 
         _tileObject.GroundTileObject().SetGroundModelRotation(tileDataWrapper.GroundData.GroundModelRotation);
+
+        if (_currentGroundTile.GroundTileView == GroundTileViewEnum.Rift)
+        {
+            var riftSetTileMaterial = _currentGroundTileObject.GetComponent<RiftSetTileMaterial>();
+            riftSetTileMaterial.SetMaterial(_tilesSystem.GetGroundTileForNumber(tileDataWrapper.GroundData.RiftViewNumber).GroundTileView);
+        }
     }
 
     private void UpdateNeighbourGroundTiles()

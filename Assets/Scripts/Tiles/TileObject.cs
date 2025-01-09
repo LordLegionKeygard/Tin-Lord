@@ -14,14 +14,16 @@ public class TileObject : MonoBehaviour
     private BuildingHealth _buildingHealth;
     private int _id;
     private float _currentModifier;
-    [SerializeField] private Resource _currentResourceProduction;
-    [SerializeField] private Resource _currentResourceRequired;
+    private Resource _currentResourceProduction;
+    private Resource _currentResourceRequired;
     private ResourceRecept[] _currentResourceRecept;
     private float _currentResourceRequiredAmount;
     private bool _isBuildingWork;
     private bool _isHaveResourceRequired = true;
     private bool _isBuildingDestroyedNow;
     private bool _isGroundDestroyedNow;
+    private int _riftViewNumber = -1;
+    public int GetRiftViewNumber() => _riftViewNumber;
     public bool IsBuildingWork() => _isBuildingWork;
     public bool IsBuildingDestroyedNow() => _isBuildingDestroyedNow;
     public void ToggleIsBuildingDestroyedNow(bool state) => _isBuildingDestroyedNow = state;
@@ -40,6 +42,7 @@ public class TileObject : MonoBehaviour
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
     public void SetBuildingWork(bool state) => _isBuildingWork = state;
+    public void SetRiftViewNumber(int number) => _riftViewNumber = number;
 
     //Neighbours
     public GroundTile GetNeighbourGroundTile(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number].GroundTileObject() : null;

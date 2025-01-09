@@ -46,7 +46,8 @@ public class SetTileNeighbours : MonoBehaviour
                     GroundTileId = groundHaveTile ? (int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView : (int)GroundTileViewEnum.None,
                     GroundTileRotation = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTileObject().transform.eulerAngles.y : 0,
                     GroundModelRotation = groundHaveTile ? tileObject.GroundTileObject().GroundModelRotation() : 0,
-                    IsForwardRoad = groundHaveTile ? tileObject.GroundTileObject().IsForwardRoad() : false
+                    IsForwardRoad = groundHaveTile ? tileObject.GroundTileObject().IsForwardRoad() : false,
+                    RiftViewNumber = groundHaveTile ? tileObject.GetRiftViewNumber() : -1,
                 },
                 BuildingData = new BuildingData
                 {

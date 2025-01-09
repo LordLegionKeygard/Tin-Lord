@@ -18,22 +18,22 @@ public class MissionPanel : MonoBehaviour
     [SerializeField] private ResourcesViewCommandCenter _resourcesView;
     [SerializeField] private RectTransform _objectivesRectTransform;
     [SerializeField] private GameObject _loadMissionButton;
+    [SerializeField] private GameObject _areYouSurePanel;
     private Mission _currentMission;
     private bool _isContinueMission;
+    [SerializeField] private Button[] _buttons;
+    [SerializeField] private Image[] _buttonsIcon;
+    private bool HaveSaveData() => _worldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists(_currentMission.MissionId.ToString());
 
 
     public void RefreshInfo(Mission mission)
     {
         _currentMission = mission;
         _worldSaveGame.ChangeSelectedMissionId(_currentMission.MissionId.ToString());
-        _loadMissionButton.SetActive(_worldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists(_currentMission.MissionId.ToString()));
+        _loadMissionButton.SetActive(HaveSaveData());
 
         UnselectAllMission();
         UnactiveAll();
-
-
-
-        //проверяем есть ли файл сохранения с названием id данной миссии, если да включаем кнопку _loadMissionButton
 
         _durationText.text = _currentMission.Duration == 0 ? $"{Language.TextStatic[33]} {Language.TextStatic[38]}" : $"{Language.TextStatic[33]} {_currentMission.Duration} {Language.TextStatic[37]}";
         _ecologyLevelText.text = $"{Language.TextStatic[34]} {_currentMission.StartEcology}";
@@ -89,9 +89,18 @@ public class MissionPanel : MonoBehaviour
     public void StartNewMission()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
-        CustomEvents.FireFade(FadeType.StartFade);
-        _isContinueMission = false;
-        StartCoroutine(nameof(PrepareLoad));
+
+        if (HaveSaveData())
+        {
+            _areYouSurePanel.SetActive(true);
+            ButtonsToggle(false);
+        }
+        else
+        {
+            CustomEvents.FireFade(FadeType.StartFade);
+            _isContinueMission = false;
+            StartCoroutine(nameof(PrepareLoad));
+        }
     }
 
     public void LoadMission()
@@ -107,5 +116,35 @@ public class MissionPanel : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         if (_isContinueMission) _worldSaveGame.LoadMissionGameData();
         else _worldSaveGame.NewMission(_currentMission);
+    }
+
+    public void AreYouSureYes()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        CustomEvents.FireFade(FadeType.StartFade);
+        _isContinueMission = false;
+        _loadMissionButton.SetActive(false);
+        StartCoroutine(nameof(PrepareLoad));
+        _areYouSurePanel.SetActive(false);
+    }
+
+    public void AreYouSureNo()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        _areYouSurePanel.SetActive(false);
+        ButtonsToggle(true);
+    }
+
+    private void ButtonsToggle(bool state)
+    {
+        foreach (var item in _buttons)
+        {
+            item.interactable = state;
+        }
+
+        foreach (var item in _buttonsIcon)
+        {
+            item.color = state == false ? Colors.GreySix : Color.white;
+        }
     }
 }

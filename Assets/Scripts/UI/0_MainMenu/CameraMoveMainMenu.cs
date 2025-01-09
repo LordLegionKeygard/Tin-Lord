@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuCameraMove : MonoBehaviour
+public class CameraMoveMainMenu : MonoBehaviour
 {
     public List<MovePointWrapper> _movePoints; // Список точек с разными скоростями
 

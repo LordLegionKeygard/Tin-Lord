@@ -169,22 +169,76 @@ public class Language : MonoBehaviour
         _text[46, 1] = "Центр";
 
         _text[47, 0] = "Main menu";
-        _text[47, 1] = "Главное Меню";
+        _text[47, 1] = "Главное меню";
 
-        _text[48, 0] = "";
-        _text[48, 1] = "";
+        _text[48, 0] = "Are you sure you want to restart the mission?\n\nYour current save will be overwritten.";
+        _text[48, 1] = "Вы уверены, что хотите перезапустить миссию?\n\nВаше текущее сохранение будет перезаписано.";
 
-        _text[49, 0] = "";
-        _text[49, 1] = "";
+        _text[49, 0] = "Yes";
+        _text[49, 1] = "Да";
 
-        _text[50, 0] = "";
-        _text[50, 1] = "";
+        _text[50, 0] = "No";
+        _text[50, 1] = "Нет";
 
-        _text[51, 0] = "";
-        _text[51, 1] = "";
+        _text[51, 0] = "Start mission";
+        _text[51, 1] = "Начать миссию";
 
-        _text[52, 0] = "";
-        _text[52, 1] = "";
+        _text[52, 0] = "Load mission";
+        _text[52, 1] = "Загрузить миссию";
+
+        _text[53, 0] = "Construct";
+        _text[53, 1] = "Построить";
+
+        _text[54, 0] = "On / Off";
+        _text[54, 1] = "Вкл / Выкл";
+
+        _text[55, 0] = "Rotate";
+        _text[55, 1] = "Повернуть";
+
+        _text[56, 0] = "Destroy";
+        _text[56, 1] = "Разрушить";
+
+        _text[57, 0] = "Robots";
+        _text[57, 1] = "Роботы";
+
+        _text[58, 0] = "";
+        _text[58, 1] = "";
+
+        _text[59, 0] = "";
+        _text[59, 1] = "";
+
+        _text[60, 0] = "";
+        _text[60, 1] = "";
+
+        _text[61, 0] = "";
+        _text[61, 1] = "";
+
+        _text[62, 0] = "";
+        _text[62, 1] = "";
+
+        _text[63, 0] = "";
+        _text[63, 1] = "";
+
+        _text[64, 0] = "";
+        _text[64, 1] = "";
+
+        _text[65, 0] = "";
+        _text[65, 1] = "";
+
+        _text[66, 0] = "";
+        _text[66, 1] = "";
+
+        _text[67, 0] = "";
+        _text[67, 1] = "";
+
+        _text[68, 0] = "";
+        _text[68, 1] = "";
+
+        _text[69, 0] = "";
+        _text[69, 1] = "";
+
+        _text[70, 0] = "";
+        _text[70, 1] = "";
 
 
         for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];

@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class ChangeLanguage : MonoBehaviour
+public class ChangeLanguageWorld : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _buildingsText;
     [SerializeField] private TextMeshProUGUI[] _resourceTypesPanel;

@@ -1,11 +1,10 @@
 using System.Collections;
-using FMODUnity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class MainMenuButtons : MonoBehaviour
+public class ButtonsMainMenu : MonoBehaviour
 {
     [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
     [Inject] readonly WorldSaveGame WorldSaveGame;
@@ -96,10 +95,10 @@ public class MainMenuButtons : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
-        _areYouSurePanel.SetActive(false);
         _isContinueGame = false;
-        StartCoroutine(nameof(PrepareLoad));
         _continueButtonObject.SetActive(false);
+        StartCoroutine(nameof(PrepareLoad));
+        _areYouSurePanel.SetActive(false);
     }
 
     public void AreYouSureNo()

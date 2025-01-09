@@ -55,6 +55,7 @@ public class GroundData
     public float GroundTileRotation;
     public float GroundModelRotation;
     public bool IsForwardRoad;
+    public int RiftViewNumber;
 }
 
 [System.Serializable]
