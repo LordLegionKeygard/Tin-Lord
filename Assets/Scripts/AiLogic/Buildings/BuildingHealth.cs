@@ -82,8 +82,9 @@ public class BuildingHealth : BaseHealth
         UpdateSlider();
     }
 
-    public void LoadBuildingHealth(Building building, float currentHealth)
+    public void LoadBuildingHealth(Building building, float currentHealth, bool isConstruction)
     {
+        _isConstructionNow = isConstruction;
         MaxHealth = building.BuildingHealth;
         CurrentHealth = currentHealth;
         CreateHealthSlider();

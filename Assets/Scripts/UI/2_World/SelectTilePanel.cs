@@ -95,7 +95,7 @@ public class SelectTilePanel : MonoBehaviour
 
         var buildingTileObject = _tileObject.BuildingTileObject();
         var buildingTile = buildingTileObject.CurrentBuildingTile();
-        var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingGameObject() && !buildingTileObject.ConstructionNow();
+        var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingGameObject() && !buildingTileObject.IsConstructionNow();
         var currentBuilding = haveBuildingTile ? buildingTileObject.CurrentBuilding() : null;
 
         SetTextFields(_tileObject, buildingTile, haveBuildingTile, currentBuilding);
@@ -214,7 +214,7 @@ public class SelectTilePanel : MonoBehaviour
         var isLastRiverTile = _tileObject.GroundTileObject().GetLastRiverTile();
         var canRepair = !_tileObject.BuildingHealth().IsFullHealth();
         var groundHaveBuildings = currentGroundTile.BuildingTypes.Length > 0;
-        var isConstructionNow = buildingTile.ConstructionNow();
+        var isConstructionNow = buildingTile.IsConstructionNow();
 
         bool canRepairOrUpgrade = !haveBuildingNow || canUpgrade || canRepair;
         bool notRoadOrForwardRoad = !isRoad || isForwardRoad;

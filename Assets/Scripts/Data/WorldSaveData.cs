@@ -4,7 +4,6 @@ using UnityEngine;
 /// Хранит дату о миссии
 /// </summary>
 /// 
-
 [System.Serializable]
 public class WorldSaveData
 {
@@ -28,7 +27,7 @@ public class WorldSaveData
     public int[] Cards;
 
     [Header("Tiles")]
-    public bool IsHaveRiver; // возможно данные не нужны, при установке зданий эти значения сами установятся
+    public bool IsHaveRiver;
     public bool IsHaveBase;
     public TileDataWrapper[] TilesData;
 }
@@ -72,8 +71,10 @@ public class BuildingData
     public int RequiredResource;
     public float RequiredResourceAmount;
     public int ResourceProduction;
+    public bool IsConstructionNow;
+    public bool IsUpgradeBase;
+    public float PreviousBaseBuildingHealth;
 }
-
 
 [System.Serializable]
 public class WaterData

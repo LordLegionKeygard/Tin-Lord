@@ -34,8 +34,8 @@ public class SetTileNeighbours : MonoBehaviour
             var buildingHaveTile = tileObject.BuildingTileObject().HaveTile();
             var isWater = tileObject.GroundTileObject().IsWaterTile();
             var riverTile = tileObject.GroundTileObject().CurrentTileRiver();
-            var buildingTileGameObject = tileObject.BuildingTileObject().CurrentBuildingGameObject();
-            var haveRotationView = buildingHaveTile && buildingTileGameObject.GetComponent<RotationView>() != null;
+            var haveBuildingTileGameObject = tileObject.BuildingTileObject().HaveBuildingGameObject();
+            var haveRotationView = buildingHaveTile && haveBuildingTileGameObject && tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() != null;
             var haveRequiredResource = buildingHaveTile && tileObject.CurrentResourceRequired() != null;
             var haveProductionResource = buildingHaveTile && tileObject.CurrentResourceProduction() != null;
 
@@ -58,11 +58,13 @@ public class SetTileNeighbours : MonoBehaviour
                     BuildingTilePositionY = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionY() : 0,
                     BuildingTilePositionX = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionX() : 0,
                     BuildingTilePositionZ = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionZ() : 0,
-                    BuildingRotation = buildingHaveTile && haveRotationView ? buildingTileGameObject.GetComponent<RotationView>().GetObjectRotation() : 0,
-
+                    BuildingRotation = buildingHaveTile && haveBuildingTileGameObject && haveRotationView ? tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>().GetObjectRotation() : 0,
                     RequiredResource = haveRequiredResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceRequired()) : -1,
                     RequiredResourceAmount = buildingHaveTile ? tileObject.CurrentResourceRequiredAmount() : 0,
-                    ResourceProduction = haveProductionResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceProduction()) : -1
+                    ResourceProduction = haveProductionResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceProduction()) : -1,
+                    IsConstructionNow = buildingHaveTile && tileObject.BuildingTileObject().IsConstructionNow(),
+                    IsUpgradeBase = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase(),
+                    PreviousBaseBuildingHealth = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase() ? tileObject.BuildingTileObject().PreviousBaseBuildingHealth() : 0,
                 },
                 WaterData = new WaterData
                 {

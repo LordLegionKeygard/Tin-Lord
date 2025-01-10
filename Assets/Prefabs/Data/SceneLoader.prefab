@@ -366,7 +366,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &6891884327019270863
 MonoBehaviour:
@@ -421,7 +421,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _loadingScreenController: {fileID: 6435518496969953407}
-  LoadingProgress: 0
 --- !u!114 &6435518496969953407
 MonoBehaviour:
   m_ObjectHideFlags: 0

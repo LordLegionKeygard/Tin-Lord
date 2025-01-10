@@ -19,10 +19,14 @@ public class BuildingTile : MonoBehaviour
    [SerializeField] private TileObject _tileObject;
    private int _currentLevel;
    private bool _isConstructionNow;
+   private bool _isUpgradeBase;
+   private float _previousBaseBuildingHealth;
    private float _previousBuildingHealthPercent;
    private GameObject _constructionPrefab;
    private ConstructionBuildingView _constructionView;
-   public bool ConstructionNow() => _isConstructionNow;
+   public bool IsConstructionNow() => _isConstructionNow;
+   public bool IsUpgradeBase() => _isUpgradeBase;
+   public float PreviousBaseBuildingHealth() => _previousBaseBuildingHealth;
    public bool HaveTile() => _currentBuildingTile != null;
    public Tile CurrentBuildingTile() => _currentBuildingTile;
    public GameObject CurrentBuildingGameObject() => _currentBuildingGameObject;
@@ -40,12 +44,6 @@ public class BuildingTile : MonoBehaviour
       _buildingHealth = GetComponent<BuildingHealth>();
       _buildingTileProtective = GetComponent<BuildingTileProtective>();
       _buildingTileTransform = GetComponent<BuildingTileTransform>();
-   }
-
-   public void SpawnDestroyVFX()
-   {
-      var spawnPos = CurrentBuildingTile().IsFourTile ? new Vector3(transform.position.x + 5, transform.position.y, transform.position.z + 5) : transform.position;
-      Instantiate(CurrentBuilding().DestroyVFXPrefab, spawnPos, Quaternion.identity);
    }
 
    public void ConstructingBuilding(Tile tile, int level)
@@ -93,7 +91,7 @@ public class BuildingTile : MonoBehaviour
 
    public void SpawnBuilding()
    {
-      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase();
+      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base && !_tilesSystem.IsHaveBase()) CustomEvents.FireSetBase();
 
       _currentBuildingGameObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
       Destroy(_constructionPrefab);
@@ -115,6 +113,7 @@ public class BuildingTile : MonoBehaviour
 
    public void UpgradeBaseBuilding(int newLevel, TileObject tileObject)
    {
+      _isUpgradeBase = true;
       _currentLevel = newLevel;
       _previousBuildingHealthPercent = tileObject.BuildingHealth().GetCurrentHealthPercent();
       _buildingHealth.SetUpgradeBuildingHealth(CurrentBuilding(), isConstruction: true);
@@ -127,7 +126,7 @@ public class BuildingTile : MonoBehaviour
 
    private IEnumerator UpgradeBaseTimer(int newLevel)
    {
-      var previousHealth = _buildingHealth.CurrentHealth;
+      _previousBaseBuildingHealth = _buildingHealth.CurrentHealth;
       _isConstructionNow = true;
 
       _constructionView = _constructionPrefab.GetComponent<ConstructionBuildingView>();
@@ -141,7 +140,7 @@ public class BuildingTile : MonoBehaviour
          }
 
          _buildingHealth.ConstructionIncreaseHealth(WorldGameInfo.ConstructionSpeed * Time.deltaTime);
-         _constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth - previousHealth, _buildingHealth.MaxHealth - previousHealth);
+         _constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth - _previousBaseBuildingHealth, _buildingHealth.MaxHealth - _previousBaseBuildingHealth);
 
          yield return null;
       }
@@ -152,6 +151,42 @@ public class BuildingTile : MonoBehaviour
       SetupBaseBuilding(newLevel, _currentLevel);
    }
 
+   public void UpgradeBaseAterLoad(Tile tile, int level)
+   {
+      _currentBuildingTile = tile;
+      _currentLevel = level;
+      _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), isConstruction: true);
+      _buildingTileTransform.CachedRandomTransform(CurrentBuilding());
+      _tileObject.ClearResourceProductionAndRequiredWhenBuildingConstruct();
+
+      SpawnConstructionPrefab();
+      StartCoroutine(UpgradeBaseAfterLoadTimer());
+   }
+
+   private IEnumerator UpgradeBaseAfterLoadTimer()
+   {
+      _isConstructionNow = true;
+      _constructionView = _constructionPrefab.GetComponent<ConstructionBuildingView>();
+
+      while (_buildingHealth.CurrentHealth < _buildingHealth.MaxHealth)
+      {
+         if (_buildingHealth.IsDeath())
+         {
+            _isConstructionNow = false;
+            yield break;
+         }
+
+         _buildingHealth.ConstructionIncreaseHealth(WorldGameInfo.ConstructionSpeed * Time.deltaTime);
+         _constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth - _previousBaseBuildingHealth, _buildingHealth.MaxHealth - _previousBaseBuildingHealth);
+
+         yield return null;
+      }
+
+      _isConstructionNow = false;
+      Destroy(_constructionPrefab);
+
+      SpawnBuilding();
+   }
 
    public void SetupBaseBuilding(int newLevel, int previousLevel)
    {
@@ -256,7 +291,6 @@ public class BuildingTile : MonoBehaviour
 
       var resource = _playerResources.GetResourceForNumber(data.ResourceProduction);
       ResourceRecept[] recept = null;
-      // _tileObject.SetNewResourceProductionAfterUpgradeBuilding(CurrentBuilding().ResourcesProduction);
 
       for (int i = 0; i < CurrentBuilding().ResourcesProduction.Length; i++)
       {
@@ -274,25 +308,43 @@ public class BuildingTile : MonoBehaviour
       _currentBuildingTile = _tilesSystem.GetBuildingTileForNumber(tileDataWrapper.BuildingData.BuildingTileTypeId);
       _currentLevel = tileDataWrapper.BuildingData.BuildingTileLevel;
 
-      _currentBuildingGameObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
-      _currentBuildingGameObject.transform.SetParent(_buildingParent);
-      _buildingTileTransform.LoadTransform(tileDataWrapper.BuildingData);
-      _buildingTileTransform.SetTransform(_currentBuildingGameObject.transform, CurrentBuilding(), _tileObject);
-      _buildingLevels = _currentBuildingGameObject.GetComponent<BuildingLevels>();
-      _buildingLevels.SetBuildingLevelView(_currentLevel, _tileObject);
-      _buildingLevels.SetBuildingProductionView();
-      LoadResourceRequired(tileDataWrapper.BuildingData);
-      CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
-      LoadResourceProduction(tileDataWrapper.BuildingData);
+      if (tileDataWrapper.BuildingData.IsConstructionNow)
+      {
+         if (tileDataWrapper.BuildingData.IsUpgradeBase)
+         {
+            _previousBaseBuildingHealth = tileDataWrapper.BuildingData.PreviousBaseBuildingHealth;
+            UpgradeBaseAterLoad(_currentBuildingTile, _currentLevel);
+            _buildingHealth.LoadBuildingHealth(CurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth, true);
+         }
+         else
+         {
+            ConstructingBuilding(_currentBuildingTile, _currentLevel);
+            _buildingHealth.LoadBuildingHealth(CurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth, true);
+         }
+      }
+      else
+      {
+         _currentBuildingGameObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
+         _currentBuildingGameObject.transform.SetParent(_buildingParent);
+         _buildingTileTransform.LoadTransform(tileDataWrapper.BuildingData);
+         _buildingTileTransform.SetTransform(_currentBuildingGameObject.transform, CurrentBuilding(), _tileObject);
+         _buildingLevels = _currentBuildingGameObject.GetComponent<BuildingLevels>();
+         _buildingLevels.SetBuildingLevelView(_currentLevel, _tileObject);
+         _buildingLevels.SetBuildingProductionView();
+         LoadResourceRequired(tileDataWrapper.BuildingData);
+         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
+         LoadResourceProduction(tileDataWrapper.BuildingData);
 
-      _buildingHealth.LoadBuildingHealth(CurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth);
+         _buildingHealth.LoadBuildingHealth(CurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth, false);
 
-      if (IsProtectiveTile()) UpdateProtectiveTiles();
+         if (IsProtectiveTile()) UpdateProtectiveTiles();
 
-      _tileObject.SetBuildingWork(tileDataWrapper.BuildingData.IsBuildingWork);
-      _tileObject.CheckResourceRequired(true);
+         _tileObject.SetBuildingWork(tileDataWrapper.BuildingData.IsBuildingWork);
+         _tileObject.CheckResourceRequired(true);
 
-      var rotationView = _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>();
-      if (rotationView != null) rotationView.LoadRotate(tileDataWrapper.BuildingData.BuildingRotation);
+         var rotationView = _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>();
+         if (rotationView != null) rotationView.LoadRotate(tileDataWrapper.BuildingData.BuildingRotation);
+      }
+
    }
 }
