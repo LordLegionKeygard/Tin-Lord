@@ -26,7 +26,7 @@ public class RobotItem : MonoBehaviour
     public bool CanRepair() => _currentRobotSystem.HaveRobot() &&
                                 !_currentRobotSystem.RobotDeath() &&
                                 !_currentRobotSystem.RobotHealth().FullHealth() &&
-                                _robotInformation.RobotType == RobotsData.Instance.GetRobotType();
+                                _robotInformation.RobotType == RobotsDataWorld.Instance.GetRobotType();
 
 
     private void Start()
@@ -80,9 +80,9 @@ public class RobotItem : MonoBehaviour
     public void SetButtonAndTextColor()
     {
         _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
-        _button.enabled = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsData.Instance.GetRobotType() ? _currentRobotSystem.RobotHealth().FullHealth() || _currentRobotSystem.RobotHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
+        _button.enabled = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsDataWorld.Instance.GetRobotType() ? _currentRobotSystem.RobotHealth().FullHealth() || _currentRobotSystem.RobotHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
         _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
-        _icon.color = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsData.Instance.GetRobotType() && !_currentRobotSystem.RobotHealth().IsDeath() ? Color.white : Color.black : _isSelect ? Color.white : Colors.GreyEight;
+        _icon.color = _currentRobotSystem.HaveRobot() ? _robotInformation.RobotType == RobotsDataWorld.Instance.GetRobotType() && !_currentRobotSystem.RobotHealth().IsDeath() ? Color.white : Color.black : _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
     }
 

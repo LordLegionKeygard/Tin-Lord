@@ -1,10 +1,8 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class RobotsData : MonoBehaviour
+public class RobotsDataWorld : MonoBehaviour
 {
-    public static RobotsData Instance;
+    public static RobotsDataWorld Instance;
     [SerializeField] private int[] _robotsLevel;
     [SerializeField] private int[] _robotsExperience;
     [SerializeField] private RobotInformation[] _robotsInformation;

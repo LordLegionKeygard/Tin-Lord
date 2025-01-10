@@ -17,6 +17,6 @@ public class CurrentRobotSystem : MonoBehaviour
         _currentRobot = newRobot;
         _robotHealth = _currentRobot.GetComponent<RobotHealth>();
         _robotPatrolPath = _currentRobot.GetComponent<RobotPatrolPath>();
-        RobotsData.Instance.SetNewRobotType(robotType);
+        RobotsDataWorld.Instance.SetNewRobotType(robotType);
     }
 }

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -17,8 +18,9 @@ public class WorldSaveData
     public int Radiation;
     public int GameSpeed; //    Pause = 0, Default = 1, Double = 2, Triple = 3,
 
-    [Header("Experience")]
-    public RobotDataWrapper[] RobotsData; //Tank = 0, Sniper = 1, Engineer = 2,
+    [Header("Robot")]
+    public RobotsExperienceData[] RobotsExperienceData; //Tank = 0, Sniper = 1, Engineer = 2
+    public RobotData RobotData;
 
     [Header("Resources")]
     public float[] ResourcesData;
@@ -30,10 +32,22 @@ public class WorldSaveData
     public bool IsHaveRiver;
     public bool IsHaveBase;
     public TileDataWrapper[] TilesData;
+    public int[] RoadTilesId;
 }
 
 [System.Serializable]
-public class RobotDataWrapper
+public class RobotData
+{
+    public bool IsHaveRobotNow;
+    public int RobotId;
+    public float PositionX;
+    public float PositionY;
+    public float PositionZ;
+    public int NextPatrolTileId; 
+}
+
+[System.Serializable]
+public class RobotsExperienceData
 {
     public int Level;
     public int Experience;

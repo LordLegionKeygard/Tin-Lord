@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class SetTileNeighbours : MonoBehaviour
+public class AllTileObjects : MonoBehaviour
 {
     [Inject] readonly PlayerResources _playerResources;
     public List<TileObject> TileObjects;
@@ -20,6 +19,16 @@ public class SetTileNeighbours : MonoBehaviour
                                                             (i - 21 < 0) ? null : TileObjects[i].transform.position.x == 0 ? null : TileObjects[i - 21],
                                                             (i - 1 < 0) ? null : TileObjects[i].transform.position.x == 0 ? null : TileObjects[i - 1],
                                                             (i + 19 > TileObjects.Count - 1) ? null : TileObjects[i].transform.position.x == 0 ? null : TileObjects[i + 19],  });
+        }
+
+        SetId();
+    }
+
+    private void SetId()
+    {
+        for (int i = 0; i < TileObjects.Count; i++)
+        {
+            TileObjects[i].SetId(i);
         }
     }
 

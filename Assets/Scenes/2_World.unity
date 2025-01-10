@@ -14149,7 +14149,6 @@ GameObject:
   - component: {fileID: 813738595}
   - component: {fileID: 813738596}
   - component: {fileID: 813738597}
-  - component: {fileID: 813738598}
   - component: {fileID: 813738599}
   m_Layer: 0
   m_Name: TileMap
@@ -14187,10 +14186,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tile: {fileID: 3820182973411244697, guid: 862da8ec7b04ae34e99671226bf9544a, type: 3}
   _parentTransform: {fileID: 20679254}
-  _setTileNeighbours: {fileID: 813738597}
-  _setTilesId: {fileID: 813738598}
+  _allTileObjects: {fileID: 813738597}
   _terrains:
   - {fileID: 1043307573}
+  _roadTiles: []
 --- !u!114 &813738597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14204,19 +14203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TileObjects: []
---- !u!114 &813738598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813738594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0da72add7c8aa947b0b667525bbfd58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _setTileNeighbours: {fileID: 813738597}
 --- !u!114 &813738599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20406,7 +20392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPrefab: {fileID: 0}
-  _setTileNeighbours: {fileID: 813738597}
+  _allTileObjects: {fileID: 813738597}
   _transform: {fileID: 1591200571}
 --- !u!114 &1267664137
 MonoBehaviour:
@@ -20422,7 +20408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnPrefab: {fileID: 2237583446777946787, guid: 6a0f2cd058dd1434882d2f57f59dd903,
     type: 3}
-  _setTileNeighbours: {fileID: 813738597}
+  _allTileObjects: {fileID: 813738597}
 --- !u!114 &1267664138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20437,7 +20423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnPrefab: {fileID: 7678044810649144867, guid: 07dd7a1acd5187143b6a0b889681918c,
     type: 3}
-  _setTileNeighbours: {fileID: 813738597}
+  _allTileObjects: {fileID: 813738597}
 --- !u!1 &1270537333
 GameObject:
   m_ObjectHideFlags: 0
@@ -33832,6 +33818,11 @@ PrefabInstance:
       objectReference: {fileID: 1554564402}
     - target: {fileID: 4118605030363470001, guid: d442fbd40f4337e419c831f4695ece9c,
         type: 3}
+      propertyPath: _allTileObjects
+      value: 
+      objectReference: {fileID: 813738597}
+    - target: {fileID: 4118605030363470001, guid: d442fbd40f4337e419c831f4695ece9c,
+        type: 3}
       propertyPath: _tileMapBuilder
       value: 
       objectReference: {fileID: 813738596}
@@ -33850,11 +33841,6 @@ PrefabInstance:
       propertyPath: _cardHolderSystem
       value: 
       objectReference: {fileID: 719482899}
-    - target: {fileID: 4118605030363470001, guid: d442fbd40f4337e419c831f4695ece9c,
-        type: 3}
-      propertyPath: _setTileNeighbours
-      value: 
-      objectReference: {fileID: 813738597}
     - target: {fileID: 4118605030363470003, guid: d442fbd40f4337e419c831f4695ece9c,
         type: 3}
       propertyPath: m_Name

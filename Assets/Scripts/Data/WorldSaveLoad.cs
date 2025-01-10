@@ -11,7 +11,7 @@ public class WorldSaveLoad : MonoBehaviour
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
-    [SerializeField] private SetTileNeighbours _setTileNeighbours;
+    [SerializeField] private AllTileObjects _allTileObjects;
 
     private void Awake()
     {
@@ -46,7 +46,8 @@ public class WorldSaveLoad : MonoBehaviour
         //Tiles
         currentSaveData.IsHaveBase = _tilesSystem.IsHaveBase();
         currentSaveData.IsHaveRiver = _tilesSystem.IsHaveRiver();
-        currentSaveData.TilesData = _setTileNeighbours.GetAllTileObjects();
+        currentSaveData.TilesData = _allTileObjects.GetAllTileObjects();
+        currentSaveData.RoadTilesId = _tileMapBuilder.GetRoadTilesId();
     }
 
     public void LoadMissionData(ref WorldSaveData currentSaveData)
@@ -71,7 +72,8 @@ public class WorldSaveLoad : MonoBehaviour
         //Tiles
         _tilesSystem.SetIsHaveBase(currentSaveData.IsHaveBase);
         _tilesSystem.SetIsHaveRiver(currentSaveData.IsHaveRiver);
-        _setTileNeighbours.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
+        _allTileObjects.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
+        _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId);
 
         CustomEvents.FireDataLoad();
     }

@@ -87,7 +87,7 @@ public class BuildingItem : MonoBehaviour
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
-                _currentTileObject.BuildingTileObject().ConstructingBuilding(_currentTile, _buildingIndex);
+                _currentTileObject.BuildingTileObject().BeginConstruction(_currentTile, _buildingIndex);
                 break;
             case BuildingState.UpgradeBuilding:
                 if (_currentTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.BaseFoundation))
@@ -97,7 +97,7 @@ public class BuildingItem : MonoBehaviour
                 else
                 {
                     _currentTileObject.BuildingTileObject().DestroyBuildingTile(true);
-                    _currentTileObject.BuildingTileObject().ConstructingBuilding(_currentTile, _buildingIndex);
+                    _currentTileObject.BuildingTileObject().BeginConstruction(_currentTile, _buildingIndex);
                 }
                 break;
             case BuildingState.Repair:

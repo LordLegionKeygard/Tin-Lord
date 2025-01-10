@@ -11,7 +11,7 @@ public class MeteorStrikeGameEvent : BaseGameEvent
     {
         base.StartEvent();
 
-        var groundTile = TileObject().GroundTileObject();
+        var groundTile = GetTileObject().GroundTileObject();
 
         if (groundTile.CurrentGroundTile() != null)
         {
@@ -38,14 +38,14 @@ public class MeteorStrikeGameEvent : BaseGameEvent
     {
         yield return new WaitForSeconds(_delay);
 
-        TileObject().BuildingHealth().CalculateDamage(TileObject().BuildingHealth().CalculateHealthFromPercent(_meteorDamagePercent));
+        GetTileObject().BuildingHealth().CalculateDamage(GetTileObject().BuildingHealth().CalculateHealthFromPercent(_meteorDamagePercent));
     }
 
     private IEnumerator DestroyBuildingCoroutine()
     {
         yield return new WaitForSeconds(_delay);
 
-        TileObject().BuildingTileObject().DestroyBuildingTile(true);
+        GetTileObject().BuildingTileObject().DestroyBuildingTile(true);
     }
 
 
@@ -53,8 +53,8 @@ public class MeteorStrikeGameEvent : BaseGameEvent
     {
         yield return new WaitForSeconds(_delay);
 
-        TileObject().BuildingTileObject().DestroyBuildingTile(true);
-        TileObject().GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Crater));
-        TileObject().GroundTileObject().SpawnGroundTile();
+        GetTileObject().BuildingTileObject().DestroyBuildingTile(true);
+        GetTileObject().GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Crater));
+        GetTileObject().GroundTileObject().SpawnGroundTile();
     }
 }

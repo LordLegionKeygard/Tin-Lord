@@ -3,18 +3,18 @@ using UnityEngine;
 public class BaseGameEvent : MonoBehaviour
 {
     [SerializeField] private GameObject _spawnPrefab;
-    [SerializeField] private SetTileNeighbours _setTileNeighbours;
-    public SetTileNeighbours SetTileNeighbours() => _setTileNeighbours;
+    [SerializeField] private AllTileObjects _allTileObjects;
     private GameObject _currentPrefab;
-    public GameObject CurrentPrefab() => _currentPrefab;
     private TileObject _tileObject;
-    public TileObject TileObject() => _tileObject;
+    public AllTileObjects GetAllTileObjects() => _allTileObjects;
+    public GameObject GetCurrentPrefab() => _currentPrefab;
+    public TileObject GetTileObject() => _tileObject;
 
     public virtual void StartEvent()
     {
-        var rnd = Random.Range(0, _setTileNeighbours.TileObjects.Count);
+        var rnd = Random.Range(0, _allTileObjects.TileObjects.Count);
 
-        _tileObject = _setTileNeighbours.TileObjects[rnd];
+        _tileObject = _allTileObjects.TileObjects[rnd];
 
         _currentPrefab = Instantiate(_spawnPrefab, _tileObject.transform.position, Quaternion.identity);
     }

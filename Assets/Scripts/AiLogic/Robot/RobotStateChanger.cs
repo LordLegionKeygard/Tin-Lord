@@ -28,7 +28,7 @@ public class RobotStateChanger : BaseAiStateChanger
     }
     private void Start()
     {
-        _defaultDetectionRadius = RobotsData.Instance.GetDetectionRadius();
+        _defaultDetectionRadius = RobotsDataWorld.Instance.GetDetectionRadius();
         _currentDetectionRadius = _defaultDetectionRadius;
     }
 

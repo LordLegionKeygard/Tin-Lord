@@ -47,7 +47,7 @@ public class EarthquakeGameEvent : BaseGameEvent
         if (rnd == 0)
         {
             // Собираем все тайлы, которые соответствуют условию "Mountain"
-            foreach (var tileObject in SetTileNeighbours().TileObjects)
+            foreach (var tileObject in GetAllTileObjects().TileObjects)
             {
                 if (tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Mountain))
                 {
@@ -67,7 +67,7 @@ public class EarthquakeGameEvent : BaseGameEvent
         else
         {
             // Собираем все тайлы, которые НЕ являются "BaseFoundation"
-            foreach (var tileObject in SetTileNeighbours().TileObjects)
+            foreach (var tileObject in GetAllTileObjects().TileObjects)
             {
                 if (tileObject.GroundTileObject().CurrentGroundTile() != null 
                 && !tileObject.GroundTileObject().IsWaterTile()

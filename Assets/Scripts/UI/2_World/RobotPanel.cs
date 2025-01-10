@@ -87,7 +87,7 @@ public class RobotPanel : MonoBehaviour
     {
         if (_currentSelectRobotInfo == null) return;
 
-        var level = RobotsData.Instance.GetSelectRobotDataLevel(_currentSelectRobotInfo.RobotType);
+        var level = RobotsDataWorld.Instance.GetSelectRobotDataLevel(_currentSelectRobotInfo.RobotType);
 
         _durabilityText.text = $"{Language.TextStatic[18]} {_currentSelectRobotInfo.Durability[level]}";
         _meleeDamageText.text = $"{Language.TextStatic[19]} {_currentSelectRobotInfo.MeleeDamage[level]}";
@@ -99,9 +99,9 @@ public class RobotPanel : MonoBehaviour
         if (_currentSelectRobotInfo == null) return;
 
         var type = _currentSelectRobotInfo.RobotType;
-        var level = RobotsData.Instance.GetSelectRobotDataLevel(type);
-        var maxExp = RobotsData.Instance.GetSelectRobotMaxExpForLevel(type);
-        var currentExp = RobotsData.Instance.GetSelectRobotExperience(type);
+        var level = RobotsDataWorld.Instance.GetSelectRobotDataLevel(type);
+        var maxExp = RobotsDataWorld.Instance.GetSelectRobotMaxExpForLevel(type);
+        var currentExp = RobotsDataWorld.Instance.GetSelectRobotExperience(type);
 
         _levelText.text = $"{level}";
         _expSlider.maxValue = maxExp;

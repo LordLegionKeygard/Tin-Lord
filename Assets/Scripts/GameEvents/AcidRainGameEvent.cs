@@ -5,6 +5,6 @@ public class AcidRainGameEvent : BaseGameEvent
     {
         base.StartEvent();
        
-        CurrentPrefab().GetComponent<AcidRainDealDamage>().SetTile(TileObject());
+        GetCurrentPrefab().GetComponent<AcidRainDealDamage>().SetTile(GetTileObject());
     }
 }

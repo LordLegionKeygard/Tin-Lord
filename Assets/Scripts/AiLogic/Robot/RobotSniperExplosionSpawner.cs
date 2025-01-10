@@ -15,7 +15,7 @@ public class RobotSniperExplosionSpawner : MonoBehaviour
     private void SpawnExplosion()
     {
         var prefab = Instantiate(_explosionPrefab, _spawnPoint.position, Quaternion.identity);
-        prefab.GetComponent<Explosion>().SetDamage(RobotsData.Instance.GetCurrentRangeDamage() * 5, 100);
+        prefab.GetComponent<Explosion>().SetDamage(RobotsDataWorld.Instance.GetCurrentRangeDamage() * 5, 100);
     }
 
     private void OnDestroy()

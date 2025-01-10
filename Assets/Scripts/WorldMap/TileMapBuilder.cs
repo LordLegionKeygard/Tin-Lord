@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -10,8 +9,7 @@ public class TileMapBuilder : MonoBehaviour
     [Inject] private TilesSystem _tilesSystem;
     [SerializeField] private GameObject _tile;
     [SerializeField] private Transform _parentTransform;
-    [SerializeField] private SetTileNeighbours _setTileNeighbours;
-    [SerializeField] private SetTilesId _setTilesId;
+    [SerializeField] private AllTileObjects _allTileObjects;
     [SerializeField] private GameObject[,] _tileObjects = new GameObject[WorldGameInfo.MapWidth, WorldGameInfo.MapLength];
     [SerializeField] private GameObject[] _terrains;
 
@@ -19,17 +17,36 @@ public class TileMapBuilder : MonoBehaviour
     private int _iterations = 0;
     private int _startX = 6;
     private int _startY = 4;
-    private List<TileObject> _roadTiles = new List<TileObject>(); // Список тайлов дороги в правильном порядке
+    [SerializeField] private List<TileObject> _roadTiles = new(); // Список тайлов дороги в правильном порядке
     public List<TileObject> GetRoadTiles() => _roadTiles;
+
+    public int[] GetRoadTilesId()
+    {
+        var tilesId = new int[_roadTiles.Count];
+
+        for (int i = 0; i < _roadTiles.Count; i++)
+        {
+            tilesId[i] = _roadTiles[i].GetId();
+        }
+
+        return tilesId;
+    }
+
+    public void LoadRoadTiles(int[] tilesId)
+    {
+        for (int i = 0; i < tilesId.Length; i++)
+        {
+            _roadTiles.Add(_allTileObjects.TileObjects[tilesId[i]]);
+        }
+    }
 
     public void BuildMap(bool isStartMission)
     {
         _terrains[(int)CurrentMissionInfo.Instance.CurrentMission().TerrainEnum].SetActive(true);
         SpawnTiles();
-        _setTileNeighbours.SetNeighbours();
-        _setTilesId.SetId();
+        _allTileObjects.SetNeighbours();
         //показать название уровня?
-        if(isStartMission)
+        if (isStartMission)
         {
             SpawnRoad();
         }
@@ -43,7 +60,7 @@ public class TileMapBuilder : MonoBehaviour
             {
                 var newObject = _diContainer.InstantiatePrefab(_tile, new Vector3(k * 10, 10.8f, i * 10), Quaternion.identity, null);
                 _tileObjects[i, k] = newObject;
-                _setTileNeighbours.TileObjects.Add(_tileObjects[i, k].GetComponent<TileObject>());
+                _allTileObjects.TileObjects.Add(_tileObjects[i, k].GetComponent<TileObject>());
                 newObject.transform.SetParent(_parentTransform);
             }
         }

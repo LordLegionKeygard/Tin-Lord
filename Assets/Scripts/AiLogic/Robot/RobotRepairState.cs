@@ -40,7 +40,7 @@ public class RobotRepairState : RobotState
     {
         _robotMove.RotateTo(_targetBuilding.transform.position);
 
-        var repairRate = 1 + RobotsData.Instance.CurrentLevel() * 0.1f;
+        var repairRate = 1 + RobotsDataWorld.Instance.CurrentLevel() * 0.1f;
 
         _targetBuilding.SlowTimeRepair(repairRate);
 

@@ -44,3 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c54aed0131f024088d2775047dc498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tileMapBuilder: {fileID: 0}
+  _timeTickSystem: {fileID: 0}
+  _ecologySystem: {fileID: 0}
+  _gameSpeedSystem: {fileID: 0}
+  _cardHolderSystem: {fileID: 0}
+  _allTileObjects: {fileID: 0}
