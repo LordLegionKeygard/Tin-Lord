@@ -5,6 +5,7 @@ public class RobotPatrolPath : MonoBehaviour
 {
     [SerializeField] private RobotPatrolState _robotPatrolState;
     private List<TileObject> _roadTileObjects;
+    public RobotPatrolState RobotPatrolState() => _robotPatrolState;
 
     public void InitializePatrolPoints(List<TileObject> roadTiles, int startIndex)
     {

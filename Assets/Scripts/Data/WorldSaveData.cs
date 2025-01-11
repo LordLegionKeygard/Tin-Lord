@@ -18,9 +18,6 @@ public class WorldSaveData
     public int Radiation;
     public int GameSpeed; //    Pause = 0, Default = 1, Double = 2, Triple = 3,
 
-    [Header("Robot")]
-    public RobotsExperienceData[] RobotsExperienceData; //Tank = 0, Sniper = 1, Engineer = 2
-    public RobotData RobotData;
 
     [Header("Resources")]
     public float[] ResourcesData;
@@ -33,17 +30,21 @@ public class WorldSaveData
     public bool IsHaveBase;
     public TileDataWrapper[] TilesData;
     public int[] RoadTilesId;
+
+    [Header("Robot")]
+    public RobotsExperienceData[] RobotsExperienceData; //Tank = 0, Sniper = 1, Engineer = 2
+    public RobotData RobotData;
 }
 
 [System.Serializable]
 public class RobotData
 {
     public bool IsHaveRobotNow;
-    public int RobotId;
+    public int RobotType;
     public float PositionX;
     public float PositionY;
     public float PositionZ;
-    public int NextPatrolTileId; 
+    public int NextPatrolIndex; 
 }
 
 [System.Serializable]

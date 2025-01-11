@@ -52,6 +52,8 @@ public class RobotPanel : MonoBehaviour
         if (state)
         {
             _objectTransform.DOAnchorPosX(-250, 0.3f).SetUpdate(true);
+            RefreshAllRobotItemsView();
+            UpdateDestroyButtonState();
         }
         else
         {

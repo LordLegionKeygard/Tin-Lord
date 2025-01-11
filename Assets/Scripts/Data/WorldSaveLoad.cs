@@ -13,6 +13,10 @@ public class WorldSaveLoad : MonoBehaviour
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private AllTileObjects _allTileObjects;
 
+    [Header("Robot")]
+    [SerializeField] private CurrentRobotSystem _currentRobotSystem;
+    [SerializeField] private RobotSpawnerSystem _robotSpawnerSystem;
+
     private void Awake()
     {
         _worldSaveGame.WorldSaveLoad = this;
@@ -35,8 +39,6 @@ public class WorldSaveLoad : MonoBehaviour
         currentSaveData.Radiation = _ecologySystem.GetRadiation();
         currentSaveData.GameSpeed = (int)GameSpeedEnum.Pause;
 
-        //Experience
-
         //Resources
         currentSaveData.ResourcesData = _playerResources.GetAllResourcesAmount();
 
@@ -48,6 +50,10 @@ public class WorldSaveLoad : MonoBehaviour
         currentSaveData.IsHaveRiver = _tilesSystem.IsHaveRiver();
         currentSaveData.TilesData = _allTileObjects.GetAllTileObjects();
         currentSaveData.RoadTilesId = _tileMapBuilder.GetRoadTilesId();
+
+        //Robot
+        currentSaveData.RobotsExperienceData = RobotsDataWorld.Instance.GetAllRobotsExperience();
+        currentSaveData.RobotData = _currentRobotSystem.GetRobotData();
     }
 
     public void LoadMissionData(ref WorldSaveData currentSaveData)
@@ -61,8 +67,6 @@ public class WorldSaveLoad : MonoBehaviour
         _ecologySystem.LoadEcology(currentSaveData.Radiation);
         _gameSpeedSystem.ChangeGameSpeed(currentSaveData.GameSpeed);
 
-        //Experience
-
         //Resources
         _playerResources.LoadResources(currentSaveData.ResourcesData);
 
@@ -74,6 +78,10 @@ public class WorldSaveLoad : MonoBehaviour
         _tilesSystem.SetIsHaveRiver(currentSaveData.IsHaveRiver);
         _allTileObjects.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
         _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId);
+
+        //Robot
+        RobotsDataWorld.Instance.LoadRobotsExperience(currentSaveData.RobotsExperienceData,currentSaveData.IsStartMission);
+        _robotSpawnerSystem.LoadSpawnRobot(currentSaveData);  //сначала спавним и передаем в патрол патх из даты индекс
 
         CustomEvents.FireDataLoad();
     }

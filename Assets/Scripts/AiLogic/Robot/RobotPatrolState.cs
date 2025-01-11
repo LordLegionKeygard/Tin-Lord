@@ -12,6 +12,8 @@ public class RobotPatrolState : RobotState
     private int _nextPointNumber = 1;
     private bool _isInitialized = false;
 
+    public int GetCurrentPatrolPointIndex() => _currentPatrolPointIndex;
+
     public void InitializePatrol(int startIndex)
     {
         _currentPatrolPointIndex = startIndex;

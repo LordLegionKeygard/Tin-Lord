@@ -33841,6 +33841,16 @@ PrefabInstance:
       propertyPath: _cardHolderSystem
       value: 
       objectReference: {fileID: 719482899}
+    - target: {fileID: 4118605030363470001, guid: d442fbd40f4337e419c831f4695ece9c,
+        type: 3}
+      propertyPath: _currentRobotSystem
+      value: 
+      objectReference: {fileID: 918200241}
+    - target: {fileID: 4118605030363470001, guid: d442fbd40f4337e419c831f4695ece9c,
+        type: 3}
+      propertyPath: _robotSpawnerSystem
+      value: 
+      objectReference: {fileID: 918200240}
     - target: {fileID: 4118605030363470003, guid: d442fbd40f4337e419c831f4695ece9c,
         type: 3}
       propertyPath: m_Name
