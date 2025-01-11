@@ -6,51 +6,54 @@ using UnityEngine.UI;
 public class GameEventView : MonoBehaviour
 {
     [SerializeField] private Image _image;
-    public RectTransform rectTransform;
-    private Vector2 startPosition;
-    private Vector2 endPosition;
-    private float duration;
-    private float elapsedTime = 0f;
-    private bool isMoving = false;
+    public RectTransform _rectTransform;
+    private Vector2 _startPosition;
+    private Vector2 _endPosition;
+    private float _duration;
+    private float _elapsedTime = 0f;
+    private bool _isMoving = false;
     private GameEventInfo _gameEventInfo;
+    private int _eventNumber;
+    public float GetAlreadyElapsedTime() => _elapsedTime;
 
 
     private void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
+        _rectTransform = GetComponent<RectTransform>();
     }
 
-    public void Initialize(GameEventInfo gameEventInfo, Vector2 startPos, Vector2 endPos, float moveDuration)
+    public void Initialize(GameEventInfo gameEventInfo, Vector2 startPos, Vector2 endPos, float fullDuration, float alreadyElapsedTime, int eventNumber)
     {
-        rectTransform.anchoredPosition = startPos;
+        _eventNumber = eventNumber;
+        _rectTransform.anchoredPosition = startPos;
         _gameEventInfo = gameEventInfo;
         _image.sprite = _gameEventInfo.EventIcon;
-        startPosition = startPos;
-        endPosition = endPos;
-        duration = moveDuration;
-        elapsedTime = 0f;
-        isMoving = true;
+        _startPosition = startPos;
+        _endPosition = endPos;
+        _duration = fullDuration;
+        _elapsedTime = alreadyElapsedTime;
+        _isMoving = true;
     }
 
     private void Update()
     {
-        if (isMoving)
+        if (_isMoving)
         {
-            elapsedTime += Time.deltaTime;
-            float t = elapsedTime / duration;
+            _elapsedTime += Time.deltaTime;
+            float t = _elapsedTime / _duration;
             if (t >= 1f)
             {
                 t = 1f;
-                isMoving = false;
+                _isMoving = false;
                 OnReachedEnd();
             }
-            rectTransform.anchoredPosition = Vector2.Lerp(startPosition, endPosition, t);
+            _rectTransform.anchoredPosition = Vector2.Lerp(_startPosition, _endPosition, t);
         }
     }
 
     private void OnReachedEnd()
     {
-        CustomEvents.FireGameEventStart(_gameEventInfo.GameEventType);
+        CustomEvents.FireGameEventStart(_gameEventInfo.GameEventType, _eventNumber);
         Destroy(gameObject);
     }
 }

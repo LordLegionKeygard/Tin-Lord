@@ -16,14 +16,16 @@ public class WorldSaveData
     public int Day;
     public float Time;
     public int Radiation;
-    public int GameSpeed; //    Pause = 0, Default = 1, Double = 2, Triple = 3,
-
+    public int GameSpeed; //Pause = 0, Default = 1, Double = 2, Triple = 3,
 
     [Header("Resources")]
     public float[] ResourcesData;
 
     [Header("Cards")]
     public int[] Cards;
+
+    [Header("DayEvent")]
+    public DayEventData[] DayEventsData;
 
     [Header("Tiles")]
     public bool IsHaveRiver;
@@ -37,6 +39,14 @@ public class WorldSaveData
 }
 
 [System.Serializable]
+
+public class DayEventData
+{
+    public int GameEventTypeNumber;
+    public float AlreadyElapsedTime;
+}
+
+[System.Serializable]
 public class RobotData
 {
     public bool IsHaveRobotNow;
@@ -44,7 +54,7 @@ public class RobotData
     public float PositionX;
     public float PositionY;
     public float PositionZ;
-    public int NextPatrolIndex; 
+    public int NextPatrolIndex;
 }
 
 [System.Serializable]

@@ -63,7 +63,7 @@ public class WorldSaveGame : MonoBehaviour
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         WorldSaveLoad.SaveMissionData(ref CurrentWorldSaveData);
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _selectedMissionId);
-        if (loadCommandCenter) CustomEvents.FireLoadScene(SceneEnum.CommandCenter, 5f, true);
+        if (loadCommandCenter) CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true);
     }
 
     public void ResetMissionGameData()
@@ -77,6 +77,6 @@ public class WorldSaveGame : MonoBehaviour
     {
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CurrentWorldSaveData = _worldGameSaveDataWriter.LoadMissionDataFromJson(_selectedMissionId);
-        CustomEvents.FireLoadScene(SceneEnum.World, 5f, true);
+        CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true);
     }
 }

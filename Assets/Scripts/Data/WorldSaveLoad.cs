@@ -4,13 +4,26 @@ using Zenject;
 public class WorldSaveLoad : MonoBehaviour
 {
     [Inject] private WorldSaveGame _worldSaveGame;
-    [Inject] private readonly TilesSystem _tilesSystem;
-    [Inject] private PlayerResources _playerResources;
+
+    [Header("Main")]
     [SerializeField] private TileMapBuilder _tileMapBuilder;
+
+    [Header("UpPanel")]
     [SerializeField] private TimeTickSystem _timeTickSystem;
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
+
+    [Header("Resources")]
+    [Inject] private PlayerResources _playerResources;
+
+    [Header("Cards")]
     [SerializeField] private CardHolderSystem _cardHolderSystem;
+
+    [Header("DayEvent")]
+    [SerializeField] private DayEventSystem _dayEventSystem;
+
+    [Header("Tiles")]
+    [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private AllTileObjects _allTileObjects;
 
     [Header("Robot")]
@@ -45,6 +58,9 @@ public class WorldSaveLoad : MonoBehaviour
         //Cards
         currentSaveData.Cards = _cardHolderSystem.GetAllCards();
 
+        //DayEvents
+        currentSaveData.DayEventsData = _dayEventSystem.GetAllCurrentEvents();
+
         //Tiles
         currentSaveData.IsHaveBase = _tilesSystem.IsHaveBase();
         currentSaveData.IsHaveRiver = _tilesSystem.IsHaveRiver();
@@ -72,6 +88,9 @@ public class WorldSaveLoad : MonoBehaviour
 
         //Cards
         _cardHolderSystem.LoadCards(currentSaveData.IsStartMission, currentSaveData.Cards);
+
+        //DayEvents
+        _dayEventSystem.LoadEvents(currentSaveData.DayEventsData);
 
         //Tiles
         _tilesSystem.SetIsHaveBase(currentSaveData.IsHaveBase);

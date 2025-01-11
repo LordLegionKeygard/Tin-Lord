@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DayEventSystem : MonoBehaviour
 {
@@ -9,14 +8,33 @@ public class DayEventSystem : MonoBehaviour
     [SerializeField] private GameEventInfo[] _allGameEvents;
     [SerializeField] private GameObject _gameEventPrefab;
     [SerializeField] private RectTransform _container;
-    private float _eventMoveDuration;
+    private float _fullDuration;
     private int _dayBeforeSpawnEvent = 3;
+    private float _offset = 10;
+    private int _eventNumber;
+    private List<DayEventForListData> _currentEventsData = new();
 
     [Header("Other")]
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private EarthquakeGameEvent _earthquakeEvent;
     [SerializeField] private AcidRainGameEvent _acidRainEvent;
     [SerializeField] private MeteorStrikeGameEvent _meteorStrikeEvent;
+
+    public DayEventData[] GetAllCurrentEvents()
+    {
+        var data = new DayEventData[_currentEventsData.Count];
+
+        for (int i = 0; i < _currentEventsData.Count; i++)
+        {
+            data[i] = new DayEventData
+            {
+                GameEventTypeNumber = (int)_currentEventsData[i].GameEventType,
+                AlreadyElapsedTime = _currentEventsData[i].ViewObject.GetComponent<GameEventView>().GetAlreadyElapsedTime(),
+            };
+        }
+
+        return data;
+    }
 
     private void Start()
     {
@@ -28,7 +46,7 @@ public class DayEventSystem : MonoBehaviour
 
     private void SetEventDuration()
     {
-        _eventMoveDuration = _timeTickSystem.GetTickSpeed() * _timeTickSystem.GetEndTime() * _dayBeforeSpawnEvent;
+        _fullDuration = _timeTickSystem.GetTickSpeed() * _timeTickSystem.GetEndTime() * _dayBeforeSpawnEvent;
     }
 
     private void OnDayEnd(int currentDay)
@@ -50,21 +68,35 @@ public class DayEventSystem : MonoBehaviour
         // Создаём экземпляр префаба EventIcon
         var prefab = Instantiate(_gameEventPrefab, _container);
 
-        // Добавляем отступы
-        float offset = 10f;
-
         // Определяем позиции с учётом отступов
-        Vector2 startPosition = new Vector2(_container.rect.width / 2f + offset, 0f);    // Правый край панели с отступом
-        Vector2 endPosition = new Vector2(-_container.rect.width / 2f - offset, 0f);     // Левый край панели с отступом
-
+        Vector2 startPosition = new(_container.rect.width / 2f + _offset, 0f); // Правый край панели с отступом
+        Vector2 endPosition = new(-_container.rect.width / 2f - _offset, 0f); // Левый край панели с отступом
 
         // Инициализируем движение
         var gameEventView = prefab.GetComponent<GameEventView>();
-        gameEventView.Initialize(info, startPosition, endPosition, _eventMoveDuration);
+        gameEventView.Initialize(info, startPosition, endPosition, _fullDuration, 0, _eventNumber);
+
+        AddEventToList(info, prefab);
     }
 
-    public void ActiveGameEvent(GameEventType gameEventType)
+    public void LoadEvents(DayEventData[] dayEventsData)
     {
+        for (int i = 0; i < dayEventsData.Length; i++)
+        {
+            var info = _allGameEvents[dayEventsData[i].GameEventTypeNumber];
+            var prefab = Instantiate(_gameEventPrefab, _container);
+            Vector2 startPosition = new(_container.rect.width / 2f + _offset, 0f);
+            Vector2 endPosition = new(-_container.rect.width / 2f - _offset, 0f);
+            var gameEventView = prefab.GetComponent<GameEventView>();
+            gameEventView.Initialize(info, startPosition, endPosition, _fullDuration, dayEventsData[i].AlreadyElapsedTime, _eventNumber);
+
+            AddEventToList(info, prefab);
+        }
+    }
+
+    public void ActiveGameEvent(GameEventType gameEventType, int eventNumber)
+    {
+        RemoveEventFromList(eventNumber);
         switch (gameEventType)
         {
             case GameEventType.RadiationIncrease:
@@ -97,9 +129,40 @@ public class DayEventSystem : MonoBehaviour
         }
     }
 
+    private void AddEventToList(GameEventInfo info, GameObject prefab)
+    {
+        _currentEventsData.Add(new DayEventForListData
+        {
+            GameEventType = info.GameEventType,
+            EventNumber = _eventNumber,
+            ViewObject = prefab,
+        });
+
+        _eventNumber++;
+    }
+
+    private void RemoveEventFromList(int eventNumber)
+    {
+        for (int i = 0; i < _currentEventsData.Count; i++)
+        {
+            if (eventNumber == _currentEventsData[i].EventNumber)
+            {
+                _currentEventsData.Remove(_currentEventsData[i]);
+            }
+        }
+    }
+
     private void OnDestroy()
     {
         CustomEvents.OnDayEnd -= OnDayEnd;
         CustomEvents.OnGameEventStart -= ActiveGameEvent;
     }
+}
+
+[System.Serializable]
+public class DayEventForListData
+{
+    public GameEventType GameEventType;
+    public int EventNumber;
+    public GameObject ViewObject;
 }

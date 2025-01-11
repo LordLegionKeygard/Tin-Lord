@@ -13,10 +13,10 @@ public class CustomEvents
         OnSpawnRoadComplete?.Invoke();
     }
 
-    public static event Action<GameEventType> OnGameEventStart;
-    public static void FireGameEventStart(GameEventType gameEventType)
+    public static event Action<GameEventType, int> OnGameEventStart;
+    public static void FireGameEventStart(GameEventType gameEventType, int eventNumber)
     {
-        OnGameEventStart?.Invoke(gameEventType);
+        OnGameEventStart?.Invoke(gameEventType, eventNumber);
     }
 
     public static event Action<int> OnBuildingDestroyed;

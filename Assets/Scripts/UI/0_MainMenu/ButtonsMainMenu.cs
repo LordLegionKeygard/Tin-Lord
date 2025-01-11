@@ -99,6 +99,7 @@ public class ButtonsMainMenu : MonoBehaviour
         _continueButtonObject.SetActive(false);
         StartCoroutine(nameof(PrepareLoad));
         _areYouSurePanel.SetActive(false);
+        CustomEvents.FireCloseTooltips();
     }
 
     public void AreYouSureNo()
@@ -106,6 +107,7 @@ public class ButtonsMainMenu : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         _areYouSurePanel.SetActive(false);
         ButtonsToggle(true);
+        CustomEvents.FireCloseTooltips();
     }
 
     private void ButtonsToggle(bool state)

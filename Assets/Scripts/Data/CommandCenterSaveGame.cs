@@ -52,13 +52,13 @@ public class CommandCenterSaveGame : MonoBehaviour
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveLoad.SaveData(ref CommandCenterSaveData);
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
-        if (loadMainMenu) CustomEvents.FireLoadScene(SceneEnum.MainMenu, 5f, true);
+        if (loadMainMenu) CustomEvents.FireLoadScene(SceneEnum.MainMenu, WorldGameInfo.LoadSceneTime, true);
     }
 
     public void LoadGameData()
     {
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveData = _commandCenterSaveGameDataWriter.LoadCommandCenterDataFromJson();
-        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, 5f, true);
+        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true);
     }
 }
