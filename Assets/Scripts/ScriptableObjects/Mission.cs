@@ -10,6 +10,7 @@ public class Mission : ScriptableObject
     public int Duration; //в днях
     public int StartEcology;
     public TerrainEnum TerrainEnum;
+    public Vector2 PlanetTarget;
     public ResourceWrapper[] StartResources;
     public ObjectiveWrapper[] Objectives;
     [TextArea(1, 8)] public string[] Description;

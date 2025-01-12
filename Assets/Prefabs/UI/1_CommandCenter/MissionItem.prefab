@@ -239,7 +239,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5403990605728349741}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -363,6 +363,6 @@ MonoBehaviour:
   _missionNameText: {fileID: 7411712655784129845}
   _missionIcon: {fileID: 5940087733216227552}
   _backImage: {fileID: 1438069957049362973}
-  _targetPosition: {fileID: 0}
+  _targetTransform: {fileID: 0}
   _mission: {fileID: 11400000, guid: 33063797d5fd5a143b021e4a8f617133, type: 2}
   _missionPanel: {fileID: 0}

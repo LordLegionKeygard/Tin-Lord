@@ -19,6 +19,8 @@ MonoBehaviour:
   MissionId: 2
   Duration: 100
   StartEcology: -20
+  TerrainEnum: 0
+  PlanetTarget: {x: 101, y: -264}
   StartResources:
   - ResourceEnum: 0
     RecourceAmount: 50
