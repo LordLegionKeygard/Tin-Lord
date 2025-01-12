@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007774717, g: 0.000095966694, b: 0.00011531508,
+  m_IndirectSpecularColor: {r: 0.00007796962, g: 0.00009617955, b: 0.000115788076,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -348,9 +348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c75e1cb8d9eb454d982a2170edee28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tooltipTexts:
-  - Load mission
-  - "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043C\u0438\u0441\u0441\u0438\u044E"
   _textNumber: 52
 --- !u!1 &22578374
 GameObject:
@@ -5687,9 +5684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c75e1cb8d9eb454d982a2170edee28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tooltipTexts:
-  - Yes
-  - "\u0414\u0430"
   _textNumber: 49
 --- !u!1 &305643355
 GameObject:
@@ -23530,9 +23524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c75e1cb8d9eb454d982a2170edee28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tooltipTexts:
-  - No
-  - "\u041D\u0435\u0442"
   _textNumber: 50
 --- !u!1 &1744366919
 GameObject:
@@ -30155,9 +30146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c75e1cb8d9eb454d982a2170edee28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tooltipTexts:
-  - Start mission
-  - "\u041D\u0430\u0447\u0430\u0442\u044C \u043C\u0438\u0441\u0441\u0438\u044E"
   _textNumber: 51
 --- !u!1 &2139493898
 GameObject:

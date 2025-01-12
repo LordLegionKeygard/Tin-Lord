@@ -3,6 +3,7 @@ using Zenject;
 
 public class WorldSaveLoad : MonoBehaviour
 {
+    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private WorldSaveGame _worldSaveGame;
 
     [Header("Main")]
@@ -32,6 +33,9 @@ public class WorldSaveLoad : MonoBehaviour
     [Header("Robot")]
     [SerializeField] private CurrentRobotSystem _currentRobotSystem;
     [SerializeField] private RobotSpawnerSystem _robotSpawnerSystem;
+
+    [Header("LearnedBuildings")]
+    [SerializeField] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
 
     private void Awake()
     {
@@ -110,6 +114,9 @@ public class WorldSaveLoad : MonoBehaviour
         //Robot
         RobotsDataWorld.Instance.LoadRobotsExperience(currentSaveData.RobotsExperienceData,currentSaveData.IsStartMission);
         _robotSpawnerSystem.LoadSpawnRobot(currentSaveData);
+
+        //Buildings
+        _learnedBuildingsDataWorld.LoadLearnedBuildings(_commandCenterSaveGame.CommandCenterSaveData.BuildingsLearned);
 
         CustomEvents.FireDataLoad();
     }

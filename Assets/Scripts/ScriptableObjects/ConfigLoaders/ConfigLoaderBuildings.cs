@@ -45,6 +45,7 @@ public class ConfigLoaderBuildings : ScriptableObject
             if (_allBuildings[i] == null) continue;
 
             BuildingConfigs config = _configs[i];
+            _allBuildings[i].Id = i;
             _allBuildings[i].BuildingLevel = config.Level;
             _allBuildings[i].Name = new[] { config.EnglishName, config.RussianName };
             _allBuildings[i].Price = config.Price;

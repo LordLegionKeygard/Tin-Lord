@@ -8,6 +8,7 @@ public class BuildingTile : MonoBehaviour
    [Inject] private DiContainer _diContainer;
    [Inject] private PlayerResources _playerResources;
    [Inject] private TilesSystem _tilesSystem;
+   [Inject] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
 
    [SerializeField] private Transform _buildingParent;
    [SerializeField] private TileObject _tileObject;
@@ -45,7 +46,16 @@ public class BuildingTile : MonoBehaviour
    public bool IsProtectiveTile() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.ProtectiveStructures;
    public bool IsEcologyBuilding() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier;
    public bool NeightbourTileIsProtective(int number) => _tileObject.GetNeighbourBuildingTile(number) == null ? false : _tileObject.GetNeighbourBuildingTile(number).IsProtectiveTile();
-   public bool IsCanUpgrade() => _currentBuildingTile != null ? CurrentBuildingLevel() < _currentBuildingTile.Buildings.Length : false;
+
+   public bool IsCanUpgrade()
+   {
+      if (_currentBuildingTile != null)
+      {
+         return CurrentBuildingLevel() < _currentBuildingTile.Buildings.Length && _learnedBuildingsDataWorld.IsHaveLearnedBuildingUpgradeInBuildingType(_currentBuildingTile, _currentLevel);
+      }
+
+      return false;
+   }
 
    #endregion
 
@@ -67,7 +77,7 @@ public class BuildingTile : MonoBehaviour
       SpawnConstructionPrefab();
       StartCoroutine(RunConstructionCoroutine(
            onComplete: () => InstantiateCompletedBuilding(),
-           onFail: () => _isConstructionNow = false       
+           onFail: () => _isConstructionNow = false
        ));
    }
 

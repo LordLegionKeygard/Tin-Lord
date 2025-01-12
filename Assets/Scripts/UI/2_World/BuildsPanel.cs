@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class BuildsPanel : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
-    private List<BuildingItem> _buildingsList = new List<BuildingItem>();
+    [Inject] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
+    private List<BuildingItem> _buildingsList = new();
     [SerializeField] private BuildingItem _buildingItem;
     [SerializeField] private Transform _content;
     [SerializeField] private RectTransform _rectTransform;
@@ -26,6 +27,7 @@ public class BuildsPanel : MonoBehaviour
 
         for (int i = 0; i < length.Length; i++)
         {
+            if (!_learnedBuildingsDataWorld.IsBuildingLearned(tile.Buildings[i].Id)) return;
             Spawn(tileObject, selectTilePanel, i + 1, tile, BuildingState.FirstBuild);
         }
     }
@@ -59,6 +61,7 @@ public class BuildsPanel : MonoBehaviour
 
         for (int i = level; i < length.Length; i++)
         {
+            if (!_learnedBuildingsDataWorld.IsBuildingLearned(tile.Buildings[i].Id)) return;
             Spawn(tileObject, selectTilePanel, i + 1, tile, BuildingState.UpgradeBuilding);
         }
     }
