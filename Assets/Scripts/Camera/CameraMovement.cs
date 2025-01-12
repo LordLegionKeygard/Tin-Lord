@@ -10,47 +10,44 @@ public class CameraMovement : MonoBehaviour
 
     [Header("Horizontal Translation")]
     [SerializeField] private float _currentMaxSpeed;
-    private float speed;
-    private float _acceleration = 10;
-    private float _damping = 15;
+    private float _speed;
+    private readonly float _acceleration = 10;
+    private readonly float _damping = 15;
 
     [Header("Vertical Translation")]
-    private float _stepSize = 2;
-    private float _zoomDampening = 7.5f;
-    private float _minHeight = 12;
-    private float _maxHeight = 60;
-    private float _zoomSpeed = 4;
+    private readonly float _stepSize = 2;
+    private readonly float _zoomDampening = 7.5f;
+    private readonly float _minHeight = 12;
+    private readonly float _maxHeight = 60;
+    private readonly float _zoomSpeed = 4;
 
     [Header("Mouse Dragging")]
     private bool _isDragging = false;
-    private Vector2 lastMousePosition;
-    private float _dragSpeed;
+    private Vector3 _startPos;
 
     [Header("Edge Movement")]
     [SerializeField, Range(0f, 0.1f)] private float edgeTolerance = 0.05f;
-    private Vector3 targetPosition;
-    private float zoomHeight;
-    private Vector3 horizontalVelocity;
-    private Vector3 lastPosition;
-    private int _xMin = -50;
-    private int _xMax = 150;
-
-    private int _yMin = -50;
-    private int _yMax = 110;
+    private Vector3 _targetPosition;
+    private float _zoomHeight;
+    private Vector3 _horizontalVelocity;
+    private Vector3 _lastPosition;
+    private readonly int _xMin = -50;
+    private readonly int _xMax = 150;
+    private readonly int _yMin = -50;
+    private readonly int _yMax = 110;
 
 
     private void OnEnable()
     {
-        zoomHeight = cameraTransform.localPosition.y;
+        _zoomHeight = cameraTransform.localPosition.y;
         cameraTransform.LookAt(transform);
 
-        lastPosition = transform.position;
+        _lastPosition = transform.position;
     }
 
     private void ChangeMaxSpeed()
     {
         _currentMaxSpeed = _camera.orthographicSize * 1.4f;
-        _dragSpeed = _camera.orthographicSize * 0.05f;
     }
 
     private void Update()
@@ -61,47 +58,51 @@ public class CameraMovement : MonoBehaviour
         UpdateVelocity();
         UpdateBasePosition();
         UpdateCameraPosition();
-        UpdateLimits();
         ChangeMaxSpeed();
         HandleMouseDrag();
+        UpdateLimits();
     }
 
     private void HandleMouseDrag()
     {
-        // Проверяем нажатие левой кнопки мыши
         if (Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUISystem.IsPointerOverUI && !_cardHolderSystem.IsHaveCurrentSelectedCardObject())
         {
-            _isDragging = true;
-            lastMousePosition = Mouse.current.position.ReadValue();
+            Plane plane = new Plane(Vector3.up, Vector3.zero);
+
+            Ray ray = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+            if (plane.Raycast(ray, out float distance))
+            {
+                _startPos = ray.GetPoint(distance);
+                _isDragging = true;
+            }
         }
 
-        // Проверяем отпускание левой кнопки мыши
         if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
             _isDragging = false;
         }
 
-        // Если тянем мышью при зажатой левой кнопке
         if (_isDragging)
         {
-            Vector2 currentMousePosition = Mouse.current.position.ReadValue();
-            Vector2 delta = currentMousePosition - lastMousePosition;
-            lastMousePosition = currentMousePosition;
+            Plane plane = new Plane(Vector3.up, Vector3.zero);
+            Ray ray = _camera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-            // Направление перемещения камеры при перетаскивании:
-            // При смещении мыши вправо - камера двигается влево, и наоборот.
-            // Аналогично по вертикали.
-            Vector3 moveDirection = (-GetCameraRight() * delta.x + -GetCameraForward() * delta.y) * _dragSpeed;
-
-            transform.position += moveDirection * Time.unscaledDeltaTime;
+            if (plane.Raycast(ray, out float distance))
+            {
+                Vector3 currentPos = ray.GetPoint(distance);
+                Vector3 offset = _startPos - currentPos;
+                Vector3 newCamPos = transform.position + offset;
+                transform.position = newCamPos;
+            }
         }
     }
 
     private void UpdateVelocity()
     {
-        horizontalVelocity = (transform.position - lastPosition) / Time.unscaledDeltaTime;
-        horizontalVelocity.y = 0f;
-        lastPosition = transform.position;
+        _horizontalVelocity = (transform.position - _lastPosition) / Time.unscaledDeltaTime;
+        _horizontalVelocity.y = 0f;
+        _lastPosition = transform.position;
     }
 
     private void GetKeyboardMovement()
@@ -112,7 +113,7 @@ public class CameraMovement : MonoBehaviour
         inputValue = inputValue.normalized;
 
         if (inputValue.sqrMagnitude > 0.1f)
-            targetPosition += inputValue;
+            _targetPosition += inputValue;
     }
 
     private void CheckMouseAtScreenEdge()
@@ -130,22 +131,22 @@ public class CameraMovement : MonoBehaviour
         else if (mousePosition.y > (1f - edgeTolerance) * Screen.height)
             moveDirection += GetCameraForward();
 
-        targetPosition += moveDirection;
+        _targetPosition += moveDirection;
     }
 
     private void UpdateBasePosition()
     {
-        if (targetPosition.sqrMagnitude > 0.1f)
+        if (_targetPosition.sqrMagnitude > 0.1f)
         {
-            speed = Mathf.Lerp(speed, _currentMaxSpeed, Time.unscaledDeltaTime * _acceleration);
-            transform.position += targetPosition * speed * Time.unscaledDeltaTime;
+            _speed = Mathf.Lerp(_speed, _currentMaxSpeed, Time.unscaledDeltaTime * _acceleration);
+            transform.position += _targetPosition * _speed * Time.unscaledDeltaTime;
         }
         else
         {
-            horizontalVelocity = Vector3.Lerp(horizontalVelocity, Vector3.zero, Time.unscaledDeltaTime * _damping);
-            transform.position += horizontalVelocity * Time.unscaledDeltaTime;
+            _horizontalVelocity = Vector3.Lerp(_horizontalVelocity, Vector3.zero, Time.unscaledDeltaTime * _damping);
+            transform.position += _horizontalVelocity * Time.unscaledDeltaTime;
         }
-        targetPosition = Vector3.zero;
+        _targetPosition = Vector3.zero;
     }
 
     public void ZoomCamera(InputAction.CallbackContext callBack)
@@ -167,9 +168,9 @@ public class CameraMovement : MonoBehaviour
 
     private void UpdateCameraPosition()
     {
-        Vector3 zoomTarget = new Vector3(cameraTransform.localPosition.x, zoomHeight, cameraTransform.localPosition.z);
+        Vector3 zoomTarget = new Vector3(cameraTransform.localPosition.x, _zoomHeight, cameraTransform.localPosition.z);
 
-        zoomTarget -= _zoomSpeed * (zoomHeight - cameraTransform.localPosition.y) * Vector3.forward;
+        zoomTarget -= _zoomSpeed * (_zoomHeight - cameraTransform.localPosition.y) * Vector3.forward;
 
         cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, zoomTarget, Time.unscaledDeltaTime * _zoomDampening);
         cameraTransform.LookAt(transform);
