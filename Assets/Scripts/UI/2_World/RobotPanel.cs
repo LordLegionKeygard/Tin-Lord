@@ -114,7 +114,7 @@ public class RobotPanel : MonoBehaviour
     public void DestroyRobbotButton()
     {
         var robotHealth = _currentRobotSystem.RobotHealth();
-        robotHealth.CalculateDamage(robotHealth.MaxHealth);
+        robotHealth.CalculateDamage(robotHealth.GetMaxHealth());
         UpdateDestroyButtonState();
     }
 

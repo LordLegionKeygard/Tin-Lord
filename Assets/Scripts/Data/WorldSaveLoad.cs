@@ -19,8 +19,11 @@ public class WorldSaveLoad : MonoBehaviour
     [Header("Cards")]
     [SerializeField] private CardHolderSystem _cardHolderSystem;
 
-    [Header("DayEvent")]
+    [Header("DayEvents")]
     [SerializeField] private DayEventSystem _dayEventSystem;
+
+    [Header("Enemies")]
+    [SerializeField] private EnemiesSpawnerSystem _enemiesSpawnerSystem;
 
     [Header("Tiles")]
     [Inject] private readonly TilesSystem _tilesSystem;
@@ -61,6 +64,9 @@ public class WorldSaveLoad : MonoBehaviour
         //DayEvents
         currentSaveData.DayEventsData = _dayEventSystem.GetAllCurrentEvents();
 
+        //Enemies
+        currentSaveData.EnemyData = _enemiesSpawnerSystem.GetAllCurrentEnemies();
+
         //Tiles
         currentSaveData.IsHaveBase = _tilesSystem.IsHaveBase();
         currentSaveData.IsHaveRiver = _tilesSystem.IsHaveRiver();
@@ -92,6 +98,9 @@ public class WorldSaveLoad : MonoBehaviour
         //DayEvents
         _dayEventSystem.LoadEvents(currentSaveData.DayEventsData);
 
+        //Enemies
+        _enemiesSpawnerSystem.LoadEnemies(currentSaveData.EnemyData, currentSaveData.IsStartMission);
+
         //Tiles
         _tilesSystem.SetIsHaveBase(currentSaveData.IsHaveBase);
         _tilesSystem.SetIsHaveRiver(currentSaveData.IsHaveRiver);
@@ -100,7 +109,7 @@ public class WorldSaveLoad : MonoBehaviour
 
         //Robot
         RobotsDataWorld.Instance.LoadRobotsExperience(currentSaveData.RobotsExperienceData,currentSaveData.IsStartMission);
-        _robotSpawnerSystem.LoadSpawnRobot(currentSaveData);  //сначала спавним и передаем в патрол патх из даты индекс
+        _robotSpawnerSystem.LoadSpawnRobot(currentSaveData);
 
         CustomEvents.FireDataLoad();
     }

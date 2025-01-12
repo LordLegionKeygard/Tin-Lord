@@ -10,7 +10,7 @@ public class RobotHealth : BaseHealth
     private BaseTakeDamageVFX _takeDamageVFX;
     private AnimationToRagdoll _animationToRagdoll;
     private CapsuleCollider _capsuleCollider;
-    public bool FullHealth() => CurrentHealth == MaxHealth;
+    public bool FullHealth() => _currentHealth == _maxHealth;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class RobotHealth : BaseHealth
 
     private void Repair()
     {
-        CurrentHealth = MaxHealth;
+        _currentHealth = _maxHealth;
         UpdateSlider();
     }
 
@@ -44,7 +44,7 @@ public class RobotHealth : BaseHealth
         {
             _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
             _healthSlider = _healthSliderObject.GetComponent<BaseSlider>();
-            _healthSlider.SetupAllHealthValue(MaxHealth);
+            _healthSlider.SetupAllHealthValue(_maxHealth);
             _healthSlider.SetHeightOffset(_sliderHeightOffset);
             _healthSlider.SetObjectTransform(transform);
         }
@@ -53,8 +53,8 @@ public class RobotHealth : BaseHealth
     private void SetStartStats()
     {
         _isDeath = false;
-        MaxHealth = RobotsDataWorld.Instance.GetCurrentDurability();
-        CurrentHealth = MaxHealth;
+        _maxHealth = RobotsDataWorld.Instance.GetCurrentDurability();
+        _currentHealth = _maxHealth;
         CreateHealthBar();
         UpdateSlider();
     }

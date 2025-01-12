@@ -83,7 +83,7 @@ public class BuildingTile : MonoBehaviour
       _isConstructionNow = true;
       _constructionView = _constructionPrefab.GetComponent<ConstructionBuildingView>();
 
-      while (_buildingHealth.CurrentHealth < _buildingHealth.MaxHealth)
+      while (_buildingHealth.GetCurrentHealth() < _buildingHealth.GetMaxHealth())
       {
          if (_buildingHealth.IsDeath())
          {
@@ -92,7 +92,7 @@ public class BuildingTile : MonoBehaviour
          }
 
          _buildingHealth.ConstructionIncreaseHealth(WorldGameInfo.ConstructionSpeed * Time.deltaTime);
-         _constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth, _buildingHealth.MaxHealth);
+         _constructionView.UpdateShaderByHealth(_buildingHealth.GetCurrentHealth(), _buildingHealth.GetMaxHealth());
 
          yield return null;
       }
@@ -150,12 +150,12 @@ public class BuildingTile : MonoBehaviour
 
    private IEnumerator RunBaseUpgradeCoroutine(Action onComplete, Action onFail, float baseHealthOffset = 0f)
    {
-      _previousBaseBuildingHealth = baseHealthOffset > 0f ? baseHealthOffset : _buildingHealth.CurrentHealth;
+      _previousBaseBuildingHealth = baseHealthOffset > 0f ? baseHealthOffset : _buildingHealth.GetCurrentHealth();
       _isConstructionNow = true;
 
       _constructionView = _constructionPrefab.GetComponent<ConstructionBuildingView>();
 
-      while (_buildingHealth.CurrentHealth < _buildingHealth.MaxHealth)
+      while (_buildingHealth.GetCurrentHealth() < _buildingHealth.GetMaxHealth())
       {
          if (_buildingHealth.IsDeath())
          {
@@ -164,7 +164,7 @@ public class BuildingTile : MonoBehaviour
          }
 
          _buildingHealth.ConstructionIncreaseHealth(WorldGameInfo.ConstructionSpeed * Time.deltaTime);
-         _constructionView.UpdateShaderByHealth(_buildingHealth.CurrentHealth - _previousBaseBuildingHealth, _buildingHealth.MaxHealth - _previousBaseBuildingHealth);
+         _constructionView.UpdateShaderByHealth(_buildingHealth.GetCurrentHealth() - _previousBaseBuildingHealth, _buildingHealth.GetMaxHealth() - _previousBaseBuildingHealth);
 
          yield return null;
       }

@@ -2,17 +2,18 @@ using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
 {
-	public float MaxHealth;
-	public float CurrentHealth;
+	protected float _maxHealth;
+	protected float _currentHealth;
 	protected bool _isDeath;
 	protected BaseSlider _healthSlider;
 	public GameObject _healthSliderObject;
 
+	public float GetCurrentHealth() => _currentHealth;
+	public float GetMaxHealth() => _maxHealth;
+
 	public virtual Tile BuildingTile() => null;
 	public virtual Transform GetFoutTileTransform() => transform;
-
 	public virtual bool IsDeath() => _isDeath;
-
 	public virtual Transform GetTransform() => transform;
 
 	public virtual void CalculateDamage(float damage, float knockBackPoints)
@@ -23,20 +24,20 @@ public class BaseHealth : MonoBehaviour
 
 	public virtual void TakeDamage(float damage, float knockBackPoints)
 	{
-		CurrentHealth -= damage;
+		_currentHealth -= damage;
 		UpdateSlider();
 	}
 
 	public virtual void UpdateSlider()
 	{
 		if (IsDeath()) return;
-		_healthSlider.SetValue(CurrentHealth);
+		_healthSlider.SetValue(_currentHealth);
 		CheckDeath();
 	}
 
 	private void CheckDeath()
 	{
-		if (CurrentHealth <= 0 && !IsDeath()) Death();
+		if (_currentHealth <= 0 && !IsDeath()) Death();
 	}
 
 	public virtual void Death()

@@ -28,12 +28,13 @@ public class RobotSpawnerSystem : MonoBehaviour
 
         var roadTiles = _mapBuilder.GetRoadTiles();
 
-        Vector3 spawnPosition = new Vector3(worldSaveData.RobotData.PositionX, worldSaveData.RobotData.PositionY, worldSaveData.RobotData.PositionZ);
+        var spawnPosition = new Vector3(worldSaveData.RobotData.PositionX, worldSaveData.RobotData.PositionY, worldSaveData.RobotData.PositionZ);
+        var rotation = Quaternion.Euler(0f, worldSaveData.RobotData.Rotation, 0f);
 
         // Приведение int к enum
         var robotTypeEnum = (RobotType)worldSaveData.RobotData.RobotType;
 
-        _currentRobotSystem.SetNewRobot(_diContainer.InstantiatePrefab(_robotsPrefabs[worldSaveData.RobotData.RobotType], spawnPosition, Quaternion.identity, _parent), robotTypeEnum);
+        _currentRobotSystem.SetNewRobot(_diContainer.InstantiatePrefab(_robotsPrefabs[worldSaveData.RobotData.RobotType], spawnPosition, rotation, _parent), robotTypeEnum);
         _currentRobotSystem.RobotPatrolPath().InitializePatrolPoints(roadTiles, worldSaveData.RobotData.NextPatrolIndex);
 
 

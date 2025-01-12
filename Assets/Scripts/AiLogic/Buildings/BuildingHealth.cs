@@ -14,9 +14,9 @@ public class BuildingHealth : BaseHealth
     public bool IsContructionNow() => _isConstructionNow;
     public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
-    public bool IsFullHealth() => CurrentHealth == MaxHealth;
-    public float CalculateHealthFromPercent(int percent) => MaxHealth * percent / 100;
-    public float GetCurrentHealthPercent() => CurrentHealth / MaxHealth;
+    public bool IsFullHealth() => _currentHealth == _maxHealth;
+    public float CalculateHealthFromPercent(int percent) => _maxHealth * percent / 100;
+    public float GetCurrentHealthPercent() => _currentHealth / _maxHealth;
     public TileObject GetTileObject() => _tileObject;
 
     public override bool IsDeath()
@@ -33,18 +33,18 @@ public class BuildingHealth : BaseHealth
 
     public void FullRepair()
     {
-        CurrentHealth = MaxHealth;
+        _currentHealth = _maxHealth;
         UpdateSlider();
     }
 
     public void SlowTimeRepair(float repairRate)
     {
-        if (CurrentHealth < MaxHealth)
+        if (_currentHealth < _maxHealth)
         {
-            CurrentHealth += Time.deltaTime * repairRate; // RepairRate — скорость ремонта
-            if (CurrentHealth > MaxHealth)
+            _currentHealth += Time.deltaTime * repairRate; // RepairRate — скорость ремонта
+            if (_currentHealth > _maxHealth)
             {
-                CurrentHealth = MaxHealth;
+                _currentHealth = _maxHealth;
             }
             UpdateSlider();
         }
@@ -60,15 +60,15 @@ public class BuildingHealth : BaseHealth
             _healthSlider.SetObjectTransform(transform);
         }
 
-        _healthSlider.SetupAllHealthValue(MaxHealth);
+        _healthSlider.SetupAllHealthValue(_maxHealth);
     }
 
     public void SetNewBuildingHealth(Building building, bool isConstruction)
     {
         _isDeath = false;
         _isConstructionNow = isConstruction;
-        MaxHealth = building.BuildingHealth;
-        CurrentHealth = _isConstructionNow ? 1 : MaxHealth;
+        _maxHealth = building.BuildingHealth;
+        _currentHealth = _isConstructionNow ? 1 : _maxHealth;
 
         CreateHealthSlider();
         UpdateSlider();
@@ -77,16 +77,16 @@ public class BuildingHealth : BaseHealth
     public void SetUpgradeBuildingHealth(Building building, bool isConstruction)
     {
         _isConstructionNow = isConstruction;
-        MaxHealth = building.BuildingHealth;
-        _healthSlider.SetupMaxHealth(MaxHealth);
+        _maxHealth = building.BuildingHealth;
+        _healthSlider.SetupMaxHealth(_maxHealth);
         UpdateSlider();
     }
 
     public void LoadBuildingHealth(Building building, float currentHealth, bool isConstruction)
     {
         _isConstructionNow = isConstruction;
-        MaxHealth = building.BuildingHealth;
-        CurrentHealth = currentHealth;
+        _maxHealth = building.BuildingHealth;
+        _currentHealth = currentHealth;
         CreateHealthSlider();
         UpdateSlider();
     }
@@ -105,10 +105,10 @@ public class BuildingHealth : BaseHealth
     {
         if (IsDeath()) return;
 
-        CurrentHealth += amount;
-        if (CurrentHealth > MaxHealth)
+        _currentHealth += amount;
+        if (_currentHealth > _maxHealth)
         {
-            CurrentHealth = MaxHealth;
+            _currentHealth = _maxHealth;
         }
         UpdateSlider();
     }
@@ -149,7 +149,7 @@ public class BuildingHealth : BaseHealth
             }
         }
 
-        _buildingTile.DestroyBuildingTile(CurrentHealth > 0);
+        _buildingTile.DestroyBuildingTile(_currentHealth > 0);
         _tileObject.ToggleIsBuildingDestroyedNow(false);
     }
 }

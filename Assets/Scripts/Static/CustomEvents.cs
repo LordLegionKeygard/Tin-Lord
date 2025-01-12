@@ -144,4 +144,10 @@ public class CustomEvents
     {
         OnUpdateToolTip.Invoke(x, y, text);
     }
+
+    public static Action<int> OnEnemyDeath;
+    public static void FireEnemyDeath( int enemyNumber)
+    {
+        OnEnemyDeath?.Invoke(enemyNumber);
+    }
 }

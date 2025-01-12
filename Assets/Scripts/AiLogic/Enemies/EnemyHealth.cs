@@ -16,6 +16,7 @@ public class EnemyHealth : BaseHealth
     private EnemyLevel _enemyLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
     private EnemyCenterPoint _enemyCenterPoint;
+    private EnemyInfo _enemyInfo;
 
     public override Transform GetTransform()
     {
@@ -31,11 +32,7 @@ public class EnemyHealth : BaseHealth
         _aiPath = GetComponent<AIPath>();
         _enemyAnimator = GetComponent<EnemyAnimator>();
         _enemyCenterPoint = GetComponent<EnemyCenterPoint>();
-    }
-
-    public void Start()
-    {
-        SetStartStats();
+        _enemyInfo = GetComponent<EnemyInfo>();
     }
 
     public override void CalculateDamage(float damage, float knockBackPoints)
@@ -50,17 +47,26 @@ public class EnemyHealth : BaseHealth
         {
             _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
             _healthSlider = _healthSliderObject.GetComponent<BaseSlider>();
-            _healthSlider.SetupAllHealthValue(MaxHealth);
+            _healthSlider.SetupAllHealthValue(_maxHealth);
             _healthSlider.SetHeightOffset(_sliderHeightOffset);
             _healthSlider.SetObjectTransform(transform);
         }
     }
 
-    private void SetStartStats()
+    public void SetStartStats()
     {
         _isDeath = false;
-        MaxHealth = _enemyLevel.GetInformation().Health[_enemyLevel.GetLevel()];
-        CurrentHealth = MaxHealth;
+        _maxHealth = _enemyLevel.GetInformation().Health[_enemyLevel.GetLevel()];
+        _currentHealth = _maxHealth;
+        CreateHealthBar();
+        UpdateSlider();
+    }
+
+    public void LoadStartStats(float newHealth)
+    {
+        _isDeath = false;
+        _maxHealth = _enemyLevel.GetInformation().Health[_enemyLevel.GetLevel()];
+        _currentHealth = newHealth;
         CreateHealthBar();
         UpdateSlider();
     }
@@ -79,6 +85,7 @@ public class EnemyHealth : BaseHealth
         _enemyAnimator.DeathAnim();
 
         CustomEvents.FireChangeExperience(_enemyLevel.GetExperience());
+        CustomEvents.FireEnemyDeath(_enemyInfo.GetEnemyNumber());
 
         StartCoroutine(FadeAndDestroy());
     }

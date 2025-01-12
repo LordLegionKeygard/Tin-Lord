@@ -24,8 +24,11 @@ public class WorldSaveData
     [Header("Cards")]
     public int[] Cards;
 
-    [Header("DayEvent")]
+    [Header("DayEvents")]
     public DayEventData[] DayEventsData;
+
+    [Header("Enemies")]
+    public EnemyData[] EnemyData;
 
     [Header("Tiles")]
     public bool IsHaveRiver;
@@ -38,8 +41,21 @@ public class WorldSaveData
     public RobotData RobotData;
 }
 
-[System.Serializable]
 
+[System.Serializable]
+public class EnemyData
+{
+    public int EnemyEnum;
+    public float PositionX;
+    public float PositionY;
+    public float PositionZ;
+    public float Rotation;
+    public int EnemyLevel;
+    public float EnemyHealth;
+}
+
+
+[System.Serializable]
 public class DayEventData
 {
     public int GameEventTypeNumber;
@@ -54,6 +70,7 @@ public class RobotData
     public float PositionX;
     public float PositionY;
     public float PositionZ;
+    public float Rotation;
     public int NextPatrolIndex;
 }
 

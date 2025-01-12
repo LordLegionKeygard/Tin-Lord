@@ -40,7 +40,7 @@ public class AllTileObjects : MonoBehaviour
         {
             var tileObject = TileObjects[i];
             var groundHaveTile = tileObject.GroundTileObject().HaveTile();
-            var buildingHaveTile = tileObject.BuildingTileObject().HaveTile();
+            var buildingHaveTile = tileObject.BuildingTileObject().HaveTile() && !tileObject.BuildingHealth().IsDeath();
             var isWater = tileObject.GroundTileObject().IsWaterTile();
             var riverTile = tileObject.GroundTileObject().CurrentTileRiver();
             var haveBuildingTileGameObject = tileObject.BuildingTileObject().HaveBuildingGameObject();
@@ -62,7 +62,7 @@ public class AllTileObjects : MonoBehaviour
                 {
                     BuildingTileTypeId = buildingHaveTile ? (int)tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView : -1,
                     BuildingTileLevel = buildingHaveTile ? tileObject.BuildingTileObject().CurrentBuildingLevel() : -1,
-                    BuildingHealth = buildingHaveTile ? tileObject.BuildingHealth().CurrentHealth : 0,
+                    BuildingHealth = buildingHaveTile ? tileObject.BuildingHealth().GetCurrentHealth() : 0,
                     IsBuildingWork = buildingHaveTile && tileObject.IsBuildingWork(),
                     BuildingTilePositionY = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionY() : 0,
                     BuildingTilePositionX = buildingHaveTile ? tileObject.BuildingTileObject().BuildingTileTransform().GetPositionX() : 0,

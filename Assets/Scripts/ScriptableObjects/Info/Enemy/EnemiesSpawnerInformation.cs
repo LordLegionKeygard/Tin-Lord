@@ -19,7 +19,7 @@ public class Spawner
 [System.Serializable]
 public class EnemySpawnerInfo
 {
-    public GameObject EnemyPrefab;
+    public EnemyEnum EnemyEnum = EnemyEnum.None;
     public int EnemyLevel;
 }
 

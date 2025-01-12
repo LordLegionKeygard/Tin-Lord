@@ -21,6 +21,7 @@ public class CurrentRobotSystem : MonoBehaviour
             PositionX = HaveRobot() ? _currentRobot.transform.localPosition.x : 0,
             PositionY = HaveRobot() ? _currentRobot.transform.position.y : 0,
             PositionZ = HaveRobot() ? _currentRobot.transform.localPosition.z : 0,
+            Rotation = HaveRobot() ? _currentRobot.transform.eulerAngles.y : 0,
             NextPatrolIndex = HaveRobot() ? _robotPatrolPath.RobotPatrolState().GetCurrentPatrolPointIndex() : 0,
         };
 

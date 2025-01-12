@@ -1,0 +1,17 @@
+using UnityEngine;
+
+public class AllEnemies : MonoBehaviour
+{
+    [SerializeField] private GameObject[] _allEnemies;
+    public GameObject GetEnemyForEnum(EnemyEnum enemiesEnum) => _allEnemies[(int)enemiesEnum];
+    public GameObject GetEnemyForNumber(int number) => _allEnemies[number];
+}
+
+[System.Serializable]
+public enum EnemyEnum
+{
+    None = -1,
+    Gastarias = 0,
+    Gastarid = 1,
+    Gastaroid = 2,
+}

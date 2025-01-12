@@ -91,7 +91,7 @@ public class RobotItem : MonoBehaviour
         if (CanRepair())
         {
             var robotHealth = _currentRobotSystem.RobotHealth();
-            float healthPercentage = (float)(robotHealth.MaxHealth - robotHealth.CurrentHealth) / robotHealth.MaxHealth;
+            float healthPercentage = (float)(robotHealth.GetMaxHealth() - robotHealth.GetCurrentHealth()) / robotHealth.GetMaxHealth();
 
             return _robotInformation.ResourcesForBuild
                 .Select(resource => new ResourceWrapper

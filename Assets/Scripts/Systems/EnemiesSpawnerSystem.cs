@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Zenject;
@@ -5,18 +6,42 @@ using Zenject;
 public class EnemiesSpawnerSystem : MonoBehaviour
 {
     [Inject] DiContainer _diContainer;
+    [SerializeField] private AllEnemies _allEnemies;
     [SerializeField] private EnemiesSpawnerInformation _enemiesSpawnerInfo;
     [SerializeField] private Transform _enemiesParent;
     private Vector3 _bottomLeft = new Vector3(-155, 11, -213);
     private Vector3 _bottomRight = new Vector3(380, 11, -213);
     private Vector3 _topRight = new Vector3(380, 11, 327);
     private Vector3 _topLeft = new Vector3(-155, 11, 327);
-
     private float _bottomLength, _rightLength, _topLength, _leftLength, _totalPerimeter;
+    private List<EnemiesForListData> _currentEnemiesData = new();
+    private int _enemyNumber;
+
+    public EnemyData[] GetAllCurrentEnemies()
+    {
+        var data = new EnemyData[_currentEnemiesData.Count];
+
+        for (int i = 0; i < _currentEnemiesData.Count; i++)
+        {
+            data[i] = new EnemyData
+            {
+                EnemyEnum = _currentEnemiesData[i].EnemyEnum,
+                PositionX = _currentEnemiesData[i].EnemyObject.transform.position.x,
+                PositionY = _currentEnemiesData[i].EnemyObject.transform.position.y,
+                PositionZ = _currentEnemiesData[i].EnemyObject.transform.position.z,
+                Rotation = _currentEnemiesData[i].EnemyObject.transform.eulerAngles.y,
+                EnemyLevel = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyLevel>().GetLevel(),
+                EnemyHealth = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyHealth>().GetCurrentHealth(),
+            };
+        }
+
+        return data;
+    }
 
     private void Awake()
     {
         CustomEvents.OnDayEnd += PrepareSpawn;
+        CustomEvents.OnEnemyDeath += RemoveEnemyFromList;
     }
 
     private void Start()
@@ -49,9 +74,35 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         for (int i = 0; i < rndCount; i++)
         {
             var rndEnemy = Random.Range(0, spawner.EnemiesSpawnerInfo.Length);
-            var enemy = _diContainer.InstantiatePrefab(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyPrefab, GetRandomPerimeterPosition() + GetRandomizePosition(), Quaternion.identity, null);
-            enemy.GetComponent<EnemyLevel>().SetLevel(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyLevel);
-            enemy.transform.SetParent(_enemiesParent);
+            var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyEnum), GetRandomPerimeterPosition() + GetRandomizePosition(), Quaternion.identity, null);
+            enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyLevel);
+            enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
+            enemyObject.GetComponent<EnemyHealth>().SetStartStats();
+            enemyObject.transform.SetParent(_enemiesParent);
+
+            AddEnemyToList((int)spawner.EnemiesSpawnerInfo[rndEnemy].EnemyEnum, _enemyNumber, enemyObject);
+
+            _enemyNumber++;
+        }
+    }
+
+    public void LoadEnemies(EnemyData[] enemyData, bool isStartMission)
+    {
+        if (isStartMission) return;
+
+        for (int i = 0; i < enemyData.Length; i++)
+        {
+            var position = new Vector3(enemyData[i].PositionX, enemyData[i].PositionY, enemyData[i].PositionZ);
+            var rotation = Quaternion.Euler(0f, enemyData[i].Rotation, 0f);
+            var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForNumber(enemyData[i].EnemyEnum), position, rotation, null);
+            enemyObject.GetComponent<EnemyLevel>().SetLevel(enemyData[i].EnemyLevel);
+            enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
+            enemyObject.GetComponent<EnemyHealth>().LoadStartStats(enemyData[i].EnemyHealth);
+            enemyObject.transform.SetParent(_enemiesParent);
+
+            AddEnemyToList(enemyData[i].EnemyEnum, _enemyNumber, enemyObject);
+
+            _enemyNumber++;
         }
     }
 
@@ -89,8 +140,35 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         }
     }
 
+    private void AddEnemyToList(int enemyEnum, int enemyNumber, GameObject prefab)
+    {
+        _currentEnemiesData.Add(new EnemiesForListData
+        {
+            EnemyObject = prefab,
+            EnemyNumber = enemyNumber,
+            EnemyEnum = enemyEnum,
+        });
+    }
+
+    private void RemoveEnemyFromList(int enemyNumber)
+    {
+        var enemyToRemove = _currentEnemiesData.Find(el => el.EnemyNumber == enemyNumber);
+
+        if (enemyToRemove != null) _currentEnemiesData.Remove(enemyToRemove);
+    }
+
     private void OnDestroy()
     {
         CustomEvents.OnDayEnd -= PrepareSpawn;
+        CustomEvents.OnEnemyDeath -= RemoveEnemyFromList;
     }
+}
+
+[System.Serializable]
+public class EnemiesForListData
+{
+    public int EnemyEnum;
+    public int EnemyNumber;
+    public GameObject EnemyObject;
+
 }

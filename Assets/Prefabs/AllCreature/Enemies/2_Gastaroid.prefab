@@ -1313,8 +1313,9 @@ GameObject:
   - component: {fileID: 5290578712437865080}
   - component: {fileID: 2951236172171021503}
   - component: {fileID: 8015310584272509124}
+  - component: {fileID: 2312310732162451868}
   m_Layer: 6
-  m_Name: Gastaroid
+  m_Name: 2_Gastaroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1550,6 +1551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 0
   CurrentHealth: 0
+  _healthSliderObject: {fileID: 0}
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 4
@@ -1633,6 +1635,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _centerPoint: {fileID: 5910478851267444251}
+--- !u!114 &2312310732162451868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444144861235826408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b955fdfe84640fd49ab584b839dca9be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyEnum: 0
+  _enemyNumber: 0
 --- !u!1 &1444145727361937564
 GameObject:
   m_ObjectHideFlags: 0

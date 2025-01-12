@@ -116,7 +116,7 @@ public class BuildingItem : MonoBehaviour
         {
             // Получаем здоровье здания
             var buildingHealth = _currentTileObject.BuildingHealth();
-            float healthPercentage = (float)(buildingHealth.MaxHealth - buildingHealth.CurrentHealth) / buildingHealth.MaxHealth;
+            float healthPercentage = (float)(buildingHealth.GetMaxHealth() - buildingHealth.GetCurrentHealth()) / buildingHealth.GetMaxHealth();
 
             // Пропорционально рассчитываем ресурсы для ремонта
             return building.ResourcesForBuild

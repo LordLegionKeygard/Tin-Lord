@@ -10,7 +10,7 @@ public class DayEventSystem : MonoBehaviour
     [SerializeField] private RectTransform _container;
     private float _fullDuration;
     private int _dayBeforeSpawnEvent = 3;
-    private float _offset = 10;
+    private readonly float _offset = 10;
     private int _eventNumber;
     private List<DayEventForListData> _currentEventsData = new();
 
@@ -143,13 +143,9 @@ public class DayEventSystem : MonoBehaviour
 
     private void RemoveEventFromList(int eventNumber)
     {
-        for (int i = 0; i < _currentEventsData.Count; i++)
-        {
-            if (eventNumber == _currentEventsData[i].EventNumber)
-            {
-                _currentEventsData.Remove(_currentEventsData[i]);
-            }
-        }
+        var eventToRemove = _currentEventsData.Find(el => el.EventNumber == eventNumber);
+
+        if (eventToRemove != null) _currentEventsData.Remove(eventToRemove);
     }
 
     private void OnDestroy()
