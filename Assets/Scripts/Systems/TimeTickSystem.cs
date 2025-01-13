@@ -17,14 +17,15 @@ public class TimeTickSystem : MonoBehaviour
     private int _currentDay = 0;
     public float GetTickSpeed() => _tickSpeed;
     public float GetEndTime() => _endTime;
-    public float GetCurrentTime() => _currentTime;
+    public int GetCurrentTick() => _currentTick;
     public int GetCurrentDay() => _currentDay;
 
-    public void LoadCurrentDay(int day, float time)
+    public void LoadTime(int day, int tick)
     {
         _currentDay = day;
-        _currentTime = time;
+        _currentTick = tick;
         UpdateDayText();
+        _timeView.UpdateTimeSlotsView(_currentTick);
     }
 
     private void Start()
@@ -49,6 +50,7 @@ public class TimeTickSystem : MonoBehaviour
                 _currentDay++;
                 _currentTick = 0;
                 UpdateDayText();
+                CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.SurviveDays, _currentDay);
                 CustomEvents.FireDayEnd(_currentDay);
             }
 

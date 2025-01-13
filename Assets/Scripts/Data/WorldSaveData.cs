@@ -14,7 +14,7 @@ public class WorldSaveData
 
     [Header("UpPanel")]
     public int Day;
-    public float Time;
+    public int Tick;
     public int Radiation;
     public int GameSpeed; //Pause = 0, Default = 1, Double = 2, Triple = 3,
 
@@ -39,6 +39,9 @@ public class WorldSaveData
     [Header("Robot")]
     public RobotsExperienceData[] RobotsExperienceData; //Tank = 0, Sniper = 1, Engineer = 2
     public RobotData RobotData;
+
+    [Header("Objectives")]
+    public int[] ObjectiveAmount;
 }
 
 

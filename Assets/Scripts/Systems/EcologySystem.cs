@@ -110,6 +110,7 @@ public class EcologySystem : MonoBehaviour
         UpdateGearRotation(previousTotalEcology, _totalEcology);  // Передаем старое и новое значение экологии
 
         _setupRenderSettings.UpdateRenderSettings(_totalEcology);
+        CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.RestoreEcology, _totalEcology);
     }
 
     private IEnumerator ChangeTextSmoothly(int oldValue, int newValue)

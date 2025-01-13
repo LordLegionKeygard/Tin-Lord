@@ -115,7 +115,7 @@ public class BuildingHealth : BaseHealth
 
     public override void Death()
     {
-        if(!_buildingTile.HaveTile()) return;
+        if (!_buildingTile.HaveTile()) return;
 
         if (_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base)
         {
@@ -124,6 +124,7 @@ public class BuildingHealth : BaseHealth
 
         base.Death();
         _tileObject.ToggleIsBuildingDestroyedNow(true);
+        CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.ConstructBuilding, -1);
         CustomEvents.FireBuildingDestroyed(_tileObject.GetId());
         _tileObject.ClearBuildingInfoAndProduction();
         StartCoroutine(FadeAndDestroy());

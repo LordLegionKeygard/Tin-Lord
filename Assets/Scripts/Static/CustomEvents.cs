@@ -146,8 +146,15 @@ public class CustomEvents
     }
 
     public static Action<int> OnEnemyDeath;
-    public static void FireEnemyDeath( int enemyNumber)
+    public static void FireEnemyDeath(int enemyNumber)
     {
         OnEnemyDeath?.Invoke(enemyNumber);
+    }
+
+    public static Action<ObjectiveEnum, int> OnObjectiveAmountChange;
+
+    public static void FireObjectiveAmountChange(ObjectiveEnum objectiveEnum, int value)
+    {
+        OnObjectiveAmountChange?.Invoke(objectiveEnum, value);
     }
 }

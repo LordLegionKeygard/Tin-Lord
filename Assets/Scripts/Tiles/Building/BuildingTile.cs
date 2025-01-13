@@ -66,7 +66,7 @@ public class BuildingTile : MonoBehaviour
       _buildingTileTransform = GetComponent<BuildingTileTransform>();
    }
 
-   public void BeginConstruction(Tile tile, int level)
+   public void BeginConstruction(Tile tile, int level, bool isLoad)
    {
       _currentBuildingTile = tile;
       _currentLevel = level;
@@ -76,7 +76,11 @@ public class BuildingTile : MonoBehaviour
 
       SpawnConstructionPrefab();
       StartCoroutine(RunConstructionCoroutine(
-           onComplete: () => InstantiateCompletedBuilding(),
+           onComplete: () =>
+           {
+              InstantiateCompletedBuilding();
+              if (!isLoad) CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.ConstructBuilding, 1);
+           },
            onFail: () => _isConstructionNow = false
        ));
    }
@@ -335,7 +339,7 @@ public class BuildingTile : MonoBehaviour
          }
          else
          {
-            BeginConstruction(_currentBuildingTile, _currentLevel);
+            BeginConstruction(_currentBuildingTile, _currentLevel, true);
             _buildingHealth.LoadBuildingHealth(CurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth, true);
          }
       }

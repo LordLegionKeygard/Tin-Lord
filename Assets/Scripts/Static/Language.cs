@@ -201,17 +201,17 @@ public class Language : MonoBehaviour
         _text[57, 0] = "Robots";
         _text[57, 1] = "Роботы";
 
-        _text[58, 0] = "";
-        _text[58, 1] = "";
+        _text[58, 0] = "Ecology restored: {0}/{1}";
+        _text[58, 1] = "Экология восстановлена: {0}/{1}";
 
-        _text[59, 0] = "";
-        _text[59, 1] = "";
+        _text[59, 0] = "Enemies killed: {0}/{1}";
+        _text[59, 1] = "Убито врагов: {0}/{1}";
 
-        _text[60, 0] = "";
-        _text[60, 1] = "";
+        _text[60, 0] = "Buildings constructed: {0}/{1}";
+        _text[60, 1] = "Построено зданий: {0}/{1}";
 
-        _text[61, 0] = "";
-        _text[61, 1] = "";
+        _text[61, 0] = "Days lived: {0}/{1}";
+        _text[61, 1] = "Прожито дней: {0}/{1}";
 
         _text[62, 0] = "";
         _text[62, 1] = "";

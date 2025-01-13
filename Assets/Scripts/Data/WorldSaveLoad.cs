@@ -37,6 +37,9 @@ public class WorldSaveLoad : MonoBehaviour
     [Header("LearnedBuildings")]
     [SerializeField] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
 
+    [Header("Objectives")]
+    [SerializeField] private ObjectivesPanel _objectivesPanel;
+
     private void Awake()
     {
         _worldSaveGame.WorldSaveLoad = this;
@@ -55,7 +58,7 @@ public class WorldSaveLoad : MonoBehaviour
 
         //UpPanel
         currentSaveData.Day = _timeTickSystem.GetCurrentDay();
-        currentSaveData.Time = _timeTickSystem.GetCurrentTime();
+        currentSaveData.Tick = _timeTickSystem.GetCurrentTick();
         currentSaveData.Radiation = _ecologySystem.GetRadiation();
         currentSaveData.GameSpeed = (int)GameSpeedEnum.Pause;
 
@@ -80,6 +83,9 @@ public class WorldSaveLoad : MonoBehaviour
         //Robot
         currentSaveData.RobotsExperienceData = RobotsDataWorld.Instance.GetAllRobotsExperience();
         currentSaveData.RobotData = _currentRobotSystem.GetRobotData();
+
+        //Objectives
+        currentSaveData.ObjectiveAmount = _objectivesPanel.GetAllObjectivesAmount();
     }
 
     public void LoadMissionData(ref WorldSaveData currentSaveData)
@@ -89,7 +95,7 @@ public class WorldSaveLoad : MonoBehaviour
         _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
 
         //UpPanel
-        _timeTickSystem.LoadCurrentDay(currentSaveData.Day, currentSaveData.Time);
+        _timeTickSystem.LoadTime(currentSaveData.Day, currentSaveData.Tick);
         _ecologySystem.LoadEcology(currentSaveData.Radiation);
         _gameSpeedSystem.ChangeGameSpeed(currentSaveData.GameSpeed);
 
@@ -112,11 +118,14 @@ public class WorldSaveLoad : MonoBehaviour
         _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId);
 
         //Robot
-        RobotsDataWorld.Instance.LoadRobotsExperience(currentSaveData.RobotsExperienceData,currentSaveData.IsStartMission);
+        RobotsDataWorld.Instance.LoadRobotsExperience(currentSaveData.RobotsExperienceData, currentSaveData.IsStartMission);
         _robotSpawnerSystem.LoadSpawnRobot(currentSaveData);
 
         //Buildings
         _learnedBuildingsDataWorld.LoadLearnedBuildings(_commandCenterSaveGame.CommandCenterSaveData.BuildingsLearned);
+
+        //Objectives
+        _objectivesPanel.LoadObjectiveItems(currentSaveData.ObjectiveAmount, currentSaveData.IsStartMission);
 
         CustomEvents.FireDataLoad();
     }

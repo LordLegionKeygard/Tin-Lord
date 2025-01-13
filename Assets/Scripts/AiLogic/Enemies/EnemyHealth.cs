@@ -86,6 +86,7 @@ public class EnemyHealth : BaseHealth
 
         CustomEvents.FireChangeExperience(_enemyLevel.GetExperience());
         CustomEvents.FireEnemyDeath(_enemyInfo.GetEnemyNumber());
+        CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.KillEnemies, 1);
 
         StartCoroutine(FadeAndDestroy());
     }
