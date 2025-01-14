@@ -6,6 +6,7 @@ public class PlayerResources : MonoBehaviour
 {
     [SerializeField] private PlayerResourcesWrapper[] _resourcesWrapper;
     public Resource GetResourceForNumber(int number) => _resourcesWrapper[number].Resource;
+    public float GetResourceNumberForEnum(ResourceEnum resourceEnum) => _resourcesWrapper[(int)resourceEnum].Amount;
     public int GetResourceNumberForResource(Resource resource)
     {
         for (int i = 0; i < _resourcesWrapper.Length; i++)

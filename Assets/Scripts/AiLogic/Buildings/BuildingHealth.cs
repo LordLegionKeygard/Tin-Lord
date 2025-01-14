@@ -119,7 +119,7 @@ public class BuildingHealth : BaseHealth
 
         if (_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base)
         {
-            CustomEvents.FireBaseDestroy();
+            CustomEvents.FireMissionEnd(MissionEndEnum.Defeat);
         }
 
         base.Death();

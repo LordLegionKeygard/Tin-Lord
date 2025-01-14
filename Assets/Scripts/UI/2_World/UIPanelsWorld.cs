@@ -5,8 +5,9 @@ public class UIPanelsWorld : MonoBehaviour
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TileDetector _tileDetector;
 
-    [Header("SelectTilePanels & Lines")]
-    [SerializeField] private GameObject[] _panels;
+    [Header("Panels")]
+    [SerializeField] private GameObject[] _selectTilePanels;
+    [SerializeField] private GameObject[] _mainPanels;
 
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
@@ -20,19 +21,19 @@ public class UIPanelsWorld : MonoBehaviour
         _robotPanel.PanelViewToggle(robotPanel);
     }
 
-    public bool ActiveInHierarchy(UIPanelsEnum panelEnum) => _panels[(int)panelEnum].activeInHierarchy;
+    public bool ActiveInHierarchy(UIPanelsEnum panelEnum) => _selectTilePanels[(int)panelEnum].activeInHierarchy;
 
     public void EscapeClick()
     {
-        if (_panels[0].activeInHierarchy)
+        if (_selectTilePanels[0].activeInHierarchy)
         {
-            _panels[0].SetActive(false);
+            _selectTilePanels[0].SetActive(false);
         }
-        else if (_panels[1].activeInHierarchy)
+        else if (_selectTilePanels[1].activeInHierarchy)
         {
             SetBuildTypesPanelAndLineVisibility(false);
         }
-        else if (_panels[11].activeInHierarchy)
+        else if (_selectTilePanels[11].activeInHierarchy)
         {
             _selectTilePanel.DestroyPanelToggleAndRefreshButtonColor(false);
         }
@@ -58,40 +59,48 @@ public class UIPanelsWorld : MonoBehaviour
 
     public void TogglePanel(UIPanelsEnum panelEnum, bool state)
     {
-        _panels[(int)panelEnum].SetActive(state);
+        _selectTilePanels[(int)panelEnum].SetActive(state);
     }
 
     public void SetRequiredResourcePanelVisibility(bool haveBuildingTile, Building building)
     {
         var state = haveBuildingTile && building.ResourcesForWork.Length != 0;
-        _panels[3].SetActive(state);
-        _panels[4].SetActive(state);
+        _selectTilePanels[3].SetActive(state);
+        _selectTilePanels[4].SetActive(state);
     }
 
     public void SetProductionResourcePanelVisibility(bool haveBuildingTile, Building building)
     {
         var state = haveBuildingTile && building.ResourcesProduction.Length != 0;
-        _panels[5].SetActive(state);
-        _panels[6].SetActive(state);
+        _selectTilePanels[5].SetActive(state);
+        _selectTilePanels[6].SetActive(state);
     }
 
     public void SetReceptPanelVisibility(bool haveBuildingTile, ResourceRecept[] resourceRecept)
     {
         var state = haveBuildingTile && resourceRecept != null && resourceRecept.Length != 0;
-        _panels[7].SetActive(state);
-        _panels[8].SetActive(state);
+        _selectTilePanels[7].SetActive(state);
+        _selectTilePanels[8].SetActive(state);
     }
 
     public void SetBuildTypesPanelAndLineVisibility(bool state)
     {
-        _panels[1].SetActive(state);
-        _panels[2].SetActive(state);
+        _selectTilePanels[1].SetActive(state);
+        _selectTilePanels[2].SetActive(state);
     }
 
     public void SetButtonsPanelVisibility(bool state)
     {
-        _panels[10].SetActive(state);
-        _panels[9].SetActive(state);
+        _selectTilePanels[10].SetActive(state);
+        _selectTilePanels[9].SetActive(state);
+    }
+
+    public void CloseAllPanels()
+    {
+        foreach (var item in _mainPanels)
+        {
+            item.SetActive(false);
+        }
     }
 
     public void CloseAllBuildsPanels()

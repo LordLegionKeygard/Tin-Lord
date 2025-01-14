@@ -22,17 +22,18 @@ public class TurretStop : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnBuildingDestroyed += CheckStopTurret;
+        CustomEvents.OnMissionEnd += StopTurretLogic;
     }
 
     private void CheckStopTurret(int id)
     {
         if (_buildingLevels.CurrentTileObject().GetId() == id)
         {
-            StopTurretLogic();
+            StopTurretLogic(MissionEndEnum.Nothing);
         }
     }
 
-    public void StopTurretLogic()
+    public void StopTurretLogic(MissionEndEnum _)
     {
         if (_animator != null) _animator.enabled = false;
         _aIPath.enabled = false;
@@ -44,5 +45,6 @@ public class TurretStop : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnBuildingDestroyed -= CheckStopTurret;
+        CustomEvents.OnMissionEnd -= StopTurretLogic;
     }
 }

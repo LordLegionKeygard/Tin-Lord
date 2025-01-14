@@ -27,7 +27,7 @@ public class BuildsPanel : MonoBehaviour
 
         for (int i = 0; i < length.Length; i++)
         {
-            if (!_learnedBuildingsDataWorld.IsBuildingLearned(tile.Buildings[i].Id)) return;
+            if (!_learnedBuildingsDataWorld.IsBuildingLearned(tile.Buildings[i].Id)) continue;
             Spawn(tileObject, selectTilePanel, i + 1, tile, BuildingState.FirstBuild);
         }
     }
@@ -61,7 +61,7 @@ public class BuildsPanel : MonoBehaviour
 
         for (int i = level; i < length.Length; i++)
         {
-            if (!_learnedBuildingsDataWorld.IsBuildingLearned(tile.Buildings[i].Id)) return;
+            if (!_learnedBuildingsDataWorld.IsBuildingLearned(tile.Buildings[i].Id)) continue;
             Spawn(tileObject, selectTilePanel, i + 1, tile, BuildingState.UpgradeBuilding);
         }
     }

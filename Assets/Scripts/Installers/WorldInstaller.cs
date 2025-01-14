@@ -10,6 +10,7 @@ public class WorldInstaller : MonoInstaller
     [SerializeField] private BulletsPool _bulletsPool;
     [SerializeField] private TakeDamageVFXPool _pool;
     [SerializeField] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
+    [SerializeField] private EndMissionSystem _endMissionSystem;
 
     public override void InstallBindings()
     {
@@ -20,5 +21,6 @@ public class WorldInstaller : MonoInstaller
         Container.Bind<BulletsPool>().FromInstance(_bulletsPool).AsSingle();
         Container.Bind<TakeDamageVFXPool>().FromInstance(_pool).AsSingle();
         Container.Bind<LearnedBuildingsDataWorld >().FromInstance(_learnedBuildingsDataWorld).AsSingle();
+        Container.Bind<EndMissionSystem>().FromInstance(_endMissionSystem).AsSingle();
     }
 }

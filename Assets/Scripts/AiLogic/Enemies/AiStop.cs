@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Pathfinding;
 using UnityEngine;
 
 public class AiStop : MonoBehaviour
@@ -20,10 +17,10 @@ public class AiStop : MonoBehaviour
     }
     private void Start()
     {
-        CustomEvents.OnBaseDestroy += DisableAllLogic;
+        CustomEvents.OnMissionEnd += DisableAllLogic;
     }
 
-    private void DisableAllLogic()
+    private void DisableAllLogic(MissionEndEnum _)
     {
         _aiDestinationSetter.enabled = false;
         _enemyStateChanger.enabled = false;
@@ -33,6 +30,6 @@ public class AiStop : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnBaseDestroy -= DisableAllLogic;
+        CustomEvents.OnMissionEnd -= DisableAllLogic;
     }
 }

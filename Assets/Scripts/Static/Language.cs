@@ -213,17 +213,17 @@ public class Language : MonoBehaviour
         _text[61, 0] = "Days lived: {0}/{1}";
         _text[61, 1] = "Прожито дней: {0}/{1}";
 
-        _text[62, 0] = "";
-        _text[62, 1] = "";
+        _text[62, 0] = "Memory fragments received:";
+        _text[62, 1] = "Получено фрагментов памяти:";
 
-        _text[63, 0] = "";
-        _text[63, 1] = "";
+        _text[63, 0] = "Victory";
+        _text[63, 1] = "Победа";
 
-        _text[64, 0] = "";
-        _text[64, 1] = "";
+        _text[64, 0] = "Defeat";
+        _text[64, 1] = "Поражение";
 
-        _text[65, 0] = "";
-        _text[65, 1] = "";
+        _text[65, 0] = "Escape";
+        _text[65, 1] = "Сбежал";
 
         _text[66, 0] = "";
         _text[66, 1] = "";

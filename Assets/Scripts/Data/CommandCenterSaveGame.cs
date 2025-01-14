@@ -40,14 +40,7 @@ public class CommandCenterSaveGame : MonoBehaviour
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 
         Invoke(nameof(LoadGameData), 2f);
-
-        // Debug.Log("SaveNewGame");
     }
-
-    // public void DeleteCommandCenterGameData() //не используется так как мы перезаписываем данные
-    // {
-    //     _commandCenterSaveGameDataWriter.DeleteSaveFile();
-    // }
 
     public void SaveGameData(bool loadMainMenu)
     {
@@ -62,5 +55,12 @@ public class CommandCenterSaveGame : MonoBehaviour
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveData = _commandCenterSaveGameDataWriter.LoadCommandCenterDataFromJson();
         CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true);
+    }
+
+    public void SaveFragmentsData(int amount)
+    {
+        _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
+        CommandCenterSaveData.MemoryFragments += amount;
+        _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
     }
 }

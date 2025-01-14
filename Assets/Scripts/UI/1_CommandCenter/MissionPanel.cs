@@ -134,6 +134,7 @@ public class MissionPanel : MonoBehaviour
         _loadMissionButton.SetActive(false);
         StartCoroutine(nameof(PrepareLoad));
         _areYouSurePanel.SetActive(false);
+        CustomEvents.FireCloseTooltips();
     }
 
     public void AreYouSureNo()
@@ -141,6 +142,7 @@ public class MissionPanel : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         _areYouSurePanel.SetActive(false);
         ButtonsToggle(true);
+        CustomEvents.FireCloseTooltips();
     }
 
     private void ButtonsToggle(bool state)

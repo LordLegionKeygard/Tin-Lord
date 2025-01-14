@@ -5,6 +5,7 @@ using Zenject;
 public class TimeTickSystem : MonoBehaviour
 {
     [Inject] private readonly TilesSystem _tilesSystem;
+    [Inject] private readonly EndMissionSystem _endMissionSystem;
     [SerializeField] private float _tickSpeed;
     [SerializeField] private int _currentTick;
     [SerializeField] private TimeView _timeView;
@@ -35,7 +36,7 @@ public class TimeTickSystem : MonoBehaviour
 
     private void Update()
     {
-        if (_gameSpeedSystem.IsPause() || !_tilesSystem.IsHaveBase()) return;
+        if (_gameSpeedSystem.IsPause() || !_tilesSystem.IsHaveBase() || _endMissionSystem.IsMissionEnd()) return;
 
         _currentTime += Time.deltaTime;
 

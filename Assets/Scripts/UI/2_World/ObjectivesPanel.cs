@@ -53,6 +53,19 @@ public class ObjectivesPanel : MonoBehaviour
             objective.Complete = objective.CurrentAmount >= objective.NeedAmount;
             objective.ObjectiveItem.UpdateText(objective.CurrentAmount, objective.Complete);
         }
+
+        CheckIsMissionVictory();
+    }
+
+    private void CheckIsMissionVictory()
+    {
+        if (_objectivesForList.Count == 0) return;
+
+        for (int i = 0; i < _objectivesForList.Count; i++)
+        {
+            if (!_objectivesForList[i].Complete) return;
+        }
+        CustomEvents.FireMissionEnd(MissionEndEnum.Victory);
     }
 
     private void OnDestroy()

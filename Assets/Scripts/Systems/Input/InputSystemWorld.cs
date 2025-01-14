@@ -72,6 +72,13 @@ public class InputSystemWorld : MonoBehaviour
         InputToggle(true);
         SetupInputActions();
         SetupDelegates();
+
+        CustomEvents.OnMissionEnd += MissionEndDisableInputs;
+    }
+
+    private void MissionEndDisableInputs(MissionEndEnum _)
+    {
+        InputToggle(false);
     }
 
     private void Update()
@@ -169,6 +176,8 @@ public class InputSystemWorld : MonoBehaviour
 
     private void OnDestroy()
     {
+        CustomEvents.OnMissionEnd -= MissionEndDisableInputs;
+
         InputToggle(false);
 
         _cameraZoom = delegate { };

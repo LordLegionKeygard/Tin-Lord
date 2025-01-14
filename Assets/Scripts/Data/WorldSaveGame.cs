@@ -3,7 +3,7 @@ using UnityEngine;
 public class WorldSaveGame : MonoBehaviour
 {
     public WorldSaveLoad WorldSaveLoad;
-    private string _selectedMissionId = "";
+    [SerializeField] private string _selectedMissionId = "";
 
     [Header("Save Data Writer")]
     private WorldSaveGameDataWriter _worldGameSaveDataWriter;
@@ -48,7 +48,7 @@ public class WorldSaveGame : MonoBehaviour
         // Debug.Log("SaveNewMission");
     }
 
-    public void DeleteMissionGameData() //будет использоваться в случае проигрыша на миссии
+    public void DeleteMissionGameData()
     {
         _worldGameSaveDataWriter.DeleteMissionSaveFile(_selectedMissionId);
     }
