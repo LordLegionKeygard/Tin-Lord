@@ -5,30 +5,30 @@ using UnityEngine;
 public class CardsLayout : MonoBehaviour
 {
     [Header("Layout Settings")]
-    [SerializeField] private float cardWidth = 120;
-    [SerializeField] private float spacing = 7;
-    [SerializeField] private int maxCards = 9;
-    [SerializeField] private float leftPadding = 84;
-    [SerializeField] private float bottomPadding = 92;
+    private float _cardWidth = 120;
+    private float _spacing = 7;
+    private int _maxCards = 9;
+    private float _leftPadding = 84;
+    private float _bottomPadding = 92;
     private float _duration = 0.5f;
 
     private Dictionary<RectTransform, float> targetPositions = new Dictionary<RectTransform, float>();
 
-    public int MaxCards() => maxCards;
+    public int MaxCards() => _maxCards;
 
     public void PositionNewCard(CardObject card, int index)
     {
         RectTransform cardRect = card.GetComponent<RectTransform>();
         if (cardRect == null) return;
 
-        float initialY = -bottomPadding;
-        float targetY = bottomPadding;
+        float initialY = -_bottomPadding;
+        float targetY = _bottomPadding;
 
         // Устанавливаем начальную позицию
         cardRect.anchoredPosition = new Vector2(GetCardPosition(index), initialY);
 
         // Запускаем анимацию поднятия
-        StartCoroutine(AnimateYPosition(cardRect, targetY));
+        if(gameObject.activeInHierarchy) StartCoroutine(AnimateYPosition(cardRect, targetY));
     }
 
     public void RearrangeCards(List<CardObject> cards)
@@ -49,7 +49,7 @@ public class CardsLayout : MonoBehaviour
             }
 
             targetPositions[cardRect] = targetX;
-            StartCoroutine(AnimateXPosition(cardRect, targetX));
+            if(gameObject.activeInHierarchy) StartCoroutine(AnimateXPosition(cardRect, targetX));
         }
     }
 
@@ -97,7 +97,7 @@ public class CardsLayout : MonoBehaviour
 
     private float GetCardPosition(int index)
     {
-        float startX = leftPadding;
-        return startX + index * (cardWidth + spacing);
+        float startX = _leftPadding;
+        return startX + index * (_cardWidth + _spacing);
     }
 }

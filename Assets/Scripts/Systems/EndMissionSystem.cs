@@ -37,21 +37,47 @@ public class EndMissionSystem : MonoBehaviour
         StopAllCoroutines();
         _uIPanelsWorld.CloseAllPanels();
         _panel.SetActive(true);
+
         var headerTextNumber = missionEndEnum is MissionEndEnum.Defeat ? 64 : missionEndEnum is MissionEndEnum.Escape ? 65 : 63;
         var headerTextColor = missionEndEnum is MissionEndEnum.Defeat ? Color.red : missionEndEnum is MissionEndEnum.Escape ? Colors.GreyEight : Colors.WarningYellow;
         var allFragmentsAmount = (int)_playerResources.GetResourceNumberForEnum(ResourceEnum.MemoryFragment);
-        var percent = (int)missionEndEnum / 100;
-        _receivedFragments = allFragmentsAmount * percent;
+        var percent = (int)missionEndEnum / 100f;
+        _receivedFragments = Mathf.RoundToInt(allFragmentsAmount * percent);
 
         _headerText.text = Language.TextStatic[headerTextNumber];
         _headerText.color = headerTextColor;
-        _receivedFragmentsText.text = $"{Language.TextStatic[62]} {_receivedFragments}";
+        _receivedFragmentsText.text = $"{Language.TextStatic[62]} 0";
         _maxFragmentsText.text = allFragmentsAmount.ToString();
-        _slider.value = percent;
+        _slider.value = 0;
 
+        StartCoroutine(UpdateFragmentsAndSlider(allFragmentsAmount, _receivedFragments, percent));
 
         _worldSaveGame.DeleteMissionGameData();
         _commandCenterSaveGame.SaveFragmentsData(_receivedFragments);
+    }
+
+    private IEnumerator UpdateFragmentsAndSlider(int allFragmentsAmount, int targetFragments, float targetPercent)
+    {
+        float duration = 2f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+            float progress = Mathf.Clamp01(elapsedTime / duration);
+
+            int currentFragments = Mathf.RoundToInt(Mathf.Lerp(0, targetFragments, progress));
+            float currentSliderValue = Mathf.Lerp(0, targetPercent, progress);
+
+            _receivedFragmentsText.text = $"{Language.TextStatic[62]} {currentFragments}";
+            _slider.value = currentSliderValue;
+
+            yield return null;
+        }
+
+        // Убедимся, что значения установлены окончательно после завершения анимации
+        _receivedFragmentsText.text = $"{Language.TextStatic[62]} {targetFragments}";
+        _slider.value = targetPercent;
     }
 
     public void CenterButton()
