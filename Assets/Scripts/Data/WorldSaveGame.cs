@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class WorldSaveGame : MonoBehaviour
@@ -13,7 +14,6 @@ public class WorldSaveGame : MonoBehaviour
     public WorldSaveData CurrentWorldSaveData;
 
     [Header("Other")]
-    [SerializeField] private ResourceSpritesInfo _resourceSpritesInfo;
     [SerializeField] private AllMissionsInfo _allMissionsInfo;
 
     private void Awake()
@@ -33,7 +33,7 @@ public class WorldSaveGame : MonoBehaviour
             IsStartMission = true,
             MissionId = mission.MissionId,
             GameSpeed = (int)GameSpeedEnum.Default,
-            ResourcesData = new float[_resourceSpritesInfo.Sprites.Length],
+            ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
         };
 
         for (int i = 0; i < mission.StartResources.Length; i++)
@@ -43,9 +43,7 @@ public class WorldSaveGame : MonoBehaviour
         }
 
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _selectedMissionId);
-        Invoke(nameof(LoadMissionGameData), 2f);
-
-        // Debug.Log("SaveNewMission");
+        LoadMissionGameData();
     }
 
     public void DeleteMissionGameData()
@@ -68,9 +66,11 @@ public class WorldSaveGame : MonoBehaviour
 
     public void ResetMissionGameData()
     {
+        DeleteMissionGameData();
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         WorldSaveLoad.ResetMissionData(ref CurrentWorldSaveData);
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _selectedMissionId);
+        CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true);
     }
 
     public void LoadMissionGameData()

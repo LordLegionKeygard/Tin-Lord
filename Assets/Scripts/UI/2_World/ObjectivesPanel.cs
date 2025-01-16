@@ -18,9 +18,22 @@ public class ObjectivesPanel : MonoBehaviour
         return _objectivesForList.Select(el => el.CurrentAmount).ToArray();
     }
 
+    public bool CanEscape()
+    {
+        for (int i = 0; i < _objectivesForList.Count; i++)
+        {
+            if(_objectivesForList[i].CurrentAmount * 2 < _objectivesForList[i].NeedAmount)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public void LoadObjectiveItems(int[] objectivesAmount, bool IsStartMission)
     {
-        var objectives = CurrentMissionInfo.Instance.CurrentMission().Objectives;
+        var objectives = CurrentMissionInfo.Instance.GetCurrentMission().Objectives;
 
         for (int i = 0; i < objectives.Length; i++)
         {

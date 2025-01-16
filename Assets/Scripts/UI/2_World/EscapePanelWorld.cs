@@ -1,14 +1,27 @@
 using System.Collections;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class EscapePanelWorld : MonoBehaviour
 {
     [Inject] private readonly WorldSaveGame _worldSaveGame;
-    [SerializeField] private RectTransform _objectTransform;
+    [SerializeField] private RectTransform _escapePanelTransform;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private GameObject _escapePanelBackgroundBlack;
+    [SerializeField] private Button _escapeButton;
+    [SerializeField] private Button _exitButton;
+    [SerializeField] private Button _restartButton;
+
+    [Header("ExtraQuitPanel")]
+    [SerializeField] private GameObject _extraQuitPanel;
+    [SerializeField] private TextMeshProUGUI _extraText;
+    [SerializeField] private ObjectivesPanel _objectivesPanel;
+    [SerializeField] private Button _yesButton;
+    [SerializeField] private Image _yesIcon;
+    [SerializeField] private RectTransform _extraPanelTransform;
     private bool _isOpen;
 
     public void PanelViewToggle()
@@ -23,29 +36,112 @@ public class EscapePanelWorld : MonoBehaviour
         if (_isOpen)
         {
             if (_gameSpeedSystem.CurrentGameSpeedEnum() != GameSpeedEnum.Pause) _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Pause);
-            _objectTransform.DOAnchorPosY(-185.5f, 0.8f).SetUpdate(true);
+            _escapePanelTransform.DOAnchorPosY(-185.5f, 0.8f).SetUpdate(true);
         }
         else
         {
             _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default);
-            _objectTransform.DOAnchorPosY(-55, 0.8f).SetUpdate(true);
+            _escapePanelTransform.DOAnchorPosY(-55, 0.8f).SetUpdate(true);
+            Reset();
         }
     }
 
-    public void ContinueButton()
+    private void Reset()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
-        PanelViewToggle();
+        _extraQuitPanel.SetActive(false);
+        ToggleButtons(true);
     }
 
-    public void CenterButton()
+    private void ToggleButtons(bool state)
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
-        CustomEvents.FireFade(FadeType.StartFade);
-        StartCoroutine(nameof(PrepareLoad));
+        _escapeButton.interactable = state;
+        _exitButton.interactable = state;
+        _restartButton.interactable = state;
     }
 
-    private IEnumerator PrepareLoad()
+    public void RestartButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        ToggleButtons(true);
+        _restartButton.interactable = false;
+        _extraQuitPanel.SetActive(true);
+        ChangePanelPosition(-71.6f);
+
+        _extraText.text = Language.TextStatic[68];
+        ToggleYesButton(true);
+    }
+
+    public void EscapeButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        ToggleButtons(true);
+        _escapeButton.interactable = false;
+        _extraQuitPanel.SetActive(true);
+        ChangePanelPosition(-138);
+
+        _extraText.text = $"{string.Format(Language.TextStatic[66], (int)MissionEndEnum.Escape)}";
+        ToggleYesButton(_objectivesPanel.CanEscape());
+    }
+
+    public void ExitButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        ToggleButtons(true);
+        _exitButton.interactable = false;
+        _extraQuitPanel.SetActive(true);
+        ChangePanelPosition(-71.6f);
+
+        _extraText.text = Language.TextStatic[67];
+        ToggleYesButton(true);
+    }
+
+    private void ChangePanelPosition(float newYPosition)
+    {
+        Vector3 position = _extraPanelTransform.anchoredPosition;
+        position.y = newYPosition;
+        _extraPanelTransform.anchoredPosition = position;
+    }
+
+    private void ToggleYesButton(bool state)
+    {
+        _yesButton.interactable = state;
+        _yesIcon.color = state ? Colors.GreySeven : Colors.AlphaGreyFive;
+    }
+
+    public void NoButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        Reset();
+        CustomEvents.FireCloseTooltips();
+    }
+
+    public void YesButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        if (_restartButton.interactable == false)
+        {
+            CustomEvents.FireFade(FadeType.StartFade);
+            StartCoroutine(nameof(PrepareRestartMission));
+        }
+        else if (_escapeButton.interactable == false)
+        {
+            CustomEvents.FireMissionEnd(MissionEndEnum.Escape);
+        }
+        else
+        {
+            CustomEvents.FireFade(FadeType.StartFade);
+            StartCoroutine(nameof(PrepareSaveMission));
+        }
+        CustomEvents.FireCloseTooltips();
+    }
+
+    private IEnumerator PrepareRestartMission()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        _worldSaveGame.ResetMissionGameData();
+    }
+
+    private IEnumerator PrepareSaveMission()
     {
         yield return new WaitForSecondsRealtime(1);
         _worldSaveGame.SaveMissionGameData(true);

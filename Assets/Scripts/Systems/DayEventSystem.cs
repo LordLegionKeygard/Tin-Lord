@@ -79,8 +79,10 @@ public class DayEventSystem : MonoBehaviour
         AddEventToList(info, prefab);
     }
 
-    public void LoadEvents(DayEventData[] dayEventsData)
+    public void LoadEvents(DayEventData[] dayEventsData, bool IsStartMission)
     {
+        if (IsStartMission) return;
+
         for (int i = 0; i < dayEventsData.Length; i++)
         {
             var info = _allGameEvents[dayEventsData[i].GameEventTypeNumber];

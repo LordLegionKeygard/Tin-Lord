@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -47,14 +48,27 @@ public class WorldSaveLoad : MonoBehaviour
 
     public void ResetMissionData(ref WorldSaveData currentSaveData)
     {
+        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
+        currentSaveData = new WorldSaveData
+        {
+            IsStartMission = true,
+            MissionId = mission.MissionId,
+            GameSpeed = (int)GameSpeedEnum.Default,
+            ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
+        };
 
+        for (int i = 0; i < mission.StartResources.Length; i++)
+        {
+            int resourceIndex = (int)mission.StartResources[i].ResourceEnum;
+            currentSaveData.ResourcesData[resourceIndex] = mission.StartResources[i].RecourceAmount;
+        }
     }
 
     public void SaveMissionData(ref WorldSaveData currentSaveData)
     {
         //Main
         currentSaveData.IsStartMission = false;
-        currentSaveData.MissionId = CurrentMissionInfo.Instance.CurrentMission().MissionId; // при завершении миссии нужно будет вручную поднимать лвл в скрипте чтобы тут было правильное значение
+        currentSaveData.MissionId = CurrentMissionInfo.Instance.GetCurrentMission().MissionId; // при завершении миссии нужно будет вручную поднимать лвл в скрипте чтобы тут было правильное значение
 
         //UpPanel
         currentSaveData.Day = _timeTickSystem.GetCurrentDay();
@@ -106,7 +120,7 @@ public class WorldSaveLoad : MonoBehaviour
         _cardHolderSystem.LoadCards(currentSaveData.IsStartMission, currentSaveData.Cards);
 
         //DayEvents
-        _dayEventSystem.LoadEvents(currentSaveData.DayEventsData);
+        _dayEventSystem.LoadEvents(currentSaveData.DayEventsData, currentSaveData.IsStartMission);
 
         //Enemies
         _enemiesSpawnerSystem.LoadEnemies(currentSaveData.EnemyData, currentSaveData.IsStartMission);
@@ -115,7 +129,7 @@ public class WorldSaveLoad : MonoBehaviour
         _tilesSystem.SetIsHaveBase(currentSaveData.IsHaveBase);
         _tilesSystem.SetIsHaveRiver(currentSaveData.IsHaveRiver);
         _allTileObjects.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
-        _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId);
+        _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId, currentSaveData.IsStartMission);
 
         //Robot
         RobotsDataWorld.Instance.LoadRobotsExperience(currentSaveData.RobotsExperienceData, currentSaveData.IsStartMission);

@@ -13,7 +13,7 @@ public class CurrentMissionInfo : MonoBehaviour
 
     public void LoadMission(int missionId) => _currentMissionId = missionId;
 
-    public Mission CurrentMission()
+    public Mission GetCurrentMission()
     {
         return _allMissionsInfo.AllMissions[_currentMissionId];
     }

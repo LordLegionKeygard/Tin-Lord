@@ -32,8 +32,10 @@ public class TileMapBuilder : MonoBehaviour
         return tilesId;
     }
 
-    public void LoadRoadTiles(int[] tilesId)
+    public void LoadRoadTiles(int[] tilesId, bool isStartMission)
     {
+        if(isStartMission) return;
+        
         for (int i = 0; i < tilesId.Length; i++)
         {
             _roadTiles.Add(_allTileObjects.TileObjects[tilesId[i]]);
@@ -42,7 +44,7 @@ public class TileMapBuilder : MonoBehaviour
 
     public void BuildMap(bool isStartMission)
     {
-        _terrains[(int)CurrentMissionInfo.Instance.CurrentMission().TerrainEnum].SetActive(true);
+        _terrains[(int)CurrentMissionInfo.Instance.GetCurrentMission().TerrainEnum].SetActive(true);
         SpawnTiles();
         _allTileObjects.SetNeighbours();
         //показать название уровня?

@@ -159,14 +159,14 @@ public class Language : MonoBehaviour
         _text[43, 0] = "Memory Fragments:";
         _text[43, 1] = "Фрагментов Памяти:";
 
-        _text[44, 0] = "Continue";
-        _text[44, 1] = "Продолжить";
+        _text[44, 0] = "Escape";
+        _text[44, 1] = "Сбежать";
 
         _text[45, 0] = "Restart";
         _text[45, 1] = "Перезапуск";
 
-        _text[46, 0] = "Center";
-        _text[46, 1] = "Центр";
+        _text[46, 0] = "Exit";
+        _text[46, 1] = "Выход";
 
         _text[47, 0] = "Main menu";
         _text[47, 1] = "Главное меню";
@@ -225,14 +225,14 @@ public class Language : MonoBehaviour
         _text[65, 0] = "Escape";
         _text[65, 1] = "Сбежал";
 
-        _text[66, 0] = "";
-        _text[66, 1] = "";
+        _text[66, 0] = "Escape the mission?\n\nYou will only receive {0}% of the memory fragments\n\nTo escape, you must complete at least half of the objectives";
+        _text[66, 1] = "Сбежать с миссии?\n\nВы получите только {0}% от фрагментов памяти\n\nДля побега необходимо выполнить хотя бы половину поставленных целей";
 
-        _text[67, 0] = "";
-        _text[67, 1] = "";
+        _text[67, 0] = "Save the mission and return to command center?";
+        _text[67, 1] = "Сохранить миссию и вернутся в командный центр?";
 
-        _text[68, 0] = "";
-        _text[68, 1] = "";
+        _text[68, 0] = "Restart the mission? You'll lose your current progress";
+        _text[68, 1] = "Перезапустить миссию?\nВы потеряете текущий прогресс";
 
         _text[69, 0] = "";
         _text[69, 1] = "";

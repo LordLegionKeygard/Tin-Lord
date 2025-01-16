@@ -44,7 +44,7 @@ public class EcologySystem : MonoBehaviour
 
     public void LoadEcology(int radiation)
     {
-        _missionEcology = CurrentMissionInfo.Instance.CurrentMission().StartEcology;
+        _missionEcology = CurrentMissionInfo.Instance.GetCurrentMission().StartEcology;
         _radiation = radiation;
         UpdateRadiationView();
         UpdateTotalEcology();

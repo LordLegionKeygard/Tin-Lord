@@ -39,7 +39,7 @@ public class CommandCenterSaveGame : MonoBehaviour
 
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 
-        Invoke(nameof(LoadGameData), 2f);
+        LoadGameData();
     }
 
     public void SaveGameData(bool loadMainMenu)

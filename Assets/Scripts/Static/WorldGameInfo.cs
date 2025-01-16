@@ -45,5 +45,5 @@ public class WorldGameInfo
     public const int MapLength = 20;
 
     //Load
-    public const int LoadSceneTime = 3;
+    public const int LoadSceneTime = 2;
 }
