@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Mission : ScriptableObject
 {
+    public BiomeEnum Biome;
     public string[] Name; //0 eng, 1 rus
     public Sprite MissionSprite;
     public int MissionId;

@@ -11,6 +11,7 @@ public class FMODEvents : MonoBehaviour
 
 
     [Header("Environment")]
+    public EventReference[] GroundTiles;
     public EventReference LaserDestruction;
 
 

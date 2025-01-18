@@ -8,6 +8,18 @@ public class CustomEvents
         OnSpawnRoadComplete?.Invoke();
     }
 
+    public static Action OnPlayRandomLevelMusic;
+    public static void FirePlayRandomLevelMusic()
+    {
+        OnPlayRandomLevelMusic?.Invoke();
+    }
+
+    public static Action OnTurnOffLevelMusic;
+    public static void FireTurnOffLevelMusic()
+    {
+        OnTurnOffLevelMusic?.Invoke();
+    }
+
     public static event Action<GameEventType, int> OnGameEventStart;
     public static void FireGameEventStart(GameEventType gameEventType, int eventNumber)
     {

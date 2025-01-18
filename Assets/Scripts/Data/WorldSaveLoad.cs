@@ -141,6 +141,7 @@ public class WorldSaveLoad : MonoBehaviour
         //Objectives
         _objectivesPanel.LoadObjectiveItems(currentSaveData.ObjectiveAmount, currentSaveData.IsStartMission);
 
+        CustomEvents.FirePlayRandomLevelMusic();
         CustomEvents.FireDataLoad();
     }
 }
