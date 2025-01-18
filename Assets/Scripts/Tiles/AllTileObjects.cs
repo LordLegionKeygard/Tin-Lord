@@ -7,22 +7,29 @@ public class AllTileObjects : MonoBehaviour
     [Inject] readonly PlayerResources _playerResources;
     public List<TileObject> TileObjects;
 
-    public void SetNeighbours()
+    public void SetNeighbours(int mapLength)
     {
+        float rightEdge = (mapLength - 1) * 10f;
+        float leftEdge = 0f;
+
         for (int i = 0; i < TileObjects.Count; i++)
         {
-            TileObjects[i].SetNeighbourTiles(new TileObject[] {(i + 20 > TileObjects.Count - 1) ? null : TileObjects[i + 20],
-                                                            (i + 21 > TileObjects.Count - 1) ? null : TileObjects[i].transform.position.x == 190 ? null : TileObjects[i + 21],
-                                                            (i + 1 > TileObjects.Count - 1) ? null : TileObjects[i].transform.position.x == 190 ? null : TileObjects[i + 1],
-                                                            (i - 19 < 0) ? null : TileObjects[i].transform.position.x == 190 ? null : TileObjects[i - 19],
-                                                            (i - 20 < 0) ? null : TileObjects[i - 20],
-                                                            (i - 21 < 0) ? null : TileObjects[i].transform.position.x == 0 ? null : TileObjects[i - 21],
-                                                            (i - 1 < 0) ? null : TileObjects[i].transform.position.x == 0 ? null : TileObjects[i - 1],
-                                                            (i + 19 > TileObjects.Count - 1) ? null : TileObjects[i].transform.position.x == 0 ? null : TileObjects[i + 19],  });
+            TileObjects[i].SetNeighbourTiles(new TileObject[]
+            {
+            (i + mapLength > TileObjects.Count - 1) ? null: TileObjects[i + mapLength],
+            (i + mapLength + 1 > TileObjects.Count - 1)? null: (TileObjects[i].transform.position.x == rightEdge ? null: TileObjects[i + mapLength + 1]),
+            (i + 1 > TileObjects.Count - 1) ? null: (TileObjects[i].transform.position.x == rightEdge ? null: TileObjects[i + 1]),
+            (i - (mapLength - 1) < 0) ? null: (TileObjects[i].transform.position.x == rightEdge ? null: TileObjects[i - (mapLength - 1)]),
+            (i - mapLength < 0)? null: TileObjects[i - mapLength],
+            (i - (mapLength + 1) < 0) ? null: (TileObjects[i].transform.position.x == leftEdge ? null: TileObjects[i - (mapLength + 1)]),
+            (i - 1 < 0)? null: (TileObjects[i].transform.position.x == leftEdge ? null: TileObjects[i - 1]),
+            (i + (mapLength - 1) > TileObjects.Count - 1)? null: (TileObjects[i].transform.position.x == leftEdge ? null: TileObjects[i + (mapLength - 1)])
+            });
         }
 
         SetId();
     }
+
 
     private void SetId()
     {

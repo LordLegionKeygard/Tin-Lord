@@ -11,6 +11,8 @@ public class Mission : ScriptableObject
     public int StartEcology;
     public TerrainEnum TerrainEnum;
     public Vector2 PlanetTarget;
+    public int MapWidth;
+    public int MapLength;
     public ResourceWrapper[] StartResources;
     public ObjectiveWrapper[] Objectives;
     [TextArea(1, 8)] public string[] Description;

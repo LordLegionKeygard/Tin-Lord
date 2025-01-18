@@ -41,8 +41,8 @@ public class WorldGameInfo
     public const float ConstructionSpeed = 20;
     
     //Map
-    public const int MapWidth = 16;
-    public const int MapLength = 20;
+    // public const int MapWidth = 16;
+    // public const int MapLength = 20;
 
     //Load
     public const int LoadSceneTime = 2;
