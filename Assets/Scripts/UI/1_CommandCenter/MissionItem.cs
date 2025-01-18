@@ -8,22 +8,28 @@ public class MissionItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _missionNameText;
     [SerializeField] private Image _missionIcon;
     [SerializeField] private Image _backImage;
+    [SerializeField] private Button _button;
 
     [Header("Other")]
     [SerializeField] private Mission _mission;
     [SerializeField] private MissionPanel _missionPanel;
     private bool _isSelect;
+    private bool _missionOpened;
     public bool IsSelect() => _isSelect;
 
-    private void Start()
+
+    public void SetMissionOpened(int lastOpenedMissionId)
     {
-        SetMissionInfo();
+        _missionOpened = _mission.MissionId <= lastOpenedMissionId;
+        SetMissionView();
     }
 
-    private void SetMissionInfo()
+    private void SetMissionView()
     {
+        _button.interactable = _missionOpened;
+        _missionIcon.enabled = _missionOpened;
         _missionIcon.sprite = _mission.MissionSprite;
-        _missionNameText.text = _mission.Name[Language.LanguageNumber];
+        _missionNameText.text = _missionOpened ? _mission.Name[Language.LanguageNumber] : "?";
     }
 
     public void SelectMissionItem()

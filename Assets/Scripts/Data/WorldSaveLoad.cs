@@ -105,7 +105,7 @@ public class WorldSaveLoad : MonoBehaviour
     public void LoadMissionData(ref WorldSaveData currentSaveData)
     {
         //Main
-        CurrentMissionInfo.Instance.LoadMission(currentSaveData.MissionId);
+        CurrentMissionInfo.Instance.LoadMission(currentSaveData.MissionId, _commandCenterSaveGame.CommandCenterSaveData.LastOpenedMissionId);
         _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
 
         //UpPanel

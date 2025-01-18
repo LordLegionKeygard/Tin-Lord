@@ -7,9 +7,7 @@ using Zenject;
 public class MissionPanel : MonoBehaviour
 {
     [Inject] private readonly WorldSaveGame _worldSaveGame;
-    public int LastOpenedMissionId;
     [SerializeField] private MissionItem[] _missionItems;
-    [SerializeField] private TextMeshProUGUI _durationText;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
     [SerializeField] private TextMeshProUGUI _startResourcesText;
     [SerializeField] private TextMeshProUGUI _objectiveText;
@@ -26,6 +24,13 @@ public class MissionPanel : MonoBehaviour
     [SerializeField] private RectTransform _planetTargetTransform;
     private bool HaveSaveData() => _worldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists(_currentMission.MissionId.ToString());
 
+    public void LoadLastOpenedMissionId(int lastOpenedMissionId)
+    {
+        foreach (var item in _missionItems)
+        {
+            item.SetMissionOpened(lastOpenedMissionId);
+        }
+    }
 
     public void RefreshInfo(Mission mission)
     {
@@ -37,7 +42,6 @@ public class MissionPanel : MonoBehaviour
         UnactiveAll();
         UpdatePlanetTargetTransform();
 
-        _durationText.text = _currentMission.Duration == 0 ? $"{Language.TextStatic[33]} {Language.TextStatic[38]}" : $"{Language.TextStatic[33]} {_currentMission.Duration} {Language.TextStatic[37]}";
         _ecologyLevelText.text = $"{Language.TextStatic[34]} {_currentMission.StartEcology}";
         _startResourcesText.text = Language.TextStatic[35];
         _objectiveText.text = Language.TextStatic[36];

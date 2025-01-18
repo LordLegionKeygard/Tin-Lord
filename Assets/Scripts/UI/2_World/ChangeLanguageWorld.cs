@@ -7,6 +7,7 @@ public class ChangeLanguageWorld : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] _resourceTypesPanel;
     [SerializeField] private TextMeshProUGUI _receptText;
     [SerializeField] private TextMeshProUGUI _robotPanelText;
+    [SerializeField] private TextMeshProUGUI _continueButtonText;
     [SerializeField] private TextMeshProUGUI[] _escapeTexts;
 
     private void Start()
@@ -20,6 +21,7 @@ public class ChangeLanguageWorld : MonoBehaviour
 
         _receptText.text = Language.TextStatic[1];
         _robotPanelText.text = Language.TextStatic[21];
+        _continueButtonText.text = Language.TextStatic[33];
 
         _escapeTexts[0].text = Language.TextStatic[45];
         _escapeTexts[1].text = Language.TextStatic[44];

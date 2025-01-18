@@ -126,8 +126,8 @@ public class Language : MonoBehaviour
         _text[32, 0] = "Command Center";
         _text[32, 1] = "Командный Центр";
 
-        _text[33, 0] = "Duration:";
-        _text[33, 1] = "Длительность:";
+        _text[33, 0] = "Continue";
+        _text[33, 1] = "Продолжить";
 
         _text[34, 0] = "Ecology level:";
         _text[34, 1] = "Уровень экологии:";
@@ -141,8 +141,8 @@ public class Language : MonoBehaviour
         _text[37, 0] = "days";
         _text[37, 1] = "дней";
 
-        _text[38, 0] = "unlimited";
-        _text[38, 1] = "неограниченно";
+        _text[38, 0] = "";
+        _text[38, 1] = "";
 
         _text[39, 0] = "Restore the ecology to";
         _text[39, 1] = "Восстановить экологию до";

@@ -19,10 +19,11 @@ MonoBehaviour:
   MissionId: 0
   Duration: 0
   StartEcology: 0
-  TerrainEnum: 0
   PlanetTarget: {x: -157, y: -131}
-  MapWidth: 14
-  MapLength: 14
+  MapWidth: 16
+  MapLength: 20
+  MapEdge: 4
+  StartPosEdge: 4
   StartResources:
   - ResourceEnum: 0
     RecourceAmount: 200
@@ -34,7 +35,7 @@ MonoBehaviour:
     RecourceAmount: 25
   Objectives:
   - ObjectiveEnum: 0
-    ObjectiveAmount: 5
+    ObjectiveAmount: 1
   Description:
   - Huge spaces scorched by catastrophe, where life once boiled. It's a world of
     dead earth, littered with the wreckage of old civilizations. There is no water,

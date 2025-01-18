@@ -317,7 +317,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -331,7 +331,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1438069957049362973}
   m_OnClick:
     m_PersistentCalls:
@@ -363,6 +363,6 @@ MonoBehaviour:
   _missionNameText: {fileID: 7411712655784129845}
   _missionIcon: {fileID: 5940087733216227552}
   _backImage: {fileID: 1438069957049362973}
-  _targetTransform: {fileID: 0}
+  _button: {fileID: 9030018565306176639}
   _mission: {fileID: 11400000, guid: 33063797d5fd5a143b021e4a8f617133, type: 2}
   _missionPanel: {fileID: 0}

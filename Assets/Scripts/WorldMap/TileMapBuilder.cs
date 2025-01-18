@@ -12,20 +12,25 @@ public class TileMapBuilder : MonoBehaviour
     [SerializeField] private Transform _parentTransform;
     [SerializeField] private AllTileObjects _allTileObjects;
     [SerializeField] private GameObject[,] _tileObjects;
+
+    [Header("Terrain")]
     [SerializeField] private GameObject[] _terrains;
+    [SerializeField] private Transform _environmentParentTransform;
+    [SerializeField] private GameObject _constructionZone;
 
     [Header("Road")]
+    [SerializeField] private List<TileObject> _roadTiles = new();
     private int _iterations = 0;
     private int _startX;
     private int _startY;
-    [SerializeField] private List<TileObject> _roadTiles = new();
     public List<TileObject> GetRoadTiles() => _roadTiles;
 
     [Header("Map")]
     private int _mapWidth;
     private int _mapLength;
-    private int _mapEdge = 2;
-    private int _startPosEdge = 2;
+    private int _mapEdge;
+    private int _startPosEdge;
+
 
     public int[] GetRoadTilesId()
     {
@@ -49,18 +54,35 @@ public class TileMapBuilder : MonoBehaviour
 
     public void BuildMap(bool isStartMission)
     {
-        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
-        _mapWidth = mission.MapWidth;
-        _mapLength = mission.MapLength;
+        SetMapSize();
+        SetTerrain();
         SetStartCoordinates();
-
-        _tileObjects = new GameObject[_mapWidth, _mapLength];
-        _terrains[(int)mission.TerrainEnum].SetActive(true);
         SpawnTiles();
-
         _allTileObjects.SetNeighbours(_mapLength);
 
         if (isStartMission) SpawnRoad();
+    }
+
+    private void SetMapSize()
+    {
+        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
+        _mapWidth = mission.MapWidth;
+        _mapLength = mission.MapLength;
+        _mapEdge = mission.MapEdge;
+        _startPosEdge = mission.StartPosEdge;
+        _tileObjects = new GameObject[_mapWidth, _mapLength];
+    }
+
+    private void SetTerrain()
+    {
+        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
+        _terrains[mission.MissionId].SetActive(true);
+
+        var zone = Instantiate(_constructionZone, new Vector3(0, 0, 0), Quaternion.identity);
+        zone.transform.SetParent(_environmentParentTransform);
+
+        zone.transform.localScale = new Vector3(_mapLength - 0.03f, 1, _mapWidth - 0.03f);
+        zone.transform.localPosition = new Vector3((_mapLength * 10 - 10) / 2 + 1.2f, -1.64f, (_mapWidth * 10 - 10) / 2 + 1.2f);
     }
 
     private void SetStartCoordinates()
@@ -135,7 +157,7 @@ public class TileMapBuilder : MonoBehaviour
         else if (IsTopRight(nextX, nextY))
         {
             //                если достигли верхнего края                                (основа)налево          (доп)вверх
-            return ((rnd == 0 || nextX >= (_mapWidth - _mapEdge)) && nextX != _mapLength / 2) ? (nextX, nextY - 1) : (nextX + 1, nextY);
+            return ((rnd == 0 || nextX >= (_mapWidth - _mapEdge)) && nextX != _mapLength / 2 + 1) ? (nextX, nextY - 1) : (nextX + 1, nextY);
         }
         else if (IsTopLeft(nextX, nextY))
         {

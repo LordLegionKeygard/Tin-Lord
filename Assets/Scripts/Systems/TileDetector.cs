@@ -11,6 +11,7 @@ public class TileDetector : MonoBehaviour
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private UIPanelsWorld _uiPanels;
     [SerializeField] private BuildsPanel _buildsPanel;
+    [SerializeField] private ScrollViewInteraction _scrollViewInteraction;
     private Transform _lastRayCastTransform;
     private bool _canSetTile = false;
 
@@ -67,6 +68,8 @@ public class TileDetector : MonoBehaviour
 
     public void InputOnTile()
     {
+        if(_scrollViewInteraction.IsScrolling()) return;
+
         if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() && _currentTileObject != null)
         {
             if (_canSetTile && !IsPointerOverUISystem.IsPointerOverUI)
@@ -168,14 +171,15 @@ public class TileDetector : MonoBehaviour
             _currentTileObject = newTileObject;
 
             var groundTile = _currentTileObject.GroundTileObject();
-
-            groundTile.SelectTile(true, _currentTileObject.GroundTileObject().HaveTile() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(true, groundTile.NeighbourHaveGroundTile(0) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(true, groundTile.NeighbourHaveGroundTile(1) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(true, groundTile.NeighbourHaveGroundTile(2) ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-
             var haveNeighbours = groundTile.HaveNeighbour(0) && groundTile.HaveNeighbour(1) && groundTile.HaveNeighbour(2);
             var neighboursHaveGroundTile = groundTile.NeighbourHaveGroundTile(0) || groundTile.NeighbourHaveGroundTile(1) || groundTile.NeighbourHaveGroundTile(2);
+
+
+            groundTile.SelectTile(true, _currentTileObject.GroundTileObject().HaveTile() || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(true, groundTile.NeighbourHaveGroundTile(0) || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(true, groundTile.NeighbourHaveGroundTile(1) || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(true, groundTile.NeighbourHaveGroundTile(2) || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+
 
             _canSetTile = !groundTile.HaveTile() && !neighboursHaveGroundTile && haveNeighbours;
         }

@@ -53,7 +53,7 @@ public class EndMissionSystem : MonoBehaviour
         StartCoroutine(UpdateFragmentsAndSlider(allFragmentsAmount, _receivedFragments, percent));
 
         _worldSaveGame.DeleteMissionGameData();
-        _commandCenterSaveGame.SaveFragmentsData(_receivedFragments);
+        _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments, CurrentMissionInfo.Instance.GetLastOpenedMissionId(missionEndEnum));
     }
 
     private IEnumerator UpdateFragmentsAndSlider(int allFragmentsAmount, int targetFragments, float targetPercent)
@@ -80,7 +80,7 @@ public class EndMissionSystem : MonoBehaviour
         _slider.value = targetPercent;
     }
 
-    public void CenterButton()
+    public void ContinueButton()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
         CustomEvents.FireFade(FadeType.StartFade);

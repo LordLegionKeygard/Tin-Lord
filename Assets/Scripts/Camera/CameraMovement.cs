@@ -31,11 +31,15 @@ public class CameraMovement : MonoBehaviour
     private float _zoomHeight;
     private Vector3 _horizontalVelocity;
     private Vector3 _lastPosition;
-    private readonly int _xMin = -50;
-    private readonly int _xMax = 150;
-    private readonly int _yMin = -50;
-    private readonly int _yMax = 110;
+    [SerializeField] private int _xMin = -50;
+    [SerializeField] private int _xMax = 150; //20
+    [SerializeField] private int _yMin = -50;
+    [SerializeField] private int _yMax = 110; //16
 
+    private void Start()
+    {
+        CustomEvents.OnDataLoad += SetCameraEdges;
+    }
 
     private void OnEnable()
     {
@@ -43,6 +47,14 @@ public class CameraMovement : MonoBehaviour
         cameraTransform.LookAt(transform);
 
         _lastPosition = transform.position;
+    }
+
+    private void SetCameraEdges()
+    {
+        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
+
+        _xMax = 50 + (mission.MapLength - 10) * 10;
+        _yMax = 50 + (mission.MapWidth - 10) * 10;
     }
 
     private void ChangeMaxSpeed()
@@ -199,6 +211,11 @@ public class CameraMovement : MonoBehaviour
         else if (vector.z > _yMax) vector.z = _yMax;
 
         transform.position = vector;
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnDataLoad -= SetCameraEdges;
     }
 }
 

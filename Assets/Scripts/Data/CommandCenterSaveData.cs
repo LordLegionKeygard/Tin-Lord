@@ -5,8 +5,8 @@
 public class CommandCenterSaveData
 {
     public float MemoryFragments;
-    public bool[] BuildingsLearned;
     public int LastOpenedMissionId;
+    public bool[] BuildingsLearned;
 }
 
 

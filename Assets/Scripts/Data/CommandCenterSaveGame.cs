@@ -57,10 +57,11 @@ public class CommandCenterSaveGame : MonoBehaviour
         CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true);
     }
 
-    public void SaveFragmentsData(int amount)
+    public void SaveCommandCenterWorldData(int memoryFragments, int lastOpenedMissionId)
     {
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        CommandCenterSaveData.MemoryFragments += amount;
+        CommandCenterSaveData.MemoryFragments += memoryFragments;
+        CommandCenterSaveData.LastOpenedMissionId = lastOpenedMissionId;
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
     }
 }
