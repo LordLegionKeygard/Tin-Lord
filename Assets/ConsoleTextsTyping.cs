@@ -4,59 +4,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ProloguePanel : MonoBehaviour
+public class ConsoleTextsTyping : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _storyText;
     [SerializeField] private TextMeshProUGUI _consoleText;
-
-    private float _typingSpeed = 0.04f;            // Скорость печати "истории"
     private float _consoleTypingSpeed = 0.02f;     // Скорость печати в "консоли"
-    private float _storyDelayBetweenTexts = 3f;    // Пауза между блоками истории
     private float _consoleDelayBetweenTexts = 2f;  // Время мигания курсора перед печатью сообщения
 
-    // Индексы строк для истории
-    private int[] _storyTextIndices = new int[7] { 69, 70, 71, 89, 72, 73, 74 };
     // Индексы строк для консоли
-    private int[] _consoleTextIndices = new int[14] { 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88 };
+    private int[] _consoleTextIndices = new int[14] { 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89};
 
     // Хранит несколько последних строк консоли
     private List<string> _consoleMessages = new();
 
     private void Start()
     {
-        StartCoroutine(ShowStory());
         StartCoroutine(UpdateConsoleMessages());
-    }
-
-    // ------------------------- 1) "История" -------------------------
-    private IEnumerator ShowStory()
-    {
-        // Небольшая задержка перед историей (примерно 3 секунды)
-        yield return new WaitForSeconds(3f);
-
-        foreach (int textIndex in _storyTextIndices)
-        {
-            string fullText = Language.TextStatic[textIndex];
-
-            // Если уже что-то было, добавляем несколько переводов строки
-            if (!string.IsNullOrEmpty(_storyText.text))
-            {
-                _storyText.text += "\n\n\n";
-            }
-
-            string displayedText = _storyText.text;
-
-            // Посимвольно печатаем фрагмент
-            foreach (char letter in fullText)
-            {
-                displayedText += letter;
-                _storyText.text = displayedText;
-                yield return new WaitForSeconds(_typingSpeed);
-            }
-
-            // Задержка перед следующим блоком
-            yield return new WaitForSeconds(_storyDelayBetweenTexts);
-        }
     }
 
     // ------------------------- 2) "Консоль" -------------------------
