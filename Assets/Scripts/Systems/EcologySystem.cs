@@ -24,17 +24,13 @@ public class EcologySystem : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
+    [SerializeField] private SetupRenderSettings _setupRenderSettings;
     private readonly float _changeTextDuration = 1;
-    private SetupRenderSettings _setupRenderSettings;
     private Coroutine _changeTextCoroutine;
     private float _currentRotationAngle = 0f;
 
     public int GetRadiation() => _radiation;
 
-    private void Awake()
-    {
-        _setupRenderSettings = GetComponent<SetupRenderSettings>();
-    }
 
     private void Start()
     {
@@ -109,7 +105,7 @@ public class EcologySystem : MonoBehaviour
         _changeTextCoroutine = StartCoroutine(ChangeTextSmoothly(previousTotalEcology, _totalEcology));
         UpdateGearRotation(previousTotalEcology, _totalEcology);  // Передаем старое и новое значение экологии
 
-        _setupRenderSettings.UpdateRenderSettings(_totalEcology);
+        _setupRenderSettings.UpdateEcologyRender(_totalEcology);
         CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.RestoreEcology, _totalEcology);
     }
 

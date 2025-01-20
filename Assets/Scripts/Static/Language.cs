@@ -7,8 +7,8 @@ using UnityEngine;
 public class Language : MonoBehaviour
 {
     public static int LanguageNumber = 1;
-    private string[,] _text = new string[100, 2];
-    public static string[] TextStatic = new string[100];
+    private string[,] _text = new string[200, 2];
+    public static string[] TextStatic = new string[200];
 
     private void Awake()
     {
@@ -141,8 +141,8 @@ public class Language : MonoBehaviour
         _text[37, 0] = "days";
         _text[37, 1] = "дней";
 
-        _text[38, 0] = "";
-        _text[38, 1] = "";
+        _text[38, 0] = "TERMINAL #042";
+        _text[38, 1] = "ТЕРМИНАЛ #042";
 
         _text[39, 0] = "Restore the ecology to";
         _text[39, 1] = "Восстановить экологию до";
@@ -234,71 +234,100 @@ public class Language : MonoBehaviour
         _text[68, 0] = "Restart the mission? You'll lose your current progress";
         _text[68, 1] = "Перезапустить миссию?\nВы потеряете текущий прогресс";
 
-        _text[69, 0] = "";
-        _text[69, 1] = "2100 год -  были созданы первые роботы для помощи людям";
+        _text[69, 0] = "2100 - The first robots were created to help humans";
+        _text[69, 1] = "2100 - Были созданы первые роботы для помощи людям";
 
-        _text[70, 0] = "";
-        _text[70, 1] = "2150 год - был разработан искусственный интеллект, предназначенный для восстановления экологии планеты, истощенной многолетним разрушением природы";
+        _text[70, 0] = "2150 - An artificial intelligence is developed to restore the ecology of the planet, depleted by years of destruction of nature";
+        _text[70, 1] = "2150 - Разработан искусственный интеллект, предназначенный для восстановления экологии планеты, истощенной многолетним разрушением природы";
 
-        _text[71, 0] = "";
+        _text[71, 0] = "However, the AI ​​did not have time to complete its training...";
         _text[71, 1] = "Однако ИИ не успел завершить обучение...";
 
-        _text[72, 0] = "";
+        _text[72, 0] = "A catastrophe occurred that turned the planet into ruins";
         _text[72, 1] = "Произошла катастрофа, превратившая планету в руины";
 
-        _text[73, 0] = "";
-        _text[73, 1] = "Люди не смогли пережить катастрофу, а роботы стали бесцельно скитаться по пустоши до тех пор, пока это не приводило к поломке";
+        _text[73, 0] = "Humanity perished, and robots began to wander aimlessly through the wasteland until it led to a breakdown";
+        _text[73, 1] = "Человечество погибло, а роботы стали бесцельно скитаться по пустоши до тех пор, пока это не приводило к поломке";
 
-        _text[74, 0] = "";
-        _text[74, 1] = "Спустя 100 лет ИИ отправляет сигнал всем выжившим роботам. Все это время он обучался чтобы назначить им новую цель";
+        _text[74, 0] = "After 100 years, the AI ​​sends a signal to the surviving robots. All this time, it has been learning to assign them a new purpose";
+        _text[74, 1] = "Спустя 100 лет ИИ отправляет сигнал выжившим роботам. Все это время он обучался чтобы назначить им новую цель";
 
-        _text[75, 0] = "";
+        _text[75, 0] = "Restoring the ecology of the entire planet";
         _text[75, 1] = "Восстановление экологии всей планеты";
 
-        _text[76, 0] = "";
+        _text[76, 0] = "Receiving data...";
         _text[76, 1] = "Получение данных...";
 
-        _text[77, 0] = "";
+        _text[77, 0] = "Damage analysis...";
         _text[77, 1] = "Анализ повреждений...";
 
-        _text[78, 0] = "";
+        _text[78, 0] = "Object identification completed";
         _text[78, 1] = "Идентификация объектов завершена";
 
-        _text[79, 0] = "";
+        _text[79, 0] = "Launching recovery algorithms";
         _text[79, 1] = "Запуск алгоритмов восстановления";
 
-        _text[80, 0] = "";
+        _text[80, 0] = "Connecting to remote node...";
         _text[80, 1] = "Соединение с удаленным узлом...";
 
-        _text[81, 0] = "";
+        _text[81, 0] = "Data transferred successfully";
         _text[81, 1] = "Данные успешно переданы";
 
-        _text[82, 0] = "";
+        _text[82, 0] = "Error: 12% of archive is damaged";
         _text[82, 1] = "Ошибка: повреждено 12% архива";
 
-        _text[83, 0] = "";
+        _text[83, 0] = "Initialization of the ecosystem protocol";
         _text[83, 1] = "Инициализация экосистемного протокола";
 
-        _text[84, 0] = "";
+        _text[84, 0] = "The kernel software update is complete";
         _text[84, 1] = "Обновление программного ядра завершено";
 
-        _text[85, 0] = "";
+        _text[85, 0] = "Search for surviving robots...";
         _text[85, 1] = "Поиск уцелевших роботов...";
 
-        _text[86, 0] = "";
+        _text[86, 0] = "Assigning new task...";
         _text[86, 1] = "Назначение новой задачи...";
 
-        _text[87, 0] = "";
+        _text[87, 0] = "Critical error: system restore";
         _text[87, 1] = "Критическая ошибка: системное восстановление";
 
-        _text[88, 0] = "";
+        _text[88, 0] = "Design of protective structure...";
         _text[88, 1] = "Проектирование защитной структуры...";
 
-        _text[89, 0] = "";
-        _text[89, 1] = "Внимание: высокая радиация";
+        _text[89, 0] = "Warning: high radiation!";
+        _text[89, 1] = "Внимание: высокая радиация!";
+
+        _text[90, 0] = "ICOSA CORP";
+        _text[90, 1] = "ИКОСА КОРП";
+
+        _text[91, 0] = "BUILDING BETTER WORLD";
+        _text[91, 1] = "ПОСТРОИМ ЛУЧШИЙ МИР";
+
+        _text[92, 0] = "COORDINATES";
+        _text[92, 1] = "КООРДИНАТЫ";
+
+        _text[93, 0] = "SIGNAL";
+        _text[93, 1] = "СИГНАЛ";
+
+        _text[94, 0] = "DIAGRAM";
+        _text[94, 1] = "ДИАГРАММА";
+
+        _text[95, 0] = "-Radiation: High\n-Pollution: Critical\n-Update: Active";
+        _text[95, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
+
+        _text[96, 0] = "";
+        _text[96, 1] = "";
+
+        _text[97, 0] = "";
+        _text[97, 1] = "";
+
+        _text[98, 0] = "";
+        _text[98, 1] = "";
+
+        _text[99, 0] = "";
+        _text[99, 1] = "";
 
 
-
-        for (int x = 0; x < 100; x++) TextStatic[x] = _text[x, LanguageNumber];
+        for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];
     }
 }

@@ -30,13 +30,13 @@ public class EscapePanelCommandCenter : MonoBehaviour
 
     public void ContinueButton()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         PanelViewToggle();
     }
 
     public void MenuButton()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
         StartCoroutine(nameof(PrepareLoad));
     }

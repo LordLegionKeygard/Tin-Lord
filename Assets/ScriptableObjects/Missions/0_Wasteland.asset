@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e66a00a56736149a69e5056b93ccb2, type: 3}
   m_Name: 0_Wasteland
   m_EditorClassIdentifier: 
+  Biome: 0
   Name:
   - Wasteland I
   - "\u041F\u0443\u0441\u0442\u043E\u0448\u044C I"
@@ -34,7 +35,11 @@ MonoBehaviour:
   - ResourceEnum: 5
     RecourceAmount: 25
   Objectives:
-  - ObjectiveEnum: 0
+  - ObjectiveEnum: 2
+    ObjectiveAmount: 10
+  - ObjectiveEnum: 1
+    ObjectiveAmount: 50
+  - ObjectiveEnum: 3
     ObjectiveAmount: 100
   Description:
   - Huge spaces scorched by catastrophe, where life once boiled. It's a world of

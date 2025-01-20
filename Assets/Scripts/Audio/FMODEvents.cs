@@ -6,7 +6,7 @@ public class FMODEvents : MonoBehaviour
     public static FMODEvents Instance;
 
     [Header("UiSFX")]
-    public EventReference DefaultClick;
+    public EventReference[] UiClick;
     public EventReference EscapePanel;
 
 
@@ -20,4 +20,11 @@ public class FMODEvents : MonoBehaviour
         if (Instance != null) Debug.LogError("Two FMODEvents");
         Instance = this;
     }
+}
+
+[System.Serializable]
+public enum UiClickEnum
+{
+    Default = 0,
+    Terminal = 1,
 }

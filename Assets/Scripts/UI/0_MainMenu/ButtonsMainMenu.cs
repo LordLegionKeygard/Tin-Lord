@@ -6,17 +6,17 @@ using Zenject;
 
 public class ButtonsMainMenu : MonoBehaviour
 {
-    [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
-    [Inject] readonly WorldSaveGame WorldSaveGame;
+    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private TextMeshProUGUI[] _buttonsText;
     [SerializeField] private GameObject _continueButtonObject;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _areYouSurePanel;
     [SerializeField] private MusicFade _musicFade;
-    private bool _isContinueGame;
+    [SerializeField] private GameObject _terminal;
 
-    private bool HaveSaveData() => CommandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
+    private bool HaveSaveData() => _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
+
 
     private void Start()
     {
@@ -33,7 +33,7 @@ public class ButtonsMainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
         if (HaveSaveData())
         {
@@ -43,70 +43,43 @@ public class ButtonsMainMenu : MonoBehaviour
         else
         {
             CustomEvents.FireFade(FadeType.StartFade);
-            _isContinueGame = false;
-            StartCoroutine(nameof(PrepareLoad));
+            StartCoroutine(nameof(PrepareTerminal));
         }
     }
 
-    public void Continue()
-    {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
-
-        CustomEvents.FireFade(FadeType.StartFade);
-        _isContinueGame = true;
-        StartCoroutine(nameof(PrepareLoad));
-    }
-
-    private IEnumerator PrepareLoad()
+    private IEnumerator PrepareTerminal()
     {
         _musicFade.FadeOutMusic();
         yield return new WaitForSecondsRealtime(1);
-
-        if (_isContinueGame)
-        {
-            CommandCenterSaveGame.LoadGameData();
-        }
-        else
-        {
-            StartNewGame();
-        }
-    }
-
-    private void StartNewGame()
-    {
-        WorldSaveGame.DeleteAllMissionsGameData();
-        CommandCenterSaveGame.NewGame();
+        CustomEvents.FireFade(FadeType.FadeOut);
+        _terminal.SetActive(true);
     }
 
     public void Settings()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
-        // _settingsPanel.SetActive(true);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
     }
-
 
     public void Quit()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         Application.Quit();
     }
 
     public void AreYouSureYes()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
-        _isContinueGame = false;
-        _continueButtonObject.SetActive(false);
-        StartCoroutine(nameof(PrepareLoad));
+        StartCoroutine(nameof(PrepareTerminal));
         _areYouSurePanel.SetActive(false);
         CustomEvents.FireCloseTooltips();
     }
 
     public void AreYouSureNo()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
-        _areYouSurePanel.SetActive(false);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         ButtonsToggle(true);
+        _areYouSurePanel.SetActive(false);
         CustomEvents.FireCloseTooltips();
     }
 

@@ -100,7 +100,7 @@ public class MissionPanel : MonoBehaviour
 
     public void StartNewMission()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
         if (HaveSaveData())
         {
@@ -117,7 +117,7 @@ public class MissionPanel : MonoBehaviour
 
     public void LoadMission()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
         _isContinueMission = true;
         StartCoroutine(nameof(PrepareLoad));
@@ -132,7 +132,7 @@ public class MissionPanel : MonoBehaviour
 
     public void AreYouSureYes()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
         _isContinueMission = false;
         _loadMissionButton.SetActive(false);
@@ -143,7 +143,7 @@ public class MissionPanel : MonoBehaviour
 
     public void AreYouSureNo()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _areYouSurePanel.SetActive(false);
         ButtonsToggle(true);
         CustomEvents.FireCloseTooltips();

@@ -13,7 +13,7 @@ public class PanelDoMove : MonoBehaviour
     
     public void PanelMove()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _isOpen = !_isOpen;
 
         if (_isOpen)

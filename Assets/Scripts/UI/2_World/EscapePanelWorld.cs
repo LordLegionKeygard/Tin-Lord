@@ -61,7 +61,7 @@ public class EscapePanelWorld : MonoBehaviour
 
     public void RestartButton()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         ToggleButtons(true);
         _restartButton.interactable = false;
         _extraQuitPanel.SetActive(true);
@@ -73,7 +73,7 @@ public class EscapePanelWorld : MonoBehaviour
 
     public void EscapeButton()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         ToggleButtons(true);
         _escapeButton.interactable = false;
         _extraQuitPanel.SetActive(true);
@@ -85,7 +85,7 @@ public class EscapePanelWorld : MonoBehaviour
 
     public void ExitButton()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         ToggleButtons(true);
         _exitButton.interactable = false;
         _extraQuitPanel.SetActive(true);
@@ -110,14 +110,14 @@ public class EscapePanelWorld : MonoBehaviour
 
     public void NoButton()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         Reset();
         CustomEvents.FireCloseTooltips();
     }
 
     public void YesButton()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DefaultClick, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         if (_restartButton.interactable == false)
         {
             CustomEvents.FireFade(FadeType.StartFade);
