@@ -225,35 +225,35 @@ public class Language : MonoBehaviour
         _text[65, 0] = "Escape";
         _text[65, 1] = "Сбежал";
 
-        _text[66, 0] = "Escape the mission?\n\nYou will only receive {0}% of the memory fragments\n\nTo escape, you must complete at least half of the objectives";
-        _text[66, 1] = "Сбежать с миссии?\n\nВы получите только {0}% от фрагментов памяти\n\nДля побега необходимо выполнить хотя бы половину поставленных целей";
+        _text[66, 0] = "Escape the mission?\n\nYou will only receive {0}% of the memory fragments\n\nTo escape, you must complete at least half of the objectives.";
+        _text[66, 1] = "Сбежать с миссии?\n\nВы получите только {0}% от фрагментов памяти\n\nДля побега необходимо выполнить хотя бы половину поставленных целей.";
 
         _text[67, 0] = "Save the mission and return to command center?";
         _text[67, 1] = "Сохранить миссию и вернутся в командный центр?";
 
-        _text[68, 0] = "Restart the mission? You'll lose your current progress";
-        _text[68, 1] = "Перезапустить миссию?\nВы потеряете текущий прогресс";
+        _text[68, 0] = "Restart the mission? You'll lose your current progress.";
+        _text[68, 1] = "Перезапустить миссию?\nВы потеряете текущий прогресс.";
 
-        _text[69, 0] = "2100 - The first robots were created to help humans";
-        _text[69, 1] = "2100 - Были созданы первые роботы для помощи людям";
+        _text[69, 0] = "2100 - The first robots were created to help humans.";
+        _text[69, 1] = "2100 - Были созданы первые роботы для помощи людям.";
 
-        _text[70, 0] = "2150 - An artificial intelligence is developed to restore the ecology of the planet, depleted by years of destruction of nature";
-        _text[70, 1] = "2150 - Разработан искусственный интеллект, предназначенный для восстановления экологии планеты, истощенной многолетним разрушением природы";
+        _text[70, 0] = "2150 - An artificial intelligence is developed to restore the ecology of the planet, depleted by years of destruction of nature.";
+        _text[70, 1] = "2150 - Разработан искусственный интеллект, предназначенный для восстановления экологии планеты, истощенной многолетним разрушением природы.";
 
         _text[71, 0] = "However, the AI ​​did not have time to complete its training...";
         _text[71, 1] = "Однако ИИ не успел завершить обучение...";
 
-        _text[72, 0] = "A catastrophe occurred that turned the planet into ruins";
-        _text[72, 1] = "Произошла катастрофа, превратившая планету в руины";
+        _text[72, 0] = "A catastrophe occurred that turned the planet into ruins.";
+        _text[72, 1] = "Произошла катастрофа, превратившая планету в руины.";
 
-        _text[73, 0] = "Humanity perished, and robots began to wander aimlessly through the wasteland until it led to a breakdown";
-        _text[73, 1] = "Человечество погибло, а роботы стали бесцельно скитаться по пустоши до тех пор, пока это не приводило к поломке";
+        _text[73, 0] = "Humanity perished, and robots began to wander aimlessly through the wasteland until it led to a breakdown.";
+        _text[73, 1] = "Человечество погибло, а роботы стали бесцельно скитаться по пустоши до тех пор, пока это не приводило к поломке.";
 
-        _text[74, 0] = "After 100 years, the AI ​​sends a signal to the surviving robots. All this time, it has been learning to assign them a new purpose";
-        _text[74, 1] = "Спустя 100 лет ИИ отправляет сигнал выжившим роботам. Все это время он обучался чтобы назначить им новую цель";
+        _text[74, 0] = "After 100 years, the AI ​​sends a signal to the surviving robots. All this time, it has been learning to assign them a new purpose.";
+        _text[74, 1] = "Спустя 100 лет ИИ отправляет сигнал выжившим роботам. Все это время он обучался чтобы назначить им новую цель.";
 
-        _text[75, 0] = "Restoring the ecology of the entire planet";
-        _text[75, 1] = "Восстановление экологии всей планеты";
+        _text[75, 0] = "Restoring the ecology of the entire planet.";
+        _text[75, 1] = "Восстановление экологии всей планеты.";
 
         _text[76, 0] = "Receiving data...";
         _text[76, 1] = "Получение данных...";

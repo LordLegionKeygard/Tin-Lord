@@ -6,17 +6,17 @@ using Zenject;
 
 public class ButtonsMainMenu : MonoBehaviour
 {
-    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
+    [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
+    [Inject] readonly WorldSaveGame WorldSaveGame;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private TextMeshProUGUI[] _buttonsText;
     [SerializeField] private GameObject _continueButtonObject;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _areYouSurePanel;
     [SerializeField] private MusicFade _musicFade;
-    [SerializeField] private GameObject _terminal;
+    private bool _isContinueGame;
 
-    private bool HaveSaveData() => _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
-
+    private bool HaveSaveData() => CommandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
 
     private void Start()
     {
@@ -43,22 +43,47 @@ public class ButtonsMainMenu : MonoBehaviour
         else
         {
             CustomEvents.FireFade(FadeType.StartFade);
-            StartCoroutine(nameof(PrepareTerminal));
+            _isContinueGame = false;
+            StartCoroutine(nameof(PrepareLoad));
         }
     }
 
-    private IEnumerator PrepareTerminal()
+    public void Continue()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+
+        CustomEvents.FireFade(FadeType.StartFade);
+        _isContinueGame = true;
+        StartCoroutine(nameof(PrepareLoad));
+    }
+
+    private IEnumerator PrepareLoad()
     {
         _musicFade.FadeOutMusic();
         yield return new WaitForSecondsRealtime(1);
-        CustomEvents.FireFade(FadeType.FadeOut);
-        _terminal.SetActive(true);
+
+        if (_isContinueGame)
+        {
+            CommandCenterSaveGame.LoadGameData();
+        }
+        else
+        {
+            StartNewGame();
+        }
+    }
+
+    private void StartNewGame()
+    {
+        WorldSaveGame.DeleteAllMissionsGameData();
+        CommandCenterSaveGame.NewGame();
     }
 
     public void Settings()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        // _settingsPanel.SetActive(true);
     }
+
 
     public void Quit()
     {
@@ -70,7 +95,9 @@ public class ButtonsMainMenu : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
-        StartCoroutine(nameof(PrepareTerminal));
+        _isContinueGame = false;
+        _continueButtonObject.SetActive(false);
+        StartCoroutine(nameof(PrepareLoad));
         _areYouSurePanel.SetActive(false);
         CustomEvents.FireCloseTooltips();
     }
@@ -78,8 +105,8 @@ public class ButtonsMainMenu : MonoBehaviour
     public void AreYouSureNo()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        ButtonsToggle(true);
         _areYouSurePanel.SetActive(false);
+        ButtonsToggle(true);
         CustomEvents.FireCloseTooltips();
     }
 

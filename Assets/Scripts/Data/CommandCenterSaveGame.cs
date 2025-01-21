@@ -26,6 +26,7 @@ public class CommandCenterSaveGame : MonoBehaviour
         {
             MemoryFragments = 0,
             LastOpenedMissionId = 0,
+            NewGame = true,
             BuildingsLearned = new bool[_configLoaderBuildings.AllBuidingsCount()],
         };
 
