@@ -68,6 +68,6 @@ public class TimeTickSystem : MonoBehaviour
 
     private void UpdateDayText()
     {
-        _dayText.text = $"{Language.TextStatic[12]} {_currentDay}";
+        _dayText.text = $"{_currentDay:D3}";
     }
 }

@@ -16,7 +16,6 @@ public class TileMapBuilder : MonoBehaviour
     [Header("Terrain")]
     [SerializeField] private GameObject[] _terrains;
     [SerializeField] private Transform _environmentParentTransform;
-    [SerializeField] private GameObject _constructionZone;
 
     [Header("Road")]
     [SerializeField] private List<TileObject> _roadTiles = new();
@@ -77,12 +76,6 @@ public class TileMapBuilder : MonoBehaviour
     {
         var mission = CurrentMissionInfo.Instance.GetCurrentMission();
         _terrains[mission.MissionId].SetActive(true);
-
-        var zone = Instantiate(_constructionZone, new Vector3(0, 0, 0), Quaternion.identity);
-        zone.transform.SetParent(_environmentParentTransform);
-
-        zone.transform.localScale = new Vector3(_mapLength - 0.03f, 1, _mapWidth - 0.03f);
-        zone.transform.localPosition = new Vector3((_mapLength * 10 - 10) / 2 + 1.2f, -1.64f, (_mapWidth * 10 - 10) / 2 + 1.2f);
     }
 
     private void SetStartCoordinates()
