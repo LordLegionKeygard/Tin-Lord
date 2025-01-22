@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: EnemiesSpawnerInformation
   m_EditorClassIdentifier: 
   Spawners:
-  - DaySpawn: 3
+  - DaySpawn: 31
     MinCount: 10
     MaxCount: 20
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
-  - DaySpawn: 4
+  - DaySpawn: 32
     MinCount: 10
     MaxCount: 20
     EnemiesSpawnerInfo:
@@ -27,7 +27,7 @@ MonoBehaviour:
       EnemyLevel: 2
     - EnemyEnum: 1
       EnemyLevel: 4
-  - DaySpawn: 5
+  - DaySpawn: 33
     MinCount: 40
     MaxCount: 50
     EnemiesSpawnerInfo:

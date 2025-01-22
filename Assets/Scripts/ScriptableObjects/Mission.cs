@@ -18,6 +18,7 @@ public class Mission : ScriptableObject
     public ResourceWrapper[] StartResources;
     public ObjectiveWrapper[] Objectives;
     [TextArea(1, 8)] public string[] Description;
+    public Vector3 DirectionalLight;
 }
 
 [System.Serializable]

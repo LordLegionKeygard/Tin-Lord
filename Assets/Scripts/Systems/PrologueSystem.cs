@@ -38,7 +38,7 @@ public class PrologueSystem : MonoBehaviour
     private void MoveCamera()
     {
         _cameraTransform.position = new Vector3(_startPrologueCameraPosition, _cameraTransform.position.y, _cameraTransform.position.z);
-        _cameraTransform.DOMoveX(_defaultCameraPosition, 113).OnComplete(() => ActiveCanvas());
+        _cameraTransform.DOMoveX(_defaultCameraPosition, 94).OnComplete(() => ActiveCanvas());
     }
 
     private void ActiveCanvas()

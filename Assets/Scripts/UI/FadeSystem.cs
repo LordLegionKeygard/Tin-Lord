@@ -27,7 +27,7 @@ public class FadeSystem : MonoBehaviour
                 FadeOut(1);
                 break;
             case FadeType.FadeOutPrologue:
-                FadeOut(10);
+                FadeOut(4);
                 break;
         }
     }

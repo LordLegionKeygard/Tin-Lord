@@ -234,11 +234,11 @@ public class Language : MonoBehaviour
         _text[68, 0] = "Restart the mission? You'll lose your current progress.";
         _text[68, 1] = "Перезапустить миссию?\nВы потеряете текущий прогресс.";
 
-        _text[69, 0] = "2100 - The first robots were created to help humans.";
-        _text[69, 1] = "2100 - Были созданы первые роботы для помощи людям.";
+        _text[69, 0] = "In 2100 the first robots were created to help humans.";
+        _text[69, 1] = "В 2100 году были созданы первые роботы для помощи людям.";
 
-        _text[70, 0] = "2150 - An artificial intelligence is developed to restore the ecology of the planet, depleted by years of destruction of nature.";
-        _text[70, 1] = "2150 - Разработан искусственный интеллект, предназначенный для восстановления экологии планеты, истощенной многолетним разрушением природы.";
+        _text[70, 0] = "2150 an artificial intelligence is developed to restore the ecology of the planet, depleted by years of destruction of nature.";
+        _text[70, 1] = "2150 год, разработан искусственный интеллект, предназначенный для восстановления экологии планеты, истощенной многолетним разрушением природы.";
 
         _text[71, 0] = "However, the AI ​​did not have time to complete its training...";
         _text[71, 1] = "Однако ИИ не успел завершить обучение...";

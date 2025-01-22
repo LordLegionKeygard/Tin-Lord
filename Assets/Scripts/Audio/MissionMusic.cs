@@ -4,7 +4,6 @@ using FMODUnity;
 public class MissionMusic : MonoBehaviour
 {
     [SerializeField] private MusicWrapper[] _musicWrapper;
-    private int _currentMusicNumber;
 
     private void Start()
     {
@@ -16,9 +15,8 @@ public class MissionMusic : MonoBehaviour
     {
         var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentMission().Biome];
 
-        // var rnd = Random.Range(0, sound.Musics.Length);
-        // _currentMusicNumber = rnd;
-        // sound.Musics[_currentMusicNumber].Play();
+
+        sound.Music.Play();
         sound.Ambience.Play();
 
     }
@@ -26,10 +24,9 @@ public class MissionMusic : MonoBehaviour
     private void TurnOffMusic()
     {
         var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentMission().Biome];
-        // if (sound.Length == 0) return;
 
-        // sound.Musics[_currentMusicNumber].Stop();
-        // sound.Ambience.Stop();
+        sound.Music.Stop();
+        sound.Ambience.Stop();
     }
 
     private void OnDestroy()
@@ -43,7 +40,7 @@ public class MissionMusic : MonoBehaviour
 public class MusicWrapper
 {
     public BiomeEnum Biom;
-    public StudioEventEmitter[] Musics;
+    public StudioEventEmitter Music;
     public StudioEventEmitter Ambience;
 
 }
