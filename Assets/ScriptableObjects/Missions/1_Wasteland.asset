@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e66a00a56736149a69e5056b93ccb2, type: 3}
   m_Name: 1_Wasteland
   m_EditorClassIdentifier: 
+  Biome: 0
   Name:
   - Wasteland II
   - "\u041F\u0443\u0441\u0442\u043E\u0448\u044C II"
-  MissionSprite: {fileID: 21300000, guid: b518ad1d7aaeebd44ad06e1a929de449, type: 3}
+  MissionSprite: {fileID: 21300000, guid: aad2f93e1755b7f43bd7081482a3a5e3, type: 3}
   MissionId: 1
   Duration: 200
   StartEcology: -10

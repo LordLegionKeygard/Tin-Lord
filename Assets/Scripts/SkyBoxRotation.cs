@@ -8,9 +8,14 @@ public class SkyBoxRotation : MonoBehaviour
 
     private float _value;
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         _value += 0.1f * Time.deltaTime;
         _skyBoxMat.SetFloat("_Rotation", _value);
+    }
+
+    private void OnDisable()
+    {
+        _skyBoxMat.SetFloat("_Rotation", 0);
     }
 }

@@ -2,9 +2,11 @@ using UnityEngine;
 using TMPro;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 public class LoadingScreenController : MonoBehaviour
 {
+    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [SerializeField] private TextMeshProUGUI _loading;
     [SerializeField] private GameObject _loadingScreen;
 
@@ -29,10 +31,17 @@ public class LoadingScreenController : MonoBehaviour
                 ScreenToggle(false);
                 break;
             case (int)SceneEnum.CommandCenter:
-                CustomEvents.FireFade(FadeType.FadeOut);
+                if (_commandCenterSaveGame.CommandCenterSaveData.NewGame)
+                {
+                    CustomEvents.FireFade(FadeType.FadeOutPrologue);
+                }
+                else
+                {
+                    CustomEvents.FireFade(FadeType.FadeOut);
+                }
                 ScreenToggle(false);
                 break;
-            case (int)SceneEnum.World:             
+            case (int)SceneEnum.World:
                 CustomEvents.FireFade(FadeType.FadeOut);
                 ScreenToggle(false);
                 break;

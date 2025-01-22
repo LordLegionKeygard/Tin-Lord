@@ -18,7 +18,7 @@ public class PrologueText : MonoBehaviour
 
     private IEnumerator PrologueRoutine()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(20f);
 
         // Проходим по всем индексам
         for (int i = 0; i < _prologueTextIndices.Length; i++)

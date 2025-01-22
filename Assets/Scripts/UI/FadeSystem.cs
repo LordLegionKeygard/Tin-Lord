@@ -18,7 +18,7 @@ public class FadeSystem : MonoBehaviour
         switch (fadeType)
         {
             case FadeType.StartFade:
-                StartFade(0); 
+                StartFade(0);
                 break;
             case FadeType.StartFadeSlow:
                 StartFade(2);
@@ -26,15 +26,18 @@ public class FadeSystem : MonoBehaviour
             case FadeType.FadeOut:
                 FadeOut(1);
                 break;
+            case FadeType.FadeOutPrologue:
+                FadeOut(10);
+                break;
         }
     }
 
     private void StartFade(float time)
     {
-        _fade.SetActive(true);  // Включаем объект сразу
+        _fade.SetActive(true);
         DOVirtual.DelayedCall(time, () =>
         {
-            _fadeImage.DOFade(1f, 0.15f).SetEase(Ease.InOutQuad).SetUpdate(true);  // Затемняем за 0.5 сек до полного значения 1
+            _fadeImage.DOFade(1f, 0.15f).SetEase(Ease.InOutQuad).SetUpdate(true);
         });
     }
 
@@ -44,7 +47,7 @@ public class FadeSystem : MonoBehaviour
         {
             _fadeImage.DOFade(0f, 1f).SetEase(Ease.InOutQuad).SetUpdate(true).OnComplete(() =>
             {
-                _fade.SetActive(false);  // После исчезновения делаем объект неактивным
+                _fade.SetActive(false);
             });
         });
     }
@@ -62,4 +65,5 @@ public enum FadeType
     StartFadeSlow = 1,
     FadeOut = 2,
     FadeOutFast = 3,
+    FadeOutPrologue = 4,
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.000077900244, g: 0.00009611687, b: 0.00011564423,
+  m_IndirectSpecularColor: {r: 0.00007794125, g: 0.00009613825, b: 0.000115749404,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -5370,8 +5370,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2100 - The first robots were created to help humans
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8bede43c7b93ad447bd450d5a4a90e36, type: 2}
-  m_sharedMaterial: {fileID: -3506200788955325779, guid: 8bede43c7b93ad447bd450d5a4a90e36,
+  m_fontAsset: {fileID: 11400000, guid: 0b8dd4716caf75443adc67672a1eaf25, type: 2}
+  m_sharedMaterial: {fileID: -3506200788955325779, guid: 0b8dd4716caf75443adc67672a1eaf25,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5379,7 +5379,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14751,8 +14751,8 @@ Transform:
   m_GameObject: {fileID: 1055436855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 301.8, y: -9, z: 8.5}
-  m_LocalScale: {x: 32.4, y: 32.4, z: 32.4}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 984807621}
   m_RootOrder: 0
