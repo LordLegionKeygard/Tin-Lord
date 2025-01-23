@@ -7,6 +7,7 @@ public class TileView : MonoBehaviour
     [SerializeField] private MeshRenderer _mesh;
     [SerializeField] private GameObject _selectView;
     [SerializeField] private Material _fourTileMaterial;
+    [SerializeField] private GameObject[] _edgeViews;
 
     private void Awake()
     {
@@ -47,10 +48,18 @@ public class TileView : MonoBehaviour
         }
     }
 
-    public void ViewToggle(bool state, SelectTileEnum selectTileEnum)
+    public void SelectViewToggle(bool state, SelectTileEnum selectTileEnum)
     {
         _selectView.SetActive(state);
         _mesh.material.SetColor("_BaseColor", Colors.Instance.SelectTileView[(int)selectTileEnum]);
+    }
+
+    public void EdgeViewToggle(float x, float y, bool state)
+    {
+        _edgeViews[0].SetActive(y == 0 && state);
+        _edgeViews[1].SetActive(y == CurrentMissionInfo.Instance.GetCurrentMission().MapWidth * 10 - 10 && state);
+        _edgeViews[2].SetActive(x == CurrentMissionInfo.Instance.GetCurrentMission().MapLength * 10 - 10 && state);
+        _edgeViews[3].SetActive(x == 0 && state);
     }
 
     public void TurnOffCollider() => _boxCollider.enabled = false;
