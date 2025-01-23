@@ -18,7 +18,6 @@ public class MissionMusic : MonoBehaviour
 
         sound.Music.Play();
         sound.Ambience.Play();
-
     }
 
     private void TurnOffMusic()
@@ -42,7 +41,6 @@ public class MusicWrapper
     public BiomeEnum Biom;
     public StudioEventEmitter Music;
     public StudioEventEmitter Ambience;
-
 }
 
 [System.Serializable]

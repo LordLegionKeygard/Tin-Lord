@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Mission : ScriptableObject
 {
-    public BiomeEnum Biome;
     public string[] Name; //0 eng, 1 rus
+    public BiomeEnum Biome;
+    public DayLightTime DayLightTime;
     public Sprite MissionSprite;
     public int MissionId;
     public int Duration; //в днях
@@ -18,7 +19,6 @@ public class Mission : ScriptableObject
     public ResourceWrapper[] StartResources;
     public ObjectiveWrapper[] Objectives;
     [TextArea(1, 8)] public string[] Description;
-    public Vector3 DirectionalLight;
 }
 
 [System.Serializable]

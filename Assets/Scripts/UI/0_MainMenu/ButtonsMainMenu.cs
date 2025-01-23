@@ -13,7 +13,6 @@ public class ButtonsMainMenu : MonoBehaviour
     [SerializeField] private GameObject _continueButtonObject;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _areYouSurePanel;
-    [SerializeField] private MusicFade _musicFade;
     private bool _isContinueGame;
 
     private bool HaveSaveData() => CommandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
@@ -59,7 +58,6 @@ public class ButtonsMainMenu : MonoBehaviour
 
     private IEnumerator PrepareLoad()
     {
-        _musicFade.FadeOutMusic();
         yield return new WaitForSecondsRealtime(1);
 
         if (_isContinueGame)

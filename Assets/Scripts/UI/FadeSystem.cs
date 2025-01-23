@@ -34,6 +34,7 @@ public class FadeSystem : MonoBehaviour
 
     private void StartFade(float time)
     {
+        CustomEvents.FireFadeOutAllMusic();
         _fade.SetActive(true);
         DOVirtual.DelayedCall(time, () =>
         {

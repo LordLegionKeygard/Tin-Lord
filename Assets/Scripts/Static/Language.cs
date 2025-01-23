@@ -225,8 +225,8 @@ public class Language : MonoBehaviour
         _text[65, 0] = "Escape";
         _text[65, 1] = "Сбежал";
 
-        _text[66, 0] = "Escape the mission?\n\nYou will only receive {0}% of the memory fragments\n\nTo escape, you must complete at least half of the objectives.";
-        _text[66, 1] = "Сбежать с миссии?\n\nВы получите только {0}% от фрагментов памяти\n\nДля побега необходимо выполнить хотя бы половину поставленных целей.";
+        _text[66, 0] = "Escaping the mission will give you {0}% of the memory fragments\n\nYou must complete half of the objectives.";
+        _text[66, 1] = "Сбежав с миссии, вы получите {0}% от фрагментов памяти\n\nНеобходимо выполнить половину поставленных целей.";
 
         _text[67, 0] = "Save the mission and return to command center?";
         _text[67, 1] = "Сохранить миссию и вернутся в командный центр?";

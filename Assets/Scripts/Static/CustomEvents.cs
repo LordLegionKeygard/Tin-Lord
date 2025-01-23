@@ -159,16 +159,21 @@ public class CustomEvents
     }
 
     public static Action<ObjectiveEnum, int> OnObjectiveAmountChange;
-
     public static void FireObjectiveAmountChange(ObjectiveEnum objectiveEnum, int value)
     {
         OnObjectiveAmountChange?.Invoke(objectiveEnum, value);
     }
 
     public static Action<MissionEndEnum> OnMissionEnd;
-
     public static void FireMissionEnd(MissionEndEnum missionEndEnum)
     {
         OnMissionEnd?.Invoke(missionEndEnum);
+    }
+
+    public static Action OnFadeOutAllMusic;
+
+    public static void FireFadeOutAllMusic()
+    {
+        OnFadeOutAllMusic?.Invoke();
     }
 }
