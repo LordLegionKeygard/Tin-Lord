@@ -16,6 +16,7 @@ public class Mission : ScriptableObject
     public int MapLength;
     public int MapEdge = 4;
     public int StartPosEdge = 4;
+    public EnemiesSpawnerInformation EnemiesSpawnerInfo;
     public ResourceWrapper[] StartResources;
     public ObjectiveWrapper[] Objectives;
     [TextArea(1, 8)] public string[] Description;

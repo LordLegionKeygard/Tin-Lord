@@ -7,7 +7,6 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 {
     [Inject] DiContainer _diContainer;
     [SerializeField] private AllEnemies _allEnemies;
-    [SerializeField] private EnemiesSpawnerInformation _enemiesSpawnerInfo;
     [SerializeField] private Transform _enemiesParent;
     private Vector3 _bottomLeft = new Vector3(-155, 11, -213);
     private Vector3 _bottomRight = new Vector3(380, 11, -213);
@@ -60,7 +59,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void PrepareSpawn(int day)
     {
-        var spawner = _enemiesSpawnerInfo.Spawners.FirstOrDefault(spawner => spawner.DaySpawn == day);
+        var spawner = CurrentMissionInfo.Instance.GetCurrentMission().EnemiesSpawnerInfo.Spawners.FirstOrDefault(spawner => spawner.DaySpawn == day);
 
         if (spawner == null) return;
 

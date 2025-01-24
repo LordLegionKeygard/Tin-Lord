@@ -150,7 +150,7 @@ public class TileMapBuilder : MonoBehaviour
         else if (IsTopRight(nextX, nextY))
         {
             //                если достигли верхнего края                                (основа)налево          (доп)вверх
-            return ((rnd == 0 || nextX >= (_mapWidth - _mapEdge)) && nextX != _mapLength / 2 && nextX != _mapLength / 2 + 1) ? (nextX, nextY - 1) : (nextX + 1, nextY);
+            return ((rnd == 0 || nextX >= (_mapWidth - _mapEdge)) && nextX != _mapWidth / 2 + 1) ? (nextX, nextY - 1) : (nextX + 1, nextY);
         }
         else if (IsTopLeft(nextX, nextY))
         {

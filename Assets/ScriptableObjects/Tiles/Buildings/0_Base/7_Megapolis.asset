@@ -20,7 +20,7 @@ MonoBehaviour:
   BuildingSprite: {fileID: 21300000, guid: 6ddb383688c3164458250a4fef9fac1a, type: 3}
   BuildingEcology: -8
   BuildingHealth: 2000
-  ResourceExtractedAmount: 2
+  ResourceExtractedAmount: 0.8
   Price: 8
   ResourcesForBuild:
   - ResourceEnum: 11
@@ -33,11 +33,7 @@ MonoBehaviour:
     RecourceAmount: 20
   - ResourceEnum: 21
     RecourceAmount: 5
-  ResourcesForWork:
-  - ResourceForWork: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7, type: 2}
-    ResourcesForWorkAmount: 1
-  - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
-    ResourcesForWorkAmount: 1
+  ResourcesForWork: []
   ResourcesProduction:
   - ProductionResource: {fileID: 11400000, guid: 23814b4f35f760d44b89c897c3a239b8,
       type: 2}

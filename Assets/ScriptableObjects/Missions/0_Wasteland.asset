@@ -26,6 +26,7 @@ MonoBehaviour:
   MapLength: 20
   MapEdge: 4
   StartPosEdge: 4
+  EnemiesSpawnerInfo: {fileID: 11400000, guid: c597c508d61e0814491057739e736086, type: 2}
   StartResources:
   - ResourceEnum: 0
     RecourceAmount: 200
@@ -38,10 +39,8 @@ MonoBehaviour:
   Objectives:
   - ObjectiveEnum: 2
     ObjectiveAmount: 10
-  - ObjectiveEnum: 1
-    ObjectiveAmount: 50
   - ObjectiveEnum: 3
-    ObjectiveAmount: 100
+    ObjectiveAmount: 50
   Description:
   - Huge spaces scorched by catastrophe, where life once boiled. It's a world of
     dead earth, littered with the wreckage of old civilizations. There is no water,
