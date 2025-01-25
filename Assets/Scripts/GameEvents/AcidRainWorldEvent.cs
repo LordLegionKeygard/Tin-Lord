@@ -1,5 +1,5 @@
 
-public class AcidRainGameEvent : BaseGameEvent
+public class AcidRainWorldEvent : BaseWorldEvent
 {
     public override void StartEvent()
     {

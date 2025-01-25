@@ -28,8 +28,48 @@ MonoBehaviour:
     - EnemyEnum: 1
       EnemyLevel: 4
   - DaySpawn: 5
+    MinCount: 10
+    MaxCount: 20
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 2
+    - EnemyEnum: 1
+      EnemyLevel: 4
+    - EnemyEnum: 2
+      EnemyLevel: 6
+  - DaySpawn: 6
+    MinCount: 10
+    MaxCount: 20
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 2
+    - EnemyEnum: 1
+      EnemyLevel: 4
+    - EnemyEnum: 2
+      EnemyLevel: 6
+  - DaySpawn: 7
+    MinCount: 20
+    MaxCount: 30
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 2
+    - EnemyEnum: 1
+      EnemyLevel: 4
+    - EnemyEnum: 2
+      EnemyLevel: 6
+  - DaySpawn: 8
     MinCount: 40
     MaxCount: 50
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 2
+    - EnemyEnum: 1
+      EnemyLevel: 4
+    - EnemyEnum: 2
+      EnemyLevel: 6
+  - DaySpawn: 9
+    MinCount: 20
+    MaxCount: 30
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2

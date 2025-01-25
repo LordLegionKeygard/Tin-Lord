@@ -79,17 +79,19 @@ public class BuildingItem : MonoBehaviour
 
     public void BuildOrUpgrade()
     {
-        if(!_resourcesEnough) return;
-        
+        if (!_resourcesEnough) return;
+
         _buildingResourcesView.ResetCells();
         _playerResources.UseResourcesForBuilding(GetResources());
 
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
+                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
                 _currentTileObject.BuildingTileObject().BeginConstruction(_currentTile, _buildingIndex, false);
                 break;
             case BuildingState.UpgradeBuilding:
+                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
                 if (_currentTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.BaseFoundation))
                 {
                     _currentTileObject.BuildingTileObject().UpgradeBaseBuilding(_buildingIndex, _currentTileObject);
@@ -101,6 +103,7 @@ public class BuildingItem : MonoBehaviour
                 }
                 break;
             case BuildingState.Repair:
+                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Repair], transform.position);
                 _currentTileObject.BuildingHealth().FullRepair();
                 break;
         }

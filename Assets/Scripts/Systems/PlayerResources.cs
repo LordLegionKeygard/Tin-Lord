@@ -4,6 +4,7 @@ using System;
 
 public class PlayerResources : MonoBehaviour
 {
+    [SerializeField] private bool _test;
     [SerializeField] private PlayerResourcesWrapper[] _resourcesWrapper;
     public Resource GetResourceForNumber(int number) => _resourcesWrapper[number].Resource;
     public float GetResourceNumberForEnum(ResourceEnum resourceEnum) => _resourcesWrapper[(int)resourceEnum].Amount;
@@ -64,6 +65,8 @@ public class PlayerResources : MonoBehaviour
 
     public void UseResourcesForBuilding(ResourceWrapper[] resourcesForBuildWrapper)
     {
+        if(_test) return;
+        
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
             _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount -= resourcesForBuildWrapper[i].RecourceAmount;
@@ -85,6 +88,8 @@ public class PlayerResources : MonoBehaviour
 
     public bool ResourcesEnough(ResourceWrapper[] resourcesForBuildWrapper)
     {
+        if(_test) return true;
+
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
             if (resourcesForBuildWrapper[i].RecourceAmount > _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount)

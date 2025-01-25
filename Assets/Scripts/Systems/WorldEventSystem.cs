@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DayEventSystem : MonoBehaviour
+public class WorldEventSystem : MonoBehaviour
 {
     [Header("Event Settings")]
     [SerializeField] private TimeTickSystem _timeTickSystem;
@@ -16,9 +16,9 @@ public class DayEventSystem : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private EcologySystem _ecologySystem;
-    [SerializeField] private EarthquakeGameEvent _earthquakeEvent;
-    [SerializeField] private AcidRainGameEvent _acidRainEvent;
-    [SerializeField] private MeteorStrikeGameEvent _meteorStrikeEvent;
+    [SerializeField] private EarthquakeWorldEvent _earthquakeEvent;
+    [SerializeField] private AcidRainWorldEvent _acidRainEvent;
+    [SerializeField] private MeteorStrikeWorldEvent _meteorStrikeEvent;
 
     public DayEventData[] GetAllCurrentEvents()
     {

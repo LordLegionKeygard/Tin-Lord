@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 
-public class MeteorStrikeGameEvent : BaseGameEvent
+public class MeteorStrikeWorldEvent : BaseWorldEvent
 {
     [Inject] private readonly TilesSystem _tilesSystem;
     private float _delay = 1.5f;

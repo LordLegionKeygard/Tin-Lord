@@ -9,6 +9,7 @@ public class TurretStop : MonoBehaviour
     private TurretStateChanger _turretStateChanger;
     private Animator _animator;
     private TurretBaseAttack _turretBaseAttack;
+    private ITurretAttack _turretAttack;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class TurretStop : MonoBehaviour
         _aIDestinationSetter = GetComponent<AIDestinationSetter>();
         _turretStateChanger = GetComponent<TurretStateChanger>();
         _turretBaseAttack = GetComponent<TurretBaseAttack>();
+        _turretAttack = GetComponent<ITurretAttack>();
     }
 
     private void Start()
@@ -39,7 +41,8 @@ public class TurretStop : MonoBehaviour
         _aIPath.enabled = false;
         _aIDestinationSetter.enabled = false;
         _turretStateChanger.enabled = false;
-        if(_turretBaseAttack != null) _turretBaseAttack.AttackToggle(false);
+        if (_turretBaseAttack != null) _turretBaseAttack.AttackToggle(false);
+        if (_turretAttack != null) _turretAttack.StopAttack();
     }
 
     private void OnDestroy()

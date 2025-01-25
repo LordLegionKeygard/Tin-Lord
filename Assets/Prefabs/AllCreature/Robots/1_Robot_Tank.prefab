@@ -192,6 +192,9 @@ MonoBehaviour:
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 64
+  _buildingDetectionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &7702254113061682339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,11 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9910d655296e4c442abea8edc3787852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
-  CurrentHealth: 0
+  _healthSliderObject: {fileID: 0}
   _healthSliderPrefab: {fileID: 404669213447232347, guid: f42866fee4e52c74088725892e2e972a,
     type: 3}
   _sliderHeightOffset: 7
+  _deathSound: {fileID: 0}
 --- !u!114 &6124768669419014804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999c22ee45a1bf440819fe608a96f02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletType: 1
+  _bulletType: 7
   _firePoints:
   - {fileID: 4906789134431965508}
 --- !u!114 &6828330069480643035
@@ -377,6 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _robotMove: {fileID: 3334971829351761483}
+  _repairState: {fileID: 0}
   _combatState: {fileID: 6124768671223808653}
   _creatureDamage: {fileID: 6124768669419014804}
   _patrolPath: {fileID: 5448208571138123766}

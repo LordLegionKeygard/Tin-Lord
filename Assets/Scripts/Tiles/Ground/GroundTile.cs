@@ -145,6 +145,7 @@ public class GroundTile : MonoBehaviour
     public void SpawnGroundTile(GroundTileViewEnum previousGroundTileViewEnum = GroundTileViewEnum.None)
     {
         if (_currentGroundTile == null) return;
+        if(_currentGroundTile.GroundTileView != GroundTileViewEnum.Road) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.GroundTiles[(int)CurrentGroundTile().GroundTileView - 1], transform.position);
 
         if (_currentGroundTileObject != null)
         {

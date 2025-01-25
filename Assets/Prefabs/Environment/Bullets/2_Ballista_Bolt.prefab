@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4310117178088380094}
   - component: {fileID: 7283345201449083689}
   m_Layer: 0
-  m_Name: 2_BallistaBolt
+  m_Name: 2_Ballista_Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,11 +147,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -2091005591
-      Data2: 1218608461
-      Data3: 135721135
-      Data4: -1825772702
-    Path: event:/Sfx/Creatures/Turrets/ShootBallista
+      Data1: 1208754962
+      Data2: 1136592292
+      Data3: -1527181130
+      Data4: 335249784
+    Path: event:/Sfx/Shoot/Ballista
   Event: 
   EventPlayTrigger: 11
   EventStopTrigger: 0

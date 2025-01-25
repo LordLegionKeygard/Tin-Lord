@@ -60,6 +60,7 @@ public class ProductionResourcePanel : MonoBehaviour
 
     public void ChangeResourceProductionButton(int number)
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _selectTilePanel.ChangeResourceProduction(_productionResources[number], _lastBuilding.ResourcesProduction[number].ResourceRecept);
         ResetButtons(false);
         _select[number].SetActive(true);

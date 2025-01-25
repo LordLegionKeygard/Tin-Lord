@@ -1,4 +1,5 @@
 using System.Collections;
+using FMODUnity;
 using UnityEngine;
 using Zenject;
 
@@ -22,7 +23,7 @@ public class RobotHealth : BaseHealth
     public void Start()
     {
         SetStartStats();
-
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.RobotSpawn, transform.position);
         CustomEvents.OnRepairRobot += Repair;
     }
 
@@ -68,6 +69,7 @@ public class RobotHealth : BaseHealth
     public override void Death()
     {
         base.Death();
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.RobotDeath, transform.position);
         _capsuleCollider.enabled = false;
         _animationToRagdoll.RagdollOn();
         CustomEvents.FireRobotDie();

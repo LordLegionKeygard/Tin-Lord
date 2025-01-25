@@ -116,6 +116,7 @@ public class BuildingTile : MonoBehaviour
 
    public void InstantiateCompletedBuilding()
    {
+      AudioManager.Instance.PlayerOneShot(_currentLevel == 0 ? FMODEvents.Instance.CompleteConstructBuilding : FMODEvents.Instance.CompleteUpgradeBuilding, transform.position);
       _isConstructionNow = false;
 
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base && !_tilesSystem.IsHaveBase()) CustomEvents.FireSetBase();

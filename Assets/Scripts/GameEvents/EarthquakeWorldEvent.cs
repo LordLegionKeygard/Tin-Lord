@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
-public class EarthquakeGameEvent : BaseGameEvent
+public class EarthquakeWorldEvent : BaseWorldEvent
 {
     [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Transform _transform;

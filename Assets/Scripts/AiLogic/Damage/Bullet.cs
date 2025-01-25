@@ -122,12 +122,14 @@ public class Bullet : MonoBehaviour
 public enum BulletEnum
 {
     None = -1,
-    BasicX1 = 0,
-    BasicX2 = 1,
+    TurretGunBullet = 0,
+    BattleShipTowerBullet = 1,
     BallistaBolt = 2,
     CannonBall = 3,
-    Robot_SniperRiffle_Bullet = 4,
+    SniperRiffleBullet = 4,
     HowitzerBullet = 5,
-    RocketBullet = 6,
+    Rocket = 6,
+    RobotTankBullet = 7,
+
 }
 

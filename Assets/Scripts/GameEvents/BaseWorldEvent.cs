@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BaseGameEvent : MonoBehaviour
+public class BaseWorldEvent : MonoBehaviour
 {
     [SerializeField] private GameObject _spawnPrefab;
     [SerializeField] private AllTileObjects _allTileObjects;

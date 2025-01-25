@@ -99,13 +99,37 @@ MonoBehaviour:
       Data2: 1147939788
       Data3: 136670137
       Data4: 1633342574
-    Path: event:/Ui/Buttons/DefaultClick
+    Path: event:/Ui/Click/DefaultClick
   - Guid:
       Data1: -1350402248
       Data2: 1138572988
       Data3: -1917702247
       Data4: -131349307
-    Path: event:/Ui/Buttons/TerminalClick
+    Path: event:/Ui/Click/TerminalClick
+  - Guid:
+      Data1: -181251051
+      Data2: 1116815579
+      Data3: -67987800
+      Data4: 700698466
+    Path: event:/Ui/Click/RepairClick
+  - Guid:
+      Data1: -1501611127
+      Data2: 1155020915
+      Data3: -1728898417
+      Data4: -863785567
+    Path: event:/Ui/Click/GameSpeedClick
+  - Guid:
+      Data1: -1052344789
+      Data2: 1297349114
+      Data3: -41212243
+      Data4: 767979266
+    Path: event:/Ui/Click/WorkClick
+  - Guid:
+      Data1: 1969256547
+      Data2: 1074629331
+      Data3: -271627385
+      Data4: 1429093636
+    Path: event:/Ui/Click/RotateClick
   EscapePanel:
     Guid:
       Data1: 1389760178
@@ -282,4 +306,60 @@ MonoBehaviour:
       Data2: 1260740958
       Data3: 403867019
       Data4: -92923828
-    Path: event:/Sfx/LaserDestruction
+    Path: event:/Sfx/Tiles/LaserDestruction
+  CompleteConstructBuilding:
+    Guid:
+      Data1: 515904153
+      Data2: 1261926373
+      Data3: -1013163362
+      Data4: -119581566
+    Path: event:/Sfx/Buildings/CompleteConstruct
+  CompleteUpgradeBuilding:
+    Guid:
+      Data1: -162716583
+      Data2: 1154450059
+      Data3: -1665037645
+      Data4: -480770057
+    Path: event:/Sfx/Buildings/CompleteUpgrade
+  DestructionBuilding:
+    Guid:
+      Data1: -1483737861
+      Data2: 1280445989
+      Data3: -1931696971
+      Data4: 974190082
+    Path: event:/Sfx/Buildings/Destruction
+  RobotSpawn:
+    Guid:
+      Data1: -2120368198
+      Data2: 1147639227
+      Data3: 965118361
+      Data4: -276282835
+    Path: event:/Sfx/Robots/RobotSpawn
+  RobotDeath:
+    Guid:
+      Data1: -429212949
+      Data2: 1334926486
+      Data3: -1267356759
+      Data4: -1104317354
+    Path: event:/Sfx/Robots/RobotDeath
+  RobotExplosion:
+    Guid:
+      Data1: 1844915224
+      Data2: 1341373320
+      Data3: 1507379594
+      Data4: 804894949
+    Path: event:/Sfx/Robots/RobotExplosion
+  SelectMission:
+    Guid:
+      Data1: -346986330
+      Data2: 1152317889
+      Data3: 1183851411
+      Data4: 1353892855
+    Path: event:/Ui/Mission/SelectMission
+  StartMission:
+    Guid:
+      Data1: -924285588
+      Data2: 1152041980
+      Data3: -712451685
+      Data4: 915107493
+    Path: event:/Ui/Mission/StartMission

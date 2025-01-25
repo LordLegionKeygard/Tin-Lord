@@ -115,11 +115,13 @@ public class RobotItem : MonoBehaviour
 
         if (CanRepair())
         {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Repair], transform.position);
             CustomEvents.FireRepairRobot();
             UpdateView();
         }
         else
         {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
             _robotSpawnerSystem.SpawnRobot(_robotInformation.RobotType);
             _robotPanel.RefreshAllRobotItemsView();
             _robotPanel.UpdateDestroyButtonState();

@@ -21,8 +21,8 @@ public class WorldSaveLoad : MonoBehaviour
     [Header("Cards")]
     [SerializeField] private CardHolderSystem _cardHolderSystem;
 
-    [Header("DayEvents")]
-    [SerializeField] private DayEventSystem _dayEventSystem;
+    [Header("WorldEvents")]
+    [SerializeField] private WorldEventSystem _worldEventSystem;
 
     [Header("Enemies")]
     [SerializeField] private EnemiesSpawnerSystem _enemiesSpawnerSystem;
@@ -83,7 +83,7 @@ public class WorldSaveLoad : MonoBehaviour
         currentSaveData.Cards = _cardHolderSystem.GetAllCards();
 
         //DayEvents
-        currentSaveData.DayEventsData = _dayEventSystem.GetAllCurrentEvents();
+        currentSaveData.DayEventsData = _worldEventSystem.GetAllCurrentEvents();
 
         //Enemies
         currentSaveData.EnemyData = _enemiesSpawnerSystem.GetAllCurrentEnemies();
@@ -120,7 +120,7 @@ public class WorldSaveLoad : MonoBehaviour
         _cardHolderSystem.LoadCards(currentSaveData.IsStartMission, currentSaveData.Cards);
 
         //DayEvents
-        _dayEventSystem.LoadEvents(currentSaveData.DayEventsData, currentSaveData.IsStartMission);
+        _worldEventSystem.LoadEvents(currentSaveData.DayEventsData, currentSaveData.IsStartMission);
 
         //Enemies
         _enemiesSpawnerSystem.LoadEnemies(currentSaveData.EnemyData, currentSaveData.IsStartMission);

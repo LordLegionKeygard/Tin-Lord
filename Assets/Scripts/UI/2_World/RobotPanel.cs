@@ -113,6 +113,7 @@ public class RobotPanel : MonoBehaviour
 
     public void DestroyRobbotButton()
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         var robotHealth = _currentRobotSystem.RobotHealth();
         robotHealth.CalculateDamage(robotHealth.GetMaxHealth());
         UpdateDestroyButtonState();

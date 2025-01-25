@@ -251,6 +251,7 @@ public class SelectTilePanel : MonoBehaviour
     public void BuildButton()
     {
         if (!_buildButton.activeInHierarchy || _tileObject == null) return;
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
         _uiPanels.TogglePanel(UIPanelsEnum.DestroyPanel, false);
         DestroyButtonChangeColor();
@@ -270,8 +271,8 @@ public class SelectTilePanel : MonoBehaviour
     public void ToggleBuildingWorkButton()
     {
         if (!_workButton.activeInHierarchy || _tileObject == null) return;
-
         if (_tileObject.BuildingTileObject().IsEcologyBuilding() && !_tileObject.IsHaveRequiredResource()) return;
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Work], transform.position);
 
         _tileObject.SetBuildingWork(!_tileObject.IsBuildingWork());
         WorkButtonIconChangeColor();
@@ -285,7 +286,7 @@ public class SelectTilePanel : MonoBehaviour
     public void RotateButton()
     {
         if (!_rotateButton.activeInHierarchy || _tileObject == null) return;
-
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Rotate], transform.position);
         var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
         var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() : null;
 
@@ -296,7 +297,7 @@ public class SelectTilePanel : MonoBehaviour
     public void DestroyButton()
     {
         if (!_destroyButton.activeInHierarchy || _tileObject == null) return;
-
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _uiPanels.CloseAllBuildsPanels();
 
         if (!_destroyPanel.gameObject.activeInHierarchy)
@@ -337,6 +338,8 @@ public class SelectTilePanel : MonoBehaviour
 
     public void RobotPanelButton()
     {
+        if (!_robotButton.activeInHierarchy || _tileObject == null) return;
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         PanelViewToggle(false);
         _robotPanel.PanelViewToggle(true);
 
@@ -357,6 +360,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ChangeResourceRequired(Resource resource)
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         var resourcesForWork = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork;
 
         for (int i = 0; i < resourcesForWork.Length; i++)

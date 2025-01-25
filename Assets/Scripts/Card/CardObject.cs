@@ -29,6 +29,7 @@ public class CardObject : MonoBehaviour
 
     public void SelectCardObject()
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _cardHolderSystem.SelectCardInCardHolder(this);
         CardObjectViewToggle(true);
     }

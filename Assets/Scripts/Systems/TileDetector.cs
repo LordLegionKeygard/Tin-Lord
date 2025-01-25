@@ -97,7 +97,6 @@ public class TileDetector : MonoBehaviour
 
                 _currentTileObject.GroundTileObject().SetGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile());
                 _currentTileObject.GroundTileObject().SpawnGroundTile();
-                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.GroundTiles[(int)_currentTileObject.GroundTileObject().CurrentGroundTile().GroundTileView - 1], transform.position);
                 if (_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();
                 ClearTileDetector();
                 _cardHolderSystem.RemoveCurrentCard();

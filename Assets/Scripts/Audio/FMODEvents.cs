@@ -14,6 +14,20 @@ public class FMODEvents : MonoBehaviour
     public EventReference[] GroundTiles;
     public EventReference LaserDestruction;
 
+    [Header("Building")]
+    public EventReference CompleteConstructBuilding;
+    public EventReference CompleteUpgradeBuilding;
+    public EventReference DestructionBuilding;
+
+    [Header("Robot")]
+    public EventReference RobotSpawn;
+    public EventReference RobotDeath;
+    public EventReference RobotExplosion;
+
+    [Header("Mission")]
+    public EventReference SelectMission;
+    public EventReference StartMission;
+
 
     private void Awake()
     {
@@ -27,4 +41,8 @@ public enum UiClickEnum
 {
     Default = 0,
     Terminal = 1,
+    Repair = 2,
+    GameSpeed = 3,
+    Work = 4,
+    Rotate = 5,
 }

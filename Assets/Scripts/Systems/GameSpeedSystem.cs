@@ -16,6 +16,12 @@ public class GameSpeedSystem : MonoBehaviour
     public void InputChangeGameSpeed(int gameSpeed)
     {
         if (!_canChangeGameSpeed) return;
+        ChangeGameSpeedButton(gameSpeed);
+    }
+
+    public void ChangeGameSpeedButton(int gameSpeed)
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.GameSpeed], transform.position);
         ChangeGameSpeed(gameSpeed);
     }
     

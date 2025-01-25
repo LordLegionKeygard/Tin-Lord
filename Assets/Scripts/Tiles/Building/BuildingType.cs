@@ -40,6 +40,7 @@ public class BuildingType : MonoBehaviour
     public void SelectTypeButton()
     {
         if (!_canSelect) return;
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
         _buildsPanel.gameObject.SetActive(true);
         _buildsPanel.SpawnBuildingItemsInScrollView(_currentTileObject, _selectTilePanel, _currentBuildingTypeTile); //спавним список зданий этого типа
