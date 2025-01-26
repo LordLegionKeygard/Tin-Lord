@@ -27,6 +27,7 @@ public class FMODEvents : MonoBehaviour
     [Header("Mission")]
     public EventReference SelectMission;
     public EventReference StartMission;
+    public EventReference[] EndMission;
 
 
     private void Awake()

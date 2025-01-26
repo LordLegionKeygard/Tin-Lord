@@ -31,17 +31,33 @@ public class EndMissionSystem : MonoBehaviour
     private void MissionEnd(MissionEndEnum missionEndEnum)
     {
         if (_isMissionEnd) return;
-        _isMissionEnd = true;
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EndMission[(int)missionEndEnum], transform.position);
+        PrepareEndMission();
+        SetMissionEndViewInfo(missionEndEnum);
+        PrepareData(missionEndEnum);
+    }
 
+    private void PrepareEndMission()
+    {
+        _isMissionEnd = true;
         _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default);
         StopAllCoroutines();
         _uIPanelsWorld.CloseAllPanels();
-        _panel.SetActive(true);
+    }
+
+    private void SetMissionEndViewInfo(MissionEndEnum missionEndEnum)
+    {
+        var percent = missionEndEnum switch
+        {
+            MissionEndEnum.Defeat => WorldGameInfo.DefeatFragmentsPercent / 100,
+            MissionEndEnum.Escape => WorldGameInfo.EscapeFragmentsPercent / 100,
+            MissionEndEnum.Victory => WorldGameInfo.VictoryFragmentsPercent / 100,
+            _ => 0f
+        };
 
         var headerTextNumber = missionEndEnum is MissionEndEnum.Defeat ? 64 : missionEndEnum is MissionEndEnum.Escape ? 65 : 63;
         var headerTextColor = missionEndEnum is MissionEndEnum.Defeat ? Color.red : missionEndEnum is MissionEndEnum.Escape ? Colors.GreyEight : Colors.WarningYellow;
         var allFragmentsAmount = (int)_playerResources.GetResourceNumberForEnum(ResourceEnum.MemoryFragment);
-        var percent = (int)missionEndEnum / 100f;
         _receivedFragments = Mathf.RoundToInt(allFragmentsAmount * percent);
 
         _headerText.text = Language.TextStatic[headerTextNumber];
@@ -50,8 +66,13 @@ public class EndMissionSystem : MonoBehaviour
         _maxFragmentsText.text = allFragmentsAmount.ToString();
         _slider.value = 0;
 
-        StartCoroutine(UpdateFragmentsAndSlider(allFragmentsAmount, _receivedFragments, percent));
+        _panel.SetActive(true);
 
+        StartCoroutine(UpdateFragmentsAndSlider(allFragmentsAmount, _receivedFragments, percent));
+    }
+
+    private void PrepareData(MissionEndEnum missionEndEnum)
+    {
         _worldSaveGame.DeleteMissionGameData();
         _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments, CurrentMissionInfo.Instance.GetLastOpenedMissionId(missionEndEnum));
     }
@@ -75,7 +96,6 @@ public class EndMissionSystem : MonoBehaviour
             yield return null;
         }
 
-        // Убедимся, что значения установлены окончательно после завершения анимации
         _receivedFragmentsText.text = $"{Language.TextStatic[62]} {targetFragments}";
         _slider.value = targetPercent;
     }
@@ -101,8 +121,8 @@ public class EndMissionSystem : MonoBehaviour
 
 public enum MissionEndEnum
 {
-    Nothing = 0,
-    Defeat = 10,
-    Escape = 50,
-    Victory = 100,
+    Nothing = -1,
+    Victory = 0,
+    Defeat = 1,
+    Escape = 2,
 }

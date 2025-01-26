@@ -39,11 +39,13 @@ public class WorldGameInfo
 
     //Buildings
     public const float ConstructionSpeed = 20;
-    
-    //Map
-    // public const int MapWidth = 16;
-    // public const int MapLength = 20;
 
     //Load
     public const int LoadSceneTime = 2;
+
+    //EndMissionFragmentsPercent
+    public const int DefeatFragmentsPercent = 10;
+    public const int EscapeFragmentsPercent = 50;
+    public const int VictoryFragmentsPercent = 100;
+
 }
