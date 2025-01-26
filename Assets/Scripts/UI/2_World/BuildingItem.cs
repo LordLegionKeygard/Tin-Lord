@@ -87,11 +87,11 @@ public class BuildingItem : MonoBehaviour
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
-                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.StartConstruct], transform.position);
                 _currentTileObject.BuildingTileObject().BeginConstruction(_currentTile, _buildingIndex, false);
                 break;
             case BuildingState.UpgradeBuilding:
-                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.StartConstruct], transform.position);
                 if (_currentTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.BaseFoundation))
                 {
                     _currentTileObject.BuildingTileObject().UpgradeBaseBuilding(_buildingIndex, _currentTileObject);

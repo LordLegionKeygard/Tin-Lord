@@ -80,6 +80,7 @@ public class BuildsPanel : MonoBehaviour
             }
             else
             {
+                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
                 _scrollToCard.SelectCard(number - 1, _buildingsList.Count - 1);
                 foundBuilding.SelectView();
             }

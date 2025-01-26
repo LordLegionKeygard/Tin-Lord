@@ -45,4 +45,8 @@ public enum UiClickEnum
     GameSpeed = 3,
     Work = 4,
     Rotate = 5,
+    Card = 6,
+    SelectTile = 7,
+    LearnBuilding = 8,
+    StartConstruct = 9,
 }
