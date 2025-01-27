@@ -169,7 +169,7 @@ public class Language : MonoBehaviour
         _text[46, 1] = "Выход";
 
         _text[47, 0] = "Main menu";
-        _text[47, 1] = "Главное меню";
+        _text[47, 1] = "Меню";
 
         _text[48, 0] = "Are you sure you want to restart the mission?\n\nYour current save will be overwritten.";
         _text[48, 1] = "Вы уверены, что хотите перезапустить миссию?\n\nВаше текущее сохранение будет перезаписано.";

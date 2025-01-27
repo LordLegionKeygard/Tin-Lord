@@ -8,8 +8,7 @@ public class FMODEvents : MonoBehaviour
     [Header("UiSFX")]
     public EventReference[] UiClick;
     public EventReference EscapePanel;
-
-
+    
     [Header("Environment")]
     public EventReference[] GroundTiles;
     public EventReference LaserDestruction;
@@ -28,7 +27,9 @@ public class FMODEvents : MonoBehaviour
     public EventReference SelectMission;
     public EventReference StartMission;
     public EventReference[] EndMission;
-
+    
+    [Header("WorldEvents")] 
+    public EventReference MeteorStrike;
 
     private void Awake()
     {

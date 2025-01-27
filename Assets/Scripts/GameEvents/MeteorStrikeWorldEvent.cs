@@ -7,54 +7,39 @@ public class MeteorStrikeWorldEvent : BaseWorldEvent
     [Inject] private readonly TilesSystem _tilesSystem;
     private float _delay = 1.5f;
     private int _meteorDamagePercent = 30;
+    private GroundTileViewEnum _groundTileView = GroundTileViewEnum.None;
+    
     public override void StartEvent()
     {
         base.StartEvent();
-
+        StartCoroutine(nameof(MeteorCoroutine));
+    }
+    
+    private IEnumerator MeteorCoroutine()
+    {
+        yield return new WaitForSeconds(_delay);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.MeteorStrike, GetCurrentPrefab().transform.position);
+        
         var groundTile = GetTileObject().GroundTileObject();
-
-        if (groundTile.CurrentGroundTile() != null)
+        if (groundTile.CurrentGroundTile() == null) yield break;
+        
+        
+        switch (_groundTileView)
         {
-            switch (groundTile.CurrentGroundTile().GroundTileView)
-            {
-                case GroundTileViewEnum.BaseFoundation:
-                    StartCoroutine(nameof(DealDamageCoroutine));
-                    break;
-                case GroundTileViewEnum.Road or GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver or GroundTileViewEnum.DesertRiver:
-                    StartCoroutine(nameof(DestroyBuildingCoroutine));
-                    break;
-                case GroundTileViewEnum.Rift or GroundTileViewEnum.Crater:
-                    //ничего
-                    break;
-                default:
-                    StartCoroutine(nameof(SpawnGroundTileAndDestroyBuildingCoroutine));
-                    break;
-
-            }
+            case GroundTileViewEnum.BaseFoundation:
+                GetTileObject().BuildingHealth().CalculateDamage(GetTileObject().BuildingHealth().CalculateHealthFromPercent(_meteorDamagePercent));
+                break;
+            case GroundTileViewEnum.Road or GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver or GroundTileViewEnum.DesertRiver:
+                GetTileObject().BuildingTileObject().DestroyBuildingTile(true);
+                break;
+            case GroundTileViewEnum.Rift or GroundTileViewEnum.Crater:
+                //ничего
+                break;
+            default:
+                GetTileObject().BuildingTileObject().DestroyBuildingTile(true);
+                GetTileObject().GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Crater));
+                GetTileObject().GroundTileObject().SpawnGroundTile();
+                break;
         }
-    }
-
-    private IEnumerator DealDamageCoroutine()
-    {
-        yield return new WaitForSeconds(_delay);
-
-        GetTileObject().BuildingHealth().CalculateDamage(GetTileObject().BuildingHealth().CalculateHealthFromPercent(_meteorDamagePercent));
-    }
-
-    private IEnumerator DestroyBuildingCoroutine()
-    {
-        yield return new WaitForSeconds(_delay);
-
-        GetTileObject().BuildingTileObject().DestroyBuildingTile(true);
-    }
-
-
-    private IEnumerator SpawnGroundTileAndDestroyBuildingCoroutine()
-    {
-        yield return new WaitForSeconds(_delay);
-
-        GetTileObject().BuildingTileObject().DestroyBuildingTile(true);
-        GetTileObject().GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Crater));
-        GetTileObject().GroundTileObject().SpawnGroundTile();
     }
 }
