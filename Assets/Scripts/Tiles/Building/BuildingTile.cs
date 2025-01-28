@@ -188,6 +188,7 @@ public class BuildingTile : MonoBehaviour
 
    public void FinalizeBaseUpgrade(int newLevel, int previousLevel)
    {
+      AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.CompleteUpgradeBuilding, transform.position);
       _isConstructionNow = false;
       _currentLevel = newLevel;
 

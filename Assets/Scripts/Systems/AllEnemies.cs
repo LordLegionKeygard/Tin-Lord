@@ -11,7 +11,5 @@ public class AllEnemies : MonoBehaviour
 public enum EnemyEnum
 {
     None = -1,
-    Gastarias = 0,
-    Gastarid = 1,
-    Gastaroid = 2,
+    Arathrox = 0,
 }

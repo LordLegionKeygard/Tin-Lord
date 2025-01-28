@@ -49,14 +49,14 @@ public class EndMissionSystem : MonoBehaviour
     {
         var percent = missionEndEnum switch
         {
-            MissionEndEnum.Defeat => WorldGameInfo.DefeatFragmentsPercent / 100,
-            MissionEndEnum.Escape => WorldGameInfo.EscapeFragmentsPercent / 100,
-            MissionEndEnum.Victory => WorldGameInfo.VictoryFragmentsPercent / 100,
+            MissionEndEnum.Defeat => WorldGameInfo.DefeatFragmentsPercent / 100f,
+            MissionEndEnum.Escape => WorldGameInfo.EscapeFragmentsPercent / 100f,
+            MissionEndEnum.Victory => WorldGameInfo.VictoryFragmentsPercent / 100f,
             _ => 0f
         };
 
         var headerTextNumber = missionEndEnum is MissionEndEnum.Defeat ? 64 : missionEndEnum is MissionEndEnum.Escape ? 65 : 63;
-        var headerTextColor = missionEndEnum is MissionEndEnum.Defeat ? Color.red : missionEndEnum is MissionEndEnum.Escape ? Colors.GreyEight : Colors.WarningYellow;
+        var headerTextColor = missionEndEnum is MissionEndEnum.Defeat ? Color.black : missionEndEnum is MissionEndEnum.Escape ? Colors.GreyEight : Colors.WarningYellow;
         var allFragmentsAmount = (int)_playerResources.GetResourceNumberForEnum(ResourceEnum.MemoryFragment);
         _receivedFragments = Mathf.RoundToInt(allFragmentsAmount * percent);
 

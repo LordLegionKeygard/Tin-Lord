@@ -149,11 +149,11 @@ MonoBehaviour:
       Data4: -1587799920
     Path: event:/Sfx/Ui/Click/LearnBuildingClick
   - Guid:
-      Data1: -863879498
-      Data2: 1167304520
-      Data3: 1841732521
-      Data4: -1845736847
-    Path: event:/Sfx/Ui/Click/StartConstructClick
+      Data1: 754612413
+      Data2: 1341920180
+      Data3: -1029455459
+      Data4: -836533336
+    Path: event:/Sfx/Ui/Click/ErrorClick
   EscapePanel:
     Guid:
       Data1: 1389760178
@@ -413,3 +413,10 @@ MonoBehaviour:
       Data3: 1785083544
       Data4: 918246566
     Path: event:/Sfx/WorldEvents/MeteorStrike
+  Death:
+  - Guid:
+      Data1: 355324925
+      Data2: 1293831216
+      Data3: -1934529402
+      Data4: 2107945814
+    Path: event:/Sfx/Enemies/0_Arathrox

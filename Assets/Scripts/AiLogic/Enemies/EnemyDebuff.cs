@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class EnemyDebuff : MonoBehaviour
 {
-    [Header("Slow")]
-    [SerializeField] private SkinnedMeshRenderer meshRenderer;
+    [SerializeField] private SkinnedMeshRenderer[] _meshRenderers;
+    [SerializeField] private bool _isHaveEmission;
+    [ColorUsage(true, true)] [SerializeField] private Color _emissionColor;
     private float _speedFactor = 1;
-    public float GetSpeedFactor() => _speedFactor;
     private EnemySpeed _enemySpeed;
+    public float GetSpeedFactor() => _speedFactor;
 
     private void Awake()
     {
@@ -24,12 +25,22 @@ public class EnemyDebuff : MonoBehaviour
     {
         if (_speedFactor == 1.0f)
         {
-            meshRenderer.material.DisableKeyword("_EMISSION");
+            for (int i = 0; i < _meshRenderers.Length; i++)
+            {
+                if(_isHaveEmission)
+                {
+                    _meshRenderers[i].material.SetColor("_EmissionColor", _emissionColor);
+                }
+                else _meshRenderers[i].material.DisableKeyword("_EMISSION");
+            }
         }
         else
         {
-            meshRenderer.material.EnableKeyword("_EMISSION");
-            meshRenderer.material.SetColor("_EmissionColor", Colors.SlowEmission);
+            for (int i = 0; i < _meshRenderers.Length; i++)
+            {
+                _meshRenderers[i].material.EnableKeyword("_EMISSION");
+                _meshRenderers[i].material.SetColor("_EmissionColor", Colors.SlowEmission);
+            }
         }
     }
 }

@@ -126,7 +126,7 @@ public class ConfigLoaderBuildings : ScriptableObject
             string[] resourceAmount = part.Split(':');
             if (resourceAmount.Length == 2 &&
                 int.TryParse(resourceAmount[0], out int resourceIndex) &&
-                float.TryParse(resourceAmount[1], out float amount))
+                float.TryParse(resourceAmount[1], NumberStyles.Float, CultureInfo.InvariantCulture, out float amount))
             {
                 if (resourceIndex >= 0 && resourceIndex < _allResources.Length)
                 {
@@ -206,7 +206,7 @@ public class ConfigLoaderBuildings : ScriptableObject
             string[] resourceAmount = part.Split(':');
             if (resourceAmount.Length == 2 &&
                 int.TryParse(resourceAmount[0], out int resourceIndex) &&
-                int.TryParse(resourceAmount[1], out int amount))
+                float.TryParse(resourceAmount[1], NumberStyles.Float, CultureInfo.InvariantCulture, out float amount))
             {
                 if (resourceIndex >= 0 && resourceIndex < _allResources.Length)
                 {

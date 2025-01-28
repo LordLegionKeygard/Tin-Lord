@@ -48,4 +48,7 @@ public class WorldGameInfo
     public const int EscapeFragmentsPercent = 50;
     public const int VictoryFragmentsPercent = 100;
 
+    //Sounds
+    public const int EnemiesDeathSoundChance = 10;
+
 }

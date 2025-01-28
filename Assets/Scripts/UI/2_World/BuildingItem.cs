@@ -79,7 +79,12 @@ public class BuildingItem : MonoBehaviour
 
     public void BuildOrUpgrade()
     {
-        if (!_resourcesEnough) return;
+        if (!_resourcesEnough)
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+            return;
+        } 
+            
 
         _buildingResourcesView.ResetCells();
         _playerResources.UseResourcesForBuilding(GetResources());
@@ -87,11 +92,11 @@ public class BuildingItem : MonoBehaviour
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
-                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.StartConstruct], transform.position);
+                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
                 _currentTileObject.BuildingTileObject().BeginConstruction(_currentTile, _buildingIndex, false);
                 break;
             case BuildingState.UpgradeBuilding:
-                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.StartConstruct], transform.position);
+                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
                 if (_currentTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.BaseFoundation))
                 {
                     _currentTileObject.BuildingTileObject().UpgradeBaseBuilding(_buildingIndex, _currentTileObject);

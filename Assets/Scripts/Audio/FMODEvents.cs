@@ -31,6 +31,10 @@ public class FMODEvents : MonoBehaviour
     [Header("WorldEvents")] 
     public EventReference MeteorStrike;
 
+    [Header("Enemies")]
+    public EventReference[] Death;
+
+
     private void Awake()
     {
         if (Instance != null) Debug.LogError("Two FMODEvents");
@@ -50,5 +54,5 @@ public enum UiClickEnum
     Card = 6,
     SelectTile = 7,
     LearnBuilding = 8,
-    StartConstruct = 9,
+    Error = 9,
 }

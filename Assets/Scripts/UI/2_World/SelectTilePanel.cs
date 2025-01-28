@@ -319,8 +319,11 @@ public class SelectTilePanel : MonoBehaviour
             groundTileObject.DestroyGroundTile();
             PanelViewToggle(false);
         }
-
-        DestroyPanelToggleAndRefreshButtonColor(false);
+        else // недостаточно ресурсов для уничтожения тайла земли
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+            DestroyPanelToggleAndRefreshButtonColor(false);
+        }
     }
 
     private void DestroyButtonChangeColor()

@@ -13,67 +13,21 @@ MonoBehaviour:
   m_Name: 0_EnemiesSpawnerInfo
   m_EditorClassIdentifier: 
   Spawners:
+  - DaySpawn: 2
+    MinCount: 10
+    MaxCount: 20
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 1
   - DaySpawn: 3
     MinCount: 10
     MaxCount: 20
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
-      EnemyLevel: 2
+      EnemyLevel: 1
   - DaySpawn: 4
-    MinCount: 10
-    MaxCount: 20
+    MinCount: 90
+    MaxCount: 100
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
-      EnemyLevel: 2
-    - EnemyEnum: 1
-      EnemyLevel: 4
-  - DaySpawn: 5
-    MinCount: 10
-    MaxCount: 20
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-    - EnemyEnum: 1
-      EnemyLevel: 4
-    - EnemyEnum: 2
-      EnemyLevel: 6
-  - DaySpawn: 6
-    MinCount: 10
-    MaxCount: 20
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-    - EnemyEnum: 1
-      EnemyLevel: 4
-    - EnemyEnum: 2
-      EnemyLevel: 6
-  - DaySpawn: 7
-    MinCount: 20
-    MaxCount: 30
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-    - EnemyEnum: 1
-      EnemyLevel: 4
-    - EnemyEnum: 2
-      EnemyLevel: 6
-  - DaySpawn: 8
-    MinCount: 40
-    MaxCount: 50
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-    - EnemyEnum: 1
-      EnemyLevel: 4
-    - EnemyEnum: 2
-      EnemyLevel: 6
-  - DaySpawn: 9
-    MinCount: 20
-    MaxCount: 30
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-    - EnemyEnum: 1
-      EnemyLevel: 4
-    - EnemyEnum: 2
-      EnemyLevel: 6
+      EnemyLevel: 1

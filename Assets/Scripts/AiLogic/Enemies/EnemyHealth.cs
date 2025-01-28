@@ -83,12 +83,20 @@ public class EnemyHealth : BaseHealth
         _characterController.enabled = false;
         _aiPath.enabled = false;
         _enemyAnimator.DeathAnim();
+        DeathSound();
 
         CustomEvents.FireChangeExperience(_enemyLevel.GetExperience());
         CustomEvents.FireEnemyDeath(_enemyInfo.GetEnemyNumber());
         CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.KillEnemies, 1);
 
         StartCoroutine(FadeAndDestroy());
+    }
+
+    private void DeathSound()
+    {
+        var rnd = Random.Range(0, 100);
+        if (WorldGameInfo.EnemiesDeathSoundChance < rnd) return; 
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Death[(int)_enemyInfo.GetEnemyEnum()], transform.position);
     }
 
     private IEnumerator FadeAndDestroy()
