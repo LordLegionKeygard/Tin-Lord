@@ -6,19 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Gastarias.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Gastarias.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/1_Gastarid.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/1_Gastarid.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/2_Gastaroid.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/2_Gastaroid.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Arathrox/Arathrox@Death.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Arathrox/Arathrox@Death.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Arathrox/Arathrox@GetHitFront.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Arathrox/Arathrox@GetHitFront.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Arathrox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Arathrox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastarias.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastarias.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastarid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastarid.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastaroid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastaroid.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Static/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Static/AudioManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/2_World/ObjectiveItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/2_World/ObjectiveItem.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/0_EnemiesSpawnerInfo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/0_EnemiesSpawnerInfo.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyDebuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyDebuff.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyLevel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Missions/AllMissionsInfo.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Missions/AllMissionsInfo.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/AllMissionsInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/AllMissionsInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Static/WorldGameInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Static/WorldGameInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/AllEnemies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/AllEnemies.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/EndMissionSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/EndMissionSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/GameSpeedSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/GameSpeedSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,15 +95,13 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="21580">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="21580" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -149,6 +153,7 @@
       <workItem from="1736891748079" duration="1000" />
       <workItem from="1737999601669" duration="2994000" />
       <workItem from="1738083063101" duration="707000" />
+      <workItem from="1738179307288" duration="1361000" />
     </task>
     <servers />
   </component>

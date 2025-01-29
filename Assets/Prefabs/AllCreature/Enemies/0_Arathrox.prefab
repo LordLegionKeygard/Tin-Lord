@@ -345,9 +345,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: 100
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 0
   pickNextWaypointDist: 2
-  endReachedDistance: 4
+  endReachedDistance: 0
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b955fdfe84640fd49ab584b839dca9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyEnum: 0
 --- !u!114 &5061451366417472297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +739,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _combatState: {fileID: 2318056102109887200}
-  _currentAttack: {fileID: 0}
 --- !u!1 &2318056101767411054
 GameObject:
   m_ObjectHideFlags: 0

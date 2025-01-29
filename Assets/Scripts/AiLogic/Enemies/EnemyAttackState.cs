@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyAttackState : EnemyState
 {
     [SerializeField] private EnemyCombatState _combatState;
-    [SerializeField] private AttackInfo _currentAttack;
+    private AttackInfo _currentAttack;
     private AttackInfo _attackInfo;
 
     public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks)

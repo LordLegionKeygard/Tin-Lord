@@ -1442,9 +1442,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: 100
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 0
   pickNextWaypointDist: 2
-  endReachedDistance: 4
+  endReachedDistance: 0
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
@@ -1536,7 +1536,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _information: {fileID: 11400000, guid: 50969a87dad4a9848934d8bb32581dbe, type: 2}
-  _level: 3
 --- !u!114 &1539703436552722861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1549,8 +1548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a772a9cd184348d4a911882f2651fbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
-  CurrentHealth: 0
   _healthSliderObject: {fileID: 0}
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
@@ -1621,7 +1618,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshRenderer: {fileID: 1578422724545199102}
+  _meshRenderers: []
+  _isHaveEmission: 0
+  _emissionColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8015310584272509124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1648,7 +1647,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyEnum: 0
-  _enemyNumber: 0
 --- !u!1 &1444145727361937564
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,7 +3292,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _combatState: {fileID: 3478823767235847841}
-  _currentAttack: {fileID: 0}
 --- !u!1 &3478823766665814982
 GameObject:
   m_ObjectHideFlags: 0

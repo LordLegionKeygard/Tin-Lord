@@ -10,7 +10,7 @@ public class WorldGameInfo
     //EnemyReachedDistance
     public const int EnemyReachedRobotDistance = 5;
     public const int EnemyReachedTileDistance = 8;
-    public const int EnemyReachedFourTileDistance = 12;
+    public const int EnemyReachedFourTileDistance = 13;
 
     //Turret
     public const float TurretMaximumAttackAngle = 10;

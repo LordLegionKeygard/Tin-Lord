@@ -99,68 +99,68 @@ MonoBehaviour:
       Data2: 1147939788
       Data3: 136670137
       Data4: 1633342574
-    Path: event:/Sfx/Ui/Click/DefaultClick
+    Path: event:/Ui/Click/DefaultClick
   - Guid:
       Data1: -1350402248
       Data2: 1138572988
       Data3: -1917702247
       Data4: -131349307
-    Path: event:/Sfx/Ui/Click/TerminalClick
+    Path: event:/Ui/Click/TerminalClick
   - Guid:
       Data1: -181251051
       Data2: 1116815579
       Data3: -67987800
       Data4: 700698466
-    Path: event:/Sfx/Ui/Click/RepairClick
+    Path: event:/Ui/Click/RepairClick
   - Guid:
       Data1: -1501611127
       Data2: 1155020915
       Data3: -1728898417
       Data4: -863785567
-    Path: event:/Sfx/Ui/Click/GameSpeedClick
+    Path: event:/Ui/Click/GameSpeedClick
   - Guid:
       Data1: -1052344789
       Data2: 1297349114
       Data3: -41212243
       Data4: 767979266
-    Path: event:/Sfx/Ui/Click/WorkClick
+    Path: event:/Ui/Click/WorkClick
   - Guid:
       Data1: 1969256547
       Data2: 1074629331
       Data3: -271627385
       Data4: 1429093636
-    Path: event:/Sfx/Ui/Click/RotateClick
+    Path: event:/Ui/Click/RotateClick
   - Guid:
       Data1: 1981008296
       Data2: 1189079932
       Data3: -1325444455
       Data4: -726359707
-    Path: event:/Sfx/Ui/Click/CardClick
+    Path: event:/Ui/Click/CardClick
   - Guid:
       Data1: -1201560972
       Data2: 1282285464
       Data3: 2056416179
       Data4: 506525112
-    Path: event:/Sfx/Ui/Click/SelectTileClick
+    Path: event:/Ui/Click/SelectTileClick
   - Guid:
       Data1: -1336987040
       Data2: 1076060688
       Data3: -2132628310
       Data4: -1587799920
-    Path: event:/Sfx/Ui/Click/LearnBuildingClick
+    Path: event:/Ui/Click/LearnBuildingClick
   - Guid:
       Data1: 754612413
       Data2: 1341920180
       Data3: -1029455459
       Data4: -836533336
-    Path: event:/Sfx/Ui/Click/ErrorClick
+    Path: event:/Ui/Click/ErrorClick
   EscapePanel:
     Guid:
       Data1: 1389760178
       Data2: 1155496203
       Data3: -646021227
       Data4: -1195971988
-    Path: event:/Sfx/Ui/EscapePanel
+    Path: event:/Ui/EscapePanel
   GroundTiles:
   - Guid:
       Data1: 831788631
@@ -379,33 +379,33 @@ MonoBehaviour:
       Data2: 1152317889
       Data3: 1183851411
       Data4: 1353892855
-    Path: event:/Sfx/Ui/Mission/SelectMission
+    Path: event:/Ui/Mission/SelectMission
   StartMission:
     Guid:
       Data1: -924285588
       Data2: 1152041980
       Data3: -712451685
       Data4: 915107493
-    Path: event:/Sfx/Ui/Mission/StartMission
+    Path: event:/Ui/Mission/StartMission
   EndMission:
   - Guid:
       Data1: -61471430
       Data2: 1337900931
       Data3: 1535838084
       Data4: -1883323184
-    Path: event:/Sfx/Ui/Mission/VictoryMission
+    Path: event:/Ui/Mission/VictoryMission
   - Guid:
       Data1: -592857559
       Data2: 1092047789
       Data3: 721606589
       Data4: 90251749
-    Path: event:/Sfx/Ui/Mission/DefeatMission
+    Path: event:/Ui/Mission/DefeatMission
   - Guid:
       Data1: -400205465
       Data2: 1134427364
       Data3: 581151157
       Data4: -1587683708
-    Path: event:/Sfx/Ui/Mission/EscapeMission
+    Path: event:/Ui/Mission/EscapeMission
   MeteorStrike:
     Guid:
       Data1: 1684951490
@@ -415,8 +415,14 @@ MonoBehaviour:
     Path: event:/Sfx/WorldEvents/MeteorStrike
   Death:
   - Guid:
+      Data1: -1697757156
+      Data2: 1107440243
+      Data3: 2145312644
+      Data4: -593283787
+    Path: event:/Sfx/Enemies/0_Arathrox
+  - Guid:
       Data1: 355324925
       Data2: 1293831216
       Data3: -1934529402
       Data4: 2107945814
-    Path: event:/Sfx/Enemies/0_Arathrox
+    Path: event:/Sfx/Enemies/1_Serparmat
