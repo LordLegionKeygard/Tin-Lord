@@ -12,25 +12,25 @@ namespace CRTFilter
         private float pixelResolutionY = 1080;
 
         [Header("Main")]
-        [Range(0f, 10f)] public float screenBend = 6; //не трогаем
-        [Range(0f, 10f)] public float vignetteSize = 5.7f; //не трогаем
-        [Range(0f, 20f)] public float vignetteSmooth = 2; // если экология >=0 то 2, если <=0 то движемся к 20 с максимальным параметром -100 экологии
-        [Range(2f, 50f)] public float vignetteRound = 25; // если экология >=0 то 25, если <=0 то движемся к 50 с максимальным параметром -100 экологии
+        [Range(0f, 10f)] public float screenBend = 6;
+        [Range(0f, 10f)] public float vignetteSize = 5.7f;
+        [Range(0f, 20f)] public float vignetteSmooth = 2;
+        [Range(2f, 50f)] public float vignetteRound = 25;
 
         [Header("ShadowLines")]
-        [Range(0f, 50f)] public float shadowlines = 50; //не трогаем
-        [Range(-20f, 20f)] public float shadowlinesSpeed = -5; //не трогаем
-        [Range(0f, 0.015f)] public float shadowlinesAlpha = 0.05f; // если экология >=0 то 0, если <=0 то движемся к 0.05f с максимальным параметром -100 экологии
+        [Range(0f, 50f)] public float shadowlines = 50;
+        [Range(-20f, 20f)] public float shadowlinesSpeed = -5;
+        [Range(0f, 0.015f)] public float shadowlinesAlpha = 0.05f;
 
         [Header("Noise")]
-        [Range(0f, 100f)] public float noiseSize = 50; //не трогаем
-        [Range(0f, 10f)] public float noiseSpeed = 10; //не трогаем
-        [Range(0f, 1f)] public float noiseAlpha = 0.035f; // если экология >=0 то 0, если <=0 то движемся к 0.035f с максимальным параметром -100 экологии
+        [Range(0f, 100f)] public float noiseSize = 50;
+        [Range(0f, 10f)] public float noiseSpeed = 10;
+        [Range(0f, 1f)] public float noiseAlpha = 0.035f;
 
 
         [Header("Contrast Enhancement")]
-        [Range(-0.5f, 0.5f)] public float brightness = -0.12f; //не трогаем
-        [Range(0.5f, 2f)] public float contrast = 0.8f; //не трогаем
+        [Range(-0.5f, 0.5f)] public float brightness = -0.12f;
+        [Range(0.5f, 2f)] public float contrast = 0.8f;
 
 
         [Header("Colorize")]

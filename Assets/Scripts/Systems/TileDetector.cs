@@ -211,7 +211,7 @@ public class TileDetector : MonoBehaviour
         UnselectLastTile(false);
         _selectTilePanel.ResetPanels();
 
-        if (newTileObject.GroundTileObject().HaveTile())
+        if (newTileObject.GroundTileObject().HaveTile() && _currentTileObject != newTileObject)
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.SelectTile], transform.position);
             _currentTileObject = newTileObject;

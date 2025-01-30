@@ -41,7 +41,7 @@ public class UIPanelsWorld : MonoBehaviour
         {
             ClearAndCancelCardHolderAndTileDetector();
         }
-        else if(_panelDoMove.IsOpen())
+        else if (_panelDoMove.IsOpen())
         {
             _panelDoMove.PanelClose();
         }
@@ -93,6 +93,19 @@ public class UIPanelsWorld : MonoBehaviour
     {
         _selectTilePanels[10].SetActive(state);
         _selectTilePanels[9].SetActive(state);
+    }
+
+    public void CloseAllSelectTilePanels()
+    {
+        _selectTilePanels[0].SetActive(false);
+        _selectTilePanels[1].SetActive(false);
+        _selectTilePanels[2].SetActive(false);
+        _selectTilePanels[3].SetActive(false);
+        _selectTilePanels[4].SetActive(false);
+        _selectTilePanels[5].SetActive(false);
+        _selectTilePanels[6].SetActive(false);
+        _selectTilePanels[7].SetActive(false);
+        _selectTilePanels[8].SetActive(false);
     }
 
     public void CloseAllPanels()

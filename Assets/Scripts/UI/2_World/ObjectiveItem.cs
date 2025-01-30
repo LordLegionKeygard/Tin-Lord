@@ -32,7 +32,7 @@ public class ObjectiveItem : MonoBehaviour
                 _objectiveText.text = $"{string.Format(Language.TextStatic[61], currentAmount, _objectiveWrapper.ObjectiveAmount)}";
                 break;
         }
-        _objectiveText.color = isComplete ? Colors.LightGreen : Color.black;
+        _objectiveText.color = isComplete ? Colors.LightGreen : Colors.GreySeven;
         _icon.sprite = _sprites[isComplete ? 1 : 0];
     }
 }
