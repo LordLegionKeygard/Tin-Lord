@@ -19,7 +19,7 @@ public class BuildingTileProtective : MonoBehaviour
 
     public void PrepareProtective()
     {
-        if (!_buildingTile.HaveTile() || !_buildingTile.IsProtectiveTile())
+        if (!_buildingTile.HaveTile() || !_buildingTile.IsProtectiveTile() || !_buildingTile.HaveBuildingGameObject())
         {
             return;
         }

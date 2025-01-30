@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class EarthquakeWorldEvent : BaseWorldEvent
 {
     [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Transform _transform;
+    private float _delay = 1.5f;
     private float _initialYPosition = 10.8f;
     private float _shakeAmplitude = 0.2f;
     private float _shakeDuration = 2;
@@ -14,24 +16,28 @@ public class EarthquakeWorldEvent : BaseWorldEvent
 
     public override void StartEvent()
     {
+        StartCoroutine(nameof(EarthquakeCoroutine));
+    }
+
+    private IEnumerator EarthquakeCoroutine()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EarthQuake, transform.position);
+        yield return new WaitForSeconds(_delay);
+
         _transform.position = new Vector3(_transform.position.x, _initialYPosition, _transform.position.z);
 
         Sequence shakeSequence = DOTween.Sequence();
 
         int shakeCount = Mathf.CeilToInt(_shakeDuration / (_shakeSpeed * 2));
 
-        // Определяем момент для вызова метода на середине
-        int halfwayPoint = shakeCount / 2;
-
         for (int i = 0; i < shakeCount; i++)
         {
             shakeSequence.Append(_transform.DOMoveY(_initialYPosition + _shakeAmplitude, _shakeSpeed).SetEase(Ease.InOutSine));
             shakeSequence.Append(_transform.DOMoveY(_initialYPosition - _shakeAmplitude, _shakeSpeed).SetEase(Ease.InOutSine));
 
-            // Вставляем вызов метода в середине последовательности
-            if (i == halfwayPoint)
+            if (i == shakeCount - 1)
             {
-                shakeSequence.AppendCallback(OnShakeMidway);
+                shakeSequence.AppendCallback(UseEarthQuake);
             }
         }
 
@@ -39,7 +45,7 @@ public class EarthquakeWorldEvent : BaseWorldEvent
         shakeSequence.Play();
     }
 
-    private void OnShakeMidway()
+    private void UseEarthQuake()
     {
         var rnd = Random.Range(0, 2);
         var validTiles = new List<TileObject>();
@@ -59,7 +65,7 @@ public class EarthquakeWorldEvent : BaseWorldEvent
             if (validTiles.Count > 0)
             {
                 var randomTile = validTiles[Random.Range(0, validTiles.Count)];
-                randomTile.BuildingHealth().Death();
+                randomTile.BuildingTileObject().DestroyBuildingTile(false);
                 randomTile.GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Volcano));
                 randomTile.GroundTileObject().SpawnGroundTile();
             }
@@ -69,12 +75,13 @@ public class EarthquakeWorldEvent : BaseWorldEvent
             // Собираем все тайлы, которые НЕ являются "BaseFoundation"
             foreach (var tileObject in GetAllTileObjects().TileObjects)
             {
-                if (tileObject.GroundTileObject().CurrentGroundTile() != null 
+                if (tileObject.GroundTileObject().CurrentGroundTile() != null
                 && !tileObject.GroundTileObject().IsWaterTile()
-                && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.BaseFoundation) 
+                && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.BaseFoundation)
                 && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Crater)
                 && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Road)
-                && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Rift))
+                && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Rift)
+                && !tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Volcano))
                 {
                     validTiles.Add(tileObject);
                 }
@@ -85,7 +92,7 @@ public class EarthquakeWorldEvent : BaseWorldEvent
             {
                 var randomTile = validTiles[Random.Range(0, validTiles.Count)];
                 var previousGroundTileViewEnum = randomTile.GroundTileObject().CurrentGroundTile().GroundTileView;
-                randomTile.BuildingHealth().Death();
+                randomTile.BuildingTileObject().DestroyBuildingTile(false);
                 randomTile.GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Rift));
                 randomTile.GroundTileObject().SpawnGroundTile(previousGroundTileViewEnum);
             }

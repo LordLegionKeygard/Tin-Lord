@@ -20,23 +20,34 @@ public class MeteorStrikeWorldEvent : BaseWorldEvent
         yield return new WaitForSeconds(_delay);
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.MeteorStrike, GetCurrentPrefab().transform.position);
         
+        var extraTileObject = GetTileObject().BuildingTileObject().IsExtraBaseTileObject();
+
+        if (extraTileObject != null)
+        {
+            extraTileObject.BuildingHealth().CalculateDamage(extraTileObject.BuildingHealth().CalculateHealthFromPercent(_meteorDamagePercent));
+            yield break;
+        }
+
         var groundTile = GetTileObject().GroundTileObject();
         if (groundTile.CurrentGroundTile() == null) yield break;
         
         
+        _groundTileView = groundTile.CurrentGroundTile().GroundTileView;
+
+
         switch (_groundTileView)
         {
             case GroundTileViewEnum.BaseFoundation:
                 GetTileObject().BuildingHealth().CalculateDamage(GetTileObject().BuildingHealth().CalculateHealthFromPercent(_meteorDamagePercent));
                 break;
             case GroundTileViewEnum.Road or GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver or GroundTileViewEnum.DesertRiver:
-                GetTileObject().BuildingTileObject().DestroyBuildingTile(true);
+                GetTileObject().BuildingTileObject().DestroyBuildingTile(false);
                 break;
             case GroundTileViewEnum.Rift or GroundTileViewEnum.Crater:
                 //ничего
                 break;
             default:
-                GetTileObject().BuildingTileObject().DestroyBuildingTile(true);
+                GetTileObject().BuildingTileObject().DestroyBuildingTile(false);
                 GetTileObject().GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Crater));
                 GetTileObject().GroundTileObject().SpawnGroundTile();
                 break;

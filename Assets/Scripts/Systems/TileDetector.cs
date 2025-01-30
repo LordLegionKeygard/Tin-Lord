@@ -206,16 +206,16 @@ public class TileDetector : MonoBehaviour
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
-        if (newTileObject.IsBuildingDestroyedNow()) return;
+        if (newTileObject.IsBuildingDestroyedNow() || _currentTileObject == newTileObject) return;
 
         UnselectLastTile(false);
         _selectTilePanel.ResetPanels();
 
-        if (newTileObject.GroundTileObject().HaveTile() && _currentTileObject != newTileObject)
+        if (newTileObject.GroundTileObject().HaveTile())
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.SelectTile], transform.position);
             _currentTileObject = newTileObject;
-            _currentTileObject.GroundTileObject().SelectTile(true);
+            _currentTileObject.GroundTileObject().SelectTile(true, checkEdge: false);
             _uiPanels.MainPanelsViewToggle(true, false);
             _selectTilePanel.SetTile(_currentTileObject);
             _selectTilePanel.RefreshInfo();

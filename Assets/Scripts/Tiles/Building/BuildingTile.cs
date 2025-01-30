@@ -30,7 +30,10 @@ public class BuildingTile : MonoBehaviour
    private float _previousBaseBuildingHealth;
    private float _previousBuildingHealthPercent;
 
+   [SerializeField] private TileObject _isRealBaseTileObject; // этот тайл является экстра обьектом базы и хранит текущий тайл базы
+
    #region Публичные геттеры
+   public TileObject IsExtraBaseTileObject() => _isRealBaseTileObject;
    public BuildingTileTransform BuildingTileTransform() => _buildingTileTransform;
    public BuildingTileProtective CurrentBuildingTileProtective() => _buildingTileProtective;
    private ConstructionBuildingView _constructionView;
@@ -64,6 +67,19 @@ public class BuildingTile : MonoBehaviour
       _buildingHealth = GetComponent<BuildingHealth>();
       _buildingTileProtective = GetComponent<BuildingTileProtective>();
       _buildingTileTransform = GetComponent<BuildingTileTransform>();
+   }
+
+   /// <summary>
+   /// Вызывается когда тайл уничтожается во время строительства
+   /// </summary>
+   public void StopConstruction()
+   {
+      if (_isConstructionNow)
+      {
+         StopCoroutine(nameof(RunConstructionCoroutine));
+         _isConstructionNow = false;
+         Destroy(_constructionPrefab);
+      }
    }
 
    public void BeginConstruction(Tile tile, int level, bool isLoad)
@@ -114,12 +130,23 @@ public class BuildingTile : MonoBehaviour
       onComplete?.Invoke();
    }
 
+   private void CheckIsExtrabaseTileObject()
+   {
+      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base)
+      {
+         _tileObject.GetNeighbourBuildingTile((int)TileDirectionEnum.East)._isRealBaseTileObject = _tileObject;
+         _tileObject.GetNeighbourBuildingTile((int)TileDirectionEnum.North)._isRealBaseTileObject = _tileObject;
+         _tileObject.GetNeighbourBuildingTile((int)TileDirectionEnum.NorthEast)._isRealBaseTileObject = _tileObject;
+      }
+   }
+
    public void InstantiateCompletedBuilding()
    {
       AudioManager.Instance.PlayerOneShot(_currentLevel == 0 ? FMODEvents.Instance.CompleteConstructBuilding : FMODEvents.Instance.CompleteUpgradeBuilding, transform.position);
       _isConstructionNow = false;
 
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base && !_tilesSystem.IsHaveBase()) CustomEvents.FireSetBase();
+      CheckIsExtrabaseTileObject();
 
       _currentBuildingGameObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
       Destroy(_constructionPrefab);
@@ -265,6 +292,7 @@ public class BuildingTile : MonoBehaviour
    public void DestroyBuildingTile(bool isUpgrade)
    {
       if (_currentBuildingTile == null) return;
+      StopConstruction();
 
       if (isUpgrade) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
 
@@ -357,6 +385,7 @@ public class BuildingTile : MonoBehaviour
          LoadResourceRequired(tileDataWrapper.BuildingData);
          CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
          LoadResourceProduction(tileDataWrapper.BuildingData);
+         CheckIsExtrabaseTileObject();
 
          _buildingHealth.LoadBuildingHealth(CurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth, false);
 

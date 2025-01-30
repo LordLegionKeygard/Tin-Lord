@@ -562,10 +562,10 @@ public class GroundTile : MonoBehaviour
         _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.South).CheckTileView(_groundTileViewEnum);
     }
 
-    public void SelectTile(bool state, SelectTileEnum selectTileEnum = SelectTileEnum.TileSelect)
+    public void SelectTile(bool state, SelectTileEnum selectTileEnum = SelectTileEnum.TileSelect, bool checkEdge = true)
     {
         _tileView.SelectViewToggle(state, selectTileEnum);
-        _tileView.EdgeViewToggle(transform.position.x, transform.position.z, state);
+        if(checkEdge) _tileView.EdgeViewToggle(transform.position.x, transform.position.z, state);
     }
 
     public bool IsCheckTiles(int i, bool cross)

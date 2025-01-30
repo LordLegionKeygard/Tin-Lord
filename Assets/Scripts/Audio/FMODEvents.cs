@@ -30,6 +30,7 @@ public class FMODEvents : MonoBehaviour
     
     [Header("WorldEvents")] 
     public EventReference MeteorStrike;
+    public EventReference EarthQuake;
 
     [Header("Enemies")]
     public EventReference[] Death;
