@@ -70,7 +70,7 @@ public class BuildingTile : MonoBehaviour
    }
 
    /// <summary>
-   /// Вызывается когда тайл уничтожается во время строительства
+   /// Вызывается при смерти обьекта
    /// </summary>
    public void StopConstruction()
    {
@@ -289,6 +289,9 @@ public class BuildingTile : MonoBehaviour
       return true;
    }
 
+   /// <summary>
+   /// Можно вызывать только при строительстве нового здания или после вызова смерти здания
+   /// </summary>
    public void DestroyBuildingTile(bool isUpgrade)
    {
       if (_currentBuildingTile == null) return;

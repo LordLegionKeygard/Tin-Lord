@@ -124,6 +124,7 @@ public class BuildingHealth : BaseHealth
         else AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DestructionBuilding, transform.position);
 
         base.Death();
+        _buildingTile.StopConstruction();
         _tileObject.ToggleIsBuildingDestroyedNow(true);
         CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.ConstructBuilding, -1);
         CustomEvents.FireBuildingDestroyed(_tileObject.GetId());

@@ -41,13 +41,13 @@ public class MeteorStrikeWorldEvent : BaseWorldEvent
                 GetTileObject().BuildingHealth().CalculateDamage(GetTileObject().BuildingHealth().CalculateHealthFromPercent(_meteorDamagePercent));
                 break;
             case GroundTileViewEnum.Road or GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver or GroundTileViewEnum.DesertRiver:
-                GetTileObject().BuildingTileObject().DestroyBuildingTile(false);
+                GetTileObject().BuildingHealth().Death();
                 break;
             case GroundTileViewEnum.Rift or GroundTileViewEnum.Crater:
                 //ничего
                 break;
             default:
-                GetTileObject().BuildingTileObject().DestroyBuildingTile(false);
+                GetTileObject().BuildingHealth().Death();
                 GetTileObject().GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Crater));
                 GetTileObject().GroundTileObject().SpawnGroundTile();
                 break;

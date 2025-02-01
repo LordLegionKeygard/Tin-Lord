@@ -8,6 +8,8 @@ public class TileMapBuilder : MonoBehaviour
     [Inject] private DiContainer _diContainer;
     [Inject] private TilesSystem _tilesSystem;
 
+
+    [SerializeField] private AstarPath _astarPath;
     [SerializeField] private GameObject _tile;
     [SerializeField] private Transform _parentTransform;
     [SerializeField] private AllTileObjects _allTileObjects;
@@ -55,6 +57,7 @@ public class TileMapBuilder : MonoBehaviour
     {
         SetMapSize();
         SetTerrain();
+        _astarPath.Scan();
         SetStartCoordinates();
         SpawnTiles();
         _allTileObjects.SetNeighbours(_mapLength);
@@ -111,7 +114,7 @@ public class TileMapBuilder : MonoBehaviour
 
     private async void SetNextTile(int nextX, int nextY)
     {
-        await Task.Delay(40);
+        // await Task.Delay(40);
 
         var tileObject = _tileObjects[nextX, nextY];
         tileObject.GetComponent<TileRoad>().SetRoadTile(
