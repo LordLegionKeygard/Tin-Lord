@@ -9,7 +9,6 @@ public class Mission : ScriptableObject
     public DayLightTime DayLightTime;
     public Sprite MissionSprite;
     public int MissionId;
-    public int Duration; //в днях
     public int StartEcology;
     public Vector2 PlanetTarget;
     public int MapWidth;

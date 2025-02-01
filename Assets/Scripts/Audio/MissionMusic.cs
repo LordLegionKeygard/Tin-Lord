@@ -15,7 +15,6 @@ public class MissionMusic : MonoBehaviour
     {
         var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentMission().Biome];
 
-
         sound.Music.Play();
         sound.Ambience.Play();
     }
@@ -47,4 +46,5 @@ public class MusicWrapper
 public enum BiomeEnum
 {
     WasteLand = 0,
+    Oil = 1,
 }
