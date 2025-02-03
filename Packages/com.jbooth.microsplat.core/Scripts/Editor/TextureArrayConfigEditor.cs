@@ -1666,6 +1666,9 @@ namespace JBooth.MicroSplat
             Graphics.Blit(src, resRT, genMat);
             GL.sRGBWrite = false;
 
+            RenderTexture.active = null;
+            resRT.Release();
+            DestroyImmediate(resRT);
             GameObject.DestroyImmediate(genMat);
             return resRT;
         }

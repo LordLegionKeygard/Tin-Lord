@@ -1398,7 +1398,9 @@
          
          #if _SCATTER
             ApplyScatter(
-               config, heightWeights,
+               #if _MEGASPLAT
+               config, 
+               #endif
                i, albedo, normSAO, surfGrad, config.uv, camDist);
          #endif
 
