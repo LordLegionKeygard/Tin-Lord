@@ -6,7 +6,7 @@ public class Mission : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
     public BiomeEnum Biome;
-    public DayLightTime DayLightTime;
+    public MissionLight MissionLight;
     public Sprite MissionSprite;
     public int MissionId;
     public int StartEcology;
@@ -35,4 +35,11 @@ public enum ObjectiveEnum
     KillEnemies = 1,
     ConstructBuilding = 2,
     SurviveDays = 3,
+}
+
+[System.Serializable]
+public class MissionLight
+{
+    public Vector2 LightRotation;
+    [ColorUsage(true, true)] public Color AmbientColor;
 }

@@ -16,10 +16,11 @@ MonoBehaviour:
   - Wasteland I
   - "\u041F\u0443\u0441\u0442\u043E\u0448\u044C I"
   Biome: 0
-  DayLightTime: 2
+  MissionLight:
+    LightRotation: {x: 17, y: 41.283}
+    AmbientColor: {r: 1, g: 0.9647059, b: 0.8627451, a: 1}
   MissionSprite: {fileID: 21300000, guid: b518ad1d7aaeebd44ad06e1a929de449, type: 3}
   MissionId: 0
-  Duration: 0
   StartEcology: 0
   PlanetTarget: {x: -157, y: -131}
   MapWidth: 16

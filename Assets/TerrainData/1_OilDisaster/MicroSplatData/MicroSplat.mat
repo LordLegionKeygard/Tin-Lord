@@ -24,6 +24,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ClusterDiffuse2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNormal2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Control0:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -40,8 +52,36 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DecalAlbedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DecalControl:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DecalNormalSAO:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DecalSplats:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DecalStaticData:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Diffuse:
         m_Texture: {fileID: 18700000, guid: d904267d229a4b4448fbbedac64110d6, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GlitterWind:
+        m_Texture: {fileID: 2800000, guid: 5c17d279ce2734171a1575aed76f85b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -129,21 +169,56 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ClusterBoost: 1
+    - _ClusterContrast: 0.8
+    - _ClusterScaleVar: 0.05
     - _Contrast: 1
+    - _GlitterGraininess: 2
+    - _GlitterShininess: 1
+    - _GlitterStrength: 0
+    - _GlitterThreshold: 0
+    - _GlitterViewDep: 0.983
     - _GlobalPorosity: 0.4
     - _HybridHeightBlendDistance: 40
     - _PCLayerCount: 3
     - _ProcBiomeCurveWeight: 0.5
+    - _SnowParticulateOcclusionStrength: 1
+    - _SnowParticulateStrength: 1
+    - _SnowParticulateStretch: 0.3
     - _StochasticContrast: 0.999
     - _StochasticScale: 0.25
+    - _WindParticulateOcclusionStrength: 1
+    - _WindParticulateRotation: 0
+    - _WindParticulateStrength: 1
+    - _WindParticulateStretch: 0.3
     m_Colors:
+    - _ClusterParams: {r: 6, g: 6, b: 0, a: 0}
+    - _DetailNoiseScaleStrengthFade: {r: 4, g: 0.5, b: 5, a: 0}
     - _DistanceWetness: {r: 100, g: 1, b: 200, a: 0}
+    - _GlitterDistFade: {r: 54.82, g: -198.61, b: 0, a: 0}
+    - _GlitterUVScale: {r: 300, g: 300, b: 0, a: 0}
     - _HeightWetness: {r: 1, g: 0.1, b: 1, a: 1}
     - _ScatterUVScale: {r: 1, g: 1, b: 0, a: 0}
     - _ScatterUVScale2: {r: 1, g: 1, b: 0.5, a: 0.5}
+    - _SnowParticulateAngleMask: {r: -1, g: -1, b: 1, a: 1}
+    - _SnowParticulateColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SnowParticulateHeightMask: {r: 0, g: 0, b: 99999, a: 99999}
+    - _SnowParticulateParams: {r: 1, g: 1, b: 1, a: 0.25}
+    - _SnowParticulateShadow: {r: 0.01, g: 1, b: 0, a: 0}
+    - _SnowParticulateShadowColor: {r: 0, g: 0, b: 0, a: 1}
+    - _TessData1: {r: 12, g: 0.8, b: 4, a: 0}
+    - _TessData2: {r: 20, g: 45, b: 0.2, a: 0.25}
     - _TraxFXThresholds: {r: 0, g: 0, b: 0, a: 0}
     - _TriplanarUVScale: {r: 1, g: 1, b: 0, a: 0}
     - _UVScale: {r: 10, g: 10, b: 0, a: 0}
     - _WetnessParams: {r: 0, g: 1, b: 0, a: 0}
+    - _WindEmissive: {r: 1, g: 0, b: 0, a: 0}
+    - _WindParticulateAngleMask: {r: -1, g: -1, b: 1, a: 1}
+    - _WindParticulateColor: {r: 0, g: 0, b: 0, a: 1}
+    - _WindParticulateHeightMask: {r: 0, g: 0, b: 99999, a: 99999}
+    - _WindParticulateParams: {r: 0, g: 1, b: 1, a: -0.45}
+    - _WindParticulateShadow: {r: 0.01, g: 1, b: 0, a: 0}
+    - _WindParticulateShadowColor: {r: 0, g: 0, b: 0, a: 1}
+    - _WindParticulateUpMask: {r: -1, g: -1, b: 1, a: 1}
     - _WorldHeightRange: {r: 0, g: 500, b: 0, a: 0}
   m_BuildTextureStacks: []

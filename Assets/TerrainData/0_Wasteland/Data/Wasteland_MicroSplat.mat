@@ -20,6 +20,26 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _ClusterDiffuse2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterDiffuse3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNormal2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClusterNormal3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Control0:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -100,6 +120,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _AutoNormalHeightScale: 1
+    - _ClusterBoost: 1
+    - _ClusterContrast: 0.8
+    - _ClusterScaleVar: 0.05
     - _Contrast: 0.4
     - _EmissiveMult: 1
     - _GlitterGraininess: 0.5
@@ -114,11 +137,14 @@ Material:
     - _SnowParticulateOcclusionStrength: 1
     - _SnowParticulateStrength: 1
     - _SnowParticulateStretch: 0.3
+    - _StochasticContrast: 0.2
+    - _StochasticScale: 1
     - _WindParticulateOcclusionStrength: 1
     - _WindParticulateRotation: 0
     - _WindParticulateStrength: 0.67
     - _WindParticulateStretch: 0.3
     m_Colors:
+    - _ClusterParams: {r: 6, g: 6, b: 0, a: 0}
     - _GlitterDistFade: {r: 10, g: 100, b: 1, a: 1}
     - _GlitterUVScale: {r: 300, g: 300, b: 0, a: 0}
     - _NoiseUVParams: {r: 1, g: 1, b: 0, a: 0}
@@ -128,6 +154,7 @@ Material:
     - _SnowParticulateParams: {r: 1, g: 1, b: 1, a: 0.25}
     - _SnowParticulateShadow: {r: 0.01, g: 1, b: 0, a: 0}
     - _SnowParticulateShadowColor: {r: 0, g: 0, b: 0, a: 1}
+    - _TriplanarUVScale: {r: 1, g: 1, b: 0, a: 0}
     - _UVScale: {r: 45, g: 45, b: 0, a: 0}
     - _WindEmissive: {r: 0, g: 0, b: 0, a: 0}
     - _WindParticulateAngleMask: {r: -1, g: -1, b: 1, a: 1}
