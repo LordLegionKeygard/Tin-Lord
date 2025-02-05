@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8364982648264921920}
   - component: {fileID: 8364982648264921922}
   - component: {fileID: 8364982648264921923}
-  - component: {fileID: 2788185828027736933}
   - component: {fileID: 7337098688127097355}
   m_Layer: 0
   m_Name: Model
@@ -85,29 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2788185828027736933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8364982648264921921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e98368dbcb655da438dde914b707456a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meshRenderer: {fileID: 8364982648264921923}
-  _base:
-  - {fileID: 2800000, guid: 596fab66123b4894f9b2a86fc939cbfe, type: 3}
-  - {fileID: 2800000, guid: db021029ea6799f45a341acf617319f8, type: 3}
-  - {fileID: 2800000, guid: 123be0bb4a30b224d81619f2a6df1220, type: 3}
-  - {fileID: 2800000, guid: a758697534062d942bbbbf9780f14098, type: 3}
-  _normal:
-  - {fileID: 2800000, guid: a27c5c7cf25ca75418f47263c5cc6f53, type: 3}
-  - {fileID: 2800000, guid: 9e7fdb8bc14d66e41a8bbe9c11710313, type: 3}
-  - {fileID: 2800000, guid: 83237d0a1ad51844eb0a3eb0b097c97a, type: 3}
-  - {fileID: 2800000, guid: 5b6a0aefa7d16a744803cd03a364df23, type: 3}
 --- !u!114 &7337098688127097355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +171,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 5558906210978362584
+  uniqueID: 2991202116206976905
   updateError: 1
   checkTime: 0.2

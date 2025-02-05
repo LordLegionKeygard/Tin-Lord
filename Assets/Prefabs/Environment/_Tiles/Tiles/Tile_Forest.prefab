@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 8304615091825565692
+  uniqueID: 2494910093868611368
   updateError: 1
   checkTime: 0.2
 --- !u!1 &2196790772058056234
@@ -105,7 +105,6 @@ GameObject:
   - component: {fileID: 2196790772058056235}
   - component: {fileID: 2196790772058056233}
   - component: {fileID: 2196790772058056232}
-  - component: {fileID: 1230416537034162985}
   - component: {fileID: 7129617196890611750}
   m_Layer: 0
   m_Name: Model
@@ -179,29 +178,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1230416537034162985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2196790772058056234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e98368dbcb655da438dde914b707456a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meshRenderer: {fileID: 2196790772058056232}
-  _base:
-  - {fileID: 2800000, guid: 5cce00cb04e5bf044a4a8fe4c41111ca, type: 3}
-  - {fileID: 2800000, guid: 41115eef463fc354db3f26849af2fba8, type: 3}
-  - {fileID: 2800000, guid: bc4b1c9a199318244afdf9936266e376, type: 3}
-  - {fileID: 2800000, guid: 009d6510285b9b8489b3c656d4e769eb, type: 3}
-  _normal:
-  - {fileID: 2800000, guid: 1b46403841ec98842b3cab94e8d702d5, type: 3}
-  - {fileID: 2800000, guid: 1b46403841ec98842b3cab94e8d702d5, type: 3}
-  - {fileID: 2800000, guid: 1b46403841ec98842b3cab94e8d702d5, type: 3}
-  - {fileID: 2800000, guid: 1b46403841ec98842b3cab94e8d702d5, type: 3}
 --- !u!114 &7129617196890611750
 MonoBehaviour:
   m_ObjectHideFlags: 0
