@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 7305456059033566925}
   - component: {fileID: 7305456059033566927}
   - component: {fileID: 7305456059033566926}
+  - component: {fileID: 7642029499776490447}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -131,6 +132,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7642029499776490447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305456059033566924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98368dbcb655da438dde914b707456a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 7305456059033566926}
+  _base:
+  - {fileID: 2800000, guid: fc76737c1f738bc4db01fc14a732d57e, type: 3}
+  - {fileID: 2800000, guid: d68a98be4b2f1f147af09b8d53ea4f0a, type: 3}
+  - {fileID: 2800000, guid: 6117f57cef8c56d42b200421829b121c, type: 3}
+  - {fileID: 2800000, guid: 187e6a2803602374e8a9b2dbf8c18ff8, type: 3}
+  _normal:
+  - {fileID: 2800000, guid: da4ab5bae5cc6f049a69f00ec6fd1ca1, type: 3}
+  - {fileID: 2800000, guid: 7a6fbee09b166eb4799fc1478583b7f7, type: 3}
+  - {fileID: 2800000, guid: 8473d13cebd5c7048af5970da7038144, type: 3}
+  - {fileID: 2800000, guid: 590a0e00913e95349984e2594a118b11, type: 3}
 --- !u!1 &8533493553100746733
 GameObject:
   m_ObjectHideFlags: 0
