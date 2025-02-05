@@ -143,12 +143,12 @@ public class TileMapBuilder : MonoBehaviour
         if (IsBottomLeft(nextX, nextY))
         {
             //       если достигли нижнего края  (основа)направо        (доп)вниз
-            return (rnd == 0 || nextX < _mapEdge) ? (nextX, nextY + 1) : (nextX - 1, nextY);
+            return (rnd == 0 || nextX <= _mapEdge) ? (nextX, nextY + 1) : (nextX - 1, nextY);
         }
         else if (IsBottomRight(nextX, nextY))
         {
             //                 если достигли правого края                                  (основа)наверх        (доп)направо
-            return ((rnd == 0 || nextY >= (_mapLength - _mapEdge - 1)) && nextY != _mapWidth / 2 + 1) ? (nextX + 1, nextY) : (nextX, nextY + 1);
+            return ((rnd == 0 || nextY >= (_mapLength - _mapEdge - 1)) && nextY != _mapLength / 2 + 1) ? (nextX + 1, nextY) : (nextX, nextY + 1);
         }
         else if (IsTopRight(nextX, nextY))
         {
