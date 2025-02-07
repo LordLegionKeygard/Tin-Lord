@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3989512877506522009}
   - component: {fileID: 3989512877506522011}
   - component: {fileID: 3989512877506522010}
+  - component: {fileID: 2500173328893788007}
   - component: {fileID: 2781368418521096914}
   m_Layer: 0
   m_Name: Model
@@ -84,6 +85,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2500173328893788007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3989512877506522008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f28e0e42d55174da40879c364e7526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 3989512877506522010}
+  _biomTileTextures:
+  - BiomeEnum: 0
+    Base:
+    - {fileID: 2800000, guid: 729054ecc40d3c94cb77682eca862119, type: 3}
+    - {fileID: 2800000, guid: dd883bb3ce4de2b4c958ceed228b6097, type: 3}
+    - {fileID: 2800000, guid: 07be33ab6d016f541ba2966473290589, type: 3}
+    - {fileID: 2800000, guid: 022dea0298374a04d90fdb01c7424ab9, type: 3}
+  - BiomeEnum: 1
+    Base:
+    - {fileID: 2800000, guid: 51660f72f6c84a948a62498248cb8d18, type: 3}
+    - {fileID: 2800000, guid: 311786cdbed259d47b00cd28ca0dda65, type: 3}
+    - {fileID: 2800000, guid: 6dbc49dc1f2e195428871aef1b7c881e, type: 3}
+    - {fileID: 2800000, guid: c222b08dad5118c40b0c97010da30028, type: 3}
+  _normal:
+  - {fileID: 2800000, guid: 405a72126d645e54492b0792102ccf09, type: 3}
+  - {fileID: 2800000, guid: 67ba403a201319549bc0e56b685bb46b, type: 3}
+  - {fileID: 2800000, guid: 9cb5ba892a195c040aa263384de8d899, type: 3}
+  - {fileID: 2800000, guid: 2c4c661e7894c384abfe0466dbd88a1d, type: 3}
 --- !u!114 &2781368418521096914
 MonoBehaviour:
   m_ObjectHideFlags: 0
