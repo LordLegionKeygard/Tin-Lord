@@ -100,14 +100,14 @@ MonoBehaviour:
   sourceTextures:
   - terrainLayer: {fileID: 8574412962073106934, guid: 8f461be56a020a2428925026bb624df1,
       type: 2}
-    diffuse: {fileID: 2800000, guid: cb62aa032ad0e8f42951bd4384572efe, type: 3}
+    diffuse: {fileID: 2800000, guid: e4602c100c3cdbe428270179c0056c2a, type: 3}
     height: {fileID: 2800000, guid: a9ae8fa0d6ed92d4cadc0fafc4403470, type: 3}
     heightChannel: 1
     normal: {fileID: 2800000, guid: bcdc01ae373513e409ebbfeeacb5a280, type: 3}
-    smoothness: {fileID: 2800000, guid: 21639f3b8c7e02b43971bee1efba2ff3, type: 3}
+    smoothness: {fileID: 0}
     smoothnessChannel: 1
     isRoughness: 0
-    ao: {fileID: 2800000, guid: 21639f3b8c7e02b43971bee1efba2ff3, type: 3}
+    ao: {fileID: 0}
     aoChannel: 1
     emis: {fileID: 0}
     metal: {fileID: 0}
@@ -134,10 +134,10 @@ MonoBehaviour:
     height: {fileID: 2800000, guid: b38f2d435441d4d449b16e4bdd753662, type: 3}
     heightChannel: 1
     normal: {fileID: 2800000, guid: 628a840348d4a8941a0e5f1eab080bf1, type: 3}
-    smoothness: {fileID: 2800000, guid: 62b6e14c540193646a6c1ddf47734cd3, type: 3}
+    smoothness: {fileID: 0}
     smoothnessChannel: 1
     isRoughness: 0
-    ao: {fileID: 2800000, guid: 62b6e14c540193646a6c1ddf47734cd3, type: 3}
+    ao: {fileID: 0}
     aoChannel: 1
     emis: {fileID: 0}
     metal: {fileID: 0}
@@ -159,14 +159,14 @@ MonoBehaviour:
     traxAOChannel: 1
     splat: {fileID: 0}
   - terrainLayer: {fileID: 0}
-    diffuse: {fileID: 2800000, guid: ea8712562284f5e4e895f6b64e9718b2, type: 3}
-    height: {fileID: 2800000, guid: 4640cef1c5041ca4ca3ff0228366ebd6, type: 3}
+    diffuse: {fileID: 2800000, guid: 1768bd86e6293aa42935a79b0af60d3b, type: 3}
+    height: {fileID: 0}
     heightChannel: 1
-    normal: {fileID: 2800000, guid: d3ff297722a32754db9fda438b355a57, type: 3}
-    smoothness: {fileID: 2800000, guid: 0a035dcb5fce35547b94967d3cad3eae, type: 3}
+    normal: {fileID: 2800000, guid: 9452345c966aa0f4294b9a8ddb206039, type: 3}
+    smoothness: {fileID: 0}
     smoothnessChannel: 1
     isRoughness: 0
-    ao: {fileID: 2800000, guid: 0a035dcb5fce35547b94967d3cad3eae, type: 3}
+    ao: {fileID: 0}
     aoChannel: 1
     emis: {fileID: 0}
     metal: {fileID: 0}

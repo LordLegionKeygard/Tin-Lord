@@ -117,6 +117,7 @@ public class TileMapBuilder : MonoBehaviour
         // await Task.Delay(40);
 
         var tileObject = _tileObjects[nextX, nextY];
+        Debug.Log(tileObject);
         tileObject.GetComponent<TileRoad>().SetRoadTile(
             _tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Road)
         );

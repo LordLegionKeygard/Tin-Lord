@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DayLightTimeSystem : MonoBehaviour
 {
-    [SerializeField] private Transform _directionalLight;
+    [SerializeField] private Light _light;
     [SerializeField] [ColorUsage(true, true)] private Color _defaultAmbientColor;
 
     private void Start()
@@ -16,7 +16,8 @@ public class DayLightTimeSystem : MonoBehaviour
     {
         var missionLight = CurrentMissionInfo.Instance.GetCurrentMission().MissionLight;
         Vector2 dayLightTime = missionLight.LightRotation;
-        _directionalLight.rotation = Quaternion.Euler(dayLightTime.x, dayLightTime.y, 0f);
+        _light.transform.rotation = Quaternion.Euler(dayLightTime.x, dayLightTime.y, 0f);
+        _light.colorTemperature = missionLight.Temperature;
         RenderSettings.ambientLight = missionLight.AmbientColor;
     }
 

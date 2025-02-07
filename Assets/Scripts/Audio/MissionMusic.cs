@@ -46,5 +46,5 @@ public class MusicWrapper
 public enum BiomeEnum
 {
     WasteLand = 0,
-    Oil = 1,
+    EvaporatedRocks = 1,
 }
