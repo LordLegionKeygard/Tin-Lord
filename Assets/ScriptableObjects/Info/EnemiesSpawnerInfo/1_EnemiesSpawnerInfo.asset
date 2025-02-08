@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e025a72d5c3a743add5457e9f1553f, type: 3}
   m_Name: 1_EnemiesSpawnerInfo
   m_EditorClassIdentifier: 
-  Spawners: []
+  Spawners:
+  - DaySpawn: 1
+    MinCount: 5
+    MaxCount: 10
+    SpawnSides: 2
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 3
+      EnemyLevel: 1

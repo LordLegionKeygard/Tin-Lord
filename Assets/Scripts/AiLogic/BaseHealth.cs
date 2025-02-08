@@ -6,7 +6,7 @@ public class BaseHealth : MonoBehaviour
 	protected float _currentHealth;
 	protected bool _isDeath;
 	protected BaseSlider _healthSlider;
-	public GameObject _healthSliderObject;
+	protected GameObject _healthSliderObject;
 
 	public float GetCurrentHealth() => _currentHealth;
 	public float GetMaxHealth() => _maxHealth;
