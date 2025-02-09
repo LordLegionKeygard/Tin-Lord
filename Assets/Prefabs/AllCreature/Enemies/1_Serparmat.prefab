@@ -1947,6 +1947,7 @@ GameObject:
   - component: {fileID: 8633156420727041156}
   - component: {fileID: 2391146225327716093}
   - component: {fileID: 8633156420727041154}
+  - component: {fileID: 139066295882811700}
   - component: {fileID: 8633156420727041157}
   - component: {fileID: 8633156420727041153}
   - component: {fileID: 8633156420727041152}
@@ -1961,6 +1962,7 @@ GameObject:
   - component: {fileID: 8633156420727041161}
   - component: {fileID: 8633156420727041160}
   - component: {fileID: 8633156420727041163}
+  - component: {fileID: 4462577529912291928}
   - component: {fileID: 8633156420727041204}
   m_Layer: 6
   m_Name: 1_Serparmat
@@ -1999,13 +2001,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 6
-  m_Radius: 0.6
+  m_Height: 4
+  m_Radius: 0.55
   m_SlopeLimit: 90
   m_StepOffset: 2
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!95 &2391146225327716093
 Animator:
   serializedVersion: 5
@@ -2055,6 +2057,28 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &139066295882811700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972563172428953149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  smoothType: 0
+  subdivisions: 2
+  iterations: 2
+  strength: 0.5
+  uniformLength: 1
+  maxSegmentLength: 2
+  bezierTangentLength: 0.4
+  offset: 0.2
+  factor: 0.1
 --- !u!114 &8633156420727041157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,7 +2092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 0.6
+  radius: 0.55
   height: 5.4
   canMove: 1
   maxSpeed: 0
@@ -2082,16 +2106,16 @@ MonoBehaviour:
   orientation: 0
   enableRotation: 1
   autoRepath:
-    mode: 2
-    interval: 0.5
+    mode: 1
+    interval: 5
     sensitivity: 10
     maximumInterval: 2
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: 100
-  rotationSpeed: 360
+  rotationSpeed: 50
   slowdownDistance: 0
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 3
   endReachedDistance: 0
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 0
@@ -2196,7 +2220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a772a9cd184348d4a911882f2651fbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthSliderObject: {fileID: 0}
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 4
@@ -2284,6 +2307,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyEnum: 1
+--- !u!114 &4462577529912291928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972563172428953149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560112f876f5746c780eca0d404e7139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  radiusBackingField: 0.5
+  heightBackingField: 2
+  centerBackingField: 1
+  locked: 0
+  lockWhenNotMoving: 0
+  agentTimeHorizon: 0.5
+  obstacleTimeHorizon: 0.5
+  maxNeighbours: 5
+  layer: 1
+  collidesWith: -1
+  wallAvoidForce: 1
+  wallAvoidFalloff: 1
+  priority: 0.5
+  debug: 0
 --- !u!114 &8633156420727041204
 MonoBehaviour:
   m_ObjectHideFlags: 0

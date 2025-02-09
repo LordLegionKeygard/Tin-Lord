@@ -15,4 +15,5 @@ public enum EnemyEnum
     Serparmat = 1,
     Ceratoferox = 2,
     Pistripod = 3,
+    Trunckarce = 4,
 }

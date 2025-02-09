@@ -10,16 +10,13 @@ public class RobotRepairState : RobotState
 
     public void SetRepairTarget(BuildingHealth building)
     {
-        Debug.Log("4");
         _targetBuilding = building;
     }
 
     public override RobotState Tick(RobotStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, RobotAttacks attacks, RobotSpeed playerSpeed)
     {
-        Debug.Log("5");
         if (_targetBuilding == null || _targetBuilding.IsDeath() || _targetBuilding.IsFullHealth() || _targetBuilding.IsContructionNow())
         {
-            Debug.Log("6");
             animator.RepairAnimation(false);
             return _patrolState;
         }
@@ -29,7 +26,6 @@ public class RobotRepairState : RobotState
         BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
         if (targetHealth != null)
         {
-            Debug.Log("7");
             animator.RepairAnimation(false);
             SetCombatTarget(aiDestinationSetter, targetHealth, stateChanger);
             return _combatState;
