@@ -147,7 +147,7 @@ public class TileMapBuilder : MonoBehaviour
         }
         else if (IsBottomRight(nextX, nextY))
         {
-            //                 если достигли правого края                                  (основа)наверх        (доп)направо
+            //                 если достигли правого края                                                  (основа)наверх        (доп)направо
             return ((rnd == 0 || nextY >= (_mapLength - _mapEdge - 1)) && nextY != _mapLength / 2 + 1) ? (nextX + 1, nextY) : (nextX, nextY + 1);
         }
         else if (IsTopRight(nextX, nextY))
@@ -170,8 +170,8 @@ public class TileMapBuilder : MonoBehaviour
         return (nextX, nextY);
     }
 
-    private bool IsBottomLeft(int x, int y) => x < (_mapWidth / 2) && y < (_mapLength / 2);
-    private bool IsBottomRight(int x, int y) => x <= (_mapWidth / 2) && y >= (_mapLength / 2);
-    private bool IsTopRight(int x, int y) => x >= (_mapWidth / 2) && y >= (_mapLength / 2);
-    private bool IsTopLeft(int x, int y) => x > (_mapWidth / 2) && y < (_mapLength / 2);
+    private bool IsBottomLeft(int x, int y) => x < _mapWidth / 2 && y <= _mapLength / 2;
+    private bool IsBottomRight(int x, int y) => x <= _mapWidth / 2 && y > _mapLength / 2;
+    private bool IsTopRight(int x, int y) => x >= _mapWidth / 2 && y >= _mapLength / 2;
+    private bool IsTopLeft(int x, int y) => x > _mapWidth / 2 && y < _mapLength / 2;
 }

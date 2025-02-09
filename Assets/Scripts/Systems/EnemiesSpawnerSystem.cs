@@ -8,11 +8,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     [Inject] DiContainer _diContainer;
     [SerializeField] private AllEnemies _allEnemies;
     [SerializeField] private Transform _enemiesParent;
-    private Vector3 _bottomLeft = new Vector3(-155, 11, -213);
-    private Vector3 _bottomRight = new Vector3(380, 11, -213);
-    private Vector3 _topRight = new Vector3(380, 11, 327);
-    private Vector3 _topLeft = new Vector3(-155, 11, 327);
-    private float _bottomLength, _rightLength, _topLength, _leftLength, _totalPerimeter;
+    [SerializeField] private EnemiesBiomeSpawnTransforms[] _enemiesBiomeSpawnTransforms;
     private List<EnemiesForListData> _currentEnemiesData = new();
     private int _enemyNumber;
 
@@ -43,25 +39,17 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         CustomEvents.OnEnemyDeath += RemoveEnemyFromList;
     }
 
-    private void Start()
-    {
-        CalculateDistance();
-    }
-
-    private void CalculateDistance()
-    {
-        _bottomLength = Vector3.Distance(_bottomLeft, _bottomRight);
-        _rightLength = Vector3.Distance(_bottomRight, _topRight);
-        _topLength = Vector3.Distance(_topRight, _topLeft);
-        _leftLength = Vector3.Distance(_topLeft, _bottomLeft);
-        _totalPerimeter = _bottomLength + _rightLength + _topLength + _leftLength;
-    }
-
     private void PrepareSpawn(int day)
     {
-        var spawner = CurrentMissionInfo.Instance.GetCurrentMission().EnemiesSpawnerInfo.Spawners.FirstOrDefault(spawner => spawner.DaySpawn == day);
+        var allSpawners = CurrentMissionInfo.Instance.GetCurrentMission().EnemiesSpawnerInfo.Spawners;
+        if (allSpawners.Length == 0) return;
 
-        if (spawner == null) return;
+        var spawner = allSpawners.FirstOrDefault(spawner => spawner.DaySpawn == day);
+
+        if (spawner == null)
+        {
+            spawner = allSpawners.LastOrDefault();
+        }
 
         SpawnEnemies(spawner);
     }
@@ -73,7 +61,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         for (int i = 0; i < rndCount; i++)
         {
             var rndEnemy = Random.Range(0, spawner.EnemiesSpawnerInfo.Length);
-            var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyEnum), GetRandomPerimeterPosition() + GetRandomizePosition(), Quaternion.identity, null);
+            var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
             enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
             enemyObject.GetComponent<EnemyHealth>().SetStartStats();
@@ -112,31 +100,11 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         return new Vector3(x, 0, z);
     }
 
-    private Vector3 GetRandomPerimeterPosition()
+    private Vector3 GetRandomSpawnTransform()
     {
-        // Выбираем случайную точку вдоль периметра
-        float randomPoint = Random.Range(0f, _totalPerimeter);
-
-        if (randomPoint <= _bottomLength)
-        {
-            // Нижний край (между bottomLeft и bottomRight)
-            return Vector3.Lerp(_bottomLeft, _bottomRight, randomPoint / _bottomLength);
-        }
-        else if (randomPoint <= _bottomLength + _rightLength)
-        {
-            // Правый край (между bottomRight и topRight)
-            return Vector3.Lerp(_bottomRight, _topRight, (randomPoint - _bottomLength) / _rightLength);
-        }
-        else if (randomPoint <= _bottomLength + _rightLength + _topLength)
-        {
-            // Верхний край (между topRight и topLeft)
-            return Vector3.Lerp(_topRight, _topLeft, (randomPoint - _bottomLength - _rightLength) / _topLength);
-        }
-        else
-        {
-            // Левый край (между topLeft и bottomLeft)
-            return Vector3.Lerp(_topLeft, _bottomLeft, (randomPoint - _bottomLength - _rightLength - _topLength) / _leftLength);
-        }
+        var biomeNumber = (int)CurrentMissionInfo.Instance.GetCurrentMission().Biome;
+        var randomTransform = Random.Range(0, _enemiesBiomeSpawnTransforms[biomeNumber].SpawnPoints.Length);
+        return _enemiesBiomeSpawnTransforms[biomeNumber].SpawnPoints[randomTransform].position;
     }
 
     private void AddEnemyToList(int enemyEnum, int enemyNumber, GameObject prefab)
@@ -170,4 +138,11 @@ public class EnemiesForListData
     public int EnemyNumber;
     public GameObject EnemyObject;
 
+}
+
+[System.Serializable]
+public class EnemiesBiomeSpawnTransforms
+{
+    public BiomeEnum BiomeEnum;
+    public Transform[] SpawnPoints;
 }
