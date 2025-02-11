@@ -17,7 +17,7 @@ public class RobotDamage : BaseDamage
     {
         if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(attackNumber);
 
-        var currentPoint = _firePoints.Length == 1 ? _firePoints[0] : _firePoints[attackNumber];
+        var currentPoint = _firePoints[attackNumber];
 
         GameObject bullet = _bulletsPool.GetBullet(_bulletType);
         bullet.transform.SetPositionAndRotation(currentPoint.position, currentPoint.rotation);

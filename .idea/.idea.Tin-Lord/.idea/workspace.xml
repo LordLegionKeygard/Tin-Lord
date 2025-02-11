@@ -6,25 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Arathrox/Arathrox@Death.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Arathrox/Arathrox@Death.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Arathrox/Arathrox@GetHitFront.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Arathrox/Arathrox@GetHitFront.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/FMOD/Resources/FMODStudioSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Arathrox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Arathrox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastarias.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastarias.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastarid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastarid.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastaroid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/Gastaroid.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Static/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Static/AudioManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/2_World/ObjectiveItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/2_World/ObjectiveItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Trunckarce/Trunckarce.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Trunckarce/Trunckarce.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Trunckarce/_Trunckarce@ThrowExplosiveGooAttack.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/AllCreature/Enemies/Trunckarce/_Trunckarce@ThrowExplosiveGooAttack.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/4_Trunckarce.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/4_Trunckarce.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/0_EnemiesSpawnerInfo.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/0_EnemiesSpawnerInfo.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Missions/AllMissionsInfo.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Missions/AllMissionsInfo.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Damage/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Damage/Bullet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyAttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/AllMissionsInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/AllMissionsInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Static/WorldGameInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Static/WorldGameInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/AllEnemies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/AllEnemies.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/GameSpeedSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/GameSpeedSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyAttacks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyAttacks.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyCombatState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyCombatState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyDamage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyPursueTargetState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyPursueTargetState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotDamage.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +150,8 @@
       <workItem from="1738420062844" duration="2000" />
       <workItem from="1738446542648" duration="1000" />
       <workItem from="1738881093398" duration="1000" />
+      <workItem from="1739312141193" duration="130000" />
+      <workItem from="1739312678350" duration="20000" />
     </task>
     <servers />
   </component>
@@ -201,6 +196,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyAttackState.cs</url>
+          <line>9</line>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\AiLogic\Enemies\EnemyAttackState.cs" containingFunctionPresentation="Method 'Tick'">
+            <startOffsets>
+              <option value="378" />
+            </startOffsets>
+            <endOffsets>
+              <option value="379" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

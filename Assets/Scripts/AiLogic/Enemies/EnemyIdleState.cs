@@ -68,7 +68,7 @@ public class EnemyIdleState : EnemyState
             : targetHealth.gameObject.transform;
 
         attacks.UpdateCreatureAttackDistance(buildingTile);
-        _aiPath.endReachedDistance = attacks.MaxAtkRange();
+        _aiPath.endReachedDistance = attacks.MaxMeleeAtkRange();
 
         _aiDestinationSetter.CurrentTarget = targetTransform;
         _creatureDamage.SetTarget(targetHealth, targetHealth.transform); // пока что враги ближнего боя и не стреляют поэтому передает трансформ здоровья цели

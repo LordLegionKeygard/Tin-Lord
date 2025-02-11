@@ -130,6 +130,7 @@ public enum BulletEnum
     HowitzerBullet = 5,
     Rocket = 6,
     RobotTankBullet = 7,
+    BeetleProjectile = 8,
 
 }
 

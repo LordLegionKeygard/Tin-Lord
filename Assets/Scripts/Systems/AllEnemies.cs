@@ -16,4 +16,5 @@ public enum EnemyEnum
     Ceratoferox = 2,
     Pistripod = 3,
     Trunckarce = 4,
+    Karcicodus = 5,
 }

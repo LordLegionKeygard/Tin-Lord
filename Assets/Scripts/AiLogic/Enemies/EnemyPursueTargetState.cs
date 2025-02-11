@@ -18,7 +18,7 @@ public class EnemyPursueTargetState : EnemyState
 
             // Debug.Log($"DistanceToTarget {stateChanger.DistanceToTarget()} <= MaxAtkRange {attacks.MaxAtkRange()}");
 
-            if (stateChanger.DistanceToTarget() <= attacks.MaxAtkRange())
+            if (stateChanger.DistanceToTarget() <= attacks.MaxAttackRange())
             {
                 return _combatState;
             }

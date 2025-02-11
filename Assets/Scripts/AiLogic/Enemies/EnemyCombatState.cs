@@ -18,11 +18,11 @@ public class EnemyCombatState : EnemyState
                 return _enemyIdleState;
             }
 
-            if (stateChanger.CurrentAttackRecoveryTime <= 0 && stateChanger.DistanceToTarget() <= attacks.MaxAtkRange())
+            if (stateChanger.CurrentAttackRecoveryTime <= 0 && stateChanger.DistanceToTarget() <= attacks.MaxAttackRange())
             {
                 return _attackState;
             }
-            else if (stateChanger.DistanceToTarget() > attacks.MaxAtkRange())
+            else if (stateChanger.DistanceToTarget() > attacks.MaxAttackRange())
             {
                 return _pursueTargetState;
             }

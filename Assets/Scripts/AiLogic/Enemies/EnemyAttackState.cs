@@ -26,7 +26,7 @@ public class EnemyAttackState : EnemyState
 
         if (_currentAttack != null)
         {
-            if (IsTargetWithinAttackRange(stateChanger, _currentAttack, attacks.MaxAtkRange()))
+            if (IsTargetWithinAttackRange(stateChanger, _currentAttack, _currentAttack.MaximumDistanceNeededToAttack + attacks.GetTileDistance()))
             {
                 if (IsTargetInAttackAngle(viewableAngle, _currentAttack))
                 {
@@ -45,7 +45,7 @@ public class EnemyAttackState : EnemyState
         else
         {
             _attackInfo = SelectNextAttack(attacks);
-            if (IsTargetWithinAttackRange(stateChanger, _attackInfo, attacks.MaxAtkRange())
+            if (IsTargetWithinAttackRange(stateChanger, _attackInfo, _attackInfo.MaximumDistanceNeededToAttack + attacks.GetTileDistance())
                 && IsTargetInAttackAngle(viewableAngle, _attackInfo))
             {
                 _currentAttack = _attackInfo;
