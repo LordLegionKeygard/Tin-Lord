@@ -35,7 +35,8 @@ public class BuildsPanel : MonoBehaviour
     private void Spawn(TileObject tileObject, SelectTilePanel selectTilePanel, int index, Tile tile, BuildingState buildingState)
     {
         var item = _diContainer.InstantiatePrefab(_buildingItem, transform.position, Quaternion.identity, null);
-        item.transform.SetParent(_content);
+        item.transform.SetParent(_content, false);
+        item.transform.localScale = Vector3.one;
 
         var buildingItem = item.GetComponent<BuildingItem>();
         buildingItem.SetBuildingInfo(tileObject, selectTilePanel, index, tile, buildingState, _buildingResourcesView, this);

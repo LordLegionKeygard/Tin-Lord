@@ -14,6 +14,15 @@ public class BuildTypesPanel : MonoBehaviour
     private List<BuildingType> _buildingTypesList = new();
     [SerializeField] private BuildsPanel _buildsPanel;
 
+    private void CreateAndSetupBuildingType(Tile tile, TileObject tileObject, SelectTilePanel selectTilePanel)
+    {
+        var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
+        item.transform.SetParent(_content, false);
+        item.transform.localScale = Vector3.one;
+        item.GetComponent<BuildingType>().SetBuildingType(tile, tileObject, selectTilePanel, _buildsPanel, this);
+        _buildingTypesList.Add(item.GetComponent<BuildingType>());
+    }
+
     public void SpawnBuildingTypesInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel)
     {
         ResetText();
@@ -21,26 +30,17 @@ public class BuildTypesPanel : MonoBehaviour
 
         if (tileObject.GroundTileObject().IsBridge())
         {
-            var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
-            item.transform.SetParent(_content);
-            item.GetComponent<BuildingType>().SetBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel, _buildsPanel, this);
-            _buildingTypesList.Add(item.gameObject.GetComponent<BuildingType>());
+            CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel);
         }
         else if (tileObject.GroundTileObject().IsForwardRoad())
         {
-            var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
-            item.transform.SetParent(_content);
-            item.GetComponent<BuildingType>().SetBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel, _buildsPanel, this);
-            _buildingTypesList.Add(item.gameObject.GetComponent<BuildingType>());
+            CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel);
         }
         else
         {
-            for (int i = 0; i < buildingTypeTiles.Length; i++)
+            foreach (var tile in buildingTypeTiles)
             {
-                var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
-                item.transform.SetParent(_content);
-                item.GetComponent<BuildingType>().SetBuildingType(buildingTypeTiles[i], tileObject, selectTilePanel, _buildsPanel, this);
-                _buildingTypesList.Add(item.gameObject.GetComponent<BuildingType>());
+                CreateAndSetupBuildingType(tile, tileObject, selectTilePanel);
             }
         }
 

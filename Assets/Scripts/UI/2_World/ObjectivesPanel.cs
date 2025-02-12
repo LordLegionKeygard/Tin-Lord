@@ -22,7 +22,7 @@ public class ObjectivesPanel : MonoBehaviour
     {
         for (int i = 0; i < _objectivesForList.Count; i++)
         {
-            if(_objectivesForList[i].CurrentAmount * 2 < _objectivesForList[i].NeedAmount)
+            if (_objectivesForList[i].CurrentAmount * 2 < _objectivesForList[i].NeedAmount)
             {
                 return false;
             }
@@ -38,10 +38,9 @@ public class ObjectivesPanel : MonoBehaviour
         for (int i = 0; i < objectives.Length; i++)
         {
             var objectiveAmount = IsStartMission ? 0 : objectivesAmount[i];
-            var item = Instantiate(_objectiveItemPrefab, _parentTransform.position, Quaternion.identity);
-            item.transform.SetParent(_parentTransform);
-            var objectiveItem = item.GetComponent<ObjectiveItem>();
+
             var complete = objectiveAmount >= objectives[i].ObjectiveAmount;
+            var objectiveItem = CreateItem();
             objectiveItem.SetupItem(objectives[i], objectiveAmount, complete);
 
             _objectivesForList.Add(new ObjectiveForListData
@@ -53,6 +52,16 @@ public class ObjectivesPanel : MonoBehaviour
                 Complete = complete,
             });
         }
+    }
+
+    private ObjectiveItem CreateItem()
+    {
+        var item = Instantiate(_objectiveItemPrefab, _parentTransform.position, Quaternion.identity);
+        item.transform.SetParent(_parentTransform, false);
+        item.transform.localScale = Vector3.one;
+        var objectiveItem = item.GetComponent<ObjectiveItem>();
+
+        return objectiveItem;
     }
 
     private void UpdateAmount(ObjectiveEnum objectiveEnum, int value)
