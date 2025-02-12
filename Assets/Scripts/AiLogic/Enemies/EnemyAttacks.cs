@@ -4,10 +4,10 @@ using UnityEngine;
 public class EnemyAttacks : MonoBehaviour
 {
     [SerializeField] private AttackInfo[] _attacks;
-    [SerializeField] private float _defaultMeleeMaxAttackRange;
-    [SerializeField] private float _defaultMaxAttackRange;
-    [SerializeField] private float _maxMeleeAttackRange;
-    [SerializeField] private float _maxAttackRange;
+    private float _defaultMeleeMaxAttackRange;
+    private float _defaultMaxAttackRange;
+    private float _maxMeleeAttackRange;
+    private float _maxAttackRange;
     private float _tileDistance;
     public float GetTileDistance() => _tileDistance;
     public float MaxAttackRange() => _maxAttackRange;
@@ -33,7 +33,7 @@ public class EnemyAttacks : MonoBehaviour
 
     public void UpdateCreatureAttackDistance(Tile tile)
     {
-        _tileDistance = tile != null ? WorldGameInfo.EnemyReachedFourTileDistance : WorldGameInfo.EnemyReachedRobotDistance;
+        _tileDistance = tile != null ? tile.IsFourTile ? WorldGameInfo.EnemyReachedFourTileDistance : WorldGameInfo.EnemyReachedTileDistance : WorldGameInfo.EnemyReachedRobotDistance;
         _maxMeleeAttackRange = tile.IsFourTile ? _tileDistance + _defaultMeleeMaxAttackRange : _tileDistance + _defaultMeleeMaxAttackRange;
         _maxAttackRange = tile.IsFourTile ? _tileDistance + _defaultMaxAttackRange : _tileDistance + _defaultMaxAttackRange;
     }

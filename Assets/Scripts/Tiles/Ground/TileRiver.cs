@@ -5,10 +5,10 @@ public class TileRiver : MonoBehaviour
 {
     [Inject] private readonly TilesSystem _tilesSystem;
     private GroundTile _groundTile;
-    private bool _isLake;
+    [SerializeField] private bool _isLake;
     private int _riverNumber;
     private bool _isBridge;
-    private bool _isLastRiverTile;
+    [SerializeField] private bool _isLastRiverTile;
     private RiverTypeEnum _riverType = RiverTypeEnum.None;
     private int _riverRotation;
     public bool IsLake() => _isLake;
