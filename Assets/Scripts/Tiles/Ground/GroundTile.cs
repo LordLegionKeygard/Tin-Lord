@@ -74,13 +74,18 @@ public class GroundTile : MonoBehaviour
 
     private void RefreshWaterNeighbourTiles()
     {
-        for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+        var neighbours = _tileObject.GetNeighbourGroundTilesArray();
+
+        for (int i = 0; i < neighbours.Length; i++)
         {
             if (!IsCheckTiles(i, true)) continue;
 
-            if (_tileObject.GetNeighbourGroundTile(i).IsWaterTile())
+            var neighbour = neighbours[i];
+            if (neighbour == null) continue;
+
+            if (neighbour.IsWaterTile())
             {
-                _tileObject.GetNeighbourGroundTile(i).CurrentTileRiver().PrepareRiver(0, _tileObject.GetNeighbourGroundTile(i).CurrentTileRiver().IsBridge(), true);
+                neighbour.CurrentTileRiver().PrepareRiver(0, neighbour.CurrentTileRiver().IsBridge(), true);
             }
         }
     }
@@ -145,7 +150,7 @@ public class GroundTile : MonoBehaviour
     public void SpawnGroundTile(GroundTileViewEnum previousGroundTileViewEnum = GroundTileViewEnum.None)
     {
         if (_currentGroundTile == null) return;
-        if(_currentGroundTile.GroundTileView != GroundTileViewEnum.Road) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.GroundTiles[(int)CurrentGroundTile().GroundTileView - 1], transform.position);
+        if (_currentGroundTile.GroundTileView != GroundTileViewEnum.Road) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.GroundTiles[(int)CurrentGroundTile().GroundTileView - 1], transform.position);
 
         if (_currentGroundTileObject != null)
         {
@@ -204,325 +209,340 @@ public class GroundTile : MonoBehaviour
 
     private void UpdateNeighbourGroundTiles()
     {
-        for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+        var neighbours = _tileObject.GetNeighbourGroundTilesArray();
+
+        for (int i = 0; i < neighbours.Length; i++)
         {
-            if (_tileObject.GetNeighbourGroundTile(i) != null)
+            var neighbour = neighbours[i];
+            if (neighbour != null)
             {
-                _tileObject.GetNeighbourGroundTile(i).RefreshGroundTile();
+                neighbour.RefreshGroundTile();
             }
         }
+    }
+
+    /// <summary>
+    /// Превращаем тайлв  новый
+    /// </summary>
+    private void TransformTo(GroundTileViewEnum newView)
+    {
+        SetGroundTile(_tilesSystem.GetGroundTileForEnum(newView));
+        SpawnGroundTile();
     }
 
     public void RefreshGroundTile()
     {
         _riverNumber = 0;
         if (_currentGroundTile == null) return;
+
+        // Один раз получаем массив из 8 потенциальных соседей
+        var neighbours = _tileObject.GetNeighbourGroundTilesArray();
+
         switch (_currentGroundTile.GroundTileView)
         {
             case GroundTileViewEnum.Plain:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Barrenland));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.Barrenland);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Mountain) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Forest))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Mountain) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.Forest))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Meadow));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.Meadow);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Barrenland) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.BlackDesert))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Barrenland) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.BlackDesert))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Ground));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.Ground);
                         return;
                     }
                 }
                 break;
 
             case GroundTileViewEnum.Meadow:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Barrenland));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.Barrenland);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Barrenland) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.BlackDesert))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Barrenland) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.BlackDesert))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Ground));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.Ground);
                         return;
                     }
                 }
                 break;
 
             case GroundTileViewEnum.Highland:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Mountain))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Mountain))
                     {
                         var rnd = Random.Range(0, 2);
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(rnd == 0 ? GroundTileViewEnum.IronDeposits : GroundTileViewEnum.CopperDeposits));
-                        SpawnGroundTile();
+                        TransformTo(rnd == 0 ? GroundTileViewEnum.IronDeposits : GroundTileViewEnum.CopperDeposits);
                         return;
                     }
                 }
                 break;
 
             case GroundTileViewEnum.River:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.PollutedRiver));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.PollutedRiver);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Oasis))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Oasis))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.DesertRiver));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.DesertRiver);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).IsWaterTile())
-                    {
-                        _riverNumber++;
-                    }
+                    if (neighbour.IsWaterTile()) _riverNumber++;               
                 }
                 _tileRiver.PrepareRiver(_riverNumber, IsForwardRoad(), false);
                 break;
 
             case GroundTileViewEnum.PollutedRiver:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).IsWaterTile())
-                    {
-                        _riverNumber++;
-                    }
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.IsWaterTile()) _riverNumber++;                
                 }
                 _tileRiver.PrepareRiver(_riverNumber, IsForwardRoad(), false);
                 break;
 
             case GroundTileViewEnum.Ground:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Barrenland));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.Barrenland);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Mountain))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Mountain))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.CoalDeposits));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.CoalDeposits);
                         return;
                     }
                 }
                 break;
 
             case GroundTileViewEnum.Forest:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.BlackDesert) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver) ||
-                       _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Barrenland))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.BlackDesert) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.Barrenland))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.DeadForest));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.DeadForest);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Desert))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Desert))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Oasis));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.Oasis);
                         return;
                     }
                 }
                 break;
 
             case GroundTileViewEnum.DesertRiver:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.PollutedRiver));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.PollutedRiver);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).IsWaterTile())
-                    {
-                        _riverNumber++;
-                    }
-
+                    if (neighbour.IsWaterTile()) _riverNumber++;
                 }
                 _tileRiver.PrepareRiver(_riverNumber, IsForwardRoad(), false);
                 break;
 
             case GroundTileViewEnum.Desert:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlackDesert));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlackDesert);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.River) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.DesertRiver))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.River) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.DesertRiver))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Oasis));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.Oasis);
                         return;
                     }
                 }
                 break;
 
             case GroundTileViewEnum.CoalDeposits:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.ScarceCoalDeposits));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.ScarceCoalDeposits);
                         return;
                     }
                 }
                 break;
 
             case GroundTileViewEnum.Barrenland:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Mountain))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Mountain))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.ScarceCoalDeposits));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.ScarceCoalDeposits);
                         return;
                     }
                 }
                 break;
             case GroundTileViewEnum.Oasis:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.OilSwamp) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.PollutedRiver) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.BlackDesert) ||
-                        _tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Barrenland))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.BlackDesert) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.Barrenland))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.DriedOasis));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.DriedOasis);
                         return;
                     }
                 }
@@ -531,14 +551,16 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.IronDeposits or GroundTileViewEnum.CopperDeposits or GroundTileViewEnum.OilSwamp
                 or GroundTileViewEnum.DeadForest or GroundTileViewEnum.ScarceCoalDeposits or GroundTileViewEnum.BlackDesert
                 or GroundTileViewEnum.DriedOasis:
-                for (int i = 0; i < _tileObject.GetNeighbourGroundTilesArray().Length; i++)
+                for (int i = 0; i < neighbours.Length; i++)
                 {
                     if (!IsCheckTiles(i, true)) continue;
 
-                    if (_tileObject.GetNeighbourGroundTile(i).CheckTileView(GroundTileViewEnum.Volcano))
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.BlazingField));
-                        SpawnGroundTile();
+                        TransformTo(GroundTileViewEnum.BlazingField);
                         return;
                     }
                 }
@@ -547,25 +569,35 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Mountain:
                 if (IsCheckAllCross(GroundTileViewEnum.Meadow))
                 {
-                    SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.OvergrownMountain));
-                    SpawnGroundTile();
+                    TransformTo(GroundTileViewEnum.OvergrownMountain);
                 }
                 break;
         }
     }
 
-    public bool IsCheckAllCross(GroundTileViewEnum _groundTileViewEnum)
+    public bool IsCheckAllCross(GroundTileViewEnum tileView)
     {
-        return _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.North).CheckTileView(_groundTileViewEnum) &&
-        _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.East).CheckTileView(_groundTileViewEnum) &&
-        _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.West).CheckTileView(_groundTileViewEnum) &&
-        _tileObject.GetNeighbourGroundTile((int)TileDirectionEnum.South).CheckTileView(_groundTileViewEnum);
+        var directions = new[]
+        {
+        TileDirectionEnum.North,
+        TileDirectionEnum.East,
+        TileDirectionEnum.West,
+        TileDirectionEnum.South
+        };
+
+        foreach (var dir in directions)
+        {
+            var neighbor = _tileObject.GetNeighbourGroundTile((int)dir);
+            if (neighbor == null || !neighbor.CheckTileView(tileView)) return false;
+        }
+
+        return true;
     }
 
     public void SelectTile(bool state, SelectTileEnum selectTileEnum = SelectTileEnum.TileSelect, bool checkEdge = true)
     {
         _tileView.SelectViewToggle(state, selectTileEnum);
-        if(checkEdge) _tileView.EdgeViewToggle(transform.position.x, transform.position.z, state);
+        if (checkEdge) _tileView.EdgeViewToggle(transform.position.x, transform.position.z, state);
     }
 
     public bool IsCheckTiles(int i, bool cross)
