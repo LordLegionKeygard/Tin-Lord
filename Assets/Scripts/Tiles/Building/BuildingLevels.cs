@@ -8,6 +8,7 @@ using UnityEngine;
 public class BuildingLevels : MonoBehaviour
 {
     [SerializeField] private GameObject[] _buildingLevels;
+    [SerializeField] private BuildingTargetPoints[] _buildingTargetPoints;
     [SerializeField] private int _currentBuildingLevel;
     private BuildingProductionView _buildingProductionView;
     private TileObject _tileObject;
@@ -36,4 +37,16 @@ public class BuildingLevels : MonoBehaviour
     {
         if (_buildingProductionView != null) _buildingProductionView.SetCurrentTileObject(_tileObject);
     }
+
+    public Transform GetCurrentBuildingCenterTransform()
+    {
+        var rnd = Random.Range(0, _buildingTargetPoints[_currentBuildingLevel - 1].TargetPoints.Length);
+        return _buildingTargetPoints[_currentBuildingLevel].TargetPoints[rnd];
+    }
+}
+
+[System.Serializable]
+public class BuildingTargetPoints
+{
+    public Transform[] TargetPoints;
 }

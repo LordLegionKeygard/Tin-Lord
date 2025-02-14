@@ -63,15 +63,16 @@ public class EnemyIdleState : EnemyState
     private void SetTargetAndStartPursuit(BaseHealth targetHealth, EnemyAttacks attacks)
     {
         var buildingTile = targetHealth.BuildingTile();
-        var targetTransform = buildingTile != null
+        var destinationTarget = buildingTile != null
             ? (buildingTile.IsFourTile ? targetHealth.GetFoutTileTransform() : targetHealth.gameObject.transform)
             : targetHealth.gameObject.transform;
 
         attacks.UpdateCreatureAttackDistance(buildingTile);
         _aiPath.endReachedDistance = attacks.MaxMeleeAtkRange();
+        _aiDestinationSetter.CurrentTarget = destinationTarget;
 
-        _aiDestinationSetter.CurrentTarget = targetTransform;
-        _creatureDamage.SetTarget(targetHealth, targetHealth.transform); // пока что враги ближнего боя и не стреляют поэтому передает трансформ здоровья цели
+        var bulletTarget = buildingTile != null ? targetHealth.gameObject.GetComponent<BuildingTile>().GetBuildingLevels().GetCurrentBuildingCenterTransform() : targetHealth.transform;
+        _creatureDamage.SetTarget(targetHealth, bulletTarget);
     }
 
     private void SetBaseTarget()

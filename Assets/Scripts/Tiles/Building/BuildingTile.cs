@@ -34,7 +34,8 @@ public class BuildingTile : MonoBehaviour
 
    #region Публичные геттеры
    public TileObject IsExtraBaseTileObject() => _isRealBaseTileObject;
-   public BuildingTileTransform BuildingTileTransform() => _buildingTileTransform;
+   public BuildingTileTransform GetBuildingTileTransform() => _buildingTileTransform;
+   public BuildingLevels GetBuildingLevels() => _buildingLevels;
    public BuildingTileProtective CurrentBuildingTileProtective() => _buildingTileProtective;
    private ConstructionBuildingView _constructionView;
    public bool IsConstructionNow() => _isConstructionNow;
