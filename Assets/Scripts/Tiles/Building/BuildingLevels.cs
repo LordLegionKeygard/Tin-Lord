@@ -41,7 +41,7 @@ public class BuildingLevels : MonoBehaviour
     public Transform GetCurrentBuildingCenterTransform()
     {
         var rnd = Random.Range(0, _buildingTargetPoints[_currentBuildingLevel - 1].TargetPoints.Length);
-        return _buildingTargetPoints[_currentBuildingLevel].TargetPoints[rnd];
+        return _buildingTargetPoints[_currentBuildingLevel - 1].TargetPoints[rnd];
     }
 }
 

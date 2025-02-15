@@ -16,7 +16,7 @@ public class MissionMusic : MonoBehaviour
         var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentMission().Biome];
 
         sound.Music.Play();
-        sound.Ambience.Play();
+        if (sound.Ambience != null) sound.Ambience.Play();
     }
 
     private void TurnOffMusic()
@@ -24,7 +24,7 @@ public class MissionMusic : MonoBehaviour
         var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentMission().Biome];
 
         sound.Music.Stop();
-        sound.Ambience.Stop();
+        if (sound.Ambience != null) sound.Ambience.Stop();
     }
 
     private void OnDestroy()
