@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7957684473165570141}
   - component: {fileID: 3297534386631932384}
   - component: {fileID: 2400921285023071055}
+  - component: {fileID: 5629993304941216727}
   m_Layer: 0
   m_Name: rubble1-lod1
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5629993304941216727
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553249430771855748}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.6961565, y: 2.7657716, z: 6.330181}
+  m_Center: {x: 0.21427691, y: 0.92121375, z: 0.34611714}
 --- !u!1 &7676978071251287720
 GameObject:
   m_ObjectHideFlags: 0

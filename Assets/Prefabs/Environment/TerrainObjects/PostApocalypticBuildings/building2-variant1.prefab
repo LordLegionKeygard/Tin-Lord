@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3945077366388409493}
   - component: {fileID: 6085182309590849117}
   - component: {fileID: 3387877029033961004}
+  - component: {fileID: 6381747812787604016}
   m_Layer: 0
   m_Name: building2-variant1-lod1
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6381747812787604016
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8843588181906767890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 31.638428, y: 11.768903, z: 25.599274}
+  m_Center: {x: 1.1648102, y: 4.116511, z: -2.6152039}
 --- !u!1 &9008336253233195496
 GameObject:
   m_ObjectHideFlags: 0

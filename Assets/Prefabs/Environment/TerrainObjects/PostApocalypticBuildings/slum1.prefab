@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6916625217650487465}
   - component: {fileID: 4643379179957894072}
   - component: {fileID: 855454399069918036}
+  - component: {fileID: 8442348650987004814}
   m_Layer: 0
   m_Name: slum1-lod1
   m_TagString: Untagged
@@ -117,6 +118,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8442348650987004814
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2979118152361948297}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.257301, y: 2.8980587, z: 4.5283394}
+  m_Center: {x: 0.03563118, y: 1.3547434, z: -0.015737772}
 --- !u!1001 &1902689919552358874
 PrefabInstance:
   m_ObjectHideFlags: 0

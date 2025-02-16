@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3430470020590460931}
   - component: {fileID: 5624139382765410161}
   - component: {fileID: 664592749921569097}
+  - component: {fileID: 942530235444412748}
   m_Layer: 0
   m_Name: ac-2-lod1
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &942530235444412748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894310034616703449}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3860676, y: 1.6936219, z: 1.4150612}
+  m_Center: {x: -0.16052341, y: 0.84084404, z: -0.013958305}
 --- !u!1 &8303923764343755267
 GameObject:
   m_ObjectHideFlags: 0

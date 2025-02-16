@@ -11,7 +11,7 @@
 ////////////////////////////////////////
 
 
-Shader "Hidden/Terrain_Base-689420196"
+Shader "Hidden/Terrain_Base1803450281"
 {
    Properties
    {
@@ -159,6 +159,7 @@ Shader "Hidden/Terrain_Base-689420196"
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MICROSPLATBASEMAP 1
@@ -4637,6 +4638,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MICROSPLATBASEMAP 1
@@ -9069,6 +9071,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MICROSPLATBASEMAP 1
@@ -13416,6 +13419,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MICROSPLATBASEMAP 1
@@ -17759,6 +17763,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MICROSPLATBASEMAP 1
@@ -22106,6 +22111,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MICROSPLATBASEMAP 1

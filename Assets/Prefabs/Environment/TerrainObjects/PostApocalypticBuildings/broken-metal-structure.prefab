@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 12414792275494885}
   - component: {fileID: 7423744018954610490}
   - component: {fileID: 2390568862272655321}
+  - component: {fileID: 2032580289132664939}
   m_Layer: 0
   m_Name: broken-metal-structure-lod1
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2032580289132664939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2552118619600911388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.687195, y: 3.3423915, z: 24.376043}
+  m_Center: {x: 1.3052964, y: 1.2992907, z: -0.5251713}
 --- !u!1 &4362971979767752381
 GameObject:
   m_ObjectHideFlags: 0

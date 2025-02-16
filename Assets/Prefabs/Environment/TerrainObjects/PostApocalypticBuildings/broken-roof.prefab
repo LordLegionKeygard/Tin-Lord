@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1905323857088652740}
   - component: {fileID: 2165460839608992955}
   - component: {fileID: 397874789206059762}
+  - component: {fileID: 3335055691677834485}
   m_Layer: 0
   m_Name: broken-roof-lod1
   m_TagString: Untagged
@@ -115,3 +116,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3335055691677834485
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8268026965704096058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.2521534, y: 1.4082601, z: 5.4525127}
+  m_Center: {x: 0.071944356, y: 0.25992775, z: 0.0674392}

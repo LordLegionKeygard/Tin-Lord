@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 949752286916077711}
   - component: {fileID: 8400573555634199387}
   - component: {fileID: 8780385428153587362}
+  - component: {fileID: 3264663025818275298}
   m_Layer: 0
   m_Name: building8-rubble-lod1
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3264663025818275298
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780861437613199381}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 56.782093, y: 55.175133, z: 48.57261}
+  m_Center: {x: -0.95799446, y: 22.4651, z: -1.0897865}
 --- !u!1 &8728594859331258619
 GameObject:
   m_ObjectHideFlags: 0

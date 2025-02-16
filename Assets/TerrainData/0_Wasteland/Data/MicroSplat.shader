@@ -159,6 +159,7 @@ Shader "Terrain"
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -4636,6 +4637,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -9067,6 +9069,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -13413,6 +13416,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -17755,6 +17759,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -22101,6 +22106,7 @@ float3 GetTessFactors ()
       #define _PERTEXUVSCALEOFFSET 1
       #define _PERTEXTINT 1
       #define _PERTEXBRIGHTNESS 1
+      #define _BRANCHSAMPLES 1
       #define _WINDPARTICULATE 1
       #define _MSRENDERLOOP_UNITYURP2021 1
       #define _MSRENDERLOOP_UNITYLD 1
@@ -26453,7 +26459,7 @@ float3 GetTessFactors ()
 
         UsePass "Hidden/Nature/Terrain/Utilities/PICKING"
    }
-   Dependency "BaseMapShader" =  "Hidden/Terrain_Base-689420196"
-   Fallback "Hidden/Terrain_Base-689420196"
+   Dependency "BaseMapShader" =  "Hidden/Terrain_Base1803450281"
+   Fallback "Hidden/Terrain_Base1803450281"
    CustomEditor "MicroSplatShaderGUI"
 }

@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1960782092353025870}
   - component: {fileID: 5981683284479063305}
   - component: {fileID: 7610719251385803503}
+  - component: {fileID: 4025672347559810906}
   m_Layer: 0
   m_Name: broken-wall4-lod1
   m_TagString: Untagged
@@ -115,3 +116,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4025672347559810906
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8291154243380964580}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3193192, y: 0.47459877, z: 7.7818594}
+  m_Center: {x: 0.07222849, y: 0.013798833, z: -0.6937903}

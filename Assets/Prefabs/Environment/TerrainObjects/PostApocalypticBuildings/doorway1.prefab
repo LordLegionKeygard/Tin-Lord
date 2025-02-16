@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 967829977348337080}
   - component: {fileID: 1830035087164063702}
   - component: {fileID: 4511397893175091645}
+  - component: {fileID: 9067451713678298055}
   m_Layer: 0
   m_Name: doorway1-lod1
   m_TagString: Untagged
@@ -115,3 +116,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9067451713678298055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7916444144115645872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16810863, y: 2.6897538, z: 3.9847803}
+  m_Center: {x: -0.008361034, y: 1.262911, z: 0.18137413}
