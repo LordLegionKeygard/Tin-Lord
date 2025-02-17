@@ -98,19 +98,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshRenderer: {fileID: 8364982648264921923}
-  _biomTileTextures:
-  - BiomeEnum: 0
+  _tileTextures:
+  - TileColorEnum: 0
     Base:
     - {fileID: 2800000, guid: 596fab66123b4894f9b2a86fc939cbfe, type: 3}
     - {fileID: 2800000, guid: db021029ea6799f45a341acf617319f8, type: 3}
     - {fileID: 2800000, guid: 123be0bb4a30b224d81619f2a6df1220, type: 3}
     - {fileID: 2800000, guid: a758697534062d942bbbbf9780f14098, type: 3}
-  - BiomeEnum: 1
+  - TileColorEnum: 1
     Base:
     - {fileID: 2800000, guid: ac19d33aff342e44798212bf0bc61de1, type: 3}
     - {fileID: 2800000, guid: 002aa3ec6457eff489f3fbf2cd105c27, type: 3}
     - {fileID: 2800000, guid: cd15c74ae4b87cc49888bd36d6f6ff98, type: 3}
     - {fileID: 2800000, guid: 612e3fa7c4cc3424cab3660380333da8, type: 3}
+  - TileColorEnum: 2
+    Base:
+    - {fileID: 2800000, guid: c91c3743c27cded489bbb02a0fdd297f, type: 3}
+    - {fileID: 2800000, guid: 47552ecea1411db4f9d01814c044a684, type: 3}
+    - {fileID: 2800000, guid: baac8a9ddb3efa245a36f112db80a0fa, type: 3}
+    - {fileID: 2800000, guid: 7a5e4c9b10d73ff4ebdec59a8e06ffcc, type: 3}
   _normal:
   - {fileID: 2800000, guid: a27c5c7cf25ca75418f47263c5cc6f53, type: 3}
   - {fileID: 2800000, guid: 9e7fdb8bc14d66e41a8bbe9c11710313, type: 3}

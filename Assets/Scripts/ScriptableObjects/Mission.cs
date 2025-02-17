@@ -6,6 +6,8 @@ public class Mission : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
     public BiomeEnum MusicTheme;
+    public TileColorEnum TileColorEnum;
+    public Color TileColor;
     public MissionLight MissionLight;
     public Sprite MissionSprite;
     public int MissionId;
@@ -41,6 +43,11 @@ public enum ObjectiveEnum
 public class MissionLight
 {
     public Vector2 LightRotation;
-    [ColorUsage(true, true)] public Color AmbientColor;
+    [ColorUsage(true, true)] public Color SkyColor;
+
+    [ColorUsage(true, true)] public Color EquatorColor;
+
+    [ColorUsage(true, true)] public Color GroundColor;
     public int Temperature;
+    public float Intencity;
 }

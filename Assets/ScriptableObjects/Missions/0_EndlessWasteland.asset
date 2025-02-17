@@ -16,10 +16,15 @@ MonoBehaviour:
   - Endless wasteland
   - "\u0411\u0435\u0441\u043A\u0440\u0430\u0439\u043D\u044F\u044F \u043F\u0443\u0441\u0442\u043E\u0448\u044C"
   MusicTheme: 0
+  TileColorEnum: 0
+  TileColor: {r: 1, g: 1, b: 1, a: 1}
   MissionLight:
-    LightRotation: {x: 17, y: 41.283}
-    AmbientColor: {r: 1, g: 0.9647059, b: 0.8627451, a: 1}
+    LightRotation: {x: 23.93, y: -105.4}
+    SkyColor: {r: 1, g: 0.9647059, b: 0.8627451, a: 1}
+    EquatorColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
+    GroundColor: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 1}
     Temperature: 3640
+    Intencity: 2.5
   MissionSprite: {fileID: 21300000, guid: b518ad1d7aaeebd44ad06e1a929de449, type: 3}
   MissionId: 0
   StartEcology: 0
