@@ -9,7 +9,7 @@ public class EarthquakeWorldEvent : BaseWorldEvent
     [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Transform _transform;
     private float _delay = 1.5f;
-    private float _initialYPosition = 10.8f;
+    private float _initialYPosition = 0;
     private float _shakeAmplitude = 0.2f;
     private float _shakeDuration = 2;
     private float _shakeSpeed = 0.07f;

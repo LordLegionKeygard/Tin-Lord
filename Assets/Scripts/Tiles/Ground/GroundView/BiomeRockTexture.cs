@@ -12,7 +12,7 @@ public class BiomeRockTexture : MonoBehaviour
 
     private void SetTexture()
     {
-        var currentBiomTileTextures = _biomRockTextures[(int)CurrentMissionInfo.Instance.GetCurrentMission().Biome];
+        var currentBiomTileTextures = _biomRockTextures[(int)CurrentMissionInfo.Instance.GetCurrentMission().MusicTheme];
 
         foreach (var materials in _rockMaterials)
         {

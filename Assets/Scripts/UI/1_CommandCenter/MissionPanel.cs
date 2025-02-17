@@ -12,6 +12,7 @@ public class MissionPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _startResourcesText;
     [SerializeField] private TextMeshProUGUI _objectiveText;
     [SerializeField] private TextMeshProUGUI[] _objectiveTexts;
+    [SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private GameObject[] _activeObjects;
     [SerializeField] private ResourcesViewCommandCenter _resourcesView;
     [SerializeField] private RectTransform _objectivesRectTransform;
@@ -45,6 +46,7 @@ public class MissionPanel : MonoBehaviour
         _ecologyLevelText.text = $"{Language.TextStatic[34]} {_currentMission.StartEcology}";
         _startResourcesText.text = Language.TextStatic[35];
         _objectiveText.text = Language.TextStatic[36];
+        _descriptionText.text = _currentMission.Description[Language.LanguageNumber];
 
         for (int i = 0; i < _currentMission.Objectives.Length; i++)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mission : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
-    public BiomeEnum Biome;
+    public BiomeEnum MusicTheme;
     public MissionLight MissionLight;
     public Sprite MissionSprite;
     public int MissionId;

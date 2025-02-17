@@ -102,7 +102,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private Vector3 GetRandomSpawnTransform()
     {
-        var biomeNumber = (int)CurrentMissionInfo.Instance.GetCurrentMission().Biome;
+        var biomeNumber = (int)CurrentMissionInfo.Instance.GetCurrentMission().MusicTheme;
         var randomTransform = Random.Range(0, _enemiesBiomeSpawnTransforms[biomeNumber].SpawnPoints.Length);
         return _enemiesBiomeSpawnTransforms[biomeNumber].SpawnPoints[randomTransform].position;
     }
@@ -143,6 +143,5 @@ public class EnemiesForListData
 [System.Serializable]
 public class EnemiesBiomeSpawnTransforms
 {
-    public BiomeEnum BiomeEnum;
     public Transform[] SpawnPoints;
 }

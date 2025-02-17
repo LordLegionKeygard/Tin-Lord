@@ -19,7 +19,7 @@ public class EnemyIdleState : EnemyState
         stateChanger.CanRotateForwardToggle(false);
 
         BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
-        
+
         if (targetHealth != null)
         {
             SetTargetAndStartPursuit(targetHealth, attacks);
@@ -71,7 +71,9 @@ public class EnemyIdleState : EnemyState
         _aiPath.endReachedDistance = attacks.MaxMeleeAtkRange();
         _aiDestinationSetter.CurrentTarget = destinationTarget;
 
-        var bulletTarget = buildingTile != null ? targetHealth.gameObject.GetComponent<BuildingTile>().GetBuildingLevels().GetCurrentBuildingCenterTransform() : targetHealth.transform;
+        var buildingLevels = targetHealth.gameObject.GetComponent<BuildingTile>()?.GetBuildingLevels();
+        var bulletTarget = buildingLevels?.GetCurrentBuildingCenterTransform() ?? targetHealth.transform;
+
         _creatureDamage.SetTarget(targetHealth, bulletTarget);
     }
 

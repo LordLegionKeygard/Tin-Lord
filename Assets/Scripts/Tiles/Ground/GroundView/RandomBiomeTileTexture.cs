@@ -13,7 +13,7 @@ public class RandomBiomeTileTexture : MonoBehaviour
 
     private void SetTexture()
     {
-        var currentBiomTileTextures = _biomTileTextures[(int)CurrentMissionInfo.Instance.GetCurrentMission().Biome];
+        var currentBiomTileTextures = _biomTileTextures[(int)CurrentMissionInfo.Instance.GetCurrentMission().MusicTheme];
         var rnd = Random.Range(0, currentBiomTileTextures.Base.Length);
         _meshRenderer.material.SetTexture("_BaseMap", currentBiomTileTextures.Base[rnd]);
         _meshRenderer.material.EnableKeyword("_NORMALMAP");
