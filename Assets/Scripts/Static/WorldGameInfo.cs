@@ -51,4 +51,7 @@ public class WorldGameInfo
     //Sounds
     public const int EnemiesDeathSoundChance = 10;
 
+    //Terrain
+    public const float TerrainOffset = 1.68f;
+
 }
