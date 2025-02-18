@@ -2388,63 +2388,26 @@ MonoBehaviour:
     - {fileID: 644891802}
     - {fileID: 752078429}
   - SpawnPoints:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - SpawnPoints:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - SpawnPoints:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - SpawnPoints:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 1456293054}
+    - {fileID: 1411363236}
+    - {fileID: 836867929}
+    - {fileID: 941151217}
+    - {fileID: 1328131875}
+    - {fileID: 1136974845}
+    - {fileID: 1248359193}
+    - {fileID: 668599189}
+    - {fileID: 1246287148}
+    - {fileID: 776268846}
+    - {fileID: 1736526813}
+    - {fileID: 561615063}
+    - {fileID: 541627403}
+    - {fileID: 1169266599}
+    - {fileID: 1152405973}
+    - {fileID: 1031244022}
+    - {fileID: 1189379854}
+    - {fileID: 233938475}
+    - {fileID: 293406848}
+    - {fileID: 1930501924}
 --- !u!114 &140215577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16169,9 +16132,6 @@ MonoBehaviour:
   _terrains:
   - {fileID: 919132148988174214}
   - {fileID: 1043307573}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _environmentParentTransform: {fileID: 1591200571}
   _roadTiles: []
 --- !u!114 &813738597
@@ -20392,7 +20352,7 @@ Transform:
   m_Children:
   - {fileID: 567106588}
   - {fileID: 682924744}
-  m_Father: {fileID: 1772836658}
+  m_Father: {fileID: 1487528230}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1043307577
@@ -26995,7 +26955,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1772836658}
+  - {fileID: 543450652658140476}
+  - {fileID: 1043307576}
   m_Father: {fileID: 1591200571}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31202,39 +31163,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755758294}
   m_CullTransparentMesh: 1
---- !u!1 &1772836657
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1772836658}
-  m_Layer: 0
-  m_Name: New
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1772836658
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772836657}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 543450652658140476}
-  - {fileID: 1043307576}
-  m_Father: {fileID: 1487528230}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1773083382
 GameObject:
   m_ObjectHideFlags: 0
@@ -38290,7 +38218,7 @@ Transform:
   m_Children:
   - {fileID: 1405079948}
   - {fileID: 762813295}
-  m_Father: {fileID: 1772836658}
+  m_Father: {fileID: 1487528230}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 178.2, z: 0}
 --- !u!1 &919132148408553420
