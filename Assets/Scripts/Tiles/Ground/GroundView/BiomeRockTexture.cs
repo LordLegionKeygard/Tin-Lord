@@ -3,7 +3,6 @@ using UnityEngine;
 public class BiomeRockTexture : MonoBehaviour
 {
     [SerializeField] private Material[] _rockMaterials;
-    [SerializeField] private BiomRockTexture[] _biomRockTextures;
 
     private void Start()
     {
@@ -12,11 +11,11 @@ public class BiomeRockTexture : MonoBehaviour
 
     private void SetTexture()
     {
-        var currentBiomTileTextures = _biomRockTextures[(int)CurrentMissionInfo.Instance.GetCurrentMission().MusicTheme];
+        var currentBiomTileTextures = CurrentMissionInfo.Instance.GetCurrentMission().MissionView.RockTexture;
 
         foreach (var materials in _rockMaterials)
         {
-            materials.SetTexture("_TopAlbedo", currentBiomTileTextures.Base);
+            materials.SetTexture("_TopAlbedo", currentBiomTileTextures);
         }
     }
 
@@ -24,11 +23,4 @@ public class BiomeRockTexture : MonoBehaviour
     {
         CustomEvents.OnDataLoad -= SetTexture;
     }
-}
-
-[System.Serializable]
-public class BiomRockTexture
-{
-    public BiomeEnum BiomeEnum;
-    public Texture Base;
 }

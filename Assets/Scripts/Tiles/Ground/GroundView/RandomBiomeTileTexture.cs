@@ -13,9 +13,9 @@ public class RandomBiomeTileTexture : MonoBehaviour
 
     private void SetTexture()
     {
-        var currentBiomTileTextures = _tileTextures[(int)CurrentMissionInfo.Instance.GetCurrentMission().TileColorEnum];
+        var currentBiomTileTextures = _tileTextures[(int)CurrentMissionInfo.Instance.GetCurrentMission().MissionView.TileColorEnum];
         var rnd = Random.Range(0, currentBiomTileTextures.Base.Length);
-        _meshRenderer.material.color = CurrentMissionInfo.Instance.GetCurrentMission().TileColor;
+        _meshRenderer.material.color = CurrentMissionInfo.Instance.GetCurrentMission().MissionView.TileColor;
         _meshRenderer.material.SetTexture("_BaseMap", currentBiomTileTextures.Base[rnd]);
         _meshRenderer.material.EnableKeyword("_NORMALMAP");
         _meshRenderer.material.SetTexture("_BumpMap", _normal[rnd]);

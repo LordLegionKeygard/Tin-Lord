@@ -85,6 +85,6 @@ public class EnemyIdleState : EnemyState
             return;
         }
 
-        _aiDestinationSetter.CurrentTarget = BasePoint.Instance.gameObject.transform;
+        _aiDestinationSetter.CurrentTarget = BasePoint.Instance.GetRandomBasePoint();
     }
 }

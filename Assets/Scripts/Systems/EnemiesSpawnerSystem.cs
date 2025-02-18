@@ -102,9 +102,9 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private Vector3 GetRandomSpawnTransform()
     {
-        var biomeNumber = (int)CurrentMissionInfo.Instance.GetCurrentMission().MusicTheme;
-        var randomTransform = Random.Range(0, _enemiesBiomeSpawnTransforms[biomeNumber].SpawnPoints.Length);
-        return _enemiesBiomeSpawnTransforms[biomeNumber].SpawnPoints[randomTransform].position;
+        var missionId = CurrentMissionInfo.Instance.GetCurrentMission().MissionId;
+        var randomTransform = Random.Range(0, _enemiesBiomeSpawnTransforms[missionId].SpawnPoints.Length);
+        return _enemiesBiomeSpawnTransforms[missionId].SpawnPoints[randomTransform].position;
     }
 
     private void AddEnemyToList(int enemyEnum, int enemyNumber, GameObject prefab)

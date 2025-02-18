@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 4066411933288409677}
   - component: {fileID: 9173902442919989544}
   - component: {fileID: 4066411933288409678}
+  - component: {fileID: 2810000850735058286}
   m_Layer: 6
   m_Name: 4_Trunckarce
   m_TagString: Untagged
@@ -1384,6 +1385,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2810000850735058286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685383443729936624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a537d958aa5bb4f35b0d7b40d72278f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  penalty: 100
+  randomStep: 5
 --- !u!1 &3782539815204643823
 GameObject:
   m_ObjectHideFlags: 0

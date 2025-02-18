@@ -711,6 +711,7 @@ GameObject:
   - component: {fileID: 4340323589884085428}
   - component: {fileID: 4340323589884085429}
   - component: {fileID: 4340323589884085322}
+  - component: {fileID: 7149952963032213087}
   m_Layer: 6
   m_Name: 5_Karcicodus
   m_TagString: Untagged
@@ -1098,6 +1099,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7149952963032213087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4340323589884085317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a537d958aa5bb4f35b0d7b40d72278f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  penalty: 100
+  randomStep: 5
 --- !u!1 &4414213115372405256
 GameObject:
   m_ObjectHideFlags: 0

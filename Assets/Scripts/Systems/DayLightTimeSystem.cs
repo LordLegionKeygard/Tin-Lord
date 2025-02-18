@@ -14,7 +14,7 @@ public class DayLightTimeSystem : MonoBehaviour
 
     public void SetDayLightTime()
     {
-        var missionLight = CurrentMissionInfo.Instance.GetCurrentMission().MissionLight;
+        var missionLight = CurrentMissionInfo.Instance.GetCurrentMission().MissionView.MissionLight;
         Vector2 dayLightTime = missionLight.LightRotation;
         _light.transform.rotation = Quaternion.Euler(dayLightTime.x, dayLightTime.y, 0f);
         _light.colorTemperature = missionLight.Temperature;

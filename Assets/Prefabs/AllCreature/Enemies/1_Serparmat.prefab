@@ -1964,6 +1964,7 @@ GameObject:
   - component: {fileID: 8633156420727041163}
   - component: {fileID: 4462577529912291928}
   - component: {fileID: 8633156420727041204}
+  - component: {fileID: 9059463572716726002}
   m_Layer: 6
   m_Name: 1_Serparmat
   m_TagString: Untagged
@@ -2348,6 +2349,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9059463572716726002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972563172428953149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a537d958aa5bb4f35b0d7b40d72278f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  penalty: 100
+  randomStep: 5
 --- !u!1 &9071318928262673405
 GameObject:
   m_ObjectHideFlags: 0

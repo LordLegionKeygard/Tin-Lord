@@ -6,9 +6,7 @@ public class Mission : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
     public BiomeEnum MusicTheme;
-    public TileColorEnum TileColorEnum;
-    public Color TileColor;
-    public MissionLight MissionLight;
+    public MissionView MissionView;
     public Sprite MissionSprite;
     public int MissionId;
     public int StartEcology;
@@ -21,6 +19,15 @@ public class Mission : ScriptableObject
     public ResourceWrapper[] StartResources;
     public ObjectiveWrapper[] Objectives;
     [TextArea(1, 8)] public string[] Description;
+}
+
+[System.Serializable]
+public class MissionView
+{
+    public Texture RockTexture;
+    public TileColorEnum TileColorEnum;
+    public Color TileColor;
+    public MissionLight MissionLight;
 }
 
 [System.Serializable]
