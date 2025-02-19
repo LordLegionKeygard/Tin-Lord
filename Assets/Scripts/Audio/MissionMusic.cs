@@ -8,7 +8,7 @@ public class MissionMusic : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnPlayRandomLevelMusic += PlayRandomMusic;
-        CustomEvents.OnTurnOffLevelMusic += TurnOffMusic;
+        CustomEvents.OnPauseChanged += PauseMusicToggle;
     }
 
     private void PlayRandomMusic()
@@ -19,32 +19,30 @@ public class MissionMusic : MonoBehaviour
         if (sound.Ambience != null) sound.Ambience.Play();
     }
 
-    private void TurnOffMusic()
+    private void PauseMusicToggle(bool state)
     {
         var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentMission().MusicTheme];
-
-        sound.Music.Stop();
-        if (sound.Ambience != null) sound.Ambience.Stop();
+        
+        sound.Music.EventInstance.setPaused(state);
     }
 
     private void OnDestroy()
     {
         CustomEvents.OnPlayRandomLevelMusic -= PlayRandomMusic;
-        CustomEvents.OnTurnOffLevelMusic -= TurnOffMusic;
+        CustomEvents.OnPauseChanged -= PauseMusicToggle;
     }
 }
 
 [System.Serializable]
 public class MusicWrapper
 {
-    public BiomeEnum Biom;
+    public MusicThemeEnum MusicTheme;
     public StudioEventEmitter Music;
     public StudioEventEmitter Ambience;
 }
 
 [System.Serializable]
-public enum BiomeEnum
+public enum MusicThemeEnum
 {
     WasteLand = 0,
-    DarkWaters = 1,
 }

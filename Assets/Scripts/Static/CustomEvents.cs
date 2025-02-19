@@ -14,12 +14,6 @@ public class CustomEvents
         OnPlayRandomLevelMusic?.Invoke();
     }
 
-    public static Action OnTurnOffLevelMusic;
-    public static void FireTurnOffLevelMusic()
-    {
-        OnTurnOffLevelMusic?.Invoke();
-    }
-
     public static event Action<GameEventType, int> OnGameEventStart;
     public static void FireGameEventStart(GameEventType gameEventType, int eventNumber)
     {

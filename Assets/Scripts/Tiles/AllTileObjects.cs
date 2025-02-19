@@ -105,14 +105,15 @@ public class AllTileObjects : MonoBehaviour
         for (int i = 0; i < TileObjects.Count; i++)
         {
             if (tilesData[i].GroundData.GroundTileId == (int)GroundTileViewEnum.None) continue;
-
             TileObjects[i].GroundTileObject().LoadGroundTile(tilesData[i]);
-
-            if (tilesData[i].BuildingData.BuildingTileTypeId == (int)BuildingTileViewEnum.None) continue;
-
-            TileObjects[i].BuildingTileObject().LoadBuildingTile(tilesData[i]);
         }
 
         CustomEvents.FireSpawnRoadComplete();
+
+        for (int i = 0; i < TileObjects.Count; i++)
+        {
+            if (tilesData[i].BuildingData.BuildingTileTypeId == (int)BuildingTileViewEnum.None) continue;
+            TileObjects[i].BuildingTileObject().LoadBuildingTile(tilesData[i]);
+        }
     }
 }
