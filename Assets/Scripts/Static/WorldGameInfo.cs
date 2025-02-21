@@ -42,6 +42,7 @@ public class WorldGameInfo
 
     //Load
     public const int LoadSceneTime = 2;
+    public const int DefaultLoadingScreenSpriteId = -1;
 
     //EndMissionFragmentsPercent
     public const int DefeatFragmentsPercent = 10;

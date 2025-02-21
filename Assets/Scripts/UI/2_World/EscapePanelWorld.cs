@@ -138,7 +138,7 @@ public class EscapePanelWorld : MonoBehaviour
     private IEnumerator PrepareRestartMission()
     {
         yield return new WaitForSecondsRealtime(1);
-        _worldSaveGame.ResetMissionGameData();
+        _worldSaveGame.ResetMissionGameData(CurrentMissionInfo.Instance.GetCurrentMission().MissionId);
     }
 
     private IEnumerator PrepareSaveMission()

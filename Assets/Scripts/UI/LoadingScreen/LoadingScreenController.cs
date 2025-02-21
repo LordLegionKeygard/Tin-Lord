@@ -3,12 +3,14 @@ using TMPro;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using Zenject;
+using UnityEngine.UI;
 
 public class LoadingScreenController : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [SerializeField] private TextMeshProUGUI _loading;
-    [SerializeField] private GameObject _loadingScreen;
+    [SerializeField] private Image _loadingScreen;
+    [SerializeField] private Sprite[] _loadingScreenSprites;
 
     private void Start()
     {
@@ -16,9 +18,15 @@ public class LoadingScreenController : MonoBehaviour
         CustomEvents.OnLoadingScreenToggle += ScreenToggle;
     }
 
+    public void ShowLoadingScreen(int missionId)
+    {
+        _loadingScreen.sprite = _loadingScreenSprites[missionId + 1];     
+        ScreenToggle(true);
+    }
+
     public void ScreenToggle(bool state)
     {
-        _loadingScreen.SetActive(state);
+        _loadingScreen.gameObject.SetActive(state);
     }
 
     public async Task CheckCurrentScene()

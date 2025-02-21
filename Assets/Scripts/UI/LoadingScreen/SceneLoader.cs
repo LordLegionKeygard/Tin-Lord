@@ -14,9 +14,9 @@ public class SceneLoader : MonoBehaviour
     {
         CustomEvents.OnLoadScene += LoadSceneAsynchronously;
     }
-    private void LoadSceneAsynchronously(SceneEnum sceneEnum, float timeInSec, bool isLoadData)
+    private void LoadSceneAsynchronously(SceneEnum sceneEnum, float timeInSec, bool isLoadData, int missionId)
     {
-        _loadingScreenController.ScreenToggle(true);
+        _loadingScreenController.ShowLoadingScreen(missionId);
         if (isLoadData) CheckSaveLoad(sceneEnum);
         StartCoroutine(LoadScene(sceneEnum, timeInSec, isLoadData));
     }

@@ -110,7 +110,7 @@ public class EndMissionSystem : MonoBehaviour
     private IEnumerator PrepareLoad()
     {
         yield return new WaitForSecondsRealtime(1);
-        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true);
+        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, WorldGameInfo.DefaultLoadingScreenSpriteId);
     }
 
     private void OnDestroy()

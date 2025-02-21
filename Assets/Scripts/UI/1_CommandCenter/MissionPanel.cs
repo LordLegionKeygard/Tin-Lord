@@ -128,7 +128,7 @@ public class MissionPanel : MonoBehaviour
     private IEnumerator PrepareLoad()
     {
         yield return new WaitForSecondsRealtime(1);
-        if (_isContinueMission) _worldSaveGame.LoadMissionGameData();
+        if (_isContinueMission) _worldSaveGame.LoadMissionGameData(_currentMission.MissionId);
         else _worldSaveGame.NewMission(_currentMission);
     }
 

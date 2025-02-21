@@ -110,10 +110,10 @@ public class CustomEvents
         OnDataLoad?.Invoke();
     }
 
-    public static Action<SceneEnum, float, bool> OnLoadScene;
-    public static void FireLoadScene(SceneEnum sceneEnum, float timeInSec, bool isLoadData)
+    public static Action<SceneEnum, float, bool, int> OnLoadScene;
+    public static void FireLoadScene(SceneEnum sceneEnum, float timeInSec, bool isLoadData, int missionId)
     {
-        OnLoadScene?.Invoke(sceneEnum, timeInSec, isLoadData);
+        OnLoadScene?.Invoke(sceneEnum, timeInSec, isLoadData, missionId);
     }
 
     public static Action<FadeType> OnFade;
