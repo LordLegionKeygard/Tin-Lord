@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TreeWinter00_branch0
+  m_Name: TreeWinter_branch2
   m_Shader: {fileID: 4800000, guid: f2c0444b567948d3ab6d4aa603e03a15, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 2aceadad7d59b8b49a669bc9677976b5, type: 3}
+        m_Texture: {fileID: 2800000, guid: c12609528b99d684986488350acf225a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: df0eb17b74c911c468d389ec1fc42751, type: 3}
+        m_Texture: {fileID: 2800000, guid: 524d67ddc2a4574469cd26c755724d17, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -82,11 +82,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _A0Power: 0
-    - _AOPower: 0.9
+    - _AOPower: 1
     - _AlphaCutoff: 0.5
     - _AlphaThreshold: 0.5
     - _BumpScale: 1
-    - _Cutoff: 0.71
+    - _Cutoff: 0.25
     - _CutoffThreshold: 0.75
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -95,18 +95,18 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _LeavesNoise: 0.56
-    - _LeavesNoisePower: 0.1
+    - _LeavesNoisePower: 0.3
     - _Metallic: 0
     - _Mode: 1
-    - _NoiseScale: 0.1
-    - _Noisespeed: 5
+    - _NoiseScale: 0.2
+    - _Noisespeed: 10
     - _NormalScale: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0
+    - _Smoothness: 0.3
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -114,20 +114,20 @@ Material:
     - _UVSec: 0
     - _VerticalOffset: -0.21
     - _WindPower: 1
-    - _WorldNoiseScale: 0.01
+    - _WorldNoiseScale: 0.02
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorA: {r: 0.5304824, g: 0.682772, b: 0.8584906, a: 0.3764706}
+    - _ColorA: {r: 0.6567283, g: 0.6881248, b: 0.8867924, a: 0.44705883}
     - _ColorB: {r: 1, g: 1, b: 1, a: 0}
-    - _ColorBAOalpha: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorCAOalpha: {r: 0.47058824, g: 0.54867953, b: 0.65882355, a: 1}
+    - _ColorBAOalpha: {r: 0.84104663, g: 0.85655916, b: 0.9433962, a: 1}
+    - _ColorCAOalpha: {r: 1, g: 1, b: 1, a: 1}
     - _ColorDAOalpha: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _LeavesOffset: {r: -0.05, g: 1, b: 0, a: 0}
     - _MotionValue: {r: 1, g: 1, b: 0, a: 0}
-    - _Tintpowerxyoffsetzw: {r: 1.26, g: 0.27, b: 0.09, a: -0.6}
+    - _Tintpowerxyoffsetzw: {r: 1, g: 2, b: -0.07, a: -0.85}
     - _Vector0: {r: -13.38, g: 0, b: 0, a: 0}
     - _VerticalOffset: {r: -0.5, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
