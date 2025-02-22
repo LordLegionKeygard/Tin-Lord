@@ -18,4 +18,6 @@ public enum EnemyEnum
     Trunckarce = 4,
     Karcicodus = 5,
     Entomochelon = 6,
+    Onyscidus = 7,
+    Fulgurodonte = 8,
 }

@@ -138,7 +138,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _Clamp: {r: 0, g: 1, b: 0, a: 0}
+    - _Clamp: {r: 1.36, g: 0.5, b: 0, a: 0}
     - _Color: {r: 0.5874866, g: 0.7144597, b: 0.7735849, a: 1}
     - _ColorA: {r: 0.20225169, g: 0.30562255, b: 0.4245283, a: 1}
     - _ColorBAOalpha: {r: 1, g: 1, b: 1, a: 1}
@@ -147,10 +147,10 @@ Material:
     - _ColorTop: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _LeavesOffset: {r: -0.18, g: 2.17, b: 0, a: 0}
-    - _MotionValue: {r: 1, g: 1, b: 0, a: 0}
+    - _MotionValue: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _Tintpowerxyoffsetzw: {r: 0.81, g: 1, b: -0.26, a: -0.14}
-    - _TopVertical: {r: 2.35, g: -20, b: 0, a: 0}
+    - _TopVertical: {r: 2.35, g: -58.8, b: 0, a: 0}
     - _TopVerticalMix: {r: 0, g: 0, b: 1, a: 0}
     - _Vector0: {r: -0.2, g: 0.64, b: 0, a: 0}
-    - _VerticalOffset: {r: -0.5, g: 2, b: 0, a: 0}
+    - _VerticalOffset: {r: -0.5, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []

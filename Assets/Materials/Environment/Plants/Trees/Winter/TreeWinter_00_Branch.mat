@@ -125,9 +125,9 @@ Material:
     - _ColorCAOalpha: {r: 0.47058824, g: 0.54867953, b: 0.65882355, a: 1}
     - _ColorDAOalpha: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LeavesOffset: {r: -0.05, g: 1, b: 0, a: 0}
-    - _MotionValue: {r: 1, g: 1, b: 0, a: 0}
+    - _LeavesOffset: {r: -0.5, g: 0.5, b: 0, a: 0}
+    - _MotionValue: {r: 0.2, g: 0.2, b: 0, a: 0}
     - _Tintpowerxyoffsetzw: {r: 1, g: 0.18, b: 0.09, a: -0.2}
     - _Vector0: {r: -13.38, g: 0, b: 0, a: 0}
-    - _VerticalOffset: {r: -0.5, g: 2, b: 0, a: 0}
+    - _VerticalOffset: {r: 0, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []

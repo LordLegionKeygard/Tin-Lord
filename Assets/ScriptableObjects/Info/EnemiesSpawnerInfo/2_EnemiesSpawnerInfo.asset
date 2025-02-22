@@ -16,4 +16,6 @@ MonoBehaviour:
   - DaySpawn: 0
     MinCount: 0
     MaxCount: 0
-    EnemiesSpawnerInfo: []
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 7
+      EnemyLevel: 0
