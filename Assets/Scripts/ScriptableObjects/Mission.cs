@@ -24,6 +24,7 @@ public class Mission : ScriptableObject
 [System.Serializable]
 public class MissionView
 {
+    public TreeType TreeType;
     public Texture RockTexture;
     public TileColorEnum TileColorEnum;
     public Color TileColor;
@@ -57,4 +58,11 @@ public class MissionLight
     [ColorUsage(true, true)] public Color GroundColor;
     public int Temperature;
     public float Intencity;
+}
+
+[System.Serializable]
+public enum TreeType
+{
+    Default = 0,
+    Winter = 1,
 }

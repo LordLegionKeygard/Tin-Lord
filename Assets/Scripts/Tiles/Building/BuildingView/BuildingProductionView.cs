@@ -26,10 +26,9 @@ public class BuildingProductionView : MonoBehaviour
     [SerializeField] private Animator[] _animators;
     [SerializeField] private RotateAround[] _rotateArounds;
 
-    [Header("Modifier")]
+    [Header("TreeViewModifier")]
     [SerializeField] private float _changeViewIfModifier;
-    [SerializeField] private GameObject[] _additionalturnOffObjects;
-    [SerializeField] private GameObject[] _additionalturnOnObjects;
+    [SerializeField] private GameObject[] _trees;
 
     [Header("Resource")]
     [SerializeField] private bool _needSetResourceView;
@@ -48,21 +47,15 @@ public class BuildingProductionView : MonoBehaviour
 
     public void RefreshModifierView()
     {
-        if (_changeViewIfModifier != 0) SetModifierView(_changeViewIfModifier != _tileObject.CurrentModifier());
+        if (_changeViewIfModifier != 0) SetTreeModifierView(_changeViewIfModifier != _tileObject.CurrentModifier());
         CheckMainBuildingView();
     }
 
-    private void SetModifierView(bool state)
+    private void SetTreeModifierView(bool state)
     {
-        foreach (var item in _additionalturnOffObjects)
-        {
-            item.SetActive(state);
-        }
-
-        foreach (var item in _additionalturnOnObjects)
-        {
-            item.SetActive(!state);
-        }
+        var treeNumber = (int)CurrentMissionInfo.Instance.GetCurrentMission().MissionView.TreeType + 1;
+        _trees[treeNumber].SetActive(state);
+        _trees[0].SetActive(!state);
     }
 
     public void CheckMainBuildingView()
