@@ -4,11 +4,12 @@ using FMODUnity;
 public class MissionMusic : MonoBehaviour
 {
     [SerializeField] private MusicWrapper[] _musicWrapper;
+    [SerializeField] private GameObject _escapeObject;
 
     private void Start()
     {
         CustomEvents.OnPlayRandomLevelMusic += PlayRandomMusic;
-        CustomEvents.OnPauseChanged += PauseMusicToggle;
+        CustomEvents.OnCheckPause += PauseMusicToggle;
     }
 
     private void PlayRandomMusic()
@@ -19,17 +20,17 @@ public class MissionMusic : MonoBehaviour
         if (sound.Ambience != null) sound.Ambience.Play();
     }
 
-    private void PauseMusicToggle(bool state)
+    private void PauseMusicToggle(bool isPause)
     {
         var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentMission().MusicTheme];
         
-        sound.Music.EventInstance.setPaused(state);
+        sound.Music.EventInstance.setPaused(isPause && _escapeObject.activeInHierarchy);
     }
 
     private void OnDestroy()
     {
         CustomEvents.OnPlayRandomLevelMusic -= PlayRandomMusic;
-        CustomEvents.OnPauseChanged -= PauseMusicToggle;
+        CustomEvents.OnCheckPause -= PauseMusicToggle;
     }
 }
 

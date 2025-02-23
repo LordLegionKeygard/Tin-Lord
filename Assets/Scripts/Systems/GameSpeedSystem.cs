@@ -21,11 +21,21 @@ public class GameSpeedSystem : MonoBehaviour
 
     public void ChangeGameSpeedButton(int gameSpeed)
     {
+        //нажали на ту же скорость что щас уже стоит и это не пауза, делаем возврат
         if (_currentGameSpeedEnum != GameSpeedEnum.Pause && (int)_currentGameSpeedEnum == gameSpeed) return;
+
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.GameSpeed], transform.position);
+
+        //нажали на паузу, но щас уже стоит пауза, обновляем ивент паузы и делаем возврат
+        if (_currentGameSpeedEnum == GameSpeedEnum.Pause && gameSpeed == 0)
+        {
+            CustomEvents.FireCheckPause(_isPause);
+            return;
+        }
+
         ChangeGameSpeed(gameSpeed);
     }
-    
+
     public void ChangeGameSpeed(int gameSpeed)
     {
         GameSpeedEnum gameSpeedEnum = (GameSpeedEnum)gameSpeed;
@@ -43,7 +53,7 @@ public class GameSpeedSystem : MonoBehaviour
                 _currentGameSpeedEnum = gameSpeedEnum;
                 break;
         }
-        CustomEvents.FirePauseChanged(_isPause);
+        CustomEvents.FireCheckPause(_isPause);
         UpdateGameSpeedView();
     }
 

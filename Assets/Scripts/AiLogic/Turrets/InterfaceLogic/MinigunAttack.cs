@@ -9,7 +9,7 @@ public class MinigunAttack : MonoBehaviour, ITurretAttack
 
     private void Start()
     {
-        CustomEvents.OnPauseChanged += UpdateSound;
+        CustomEvents.OnCheckPause += UpdateSound;
     }
 
     public void StartAttack()
@@ -35,6 +35,6 @@ public class MinigunAttack : MonoBehaviour, ITurretAttack
 
     private void OnDestroy()
     {
-        CustomEvents.OnPauseChanged -= UpdateSound;
+        CustomEvents.OnCheckPause -= UpdateSound;
     }
 }

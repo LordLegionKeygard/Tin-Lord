@@ -50,10 +50,10 @@ public class CustomEvents
         OnChangeEcology?.Invoke(amount, tileId, remove);
     }
 
-    public static event Action<bool> OnPauseChanged;
-    public static void FirePauseChanged(bool isPause)
+    public static event Action<bool> OnCheckPause;
+    public static void FireCheckPause(bool isPause)
     {
-        OnPauseChanged?.Invoke(isPause);
+        OnCheckPause?.Invoke(isPause);
     }
 
     public static event Action<int> OnDayEnd;
