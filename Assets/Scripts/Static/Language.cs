@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 0;
+    public static int LanguageNumber = 1;
     private string[,] _text = new string[200, 2];
     public static string[] TextStatic = new string[200];
 
@@ -63,8 +63,8 @@ public class Language : MonoBehaviour
         _text[11, 0] = "Production modifier";
         _text[11, 1] = "Модификатор добычи";
 
-        _text[12, 0] = "";
-        _text[12, 1] = "";
+        _text[12, 0] = "Select a building";
+        _text[12, 1] = "Выберите здание";
 
         _text[13, 0] = "Buildings";
         _text[13, 1] = "Постройки";
@@ -315,8 +315,8 @@ public class Language : MonoBehaviour
         _text[95, 0] = "-Radiation: High\n-Pollution: Critical\n-Update: Active";
         _text[95, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
 
-        _text[96, 0] = "";
-        _text[96, 1] = "";
+        _text[96, 0] = "Learn";
+        _text[96, 1] = "Изучить";
 
         _text[97, 0] = "";
         _text[97, 1] = "";

@@ -18,12 +18,15 @@ public class LearnBuildingItem : MonoBehaviour
     [SerializeField] private GameObject _nameObject;
 
     [Header("Other")]
+    [SerializeField] private LearnBuildingInfoPanel _learnBuildingInfoPanel;
     [SerializeField] private Building _building;
     [SerializeField] private Button _button;
     [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
     private bool _isLearn;
     public bool IsLearn() => _isLearn;
+    public Building GetBuilding() => _building;
     private bool _resourcesEnough;
+    public bool IsResourcesEnough() => _resourcesEnough;
 
     private void Start()
     {
@@ -48,10 +51,17 @@ public class LearnBuildingItem : MonoBehaviour
         _priceObject.SetActive(!_isLearn);
         _nameObject.SetActive(_isLearn);
         _resourcesEnough = _buildingsLearnPanel.IsFragmentEnought(_building.Price);
-        _button.interactable = !_isLearn && _resourcesEnough;
+        // _button.interactable = !_isLearn && _resourcesEnough;
         _priceText.color = _resourcesEnough ? Colors.GreyEight : Colors.FadedYellow;
         _icon.color = _isLearn ? Color.white : Color.black;
         _backImage.color = _isLearn ? Color.white : Colors.GreyEight;
+    }
+
+    public void SelectItem()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        _learnBuildingInfoPanel.SetNewBuildingItem(this);
+        _learnBuildingInfoPanel.RefreshInfo();
     }
 
     public void LearnBuilding()

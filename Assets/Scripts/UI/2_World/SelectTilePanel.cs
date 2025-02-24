@@ -40,13 +40,13 @@ public class SelectTilePanel : MonoBehaviour
     [Header("Other")]
     private TileObject _tileObject;
     private RequiredResourcePanel _requiredResourcePanel;
-    private ProductionResourcePanel _productionResourcePanel;
+    private BaseProductionResourcePanel _productionResourcePanel;
     private ReceptPanel _receptPanel;
 
     private void Awake()
     {
         _requiredResourcePanel = GetComponent<RequiredResourcePanel>();
-        _productionResourcePanel = GetComponent<ProductionResourcePanel>();
+        _productionResourcePanel = GetComponent<BaseProductionResourcePanel>();
         _receptPanel = GetComponent<ReceptPanel>();
     }
 
@@ -147,7 +147,7 @@ public class SelectTilePanel : MonoBehaviour
         if (haveBuildingTile && tile.IsHaveProductionResources())
         {
             var isUseRources = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork.Length != 0;
-            var productionName = $"{tileObject.CurrentResourceProduction().Name[Language.LanguageNumber]} ";
+            var productionName = $"{tileObject.CurrentResourceProduction().Name[Language.LanguageNumber]}";
             string productionAmount;
 
             if (isUseRources)
@@ -165,7 +165,7 @@ public class SelectTilePanel : MonoBehaviour
 
             var productionColor = (productionAmount == "0") ? Colors.HexColorWarningYellow : Colors.HexColorWhite;
 
-            var productionText = $"{Language.TextStatic[6]}: <color={productionColor}>{productionName}{productionAmount}</color>";
+            var productionText = $"{Language.TextStatic[6]}: <color={productionColor}>{productionName} {productionAmount}</color>";
 
             _productionResourceText.text = productionText;
         }

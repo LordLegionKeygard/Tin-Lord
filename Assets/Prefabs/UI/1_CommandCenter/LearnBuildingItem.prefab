@@ -453,7 +453,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6422072099864269586}
         m_TargetAssemblyTypeName: LearnBuildingItem, Assembly-CSharp
-        m_MethodName: LearnBuilding
+        m_MethodName: SelectItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -481,6 +481,7 @@ MonoBehaviour:
   _priceText: {fileID: 7266844360309882901}
   _priceObject: {fileID: 4969178699010859847}
   _nameObject: {fileID: 1060409082100043994}
+  _learnBuildingInfoPanel: {fileID: 0}
   _building: {fileID: 11400000, guid: e556ebd8d9f685247b9402c27ea1aee6, type: 2}
   _button: {fileID: 8125986725355456600}
   _buildingsLearnPanel: {fileID: 0}

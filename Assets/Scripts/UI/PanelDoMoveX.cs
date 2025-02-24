@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class PanelDoMove : MonoBehaviour
+public class PanelDoMoveX : MonoBehaviour
 {
     [SerializeField] private int _positionX;
     [SerializeField] private float _moveSpeed;
@@ -18,7 +18,7 @@ public class PanelDoMove : MonoBehaviour
 
         if (_isOpen)
         {
-            _scrollRect.verticalNormalizedPosition = 1;
+            if(_scrollRect!= null) _scrollRect.verticalNormalizedPosition = 1;
             _objectTransform.DOAnchorPosX(_positionX, _moveSpeed).SetUpdate(true);
         }
         else

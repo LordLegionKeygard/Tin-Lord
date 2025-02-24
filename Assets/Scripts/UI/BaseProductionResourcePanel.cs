@@ -1,22 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProductionResourcePanel : MonoBehaviour
+public class BaseProductionResourcePanel : MonoBehaviour
 {
     [SerializeField] private GameObject[] _select;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private Image[] _images;
-    [SerializeField] private Resource[] _productionResources;
-    private SelectTilePanel _selectTilePanel;
+    protected Resource[] _productionResources;
     private Resource _lastResource;
-    private Building _lastBuilding;
+    protected Building _lastBuilding;
 
-    private void Awake()
-    {
-        _selectTilePanel = GetComponent<SelectTilePanel>();
-    }
 
     public void SetButtonView(Building building, Resource currentResource)
     {
@@ -48,7 +41,7 @@ public class ProductionResourcePanel : MonoBehaviour
     {
         foreach (var button in _buttons)
         {
-            if(isNeedFalseObjects) button.gameObject.SetActive(false);
+            if (isNeedFalseObjects) button.gameObject.SetActive(false);
             button.interactable = true;
         }
 
@@ -58,12 +51,11 @@ public class ProductionResourcePanel : MonoBehaviour
         }
     }
 
-    public void ChangeResourceProductionButton(int number)
+    public virtual void ChangeResourceProductionButton(int number)
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        _selectTilePanel.ChangeResourceProduction(_productionResources[number], _lastBuilding.ResourcesProduction[number].ResourceRecept);
         ResetButtons(false);
         _select[number].SetActive(true);
-        _buttons[number].interactable = false;
+        _buttons[number].interactable = false;      
     }
 }
