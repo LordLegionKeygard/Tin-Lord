@@ -91,9 +91,9 @@ public class RobotPanel : MonoBehaviour
 
         var level = RobotsDataWorld.Instance.GetSelectRobotDataLevel(_currentSelectRobotInfo.RobotType);
 
-        _durabilityText.text = $"{Language.TextStatic[18]} {_currentSelectRobotInfo.Durability[level]}";
-        _meleeDamageText.text = $"{Language.TextStatic[19]} {_currentSelectRobotInfo.MeleeDamage[level]}";
-        _rangeDamageText.text = $"{Language.TextStatic[20]} {_currentSelectRobotInfo.RangeDamage[level]}";
+        _durabilityText.text = $"{Language.TextStatic[18]}: {_currentSelectRobotInfo.Durability[level]}";
+        _meleeDamageText.text = $"{Language.TextStatic[19]}: {_currentSelectRobotInfo.MeleeDamage[level]}";
+        _rangeDamageText.text = $"{Language.TextStatic[20]}: {_currentSelectRobotInfo.RangeDamage[level]}";
     }
 
     public void UpdateLevelAndExperience()

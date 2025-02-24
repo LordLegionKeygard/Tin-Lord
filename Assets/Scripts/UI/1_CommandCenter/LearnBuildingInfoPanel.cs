@@ -8,21 +8,33 @@ using UnityEngine.UI;
 public class LearnBuildingInfoPanel : MonoBehaviour
 {
     [SerializeField] private RectTransform _objectTransform;
-    [SerializeField] private Button _learnButton;
-    private BaseProductionResourcePanel _productionResourcePanel;
     private LearnBuildingItem _currentLearnBuildingItem;
-    private int _currentResourcesProduction = 0;
 
-    [Header("Panels")]
-    [SerializeField] private GameObject _productionResourcePanelObject;
-    [SerializeField] private GameObject _productionResourcePanelLine;
-    [SerializeField] private GameObject _buttonsPanelObject;
-
-    [Header("Texts")]
+    [Header("Main")]
     [SerializeField] private TextMeshProUGUI _buildingNameText;
+    [SerializeField] private TextMeshProUGUI _buildingHealthText;
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
+
+    [Header("Production")]
+    [SerializeField] private GameObject _productionResourcePanelObject;
+    [SerializeField] private GameObject _productionResourcePanelLine;
     [SerializeField] private TextMeshProUGUI _productionResourceText;
+    private BaseProductionResourcePanel _productionResourcePanel;
+    private int _currentResourcesProduction = 0;
+
+    [Header("Turret")]
+    [SerializeField] private GameObject _turretPanelObject;
+    [SerializeField] private GameObject _turretPanelLine;
+    [SerializeField] private TextMeshProUGUI _damageText;
+    [SerializeField] private TextMeshProUGUI _attackSpeedText;
+    [SerializeField] private TextMeshProUGUI _attackRadiusText;
+    [SerializeField] private TextMeshProUGUI _rotationSpeedText;
+
+
+    [Header("Buttons")]
+    [SerializeField] private Button _learnButton;
+    [SerializeField] private GameObject _buttonsPanelObject;
 
     private void Awake()
     {
@@ -52,21 +64,20 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     public void RefreshInfo()
     {
-        var builing = _currentLearnBuildingItem.GetBuilding();
-        _buildingNameText.text = builing.Name[Language.LanguageNumber];
-        _buildingEcologyText.text = $"{Language.TextStatic[16]}{builing.BuildingEcology}";
-        _buildingLevelText.text = $"{Language.TextStatic[3]}: {builing.BuildingLevel}";
-        SetProductionPanel(builing);
+        var building = _currentLearnBuildingItem.GetBuilding();
+        SetMainPanel(building);
+        SetProductionPanel(building);
+        SetTurretPanel(building);
         SetButtonPanel();
-
         PanelViewToggle(true);
     }
 
-    private void SetButtonPanel()
+    private void SetMainPanel(Building building)
     {
-        _buttonsPanelObject.SetActive(!_currentLearnBuildingItem.IsLearn());
-
-        _learnButton.interactable = _currentLearnBuildingItem.IsResourcesEnough();
+        _buildingNameText.text = building.Name[Language.LanguageNumber];
+        _buildingHealthText.text = $"{Language.TextStatic[97]}: {building.BuildingHealth}";
+        _buildingEcologyText.text = $"{Language.TextStatic[16]}: {building.BuildingEcology}";
+        _buildingLevelText.text = $"{Language.TextStatic[3]}: {building.BuildingLevel}";
     }
 
     private void SetProductionPanel(Building building)
@@ -90,6 +101,32 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         }
     }
 
+    private void SetTurretPanel(Building building)
+    {
+        if (building.Damage == 0)
+        {
+            _turretPanelObject.SetActive(false);
+            _turretPanelLine.SetActive(false);
+        }
+        else
+        {
+            _damageText.text = $"{Language.TextStatic[98]}: {building.Damage}";
+            _attackSpeedText.text = $"{Language.TextStatic[99]}: {building.AttackSpeed}";
+            _attackRadiusText.text = $"{Language.TextStatic[100]}: {building.AttackRadius}";
+            _rotationSpeedText.text = $"{Language.TextStatic[101]}: {building.RotationSpeed}";
+
+            _turretPanelObject.SetActive(true);
+            _turretPanelLine.SetActive(true);
+        }
+    }
+
+    private void SetButtonPanel()
+    {
+        _buttonsPanelObject.SetActive(!_currentLearnBuildingItem.IsLearn());
+
+        _learnButton.interactable = _currentLearnBuildingItem.IsResourcesEnough();
+    }
+
     public void ChangeResourceProduction(int resourceNumber)
     {
         _currentResourcesProduction = resourceNumber;
@@ -107,6 +144,8 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     {
         _productionResourcePanelObject.SetActive(false);
         _productionResourcePanelLine.SetActive(false);
+        _turretPanelObject.SetActive(false);
+        _turretPanelLine.SetActive(false);
         _buttonsPanelObject.SetActive(false);
     }
     private void Clear()

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8337304154389723630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 65.9}
+  m_AnchoredPosition: {x: 0, y: -13.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5073233225327952411
@@ -481,6 +481,7 @@ MonoBehaviour:
   _priceText: {fileID: 7266844360309882901}
   _priceObject: {fileID: 4969178699010859847}
   _nameObject: {fileID: 1060409082100043994}
+  _previousLearnBuildingItem: {fileID: 0}
   _learnBuildingInfoPanel: {fileID: 0}
   _building: {fileID: 11400000, guid: e556ebd8d9f685247b9402c27ea1aee6, type: 2}
   _button: {fileID: 8125986725355456600}

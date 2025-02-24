@@ -11,6 +11,7 @@ public class ChangeLanguageCommandCenter : MonoBehaviour
 
     [Header("SelectBuildingInfoPanel")]
     [SerializeField] private TextMeshProUGUI _selectBuildingText;
+    [SerializeField] private TextMeshProUGUI _buildingHealthText;
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
 
@@ -31,7 +32,8 @@ public class ChangeLanguageCommandCenter : MonoBehaviour
         _areYouSureText.text = Language.TextStatic[48];
 
         _selectBuildingText.text = Language.TextStatic[12];
-        _buildingEcologyText.text = $"{Language.TextStatic[16]} -";
-        _buildingLevelText.text = $"{Language.TextStatic[3]} -";
+        _buildingHealthText.text =  $"{Language.TextStatic[97]}: -";
+        _buildingEcologyText.text = $"{Language.TextStatic[16]}: -";
+        _buildingLevelText.text = $"{Language.TextStatic[3]}: -";
     }
 }

@@ -59,7 +59,7 @@ public class ConfigLoaderBuildings : ScriptableObject
             _allBuildings[i].AttackRadius = ParseFloat(config.AttackRadius);
             _allBuildings[i].Damage = ParseFloat(config.Damage);
             _allBuildings[i].KnockbackPoints = ParseFloat(config.KnockbackPoints);
-            _allBuildings[i].AttackRecoveryTime = ParseFloat(config.AttackRecoveryTime);
+            _allBuildings[i].AttackSpeed = ParseFloat(config.AttackSpeed);
 
 #if UNITY_EDITOR
             UnityEditor.EditorUtility.SetDirty(_allBuildings[i]);
@@ -251,5 +251,5 @@ public class BuildingConfigs
     public string AttackRadius;
     public string Damage;
     public string KnockbackPoints;
-    public string AttackRecoveryTime;
+    public string AttackSpeed;
 }

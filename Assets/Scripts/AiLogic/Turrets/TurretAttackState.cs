@@ -106,7 +106,7 @@ public class TurretAttackState : TurretState
         if (animator != null) animator.AttackAnimation(_currentAttack);
 
         stateChanger.AttackToggle(false);
-        stateChanger.CurrentAttackRecoveryTime = _turretBuilding.Building().AttackRecoveryTime;
+        stateChanger.CurrentAttackRecoveryTime = _turretBuilding.Building().AttackSpeed;
         _currentAttack = 0;
     }
 

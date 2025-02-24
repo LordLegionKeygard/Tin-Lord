@@ -195,8 +195,8 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetEcologyTexts(TileObject tileObject)
     {
-        _groundEcologyText.text = $"{Language.TextStatic[15]}{tileObject.TileEcology().GetEcology(GetEcologyEnum.Ground)}";
-        _buildingEcologyText.text = $"{Language.TextStatic[16]}{tileObject.TileEcology().GetEcology(GetEcologyEnum.Building)}";
+        _groundEcologyText.text = $"{Language.TextStatic[15]}: {tileObject.TileEcology().GetEcology(GetEcologyEnum.Ground)}";
+        _buildingEcologyText.text = $"{Language.TextStatic[16]}: {tileObject.TileEcology().GetEcology(GetEcologyEnum.Building)}";
     }
 
     private void SetButtonStates(bool haveBuildingNow)

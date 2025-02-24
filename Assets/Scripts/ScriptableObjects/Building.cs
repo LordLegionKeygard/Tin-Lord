@@ -23,7 +23,7 @@ public class Building : ScriptableObject
 
     [Header("Turret")]
     public float Damage;
-    public float AttackRecoveryTime;
+    public float AttackSpeed;
     public float AttackRadius;
     public float RotationSpeed;
     public float KnockbackPoints;

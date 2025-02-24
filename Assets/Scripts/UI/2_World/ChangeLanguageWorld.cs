@@ -19,7 +19,7 @@ public class ChangeLanguageWorld : MonoBehaviour
         _resourceTypesPanel[2].text = Language.TextStatic[9];
         _resourceTypesPanel[3].text = Language.TextStatic[17];
 
-        _receptText.text = Language.TextStatic[1];
+        _receptText.text = $"{Language.TextStatic[1]}:";
         _robotPanelText.text = Language.TextStatic[21];
         _continueButtonText.text = Language.TextStatic[33];
 

@@ -170,4 +170,11 @@ public class CustomEvents
     {
         OnFadeOutAllMusic?.Invoke();
     }
+
+    public static Action OnLearnBuilding;
+
+    public static void FireLearnBuilding()
+    {
+        OnLearnBuilding?.Invoke();
+    }
 }

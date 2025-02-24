@@ -30,8 +30,8 @@ public class Language : MonoBehaviour
         _text[0, 0] = "Tin Lord";
         _text[0, 1] = "Жестяной Лорд";
 
-        _text[1, 0] = "Recept:";
-        _text[1, 1] = "Рецепт:";
+        _text[1, 0] = "Recept";
+        _text[1, 1] = "Рецепт";
 
         _text[2, 0] = "Building";
         _text[2, 1] = "Здание";
@@ -72,23 +72,23 @@ public class Language : MonoBehaviour
         _text[14, 0] = "Required resource";
         _text[14, 1] = "Требуемый ресурс";
 
-        _text[15, 0] = "Ground ecology: ";
-        _text[15, 1] = "Экология земли: ";
+        _text[15, 0] = "Ground ecology";
+        _text[15, 1] = "Экология земли";
 
-        _text[16, 0] = "Building ecology: ";
-        _text[16, 1] = "Экология здания: ";
+        _text[16, 0] = "Building ecology";
+        _text[16, 1] = "Экология здания";
 
         _text[17, 0] = "Other";
         _text[17, 1] = "Другое";
 
-        _text[18, 0] = "Durability: ";
-        _text[18, 1] = "Прочность: ";
+        _text[18, 0] = "Durability";
+        _text[18, 1] = "Прочность";
 
-        _text[19, 0] = "Melee damage: ";
-        _text[19, 1] = "Урон в ближнем бою: ";
+        _text[19, 0] = "Melee damage";
+        _text[19, 1] = "Урон в ближнем бою";
 
-        _text[20, 0] = "Range damage: ";
-        _text[20, 1] = "Урон в дальнем бою: ";
+        _text[20, 0] = "Range damage";
+        _text[20, 1] = "Урон в дальнем бою";
 
         _text[21, 0] = "Robots";
         _text[21, 1] = "Роботы";
@@ -129,14 +129,14 @@ public class Language : MonoBehaviour
         _text[33, 0] = "Continue";
         _text[33, 1] = "Продолжить";
 
-        _text[34, 0] = "Ecology level:";
-        _text[34, 1] = "Уровень экологии:";
+        _text[34, 0] = "Ecology level";
+        _text[34, 1] = "Уровень экологии";
 
-        _text[35, 0] = "Starting resources:";
-        _text[35, 1] = "Начальные ресурсы:";
+        _text[35, 0] = "Starting resources";
+        _text[35, 1] = "Начальные ресурсы";
 
-        _text[36, 0] = "Objectives:";
-        _text[36, 1] = "Цели:";
+        _text[36, 0] = "Objectives";
+        _text[36, 1] = "Цели";
 
         _text[37, 0] = "days";
         _text[37, 1] = "дней";
@@ -156,8 +156,8 @@ public class Language : MonoBehaviour
         _text[42, 0] = "Survive {0} days";
         _text[42, 1] = "Выжить {0} дней";
 
-        _text[43, 0] = "Memory Fragments:";
-        _text[43, 1] = "Фрагментов Памяти:";
+        _text[43, 0] = "Memory Fragments";
+        _text[43, 1] = "Фрагментов Памяти";
 
         _text[44, 0] = "Escape";
         _text[44, 1] = "Сбежать";
@@ -318,16 +318,45 @@ public class Language : MonoBehaviour
         _text[96, 0] = "Learn";
         _text[96, 1] = "Изучить";
 
-        _text[97, 0] = "";
-        _text[97, 1] = "";
+        _text[97, 0] = "Building health";
+        _text[97, 1] = "Здоровье здания";
 
-        _text[98, 0] = "";
-        _text[98, 1] = "";
+        _text[98, 0] = "Damage";
+        _text[98, 1] = "Урон";
 
-        _text[99, 0] = "";
-        _text[99, 1] = "";
+        _text[99, 0] = "Attack speed";
+        _text[99, 1] = "Скорость атаки";
 
-
+        _text[100, 0] = "Attack radius";
+        _text[100, 1] = "Радиус атаки";
+        
+        _text[101, 0] = "Rotation speed";
+        _text[101, 1] = "Скорость вращения";
+        
+        _text[102, 0] = "";
+        _text[102, 1] = "";
+        
+        _text[103, 0] = "";
+        _text[103, 1] = "";
+        
+        _text[104, 0] = "";
+        _text[104, 1] = "";
+        
+        _text[105, 0] = "";
+        _text[105, 1] = "";
+        
+        _text[106, 0] = "";
+        _text[106, 1] = "";
+        
+        _text[107, 0] = "";
+        _text[107, 1] = "";
+        
+        _text[108, 0] = "";
+        _text[108, 1] = "";
+        
+        _text[109, 0] = "";
+        _text[109, 1] = "";
+        
         for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];
     }
 }

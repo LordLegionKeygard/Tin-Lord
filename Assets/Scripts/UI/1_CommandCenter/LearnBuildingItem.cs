@@ -6,7 +6,7 @@ using Zenject;
 public class LearnBuildingItem : MonoBehaviour
 {
     [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
-    
+
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Image _icon;
@@ -18,6 +18,7 @@ public class LearnBuildingItem : MonoBehaviour
     [SerializeField] private GameObject _nameObject;
 
     [Header("Other")]
+    [SerializeField] private LearnBuildingItem _previousLearnBuildingItem;
     [SerializeField] private LearnBuildingInfoPanel _learnBuildingInfoPanel;
     [SerializeField] private Building _building;
     [SerializeField] private Button _button;
@@ -30,14 +31,7 @@ public class LearnBuildingItem : MonoBehaviour
 
     private void Start()
     {
-        SetBuildingInfo();
-    }
-
-    private void SetBuildingInfo()
-    {
-        _icon.sprite = _building.BuildingSprite;
-        _nameText.text = _building.Name[Language.LanguageNumber];
-        _priceText.text = _building.Price.ToString();
+        CustomEvents.OnLearnBuilding += RefreshView;
     }
 
     public void SetupData(bool state)
@@ -48,10 +42,15 @@ public class LearnBuildingItem : MonoBehaviour
 
     private void RefreshView()
     {
-        _priceObject.SetActive(!_isLearn);
-        _nameObject.SetActive(_isLearn);
+        var canLearn = _previousLearnBuildingItem == null || _previousLearnBuildingItem.IsLearn();
+
+        _icon.sprite = _building.BuildingSprite;
+        _nameText.text = canLearn ? _building.Name[Language.LanguageNumber] : "?";
+        _priceText.text = _building.Price.ToString();
+
+        _priceObject.SetActive(!_isLearn && canLearn);
+        _button.interactable = canLearn;
         _resourcesEnough = _buildingsLearnPanel.IsFragmentEnought(_building.Price);
-        // _button.interactable = !_isLearn && _resourcesEnough;
         _priceText.color = _resourcesEnough ? Colors.GreyEight : Colors.FadedYellow;
         _icon.color = _isLearn ? Color.white : Color.black;
         _backImage.color = _isLearn ? Color.white : Colors.GreyEight;
@@ -72,5 +71,11 @@ public class LearnBuildingItem : MonoBehaviour
         RefreshView();
 
         CommandCenterSaveGame.SaveGameData(false);
+        CustomEvents.FireLearnBuilding();
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnLearnBuilding -= RefreshView;
     }
 }

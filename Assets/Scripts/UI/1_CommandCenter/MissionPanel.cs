@@ -43,9 +43,9 @@ public class MissionPanel : MonoBehaviour
         UnactiveAll();
         UpdatePlanetTargetTransform();
 
-        _ecologyLevelText.text = $"{Language.TextStatic[34]} {_currentMission.StartEcology}";
-        _startResourcesText.text = Language.TextStatic[35];
-        _objectiveText.text = Language.TextStatic[36];
+        _ecologyLevelText.text = $"{Language.TextStatic[34]}: {_currentMission.StartEcology}";
+        _startResourcesText.text = $"{Language.TextStatic[35]}: ";
+        _objectiveText.text = $"{Language.TextStatic[36]}: ";
         _descriptionText.text = _currentMission.Description[Language.LanguageNumber];
 
         for (int i = 0; i < _currentMission.Objectives.Length; i++)

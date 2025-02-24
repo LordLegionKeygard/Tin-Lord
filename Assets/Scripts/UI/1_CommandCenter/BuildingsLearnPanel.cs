@@ -19,7 +19,7 @@ public class BuildingsLearnPanel : MonoBehaviour
 
     private void UpdateText()
     {
-        _memoryFragmentsText.text = $"{Language.TextStatic[43]} {_memoryFragments}";
+        _memoryFragmentsText.text = $"{Language.TextStatic[43]}: {_memoryFragments}";
     }
 
     public void ChangeFragments(float fragments)
