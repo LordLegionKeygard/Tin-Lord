@@ -71,7 +71,7 @@ public class SelectTilePanel : MonoBehaviour
         }
         else
         {
-            _objectTransform.DOAnchorPosY(-700, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(-370, 0.3f).SetUpdate(true);
 
             ResetPanels();
             Clear();
