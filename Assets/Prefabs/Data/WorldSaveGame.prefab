@@ -45,18 +45,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldSaveLoad: {fileID: 0}
+  _selectedMissionId: 
   CurrentWorldSaveData:
     MissionId: 0
     IsStartMission: 0
     Day: 0
+    Tick: 0
     Radiation: 0
     GameSpeed: 0
-    RobotsData: []
-    ResourcesData: 
+    ResourcesData: []
     Cards: 
+    DayEventsData: []
+    EnemyData: []
     IsHaveRiver: 0
     IsHaveBase: 0
     TilesData: []
-  _resourceSpritesInfo: {fileID: 11400000, guid: c6da34594b03e45418fa3ee091b7a8e8,
-    type: 2}
+    RoadTilesId: 
+    RobotsExperienceData: []
+    RobotData:
+      IsHaveRobotNow: 0
+      RobotType: 0
+      PositionX: 0
+      PositionY: 0
+      PositionZ: 0
+      Rotation: 0
+      NextPatrolIndex: 0
+    ObjectiveAmount: 
   _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}

@@ -99,7 +99,7 @@ public class TileObject : MonoBehaviour
 
     public void SetResourceModifier()
     {
-        if (_buildingTile.CurrentBuildingTile() == null || (!_buildingTile.CurrentBuildingTile().IsHaveProductionResources() && !_buildingTile.IsEcologyBuilding())) return;
+        if (_buildingTile.CurrentBuildingTile() == null || _buildingTile.IsConstructionNow() || (!_buildingTile.CurrentBuildingTile().IsHaveProductionResources() && !_buildingTile.IsEcologyBuilding())) return;
 
         _currentModifier = CalculateCurrentModifier();
         _buildingProductionView.RefreshModifierView();
@@ -149,7 +149,7 @@ public class TileObject : MonoBehaviour
 
     public void ChangeResourceProduction()
     {
-        if (_buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() ||
+        if (_buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() || _buildingTile.IsConstructionNow() ||
            (_buildingTile.CurrentBuildingTile().BuildingTileView is BuildingTileViewEnum.AttackingStructures or
             BuildingTileViewEnum.ProtectiveStructures or BuildingTileViewEnum.EcologyPurifier or BuildingTileViewEnum.RadioCommunication or BuildingTileViewEnum.Bridge)) return;
 

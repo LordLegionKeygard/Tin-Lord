@@ -11,7 +11,6 @@ public class ActiveTreeType : MonoBehaviour
     private void ActiveType()
     {
         var number = (int)CurrentMissionInfo.Instance.GetCurrentMission().MissionView.TreeType;
-        Debug.Log(number);
         _treesType[number].SetActive(true);
     }
 }

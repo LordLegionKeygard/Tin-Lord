@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private GameObject _model;
     [SerializeField] private float _speed = 80;
     public bool _needTimeAfterHit;
     protected float _damage;
@@ -98,6 +99,7 @@ public class Bullet : MonoBehaviour
 
         if (_needTimeAfterHit)
         {
+            if (_model != null) _model.SetActive(false);
             StartCoroutine(nameof(ReturnBulletCoroutine));
         }
         else _bulletsPool.ReturnBullet(_bulletEnum, gameObject);
@@ -114,6 +116,7 @@ public class Bullet : MonoBehaviour
         }
 
         _bulletsPool.ReturnBullet(_bulletEnum, gameObject);
+        if (_model != null) _model.SetActive(true);
     }
 }
 
