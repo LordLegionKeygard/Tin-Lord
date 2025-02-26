@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7778438931878194423}
   - component: {fileID: 7778438931878194421}
   - component: {fileID: 7778438931878194420}
-  - component: {fileID: 7250039193906924021}
+  - component: {fileID: 1568485464142912699}
   - component: {fileID: 7250039193906924020}
   m_Layer: 0
   m_Name: Model
@@ -85,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7250039193906924021
+--- !u!114 &1568485464142912699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,15 +94,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 7778438931878194422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e98368dbcb655da438dde914b707456a, type: 3}
+  m_Script: {fileID: 11500000, guid: c6f28e0e42d55174da40879c364e7526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _meshRenderer: {fileID: 7778438931878194420}
-  _base:
-  - {fileID: 2800000, guid: 6b1cd3ad5ef7ae446a2a902eee7ab106, type: 3}
-  - {fileID: 2800000, guid: 8a117ca827725c14db6c57547da2b131, type: 3}
-  - {fileID: 2800000, guid: fc2c15604101fa84a88773444b7414ce, type: 3}
-  - {fileID: 2800000, guid: b256043c552dbba42aa331c7bbcc926f, type: 3}
+  _tileTextures:
+  - BiomTextureEnum: 0
+    Base:
+    - {fileID: 2800000, guid: 6b1cd3ad5ef7ae446a2a902eee7ab106, type: 3}
+    - {fileID: 2800000, guid: 8a117ca827725c14db6c57547da2b131, type: 3}
+    - {fileID: 2800000, guid: fc2c15604101fa84a88773444b7414ce, type: 3}
+    - {fileID: 2800000, guid: b256043c552dbba42aa331c7bbcc926f, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - BiomTextureEnum: 1
+    Base:
+    - {fileID: 2800000, guid: 6b1cd3ad5ef7ae446a2a902eee7ab106, type: 3}
+    - {fileID: 2800000, guid: 8a117ca827725c14db6c57547da2b131, type: 3}
+    - {fileID: 2800000, guid: fc2c15604101fa84a88773444b7414ce, type: 3}
+    - {fileID: 2800000, guid: b256043c552dbba42aa331c7bbcc926f, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - BiomTextureEnum: 2
+    Base:
+    - {fileID: 0}
+    Color: {r: 0.4627451, g: 0.4627451, b: 0.4627451, a: 1}
   _normal:
   - {fileID: 2800000, guid: ba2fba02e6c369e4ca296bbfe252acef, type: 3}
   - {fileID: 2800000, guid: 0f433cc20ea1cf743ba6a9e361dba0a7, type: 3}

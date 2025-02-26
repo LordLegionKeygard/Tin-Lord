@@ -5,9 +5,9 @@ public class WorldEventSystem : MonoBehaviour
 {
     [Header("Event Settings")]
     [SerializeField] private TimeTickSystem _timeTickSystem;
-    [SerializeField] private GameEventInfo[] _allGameEvents;
     [SerializeField] private GameObject _gameEventPrefab;
     [SerializeField] private RectTransform _container;
+    private GameEventInfo[] _availableEvents;
     private float _fullDuration;
     private int _dayBeforeSpawnEvent = 3;
     private readonly float _offset = 10;
@@ -40,8 +40,14 @@ public class WorldEventSystem : MonoBehaviour
     {
         CustomEvents.OnDayEnd += OnDayEnd;
         CustomEvents.OnGameEventStart += ActiveGameEvent;
+        CustomEvents.OnDataLoad += SetAvailableMissionEvents;
 
         SetEventDuration();
+    }
+
+    private void SetAvailableMissionEvents()
+    {
+        _availableEvents = CurrentMissionInfo.Instance.GetCurrentMission().MissionEvents;
     }
 
     private void SetEventDuration()
@@ -62,8 +68,8 @@ public class WorldEventSystem : MonoBehaviour
     private void SpawnRandomEvent()
     {
         // Выбираем случайное событие из массива
-        int rnd = Random.Range(0, _allGameEvents.Length);
-        var info = _allGameEvents[rnd];
+        int rnd = Random.Range(0, _availableEvents.Length);
+        var info = _availableEvents[rnd];
 
         // Создаём экземпляр префаба EventIcon
         var prefab = Instantiate(_gameEventPrefab, _container);
@@ -85,7 +91,7 @@ public class WorldEventSystem : MonoBehaviour
 
         for (int i = 0; i < dayEventsData.Length; i++)
         {
-            var info = _allGameEvents[dayEventsData[i].GameEventTypeNumber];
+            var info = _availableEvents[dayEventsData[i].GameEventTypeNumber];
             var prefab = Instantiate(_gameEventPrefab, _container);
             Vector2 startPosition = new(_container.rect.width / 2f + _offset, 0f);
             Vector2 endPosition = new(-_container.rect.width / 2f - _offset, 0f);
@@ -154,6 +160,7 @@ public class WorldEventSystem : MonoBehaviour
     {
         CustomEvents.OnDayEnd -= OnDayEnd;
         CustomEvents.OnGameEventStart -= ActiveGameEvent;
+        CustomEvents.OnDataLoad -= SetAvailableMissionEvents;
     }
 }
 

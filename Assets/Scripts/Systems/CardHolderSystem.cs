@@ -19,9 +19,9 @@ public class CardHolderSystem : MonoBehaviour
 
     [Header("Cards")]
     [SerializeField] private Tile[] _startCards;
-    [SerializeField] private Tile[] _availableCards;
     [SerializeField] private List<CardObject> _currentCards;
     [SerializeField] private CardObject _currentSelectCardObject;
+    private Tile[] _availableCards;
 
 
     public bool IsHaveCurrentSelectedCardObject() => _currentSelectCardObject != null;
@@ -36,6 +36,8 @@ public class CardHolderSystem : MonoBehaviour
 
     public void LoadCards(bool isStartMission, int[] cards)
     {
+        SetAvailableCards();
+
         if (isStartMission)
         {
             if (_addAllCards)
@@ -59,6 +61,11 @@ public class CardHolderSystem : MonoBehaviour
 
             AddNewCards(loadCards);
         }
+    }
+
+    private void SetAvailableCards()
+    {
+        _availableCards = CurrentMissionInfo.Instance.GetCurrentMission().Cards;
     }
 
     public int[] GetAllCards()

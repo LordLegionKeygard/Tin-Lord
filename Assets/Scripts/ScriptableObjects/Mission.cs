@@ -18,6 +18,8 @@ public class Mission : ScriptableObject
     public EnemiesSpawnerInformation EnemiesSpawnerInfo;
     public ResourceWrapper[] StartResources;
     public ObjectiveWrapper[] Objectives;
+    public GameEventInfo[] MissionEvents;
+    public Tile[] Cards;
     [TextArea(1, 8)] public string[] Description;
 }
 
