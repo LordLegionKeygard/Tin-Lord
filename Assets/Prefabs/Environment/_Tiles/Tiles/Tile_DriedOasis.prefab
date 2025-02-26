@@ -189,9 +189,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7234618936882333230}
+  - component: {fileID: 9082176601328129886}
   - component: {fileID: 5254355144208378983}
   - component: {fileID: 4073687202142526270}
-  - component: {fileID: 9082176601328129886}
   - component: {fileID: 741597209094034455}
   m_Layer: 0
   m_Name: Tile_DriedOasis
@@ -216,6 +216,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9082176601328129886
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7234618936882333225}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12, y: 1.95, z: 12}
+  m_Center: {x: 0, y: -0.975, z: 0}
 --- !u!114 &5254355144208378983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,19 +258,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectsForRotate:
   - {fileID: 6464934722249520384}
---- !u!65 &9082176601328129886
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7234618936882333225}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 12, y: 1.95, z: 12}
-  m_Center: {x: 0, y: -0.975, z: 0}
 --- !u!114 &741597209094034455
 MonoBehaviour:
   m_ObjectHideFlags: 0
