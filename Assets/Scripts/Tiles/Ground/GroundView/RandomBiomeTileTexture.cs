@@ -13,9 +13,9 @@ public class RandomBiomeTileTexture : MonoBehaviour
 
     private void SetTexture()
     {
-        var currentBiomTileTextures = _tileTextures[(int)CurrentMissionInfo.Instance.GetCurrentMission().MissionView.TileColorEnum];
+        var currentBiomTileTextures = _tileTextures[(int)CurrentMissionInfo.Instance.GetCurrentMission().MissionView.BiomEnum];
         var rnd = Random.Range(0, currentBiomTileTextures.Base.Length);
-        _meshRenderer.material.color = CurrentMissionInfo.Instance.GetCurrentMission().MissionView.TileColor;
+        _meshRenderer.material.color = currentBiomTileTextures.Color;
         _meshRenderer.material.SetTexture("_BaseMap", currentBiomTileTextures.Base[rnd]);
         _meshRenderer.material.EnableKeyword("_NORMALMAP");
         _meshRenderer.material.SetTexture("_BumpMap", _normal[rnd]);
@@ -25,14 +25,15 @@ public class RandomBiomeTileTexture : MonoBehaviour
 [System.Serializable]
 public class TileTexture
 {
-    public TileColorEnum TileColorEnum;
+    public BiomEnum BiomTextureEnum;
     public Texture[] Base;
+    public Color Color;
 }
 
 [System.Serializable]
-public enum TileColorEnum
+public enum BiomEnum
 {
-    Brown = 0,
-    Grey = 1,
-    White = 2,
+    Canyon = 0,
+    Desert = 1,
+    Winter = 2,
 }

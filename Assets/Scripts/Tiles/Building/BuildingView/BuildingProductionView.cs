@@ -53,9 +53,10 @@ public class BuildingProductionView : MonoBehaviour
 
     private void SetTreeModifierView(bool state)
     {
-        var treeNumber = (int)CurrentMissionInfo.Instance.GetCurrentMission().MissionView.TreeType + 1;
+        var biomEnum = CurrentMissionInfo.Instance.GetCurrentMission().MissionView.BiomEnum;
+        var treeNumber = biomEnum == BiomEnum.Winter ? 2 : 1;
         _trees[treeNumber].SetActive(state);
-        _trees[0].SetActive(!state);
+        _trees[0].SetActive(!state); // мертвое дерево
     }
 
     public void CheckMainBuildingView()

@@ -16,18 +16,18 @@ public class GameSpeedSystem : MonoBehaviour
     public void InputChangeGameSpeed(int gameSpeed)
     {
         if (!_canChangeGameSpeed) return;
-        ChangeGameSpeedButton(gameSpeed);
+        ChangeGameSpeedButton(gameSpeed, false);
     }
 
-    public void ChangeGameSpeedButton(int gameSpeed)
+    public void ChangeGameSpeedButton(int gameSpeed, bool isEscapePanel)
     {
         //нажали на ту же скорость что щас уже стоит и это не пауза, делаем возврат
         if (_currentGameSpeedEnum != GameSpeedEnum.Pause && (int)_currentGameSpeedEnum == gameSpeed) return;
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.GameSpeed], transform.position);
 
-        //нажали на паузу, но щас уже стоит пауза, обновляем ивент паузы и делаем возврат
-        if (_currentGameSpeedEnum == GameSpeedEnum.Pause && gameSpeed == 0)
+        //нажали на escape, но щас уже стоит пауза, обновляем ивент паузы и делаем возврат
+        if (_currentGameSpeedEnum == GameSpeedEnum.Pause && gameSpeed == 0 && isEscapePanel)
         {
             CustomEvents.FireCheckPause(_isPause);
             return;

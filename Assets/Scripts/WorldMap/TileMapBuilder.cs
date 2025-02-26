@@ -8,16 +8,12 @@ public class TileMapBuilder : MonoBehaviour
     [Inject] private DiContainer _diContainer;
     [Inject] private TilesSystem _tilesSystem;
 
-
+    [SerializeField] private TerrainView _terrainView;
     [SerializeField] private AstarPath _astarPath;
     [SerializeField] private GameObject _tile;
     [SerializeField] private Transform _parentTransform;
     [SerializeField] private AllTileObjects _allTileObjects;
     [SerializeField] private GameObject[,] _tileObjects;
-
-    [Header("Terrain")]
-    [SerializeField] private GameObject[] _terrains;
-    [SerializeField] private Transform _environmentParentTransform;
 
     [Header("Road")]
     [SerializeField] private List<TileObject> _roadTiles = new();
@@ -56,7 +52,7 @@ public class TileMapBuilder : MonoBehaviour
     public void BuildMap(bool isStartMission)
     {
         SetMapSize();
-        SetTerrain();
+        _terrainView.PrepareTerrain();
         _astarPath.Scan();
         SetStartCoordinates();
         SpawnTiles();
@@ -75,11 +71,7 @@ public class TileMapBuilder : MonoBehaviour
         _tileObjects = new GameObject[_mapWidth, _mapLength];
     }
 
-    private void SetTerrain()
-    {
-        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
-        _terrains[mission.MissionId].SetActive(true);
-    }
+
 
     private void SetStartCoordinates()
     {

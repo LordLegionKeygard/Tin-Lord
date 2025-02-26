@@ -10,7 +10,8 @@ public class ActiveTreeType : MonoBehaviour
 
     private void ActiveType()
     {
-        var number = (int)CurrentMissionInfo.Instance.GetCurrentMission().MissionView.TreeType;
-        _treesType[number].SetActive(true);
+        var biomEnum = CurrentMissionInfo.Instance.GetCurrentMission().MissionView.BiomEnum;
+        var treeNumber = biomEnum == BiomEnum.Winter ? 1 : 0;
+        _treesType[treeNumber].SetActive(true);
     }
 }

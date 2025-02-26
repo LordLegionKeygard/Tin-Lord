@@ -46,4 +46,5 @@ public class MusicWrapper
 public enum MusicThemeEnum
 {
     WasteLand = 0,
+    Winter = 1,
 }

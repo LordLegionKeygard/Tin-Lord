@@ -35,7 +35,7 @@ public class EscapePanelWorld : MonoBehaviour
 
         if (_isOpen)
         {
-            _gameSpeedSystem.ChangeGameSpeedButton((int)GameSpeedEnum.Pause);
+            _gameSpeedSystem.ChangeGameSpeedButton((int)GameSpeedEnum.Pause, true);
             
             _escapePanelTransform.DOAnchorPosY(-185.5f, 0.8f).SetUpdate(true);
         }
