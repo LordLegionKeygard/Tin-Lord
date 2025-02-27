@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4108395388431099662}
   - component: {fileID: 4108395388431099660}
   - component: {fileID: 4108395388431099661}
-  - component: {fileID: 3921565543061619212}
   - component: {fileID: 443734409540704501}
+  - component: {fileID: 3983931500966562260}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -85,29 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3921565543061619212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4108395388431099663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e98368dbcb655da438dde914b707456a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meshRenderer: {fileID: 4108395388431099661}
-  _base:
-  - {fileID: 2800000, guid: bc40a0342997ecf4786fae24debec920, type: 3}
-  - {fileID: 2800000, guid: c0a4011dd95bc2e40835a816f3a269d7, type: 3}
-  - {fileID: 2800000, guid: 38f8872eb79d23248a5a25e3b07200be, type: 3}
-  - {fileID: 2800000, guid: 856eff39c7a0fe9458cf37d1eaac0eb4, type: 3}
-  _normal:
-  - {fileID: 2800000, guid: 711eee47b9adaca4f98ace0dffd73014, type: 3}
-  - {fileID: 2800000, guid: 33cc8973c066c0845bdf05b60c3de268, type: 3}
-  - {fileID: 2800000, guid: 965f083fe3f7d6f4797615d0e6ea594f, type: 3}
-  - {fileID: 2800000, guid: 4495efac3fea5d14fb3b504f73c30e0a, type: 3}
 --- !u!114 &443734409540704501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +97,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3983931500966562260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108395388431099663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f28e0e42d55174da40879c364e7526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 4108395388431099661}
+  _tileTextures:
+  - BiomTextureEnum: 0
+    Base:
+    - {fileID: 2800000, guid: bc40a0342997ecf4786fae24debec920, type: 3}
+    - {fileID: 2800000, guid: c0a4011dd95bc2e40835a816f3a269d7, type: 3}
+    - {fileID: 2800000, guid: 38f8872eb79d23248a5a25e3b07200be, type: 3}
+    - {fileID: 2800000, guid: 856eff39c7a0fe9458cf37d1eaac0eb4, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - BiomTextureEnum: 1
+    Base:
+    - {fileID: 2800000, guid: bc40a0342997ecf4786fae24debec920, type: 3}
+    - {fileID: 2800000, guid: c0a4011dd95bc2e40835a816f3a269d7, type: 3}
+    - {fileID: 2800000, guid: 38f8872eb79d23248a5a25e3b07200be, type: 3}
+    - {fileID: 2800000, guid: 856eff39c7a0fe9458cf37d1eaac0eb4, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - BiomTextureEnum: 2
+    Base:
+    - {fileID: 2800000, guid: f9a5d7c7e4be8b34ea5e98e93ab93b7f, type: 3}
+    - {fileID: 2800000, guid: 236f3f936177db14fa88ac020d9b15c4, type: 3}
+    - {fileID: 2800000, guid: 442f964945da81943a503b28b4584cbe, type: 3}
+    - {fileID: 2800000, guid: 28dce3722da844344b9c78d6b6c3a24c, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  _normal:
+  - {fileID: 2800000, guid: 711eee47b9adaca4f98ace0dffd73014, type: 3}
+  - {fileID: 2800000, guid: 33cc8973c066c0845bdf05b60c3de268, type: 3}
+  - {fileID: 2800000, guid: 965f083fe3f7d6f4797615d0e6ea594f, type: 3}
+  - {fileID: 2800000, guid: 4495efac3fea5d14fb3b504f73c30e0a, type: 3}
 --- !u!1 &4108395389618788024
 GameObject:
   m_ObjectHideFlags: 0
