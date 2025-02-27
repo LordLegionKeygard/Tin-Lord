@@ -40,7 +40,6 @@ public class WorldEventSystem : MonoBehaviour
     {
         CustomEvents.OnDayEnd += OnDayEnd;
         CustomEvents.OnGameEventStart += ActiveGameEvent;
-        CustomEvents.OnDataLoad += SetAvailableMissionEvents;
 
         SetEventDuration();
     }
@@ -87,6 +86,7 @@ public class WorldEventSystem : MonoBehaviour
 
     public void LoadEvents(DayEventData[] dayEventsData, bool IsStartMission)
     {
+        SetAvailableMissionEvents();
         if (IsStartMission) return;
 
         for (int i = 0; i < dayEventsData.Length; i++)
@@ -160,7 +160,6 @@ public class WorldEventSystem : MonoBehaviour
     {
         CustomEvents.OnDayEnd -= OnDayEnd;
         CustomEvents.OnGameEventStart -= ActiveGameEvent;
-        CustomEvents.OnDataLoad -= SetAvailableMissionEvents;
     }
 }
 

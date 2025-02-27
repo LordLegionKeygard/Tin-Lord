@@ -8,6 +8,12 @@ public class CustomEvents
         OnSpawnRoadComplete?.Invoke();
     }
 
+    public static event Action OnCompleteLoadTiles;
+    public static void FireCompleteLoadTiles()
+    {
+        OnCompleteLoadTiles?.Invoke();
+    }
+
     public static Action OnPlayRandomLevelMusic;
     public static void FirePlayRandomLevelMusic()
     {

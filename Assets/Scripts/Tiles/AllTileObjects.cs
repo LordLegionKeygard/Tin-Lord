@@ -115,5 +115,7 @@ public class AllTileObjects : MonoBehaviour
             if (tilesData[i].BuildingData.BuildingTileTypeId == (int)BuildingTileViewEnum.None) continue;
             TileObjects[i].BuildingTileObject().LoadBuildingTile(tilesData[i]);
         }
+
+        CustomEvents.FireCompleteLoadTiles();
     }
 }

@@ -68,6 +68,8 @@ public class BuildingTile : MonoBehaviour
       _buildingHealth = GetComponent<BuildingHealth>();
       _buildingTileProtective = GetComponent<BuildingTileProtective>();
       _buildingTileTransform = GetComponent<BuildingTileTransform>();
+
+      CustomEvents.OnCompleteLoadTiles += UpdateProtectiveTiles;
    }
 
    /// <summary>
@@ -393,14 +395,16 @@ public class BuildingTile : MonoBehaviour
 
          _buildingHealth.LoadBuildingHealth(CurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth, false);
 
-         if (IsProtectiveTile()) UpdateProtectiveTiles();
-
          _tileObject.SetBuildingWork(tileDataWrapper.BuildingData.IsBuildingWork);
          _tileObject.CheckResourceRequired(true);
 
          var rotationView = _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>();
          if (rotationView != null) rotationView.LoadRotate(tileDataWrapper.BuildingData.BuildingRotation);
       }
+   }
 
+   private void OnDestroy()
+   {
+      CustomEvents.OnCompleteLoadTiles -= UpdateProtectiveTiles;
    }
 }
