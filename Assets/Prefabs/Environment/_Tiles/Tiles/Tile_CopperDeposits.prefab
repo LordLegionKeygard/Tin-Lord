@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 8298401939417212759}
   - component: {fileID: 8298401939417212758}
   - component: {fileID: 8291727283386643329}
+  - component: {fileID: 7891058582349425204}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -174,3 +175,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7891058582349425204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8298401939417212756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f28e0e42d55174da40879c364e7526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 8298401939417212758}
+  _tileTextures:
+  - BiomTextureEnum: 0
+    Base:
+    - {fileID: 2800000, guid: 22f45b9320ef3874c841b92b2e4944ef, type: 3}
+    - {fileID: 2800000, guid: 7a36a93a9ad4a0045ab5aafa0429f17c, type: 3}
+    - {fileID: 2800000, guid: 4d9df1adcaa659247857609fcbcb7e43, type: 3}
+    - {fileID: 2800000, guid: 28be81cb813c11448a4fe6cf0ad004e5, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - BiomTextureEnum: 1
+    Base:
+    - {fileID: 2800000, guid: 22f45b9320ef3874c841b92b2e4944ef, type: 3}
+    - {fileID: 2800000, guid: 7a36a93a9ad4a0045ab5aafa0429f17c, type: 3}
+    - {fileID: 2800000, guid: 4d9df1adcaa659247857609fcbcb7e43, type: 3}
+    - {fileID: 2800000, guid: 28be81cb813c11448a4fe6cf0ad004e5, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - BiomTextureEnum: 2
+    Base:
+    - {fileID: 2800000, guid: 7f8701fd329605c42ac47a600b13194c, type: 3}
+    - {fileID: 2800000, guid: 04dea7925ffcc5840bd8a30ec5e2fd24, type: 3}
+    - {fileID: 2800000, guid: aaf732d8271e08d40a30db9214d3ceca, type: 3}
+    - {fileID: 2800000, guid: 5d7d7c09c4d53344792b692b863f8ff5, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  _normal:
+  - {fileID: 2800000, guid: 711eee47b9adaca4f98ace0dffd73014, type: 3}
+  - {fileID: 2800000, guid: 33cc8973c066c0845bdf05b60c3de268, type: 3}
+  - {fileID: 2800000, guid: 965f083fe3f7d6f4797615d0e6ea594f, type: 3}
+  - {fileID: 2800000, guid: 4495efac3fea5d14fb3b504f73c30e0a, type: 3}

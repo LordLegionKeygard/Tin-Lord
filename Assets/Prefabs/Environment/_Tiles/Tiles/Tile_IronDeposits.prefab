@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4667713159135676906}
   - component: {fileID: 4667713159135676907}
   - component: {fileID: 8668430102549333774}
+  - component: {fileID: 3677644772302140381}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -96,6 +97,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b6cb3df6ff8be42b320d023f700753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3677644772302140381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4667713159135676905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f28e0e42d55174da40879c364e7526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 4667713159135676907}
+  _tileTextures:
+  - BiomTextureEnum: 0
+    Base:
+    - {fileID: 2800000, guid: 45153d51d91c9e741af40b674629530c, type: 3}
+    - {fileID: 2800000, guid: ec85cf93cbad4e14e94f839748171681, type: 3}
+    - {fileID: 2800000, guid: bbf348fd77d5b9a40a1f2076684c52cd, type: 3}
+    - {fileID: 2800000, guid: cec66e82ed715814bad30e660c8d3e20, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - BiomTextureEnum: 1
+    Base:
+    - {fileID: 2800000, guid: 45153d51d91c9e741af40b674629530c, type: 3}
+    - {fileID: 2800000, guid: ec85cf93cbad4e14e94f839748171681, type: 3}
+    - {fileID: 2800000, guid: bbf348fd77d5b9a40a1f2076684c52cd, type: 3}
+    - {fileID: 2800000, guid: cec66e82ed715814bad30e660c8d3e20, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  - BiomTextureEnum: 2
+    Base:
+    - {fileID: 2800000, guid: 05ace34d1fa53834c8a6b7f5b73b596b, type: 3}
+    - {fileID: 2800000, guid: f66c2c62a9481fa49a6eb05c6d3674f0, type: 3}
+    - {fileID: 2800000, guid: f5f5b8faf1d4aa9479faee7649a1e325, type: 3}
+    - {fileID: 2800000, guid: e23ab31446614234aa7936283c21608b, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
+  _normal:
+  - {fileID: 2800000, guid: 711eee47b9adaca4f98ace0dffd73014, type: 3}
+  - {fileID: 2800000, guid: 33cc8973c066c0845bdf05b60c3de268, type: 3}
+  - {fileID: 2800000, guid: 965f083fe3f7d6f4797615d0e6ea594f, type: 3}
+  - {fileID: 2800000, guid: 4495efac3fea5d14fb3b504f73c30e0a, type: 3}
 --- !u!1 &4667713159827535966
 GameObject:
   m_ObjectHideFlags: 0
