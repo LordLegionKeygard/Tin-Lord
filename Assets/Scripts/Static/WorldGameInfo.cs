@@ -50,7 +50,7 @@ public class WorldGameInfo
     public const int VictoryFragmentsPercent = 100;
 
     //Sounds
-    public const int EnemiesDeathSoundChance = 20;
+    public const int EnemiesDeathSoundChance = 10;
 
     //Terrain
     public const float TerrainOffset = 1.68f;
