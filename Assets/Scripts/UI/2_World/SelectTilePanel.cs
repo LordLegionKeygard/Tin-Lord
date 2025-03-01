@@ -220,11 +220,12 @@ public class SelectTilePanel : MonoBehaviour
         bool notRoadOrForwardRoad = !isRoad || isForwardRoad;
 
         var haveRotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>() != null;
-        var haveRotationViewBuilding = buildingTile.HaveTile() && buildingTile.HaveBuildingGameObject() && buildingTile.GetComponent<RotationView>() != null;
+        var canRotateBuilding = buildingTile.HaveTile() && buildingTile.HaveBuildingGameObject() && buildingTile.CurrentBuilding().CanRotateBuilding;
 
         var onOffButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
         var buildButtonState = canRepairOrUpgrade && notRoadOrForwardRoad && groundHaveBuildings && !isConstructionNow;
-        var rotateButtonState = haveRotationViewGround || haveRotationViewBuilding;
+        var rotateButtonState = haveRotationViewGround || canRotateBuilding;
+
         var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase && !isConstructionNow;
         var robotButtonState = haveBuildingNow && isBase;
 

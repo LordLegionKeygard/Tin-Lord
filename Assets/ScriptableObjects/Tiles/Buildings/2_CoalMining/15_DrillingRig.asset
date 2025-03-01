@@ -22,6 +22,7 @@ MonoBehaviour:
   BuildingHealth: 200
   ResourceExtractedAmount: 1
   Price: 4
+  CanRotateBuilding: 1
   ResourcesForBuild:
   - ResourceEnum: 11
     RecourceAmount: 25

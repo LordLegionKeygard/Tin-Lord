@@ -11,6 +11,7 @@ public class Building : ScriptableObject
     public float BuildingHealth;
     public float ResourceExtractedAmount; // кол-во создаваемого ресурса за 1 тик времени
     public float Price; // цена покупки за фрагменты памяти
+    public bool CanRotateBuilding;
 
     [Header("Requires")]
     public ResourceWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства здания
