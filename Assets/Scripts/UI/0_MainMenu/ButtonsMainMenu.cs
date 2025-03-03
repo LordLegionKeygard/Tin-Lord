@@ -76,14 +76,14 @@ public class ButtonsMainMenu : MonoBehaviour
         CommandCenterSaveGame.NewGame();
     }
 
-    public void Settings()
+    public void SettingsButton()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        // _settingsPanel.SetActive(true);
+        _settingsPanel.SetActive(true);
     }
 
 
-    public void Quit()
+    public void QuitButton()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         Application.Quit();

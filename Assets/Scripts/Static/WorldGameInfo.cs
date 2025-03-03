@@ -55,4 +55,22 @@ public class WorldGameInfo
     //Terrain
     public const float TerrainOffset = 1.68f;
 
+    //VideoSettings
+    public const int ScreenMode = 1;
+    public const int Resolution = 15;
+    public const int Quality = 1;
+    public const int AntiAliasing = 1;
+    public const int UpscalingFilter = 0;
+    public const bool Glow = true;
+    public const int FrameRate = 100;
+
+    //GameplaySettings
+    public const bool Blood = true;
+
+    //AudioSettings
+    public const float MasterVolume = 0.6f;
+    public const float SfxVolume = 0.6f;
+    public const float UiVolume = 0.6f;
+    public const float MusicVolume = 0.6f;
+
 }
