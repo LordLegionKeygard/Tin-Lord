@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 0;
+    public static int LanguageNumber = 1;
     private string[,] _text = new string[200, 2];
     public static string[] TextStatic = new string[200];
 
@@ -336,26 +336,95 @@ public class Language : MonoBehaviour
         _text[102, 0] = "";
         _text[102, 1] = "";
         
-        _text[103, 0] = "";
-        _text[103, 1] = "";
+        _text[103, 0] = "Controller";
+        _text[103, 1] = "Контроллер";
+
+        _text[104, 0] = "Keyboard/Mouse";
+        _text[104, 1] = "Клавиатура/Мышь";
         
-        _text[104, 0] = "";
-        _text[104, 1] = "";
+        _text[105, 0] = "Master volume";
+        _text[105, 1] = "Общая громкость";
+
+        _text[106, 0] = "SFX volume";
+        _text[106, 1] = "Громкость эффектов";
+
+        _text[107, 0] = "UI volume";
+        _text[107, 1] = "Громкость интерфейса";
+
+        _text[108, 0] = "Music volume";
+        _text[108, 1] = "Громкость музыки";
         
-        _text[105, 0] = "";
-        _text[105, 1] = "";
-        
-        _text[106, 0] = "";
-        _text[106, 1] = "";
-        
-        _text[107, 0] = "";
-        _text[107, 1] = "";
-        
-        _text[108, 0] = "";
-        _text[108, 1] = "";
-        
-        _text[109, 0] = "";
-        _text[109, 1] = "";
+        _text[109, 0] = "Blood";
+        _text[109, 1] = "Кровь";
+
+        _text[110, 0] = "Video";
+        _text[110, 1] = "Видео";
+
+        _text[111, 0] = "Controls";
+        _text[111, 1] = "Управление";
+
+        _text[112, 0] = "Gameplay";
+        _text[112, 1] = "Игра";
+
+        _text[113, 0] = "Audio";
+        _text[113, 1] = "Аудио";
+
+        _text[114, 0] = "Screen Mode";
+        _text[114, 1] = "Режим Экрана";
+
+        _text[115, 0] = "Resolution";
+        _text[115, 1] = "Разрешение";
+
+        _text[116, 0] = "Quality";
+        _text[116, 1] = "Качество";
+
+        _text[117, 0] = "Anti - Aliasing";
+        _text[117, 1] = "Сглаживание";
+
+        _text[118, 0] = "Upscaling Filter";
+        _text[118, 1] = "Масштабирование";
+
+        _text[119, 0] = "Glow";
+        _text[119, 1] = "Свечение";
+
+        _text[120, 0] = "Max. Frame Rate";
+        _text[120, 1] = "Макс. Кол-во Кадров";
+
+        _text[121, 0] = "Close";
+        _text[121, 1] = "Закрыть";
+
+        _text[122, 0] = "Apply";
+        _text[122, 1] = "Применить";
+
+        _text[123, 0] = "Reset";
+        _text[123, 1] = "Сброс";
+
+        _text[124, 0] = "Full-screen";
+        _text[124, 1] = "Полноэкранный";
+
+        _text[125, 0] = "Windowed";
+        _text[125, 1] = "Оконный";
+
+        _text[126, 0] = "Low";
+        _text[126, 1] = "Низкое";
+
+        _text[127, 0] = "Medium";
+        _text[127, 1] = "Среднее";
+
+        _text[128, 0] = "High";
+        _text[128, 1] = "Высокое";
+
+        _text[129, 0] = "Ultra";
+        _text[129, 1] = "Ультра";
+
+        _text[130, 0] = "Disabled";
+        _text[130, 1] = "Выключено";
+
+        _text[131, 0] = "Bilinear";
+        _text[131, 1] = "Билинейное";
+
+        _text[132, 0] = "Nearest";
+        _text[132, 1] = "Ближайшее";
         
         for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];
     }

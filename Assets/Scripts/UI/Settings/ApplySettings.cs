@@ -24,7 +24,7 @@ public class ApplySettings : MonoBehaviour
         if(!_applyBtn.gameObject.activeInHierarchy) return;
 
         _applyBtn.interactable = state;
-        _buttonText.color = state ? Color.white : Colors.GreyFive;
+        _buttonText.color = state ? Color.white : Color.black;
     }
 
     public void Apply()

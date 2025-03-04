@@ -11,6 +11,7 @@ public class EscapePanelWorld : MonoBehaviour
     [SerializeField] private RectTransform _escapePanelTransform;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private GameObject _escapePanelBackgroundBlack;
+    [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private Button _escapeButton;
     [SerializeField] private Button _exitButton;
     [SerializeField] private Button _restartButton;
@@ -82,6 +83,12 @@ public class EscapePanelWorld : MonoBehaviour
 
         _extraText.text = $"{string.Format(Language.TextStatic[66], (int)MissionEndEnum.Escape)}";
         ToggleYesButton(_objectivesPanel.CanEscape());
+    }
+
+    public void SettingsButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        _settingsPanel.SetActive(true);
     }
 
     public void ExitButton()

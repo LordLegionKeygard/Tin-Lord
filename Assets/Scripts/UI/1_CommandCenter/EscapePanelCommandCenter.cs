@@ -7,6 +7,7 @@ public class EscapePanelCommandCenter : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _saveGame;
     [SerializeField] private RectTransform _objectTransform;
+    [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _escapePanelBackgroundBlack;
     private bool _isOpen;
 
@@ -32,6 +33,12 @@ public class EscapePanelCommandCenter : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         PanelViewToggle();
+    }
+
+    public void SettingsButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        _settingsPanel.SetActive(true);
     }
 
     public void MenuButton()

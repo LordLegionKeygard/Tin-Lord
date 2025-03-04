@@ -8,7 +8,6 @@ using Zenject;
 
 public class SettingsPanels : MonoBehaviour
 {
-    [Inject] private WorldSaveSettings _worldSaveSettings;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject[] _panels;
     [SerializeField] private Image[] _panelsBtnImages;
@@ -32,11 +31,11 @@ public class SettingsPanels : MonoBehaviour
         {
             _panels[i].SetActive(false);
             _panelsBtnImages[i].sprite = _sprites[1];
-            _buttonsText[i].color = Colors.GreyFive;
+            _buttonsText[i].color = Color.white;
         }
         _panels[number].SetActive(true);
         _panelsBtnImages[number].sprite = _sprites[0];
-        _buttonsText[number].color = Color.white;
+        _buttonsText[number].color = Color.black;
     }
 
     public void CloseButton()
