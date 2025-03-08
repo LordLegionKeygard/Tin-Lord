@@ -329,19 +329,19 @@ public class Language : MonoBehaviour
 
         _text[100, 0] = "Attack radius";
         _text[100, 1] = "Радиус атаки";
-        
+
         _text[101, 0] = "Rotation speed";
         _text[101, 1] = "Скорость вращения";
-        
-        _text[102, 0] = "";
-        _text[102, 1] = "";
-        
-        _text[103, 0] = "Controller";
-        _text[103, 1] = "Контроллер";
+
+        _text[102, 0] = "Press any key";
+        _text[102, 1] = "Нажмите любую кнопку";
+
+        _text[103, 0] = "";
+        _text[103, 1] = "";
 
         _text[104, 0] = "Keyboard/Mouse";
         _text[104, 1] = "Клавиатура/Мышь";
-        
+
         _text[105, 0] = "Master volume";
         _text[105, 1] = "Общая громкость";
 
@@ -353,7 +353,7 @@ public class Language : MonoBehaviour
 
         _text[108, 0] = "Music volume";
         _text[108, 1] = "Громкость музыки";
-        
+
         _text[109, 0] = "Blood";
         _text[109, 1] = "Кровь";
 
@@ -425,7 +425,62 @@ public class Language : MonoBehaviour
 
         _text[132, 0] = "Nearest";
         _text[132, 1] = "Ближайшее";
-        
+
+        _text[133, 0] = "Camera movement";
+        _text[133, 1] = "Движение камеры";
+
+        _text[134, 0] = "Camera zoom";
+        _text[134, 1] = "Масштаб камеры";
+
+        _text[135, 0] = "Select tile / card";
+        _text[135, 1] = "Выбор тайла / карты";
+
+        _text[136, 0] = "Unselect tile / card";
+        _text[136, 1] = "Отмена выбора тайла / карты";
+
+        _text[137, 0] = "Game speed: pause";
+        _text[137, 1] = "Скорость игры: пауза";
+
+        _text[138, 0] = "Game speed: normal";
+        _text[138, 1] = "Скорость игры: нормальная";
+
+        _text[139, 0] = "Game speed: double";
+        _text[139, 1] = "Скорость игры: двойная";
+
+        _text[140, 0] = "Game speed: triple";
+        _text[140, 1] = "Скорость игры: тройная";
+
+        _text[141, 0] = "Menu";
+        _text[141, 1] = "Меню";
+
+        _text[142, 0] = "Build on tile";
+        _text[142, 1] = "Построить на тайле";
+
+        _text[143, 0] = "Rotate tile / building";
+        _text[143, 1] = "Повернуть тайл / здание";
+
+        _text[144, 0] = "Destroy tile / building";
+        _text[144, 1] = "Уничтожить тайл / здание";
+
+        _text[145, 0] = "Toggle building";
+        _text[145, 1] = "Включить / выключить здание";
+
+        _text[146, 0] = "Open robot panel";
+        _text[146, 1] = "Открыть панель роботов";
+
+        _text[147, 0] = "";
+        _text[147, 1] = "";
+
+        _text[148, 0] = "";
+        _text[148, 1] = "";
+
+        _text[149, 0] = "";
+        _text[149, 1] = "";
+
+        _text[150, 0] = "";
+        _text[150, 1] = "";
+
+
         for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];
     }
 }

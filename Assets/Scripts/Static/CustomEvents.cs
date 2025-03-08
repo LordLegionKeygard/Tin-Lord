@@ -1,7 +1,14 @@
 using System;
+using UnityEngine.InputSystem;
 
 public class CustomEvents
 {
+    public static Action<string, InputActionReference> OnUpdateBindingText;
+    public static void FireUpdateBindingText(string text, InputActionReference inputActionReference)
+    {
+        OnUpdateBindingText?.Invoke(text, inputActionReference);
+    }
+    
     public static event Action OnSpawnRoadComplete;
     public static void FireSpawnRoadComplete()
     {

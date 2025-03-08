@@ -89,6 +89,7 @@ public class EscapePanelWorld : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _settingsPanel.SetActive(true);
+        PanelViewToggle();
     }
 
     public void ExitButton()

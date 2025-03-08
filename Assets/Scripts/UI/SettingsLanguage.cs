@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -45,8 +43,20 @@ public class SettingsLanguage : MonoBehaviour
         _videoDropDowns[3].options[0].text = Language.TextStatic[131];
         _videoDropDowns[3].options[1].text = Language.TextStatic[132];
 
-        _controlTexts[0].text = Language.TextStatic[103];
-        _controlTexts[1].text = Language.TextStatic[104];
+        _controlTexts[0].text = Language.TextStatic[133];
+        _controlTexts[1].text = Language.TextStatic[134];
+        _controlTexts[2].text = Language.TextStatic[135];
+        _controlTexts[3].text = Language.TextStatic[136];
+        _controlTexts[4].text = Language.TextStatic[137];
+        _controlTexts[5].text = Language.TextStatic[138];
+        _controlTexts[6].text = Language.TextStatic[139];
+        _controlTexts[7].text = Language.TextStatic[140];
+        _controlTexts[8].text = Language.TextStatic[141];
+        _controlTexts[9].text = Language.TextStatic[142];
+        _controlTexts[10].text = Language.TextStatic[143];
+        _controlTexts[11].text = Language.TextStatic[144];
+        _controlTexts[12].text = Language.TextStatic[145];
+        _controlTexts[13].text = Language.TextStatic[146];
 
         _gameplayTexts[0].text = Language.TextStatic[109];
 
