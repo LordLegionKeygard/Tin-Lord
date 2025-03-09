@@ -8,12 +8,15 @@ public class UIPanelsWorld : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject[] _selectTilePanels;
     [SerializeField] private GameObject[] _mainPanels;
+    [SerializeField] private GameObject _settingsPanelObject;
+
 
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private RobotPanel _robotPanel;
     [SerializeField] private PanelDoMoveX _panelDoMove;
     [SerializeField] private EscapePanelWorld _escapePanel;
+    [SerializeField] private SettingsPanels _settingsPanel;
 
     public void MainPanelsViewToggle(bool selectTilePanel, bool robotPanel)
     {
@@ -45,9 +48,13 @@ public class UIPanelsWorld : MonoBehaviour
         {
             _panelDoMove.PanelClose();
         }
+        else if (_settingsPanelObject.activeInHierarchy)
+        {
+            _settingsPanel.CloseButton();
+        }
         else
         {
-            _escapePanel.PanelViewToggle();
+            _escapePanel.PanelViewToggle(true);
         }
     }
 

@@ -25,7 +25,7 @@ public class EscapePanelWorld : MonoBehaviour
     [SerializeField] private RectTransform _extraPanelTransform;
     private bool _isOpen;
 
-    public void PanelViewToggle()
+    public void PanelViewToggle(bool changeSpeed)
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EscapePanel, transform.position);
 
@@ -36,13 +36,13 @@ public class EscapePanelWorld : MonoBehaviour
 
         if (_isOpen)
         {
-            _gameSpeedSystem.ChangeGameSpeedButton((int)GameSpeedEnum.Pause, true);
-            
+            if (changeSpeed) _gameSpeedSystem.ChangeGameSpeedButton((int)GameSpeedEnum.Pause, true);
+
             _escapePanelTransform.DOAnchorPosY(-185.5f, 0.8f).SetUpdate(true);
         }
         else
         {
-            _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default);
+            if (changeSpeed) _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default);
             _escapePanelTransform.DOAnchorPosY(-55, 0.8f).SetUpdate(true);
             Reset();
         }
@@ -89,7 +89,7 @@ public class EscapePanelWorld : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _settingsPanel.SetActive(true);
-        PanelViewToggle();
+        PanelViewToggle(false);
     }
 
     public void ExitButton()

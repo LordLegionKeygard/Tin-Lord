@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
-using Zenject;
 
 public class SettingsPanels : MonoBehaviour
 {
+    [SerializeField] private EscapePanelWorld _escapePanelWorld;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject[] _panels;
     [SerializeField] private Image[] _panelsBtnImages;
@@ -44,5 +41,6 @@ public class SettingsPanels : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _applySettings.ApplyToggle(false);
         _settingsPanel.SetActive(false);
+        if (_escapePanelWorld != null) _escapePanelWorld.PanelViewToggle(false);
     }
 }
