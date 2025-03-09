@@ -1,61 +1,63 @@
+using UnityEngine;
+
 public class WorldGameInfo
 {
     public static bool StaticBlood = true;
     public const float PausedTimeScale = 0.00001f;
 
-    //GoogleSheet
+    [Header("GoogleSheet")]
     public const string GoogleSheetId = "1phPv5iEL7Iw6A6CCdU4SdSgN5LwbEprCKEzY10dwDr4";
     public const string BuildingGridId = "1534982770";
 
-    //EnemyReachedDistance
+    [Header("EnemyReachedDistance")]
     public const int EnemyReachedRobotDistance = 5;
     public const int EnemyReachedTileDistance = 8;
     public const int EnemyReachedFourTileDistance = 13;
 
-    //Turret
+    [Header("Turret")]
     public const float TurretMaximumAttackAngle = 10;
     public const float TurretMinimumAttackAngle = -10;
 
-    //Radiadtion
+    [Header("Radiadtion")]
     public const int MaximumRadiation = 50;
 
-    //DayEvent
+    [Header("DayEvent")]
     public const int DayEventChance = 20;
 
-    //Robot
+    [Header("Robot")]
     public const int RobotsCount = 3;
     public const float RobotEngineerRepairBuildingsDistance = 5.5f;
     public const float RobotDieDelay = 10;
     public const float RobotDieDuration = 3;
 
-    //Bullets
+    [Header("Bullets")]
     public const float BulletHeightOffset = 2.0f; // Смещение по высоте
     public const float BulletLateralOffset = -1.5f; // Горизонтальное смещение
 
-    //TurretPatrol
+    [Header("TurretPatrol")]
     public const float MinTurretPatrolTime = 5;
     public const float MaxTurretPatrolTime = 15;
     public const float TurretPatrolRotateSpeedFactor = 0.5f;
 
-    //Buildings
+    [Header("Buildings")]
     public const float ConstructionSpeed = 20;
 
-    //Load
+    [Header("Load")]
     public const int LoadSceneTime = 2;
     public const int DefaultLoadingScreenSpriteId = -1;
 
-    //EndMissionFragmentsPercent
+    [Header("EndMissionFragmentsPercent")]
     public const int DefeatFragmentsPercent = 10;
     public const int EscapeFragmentsPercent = 50;
     public const int VictoryFragmentsPercent = 100;
 
-    //Sounds
+    [Header("Sounds")]
     public const int EnemiesDeathSoundChance = 10;
 
-    //Terrain
+    [Header("Terrain")]
     public const float TerrainOffset = 1.68f;
 
-    //VideoSettings
+    [Header("VideoSettings")]
     public const int ScreenMode = 1;
     public const int Resolution = 15;
     public const int Quality = 1;
@@ -64,10 +66,11 @@ public class WorldGameInfo
     public const bool Glow = true;
     public const int FrameRate = 100;
 
-    //GameplaySettings
+    [Header("GameplaySettings")]
+    public const float CameraSpeed = 14;
     public const bool Blood = true;
 
-    //AudioSettings
+    [Header("AudioSettings")]
     public const float MasterVolume = 0.6f;
     public const float SfxVolume = 0.6f;
     public const float UiVolume = 0.6f;

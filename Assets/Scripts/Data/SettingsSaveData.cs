@@ -19,7 +19,7 @@ public class SettingsSaveData
     public int UiVolume;
     public int MusicVolume;
 
-
     [Header("Gameplay")]
+    public float CameraSpeed;
     public bool Blood;
 }

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
+    [SerializeField] private float _cameraSpeedCoeff;
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
@@ -57,9 +58,14 @@ public class CameraMovement : MonoBehaviour
         _yMax = 50 + (mission.MapWidth - 10) * 10;
     }
 
+    public void ChangeCameraSpeedCoeff(float value)
+    {
+        _cameraSpeedCoeff = value;
+    }
+
     private void ChangeMaxSpeed()
     {
-        _currentMaxSpeed = _camera.orthographicSize * 1.4f;
+        _currentMaxSpeed = _camera.orthographicSize * _cameraSpeedCoeff * 0.1f;
     }
 
     private void Update()

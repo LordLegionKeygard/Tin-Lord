@@ -11,10 +11,16 @@ public class GamePlayPanel : MonoBehaviour
     [Header("Toggles")]
     [SerializeField] private Toggle _bloodToggle;
 
+    [Header("CameraSpeed")]
+    [SerializeField] private CameraMovement _cameraMovement;
+    [SerializeField] private Slider _cameraSpeedSlider;
+    [SerializeField] private TextMeshProUGUI _cameraSpeedValueText;
+    private float _cameraSpeed;
+
     [Header("Other")]
     [Inject] private WorldSaveSettings _worldSaveSettings;
     private ApplySettings _applySettings;
-    // private bool _needSound;
+    private bool _needSound;
 
     private void Awake()
     {
@@ -25,6 +31,7 @@ public class GamePlayPanel : MonoBehaviour
     {
         var data = _worldSaveSettings.CurrentSettingsSaveData;
 
+        data.CameraSpeed = _cameraSpeed;
         data.Blood = _blood;
     }
 
@@ -32,16 +39,18 @@ public class GamePlayPanel : MonoBehaviour
     {
         var data = _worldSaveSettings.CurrentSettingsSaveData;
 
+        _cameraSpeed = data.CameraSpeed == 0 ? WorldGameInfo.CameraSpeed : data.CameraSpeed;
         _blood = data.Blood;
 
         ApplySettingsToUI();
 
-        // _needSound = true;
+        _needSound = true;
         SetGameSettings();
     }
 
     private void ApplySettingsToUI()
     {
+        _cameraSpeedValueText.text = _cameraSpeedSlider.value.ToString();
         _bloodToggle.SetIsOnWithoutNotify(_blood);
     }
 
@@ -49,6 +58,14 @@ public class GamePlayPanel : MonoBehaviour
     {
         _blood = _bloodToggle.isOn;
         ChangeSettings(true);
+    }
+
+    public void ChangeCameraSpeed()
+    {
+        if (_needSound) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        _cameraSpeed = _cameraSpeedSlider.value;
+        _cameraSpeedValueText.text = _cameraSpeedSlider.value.ToString();
+        ChangeSettings(false);
     }
 
     private void ChangeSettings(bool state)
@@ -60,7 +77,10 @@ public class GamePlayPanel : MonoBehaviour
 
     public void Reset()
     {
+        _cameraSpeed = WorldGameInfo.CameraSpeed;
         _blood = WorldGameInfo.Blood;
+
+        _cameraSpeedSlider.value = _cameraSpeed;
         _bloodToggle.SetIsOnWithoutNotify(_blood);
 
         _applySettings.ApplyToggle(true);
@@ -69,6 +89,7 @@ public class GamePlayPanel : MonoBehaviour
 
     public void SetGameSettings()
     {
+        if (_cameraMovement != null) _cameraMovement.ChangeCameraSpeedCoeff(_cameraSpeed);
         WorldGameInfo.StaticBlood = _blood;
     }
 }

@@ -339,8 +339,8 @@ public class Language : MonoBehaviour
         _text[103, 0] = "";
         _text[103, 1] = "";
 
-        _text[104, 0] = "Keyboard/Mouse";
-        _text[104, 1] = "Клавиатура/Мышь";
+        _text[104, 0] = "Camera speed";
+        _text[104, 1] = "Скорость камеры";
 
         _text[105, 0] = "Master volume";
         _text[105, 1] = "Общая громкость";
