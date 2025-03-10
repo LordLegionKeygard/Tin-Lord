@@ -15,9 +15,7 @@ MonoBehaviour:
   Spawners:
   - DaySpawn: 0
     MinCount: 50
-    MaxCount: 70
+    MaxCount: 50
     EnemiesSpawnerInfo:
-    - EnemyEnum: 8
-      EnemyLevel: 10
-    - EnemyEnum: 7
-      EnemyLevel: 10
+    - EnemyEnum: 2
+      EnemyLevel: 6
