@@ -153,7 +153,7 @@ public class CardHolderSystem : MonoBehaviour
                 {
                     cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.Linear).SetUpdate(true).OnComplete(() =>
                     {
-                        _playerResources.ChangeResource(ResourceEnum.BeamEnergy, 0.5f);
+                        _playerResources.ChangeResource(ResourceEnum.BeamEnergy, 1);
                         Destroy(cardToRemove.gameObject);
                     });
                 }));

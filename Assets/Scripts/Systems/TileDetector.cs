@@ -76,11 +76,23 @@ public class TileDetector : MonoBehaviour
             {
                 if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River)
                 {
-                    if (!CanSetRiver() || _currentTileObject.BuildingTileObject().HaveTile()) return;
-                    if (_currentTileObject.GroundTileObject().HaveTile() && !_tilesSystem.IsHaveRiver()) return;
+                    if (!CanSetRiver() || _currentTileObject.BuildingTileObject().HaveTile())
+                    {
+                        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+                        return;
+                    }
+                    if (_currentTileObject.GroundTileObject().HaveTile() && !_tilesSystem.IsHaveRiver())
+                    {
+                        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+                        return;
+                    }
                     if (_currentTileObject.GroundTileObject().HaveTile())
                     {
-                        if (!_currentTileObject.GroundTileObject().IsForwardRoad()) return;
+                        if (!_currentTileObject.GroundTileObject().IsForwardRoad())
+                        {
+                            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+                            return;
+                        }
                     }
                     if (_currentTileObject.GroundTileObject().HaveTile())
                     {
@@ -89,6 +101,7 @@ public class TileDetector : MonoBehaviour
                             if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
                             if (_currentTileObject.GroundTileObject().NeighbourTileIsBridge(i))
                             {
+                                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
                                 return;
                             }
                         }
@@ -100,6 +113,10 @@ public class TileDetector : MonoBehaviour
                 if (_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();
                 ClearTileDetector();
                 _cardHolderSystem.RemoveCurrentCard();
+            }
+            else if (!_canSetTile)
+            {
+                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             }
         }
         else if (!_cardHolderSystem.IsHaveCurrentSelectedCardObject())
