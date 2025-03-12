@@ -44,15 +44,14 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         var allSpawners = CurrentMissionInfo.Instance.GetCurrentMission().EnemiesSpawnerInfo.Spawners;
         if (allSpawners.Length == 0) return;
 
-        var spawner = allSpawners.FirstOrDefault(spawner => spawner.DaySpawn == day);
+        var spawner = allSpawners.FirstOrDefault(s => day <= s.LastDaySpawn && day % s.SpawnPeriod == 0);
 
         if (spawner == null)
-        {
-            spawner = allSpawners.LastOrDefault();
-        }
+            return;
 
         SpawnEnemies(spawner);
     }
+
 
     private void SpawnEnemies(Spawner spawner)
     {

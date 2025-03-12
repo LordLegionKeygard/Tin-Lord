@@ -37,13 +37,13 @@ MonoBehaviour:
   EnemiesSpawnerInfo: {fileID: 11400000, guid: c597c508d61e0814491057739e736086, type: 2}
   StartResources:
   - ResourceEnum: 0
-    RecourceAmount: 200
-  - ResourceEnum: 1
-    RecourceAmount: 100
-  - ResourceEnum: 4
     RecourceAmount: 50
+  - ResourceEnum: 1
+    RecourceAmount: 20
+  - ResourceEnum: 4
+    RecourceAmount: 10
   - ResourceEnum: 5
-    RecourceAmount: 25
+    RecourceAmount: 5
   Objectives:
   - ObjectiveEnum: 2
     ObjectiveAmount: 10

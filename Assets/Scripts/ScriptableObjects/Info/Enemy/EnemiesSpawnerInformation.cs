@@ -9,7 +9,8 @@ public class EnemiesSpawnerInformation : ScriptableObject
 [System.Serializable]
 public class Spawner
 {
-    public int DaySpawn;
+    public int LastDaySpawn;
+    public int SpawnPeriod;
     public int MinCount;
     public int MaxCount;
     public EnemySpawnerInfo[] EnemiesSpawnerInfo;
