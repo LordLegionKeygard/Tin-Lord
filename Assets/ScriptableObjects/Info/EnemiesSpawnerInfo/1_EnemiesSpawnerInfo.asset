@@ -13,9 +13,55 @@ MonoBehaviour:
   m_Name: 1_EnemiesSpawnerInfo
   m_EditorClassIdentifier: 
   Spawners:
-  - DaySpawn: 0
-    MinCount: 50
-    MaxCount: 50
+  - LastDaySpawn: 10
+    SpawnPeriod: 2
+    MinCount: 5
+    MaxCount: 10
     EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 1
+  - LastDaySpawn: 20
+    SpawnPeriod: 2
+    MinCount: 10
+    MaxCount: 15
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 1
     - EnemyEnum: 2
-      EnemyLevel: 6
+      EnemyLevel: 2
+  - LastDaySpawn: 30
+    SpawnPeriod: 2
+    MinCount: 10
+    MaxCount: 15
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 2
+    - EnemyEnum: 2
+      EnemyLevel: 3
+  - LastDaySpawn: 40
+    SpawnPeriod: 2
+    MinCount: 10
+    MaxCount: 20
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 2
+    - EnemyEnum: 2
+      EnemyLevel: 3
+  - LastDaySpawn: 47
+    SpawnPeriod: 1
+    MinCount: 15
+    MaxCount: 20
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 2
+    - EnemyEnum: 2
+      EnemyLevel: 3
+  - LastDaySpawn: 50
+    SpawnPeriod: 1
+    MinCount: 20
+    MaxCount: 30
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 3
+    - EnemyEnum: 2
+      EnemyLevel: 4

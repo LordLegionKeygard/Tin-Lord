@@ -37,16 +37,16 @@ MonoBehaviour:
   EnemiesSpawnerInfo: {fileID: 11400000, guid: 5393e13a42baf594e9b3c23d089ec3e3, type: 2}
   StartResources:
   - ResourceEnum: 0
-    RecourceAmount: 100
-  - ResourceEnum: 1
     RecourceAmount: 50
+  - ResourceEnum: 1
+    RecourceAmount: 20
   - ResourceEnum: 4
-    RecourceAmount: 25
-  - ResourceEnum: 5
     RecourceAmount: 10
+  - ResourceEnum: 5
+    RecourceAmount: 5
   Objectives:
   - ObjectiveEnum: 1
-    ObjectiveAmount: 200
+    ObjectiveAmount: 300
   MissionEvents:
   - {fileID: 11400000, guid: d49694d92c2ca064fbd724a765463f2a, type: 2}
   - {fileID: 11400000, guid: f31e1355a13e3d74f8a04ca87d106172, type: 2}
