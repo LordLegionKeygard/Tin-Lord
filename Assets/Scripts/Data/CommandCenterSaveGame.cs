@@ -31,11 +31,8 @@ public class CommandCenterSaveGame : MonoBehaviour
         };
 
         CommandCenterSaveData.BuildingsLearned[0] = true; // Shelter
-        CommandCenterSaveData.BuildingsLearned[12] = true; // CoalMining
-        CommandCenterSaveData.BuildingsLearned[16] = true; // OreManualMining
         CommandCenterSaveData.BuildingsLearned[20] = true; // WoodManualMining
         CommandCenterSaveData.BuildingsLearned[32] = true; // StoneManualMining
-        CommandCenterSaveData.BuildingsLearned[40] = true; // WoodenBridge
         CommandCenterSaveData.BuildingsLearned[75] = true; // Ballista
 
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
