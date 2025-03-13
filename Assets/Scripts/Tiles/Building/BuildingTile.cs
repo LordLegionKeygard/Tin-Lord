@@ -268,7 +268,7 @@ public class BuildingTile : MonoBehaviour
 
    private void RefreshProtectiveNeighbourTiles()
    {
-      for (int i = 0; i < _tileObject.GetNeighbourBuildingTilesArray().Length; i++)
+      for (int i = 0; i < 8; i++)
       {
          if (!IsNeedCheck(i, true)) continue;
 

@@ -81,7 +81,7 @@ public class EscapePanelWorld : MonoBehaviour
         _extraQuitPanel.SetActive(true);
         ChangePanelPosition(-138);
 
-        _extraText.text = $"{string.Format(Language.TextStatic[66], (int)MissionEndEnum.Escape)}";
+        _extraText.text = $"{string.Format(Language.TextStatic[66], WorldGameInfo.EscapeFragmentsPercent)}";
         ToggleYesButton(_objectivesPanel.CanEscape());
     }
 

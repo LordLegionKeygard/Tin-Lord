@@ -29,5 +29,11 @@ MonoBehaviour:
   MeleeDamage: 00000000010000000200000003000000040000000500000006000000
   RangeDamage: 000000000300000006000000090000000c0000000f00000012000000
   ResourcesForBuild:
+  - ResourceEnum: 10
+    RecourceAmount: 10
   - ResourceEnum: 16
     RecourceAmount: 10
+  - ResourceEnum: 15
+    RecourceAmount: 5
+  - ResourceEnum: 19
+    RecourceAmount: 1

@@ -48,7 +48,6 @@ public class TileObject : MonoBehaviour
     public GroundTile GetNeighbourGroundTile(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number].GroundTileObject() : null;
     public GroundTile[] GetNeighbourGroundTilesArray() => _neighbourTiles.Select(tile => tile?.GroundTileObject()).ToArray();
     public BuildingTile GetNeighbourBuildingTile(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number].BuildingTileObject() : null;
-    public BuildingTile[] GetNeighbourBuildingTilesArray() => _neighbourTiles.Where(tile => tile != null).Select(tile => tile.BuildingTileObject()).ToArray();
     public BuildingHealth[] GetNeighbourBulidingHealthArray() => _neighbourTiles.Where(tile => tile != null).Select(tile => tile.BuildingHealth()).ToArray();
 
     private void Awake()

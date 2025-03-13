@@ -46,10 +46,11 @@ public class EnemyHealth : BaseHealth
         if (_healthSliderObject == null)
         {
             _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
-            _healthSlider = _healthSliderObject.GetComponent<BaseSlider>();
+            _healthSlider = _healthSliderObject.GetComponent<EnemySlider>();
             _healthSlider.SetupAllHealthValue(_maxHealth);
             _healthSlider.SetHeightOffset(_sliderHeightOffset);
             _healthSlider.SetObjectTransform(transform);
+            _healthSlider.SetLevel(_enemyLevel.GetLevel().ToString());
         }
     }
 
@@ -95,7 +96,7 @@ public class EnemyHealth : BaseHealth
     private void DeathSound()
     {
         var rnd = Random.Range(0, 100);
-        if (WorldGameInfo.EnemiesDeathSoundChance < rnd) return; 
+        if (WorldGameInfo.EnemiesDeathSoundChance < rnd) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Death[(int)_enemyInfo.GetEnemyEnum()], transform.position);
     }
 

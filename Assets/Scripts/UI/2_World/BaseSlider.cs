@@ -41,6 +41,11 @@ public class BaseSlider : MonoBehaviour
         _slider.maxValue = maxValue;
     }
 
+    public virtual void SetLevel(string level)
+    {
+        
+    }
+
     public void SetObjectTransform(Transform transform) => _objectTransform = transform;
 
     private void LateUpdate()
