@@ -4,12 +4,13 @@ using UnityEngine;
 public class EnemiesSpawnerInformation : ScriptableObject
 {
     public Spawner[] Spawners;
+    public int LastDaySpawn;
 }
 
 [System.Serializable]
 public class Spawner
 {
-    public int LastDaySpawn;
+    public int StartDaySpawn;
     public int SpawnPeriod;
     public int MinCount;
     public int MaxCount;

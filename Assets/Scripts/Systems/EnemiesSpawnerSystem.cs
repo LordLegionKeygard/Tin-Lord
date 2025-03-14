@@ -41,12 +41,13 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void PrepareSpawn(int day)
     {
-        var allSpawners = CurrentMissionInfo.Instance.GetCurrentMission().EnemiesSpawnerInfo.Spawners;
-        if (allSpawners.Length == 0) return;
+        var enemiesSpawnerInfo = CurrentMissionInfo.Instance.GetCurrentMission().EnemiesSpawnerInfo;
+        var allSpawners = enemiesSpawnerInfo.Spawners;
+        if (allSpawners.Length == 0 || (day > enemiesSpawnerInfo.LastDaySpawn && enemiesSpawnerInfo.LastDaySpawn != 0)) return;
 
         var spawner = allSpawners
-            .Where(s => s.LastDaySpawn >= day)
-            .OrderBy(s => s.LastDaySpawn)
+            .Where(s => day >= s.StartDaySpawn)
+            .OrderBy(s => s.StartDaySpawn)
             .FirstOrDefault();
 
         if (spawner == null)
