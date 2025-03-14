@@ -20,7 +20,7 @@ MonoBehaviour:
   BuildingSprite: {fileID: 21300000, guid: 6da83938945a99744bd827d1c86bb703, type: 3}
   BuildingEcology: -1
   BuildingHealth: 50
-  ResourceExtractedAmount: 0.4
+  ResourceExtractedAmount: 0.8
   Price: 50
   CanRotateBuilding: 1
   ResourcesForBuild:
@@ -39,7 +39,7 @@ MonoBehaviour:
     ResourceRecept:
     - ResourceForRecept: {fileID: 11400000, guid: bfa570f1828818e49a04733c679a441d,
         type: 2}
-      ResourcesForReceptAmount: 0.5
+      ResourcesForReceptAmount: 1
   - ProductionResource: {fileID: 11400000, guid: 6296258cf7c590140b67984f03ca6845,
       type: 2}
     ResourceRecept:
