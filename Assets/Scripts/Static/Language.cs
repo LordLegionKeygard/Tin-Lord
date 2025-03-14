@@ -336,8 +336,8 @@ public class Language : MonoBehaviour
         _text[102, 0] = "Press any key";
         _text[102, 1] = "Нажмите любую кнопку";
 
-        _text[103, 0] = "";
-        _text[103, 1] = "";
+        _text[103, 0] = "Required resources:";
+        _text[103, 1] = "Требуемые ресурсы:";
 
         _text[104, 0] = "Camera speed";
         _text[104, 1] = "Скорость камеры";

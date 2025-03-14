@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIPanelsCommandCenter : MonoBehaviour
@@ -10,12 +8,18 @@ public class UIPanelsCommandCenter : MonoBehaviour
 
     [SerializeField] private EscapePanelCommandCenter _escapePanel;
     [SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private LearnBuildingInfoPanel _learnBuildingInfoPanel;
 
     public void Click()
     {
         _buildingsPanelDoMove.PanelMove();
         _missionPanelDoMove.PanelMove();
         _buildingInfoPanel.PanelMove();
+
+        if(!_buildingInfoPanel.IsOpen())
+        {
+            _learnBuildingInfoPanel.Reset();
+        }
     }
 
     public void EscapeClick()

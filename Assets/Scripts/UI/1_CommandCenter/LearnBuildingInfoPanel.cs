@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class LearnBuildingInfoPanel : MonoBehaviour
 {
-    [SerializeField] private RectTransform _objectTransform;
+    [SerializeField] private PanelDoMoveY _panelDoMoveY;
     private LearnBuildingItem _currentLearnBuildingItem;
 
     [Header("Main")]
@@ -15,6 +12,12 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingHealthText;
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
+
+    [Header("RequiedResources")]
+    [SerializeField] private TextMeshProUGUI _requiedResourcesText;
+    [SerializeField] private GameObject _requiedResourcesPanelObject;
+    [SerializeField] private GameObject _requiedResourcesPanelLine;
+    [SerializeField] private ResourcesViewCommandCenter _resourcesViewCommandCenter;
 
     [Header("Production")]
     [SerializeField] private GameObject _productionResourcePanelObject;
@@ -43,17 +46,8 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     public void PanelViewToggle(bool state)
     {
-        if (state)
-        {
-            _objectTransform.DOAnchorPosY(0, 0.3f).SetUpdate(true);
-        }
-        else
-        {
-            _objectTransform.DOAnchorPosY(-599, 0.3f).SetUpdate(true);
 
-            ResetPanels();
-            Clear();
-        }
+        Reset();
     }
 
     public void SetNewBuildingItem(LearnBuildingItem learnBuildingItem)
@@ -66,10 +60,12 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     {
         var building = _currentLearnBuildingItem.GetBuilding();
         SetMainPanel(building);
+        SetRequiredResourcesPanel(building);
         SetProductionPanel(building);
         SetTurretPanel(building);
         SetButtonPanel();
-        PanelViewToggle(true);
+
+        if (!_panelDoMoveY.IsOpen()) _panelDoMoveY.IsOpen();
     }
 
     private void SetMainPanel(Building building)
@@ -78,6 +74,14 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _buildingHealthText.text = $"{Language.TextStatic[97]}: {building.BuildingHealth}";
         _buildingEcologyText.text = $"{Language.TextStatic[16]}: {building.BuildingEcology}";
         _buildingLevelText.text = $"{Language.TextStatic[3]}: {building.BuildingLevel}";
+    }
+
+    private void SetRequiredResourcesPanel(Building building)
+    {
+        _requiedResourcesText.text = Language.TextStatic[103];
+        _requiedResourcesPanelObject.SetActive(true);
+        _requiedResourcesPanelLine.SetActive(true);
+        _resourcesViewCommandCenter.SetResourcesView(building.ResourcesForBuild);
     }
 
     private void SetProductionPanel(Building building)
@@ -140,16 +144,16 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         CustomEvents.FireCloseTooltips();
     }
 
-    public void ResetPanels()
+    public void Reset()
     {
+        _requiedResourcesPanelObject.SetActive(false);
+        _requiedResourcesPanelLine.SetActive(false);
         _productionResourcePanelObject.SetActive(false);
         _productionResourcePanelLine.SetActive(false);
         _turretPanelObject.SetActive(false);
         _turretPanelLine.SetActive(false);
         _buttonsPanelObject.SetActive(false);
-    }
-    private void Clear()
-    {
+
         _currentLearnBuildingItem = null;
     }
 }
