@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 2_EnemiesSpawnerInfo
   m_EditorClassIdentifier: 
   Spawners:
-  - DaySpawn: 0
-    MinCount: 50
-    MaxCount: 50
+  - StartDaySpawn: 0
+    SpawnPeriod: 2
+    MinCount: 20
+    MaxCount: 20
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
       EnemyLevel: 6
+  LastDaySpawn: 0
