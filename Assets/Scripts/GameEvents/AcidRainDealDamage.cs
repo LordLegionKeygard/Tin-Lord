@@ -9,7 +9,7 @@ public class AcidRainDealDamage : MonoBehaviour
     [SerializeField] private ParticleSystem[] _ps;
     private int _repeatCount = 30;
     private float _waitSeconds = 2;
-    private float _damage = 0.3f;
+    private float _damage = 1f;
 
     public void SetTile(TileObject tileObject)
     {
