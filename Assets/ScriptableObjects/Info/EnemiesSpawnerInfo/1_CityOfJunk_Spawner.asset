@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e025a72d5c3a743add5457e9f1553f, type: 3}
+  m_Name: 1_CityOfJunk_Spawner
+  m_EditorClassIdentifier: 
+  Spawners:
+  - StartDaySpawn: 0
+    SpawnPeriod: 2
+    MinCount: 20
+    MaxCount: 20
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 3
+    - EnemyEnum: 2
+      EnemyLevel: 4
+  LastDaySpawn: 0
