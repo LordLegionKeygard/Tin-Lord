@@ -11,11 +11,17 @@ public class EndMissionSystem : MonoBehaviour
     [Inject] private PlayerResources _playerResources;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private UIPanelsWorld _uIPanelsWorld;
+    [SerializeField] private EcologySystem _ecologySystem;
 
     [Header("View")]
     [SerializeField] private GameObject _panel;
     [SerializeField] private TextMeshProUGUI _headerText;
+
+    [SerializeField] private TextMeshProUGUI _memoryRestoredText;
+    [SerializeField] private TextMeshProUGUI _ecologyBonusText;
+    [SerializeField] private TextMeshProUGUI _difficultyBonusText;
     [SerializeField] private TextMeshProUGUI _receivedFragmentsText;
+
     [SerializeField] private TextMeshProUGUI _maxFragmentsText;
     [SerializeField] private Slider _slider;
     private bool _isMissionEnd = false;
@@ -47,7 +53,7 @@ public class EndMissionSystem : MonoBehaviour
 
     private void SetMissionEndViewInfo(MissionEndEnum missionEndEnum)
     {
-        var percent = missionEndEnum switch
+        var missionEndPercent = missionEndEnum switch
         {
             MissionEndEnum.Defeat => WorldGameInfo.DefeatFragmentsPercent / 100f,
             MissionEndEnum.Escape => WorldGameInfo.EscapeFragmentsPercent / 100f,
@@ -55,21 +61,57 @@ public class EndMissionSystem : MonoBehaviour
             _ => 0f
         };
 
+        var ecologyBonus = GetEcologyBonus();
+        var difficultyBonus = GetDifficultyMissionBonus();
+        var memoryRestoredAmount = (int)_playerResources.GetResourceNumberForEnum(ResourceEnum.MemoryFragment);
+        var totalFragmentsAmount = Mathf.RoundToInt(memoryRestoredAmount * ecologyBonus * difficultyBonus);
+        _receivedFragments = Mathf.RoundToInt(totalFragmentsAmount * missionEndPercent);
+
+        SetTexts(missionEndEnum, memoryRestoredAmount, ecologyBonus, difficultyBonus, totalFragmentsAmount);
+        _slider.value = 0;
+        _panel.SetActive(true);
+        StartCoroutine(UpdateFragmentsAndSlider(_receivedFragments, missionEndPercent));
+    }
+
+    private void SetTexts(MissionEndEnum missionEndEnum, int memoryRestoredAmount, float ecologyBonus, float difficultyBonus, float totalFragmentsAmount)
+    {
         var headerTextNumber = missionEndEnum is MissionEndEnum.Defeat ? 64 : missionEndEnum is MissionEndEnum.Escape ? 65 : 63;
         var headerTextColor = missionEndEnum is MissionEndEnum.Defeat ? Color.black : missionEndEnum is MissionEndEnum.Escape ? Colors.GreyEight : Colors.WarningYellow;
-        var allFragmentsAmount = (int)_playerResources.GetResourceNumberForEnum(ResourceEnum.MemoryFragment);
-        _receivedFragments = Mathf.RoundToInt(allFragmentsAmount * percent);
 
-        _headerText.text = Language.TextStatic[headerTextNumber];
         _headerText.color = headerTextColor;
-        _receivedFragmentsText.text = $"{Language.TextStatic[62]} 0";
-        _maxFragmentsText.text = allFragmentsAmount.ToString();
-        _slider.value = 0;
+        _headerText.text = Language.TextStatic[headerTextNumber];
+        _memoryRestoredText.text = $"{Language.TextStatic[147]} {memoryRestoredAmount}";
+        _ecologyBonusText.text = $"{Language.TextStatic[148]} {ecologyBonus}x";
+        _difficultyBonusText.text = $"{Language.TextStatic[149]} {difficultyBonus}x";
 
-        _panel.SetActive(true);
-
-        StartCoroutine(UpdateFragmentsAndSlider(allFragmentsAmount, _receivedFragments, percent));
+        _maxFragmentsText.text = totalFragmentsAmount.ToString();
     }
+
+    private float GetDifficultyMissionBonus()
+    {
+        var lastMissionSubtraction = CurrentMissionInfo.Instance.LastMissionRemainderFromSubtraction();
+        var maximumMissionBonus = 1;
+        var modificator = 0.2f;
+        var subtractor = modificator * lastMissionSubtraction;
+        if (subtractor > 1) return 0;
+        return maximumMissionBonus - subtractor;
+    }
+
+    private float GetEcologyBonus()
+    {
+        int ecology = _ecologySystem.GetTotalEcology();
+
+        if (ecology <= -75) return 0.25f;
+        if (ecology <= -50) return 0.5f;
+        if (ecology <= -25) return 0.75f;
+        if (ecology <= 0) return 1f;
+        if (ecology <= 25) return 1.25f;
+        if (ecology <= 50) return 1.5f;
+        if (ecology <= 75) return 1.75f;
+
+        return 2f;
+    }
+
 
     private void PrepareData(MissionEndEnum missionEndEnum)
     {
@@ -77,7 +119,7 @@ public class EndMissionSystem : MonoBehaviour
         _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments, CurrentMissionInfo.Instance.GetLastOpenedMissionId(missionEndEnum));
     }
 
-    private IEnumerator UpdateFragmentsAndSlider(int allFragmentsAmount, int targetFragments, float targetPercent)
+    private IEnumerator UpdateFragmentsAndSlider(int targetFragments, float targetPercent)
     {
         float duration = 2f;
         float elapsedTime = 0f;

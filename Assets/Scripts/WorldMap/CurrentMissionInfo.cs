@@ -12,6 +12,8 @@ public class CurrentMissionInfo : MonoBehaviour
         Instance = this;
     }
 
+    public int LastMissionRemainderFromSubtraction() => _lastOpenedMissionId - _currentMissionId;
+
     public void LoadMission(int missionId, int lastOpenedMissionId)
     {
         _currentMissionId = missionId;

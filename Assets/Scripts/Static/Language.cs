@@ -468,14 +468,14 @@ public class Language : MonoBehaviour
         _text[146, 0] = "Open robot panel";
         _text[146, 1] = "Открыть панель роботов";
 
-        _text[147, 0] = "";
-        _text[147, 1] = "";
+        _text[147, 0] = "Memory restored:";
+        _text[147, 1] = "Восстановлено фрагментов:";
 
-        _text[148, 0] = "";
-        _text[148, 1] = "";
+        _text[148, 0] = "Ecology bonus:";
+        _text[148, 1] = "Экологический бонус:";
 
-        _text[149, 0] = "";
-        _text[149, 1] = "";
+        _text[149, 0] = "Difficulty bonus:";
+        _text[149, 1] = "Бонус за сложность:";
 
         _text[150, 0] = "";
         _text[150, 1] = "";

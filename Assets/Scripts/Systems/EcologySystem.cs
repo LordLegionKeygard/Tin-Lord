@@ -30,6 +30,7 @@ public class EcologySystem : MonoBehaviour
     private float _currentRotationAngle = 0f;
 
     public int GetRadiation() => _radiation;
+    public int GetTotalEcology() => _totalEcology;
 
 
     private void Start()
