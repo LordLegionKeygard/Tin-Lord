@@ -13,46 +13,49 @@ MonoBehaviour:
   m_Name: 0_Canyon_Spawner
   m_EditorClassIdentifier: 
   Spawners:
-  - StartDaySpawn: 0
+  - StartDaySpawn: 6
     SpawnPeriod: 2
     MinCount: 3
     MaxCount: 6
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 1
-  - StartDaySpawn: 10
+  - StartDaySpawn: 15
     SpawnPeriod: 2
     MinCount: 5
     MaxCount: 8
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 1
-  - StartDaySpawn: 20
+  - StartDaySpawn: 25
     SpawnPeriod: 2
     MinCount: 5
     MaxCount: 8
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
-  - StartDaySpawn: 30
+  - StartDaySpawn: 35
     SpawnPeriod: 2
     MinCount: 10
     MaxCount: 15
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
-  - StartDaySpawn: 37
+  - StartDaySpawn: 42
     SpawnPeriod: 1
     MinCount: 15
     MaxCount: 20
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
-  - StartDaySpawn: 44
+  - StartDaySpawn: 48
     SpawnPeriod: 1
     MinCount: 15
     MaxCount: 20
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 3
-  LastDaySpawn: 46
+  LastDaySpawn: 52
+  BossEnum: -1
+  BossLevel: 0
+  BossDaySpawn: 0

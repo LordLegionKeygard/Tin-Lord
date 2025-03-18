@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: 1_CityOfJunk_Spawner
   m_EditorClassIdentifier: 
   Spawners:
-  - StartDaySpawn: 0
+  - StartDaySpawn: 9
     SpawnPeriod: 3
     MinCount: 5
     MaxCount: 10
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
       EnemyLevel: 1
-  - StartDaySpawn: 10
+  - StartDaySpawn: 20
     SpawnPeriod: 3
     MinCount: 10
     MaxCount: 15
@@ -29,17 +29,8 @@ MonoBehaviour:
       EnemyLevel: 1
     - EnemyEnum: 2
       EnemyLevel: 2
-  - StartDaySpawn: 20
-    SpawnPeriod: 3
-    MinCount: 10
-    MaxCount: 15
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-    - EnemyEnum: 2
-      EnemyLevel: 3
   - StartDaySpawn: 30
-    SpawnPeriod: 2
+    SpawnPeriod: 3
     MinCount: 10
     MaxCount: 15
     EnemiesSpawnerInfo:
@@ -49,6 +40,15 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 40
     SpawnPeriod: 2
+    MinCount: 10
+    MaxCount: 15
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 2
+    - EnemyEnum: 2
+      EnemyLevel: 3
+  - StartDaySpawn: 50
+    SpawnPeriod: 2
     MinCount: 15
     MaxCount: 20
     EnemiesSpawnerInfo:
@@ -56,7 +56,7 @@ MonoBehaviour:
       EnemyLevel: 3
     - EnemyEnum: 2
       EnemyLevel: 4
-  - StartDaySpawn: 50
+  - StartDaySpawn: 60
     SpawnPeriod: 1
     MinCount: 20
     MaxCount: 30
@@ -66,3 +66,6 @@ MonoBehaviour:
     - EnemyEnum: 2
       EnemyLevel: 5
   LastDaySpawn: 0
+  BossEnum: -1
+  BossLevel: 0
+  BossDaySpawn: 0

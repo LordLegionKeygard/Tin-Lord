@@ -5,7 +5,6 @@ public class EnemiesSpawnerInformation : ScriptableObject
 {
     public Spawner[] Spawners;
     public int LastDaySpawn;
-    public int FirstDaySpawn;
 
     [Header("Boss")]
     public EnemyEnum BossEnum = EnemyEnum.None;

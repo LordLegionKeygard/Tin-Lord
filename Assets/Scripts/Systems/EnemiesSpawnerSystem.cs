@@ -50,7 +50,6 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         }
 
         if (allSpawners.Length == 0) return;
-        if (enemiesSpawnerInfo.FirstDaySpawn > day) return;
         if (enemiesSpawnerInfo.LastDaySpawn != 0 && day > enemiesSpawnerInfo.LastDaySpawn) return;
         var spawner = allSpawners
             .Where(s => s.StartDaySpawn <= day)
