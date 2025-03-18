@@ -35,15 +35,22 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void Awake()
     {
-        CustomEvents.OnDayEnd += PrepareSpawn;
+        CustomEvents.OnDayEnd += PrepareSpawnEnemy;
         CustomEvents.OnEnemyDeath += RemoveEnemyFromList;
     }
 
-    private void PrepareSpawn(int day)
+    private void PrepareSpawnEnemy(int day)
     {
         var enemiesSpawnerInfo = CurrentMissionInfo.Instance.GetCurrentMission().EnemiesSpawnerInfo;
         var allSpawners = enemiesSpawnerInfo.Spawners;
+
+        if(enemiesSpawnerInfo.BossEnum!= EnemyEnum.None)
+        {
+            if(enemiesSpawnerInfo.BossDaySpawn == day) SpawnBoss(enemiesSpawnerInfo);
+        }
+
         if (allSpawners.Length == 0) return;
+        if (enemiesSpawnerInfo.FirstDaySpawn > day) return;
         if (enemiesSpawnerInfo.LastDaySpawn != 0 && day > enemiesSpawnerInfo.LastDaySpawn) return;
         var spawner = allSpawners
             .Where(s => s.StartDaySpawn <= day)
@@ -54,8 +61,17 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         SpawnEnemies(spawner);
     }
 
+    private void SpawnBoss(EnemiesSpawnerInformation info)
+    {
+        var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(info.BossEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
+        enemyObject.GetComponent<EnemyLevel>().SetLevel(info.BossLevel);
+        enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
+        enemyObject.GetComponent<EnemyHealth>().SetStartStats();
+        enemyObject.transform.SetParent(_enemiesParent);
 
-
+        AddEnemyToList((int)info.BossEnum, _enemyNumber, enemyObject);
+        _enemyNumber++;
+    }
 
 
     private void SpawnEnemies(Spawner spawner)
@@ -130,7 +146,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnDayEnd -= PrepareSpawn;
+        CustomEvents.OnDayEnd -= PrepareSpawnEnemy;
         CustomEvents.OnEnemyDeath -= RemoveEnemyFromList;
     }
 }

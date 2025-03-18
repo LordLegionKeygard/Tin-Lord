@@ -5,6 +5,12 @@ public class EnemiesSpawnerInformation : ScriptableObject
 {
     public Spawner[] Spawners;
     public int LastDaySpawn;
+    public int FirstDaySpawn;
+
+    [Header("Boss")]
+    public EnemyEnum BossEnum = EnemyEnum.None;
+    public int BossLevel;
+    public int BossDaySpawn;
 }
 
 [System.Serializable]

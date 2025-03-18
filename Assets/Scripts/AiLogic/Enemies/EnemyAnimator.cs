@@ -62,4 +62,19 @@ public class EnemyAnimator : BaseAnimator
     {
         Animator.SetBool(AnimatorStrings.Death, true);
     }
+
+
+
+    public void RandomStartAnimState()
+    {
+        var rnd = Random.Range(1, 2);
+        Animator.SetInteger(AnimatorStrings.StartAnimState, rnd);
+    }
+
+    public void ChangeRandomMainAnimState()
+    {
+        var rnd = Random.Range(0, 100);
+        if (rnd <= 10) Animator.SetTrigger(AnimatorStrings.ChangeMainState);
+
+    }
 }

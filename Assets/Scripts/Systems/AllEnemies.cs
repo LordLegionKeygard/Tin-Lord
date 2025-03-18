@@ -20,4 +20,5 @@ public enum EnemyEnum
     Entomochelon = 6,
     Onyscidus = 7,
     Fulgurodonte = 8,
+    Kupolobrach = 9,
 }
