@@ -65,6 +65,9 @@ public class MissionPanel : MonoBehaviour
                 case ObjectiveEnum.SurviveDays:
                     _objectiveTexts[i].text = $"{i + 1}. {string.Format(Language.TextStatic[42], _currentMission.Objectives[i].ObjectiveAmount)}";
                     break;
+                case ObjectiveEnum.KillBoss:
+                    _objectiveTexts[i].text = $"{i + 1}. {Language.TextStatic[151]}";
+                    break;
             }
         }
 

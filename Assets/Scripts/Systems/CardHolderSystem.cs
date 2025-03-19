@@ -195,7 +195,7 @@ public class CardHolderSystem : MonoBehaviour
 
     private void AddCardAfterSetBase()
     {
-        AddNewRandomCards(3);
+        AddNewRandomCards(4);
     }
 
     private void AddCardsAfterDayEnd(int dayNumber)

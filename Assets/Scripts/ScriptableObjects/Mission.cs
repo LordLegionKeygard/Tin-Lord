@@ -45,6 +45,7 @@ public enum ObjectiveEnum
     KillEnemies = 1,
     ConstructBuilding = 2,
     SurviveDays = 3,
+    KillBoss = 4,
 }
 
 [System.Serializable]

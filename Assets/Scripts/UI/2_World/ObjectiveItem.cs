@@ -31,6 +31,9 @@ public class ObjectiveItem : MonoBehaviour
             case ObjectiveEnum.SurviveDays:
                 _objectiveText.text = $"{string.Format(Language.TextStatic[61], currentAmount, _objectiveWrapper.ObjectiveAmount)}";
                 break;
+            case ObjectiveEnum.KillBoss:
+                _objectiveText.text = $"{string.Format(Language.TextStatic[150], currentAmount, _objectiveWrapper.ObjectiveAmount)}";
+                break;
         }
         _objectiveText.color = isComplete ? Colors.LightGreen : Color.white;
         _icon.sprite = _sprites[isComplete ? 1 : 0];

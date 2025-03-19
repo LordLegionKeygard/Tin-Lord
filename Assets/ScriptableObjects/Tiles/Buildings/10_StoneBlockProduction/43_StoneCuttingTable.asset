@@ -20,14 +20,14 @@ MonoBehaviour:
   BuildingSprite: {fileID: 21300000, guid: b46d07a2f25e1ab43bb947d884d0afc2, type: 3}
   BuildingEcology: -1
   BuildingHealth: 50
-  ResourceExtractedAmount: 0.2
+  ResourceExtractedAmount: 0.4
   Price: 125
   CanRotateBuilding: 1
   ResourcesForBuild:
   - ResourceEnum: 0
+    RecourceAmount: 15
+  - ResourceEnum: 1
     RecourceAmount: 10
-  - ResourceEnum: 9
-    RecourceAmount: 5
   ResourcesForWork: []
   ResourcesProduction:
   - ProductionResource: {fileID: 11400000, guid: 0266b7657f473a04fb1837f845157c83,

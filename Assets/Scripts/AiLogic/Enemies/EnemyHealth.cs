@@ -9,14 +9,14 @@ public class EnemyHealth : BaseHealth
     [Inject] private readonly HealthCanvas _healthCanvas;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private float _sliderHeightOffset;
-    private EnemyAnimator _enemyAnimator;
+    protected EnemyAnimator _enemyAnimator;
     private EnemyKnockBack _creatureKnockBackController;
-    private AIPath _aiPath;
-    private CharacterController _characterController;
+    protected AIPath _aiPath;
+    protected CharacterController _characterController;
     private EnemyLevel _enemyLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
     private EnemyCenterPoint _enemyCenterPoint;
-    private EnemyInfo _enemyInfo;
+    protected EnemyInfo _enemyInfo;
 
     public override Transform GetTransform()
     {
@@ -57,7 +57,7 @@ public class EnemyHealth : BaseHealth
     public void SetStartStats()
     {
         _isDeath = false;
-        _maxHealth = _enemyLevel.GetInformation().Health[_enemyLevel.GetLevel()];
+        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
         _currentHealth = _maxHealth;
         CreateHealthBar();
         UpdateSlider();
@@ -66,7 +66,7 @@ public class EnemyHealth : BaseHealth
     public void LoadStartStats(float newHealth)
     {
         _isDeath = false;
-        _maxHealth = _enemyLevel.GetInformation().Health[_enemyLevel.GetLevel()];
+        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
         _currentHealth = newHealth;
         CreateHealthBar();
         UpdateSlider();
@@ -93,7 +93,7 @@ public class EnemyHealth : BaseHealth
         StartCoroutine(FadeAndDestroy());
     }
 
-    private void DeathSound()
+    public virtual void DeathSound()
     {
         var rnd = Random.Range(0, 100);
         if (WorldGameInfo.EnemiesDeathSoundChance < rnd) return;

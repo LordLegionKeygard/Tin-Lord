@@ -11,7 +11,7 @@ public class EnemyAttacks : MonoBehaviour
     private float _tileDistance;
     public float GetTileDistance() => _tileDistance;
     public float MaxAttackRange() => _maxAttackRange;
-    public float MaxMeleeAtkRange() => _maxMeleeAttackRange; //нужно только чтобы задать _aiPath.endReachedDistance
+    public float MaxMeleeAtkRange() => _maxMeleeAttackRange - 1; //нужно только чтобы задать _aiPath.endReachedDistance
     public AttackInfo[] GetCreatureAttacks() => _attacks;
 
     private void Awake()

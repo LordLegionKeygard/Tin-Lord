@@ -477,8 +477,11 @@ public class Language : MonoBehaviour
         _text[149, 0] = "Difficulty bonus:";
         _text[149, 1] = "Бонус за сложность:";
 
-        _text[150, 0] = "";
-        _text[150, 1] = "";
+        _text[150, 0] = "Defeat the boss: {0}/{1}";
+        _text[150, 1] = "Победить босса: {0}/{1}";
+
+        _text[151, 0] = "Defeat the boss";
+        _text[151, 1] = "Победить босса";
 
 
         for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];

@@ -2732,7 +2732,7 @@ GameObject:
   - component: {fileID: 4562377748610310778}
   - component: {fileID: 4562377748610310779}
   - component: {fileID: 4562377748610310660}
-  - component: {fileID: 4562377748610310661}
+  - component: {fileID: 5888278866387041642}
   - component: {fileID: 4562377748610310662}
   - component: {fileID: 4562377748610310663}
   - component: {fileID: 4562377748610310656}
@@ -2743,7 +2743,7 @@ GameObject:
   - component: {fileID: 4562377748610310669}
   - component: {fileID: 4562377748610310670}
   m_Layer: 6
-  m_Name: 0_Kupolobrach
+  m_Name: 9_Kupolobrach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2990,7 +2990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _information: {fileID: 11400000, guid: 50969a87dad4a9848934d8bb32581dbe, type: 2}
---- !u!114 &4562377748610310661
+--- !u!114 &5888278866387041642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2999,12 +2999,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4562377748610310665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a772a9cd184348d4a911882f2651fbb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fc4cfc5a8251684fa69ef1923d6c6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
-  _sliderHeightOffset: 4
+  _sliderHeightOffset: 10
 --- !u!114 &4562377748610310662
 MonoBehaviour:
   m_ObjectHideFlags: 0

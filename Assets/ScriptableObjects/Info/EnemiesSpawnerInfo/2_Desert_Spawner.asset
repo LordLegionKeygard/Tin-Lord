@@ -35,29 +35,28 @@ MonoBehaviour:
     MaxCount: 15
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
-      EnemyLevel: 3
-    - EnemyEnum: 1
       EnemyLevel: 4
+    - EnemyEnum: 1
+      EnemyLevel: 5
   - StartDaySpawn: 60
     SpawnPeriod: 2
     MinCount: 15
     MaxCount: 20
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
-      EnemyLevel: 4
-    - EnemyEnum: 1
       EnemyLevel: 5
+    - EnemyEnum: 1
+      EnemyLevel: 6
   - StartDaySpawn: 80
     SpawnPeriod: 2
     MinCount: 20
     MaxCount: 30
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
-      EnemyLevel: 5
-    - EnemyEnum: 1
       EnemyLevel: 6
+    - EnemyEnum: 1
+      EnemyLevel: 7
   LastDaySpawn: 0
-  FirstDaySpawn: 10
   BossEnum: 9
   BossLevel: 20
   BossDaySpawn: 100

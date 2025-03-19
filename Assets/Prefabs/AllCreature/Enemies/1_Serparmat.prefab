@@ -2114,7 +2114,7 @@ MonoBehaviour:
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: 100
-  rotationSpeed: 50
+  rotationSpeed: 150
   slowdownDistance: 0
   pickNextWaypointDist: 3
   endReachedDistance: 0
@@ -2280,10 +2280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshRenderers:
-  - {fileID: 7661720444125391495}
+  _resistSlow: 0
   _isHaveEmission: 0
   _emissionColor: {r: 0, g: 0, b: 0, a: 1}
+  _meshRenderers:
+  - {fileID: 7661720444125391495}
 --- !u!114 &8633156420727041160
 MonoBehaviour:
   m_ObjectHideFlags: 0

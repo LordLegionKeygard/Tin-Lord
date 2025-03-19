@@ -48,6 +48,12 @@ MonoBehaviour:
     - ResourceForRecept: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046,
         type: 2}
       ResourcesForReceptAmount: 2
+  - ProductionResource: {fileID: 11400000, guid: adc84d59d087d39419aa867840587e8d,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: 74a315f742d4240439661f70ab026398,
+        type: 2}
+      ResourcesForReceptAmount: 4
   - ProductionResource: {fileID: 11400000, guid: 87e7f2965c9604145ab9de337103b03d,
       type: 2}
     ResourceRecept:
@@ -57,12 +63,6 @@ MonoBehaviour:
     - ResourceForRecept: {fileID: 11400000, guid: 74a315f742d4240439661f70ab026398,
         type: 2}
       ResourcesForReceptAmount: 1
-  - ProductionResource: {fileID: 11400000, guid: adc84d59d087d39419aa867840587e8d,
-      type: 2}
-    ResourceRecept:
-    - ResourceForRecept: {fileID: 11400000, guid: 74a315f742d4240439661f70ab026398,
-        type: 2}
-      ResourcesForReceptAmount: 4
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
     type: 3}
   ConstructionPrefab: {fileID: 1769443819446441349, guid: 271d3f56c6da0de4db7da065fdb8cffe,
