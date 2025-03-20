@@ -7,9 +7,9 @@ public class AiStop : MonoBehaviour
     private AIPath _aiPath;
     private RVOController _rVOController;
     private AIDestinationSetter _aiDestinationSetter;
-    private EnemyStateChanger _enemyStateChanger;
-    private EnemyHealth _creatureHealth;
-    private BaseDamage _creatureDamage;
+    private BaseAiStateChanger _stateChanger;
+    private BaseHealth _health;
+    private BaseDamage _damage;
 
 
     private void Awake()
@@ -17,9 +17,9 @@ public class AiStop : MonoBehaviour
         _aiPath = GetComponent<AIPath>();
         _rVOController = GetComponent<RVOController>();
         _aiDestinationSetter = GetComponent<AIDestinationSetter>();
-        _enemyStateChanger = GetComponent<EnemyStateChanger>();
-        _creatureHealth = GetComponent<EnemyHealth>();
-        _creatureDamage = GetComponent<BaseDamage>();
+        _stateChanger = GetComponent<BaseAiStateChanger>();
+        _health = GetComponent<BaseHealth>();
+        _damage = GetComponent<BaseDamage>();
     }
     private void Start()
     {
@@ -31,9 +31,9 @@ public class AiStop : MonoBehaviour
         _aiPath.enabled = false;
         _rVOController.enabled = false;
         _aiDestinationSetter.enabled = false;
-        _enemyStateChanger.enabled = false;
-        _creatureHealth.enabled = false;
-        _creatureDamage.enabled = false;
+        _stateChanger.enabled = false;
+        _health.enabled = false;
+        _damage.enabled = false;
     }
 
     private void OnDestroy()

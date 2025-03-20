@@ -9,14 +9,14 @@ public class EnemyHealth : BaseHealth
     [Inject] private readonly HealthCanvas _healthCanvas;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private float _sliderHeightOffset;
-    protected EnemyAnimator _enemyAnimator;
+    private EnemyAnimator _enemyAnimator;
     private EnemyKnockBack _creatureKnockBackController;
-    protected AIPath _aiPath;
-    protected CharacterController _characterController;
+    private AIPath _aiPath;
+    private CharacterController _characterController;
     private EnemyLevel _enemyLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
     private EnemyCenterPoint _enemyCenterPoint;
-    protected EnemyInfo _enemyInfo;
+    private EnemyInfo _enemyInfo;
 
     public override Transform GetTransform()
     {

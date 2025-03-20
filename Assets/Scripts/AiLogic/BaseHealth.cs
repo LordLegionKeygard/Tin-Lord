@@ -35,7 +35,7 @@ public class BaseHealth : MonoBehaviour
 		CheckDeath();
 	}
 
-	private void CheckDeath()
+	public void CheckDeath()
 	{
 		if (_currentHealth <= 0 && !IsDeath()) Death();
 	}

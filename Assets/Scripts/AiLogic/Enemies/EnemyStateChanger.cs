@@ -4,8 +4,8 @@ public class EnemyStateChanger : BaseAiStateChanger
 {
     [SerializeField] private float _rotationSpeed = 1;
     [SerializeField] private EnemyState _currentState;
-    private BaseHealth _baseHealth;
-    private EnemyAttacks _enemyAttacks;
+    protected BaseHealth _baseHealth;
+    protected EnemyAttacks _enemyAttacks;
 
     [Header("Detection")]
     [SerializeField] private float _detectionRadius = 50;

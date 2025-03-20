@@ -65,7 +65,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(info.BossEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
         enemyObject.GetComponent<EnemyLevel>().SetLevel(info.BossLevel);
         enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
-        enemyObject.GetComponent<EnemyHealth>().SetStartStats();
+        enemyObject.GetComponent<BossHealth>().SetStartStats();
         enemyObject.transform.SetParent(_enemiesParent);
 
         AddEnemyToList((int)info.BossEnum, _enemyNumber, enemyObject);
