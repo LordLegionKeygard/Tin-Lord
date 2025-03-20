@@ -13,11 +13,11 @@ public class RobotDamage : BaseDamage
         CurrentTargetBaseHealth.CalculateDamage(RobotsDataWorld.Instance.GetCurrentMeleeDamage(), 0); 
     }
 
-    public override void Shoot(int attackNumber)
+    public override void Shoot(int firePointNumber)
     {
-        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(attackNumber);
+        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(firePointNumber);
 
-        var currentPoint = _firePoints[attackNumber];
+        var currentPoint = _firePoints[firePointNumber];
 
         GameObject bullet = _bulletsPool.GetBullet(_bulletType);
         bullet.transform.SetPositionAndRotation(currentPoint.position, currentPoint.rotation);

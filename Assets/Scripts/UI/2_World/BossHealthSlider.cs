@@ -9,6 +9,8 @@ public class BossHealthSlider : MonoBehaviour
     [SerializeField] private GameObject _bossHealthView;
     [SerializeField] private Slider _slider;
     [SerializeField] private Slider _backSlider;
+
+    public bool SliderIsActive() => _bossHealthView.activeInHierarchy;
     // [SerializeField] private TextMeshProUGUI _tmp;
 
     private void Start()

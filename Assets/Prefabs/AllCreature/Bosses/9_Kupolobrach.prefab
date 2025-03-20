@@ -1684,7 +1684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4562377748166135567}
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: -2.32, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2739,9 +2739,7 @@ GameObject:
   - component: {fileID: 4562377748610310657}
   - component: {fileID: 4562377748610310658}
   - component: {fileID: 4562377748610310659}
-  - component: {fileID: 4562377748610310668}
   - component: {fileID: 4562377748610310669}
-  - component: {fileID: 4562377748610310670}
   m_Layer: 6
   m_Name: 9_Kupolobrach
   m_TagString: Untagged
@@ -2888,7 +2886,7 @@ MonoBehaviour:
   orientation: 0
   enableRotation: 1
   autoRepath:
-    mode: 1
+    mode: 2
     interval: 1
     sensitivity: 10
     maximumInterval: 2
@@ -2976,7 +2974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canMove: 1
-  _defaultSpeed: 3
+  _defaultSpeed: 3.5
 --- !u!114 &4562377748610310660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3031,9 +3029,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bossDamage: 100
-  _bulletType: -1
-  _firePoints:
-  - {fileID: 4562377748166135566}
+  _bulletFromPoolWrapper:
+    BulletType: -1
+    FirePoints: []
+  _creatureSkillsWrapper:
+  - SkillPrefab: {fileID: 5638209552862081304, guid: 5cfaa991c5008d94d9cae24caeeb9660,
+      type: 3}
+    SkillPoint: {fileID: 4562377748166135566}
 --- !u!114 &4562377748610310656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3095,33 +3097,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyEnum: 9
---- !u!114 &4562377748610310668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4562377748610310665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560112f876f5746c780eca0d404e7139, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 2
-  radiusBackingField: 0.5
-  heightBackingField: 2
-  centerBackingField: 1
-  locked: 0
-  lockWhenNotMoving: 0
-  agentTimeHorizon: 0.5
-  obstacleTimeHorizon: 0.5
-  maxNeighbours: 5
-  layer: 1
-  collidesWith: -1
-  wallAvoidForce: 1
-  wallAvoidFalloff: 1
-  priority: 0.5
-  debug: 0
 --- !u!114 &4562377748610310669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3134,21 +3109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4562377748610310670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4562377748610310665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a537d958aa5bb4f35b0d7b40d72278f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  penalty: 100
-  randomStep: 5
 --- !u!1 &4562377748622864202
 GameObject:
   m_ObjectHideFlags: 0

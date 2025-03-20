@@ -31,13 +31,9 @@ public class BossHealth : BaseHealth
         _enemyInfo = GetComponent<EnemyInfo>();
     }
 
-    private void Start()
-    {
-        BossHealthSlider.Instance.ActivateSlider(true);
-    }
-
     public override void CalculateDamage(float damage, float knockBackPoints)
     {
+        if (!BossHealthSlider.Instance.SliderIsActive()) BossHealthSlider.Instance.ActivateSlider(true);
         base.CalculateDamage(damage, knockBackPoints);
         _takeDamageVFX.SpawnTakeDamageVFX();
     }

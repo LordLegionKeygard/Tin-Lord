@@ -28,9 +28,9 @@ public class BaseDamage : MonoBehaviour
         CurrentTargetTransform = newTransform;
     }
 
-    public virtual void Attack(int attackNumber)
+    public virtual void Attack(int firePointNumber)
     {
-        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(attackNumber);
+        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(firePointNumber);
         if (CurrentTargetBaseHealth == null) return;
         CurrentTargetBaseHealth.CalculateDamage(Damage, 0);
     }
