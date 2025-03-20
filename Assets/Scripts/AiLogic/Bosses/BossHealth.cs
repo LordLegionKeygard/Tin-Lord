@@ -33,7 +33,7 @@ public class BossHealth : BaseHealth
 
     public override void CalculateDamage(float damage, float knockBackPoints)
     {
-        if (!BossHealthSlider.Instance.SliderIsActive()) BossHealthSlider.Instance.ActivateSlider(true);
+        if (!BossHealthSlider.Instance.SliderIsActive() && !_isDeath) BossHealthSlider.Instance.ActivateSlider(true);
         base.CalculateDamage(damage, knockBackPoints);
         _takeDamageVFX.SpawnTakeDamageVFX();
     }

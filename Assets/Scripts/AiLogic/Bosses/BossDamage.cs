@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -35,7 +36,29 @@ public class BossDamage : BaseDamage
     public void UseSkill(int number)
     {
         var skillWrapper = _creatureSkillsWrapper[number];
+        if (skillWrapper.ParticleSystems.Length != 0) ActiveParticles(skillWrapper);
         var skill = _diContainer.InstantiatePrefab(skillWrapper.SkillPrefab, skillWrapper.SkillPoint.position, Quaternion.identity, null);
+    }
+
+    private void ActiveParticles(CreatureSkillsWrapper wrapper)
+    {
+        ChangeMaxParticles(wrapper, 1000);
+        StartCoroutine(UnactiveParticles(wrapper));
+    }
+
+    private IEnumerator UnactiveParticles(CreatureSkillsWrapper wrapper)
+    {
+        yield return new WaitForSeconds(wrapper.ParticlesTimer);
+        ChangeMaxParticles(wrapper, 0);
+    }
+
+    private void ChangeMaxParticles(CreatureSkillsWrapper wrapper, int number)
+    {
+        for (int i = 0; i < wrapper.ParticleSystems.Length; i++)
+        {
+            var main = wrapper.ParticleSystems[i].main;
+            main.maxParticles = number;
+        }
     }
 }
 
@@ -51,5 +74,7 @@ public class CreatureSkillsWrapper
 {
     public GameObject SkillPrefab;
     public Transform SkillPoint;
+    public ParticleSystem[] ParticleSystems;
+    public float ParticlesTimer;
 }
 

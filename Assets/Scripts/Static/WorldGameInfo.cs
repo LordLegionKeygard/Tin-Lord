@@ -11,7 +11,7 @@ public class WorldGameInfo
 
     [Header("EnemyReachedDistance")]
     public const int EnemyReachedRobotDistance = 5;
-    public const int EnemyReachedTileDistance = 8;
+    public const int EnemyReachedTileDistance = 9;
     public const int EnemyReachedFourTileDistance = 13;
 
     [Header("Turret")]
