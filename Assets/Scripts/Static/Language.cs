@@ -198,8 +198,8 @@ public class Language : MonoBehaviour
         _text[56, 0] = "Destroy";
         _text[56, 1] = "Разрушить";
 
-        _text[57, 0] = "Robots";
-        _text[57, 1] = "Роботы";
+        _text[57, 0] = "Enginery";
+        _text[57, 1] = "Техника";
 
         _text[58, 0] = "Ecology restored: {0}/{1}";
         _text[58, 1] = "Экология восстановлена: {0}/{1}";
