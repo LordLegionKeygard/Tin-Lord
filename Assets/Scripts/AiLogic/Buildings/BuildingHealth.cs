@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class BuildingHealth : BaseHealth
 {
+    [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly HealthCanvas _healthCanvas;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private Transform _fourTileTransform;
@@ -122,6 +123,11 @@ public class BuildingHealth : BaseHealth
             CustomEvents.FireMissionEnd(MissionEndEnum.Defeat);
         }
         else AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DestructionBuilding, transform.position);
+
+        if (_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.MachineProduction)
+        {
+            _tilesSystem.SetIsHaveMachineProduction(false);
+        }
 
         base.Death();
         _buildingTile.StopConstruction();

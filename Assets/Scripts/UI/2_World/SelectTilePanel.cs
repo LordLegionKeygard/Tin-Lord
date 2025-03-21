@@ -38,6 +38,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
 
     [Header("Other")]
+    [SerializeField] private RobotSpawnerSystem _robotSpawnerSystem;
     private TileObject _tileObject;
     private RequiredResourcePanel _requiredResourcePanel;
     private BaseProductionResourcePanel _productionResourcePanel;
@@ -345,9 +346,9 @@ public class SelectTilePanel : MonoBehaviour
     {
         if (!_robotButton.activeInHierarchy || _tileObject == null) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        PanelViewToggle(false);
+        _robotSpawnerSystem.SetTileObject(_tileObject);
         _robotPanel.PanelViewToggle(true);
-
+        PanelViewToggle(false);
     }
 
     public void CloseBuildPanelAndRefreshInfo()

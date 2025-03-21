@@ -8,10 +8,13 @@ public class TilesSystem : MonoBehaviour
     [Header("WorldTileInfo")]
     private bool _isHaveRiver = false;
     private bool _isHaveBase = false;
+    private bool _isHaveMachineProduction;
     public bool IsHaveBase() => _isHaveBase;
     public bool IsHaveRiver() => _isHaveRiver;
-    public void SetIsHaveRiver(bool state) => _isHaveRiver = state;
+    public bool IsHaveMachineProduction() => _isHaveMachineProduction;
     public void SetIsHaveBase(bool state) => _isHaveBase = state;
+    public void SetIsHaveRiver(bool state) => _isHaveRiver = state;
+    public void SetIsHaveMachineProduction(bool state) => _isHaveMachineProduction = state;
     public Tile GetGroundTileForEnum(GroundTileViewEnum tileView) => _allGroundTiles[(int)tileView - 1];
     public Tile GetGroundTileForNumber(int number) => _allGroundTiles[number - 1];
     public Tile GetBuildingTileForEnum(BuildingTileViewEnum tileView) => _allBuildingTiles[(int)tileView];

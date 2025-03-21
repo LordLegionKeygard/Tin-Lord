@@ -58,15 +58,15 @@ public class TileObject : MonoBehaviour
         _buildingHealth = GetComponent<BuildingHealth>();
     }
 
-    public bool IsHaveNeighbourCrossRoad()
+    public TileObject GetNearNeighbourCrossRoad()
     {
-        if(!_groundTile.CurrentGroundTile().CanBuildMachineProduction) return false;
+        if(!_groundTile.CurrentGroundTile().CanBuildMachineProduction) return null;
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {
             if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
-            if (_neighbourTiles[i].GroundTileObject().CheckTileView(GroundTileViewEnum.Road)) return true;
+            if (_neighbourTiles[i].GroundTileObject().CheckTileView(GroundTileViewEnum.Road)) return _neighbourTiles[i];
         }
-        return false;
+        return null;
     }
 
     public bool IsHaveRequiredResource()

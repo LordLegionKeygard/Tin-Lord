@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -8,18 +9,29 @@ public class RobotSpawnerSystem : MonoBehaviour
     [SerializeField] private GameObject[] _robotsPrefabs;
     [SerializeField] private Transform _parent;
     [SerializeField] private CurrentRobotSystem _currentRobotSystem;
+    private TileObject _machineProductionTileObject;
+
+    public void SetTileObject(TileObject tileObject) => _machineProductionTileObject = tileObject;
+
+    private int GetNearRoadTileObject(List<TileObject> roadTiles)
+    {
+        var nearTileObject = _machineProductionTileObject.GetNearNeighbourCrossRoad();
+
+        for (int i = 0; i < roadTiles.Count; i++)
+        {
+            if(roadTiles[i] == nearTileObject) return i;
+        }
+        Debug.Log("Dont find NearTileObject");
+        return 0;
+    }
 
     public void SpawnRobot(RobotType robotType)
     {
         var roadTiles = _mapBuilder.GetRoadTiles();
-
-        int randomIndex = Random.Range(0, roadTiles.Count);
-        var randomTile = roadTiles[randomIndex];
-
-        Vector3 spawnPosition = randomTile.transform.position;
+        Vector3 spawnPosition = _machineProductionTileObject.GetNearNeighbourCrossRoad().transform.position;
 
         _currentRobotSystem.SetNewRobot(_diContainer.InstantiatePrefab(_robotsPrefabs[(int)robotType], spawnPosition, Quaternion.identity, _parent), robotType);
-        _currentRobotSystem.RobotPatrolPath().InitializePatrolPoints(roadTiles, randomIndex);
+        _currentRobotSystem.RobotPatrolPath().InitializePatrolPoints(roadTiles, GetNearRoadTileObject(roadTiles));
     }
 
     public void LoadSpawnRobot(WorldSaveData worldSaveData)

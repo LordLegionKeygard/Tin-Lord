@@ -91,6 +91,7 @@ public class WorldSaveLoad : MonoBehaviour
         //Tiles
         currentSaveData.IsHaveBase = _tilesSystem.IsHaveBase();
         currentSaveData.IsHaveRiver = _tilesSystem.IsHaveRiver();
+        currentSaveData.IsHaveMachineProduction = _tilesSystem.IsHaveMachineProduction();
         currentSaveData.TilesData = _allTileObjects.GetAllTileObjects();
         currentSaveData.RoadTilesId = _tileMapBuilder.GetRoadTilesId();
 
@@ -128,6 +129,7 @@ public class WorldSaveLoad : MonoBehaviour
         //Tiles
         _tilesSystem.SetIsHaveBase(currentSaveData.IsHaveBase);
         _tilesSystem.SetIsHaveRiver(currentSaveData.IsHaveRiver);
+        _tilesSystem.SetIsHaveMachineProduction(currentSaveData.IsHaveMachineProduction);
         _allTileObjects.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
         _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId, currentSaveData.IsStartMission);
 

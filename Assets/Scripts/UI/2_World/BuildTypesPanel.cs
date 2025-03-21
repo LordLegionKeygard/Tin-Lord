@@ -43,7 +43,7 @@ public class BuildTypesPanel : MonoBehaviour
                 CreateAndSetupBuildingType(tile, tileObject, selectTilePanel);
             }
 
-            if(tileObject.IsHaveNeighbourCrossRoad())
+            if (tileObject.GetNearNeighbourCrossRoad() != null && !_tilesSystem.IsHaveMachineProduction())
             {
                 CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.MachineProduction), tileObject, selectTilePanel);
             }

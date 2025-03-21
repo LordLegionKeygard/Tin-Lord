@@ -92,6 +92,7 @@ public class BuildingTile : MonoBehaviour
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), isConstruction: true);
       _buildingTileTransform.CachedRandomTransform(CurrentBuilding());
       _tileObject.ClearResourceProductionAndRequiredWhenBuildingConstruct();
+      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.MachineProduction && !_tilesSystem.IsHaveMachineProduction()) _tilesSystem.SetIsHaveMachineProduction(true);
 
       SpawnConstructionPrefab();
       StartCoroutine(RunConstructionCoroutine(
