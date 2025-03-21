@@ -42,6 +42,11 @@ public class BuildTypesPanel : MonoBehaviour
             {
                 CreateAndSetupBuildingType(tile, tileObject, selectTilePanel);
             }
+
+            if(tileObject.IsHaveNeighbourCrossRoad())
+            {
+                CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.MachineProduction), tileObject, selectTilePanel);
+            }
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(_content);

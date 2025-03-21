@@ -18,6 +18,7 @@ public class Tile : ScriptableObject
     public int GroundEcology;
     public bool IsWater;
     public bool IsFourTile;
+    public bool CanBuildMachineProduction;
     public Tile[] BuildingTypes;
     public ProductionOnGroundResources[] ProductionOnGroundResources;
 
@@ -102,6 +103,7 @@ public enum BuildingTileViewEnum
     EcologyPurifier = 17,
     MemoryRecovery = 18,
     RadioCommunication = 19,
+    MachineProduction = 20,
 
 }
 

@@ -86,6 +86,6 @@ public class BossHealth : BaseHealth
     private IEnumerator BossDeathEvent()
     {
         yield return new WaitForSeconds(5f);
-        // CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.KillBoss, 1);
+        CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.KillBoss, 1);
     }
 }
