@@ -24,6 +24,7 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
+  CanBuildMachineProduction: 1
   BuildingTypes:
   - {fileID: 11400000, guid: dde3bb062577cd94786bdc213cdf927b, type: 2}
   - {fileID: 11400000, guid: 3fbd9e5df08784a45993d1293bb6ab60, type: 2}

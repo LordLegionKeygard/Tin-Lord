@@ -208,6 +208,7 @@ public class SelectTilePanel : MonoBehaviour
         var isRoad = currentGroundTile.GroundTileView == GroundTileViewEnum.Road;
         var isForwardRoad = _tileObject.GroundTileObject().IsForwardRoad();
         var isBase = currentGroundTile.GroundTileView == GroundTileViewEnum.BaseFoundation;
+        var isMachineProduction = buildingTile.HaveTile() && buildingTile.HaveBuildingGameObject() && buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.MachineProduction;
         var isWater = currentGroundTile.IsWater;
         var haveProdictionResources = currentBuildingTile?.IsHaveProductionResources() ?? false;
         var canUpgrade = buildingTile.IsCanUpgrade();
@@ -227,7 +228,7 @@ public class SelectTilePanel : MonoBehaviour
         var rotateButtonState = haveRotationViewGround || canRotateBuilding;
 
         var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase && !isConstructionNow;
-        var robotButtonState = haveBuildingNow && isBase;
+        var robotButtonState = haveBuildingNow && isMachineProduction;
 
         _workButton.SetActive(onOffButtonState);
         _buildButton.SetActive(buildButtonState);

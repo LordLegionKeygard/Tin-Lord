@@ -162,7 +162,7 @@ public class TileObject : MonoBehaviour
     {
         if (_buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() || _buildingTile.IsConstructionNow() ||
            (_buildingTile.CurrentBuildingTile().BuildingTileView is BuildingTileViewEnum.AttackingStructures or
-            BuildingTileViewEnum.ProtectiveStructures or BuildingTileViewEnum.EcologyPurifier or BuildingTileViewEnum.RadioCommunication or BuildingTileViewEnum.Bridge)) return;
+            BuildingTileViewEnum.ProtectiveStructures or BuildingTileViewEnum.EcologyPurifier or BuildingTileViewEnum.RadioCommunication or BuildingTileViewEnum.Bridge or BuildingTileViewEnum.MachineProduction)) return;
 
         var resourceWrapper = _buildingTile.CurrentBuilding();
         var resourcesProduction = _isBuildingWork
