@@ -12,9 +12,9 @@ public class MachinesDataWorld : MonoBehaviour
 
     //Current
     public int CurrentLevel() => _machinesLevel[(int)_currentMachineSystem.GetMachineType()];
-    public int GetCurrentMeleeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].MeleeDamage[CurrentLevel()];
-    public int GetCurrentRangeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].RangeDamage[CurrentLevel()];
-    public float GetCurrentDurability() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].Durability[CurrentLevel()];
+    public int GetCurrentMeleeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetMeleeDamage(CurrentLevel());
+    public int GetCurrentRangeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetRangeDamage(CurrentLevel());
+    public float GetCurrentDurability() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetDurability(CurrentLevel());
     public float GetDetectionRadius() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].DetectionRadius;
 
 

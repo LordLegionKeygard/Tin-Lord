@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e73952eb4b2104e8aecdfee83feaf9, type: 3}
   m_Name: AllEnemyInformation
   m_EditorClassIdentifier: 
+  StartExperience: 2
+  StartHealth: 6
+  StartPhysAttack: 1
+  FactorExperience: 2
+  FactorHealth: 3
+  FactorPhysAttack: 1

@@ -18,16 +18,15 @@ MonoBehaviour:
   MachineSprite: {fileID: 21300000, guid: 40808547dda269f42b8793e2217cb6cc, type: 3}
   MachineType: 0
   DetectionRadius: 35
-  Durability:
-  - 0
-  - 30
-  - 50
-  - 70
-  - 90
-  - 110
-  - 130
-  MeleeDamage: 000000000300000006000000090000000c0000000f00000012000000
-  RangeDamage: 00000000010000000200000003000000040000000500000006000000
+  MachineLevelInfo:
+    StartDurability: 100
+    StartMeleeDamage: 0
+    StartRangeDamage: 2
+    FactorDurability: 20
+    FactorMeleeDamage: 0
+    FactorRangeDamage: 0.5
   ResourcesForBuild:
   - ResourceEnum: 0
     RecourceAmount: 30
+  - ResourceEnum: 10
+    RecourceAmount: 5

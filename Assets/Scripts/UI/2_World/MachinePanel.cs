@@ -91,9 +91,9 @@ public class MachinePanel : MonoBehaviour
 
         var level = MachinesDataWorld.Instance.GetSelectMachineDataLevel(_currentSelectMachineInfo.MachineType);
 
-        _durabilityText.text = $"{Language.TextStatic[18]}: {_currentSelectMachineInfo.Durability[level]}";
-        _meleeDamageText.text = $"{Language.TextStatic[19]}: {_currentSelectMachineInfo.MeleeDamage[level]}";
-        _rangeDamageText.text = $"{Language.TextStatic[20]}: {_currentSelectMachineInfo.RangeDamage[level]}";
+        _durabilityText.text = $"{Language.TextStatic[18]}: {_currentSelectMachineInfo.GetDurability(level)}";
+        _meleeDamageText.text = $"{Language.TextStatic[19]}: {_currentSelectMachineInfo.GetMeleeDamage(level)}";
+        _rangeDamageText.text = $"{Language.TextStatic[20]}: {_currentSelectMachineInfo.GetRangeDamage(level)}";
     }
 
     public void UpdateLevelAndExperience()
