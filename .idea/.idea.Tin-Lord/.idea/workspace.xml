@@ -6,10 +6,138 @@
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/20_MachineProduction.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/_Tiles/BuildingTypes/20_MachineProduction.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/TileObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/2_World/SelectTilePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/2_World/SelectTilePanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/2_World/BuildingIcons/20_MachineProduction/1_MechanicTent.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/UI/2_World/BuildingIcons/20_MachineProduction/1_MechanicTent.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Robot_Sniper.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Robot_Sniper.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Robot_Sniper_Eyes.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Robot_Sniper_Eyes.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Robot_Tank.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Robot_Tank.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_1_View_01.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_1_View_01.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_1_View_01_Eyes.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_1_View_01_Eyes.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_1_View_02.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_1_View_02.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_1_View_02_Eyes.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_1_View_02_Eyes.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_2_View_02.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_2_View_02.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_2_View_02_Eyes.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/AllCreature/Robot/Worker/Robot_Worker_2_View_02_Eyes.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AllCreature/Characters.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AllCreature/Characters/Character.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AllCreature/Characters/Character.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AllCreature/Characters/SniperRiffle.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AllCreature/Characters/SniperRiffle.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AllCreature/Characters/Wrench.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/AllCreature/Characters/Wrench.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Machines/Old_1_Robot_Tank.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Machines/Old_1_Robot_Tank.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Machines/Old_2_Robot_Sniper.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Machines/Old_2_Robot_Sniper.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Machines/Old_3_Robot_Engineer.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Machines/Old_3_Robot_Engineer.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/2_World/MachineItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/2_World/MachineItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/1_Robot_Tank.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/1_Robot_Tank/Robot_Tank_MeleeAttack_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/1_Robot_Tank/Robot_Tank_MeleeAttack_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/1_Robot_Tank/Robot_Tank_RangeAttack_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/1_Robot_Tank/Robot_Tank_RangeAttack_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/2_Robot_Sniper.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/2_Robot_Sniper/Robot_Sniper_MeleeAttack_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/2_Robot_Sniper/Robot_Sniper_MeleeAttack_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/2_Robot_Sniper/Robot_Sniper_RangeAttack_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/2_Robot_Sniper/Robot_Sniper_RangeAttack_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/3_Robot_Engineer.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/3_Robot_Engineer/Robot_Engineer_MeleeAttack_1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/3_Robot_Engineer/Robot_Engineer_MeleeAttack_1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/3_Robot_Engineer/Robot_Engineer_MeleeAttack_2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/AttackInfo/Robots/3_Robot_Engineer/Robot_Engineer_MeleeAttack_2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/Machines/Old_1_Robot_Tank_Information.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/Machines/Old_1_Robot_Tank_Information.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/Machines/Old_2_Robot_Sniper_Information.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/Machines/Old_2_Robot_Sniper_Information.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/Machines/Old_3_Robot_Engineer_Information.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/Machines/Old_3_Robot_Engineer_Information.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Damage/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Damage/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotAnimator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotAnimator.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotAttackState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotAttackState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotAttacks.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotAttacks.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotCombatState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotCombatState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotDamage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotDamage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotHealth.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotHealth.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotMove.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotMove.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotPatrolPath.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotPatrolPath.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotPatrolState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotPatrolState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotRepairState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotRepairState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotRiffleTransformChanger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotRiffleTransformChanger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotSniperExplosionSpawner.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotSniperExplosionSpawner.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotSpeed.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotSpeed.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotStateChanger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotStateChanger.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotTakeDamageVFX.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotTakeDamageVFX.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/CurrentMachineSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/CurrentMachineSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Engineer.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Sniper.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Sniper/Robot_Sniper_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Sniper/Robot_Sniper_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Sniper/Robot_Sniper_Eyes_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Sniper/Robot_Sniper_Eyes_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Sniper/Robot_Sniper_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Sniper/Robot_Sniper_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Tank.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Tank/Robot_Tank_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Tank/Robot_Tank_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Tank/Robot_Tank_Metallic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Tank/Robot_Tank_Metallic.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Tank/Robot_Tank_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Robot_Tank/Robot_Tank_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_01.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_01/Robot_Worker_1_View_01_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_01/Robot_Worker_1_View_01_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_01/Robot_Worker_1_View_01_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_01/Robot_Worker_1_View_01_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_02.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_02/Robot_Worker_2_View_02_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_02/Robot_Worker_2_View_02_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_02/Robot_Worker_2_View_02_Metallic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_02/Robot_Worker_2_View_02_Metallic.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_02/Robot_Worker_2_View_02_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_02/Robot_Worker_2_View_02_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_02/Robot_Worker_2_View_02_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_1/View_02/Robot_Worker_2_View_02_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_2/Robot_Worker_2_BaseColor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_2/Robot_Worker_2_BaseColor.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_2/Robot_Worker_2_Normal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_2/Robot_Worker_2_Normal.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_2/Robot_Worker_2_Roughness.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/AllCreature/Robot/Worker/Robot_Worker_2/Robot_Worker_2_Roughness.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,15 +208,13 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4668">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="4668" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list>
-          <MonoRuntime />
-        </list>
+        <list />
       </option>
       <option name="selectedOptions">
         <list />
@@ -152,6 +278,8 @@
       <workItem from="1741780345581" duration="17000" />
       <workItem from="1741780802964" duration="405000" />
       <workItem from="1742565042240" duration="171000" />
+      <workItem from="1742666930096" duration="288000" />
+      <workItem from="1742668767234" duration="2000" />
     </task>
     <servers />
   </component>
@@ -172,42 +300,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/AiLogic/Robot/RobotDamage.cs</url>
-          <line>10</line>
-          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\AiLogic\Robot\RobotDamage.cs" containingFunctionPresentation="Method 'Attack'">
-            <startOffsets>
-              <option value="285" />
-            </startOffsets>
-            <endOffsets>
-              <option value="286" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Systems/EndMissionSystem.cs</url>
           <line>54</line>
-          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Systems\EndMissionSystem.cs" containingFunctionPresentation="Method 'SetMissionEndViewInfo'">
-            <startOffsets>
-              <option value="1867" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1868" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Systems\EndMissionSystem.cs" containingFunctionPresentation="Method 'SetMissionEndViewInfo'" />
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyAttackState.cs</url>
           <line>9</line>
-          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\AiLogic\Enemies\EnemyAttackState.cs" containingFunctionPresentation="Method 'Tick'">
-            <startOffsets>
-              <option value="378" />
-            </startOffsets>
-            <endOffsets>
-              <option value="379" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\AiLogic\Enemies\EnemyAttackState.cs" containingFunctionPresentation="Method 'Tick'" />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
