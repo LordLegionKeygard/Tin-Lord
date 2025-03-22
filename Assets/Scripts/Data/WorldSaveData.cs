@@ -37,9 +37,9 @@ public class WorldSaveData
     public TileDataWrapper[] TilesData;
     public int[] RoadTilesId;
 
-    [Header("Robot")]
-    public RobotsExperienceData[] RobotsExperienceData; //Tank = 0, Sniper = 1, Engineer = 2
-    public RobotData RobotData;
+    [Header("Machines")]
+    public MachinesExperienceData[] MachinesExperienceData; //Tank = 0, Sniper = 1, Engineer = 2
+    public MachineData MachineData;
 
     [Header("Objectives")]
     public int[] ObjectiveAmount;
@@ -67,10 +67,10 @@ public class DayEventData
 }
 
 [System.Serializable]
-public class RobotData
+public class MachineData
 {
-    public bool IsHaveRobotNow;
-    public int RobotType;
+    public bool IsHaveMachineNow;
+    public int MachineType;
     public float PositionX;
     public float PositionY;
     public float PositionZ;
@@ -79,7 +79,7 @@ public class RobotData
 }
 
 [System.Serializable]
-public class RobotsExperienceData
+public class MachinesExperienceData
 {
     public int Level;
     public int Experience;

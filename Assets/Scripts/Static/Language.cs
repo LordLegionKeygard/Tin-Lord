@@ -90,8 +90,8 @@ public class Language : MonoBehaviour
         _text[20, 0] = "Range damage";
         _text[20, 1] = "Урон в дальнем бою";
 
-        _text[21, 0] = "Robots";
-        _text[21, 1] = "Роботы";
+        _text[21, 0] = "Machines";
+        _text[21, 1] = "Машины";
 
         _text[22, 0] = "Demolish the building?";
         _text[22, 1] = "Разрушить здание?";

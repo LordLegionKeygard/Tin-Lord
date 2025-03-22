@@ -10,7 +10,7 @@ public class RobotDamage : BaseDamage
     public override void Attack(int attackNumber)
     {  
         if (CurrentTargetBaseHealth == null) return;
-        CurrentTargetBaseHealth.CalculateDamage(RobotsDataWorld.Instance.GetCurrentMeleeDamage(), 0); 
+        CurrentTargetBaseHealth.CalculateDamage(MachinesDataWorld.Instance.GetCurrentMeleeDamage(), 0); 
     }
 
     public override void Shoot(int firePointNumber)
@@ -25,7 +25,7 @@ public class RobotDamage : BaseDamage
         if (bullet.TryGetComponent<Bullet>(out var bulletScript))
         {
             bulletScript.SetTarget(CurrentTargetBaseHealth, CurrentTargetTransform);
-            bulletScript.SetDamage(RobotsDataWorld.Instance.GetCurrentRangeDamage(), 0);
+            bulletScript.SetDamage(MachinesDataWorld.Instance.GetCurrentRangeDamage(), 0);
             bulletScript.SetBulletPool(_bulletsPool, _bulletType);
         }
     }

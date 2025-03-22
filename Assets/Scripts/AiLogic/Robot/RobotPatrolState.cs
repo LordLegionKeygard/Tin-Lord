@@ -123,7 +123,7 @@ public class RobotPatrolState : RobotState
 
     private BuildingHealth FindNearestBuildingToRepair(RobotStateChanger stateChanger)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, WorldGameInfo.RobotEngineerRepairBuildingsDistance, stateChanger.BuildingDetectionLayer());
+        Collider[] colliders = Physics.OverlapSphere(transform.position, WorldGameInfo.MachineEngineerRepairBuildingsDistance, stateChanger.BuildingDetectionLayer());
 
         BuildingHealth nearestBuilding = null;
         float nearestDistance = Mathf.Infinity;

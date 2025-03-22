@@ -32,8 +32,8 @@ public class WorldSaveLoad : MonoBehaviour
     [SerializeField] private AllTileObjects _allTileObjects;
 
     [Header("Robot")]
-    [SerializeField] private CurrentRobotSystem _currentRobotSystem;
-    [SerializeField] private RobotSpawnerSystem _robotSpawnerSystem;
+    [SerializeField] private CurrentMachineSystem _currentMachineSystem;
+    [SerializeField] private MachineSpawnerSystem _machineSpawnerSystem;
 
     [Header("LearnedBuildings")]
     [SerializeField] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
@@ -96,8 +96,8 @@ public class WorldSaveLoad : MonoBehaviour
         currentSaveData.RoadTilesId = _tileMapBuilder.GetRoadTilesId();
 
         //Robot
-        currentSaveData.RobotsExperienceData = RobotsDataWorld.Instance.GetAllRobotsExperience();
-        currentSaveData.RobotData = _currentRobotSystem.GetRobotData();
+        currentSaveData.MachinesExperienceData = MachinesDataWorld.Instance.GetAllMachinesExperience();
+        currentSaveData.MachineData = _currentMachineSystem.GetRobotData();
 
         //Objectives
         currentSaveData.ObjectiveAmount = _objectivesPanel.GetAllObjectivesAmount();
@@ -133,9 +133,9 @@ public class WorldSaveLoad : MonoBehaviour
         _allTileObjects.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
         _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId, currentSaveData.IsStartMission);
 
-        //Robot
-        RobotsDataWorld.Instance.LoadRobotsExperience(currentSaveData.RobotsExperienceData, currentSaveData.IsStartMission);
-        _robotSpawnerSystem.LoadSpawnRobot(currentSaveData);
+        //Machine
+        MachinesDataWorld.Instance.LoadMachinesExperience(currentSaveData.MachinesExperienceData, currentSaveData.IsStartMission);
+        _machineSpawnerSystem.LoadSpawnRobot(currentSaveData);
 
         //Buildings
         _learnedBuildingsDataWorld.LoadLearnedBuildings(_commandCenterSaveGame.CommandCenterSaveData.BuildingsLearned);

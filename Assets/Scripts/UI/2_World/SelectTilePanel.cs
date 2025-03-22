@@ -9,7 +9,7 @@ public class SelectTilePanel : MonoBehaviour
     [Inject] private PlayerResources _playerResources;
 
     [Header("Panels")]
-    [SerializeField] private RobotPanel _robotPanel;
+    [SerializeField] private MachinePanel _robotPanel;
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanelsWorld _uiPanels;
@@ -38,7 +38,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
 
     [Header("Other")]
-    [SerializeField] private RobotSpawnerSystem _robotSpawnerSystem;
+    [SerializeField] private MachineSpawnerSystem _robotSpawnerSystem;
     private TileObject _tileObject;
     private RequiredResourcePanel _requiredResourcePanel;
     private BaseProductionResourcePanel _productionResourcePanel;

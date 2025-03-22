@@ -81,22 +81,22 @@ public class CustomEvents
         OnSetBase?.Invoke();
     }
 
-    public static event Action OnRepairRobot;
-    public static void FireRepairRobot()
+    public static event Action OnRepairMachine;
+    public static void FireRepairMachine()
     {
-        OnRepairRobot?.Invoke();
+        OnRepairMachine?.Invoke();
     }
 
-    public static event Action OnRobotDie;
-    public static void FireRobotDie()
+    public static event Action OnMachineDie;
+    public static void FireMachineDie()
     {
-        OnRobotDie?.Invoke();
+        OnMachineDie?.Invoke();
     }
 
-    public static event Action OnRobotTakeDamage;
-    public static void FireRobotTakeDamage()
+    public static event Action OnMachineTakeDamage;
+    public static void FireMachineTakeDamage()
     {
-        OnRobotTakeDamage?.Invoke();
+        OnMachineTakeDamage?.Invoke();
     }
 
     public static Action<int> OnChangeExperience;

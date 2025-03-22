@@ -53,7 +53,7 @@ public class InputSystemWorld : MonoBehaviour
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanelsWorld _uiPanels;
-    [SerializeField] private RobotPanel _robotPanel;
+    [SerializeField] private MachinePanel _robotPanel;
 
     private void Awake()
     {
@@ -149,7 +149,7 @@ public class InputSystemWorld : MonoBehaviour
         {
             if(_robotPanel.PanelActive())
             {
-                _robotPanel.PlayerInputRobotItemButton(pressedNumber);
+                _robotPanel.PlayerInputMachineItemButton(pressedNumber);
             }
             else if (_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildsPanel))
             {

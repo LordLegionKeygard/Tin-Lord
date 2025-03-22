@@ -24,7 +24,7 @@ public class RobotHealth : BaseHealth
     {
         SetStartStats();
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.RobotSpawn, transform.position);
-        CustomEvents.OnRepairRobot += Repair;
+        CustomEvents.OnRepairMachine += Repair;
     }
 
     private void Repair()
@@ -54,7 +54,7 @@ public class RobotHealth : BaseHealth
     private void SetStartStats()
     {
         _isDeath = false;
-        _maxHealth = RobotsDataWorld.Instance.GetCurrentDurability();
+        _maxHealth = MachinesDataWorld.Instance.GetCurrentDurability();
         _currentHealth = _maxHealth;
         CreateHealthBar();
         UpdateSlider();
@@ -63,7 +63,7 @@ public class RobotHealth : BaseHealth
     public override void TakeDamage(float damage, float knockBackPoints)
     {
         base.TakeDamage(damage, knockBackPoints);
-        CustomEvents.FireRobotTakeDamage();
+        CustomEvents.FireMachineTakeDamage();
     }
 
     public override void Death()
@@ -72,18 +72,18 @@ public class RobotHealth : BaseHealth
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.RobotDeath, transform.position);
         _capsuleCollider.enabled = false;
         _animationToRagdoll.RagdollOn();
-        CustomEvents.FireRobotDie();
+        CustomEvents.FireMachineDie();
 
         StartCoroutine(FadeAndDestroy());
     }
 
     private IEnumerator FadeAndDestroy()
     {
-        yield return new WaitForSeconds(WorldGameInfo.RobotDieDelay);
+        yield return new WaitForSeconds(WorldGameInfo.MachineDieDelay);
 
         _animationToRagdoll.KinematicToggle(true);
 
-        float duration = WorldGameInfo.RobotDieDuration;
+        float duration = WorldGameInfo.MachineDieDuration;
         float elapsedTime = 0;
         Vector3 startPosition = transform.position;
         Vector3 targetPosition = new Vector3(startPosition.x, startPosition.y - 4, startPosition.z);
@@ -100,6 +100,6 @@ public class RobotHealth : BaseHealth
 
     private void OnDestroy()
     {
-        CustomEvents.OnRepairRobot -= Repair;
+        CustomEvents.OnRepairMachine -= Repair;
     }
 }

@@ -24,11 +24,11 @@ public class WorldGameInfo
     [Header("DayEvent")]
     public const int DayEventChance = 20;
 
-    [Header("Robot")]
-    public const int RobotsCount = 3;
-    public const float RobotEngineerRepairBuildingsDistance = 5.5f;
-    public const float RobotDieDelay = 10;
-    public const float RobotDieDuration = 3;
+    [Header("Machine")]
+    public const int MachinesCount = 1;
+    public const float MachineEngineerRepairBuildingsDistance = 5.5f;
+    public const float MachineDieDelay = 10;
+    public const float MachineDieDuration = 3;
 
     [Header("Bullets")]
     public const float BulletHeightOffset = 2.0f; // Смещение по высоте

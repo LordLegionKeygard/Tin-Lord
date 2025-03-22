@@ -13,7 +13,7 @@ public class UIPanelsWorld : MonoBehaviour
 
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
-    [SerializeField] private RobotPanel _robotPanel;
+    [SerializeField] private MachinePanel _robotPanel;
     [SerializeField] private PanelDoMoveX _panelDoMove;
     [SerializeField] private EscapePanelWorld _escapePanel;
     [SerializeField] private SettingsPanels _settingsPanel;

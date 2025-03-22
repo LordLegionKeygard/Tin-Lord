@@ -9,18 +9,18 @@ public class RobotSniperExplosionSpawner : MonoBehaviour
 
     private void Start()
     {
-        CustomEvents.OnRobotDie += SpawnExplosion;
+        CustomEvents.OnMachineDie += SpawnExplosion;
     }
 
     private void SpawnExplosion()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.RobotExplosion, transform.position);
         var prefab = Instantiate(_explosionPrefab, _spawnPoint.position, Quaternion.identity);
-        prefab.GetComponent<Explosion>().SetDamage(RobotsDataWorld.Instance.GetCurrentRangeDamage() * 5, 100);
+        prefab.GetComponent<Explosion>().SetDamage(MachinesDataWorld.Instance.GetCurrentRangeDamage() * 5, 100);
     }
 
     private void OnDestroy()
     {
-        CustomEvents.OnRobotDie -= SpawnExplosion;
+        CustomEvents.OnMachineDie -= SpawnExplosion;
     }
 }
