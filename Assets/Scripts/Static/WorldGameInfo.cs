@@ -47,7 +47,7 @@ public class WorldGameInfo
     public const int DefaultLoadingScreenSpriteId = -1;
 
     [Header("EndMissionFragmentsPercent")]
-    public const int DefeatFragmentsPercent = 10;
+    public const int DefeatFragmentsPercent = 25;
     public const int EscapeFragmentsPercent = 50;
     public const int VictoryFragmentsPercent = 100;
 

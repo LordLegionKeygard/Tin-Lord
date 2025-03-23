@@ -26,9 +26,7 @@ MonoBehaviour:
   ResourcesForBuild:
   - ResourceEnum: 0
     RecourceAmount: 5
-  ResourcesForWork:
-  - ResourceForWork: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
-    ResourcesForWorkAmount: 0.2
+  ResourcesForWork: []
   ResourcesProduction:
   - ProductionResource: {fileID: 11400000, guid: 23814b4f35f760d44b89c897c3a239b8,
       type: 2}

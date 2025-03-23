@@ -60,11 +60,11 @@ public class TileObject : MonoBehaviour
 
     public TileObject GetNearNeighbourCrossRoad()
     {
-        if(!_groundTile.CurrentGroundTile().CanBuildMachineProduction) return null;
+        if (!_groundTile.CurrentGroundTile().CanBuildMachineProduction) return null;
         for (int i = 0; i < _neighbourTiles.Length; i++)
         {
             if (i is (int)TileDirectionEnum.NorthEast or (int)TileDirectionEnum.NorthWest or (int)TileDirectionEnum.SouthEast or (int)TileDirectionEnum.SouthWest) continue;
-            if (_neighbourTiles[i].GroundTileObject().CheckTileView(GroundTileViewEnum.Road)) return _neighbourTiles[i];
+            if (_neighbourTiles[i] != null && _neighbourTiles[i].GroundTileObject().CheckTileView(GroundTileViewEnum.Road)) return _neighbourTiles[i];
         }
         return null;
     }

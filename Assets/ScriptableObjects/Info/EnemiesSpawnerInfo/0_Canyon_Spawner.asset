@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0_Canyon_Spawner
   m_EditorClassIdentifier: 
   Spawners:
-  - StartDaySpawn: 6
+  - StartDaySpawn: 5
     SpawnPeriod: 2
     MinCount: 3
     MaxCount: 6
@@ -29,8 +29,8 @@ MonoBehaviour:
       EnemyLevel: 1
   - StartDaySpawn: 25
     SpawnPeriod: 2
-    MinCount: 5
-    MaxCount: 8
+    MinCount: 8
+    MaxCount: 10
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
@@ -49,7 +49,7 @@ MonoBehaviour:
     - EnemyEnum: 0
       EnemyLevel: 2
   - StartDaySpawn: 48
-    SpawnPeriod: 1
+    SpawnPeriod: 2
     MinCount: 15
     MaxCount: 20
     EnemiesSpawnerInfo:
