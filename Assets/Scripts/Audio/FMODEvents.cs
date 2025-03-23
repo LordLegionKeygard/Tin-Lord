@@ -18,10 +18,10 @@ public class FMODEvents : MonoBehaviour
     public EventReference CompleteUpgradeBuilding;
     public EventReference DestructionBuilding;
 
-    [Header("Robot")]
-    public EventReference RobotSpawn;
-    public EventReference RobotDeath;
-    public EventReference RobotExplosion;
+    [Header("Machines")]
+    public EventReference[] MachinesSpawn;
+    public EventReference[] MachinesDeath;
+    public EventReference RobotSniperExplosion;
 
     [Header("Mission")]
     public EventReference SelectMission;

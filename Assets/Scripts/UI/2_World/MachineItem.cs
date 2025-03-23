@@ -23,9 +23,9 @@ public class MachineItem : MonoBehaviour
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
     [SerializeField] private WorldResourcesView _worldResourcesView;
     private bool _resourcesEnough;
-    public bool CanRepair() => _currentMachineSystem.HaveMachine() &&
-                                !_currentMachineSystem.MachineDeath() &&
-                                !_currentMachineSystem.MachineHealth().FullHealth() &&
+    public bool CanRepair() => _currentMachineSystem.IsHaveMachine() &&
+                                !_currentMachineSystem.IsMachineDeath() &&
+                                !_currentMachineSystem.GetMachineHealth().FullHealth() &&
                                 _macniheInformation.MachineType == _currentMachineSystem.GetMachineType();
 
 
@@ -63,7 +63,7 @@ public class MachineItem : MonoBehaviour
 
     public void UpdateResourceCells()
     {
-        if (!_currentMachineSystem.HaveMachine() || CanRepair())
+        if (!_currentMachineSystem.IsHaveMachine() || CanRepair())
         {
             _worldResourcesView.SetResourcesView(GetResources());
         }
@@ -80,9 +80,9 @@ public class MachineItem : MonoBehaviour
     public void SetButtonAndTextColor()
     {
         _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
-        _button.enabled = _currentMachineSystem.HaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? _currentMachineSystem.MachineHealth().FullHealth() || _currentMachineSystem.MachineHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
-        _nameText.color = _currentMachineSystem.HaveMachine() ? _isSelect ? Color.white : Colors.GreyEight : _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
-        _icon.color = _currentMachineSystem.HaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() && !_currentMachineSystem.MachineHealth().IsDeath() ? Color.white : Color.black : _isSelect ? Color.white : Colors.GreyEight;
+        _button.enabled = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? _currentMachineSystem.GetMachineHealth().FullHealth() || _currentMachineSystem.GetMachineHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
+        _nameText.color = _currentMachineSystem.IsHaveMachine() ? _isSelect ? Color.white : Colors.GreyEight : _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
+        _icon.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() && !_currentMachineSystem.GetMachineHealth().IsDeath() ? Color.white : Color.black : _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
     }
 
@@ -90,7 +90,7 @@ public class MachineItem : MonoBehaviour
     {
         if (CanRepair())
         {
-            var robotHealth = _currentMachineSystem.MachineHealth();
+            var robotHealth = _currentMachineSystem.GetMachineHealth();
             float healthPercentage = (float)(robotHealth.GetMaxHealth() - robotHealth.GetCurrentHealth()) / robotHealth.GetMaxHealth();
 
             return _macniheInformation.ResourcesForBuild

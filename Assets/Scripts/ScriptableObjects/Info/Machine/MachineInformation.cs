@@ -12,7 +12,7 @@ public class MachineInformation : ScriptableObject
 
     public float GetDurability(int level) => MachineLevelInfo.StartDurability + MachineLevelInfo.FactorDurability * level;
     public int GetMeleeDamage(int level) => (int)(MachineLevelInfo.StartMeleeDamage + MachineLevelInfo.FactorMeleeDamage * level);
-    public int GetRangeDamage(int level) => (int)(MachineLevelInfo.FactorRangeDamage + MachineLevelInfo.FactorRangeDamage * level);
+    public int GetRangeDamage(int level) => (int)(MachineLevelInfo.StartRangeDamage + MachineLevelInfo.FactorRangeDamage * level);
 }
 
 [System.Serializable]

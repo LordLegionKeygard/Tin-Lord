@@ -76,6 +76,7 @@ public class MachineData
     public float PositionZ;
     public float Rotation;
     public int NextPatrolIndex;
+    public float MachineHealth;
 }
 
 [System.Serializable]

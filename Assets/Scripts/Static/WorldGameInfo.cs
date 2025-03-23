@@ -10,7 +10,7 @@ public class WorldGameInfo
     public const string BuildingGridId = "1534982770";
 
     [Header("EnemyReachedDistance")]
-    public const int EnemyReachedRobotDistance = 5;
+    public const int EnemyReachedMachineDistance = 6;
     public const int EnemyReachedTileDistance = 9;
     public const int EnemyReachedFourTileDistance = 13;
 

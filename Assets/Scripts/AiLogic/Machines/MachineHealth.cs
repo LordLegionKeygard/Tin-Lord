@@ -5,6 +5,7 @@ using Zenject;
 public class MachineHealth : BaseHealth
 {
     [Inject] private readonly HealthCanvas _healthCanvas;
+    [SerializeField] private MachineType _machineType;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private float _sliderHeightOffset;
     private BaseTakeDamageVFX _takeDamageVFX;
@@ -21,8 +22,6 @@ public class MachineHealth : BaseHealth
 
     public void Start()
     {
-        SetStartStats();
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.RobotSpawn, transform.position);
         CustomEvents.OnRepairMachine += Repair;
     }
 
@@ -50,11 +49,20 @@ public class MachineHealth : BaseHealth
         }
     }
 
-    private void SetStartStats()
+    public void SetStartStats()
     {
         _isDeath = false;
         _maxHealth = MachinesDataWorld.Instance.GetCurrentDurability();
         _currentHealth = _maxHealth;
+        CreateHealthBar();
+        UpdateSlider();
+    }
+
+    public void LoadStartStats(float newHealth)
+    {
+        _isDeath = false;
+        _maxHealth = MachinesDataWorld.Instance.GetCurrentDurability();
+        _currentHealth = newHealth;
         CreateHealthBar();
         UpdateSlider();
     }
@@ -68,7 +76,7 @@ public class MachineHealth : BaseHealth
     public override void Death()
     {
         base.Death();
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.RobotDeath, transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.MachinesDeath[(int)_machineType], transform.position);
         _capsuleCollider.enabled = false;
         _animationToRagdoll.RagdollOn();
         CustomEvents.FireMachineDie();

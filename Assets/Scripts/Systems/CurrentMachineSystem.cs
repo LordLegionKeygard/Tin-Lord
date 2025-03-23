@@ -6,23 +6,24 @@ public class CurrentMachineSystem : MonoBehaviour
     private MachineHealth _machineHealth;
     private MachinePatrolPath _machinePatrolPath;
     private MachineType _currentMachineType = MachineType.None;
-    public bool HaveMachine() => _currentMachine != null;
-    public bool MachineDeath() => _machineHealth.IsDeath();
-    public MachineHealth MachineHealth() => _machineHealth;
-    public MachinePatrolPath RobotPatrolPath() => _machinePatrolPath;
+    public bool IsHaveMachine() => _currentMachine != null;
+    public bool IsMachineDeath() => _machineHealth.IsDeath();
+    public MachineHealth GetMachineHealth() => _machineHealth;
+    public MachinePatrolPath GetMachinePatrolPath() => _machinePatrolPath;
     public MachineType GetMachineType() => _currentMachineType;
 
-    public MachineData GetRobotData()
+    public MachineData GetMachineData()
     {
         var data = new MachineData
         {
-            IsHaveMachineNow = HaveMachine(),
+            IsHaveMachineNow = IsHaveMachine(),
             MachineType = (int)_currentMachineType,
-            PositionX = HaveMachine() ? _currentMachine.transform.localPosition.x : 0,
-            PositionY = HaveMachine() ? _currentMachine.transform.position.y : 0,
-            PositionZ = HaveMachine() ? _currentMachine.transform.localPosition.z : 0,
-            Rotation = HaveMachine() ? _currentMachine.transform.eulerAngles.y : 0,
-            NextPatrolIndex = HaveMachine() ? _machinePatrolPath.RobotPatrolState().GetCurrentPatrolPointIndex() : 0,
+            PositionX = IsHaveMachine() ? _currentMachine.transform.localPosition.x : 0,
+            PositionY = IsHaveMachine() ? _currentMachine.transform.position.y : 0,
+            PositionZ = IsHaveMachine() ? _currentMachine.transform.localPosition.z : 0,
+            Rotation = IsHaveMachine() ? _currentMachine.transform.eulerAngles.y : 0,
+            NextPatrolIndex = IsHaveMachine() ? _machinePatrolPath.RobotPatrolState().GetCurrentPatrolPointIndex() : 0,
+            MachineHealth = IsHaveMachine() ? GetMachineHealth().GetCurrentHealth() : 0
         };
 
         return data;

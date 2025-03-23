@@ -33,7 +33,7 @@ public class EnemyAttacks : MonoBehaviour
 
     public void UpdateCreatureAttackDistance(Tile tile)
     {
-        _tileDistance = tile != null ? tile.IsFourTile ? WorldGameInfo.EnemyReachedFourTileDistance : WorldGameInfo.EnemyReachedTileDistance : WorldGameInfo.EnemyReachedRobotDistance;
+        _tileDistance = tile != null ? tile.IsFourTile ? WorldGameInfo.EnemyReachedFourTileDistance : WorldGameInfo.EnemyReachedTileDistance : WorldGameInfo.EnemyReachedMachineDistance;
         _maxMeleeAttackRange = _tileDistance + _defaultMeleeMaxAttackRange;
         _maxAttackRange =  _tileDistance + _defaultMaxAttackRange;
     }

@@ -64,7 +64,7 @@ public class MachinesDataWorld : MonoBehaviour
 
     public void ChangeExperience(int experience)
     {
-        if (!_currentMachineSystem.HaveMachine() || _currentMachineSystem.MachineDeath()) return;
+        if (!_currentMachineSystem.IsHaveMachine() || _currentMachineSystem.IsMachineDeath()) return;
 
         var maxExp = _experienceInfo.NeedExperienceForNextLevel[CurrentLevel()];
         var currentExp = _machinesExperience[(int)_currentMachineSystem.GetMachineType()];

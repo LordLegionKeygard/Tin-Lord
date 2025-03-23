@@ -97,7 +97,7 @@ public class WorldSaveLoad : MonoBehaviour
 
         //Robot
         currentSaveData.MachinesExperienceData = MachinesDataWorld.Instance.GetAllMachinesExperience();
-        currentSaveData.MachineData = _currentMachineSystem.GetRobotData();
+        currentSaveData.MachineData = _currentMachineSystem.GetMachineData();
 
         //Objectives
         currentSaveData.ObjectiveAmount = _objectivesPanel.GetAllObjectivesAmount();

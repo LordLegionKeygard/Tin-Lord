@@ -114,14 +114,14 @@ public class MachinePanel : MonoBehaviour
     public void DestroyMachineButton()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        var robotHealth = _currentMachineSystem.MachineHealth();
+        var robotHealth = _currentMachineSystem.GetMachineHealth();
         robotHealth.CalculateDamage(robotHealth.GetMaxHealth());
         UpdateDestroyButtonState();
     }
 
     public void UpdateDestroyButtonState()
     {
-        var state = _currentMachineSystem.HaveMachine() && !_currentMachineSystem.MachineDeath();
+        var state = _currentMachineSystem.IsHaveMachine() && !_currentMachineSystem.IsMachineDeath();
         _destroyButton.interactable = state;
         _destroyButtonIcon.color = new Color(_destroyButtonIcon.color.r, _destroyButtonIcon.color.g, _destroyButtonIcon.color.b, state ? 1 : 0.2f);
     }

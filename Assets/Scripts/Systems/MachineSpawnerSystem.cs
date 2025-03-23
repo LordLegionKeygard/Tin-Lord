@@ -8,7 +8,7 @@ public class MachineSpawnerSystem : MonoBehaviour
     [SerializeField] private TileMapBuilder _mapBuilder;
     [SerializeField] private GameObject[] _machinePrefabs;
     [SerializeField] private Transform _parent;
-    [SerializeField] private CurrentMachineSystem _currentRobotSystem;
+    [SerializeField] private CurrentMachineSystem _currentMachineSystem;
     private TileObject _machineProductionTileObject;
 
     public void SetTileObject(TileObject tileObject) => _machineProductionTileObject = tileObject;
@@ -19,19 +19,22 @@ public class MachineSpawnerSystem : MonoBehaviour
 
         for (int i = 0; i < roadTiles.Count; i++)
         {
-            if(roadTiles[i] == nearTileObject) return i;
+            if (roadTiles[i] == nearTileObject) return i;
         }
         Debug.Log("Dont find NearTileObject");
         return 0;
     }
 
-    public void SpawnRobot(MachineType robotType)
+    public void SpawnRobot(MachineType machineType)
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.MachinesSpawn[(int)machineType], transform.position);
+
         var roadTiles = _mapBuilder.GetRoadTiles();
         Vector3 spawnPosition = _machineProductionTileObject.GetNearNeighbourCrossRoad().transform.position;
 
-        _currentRobotSystem.SetNewRobot(_diContainer.InstantiatePrefab(_machinePrefabs[(int)robotType], spawnPosition, Quaternion.identity, _parent), robotType);
-        _currentRobotSystem.RobotPatrolPath().InitializePatrolPoints(roadTiles, GetNearRoadTileObject(roadTiles));
+        _currentMachineSystem.SetNewRobot(_diContainer.InstantiatePrefab(_machinePrefabs[(int)machineType], spawnPosition, Quaternion.identity, _parent), machineType);
+        _currentMachineSystem.GetMachinePatrolPath().InitializePatrolPoints(roadTiles, GetNearRoadTileObject(roadTiles));
+        _currentMachineSystem.GetMachineHealth().SetStartStats();
     }
 
     public void LoadSpawnRobot(WorldSaveData worldSaveData)
@@ -46,9 +49,9 @@ public class MachineSpawnerSystem : MonoBehaviour
         // Приведение int к enum
         var robotTypeEnum = (MachineType)worldSaveData.MachineData.MachineType;
 
-        _currentRobotSystem.SetNewRobot(_diContainer.InstantiatePrefab(_machinePrefabs[worldSaveData.MachineData.MachineType], spawnPosition, rotation, _parent), robotTypeEnum);
-        _currentRobotSystem.RobotPatrolPath().InitializePatrolPoints(roadTiles, worldSaveData.MachineData.NextPatrolIndex);
+        _currentMachineSystem.SetNewRobot(_diContainer.InstantiatePrefab(_machinePrefabs[worldSaveData.MachineData.MachineType], spawnPosition, rotation, _parent), robotTypeEnum);
+        _currentMachineSystem.GetMachinePatrolPath().InitializePatrolPoints(roadTiles, worldSaveData.MachineData.NextPatrolIndex);
 
-
+        _currentMachineSystem.GetMachineHealth().LoadStartStats(worldSaveData.MachineData.MachineHealth);
     }
 }

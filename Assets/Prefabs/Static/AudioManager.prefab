@@ -352,27 +352,39 @@ MonoBehaviour:
       Data3: -1931696971
       Data4: 974190082
     Path: event:/Sfx/Buildings/Destruction
-  RobotSpawn:
-    Guid:
+  MachinesSpawn:
+  - Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  - Guid:
       Data1: -2120368198
       Data2: 1147639227
       Data3: 965118361
       Data4: -276282835
-    Path: event:/Sfx/Robots/RobotSpawn
-  RobotDeath:
-    Guid:
+    Path: event:/Sfx/Machines/Robots/RobotSpawn
+  MachinesDeath:
+  - Guid:
+      Data1: -828552424
+      Data2: 1229954388
+      Data3: 1260105358
+      Data4: 1870693826
+    Path: event:/Sfx/Machines/BallistaDeath
+  - Guid:
       Data1: -429212949
       Data2: 1334926486
       Data3: -1267356759
       Data4: -1104317354
-    Path: event:/Sfx/Robots/RobotDeath
-  RobotExplosion:
+    Path: event:/Sfx/Machines/Robots/RobotDeath
+  RobotSniperExplosion:
     Guid:
       Data1: 1844915224
       Data2: 1341373320
       Data3: 1507379594
       Data4: 804894949
-    Path: event:/Sfx/Robots/RobotExplosion
+    Path: event:/Sfx/Machines/Robots/RobotExplosion
   SelectMission:
     Guid:
       Data1: -346986330
