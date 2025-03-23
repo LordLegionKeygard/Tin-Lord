@@ -78,9 +78,8 @@ public class MachineHealth : BaseHealth
         base.Death();
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.MachinesDeath[(int)_machineType], transform.position);
         _capsuleCollider.enabled = false;
-        _animationToRagdoll.RagdollOn();
+        _animationToRagdoll.ActiveRagdoll();
         CustomEvents.FireMachineDie();
-
         StartCoroutine(FadeAndDestroy());
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class AnimationToRagdoll : MonoBehaviour
 {
+    [SerializeField] private GameObject _activeObject;
+    [SerializeField] private GameObject[] _disableObjects;
     [SerializeField] private Rigidbody[] _rigidbodies;
 
     private Animator _animator;
@@ -14,10 +16,21 @@ public class AnimationToRagdoll : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void RagdollOn()
+    public void ActiveRagdoll()
     {
-        _animator.enabled = false;
-        KinematicToggle(false);
+        if (_activeObject!= null)
+        {
+            foreach (var item in _disableObjects)
+            {
+                item.SetActive(false);
+            }
+            _activeObject.SetActive(true);
+        }
+        else
+        {
+            _animator.enabled = false;
+            KinematicToggle(false);
+        }
     }
 
 

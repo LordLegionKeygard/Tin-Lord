@@ -354,11 +354,11 @@ MonoBehaviour:
     Path: event:/Sfx/Buildings/Destruction
   MachinesSpawn:
   - Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -672835941
+      Data2: 1184411046
+      Data3: 566135733
+      Data4: -328311530
+    Path: event:/Sfx/Machines/WarBallista/WarBallistaSpawn
   - Guid:
       Data1: -2120368198
       Data2: 1147639227
@@ -371,7 +371,7 @@ MonoBehaviour:
       Data2: 1229954388
       Data3: 1260105358
       Data4: 1870693826
-    Path: event:/Sfx/Machines/BallistaDeath
+    Path: event:/Sfx/Machines/WarBallista/WarBallistaDeath
   - Guid:
       Data1: -429212949
       Data2: 1334926486
