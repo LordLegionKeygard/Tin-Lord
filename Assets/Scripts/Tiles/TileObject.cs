@@ -15,9 +15,9 @@ public class TileObject : MonoBehaviour
     private int _id;
     private float _currentModifier;
     private Resource _currentResourceProduction;
-    private Resource _currentResourceRequired;
+    private Resource _currentResourceForWork;
     private ResourceRecept[] _currentResourceRecept;
-    private float _currentResourceRequiredAmount;
+    private float _currentResourceForWorkAmount;
     private bool _isBuildingWork;
     private bool _isHaveResourceRequired = true;
     private bool _isBuildingDestroyedNow;
@@ -37,8 +37,8 @@ public class TileObject : MonoBehaviour
     public int GetId() => _id;
     public float CurrentModifier() => _currentModifier;
     public Resource CurrentResourceProduction() => _currentResourceProduction;
-    public Resource CurrentResourceRequired() => _currentResourceRequired;
-    public float CurrentResourceRequiredAmount() => _currentResourceRequiredAmount;
+    public Resource CurrentResourceForWork() => _currentResourceForWork;
+    public float CurrentResourceForWorkAmount() => _currentResourceForWorkAmount;
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
     public void SetBuildingWork(bool state) => _isBuildingWork = state;
@@ -71,7 +71,7 @@ public class TileObject : MonoBehaviour
 
     public bool IsHaveRequiredResource()
     {
-        var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length == 0 || _playerResources.ResourceEnough(_currentResourceRequired.ResourceEnum, _currentResourceRequiredAmount);
+        var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length == 0 || _playerResources.ResourceEnough(_currentResourceForWork.ResourceEnum, _currentResourceForWorkAmount);
         if (!haveResourcesForWork)
         {
             if (_buildingTile.IsEcologyBuilding())
@@ -90,20 +90,20 @@ public class TileObject : MonoBehaviour
 
     public void ClearBuildingInfoAndProduction()
     {
-        _currentResourceRequired = null;
-        _currentResourceRequiredAmount = 0;
+        _currentResourceForWork = null;
+        _currentResourceForWorkAmount = 0;
         _currentResourceRecept = null;
         _currentResourceProduction = null;
         _buildingProductionView = null;
         _currentModifier = 0;
         CustomEvents.FireChangeResourceProduction(ResourceEnum.None, 0, _id, true);
-        CustomEvents.FireChangeResourceRequired(this, null, 0, null);
+        CustomEvents.FireChangeResourceForWork(this, null, 0, null);
     }
 
     public void ClearResourceProductionAndRequiredWhenBuildingConstruct()
     {
         CustomEvents.FireChangeResourceProduction(ResourceEnum.None, 0, _id, true);
-        CustomEvents.FireChangeResourceRequired(this, null, 0, null);
+        CustomEvents.FireChangeResourceForWork(this, null, 0, null);
     }
 
     public void SetId(int id) => _id = id;
@@ -166,26 +166,26 @@ public class TileObject : MonoBehaviour
 
         var resourceWrapper = _buildingTile.CurrentBuilding();
         var resourcesProduction = _isBuildingWork
-            ? _currentResourceRequired == null && _currentResourceRecept == null
+            ? _currentResourceForWork == null && _currentResourceRecept == null
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier
             : (IsHaveRequiredResource() ? resourceWrapper.ResourceExtractedAmount * _currentModifier : 0) : 0;
 
         CustomEvents.FireChangeResourceProduction(_currentResourceProduction.ResourceEnum, resourcesProduction, _id, false);
     }
 
-    public void SetResourceRequied(Resource resource, float amount, ResourceRecept[] resourceRecepts)
+    public void SetResourceForWork(Resource resource, float amount, ResourceRecept[] resourceRecepts)
     {
-        _currentResourceRequired = resource;
-        _currentResourceRequiredAmount = amount;
+        _currentResourceForWork = resource;
+        _currentResourceForWorkAmount = amount;
         _currentResourceRecept = resourceRecepts;
-        CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount, _currentResourceRecept);
+        CustomEvents.FireChangeResourceForWork(this, _currentResourceForWork, _currentResourceForWorkAmount, _currentResourceRecept);
     }
 
     public void SetNewResourceRequiredAfterUpgradeBuilding(ResourcesForWorkWrapper[] allResourcesForWorkWrapper, ResourceRecept[] resourceRecepts)
     {
         for (int i = 0; i < allResourcesForWorkWrapper.Length; i++)
         {
-            if (_currentResourceRequired == allResourcesForWorkWrapper[i].ResourceForWork) //если находим текущий ресурс для работы у нового здания, значит ничего менять не нужно
+            if (_currentResourceForWork == allResourcesForWorkWrapper[i].ResourceForWork) //если находим текущий ресурс для работы у нового здания, значит ничего менять не нужно
             {
                 //здесь не требуется обновлять требуемые ресурсы как у производимых, потому что метод SetResourceProduction() вызывает FireChangeResourceRequired()
                 return;
@@ -194,7 +194,7 @@ public class TileObject : MonoBehaviour
 
         //если текущий для работы ресурс не совпадает с ресурсами для работы нового здания, значит текущий ресурс больше нельзя использовать, обновляем на [0]
         var wrapper = allResourcesForWorkWrapper[0];
-        SetResourceRequied(wrapper.ResourceForWork, wrapper.ResourcesForWorkAmount, resourceRecepts);
+        SetResourceForWork(wrapper.ResourceForWork, wrapper.ResourcesForWorkAmount, resourceRecepts);
     }
 
     public void SetResourceProduction(Resource resource, ResourceRecept[] resourceRecept)
@@ -204,7 +204,7 @@ public class TileObject : MonoBehaviour
         SetResourceModifier();
         ChangeResourceProduction();
         _selectTilePanel.RefreshInfo();
-        CustomEvents.FireChangeResourceRequired(this, _currentResourceRequired, _currentResourceRequiredAmount, _currentResourceRecept);
+        CustomEvents.FireChangeResourceForWork(this, _currentResourceForWork, _currentResourceForWorkAmount, _currentResourceRecept);
     }
 
     public void SetNewResourceProductionAfterUpgradeBuilding(ResourcesProductionWrapper[] allResourcesProductionWrapper)

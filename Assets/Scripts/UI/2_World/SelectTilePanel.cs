@@ -34,21 +34,21 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
     [SerializeField] private TextMeshProUGUI _productionModifierText;
     [SerializeField] private TextMeshProUGUI _productionResourceText;
-    [SerializeField] private TextMeshProUGUI _requiredResources;
+    [SerializeField] private TextMeshProUGUI _resourceForWorkText;
     [SerializeField] private TextMeshProUGUI _groundEcologyText;
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
 
     [Header("Other")]
     [SerializeField] private MachineSpawnerSystem _robotSpawnerSystem;
     private TileObject _tileObject;
-    private RequiredResourcePanel _requiredResourcePanel;
+    private ResourceForWorkPanel _resourceForWorkPanel;
     private BaseProductionResourcePanel _productionResourcePanel;
     private ReceptPanel _receptPanel;
     private Coroutine _tagsCoroutine;
 
     private void Awake()
     {
-        _requiredResourcePanel = GetComponent<RequiredResourcePanel>();
+        _resourceForWorkPanel = GetComponent<ResourceForWorkPanel>();
         _productionResourcePanel = GetComponent<BaseProductionResourcePanel>();
         _receptPanel = GetComponent<ReceptPanel>();
     }
@@ -103,7 +103,7 @@ public class SelectTilePanel : MonoBehaviour
 
         SetTextFields(_tileObject, buildingTile, haveBuildingTile, currentBuilding);
         SetProductionText(_tileObject, buildingTile, haveBuildingTile, currentBuilding);
-        SetRequiredText(_tileObject, buildingTile, haveBuildingTile);
+        SetWorkResourcesText(_tileObject, buildingTile, haveBuildingTile);
         SetEcologyTexts(_tileObject);
         _uiPanels.SetRequiredResourcePanelVisibility(haveBuildingTile, currentBuilding);
         _uiPanels.SetProductionResourcePanelVisibility(haveBuildingTile, currentBuilding);
@@ -113,9 +113,9 @@ public class SelectTilePanel : MonoBehaviour
 
         if (haveBuildingTile)
         {
-            if (_tileObject.CurrentResourceRequired() != null)
+            if (_tileObject.CurrentResourceForWork() != null)
             {
-                _requiredResourcePanel.UpdateButtonsView(_tileObject, true);
+                _resourceForWorkPanel.UpdateButtonsView(_tileObject, true);
             }
 
             if (buildingTile.IsHaveProductionResources())
@@ -179,11 +179,11 @@ public class SelectTilePanel : MonoBehaviour
 
     }
 
-    private void SetRequiredText(TileObject tileObject, Tile tile, bool haveBuildingTile)
+    private void SetWorkResourcesText(TileObject tileObject, Tile tile, bool haveBuildingTile)
     {
         string textColor;
 
-        if (haveBuildingTile && tileObject.CurrentResourceRequired() != null && tileObject.IsHaveRequiredResource() &&
+        if (haveBuildingTile && tileObject.CurrentResourceForWork() != null && tileObject.IsHaveRequiredResource() &&
             (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier))
         {
             textColor = Colors.HexColorWhite;
@@ -193,7 +193,7 @@ public class SelectTilePanel : MonoBehaviour
             textColor = Colors.HexColorWarningYellow;
         }
 
-        _requiredResources.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier) && tileObject.CurrentResourceRequired() != null ? $"{tileObject.CurrentResourceRequired().Name[Language.LanguageNumber]} {tileObject.CurrentResourceRequiredAmount()}" : "-")}</color>";
+        _resourceForWorkText.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier) && tileObject.CurrentResourceForWork() != null ? $"{tileObject.CurrentResourceForWork().Name[Language.LanguageNumber]} {tileObject.CurrentResourceForWorkAmount()}" : "-")}</color>";
     }
 
     private void SetEcologyTexts(TileObject tileObject)
@@ -285,7 +285,7 @@ public class SelectTilePanel : MonoBehaviour
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
 
         _tileObject.ChangeResourceProduction();
-        CustomEvents.FireChangeResourceRequired(_tileObject, _tileObject.CurrentResourceRequired(), _tileObject.IsBuildingWork() ? _tileObject.CurrentResourceRequiredAmount() : 0, _tileObject.CurrentResourceRecept());
+        CustomEvents.FireChangeResourceForWork(_tileObject, _tileObject.CurrentResourceForWork(), _tileObject.IsBuildingWork() ? _tileObject.CurrentResourceForWorkAmount() : 0, _tileObject.CurrentResourceRecept());
     }
 
     public void RotateButton()
@@ -378,7 +378,7 @@ public class SelectTilePanel : MonoBehaviour
         DestroyButtonChangeColor();
     }
 
-    public void ChangeResourceRequired(Resource resource)
+    public void ChangeResourceForWork(Resource resource)
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         var resourcesForWork = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork;
@@ -387,11 +387,11 @@ public class SelectTilePanel : MonoBehaviour
         {
             if (resource == resourcesForWork[i].ResourceForWork)
             {
-                _tileObject.SetResourceRequied(resource, resourcesForWork[i].ResourcesForWorkAmount, _tileObject.CurrentResourceRecept());
+                _tileObject.SetResourceForWork(resource, resourcesForWork[i].ResourcesForWorkAmount, _tileObject.CurrentResourceRecept());
             }
         }
 
-        _requiredResourcePanel.UpdateButtonsView(_tileObject, false);
+        _resourceForWorkPanel.UpdateButtonsView(_tileObject, false);
     }
 
     public void ChangeResourceProduction(Resource resource, ResourceRecept[] resourceRecept)

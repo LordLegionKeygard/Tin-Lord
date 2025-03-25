@@ -9,7 +9,7 @@ public class EveryTickResourcesRequired : MonoBehaviour
 
     private void Awake()
     {
-        CustomEvents.OnChangeResourceRequired += ChangeResourceRequired;
+        CustomEvents.OnChangeResourceForWork += ChangeResourceRequired;
     }
 
     private void ChangeResourceRequired(TileObject tileObject, Resource resourceForWork, float amount, ResourceRecept[] resourceRecept)
@@ -69,7 +69,7 @@ public class EveryTickResourcesRequired : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnChangeResourceRequired -= ChangeResourceRequired;
+        CustomEvents.OnChangeResourceForWork -= ChangeResourceRequired;
     }
 }
 

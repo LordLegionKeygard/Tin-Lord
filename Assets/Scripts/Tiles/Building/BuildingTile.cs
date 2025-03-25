@@ -328,7 +328,7 @@ public class BuildingTile : MonoBehaviour
 
       if (CurrentBuilding().ResourcesForWork.Length == 0)
       {
-         _tileObject.SetResourceRequied(null, 0, resourceRecept);
+         _tileObject.SetResourceForWork(null, 0, resourceRecept);
       }
       else
       {
@@ -341,7 +341,7 @@ public class BuildingTile : MonoBehaviour
       var resource = data.RequiredResource < 0 ? null : _playerResources.GetResourceForNumber(data.RequiredResource);
       var amount = data.RequiredResourceAmount;
       var recept = CurrentBuilding().ResourcesProduction.Length == 0 ? null : CurrentBuilding().ResourcesProduction[0].ResourceRecept;
-      _tileObject.SetResourceRequied(resource, amount, recept);
+      _tileObject.SetResourceForWork(resource, amount, recept);
    }
 
    public void LoadResourceProduction(BuildingData data)

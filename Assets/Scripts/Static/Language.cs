@@ -69,8 +69,8 @@ public class Language : MonoBehaviour
         _text[13, 0] = "Buildings";
         _text[13, 1] = "Постройки";
 
-        _text[14, 0] = "Required resource";
-        _text[14, 1] = "Требуемый ресурс";
+        _text[14, 0] = "Resource for work";
+        _text[14, 1] = "Ресурс для работы";
 
         _text[15, 0] = "Ground ecology";
         _text[15, 1] = "Экология земли";
@@ -336,8 +336,8 @@ public class Language : MonoBehaviour
         _text[102, 0] = "Press any key";
         _text[102, 1] = "Нажмите любую кнопку";
 
-        _text[103, 0] = "Required resources:";
-        _text[103, 1] = "Требуемые ресурсы:";
+        _text[103, 0] = "";
+        _text[103, 1] = "";
 
         _text[104, 0] = "Camera speed";
         _text[104, 1] = "Скорость камеры";
@@ -482,6 +482,9 @@ public class Language : MonoBehaviour
 
         _text[151, 0] = "Defeat the boss";
         _text[151, 1] = "Победить босса";
+
+        _text[152, 0] = "Resources for construction:";
+        _text[152, 1] = "Ресурсы для строительства:";
 
 
         for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];

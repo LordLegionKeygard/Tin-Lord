@@ -13,11 +13,18 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
 
-    [Header("RequiedResources")]
-    [SerializeField] private TextMeshProUGUI _requiedResourcesText;
-    [SerializeField] private GameObject _requiedResourcesPanelObject;
-    [SerializeField] private GameObject _requiedResourcesPanelLine;
+    [Header("BuildingResources")]
+    [SerializeField] private TextMeshProUGUI _buildingResourcesText;
+    [SerializeField] private GameObject _buildingResourcesPanelObject;
+    [SerializeField] private GameObject _buildingResourcesPanelLine;
     private ResourcesViewCommandCenter _resourcesView;
+
+    [Header("ResourcesFoWork")]
+    [SerializeField] private TextMeshProUGUI _resourceForWorkText;
+    [SerializeField] private GameObject _resourceForWorkPanelObject;
+    [SerializeField] private GameObject _resourceForWorkPanelLine;
+    private ResourceForWorkPanelCommandCenter _resourceForWorkPanel;
+    private float _resourceForWorkAmount;
 
     [Header("Recept")]
     [SerializeField] private TextMeshProUGUI _receptText;
@@ -48,6 +55,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     private void Awake()
     {
         _productionResourcePanel = GetComponent<BaseProductionResourcePanel>();
+        _resourceForWorkPanel = GetComponent<ResourceForWorkPanelCommandCenter>();
         _resourcesView = GetComponent<ResourcesViewCommandCenter>();
         _receptPanel = GetComponent<ReceptPanelCommandCenter>();
     }
@@ -62,9 +70,10 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     {
         var building = _currentLearnBuildingItem.GetBuilding();
         SetMainPanel(building);
-        SetRequiredResourcesPanel(building);
-        SetReceptPanel(building);
+        SetBuildingResourcesPanel(building);
         SetProductionPanel(building);
+        SetResourceForWorkPanel(building);
+        SetReceptPanel(building);
         SetTurretPanel(building);
         SetButtonPanel();
 
@@ -79,28 +88,12 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _buildingLevelText.text = $"{Language.TextStatic[3]}: {building.BuildingLevel}";
     }
 
-    private void SetRequiredResourcesPanel(Building building)
+    private void SetBuildingResourcesPanel(Building building)
     {
-        _requiedResourcesText.text = Language.TextStatic[103];
-        _requiedResourcesPanelObject.SetActive(true);
-        _requiedResourcesPanelLine.SetActive(true);
+        _buildingResourcesText.text = Language.TextStatic[152];
+        _buildingResourcesPanelObject.SetActive(true);
+        _buildingResourcesPanelLine.SetActive(true);
         _resourcesView.SetResourcesView(building.ResourcesForBuild);
-    }
-
-    private void SetReceptPanel(Building building)
-    {
-        _receptText.text = Language.TextStatic[1];
-        if (building.ResourcesProduction.Length == 0 || building.ResourcesProduction[_currentResourcesProduction].ResourceRecept.Length == 0)
-        {
-            _receptPanelObject.SetActive(false);
-            _receptPanelLine.SetActive(false);
-        }
-        else
-        {
-            _receptPanel.UpdateReceptView(building.ResourcesProduction[_currentResourcesProduction].ResourceRecept);
-            _receptPanelObject.SetActive(true);
-            _receptPanelLine.SetActive(true);
-        }
     }
 
     private void SetProductionPanel(Building building)
@@ -121,6 +114,37 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
             _productionResourcePanelObject.SetActive(true);
             _productionResourcePanelLine.SetActive(true);
+        }
+    }
+
+    private void SetResourceForWorkPanel(Building building)
+    {
+        if (building.ResourcesForWork.Length != 0)
+        {
+            SetResourceForWorkAndText(building.ResourcesForWork[0].ResourceForWork);
+            _resourceForWorkPanelObject.SetActive(true);
+            _resourceForWorkPanelLine.SetActive(true);
+        }
+        else
+        {
+            _resourceForWorkPanelObject.SetActive(false);
+            _resourceForWorkPanelLine.SetActive(false);
+        }
+    }
+
+    private void SetReceptPanel(Building building)
+    {
+        _receptText.text = Language.TextStatic[1];
+        if (building.ResourcesProduction.Length == 0 || building.ResourcesProduction[_currentResourcesProduction].ResourceRecept.Length == 0)
+        {
+            _receptPanelObject.SetActive(false);
+            _receptPanelLine.SetActive(false);
+        }
+        else
+        {
+            _receptPanel.UpdateReceptView(building.ResourcesProduction[_currentResourcesProduction].ResourceRecept);
+            _receptPanelObject.SetActive(true);
+            _receptPanelLine.SetActive(true);
         }
     }
 
@@ -165,8 +189,8 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     public void Reset()
     {
-        _requiedResourcesPanelObject.SetActive(false);
-        _requiedResourcesPanelLine.SetActive(false);
+        _buildingResourcesPanelObject.SetActive(false);
+        _buildingResourcesPanelLine.SetActive(false);
         _receptPanelObject.SetActive(false);
         _receptPanelLine.SetActive(false);
         _productionResourcePanelObject.SetActive(false);
@@ -176,5 +200,27 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _buttonsPanelObject.SetActive(false);
 
         _currentLearnBuildingItem = null;
+    }
+
+    public void ChangeResourceForWork(Resource resource)
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        SetResourceForWorkAndText(resource);
+    }
+
+    private void SetResourceForWorkAndText(Resource resource)
+    {
+        var building = _currentLearnBuildingItem.GetBuilding();
+
+        for (int i = 0; i < building.ResourcesForWork.Length; i++)
+        {
+            if(building.ResourcesForWork[i].ResourceForWork == resource)
+            {
+                _resourceForWorkAmount = building.ResourcesForWork[i].ResourcesForWorkAmount;
+            }
+        }
+
+        _resourceForWorkPanel.UpdateButtonsView(building, resource.ResourceEnum);
+        _resourceForWorkText.text = $"{Language.TextStatic[14]}: {resource.Name[Language.LanguageNumber]} {_resourceForWorkAmount}";
     }
 }

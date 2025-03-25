@@ -51,10 +51,10 @@ public class CustomEvents
         OnChangeResourceProduction?.Invoke(resourceEnum, amount, tileId, remove);
     }
 
-    public static event Action<TileObject, Resource, float, ResourceRecept[]> OnChangeResourceRequired;
-    public static void FireChangeResourceRequired(TileObject tileObject, Resource resource, float amount, ResourceRecept[] resourceRecepts)
+    public static event Action<TileObject, Resource, float, ResourceRecept[]> OnChangeResourceForWork;
+    public static void FireChangeResourceForWork(TileObject tileObject, Resource resource, float amount, ResourceRecept[] resourceRecepts)
     {
-        OnChangeResourceRequired?.Invoke(tileObject, resource, amount, resourceRecepts);
+        OnChangeResourceForWork?.Invoke(tileObject, resource, amount, resourceRecepts);
     }
 
     public static event Action<int, int, bool> OnChangeEcology;

@@ -52,7 +52,7 @@ public class AllTileObjects : MonoBehaviour
             var riverTile = tileObject.GroundTileObject().CurrentTileRiver();
             var haveBuildingTileGameObject = tileObject.BuildingTileObject().HaveBuildingGameObject();
             var haveRotationView = buildingHaveTile && haveBuildingTileGameObject && tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() != null;
-            var haveRequiredResource = buildingHaveTile && tileObject.CurrentResourceRequired() != null;
+            var haveRequiredResource = buildingHaveTile && tileObject.CurrentResourceForWork() != null;
             var haveProductionResource = buildingHaveTile && tileObject.CurrentResourceProduction() != null;
 
             tilesData[i] = new TileDataWrapper
@@ -75,8 +75,8 @@ public class AllTileObjects : MonoBehaviour
                     BuildingTilePositionX = buildingHaveTile ? tileObject.BuildingTileObject().GetBuildingTileTransform().GetPositionX() : 0,
                     BuildingTilePositionZ = buildingHaveTile ? tileObject.BuildingTileObject().GetBuildingTileTransform().GetPositionZ() : 0,
                     BuildingRotation = buildingHaveTile && haveBuildingTileGameObject && haveRotationView ? tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>().GetObjectRotation() : 0,
-                    RequiredResource = haveRequiredResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceRequired()) : -1,
-                    RequiredResourceAmount = buildingHaveTile ? tileObject.CurrentResourceRequiredAmount() : 0,
+                    RequiredResource = haveRequiredResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceForWork()) : -1,
+                    RequiredResourceAmount = buildingHaveTile ? tileObject.CurrentResourceForWorkAmount() : 0,
                     ResourceProduction = haveProductionResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceProduction()) : -1,
                     IsConstructionNow = buildingHaveTile && tileObject.BuildingTileObject().IsConstructionNow(),
                     IsUpgradeBase = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase(),
