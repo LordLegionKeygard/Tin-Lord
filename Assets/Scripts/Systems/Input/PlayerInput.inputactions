@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MiddleMouseClick",
+                    "name": "RightMouseClick",
                     "type": "Button",
                     "id": "ebef07b7-2404-4797-a02e-13e57dad1c38",
                     "expectedControlType": "Button",
@@ -431,11 +431,11 @@
                 {
                     "name": "",
                     "id": "09864369-a1e7-45a4-b18e-34f6a3c0b60d",
-                    "path": "<Mouse>/middleButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MiddleMouseClick",
+                    "action": "RightMouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
