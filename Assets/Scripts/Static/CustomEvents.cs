@@ -178,16 +178,20 @@ public class CustomEvents
     }
 
     public static Action OnFadeOutAllMusic;
-
     public static void FireFadeOutAllMusic()
     {
         OnFadeOutAllMusic?.Invoke();
     }
 
     public static Action OnLearnBuilding;
-
     public static void FireLearnBuilding()
     {
         OnLearnBuilding?.Invoke();
+    }
+
+    public static Action<bool> OnToggleCheckTags;
+    public static void FireToggleCheckTags(bool state)
+    {
+        OnToggleCheckTags?.Invoke(state);
     }
 }

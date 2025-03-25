@@ -3,6 +3,7 @@ using TMPro;
 using DG.Tweening;
 using UnityEngine.UI;
 using Zenject;
+using System.Collections;
 
 public class SelectTilePanel : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class SelectTilePanel : MonoBehaviour
     private RequiredResourcePanel _requiredResourcePanel;
     private BaseProductionResourcePanel _productionResourcePanel;
     private ReceptPanel _receptPanel;
+    private Coroutine _tagsCoroutine;
 
     private void Awake()
     {
@@ -289,12 +291,24 @@ public class SelectTilePanel : MonoBehaviour
     public void RotateButton()
     {
         if (!_rotateButton.activeInHierarchy || _tileObject == null) return;
+
+        CustomEvents.FireToggleCheckTags(false);
+        if(_tagsCoroutine!= null) StopCoroutine(_tagsCoroutine);
+
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Rotate], transform.position);
         var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
         var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() : null;
 
         if (rotationViewGround != null) rotationViewGround.Rotate();
         if (rotationViewBuilding != null) rotationViewBuilding.Rotate();
+
+        _tagsCoroutine = StartCoroutine(nameof(ToggleTagsDisableCoroutine));
+    }
+
+    private IEnumerator ToggleTagsDisableCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        CustomEvents.FireToggleCheckTags(true);
     }
 
     public void DestroyButton()
