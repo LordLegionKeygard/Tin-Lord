@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 2960253353881765672}
   - component: {fileID: 8246848921953063677}
   - component: {fileID: 9117155582059852538}
+  - component: {fileID: 7024231512307230716}
   m_Layer: 6
   m_Name: 3_Pistripod
   m_TagString: Untagged
@@ -578,7 +579,6 @@ MonoBehaviour:
   _distanceToTarget: 0
   _rotationSpeed: 1
   _currentState: {fileID: 5934005811378275611}
-  _detectionRadius: 50
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 264
@@ -693,11 +693,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resistSlow: 0
+  _isHaveEmission: 1
+  _emissionColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 0.2901961}
   _meshRenderers:
   - {fileID: 8246848922364042381}
   - {fileID: 8246848922550826295}
-  _isHaveEmission: 1
-  _emissionColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 0.2901961}
 --- !u!114 &8246848921953063679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,6 +779,18 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+--- !u!114 &7024231512307230716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246848921953063667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0259a102d6529942962ca5ef7295415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8246848921954258961
 GameObject:
   m_ObjectHideFlags: 0

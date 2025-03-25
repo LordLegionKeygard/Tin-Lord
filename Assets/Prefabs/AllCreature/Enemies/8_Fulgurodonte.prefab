@@ -1624,6 +1624,7 @@ GameObject:
   - component: {fileID: 3408100144858265065}
   - component: {fileID: 3408100144858265064}
   - component: {fileID: 3408100144858265067}
+  - component: {fileID: 1391116266321244650}
   m_Layer: 6
   m_Name: 8_Fulgurodonte
   m_TagString: Untagged
@@ -1824,7 +1825,6 @@ MonoBehaviour:
   _distanceToTarget: 0
   _rotationSpeed: 1
   _currentState: {fileID: 5112401541319894436}
-  _detectionRadius: 50
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 264
@@ -1942,10 +1942,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshRenderers:
-  - {fileID: 8383670426862944430}
+  _resistSlow: 0
   _isHaveEmission: 1
   _emissionColor: {r: 23.968628, g: 23.968628, b: 23.968628, a: 1}
+  _meshRenderers:
+  - {fileID: 8383670426862944430}
 --- !u!114 &3408100144858265071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,6 +2027,18 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+--- !u!114 &1391116266321244650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279865158675101013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0259a102d6529942962ca5ef7295415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8731370581350665511
 GameObject:
   m_ObjectHideFlags: 0

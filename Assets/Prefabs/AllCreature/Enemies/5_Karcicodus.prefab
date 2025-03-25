@@ -712,6 +712,7 @@ GameObject:
   - component: {fileID: 4340323589884085429}
   - component: {fileID: 4340323589884085322}
   - component: {fileID: 7149952963032213087}
+  - component: {fileID: -5248384621411499965}
   m_Layer: 6
   m_Name: 5_Karcicodus
   m_TagString: Untagged
@@ -912,7 +913,6 @@ MonoBehaviour:
   _distanceToTarget: 0
   _rotationSpeed: 1
   _currentState: {fileID: 8251578257278908023}
-  _detectionRadius: 50
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 264
@@ -1030,10 +1030,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshRenderers:
-  - {fileID: 232261197370572453}
+  _resistSlow: 0
   _isHaveEmission: 1
   _emissionColor: {r: 2.143547, g: 2.143547, b: 2.143547, a: 1.46}
+  _meshRenderers:
+  - {fileID: 232261197370572453}
 --- !u!114 &4340323589884085431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,6 +1115,18 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+--- !u!114 &-5248384621411499965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4340323589884085317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0259a102d6529942962ca5ef7295415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4414213115372405256
 GameObject:
   m_ObjectHideFlags: 0

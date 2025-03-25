@@ -2744,6 +2744,7 @@ GameObject:
   - component: {fileID: 2608162674900245731}
   - component: {fileID: 2608162674900245728}
   - component: {fileID: 4092606568615015861}
+  - component: {fileID: -5847190370916139940}
   m_Layer: 6
   m_Name: 6_Entomochelon
   m_TagString: Untagged
@@ -2946,7 +2947,6 @@ MonoBehaviour:
   _distanceToTarget: 0
   _rotationSpeed: 1
   _currentState: {fileID: 4506523428528505265}
-  _detectionRadius: 50
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 264
@@ -3061,12 +3061,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resistSlow: 0
+  _isHaveEmission: 0
+  _emissionColor: {r: 0, g: 0, b: 0, a: 1}
   _meshRenderers:
   - {fileID: 3366492050661189409}
   - {fileID: 7032991172866403421}
   - {fileID: 6220781937352661613}
-  _isHaveEmission: 0
-  _emissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &2608162674900245748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3147,6 +3148,18 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+--- !u!114 &-5847190370916139940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762301019562515505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0259a102d6529942962ca5ef7295415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8806900248990643103
 GameObject:
   m_ObjectHideFlags: 0

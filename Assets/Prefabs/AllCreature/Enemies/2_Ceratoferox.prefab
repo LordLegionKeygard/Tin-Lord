@@ -2206,6 +2206,7 @@ GameObject:
   - component: {fileID: 9043387345702026513}
   - component: {fileID: 2675814229500550983}
   - component: {fileID: 1228504695540124087}
+  - component: {fileID: -365073027232517842}
   m_Layer: 6
   m_Name: 2_Ceratoferox
   m_TagString: Untagged
@@ -2406,7 +2407,6 @@ MonoBehaviour:
   _distanceToTarget: 0
   _rotationSpeed: 1
   _currentState: {fileID: 5482879833980916900}
-  _detectionRadius: 50
   _detectionLayer:
     serializedVersion: 2
     m_Bits: 264
@@ -2522,10 +2522,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshRenderers:
-  - {fileID: 2722026718188707655}
+  _resistSlow: 0
   _isHaveEmission: 1
   _emissionColor: {r: 1, g: 1, b: 1, a: 1}
+  _meshRenderers:
+  - {fileID: 2722026718188707655}
 --- !u!114 &2675814229500550981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2606,6 +2607,18 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+--- !u!114 &-365073027232517842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685643390988935067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0259a102d6529942962ca5ef7295415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9173519205290992991
 GameObject:
   m_ObjectHideFlags: 0

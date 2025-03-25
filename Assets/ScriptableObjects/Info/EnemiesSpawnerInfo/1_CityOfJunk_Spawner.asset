@@ -31,8 +31,8 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 30
     SpawnPeriod: 3
-    MinCount: 10
-    MaxCount: 15
+    MinCount: 15
+    MaxCount: 20
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
@@ -50,7 +50,7 @@ MonoBehaviour:
   - StartDaySpawn: 50
     SpawnPeriod: 2
     MinCount: 30
-    MaxCount: 30
+    MaxCount: 35
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 3

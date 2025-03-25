@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 6202608862765466030}
   - component: {fileID: 5061451366417472297}
   - component: {fileID: 299742651393217844}
+  - component: {fileID: 3780323426418365408}
   m_Layer: 6
   m_Name: 0_Arathrox
   m_TagString: Untagged
@@ -535,11 +536,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resistSlow: 0
+  _isHaveEmission: 0
+  _emissionColor: {r: 5.9921575, g: 5.9921575, b: 5.9921575, a: 1}
   _meshRenderers:
   - {fileID: 5648707090463651571}
   - {fileID: 7202664601743429240}
-  _isHaveEmission: 0
-  _emissionColor: {r: 5.9921575, g: 5.9921575, b: 5.9921575, a: 1}
 --- !u!114 &5061451366417472303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +622,18 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+--- !u!114 &3780323426418365408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987810694274685944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0259a102d6529942962ca5ef7295415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061356973370599056
 GameObject:
   m_ObjectHideFlags: 0

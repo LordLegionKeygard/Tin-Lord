@@ -125,7 +125,8 @@ public class BuildingTile : MonoBehaviour
             yield break;
          }
 
-         _buildingHealth.ConstructionIncreaseHealth(WorldGameInfo.ConstructionSpeed * Time.deltaTime);
+         var speed = _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base ? WorldGameInfo.FirstBaseConstructionSpeed : WorldGameInfo.ConstructionSpeed;
+         _buildingHealth.ConstructionIncreaseHealth(speed * Time.deltaTime);
          _constructionView.UpdateShaderByHealth(_buildingHealth.GetCurrentHealth(), _buildingHealth.GetMaxHealth());
 
          yield return null;

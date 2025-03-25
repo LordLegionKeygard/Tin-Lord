@@ -40,7 +40,8 @@ public class WorldGameInfo
     public const float TurretPatrolRotateSpeedFactor = 0.5f;
 
     [Header("Buildings")]
-    public const float ConstructionSpeed = 20;
+    public const float ConstructionSpeed = 3;
+    public const float FirstBaseConstructionSpeed = 40;
 
     [Header("Load")]
     public const int LoadSceneTime = 2;
