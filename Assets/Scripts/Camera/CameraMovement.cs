@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
@@ -83,7 +82,7 @@ public class CameraMovement : MonoBehaviour
 
     private void HandleMouseDrag()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUISystem.IsPointerOverUI && !_cardHolderSystem.IsHaveCurrentSelectedCardObject())
+        if (Mouse.current.rightButton.wasPressedThisFrame && !IsPointerOverUISystem.IsPointerOverUI)
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
 
@@ -96,7 +95,7 @@ public class CameraMovement : MonoBehaviour
             }
         }
 
-        if (Mouse.current.leftButton.wasReleasedThisFrame)
+        if (Mouse.current.rightButton.wasReleasedThisFrame)
         {
             _isDragging = false;
         }

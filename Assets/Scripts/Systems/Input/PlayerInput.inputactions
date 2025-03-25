@@ -29,13 +29,13 @@
                     "id": "550fba91-6c21-462d-b1a9-b38f618f6e8b",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Tap",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "RightMouseClick",
+                    "name": "MiddleMouseClick",
                     "type": "Button",
-                    "id": "491d0539-147e-4db0-80f1-7e809db643c7",
+                    "id": "ebef07b7-2404-4797-a02e-13e57dad1c38",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -216,17 +216,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "LeftMouseClick",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "08ff67a4-1975-42e7-95ae-1b1ae0374e25",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RightMouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -436,6 +425,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RobotPanelButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09864369-a1e7-45a4-b18e-34f6a3c0b60d",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MiddleMouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

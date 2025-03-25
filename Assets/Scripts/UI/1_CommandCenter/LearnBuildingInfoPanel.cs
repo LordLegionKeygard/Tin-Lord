@@ -17,7 +17,13 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _requiedResourcesText;
     [SerializeField] private GameObject _requiedResourcesPanelObject;
     [SerializeField] private GameObject _requiedResourcesPanelLine;
-    [SerializeField] private ResourcesViewCommandCenter _resourcesViewCommandCenter;
+    private ResourcesViewCommandCenter _resourcesView;
+
+    [Header("Recept")]
+    [SerializeField] private TextMeshProUGUI _receptText;
+    [SerializeField] private GameObject _receptPanelObject;
+    [SerializeField] private GameObject _receptPanelLine;
+    private ReceptPanelCommandCenter _receptPanel;
 
     [Header("Production")]
     [SerializeField] private GameObject _productionResourcePanelObject;
@@ -42,6 +48,8 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     private void Awake()
     {
         _productionResourcePanel = GetComponent<BaseProductionResourcePanel>();
+        _resourcesView = GetComponent<ResourcesViewCommandCenter>();
+        _receptPanel = GetComponent<ReceptPanelCommandCenter>();
     }
 
     public void PanelViewToggle(bool state)
@@ -61,6 +69,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         var building = _currentLearnBuildingItem.GetBuilding();
         SetMainPanel(building);
         SetRequiredResourcesPanel(building);
+        SetReceptPanel(building);
         SetProductionPanel(building);
         SetTurretPanel(building);
         SetButtonPanel();
@@ -81,7 +90,23 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _requiedResourcesText.text = Language.TextStatic[103];
         _requiedResourcesPanelObject.SetActive(true);
         _requiedResourcesPanelLine.SetActive(true);
-        _resourcesViewCommandCenter.SetResourcesView(building.ResourcesForBuild);
+        _resourcesView.SetResourcesView(building.ResourcesForBuild);
+    }
+
+    private void SetReceptPanel(Building building)
+    {
+        _receptText.text = Language.TextStatic[1];
+        if (building.ResourcesProduction.Length == 0 || building.ResourcesProduction[_currentResourcesProduction].ResourceRecept.Length == 0)
+        {
+            _receptPanelObject.SetActive(false);
+            _receptPanelLine.SetActive(false);
+        }
+        else
+        {
+            _receptPanel.UpdateReceptView(building.ResourcesProduction[_currentResourcesProduction].ResourceRecept);
+            _receptPanelObject.SetActive(true);
+            _receptPanelLine.SetActive(true);
+        }
     }
 
     private void SetProductionPanel(Building building)
@@ -148,6 +173,8 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     {
         _requiedResourcesPanelObject.SetActive(false);
         _requiedResourcesPanelLine.SetActive(false);
+        _receptPanelObject.SetActive(false);
+        _receptPanelLine.SetActive(false);
         _productionResourcePanelObject.SetActive(false);
         _productionResourcePanelLine.SetActive(false);
         _turretPanelObject.SetActive(false);

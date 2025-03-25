@@ -13,8 +13,8 @@ public class InputSystemWorld : MonoBehaviour
     //MouseClick
     private delegate void LeftMouseClick();
     private LeftMouseClick _leftMouseClick;
-    private delegate void RightMouseClick();
-    private RightMouseClick _rightMouseClick;
+    private delegate void MiddleMouseClick();
+    private MiddleMouseClick _middleMouseClick;
 
     // GameSpeed
     private delegate void GameSpeedPause(int gameSpeed);
@@ -93,7 +93,7 @@ public class InputSystemWorld : MonoBehaviour
 
         //MouseClick
         _playerInput.actions["LeftMouseClick"].performed += _ => _leftMouseClick();
-        _playerInput.actions["RightMouseClick"].performed += _ => _rightMouseClick();
+        _playerInput.actions["MiddleMouseClick"].performed += _ => _middleMouseClick();
 
         //GameSpeed
         _playerInput.actions["GameSpeedPause"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Pause);
@@ -121,7 +121,7 @@ public class InputSystemWorld : MonoBehaviour
 
         //MouseClick
         _leftMouseClick = new LeftMouseClick(_tileDetector.InputOnTile);
-        _rightMouseClick = new RightMouseClick(_uiPanels.ClearAndCancelCardHolderAndTileDetector);
+        _middleMouseClick = new MiddleMouseClick(_uiPanels.ClearAndCancelCardHolderAndTileDetector);
 
         //GameSpeed
         _gameSpeedPause = new GameSpeedPause(_gameSpeedSystem.InputChangeGameSpeed);
@@ -184,7 +184,7 @@ public class InputSystemWorld : MonoBehaviour
 
         //MouseClick
         _leftMouseClick = delegate { };
-        _rightMouseClick = delegate { };
+        _middleMouseClick = delegate { };
 
         //GameSpeed
         _gameSpeedPause = delegate { };
