@@ -52,12 +52,6 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _receptPanel = GetComponent<ReceptPanelCommandCenter>();
     }
 
-    public void PanelViewToggle(bool state)
-    {
-
-        Reset();
-    }
-
     public void SetNewBuildingItem(LearnBuildingItem learnBuildingItem)
     {
         _currentLearnBuildingItem = learnBuildingItem;
