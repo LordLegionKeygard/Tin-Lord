@@ -18,6 +18,7 @@ public class CardHolderSystem : MonoBehaviour
     [SerializeField] private CardsLayout _cardsLayout;
 
     [Header("Cards")]
+    [SerializeField] private Tile _baseCard;
     [SerializeField] private Tile[] _startCards;
     [SerializeField] private List<CardObject> _currentCards;
     [SerializeField] private CardObject _currentSelectCardObject;
@@ -43,11 +44,11 @@ public class CardHolderSystem : MonoBehaviour
             if (_addAllCards)
             {
                 AddNewCards(_availableCards);
-                AddNewCards(new Tile[] { _startCards[0] });
+                AddNewCards(new Tile[] { _baseCard });
             }
             else
             {
-                AddNewCards(_startCards);
+                AddNewCards(new Tile[] { _baseCard });
             }
         }
         else
@@ -195,7 +196,8 @@ public class CardHolderSystem : MonoBehaviour
 
     private void AddCardAfterSetBase()
     {
-        AddNewRandomCards(4);
+        AddNewCards(_startCards);
+        AddNewRandomCards(2);
     }
 
     private void AddCardsAfterDayEnd(int dayNumber)

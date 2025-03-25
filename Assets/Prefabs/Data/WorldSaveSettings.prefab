@@ -47,7 +47,7 @@ MonoBehaviour:
   SaveLoadSettings: {fileID: 0}
   CurrentSettingsSaveData:
     ScreenMode: 1
-    Resolution: 15
+    Resolution: 14
     Quality: 1
     AntiAliasing: 1
     UpscalingFilter: 0
@@ -57,6 +57,6 @@ MonoBehaviour:
     SfxVolume: 60
     UiVolume: 60
     MusicVolume: 60
-    Blood: 1
     CameraSpeed: 1.4
+    Blood: 1
   _fileName: SaveSettingsFile.txt
