@@ -30,44 +30,9 @@ public class SaveLoadSettings : MonoBehaviour
 
     public void SetAllSettingsFromData()
     {
-        StartCoroutine(InitializeSettings());
-    }
-
-    private IEnumerator InitializeSettings()
-    {
-        yield return StartCoroutine(SetVideoSettings());
-        yield return new WaitForSeconds(0.1f);
-
-        yield return StartCoroutine(SetControlSettings());
-        yield return new WaitForSeconds(0.1f);
-
-        yield return StartCoroutine(SetAudioSettings());
-        yield return new WaitForSeconds(0.1f);
-
-        yield return StartCoroutine(SetGameplaySettings());
-    }
-
-    private IEnumerator SetVideoSettings()
-    {
         _videoPanel.SetSettingsFromData();
-        yield return null;
-    }
-
-    private IEnumerator SetControlSettings()
-    {
         _controlPanel.SetSettingsFromData();
-        yield return null;
-    }
-
-    private IEnumerator SetAudioSettings()
-    {
         _audioPanel.SetSettingsFromData();
-        yield return null;
-    }
-
-    private IEnumerator SetGameplaySettings()
-    {
         _gameplayPanel.SetSettingsFromData();
-        yield return null;
     }
 }

@@ -68,7 +68,7 @@ public class WorldGameInfo
     public const int FrameRate = 100;
 
     [Header("GameplaySettings")]
-    public const float CameraSpeed = 14;
+    public const float CameraSpeed = 20;
     public const bool Blood = true;
 
     [Header("AudioSettings")]

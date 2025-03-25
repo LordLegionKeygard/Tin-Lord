@@ -50,7 +50,8 @@ public class GamePlayPanel : MonoBehaviour
 
     private void ApplySettingsToUI()
     {
-        _cameraSpeedValueText.text = _cameraSpeedSlider.value.ToString();
+        _cameraSpeedSlider.value = _cameraSpeed;
+        _cameraSpeedValueText.text = _cameraSpeed.ToString();
         _bloodToggle.SetIsOnWithoutNotify(_blood);
     }
 

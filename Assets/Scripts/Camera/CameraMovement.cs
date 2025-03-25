@@ -82,7 +82,7 @@ public class CameraMovement : MonoBehaviour
 
     private void HandleMouseDrag()
     {
-        if (Mouse.current.middleButton.wasPressedThisFrame && !IsPointerOverUISystem.IsPointerOverUI)
+        if (Mouse.current.rightButton.wasPressedThisFrame && !IsPointerOverUISystem.IsPointerOverUI)
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
 
@@ -95,7 +95,7 @@ public class CameraMovement : MonoBehaviour
             }
         }
 
-        if (Mouse.current.middleButton.wasReleasedThisFrame)
+        if (Mouse.current.rightButton.wasReleasedThisFrame)
         {
             _isDragging = false;
         }
