@@ -14,7 +14,7 @@ public class UIPanelsWorld : MonoBehaviour
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private MachinePanel _robotPanel;
-    [SerializeField] private PanelDoMoveX _panelDoMove;
+    // [SerializeField] private PanelDoMoveX _panelDoMove;
     [SerializeField] private EscapePanelWorld _escapePanel;
     [SerializeField] private SettingsPanels _settingsPanel;
 
@@ -44,10 +44,10 @@ public class UIPanelsWorld : MonoBehaviour
         {
             ClearAndCancelCardHolderAndTileDetector();
         }
-        else if (_panelDoMove.IsOpen())
-        {
-            _panelDoMove.PanelClose();
-        }
+        // else if (_panelDoMove.IsOpen())
+        // {
+        //     _panelDoMove.PanelClose();
+        // }
         else if (_settingsPanelObject.activeInHierarchy)
         {
             _settingsPanel.CloseButton();
