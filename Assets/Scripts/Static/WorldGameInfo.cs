@@ -60,7 +60,7 @@ public class WorldGameInfo
 
     [Header("VideoSettings")]
     public const int ScreenMode = 1;
-    public const int Resolution = 15;
+    public const int Resolution = 17;
     public const int Quality = 1;
     public const int AntiAliasing = 1;
     public const int UpscalingFilter = 0;

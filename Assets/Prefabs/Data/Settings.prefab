@@ -7531,6 +7531,8 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: 5120x1440
+      m_Image: {fileID: 21300000, guid: 4c71ca14d31bf104fbad007fa8a7db90, type: 3}
     - m_Text: 4096x2160
       m_Image: {fileID: 21300000, guid: 4c71ca14d31bf104fbad007fa8a7db90, type: 3}
     - m_Text: 3840x2160
@@ -24085,6 +24087,8 @@ MonoBehaviour:
     - m_Text: Full-screen
       m_Image: {fileID: 21300000, guid: 4c71ca14d31bf104fbad007fa8a7db90, type: 3}
     - m_Text: Windowed
+      m_Image: {fileID: 21300000, guid: 4c71ca14d31bf104fbad007fa8a7db90, type: 3}
+    - m_Text: Borderless
       m_Image: {fileID: 21300000, guid: 4c71ca14d31bf104fbad007fa8a7db90, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:

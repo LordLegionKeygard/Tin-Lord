@@ -32,6 +32,7 @@ public class SettingsLanguage : MonoBehaviour
 
         _videoDropDowns[0].options[0].text = Language.TextStatic[124];
         _videoDropDowns[0].options[1].text = Language.TextStatic[125];
+        _videoDropDowns[0].options[2].text = Language.TextStatic[103];
 
         _videoDropDowns[1].options[0].text = Language.TextStatic[126];
         _videoDropDowns[1].options[1].text = Language.TextStatic[127];

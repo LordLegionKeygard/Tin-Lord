@@ -197,9 +197,31 @@ public class VideoPanel : MonoBehaviour
 
     public void SetGameSettings()
     {
-        Screen.fullScreenMode = _screenMode == 0 ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+        FullScreenMode mode = FullScreenMode.Windowed;
 
-        Screen.SetResolution(_baseResolution.ResolutionWrapper[_resolution].Width, _baseResolution.ResolutionWrapper[_resolution].Height, _screenMode == 0);
+        switch (_screenMode)
+        {
+            case 0: // Полноэкранный (на весь экран с letterbox’ом)
+                mode = FullScreenMode.ExclusiveFullScreen;
+                Screen.SetResolution(_baseResolution.ResolutionWrapper[_resolution].Width,
+                                     _baseResolution.ResolutionWrapper[_resolution].Height,
+                                     mode);
+                break;
+            case 1: // Обычный оконный
+                mode = FullScreenMode.Windowed;
+                Screen.SetResolution(_baseResolution.ResolutionWrapper[_resolution].Width,
+                                     _baseResolution.ResolutionWrapper[_resolution].Height,
+                                     mode);
+                break;
+            case 2: // Безрамочный (в окне, но во весь экран)
+                mode = FullScreenMode.FullScreenWindow;
+                Screen.SetResolution(_baseResolution.ResolutionWrapper[_resolution].Width,
+                                     _baseResolution.ResolutionWrapper[_resolution].Height,
+                                     mode);
+                break;
+        }
+
+        Screen.fullScreenMode = mode;
 
         QualitySettings.SetQualityLevel(_quality, false);
 
