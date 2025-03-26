@@ -60,6 +60,7 @@ public class UIPanelsWorld : MonoBehaviour
 
     public void ClearAndCancelCardHolderAndTileDetector()
     {
+        CustomEvents.FireTooltipToggle(false, 0);
         _tileDetector.ClearTileDetector();
         _cardHolderSystem.CancelSelectCard();
     }

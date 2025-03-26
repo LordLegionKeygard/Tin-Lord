@@ -123,6 +123,12 @@ public class CustomEvents
         OnDataLoad?.Invoke();
     }
 
+    public static Action OnDestroyMachineProduction;
+    public static void FireDestroyMachineProduction()
+    {
+        OnDestroyMachineProduction?.Invoke();
+    }
+
     public static Action<SceneEnum, float, bool, int> OnLoadScene;
     public static void FireLoadScene(SceneEnum sceneEnum, float timeInSec, bool isLoadData, int missionId)
     {

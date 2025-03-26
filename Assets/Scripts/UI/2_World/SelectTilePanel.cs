@@ -68,6 +68,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void PanelViewToggle(bool state)
     {
+        CustomEvents.FireTooltipToggle(false, 0);
         if (state)
         {
             _objectTransform.DOAnchorPosY(0, 0.3f).SetUpdate(true);
@@ -94,6 +95,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void RefreshInfo()
     {
+        CustomEvents.FireTooltipToggle(false, 0);
         if (_tileObject == null) return;
 
         var buildingTileObject = _tileObject.BuildingTileObject();
@@ -150,7 +152,7 @@ public class SelectTilePanel : MonoBehaviour
         if (haveBuildingTile && tile.IsHaveProductionResources())
         {
             var isUseRources = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork.Length != 0;
-            var productionName = $"{tileObject.CurrentResourceProduction().Name[Language.LanguageNumber]}";
+            var productionName = $"{Language.TextStatic[tileObject.CurrentResourceProduction().NameNumber]}";
             string productionAmount;
 
             if (isUseRources)
@@ -193,7 +195,7 @@ public class SelectTilePanel : MonoBehaviour
             textColor = Colors.HexColorWarningYellow;
         }
 
-        _resourceForWorkText.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier) && tileObject.CurrentResourceForWork() != null ? $"{tileObject.CurrentResourceForWork().Name[Language.LanguageNumber]} {tileObject.CurrentResourceForWorkAmount()}" : "-")}</color>";
+        _resourceForWorkText.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier) && tileObject.CurrentResourceForWork() != null ? $"{Language.TextStatic[tileObject.CurrentResourceForWork().NameNumber]} {tileObject.CurrentResourceForWorkAmount()}" : "-")}</color>";
     }
 
     private void SetEcologyTexts(TileObject tileObject)
@@ -271,6 +273,7 @@ public class SelectTilePanel : MonoBehaviour
             _uiPanels.TogglePanel(UIPanelsEnum.BuildsPanel, true);
             _buildsPanel.SpawnUpgradeItemsInScrollView(_tileObject, this);
         }
+        CustomEvents.FireTooltipToggle(false, 0);
     }
 
     public void ToggleBuildingWorkButton()

@@ -9,7 +9,7 @@ public class Resource : ScriptableObject
     public ResourceType ResourceType;
     
     [Header("TextInfo")]
-    public string[] Name; //0 eng, 1 rus
+    public int NameNumber;
 }
 
 public enum ResourceType

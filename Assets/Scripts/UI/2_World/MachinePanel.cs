@@ -29,6 +29,12 @@ public class MachinePanel : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnMachineDie += UpdateDestroyButtonState;
+        CustomEvents.OnDestroyMachineProduction += ClosePanelAfterDestroyMachineProductionBuilding;
+    }
+
+    private void ClosePanelAfterDestroyMachineProductionBuilding()
+    {
+        if(_active) PanelViewToggle(false);
     }
 
     public void PlayerInputMachineItemButton(int number)
@@ -47,6 +53,7 @@ public class MachinePanel : MonoBehaviour
 
     public void PanelViewToggle(bool state)
     {
+        CustomEvents.FireTooltipToggle(false, 0);
         _active = state;
 
         if (state)
@@ -129,5 +136,6 @@ public class MachinePanel : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnMachineDie -= UpdateDestroyButtonState;
+        CustomEvents.OnDestroyMachineProduction -= ClosePanelAfterDestroyMachineProductionBuilding;
     }
 }

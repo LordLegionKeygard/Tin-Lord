@@ -126,6 +126,7 @@ public class BuildingHealth : BaseHealth
         if (_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.MachineProduction)
         {
             _tilesSystem.SetIsHaveMachineProduction(false);
+            CustomEvents.FireDestroyMachineProduction();
         }
 
         base.Death();

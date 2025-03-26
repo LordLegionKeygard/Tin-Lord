@@ -106,7 +106,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         else
         {
             _productionResourcePanel.SetButtonView(building, building.ResourcesProduction[_currentResourcesProduction].ProductionResource);
-            var productionName = $"{building.ResourcesProduction[_currentResourcesProduction].ProductionResource.Name[Language.LanguageNumber]}";
+            var productionName = $"{Language.TextStatic[building.ResourcesProduction[_currentResourcesProduction].ProductionResource.NameNumber]}";
             string productionAmount;
             productionAmount = building.ResourceExtractedAmount.ToString();
             var productionText = $"{Language.TextStatic[6]}: {productionName} {productionAmount}";
@@ -221,6 +221,6 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         }
 
         _resourceForWorkPanel.UpdateButtonsView(building, resource.ResourceEnum);
-        _resourceForWorkText.text = $"{Language.TextStatic[14]}: {resource.Name[Language.LanguageNumber]} {_resourceForWorkAmount}";
+        _resourceForWorkText.text = $"{Language.TextStatic[14]}: {Language.TextStatic[resource.NameNumber]} {_resourceForWorkAmount}";
     }
 }

@@ -30,8 +30,8 @@ public class Language : MonoBehaviour
         _text[0, 0] = "Tin Lord";
         _text[0, 1] = "Жестяной Лорд";
 
-        _text[1, 0] = "Recept";
-        _text[1, 1] = "Рецепт";
+        _text[1, 0] = "Recept:";
+        _text[1, 1] = "Рецепт:";
 
         _text[2, 0] = "Building";
         _text[2, 1] = "Здание";
@@ -485,6 +485,82 @@ public class Language : MonoBehaviour
 
         _text[152, 0] = "Resources for construction:";
         _text[152, 1] = "Ресурсы для строительства:";
+
+        _text[153, 0] = "Wood";
+        _text[153, 1] = "Древесина";
+        
+        _text[154, 0] = "Stone";
+        _text[154, 1] = "Камень";
+        
+        _text[155, 0] = "Iron Ore";
+        _text[155, 1] = "Железная Руда";
+        
+        _text[156, 0] = "Copper Ore";
+        _text[156, 1] = "Медная Руда";
+        
+        _text[157, 0] = "Coal";
+        _text[157, 1] = "Уголь";
+        
+        _text[158, 0] = "Oil";
+        _text[158, 1] = "Нефть";
+        
+        _text[159, 0] = "Water";
+        _text[159, 1] = "Вода";
+        
+        _text[160, 0] = "Sand";
+        _text[160, 1] = "Песок";
+        
+        _text[161, 0] = "Electricity";
+        _text[161, 1] = "Электричество";
+        
+        _text[162, 0] = "Stone Block";
+        _text[162, 1] = "Каменный Блок";
+        
+        _text[163, 0] = "Iron Ingot";
+        _text[163, 1] = "Слиток Железа";
+        
+        _text[164, 0] = "Steel Ingot";
+        _text[164, 1] = "Слиток Стали";
+        
+        _text[165, 0] = "Copper Plate";
+        _text[165, 1] = "Медная Пластина";
+        
+        _text[166, 0] = "Concrete";
+        _text[166, 1] = "Бетон";
+        
+        _text[167, 0] = "Steam";
+        _text[167, 1] = "Пар";
+
+        _text[168, 0] = "Glass";
+        _text[168, 1] = "Стекло";
+
+        _text[169, 0] = "Copper Wire";
+        _text[169, 1] = "Медный Провод";
+
+        _text[170, 0] = "Gear Wheel";
+        _text[170, 1] = "Шестерня";
+
+        _text[171, 0] = "Electronic Circuit";
+        _text[171, 1] = "Электросхема";
+
+        _text[172, 0] = "Processor";
+        _text[172, 1] = "Процессор";
+
+        _text[173, 0] = "Engine";
+        _text[173, 1] = "Двигатель";
+
+        _text[174, 0] = "Electric Engine";
+        _text[174, 1] = "Электродвигатель";
+
+        _text[175, 0] = "Memory Fragment";
+        _text[175, 1] = "Фрагмент Памяти";
+
+        _text[176, 0] = "Beam Energy";
+        _text[176, 1] = "Энергия Луча";
+
+        _text[177, 0] = "";
+        _text[177, 1] = "";
+
 
 
         for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];

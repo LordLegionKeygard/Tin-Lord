@@ -26,6 +26,7 @@ public class UIPanelsCommandCenter : MonoBehaviour
     {
         if(_canvasGroup.interactable == false) return;
         
+        CustomEvents.FireTooltipToggle(false, 0);
         if (_buildingsPanelDoMove.IsOpen())
         {
             Click();
