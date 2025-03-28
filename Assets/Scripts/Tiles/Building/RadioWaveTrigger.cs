@@ -25,7 +25,7 @@ public class RadioWaveTrigger : MonoBehaviour
         var enemySpeed = other.GetComponent<EnemyDebuff>();
         if (enemySpeed != null)
         {
-            enemySpeed.ChangeSlow(-slowEffectMultiplier);
+            enemySpeed.ChangeSlowDebuff(-slowEffectMultiplier, SlowType.RadioWave);
             _enemiesInRange.Add(enemySpeed);
             UpdateVFX();
         }
@@ -36,7 +36,7 @@ public class RadioWaveTrigger : MonoBehaviour
         var enemySpeed = other.GetComponent<EnemyDebuff>();
         if (enemySpeed != null)
         {
-            enemySpeed.ChangeSlow(+slowEffectMultiplier);
+            enemySpeed.ChangeSlowDebuff(+slowEffectMultiplier, SlowType.RadioWave);
             _enemiesInRange.Remove(enemySpeed);
             UpdateVFX();
         }
@@ -65,7 +65,7 @@ public class RadioWaveTrigger : MonoBehaviour
         {
             if (enemy != null)
             {
-                enemy.ChangeSlow(+slowEffectMultiplier);
+                enemy.ChangeSlowDebuff(+slowEffectMultiplier, SlowType.RadioWave);
             }
         }
         _enemiesInRange.Clear();

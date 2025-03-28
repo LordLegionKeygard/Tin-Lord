@@ -7,7 +7,9 @@ public class EnemyDebuff : MonoBehaviour
     [SerializeField] private bool _isHaveEmission;
     [ColorUsage(true, true)][SerializeField] private Color _emissionColor;
     [SerializeField] private SkinnedMeshRenderer[] _meshRenderers;
-    private float _speedFactor = 1;
+    [SerializeField] private float _radioWaveSlowAmount;
+    [SerializeField] private float _riverSlowAmount;
+    [SerializeField] private float _speedFactor = 1;
     private EnemySpeed _enemySpeed;
     private Texture[] _cachedEmissionTextures;
     public float GetSpeedFactor() => _speedFactor;
@@ -36,10 +38,21 @@ public class EnemyDebuff : MonoBehaviour
         }
     }
 
-    public void ChangeSlow(float slowAmount)
+    public void ChangeSlowDebuff(float slowAmount, SlowType slowType)
     {
         if (_resistSlow) return;
-        _speedFactor = Mathf.Clamp(_speedFactor + slowAmount, 0.1f, 1.0f);
+
+        switch (slowType)
+        {
+            case SlowType.RadioWave:
+                _radioWaveSlowAmount = slowAmount;
+                break;
+            case SlowType.River:
+            _riverSlowAmount = slowAmount;
+                break;
+        }
+
+        _speedFactor = Mathf.Clamp(_speedFactor + _radioWaveSlowAmount + _riverSlowAmount, 0.1f, 1.0f);
         UpdateSlowViewEmission();
         _enemySpeed.CanRun();
     }
@@ -76,4 +89,10 @@ public class EnemyDebuff : MonoBehaviour
             }
         }
     }
+}
+
+public enum SlowType
+{
+    RadioWave = 0,
+    River = 1,
 }

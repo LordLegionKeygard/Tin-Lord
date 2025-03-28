@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6fd4c58b1d17241a95d92e835083ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowEffectMultiplier: 0.2
+  slowEffectMultiplier: 0.3
   _effectCollider: {fileID: 7188673677128593375}
   _vfx: {fileID: 410884417589864693}
   _buildingLevels: {fileID: 8142879596173701983}
@@ -844,9 +844,7 @@ MonoBehaviour:
   _turnOnObjects: []
   _animators: []
   _rotateArounds: []
-  _changeViewIfModifier: 0
-  _additionalturnOffObjects: []
-  _additionalturnOnObjects: []
+  _trees: []
   _needSetResourceView: 0
   _resourceViewMeshRenders: []
   _resourceViewActiveGameObjects: []
