@@ -10,6 +10,7 @@ public class LoadingScreenController : MonoBehaviour
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [SerializeField] private TextMeshProUGUI _loading;
     [SerializeField] private Image _loadingScreen;
+    [SerializeField] private GameObject _blackScreen;
     [SerializeField] private Sprite[] _loadingScreenSprites;
 
     private void Start()
@@ -27,6 +28,7 @@ public class LoadingScreenController : MonoBehaviour
     public void ScreenToggle(bool state)
     {
         _loadingScreen.gameObject.SetActive(state);
+        _blackScreen.gameObject.SetActive(state);
     }
 
     public async Task CheckCurrentScene()
