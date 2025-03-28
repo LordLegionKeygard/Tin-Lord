@@ -7,11 +7,11 @@ using Zenject;
 public class PrologueSystem : MonoBehaviour
 {
     [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
-    
-    [Header("Camera")]
-    [SerializeField] private Transform _cameraTransform;
-    private int _defaultCameraPosition = 359;
-    private int _startPrologueCameraPosition = 430;
+
+    [Header("Planet")]
+    [SerializeField] private RectTransform _planetRectTransform;
+    [SerializeField] private Vector3 _defaultPlanetScale;
+    [SerializeField] private Vector3 _startProloguePlanetScale;
 
     [Header("UI")]
     [SerializeField] private CanvasGroup _canvasGroup;
@@ -25,7 +25,7 @@ public class PrologueSystem : MonoBehaviour
         if (!newGame) return;
         _skyBoxRotation.enabled = false;
         _prologueCanvas.SetActive(true);
-        MoveCamera();
+        ScalePlanet();
         PrepareCanvas();
     }
 
@@ -35,10 +35,10 @@ public class PrologueSystem : MonoBehaviour
         _canvasGroup.interactable = false;
     }
 
-    private void MoveCamera()
+    private void ScalePlanet()
     {
-        _cameraTransform.position = new Vector3(_startPrologueCameraPosition, _cameraTransform.position.y, _cameraTransform.position.z);
-        _cameraTransform.DOMoveX(_defaultCameraPosition, 94).OnComplete(() => ActiveCanvas());
+        _planetRectTransform.localScale = _startProloguePlanetScale;
+        _planetRectTransform.DOScale(_defaultPlanetScale, 94).OnComplete(() => ActiveCanvas());
     }
 
     private void ActiveCanvas()
