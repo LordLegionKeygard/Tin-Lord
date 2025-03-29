@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WaterSlowTrigger : MonoBehaviour
 {
-    private float _slowAmount = 0.7f;
+    private float _slowAmount = 0.5f;
 
     private void OnTriggerEnter(Collider other)
     {

@@ -48,11 +48,12 @@ public class EnemyDebuff : MonoBehaviour
                 _radioWaveSlowAmount = slowAmount;
                 break;
             case SlowType.River:
-            _riverSlowAmount = slowAmount;
+                _riverSlowAmount = slowAmount;
                 break;
         }
 
         _speedFactor = Mathf.Clamp(_speedFactor + _radioWaveSlowAmount + _riverSlowAmount, 0.1f, 1.0f);
+        if (_speedFactor < 0.2f) _speedFactor = 0.2f;
         UpdateSlowViewEmission();
         _enemySpeed.CanRun();
     }
