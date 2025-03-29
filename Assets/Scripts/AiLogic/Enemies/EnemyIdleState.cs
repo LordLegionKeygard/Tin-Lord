@@ -1,30 +1,33 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Pathfinding;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyIdleState : EnemyState
 {
     [SerializeField] private EnemyPursueTargetState _pursueTargetState;
     [SerializeField] private AIDestinationSetter _aiDestinationSetter;
     [SerializeField] private BaseDamage _creatureDamage;
-    [SerializeField] private AIPath _aiPath;
+
+    [Header("TargetSearch")]
+    private int _maxTargets = 10;
+    private int _randomNearTargets = 5;
 
     private void Start()
     {
         SetBaseTarget();
     }
 
-    public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks)
+    public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks, AIPath aiPath)
     {
+        if(aiPath.enabled == false) aiPath.enabled = true;
+
         stateChanger.CanRotateForwardToggle(false);
 
-        BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
-
-        if (targetHealth != null)
+        BaseHealth foundTarget = FindRandomReachableTarget(stateChanger);
+        if (foundTarget != null)
         {
-            SetTargetAndStartPursuit(targetHealth, attacks);
+            SetTargetAndStartPursuit(foundTarget, attacks, aiPath);
             return _pursueTargetState;
         }
 
@@ -36,46 +39,85 @@ public class EnemyIdleState : EnemyState
         return this;
     }
 
-
-
-    private BaseHealth FindNearestTargetInRange(EnemyStateChanger stateChanger)
+    /// <summary>
+    /// Находит несколько ближайших зданий, проверяет доступность (IsPathPossible),
+    /// и выбирает одну случайно.
+    /// </summary>
+    private BaseHealth FindRandomReachableTarget(EnemyStateChanger stateChanger)
     {
-        // Находим все объекты в радиусе
-        Collider[] colliders = Physics.OverlapSphere(transform.position,stateChanger.DetectionRadius(),stateChanger.DetectionLayer());
+        // 1) Берём все объекты в радиусе
+        Collider[] colliders = Physics.OverlapSphere(
+            transform.position, 
+            stateChanger.DetectionRadius(), 
+            stateChanger.DetectionLayer()
+        );
 
-        // Сохраним кандидатов (живые цели)
-        var possibleTargets = new List<BaseHealth>();
-
-        foreach (var collider in colliders)
+        List<BaseHealth> allTargets = new();
+        foreach (var col in colliders)
         {
-            BaseHealth targetHealth = collider.GetComponent<BaseHealth>();
-            if (targetHealth != null && !targetHealth.IsDeath())
+            var bh = col.GetComponent<BaseHealth>();
+            if (bh != null && !bh.IsDeath())
+                allTargets.Add(bh);
+        }
+        if (allTargets.Count == 0) return null;
+
+        // 2) Сортируем по прямому расстоянию
+        allTargets = allTargets.OrderBy(t => Vector3.Distance(transform.position, t.transform.position)).ToList();
+
+        // 3) Берём N ближайших
+        int takeCount = Mathf.Min(allTargets.Count, _maxTargets);
+        var subset = allTargets.GetRange(0, takeCount);
+
+        // 4) Перемешиваем и берём M случайных
+        Shuffle(subset);
+        int randomCount = Mathf.Min(subset.Count, _randomNearTargets);
+        var randomSubset = subset.GetRange(0, randomCount);
+
+        // 5) Проверяем кто из них достижим
+        var startNode = AstarPath.active.GetNearest(transform.position).node;
+        if (startNode == null) return null;
+
+        List<BaseHealth> reachable = new();
+
+        foreach (var candidate in randomSubset)
+        {
+            var endNode = AstarPath.active.GetNearest(candidate.transform.position).node;
+            if (endNode == null) continue;
+
+            // Если есть путь
+            if (PathUtilities.IsPathPossible(startNode, endNode))
             {
-                possibleTargets.Add(targetHealth);
+                reachable.Add(candidate);
             }
         }
 
-        // Если целей вообще нет
-        if (possibleTargets.Count == 0) return null;
+        // 6) Нет доступных зданий, значит скорее всего база окружена стенами
+        if (reachable.Count == 0)
+        {
+            //возвращаем самое близжайшее здание
+            return allTargets[0];
+        }
 
-        // Сортируем цели по расстоянию: ближайшие будут первыми
-        var sortedTargets = possibleTargets.OrderBy(t => Vector3.Distance(transform.position, t.transform.position)).ToList();
-
-        // Определяем, сколько ближайших зданий возьмём для выбора (например, половину)
-        int halfCount = Mathf.Max(1, sortedTargets.Count / 2);
-
-        // Формируем подсписок из ближайших `halfCount` зданий
-        var topClosest = sortedTargets.GetRange(0, halfCount);
-
-        // Выбираем случайную цель из этой ближайшей половины
-        var randomIndex = Random.Range(0, topClosest.Count);
-        var randomTarget = topClosest[randomIndex];
-
-        return randomTarget;
+        // 7) Из достижимых выбираем случайного
+        int idx = Random.Range(0, reachable.Count);
+        return reachable[idx];
     }
 
+    /// <summary>
+    /// Fisher–Yates shuffle
+    /// </summary>
+    private void Shuffle<T>(List<T> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            var tmp = list[i];
+            list[i] = list[j];
+            list[j] = tmp;
+        }
+    }
 
-    private void SetTargetAndStartPursuit(BaseHealth targetHealth, EnemyAttacks attacks)
+    private void SetTargetAndStartPursuit(BaseHealth targetHealth, EnemyAttacks attacks, AIPath aiPath)
     {
         var buildingTile = targetHealth.BuildingTile();
         var destinationTarget = buildingTile != null
@@ -83,7 +125,7 @@ public class EnemyIdleState : EnemyState
             : targetHealth.gameObject.transform;
 
         attacks.UpdateCreatureAttackDistance(buildingTile);
-        _aiPath.endReachedDistance = attacks.MaxMeleeAtkRange();
+        aiPath.endReachedDistance = attacks.MaxMeleeAtkRange();
         _aiDestinationSetter.CurrentTarget = destinationTarget;
 
         var buildingLevels = targetHealth.gameObject.GetComponent<BuildingTile>()?.GetBuildingLevels();

@@ -382,6 +382,8 @@ MonoBehaviour:
   _aiDestinationSetter: {fileID: 8633156420727041153}
   _creatureDamage: {fileID: 8633156420727041207}
   _aiPath: {fileID: 8633156420727041157}
+  maxClosestBuildings: 10
+  randomPickCount: 5
 --- !u!1 &1440072826470987812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,6 +2287,9 @@ MonoBehaviour:
   _emissionColor: {r: 0, g: 0, b: 0, a: 1}
   _meshRenderers:
   - {fileID: 7661720444125391495}
+  _radioWaveSlowAmount: 0
+  _riverSlowAmount: 0
+  _speedFactor: 1
 --- !u!114 &8633156420727041160
 MonoBehaviour:
   m_ObjectHideFlags: 0

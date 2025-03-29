@@ -1,3 +1,4 @@
+using Pathfinding;
 using UnityEngine;
 
 public class EnemyCombatState : EnemyState
@@ -6,8 +7,9 @@ public class EnemyCombatState : EnemyState
     [SerializeField] private EnemyPursueTargetState _pursueTargetState;
     [SerializeField] private EnemyIdleState _enemyIdleState;
 
-    public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks)
+    public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks, AIPath aiPath)
     {
+        if(aiPath.enabled == true) aiPath.enabled = false;
         if (aiDestinationSetter.CurrentTarget != null)
         {
             stateChanger.CanRotateForwardToggle(true);

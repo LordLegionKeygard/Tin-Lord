@@ -1,3 +1,4 @@
+using Pathfinding;
 using UnityEngine;
 
 public class EnemyStateChanger : BaseAiStateChanger
@@ -6,6 +7,7 @@ public class EnemyStateChanger : BaseAiStateChanger
     [SerializeField] private EnemyState _currentState;
     protected BaseHealth _baseHealth;
     protected EnemyAttacks _enemyAttacks;
+    private AIPath _aiPath;
 
     [Header("Detection")]
     private float _detectionRadius = 50000;
@@ -16,6 +18,7 @@ public class EnemyStateChanger : BaseAiStateChanger
     public override void Awake()
     {
         base.Awake();
+        _aiPath = GetComponent<AIPath>();
         _enemyAttacks = GetComponent<EnemyAttacks>();
         _baseHealth = GetComponent<EnemyHealth>();
     }
@@ -42,7 +45,7 @@ public class EnemyStateChanger : BaseAiStateChanger
     {
         if (_currentState != null)
         {
-            EnemyState nextState = _currentState.Tick(this, _baseHealth, BaseAnimator, AiDestinationSetter, _enemyAttacks);
+            EnemyState nextState = _currentState.Tick(this, _baseHealth, BaseAnimator, AiDestinationSetter, _enemyAttacks, _aiPath);
 
             if (nextState != null)
             {
