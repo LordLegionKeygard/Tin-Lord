@@ -381,9 +381,6 @@ MonoBehaviour:
   _pursueTargetState: {fileID: 1102503855943725060}
   _aiDestinationSetter: {fileID: 8633156420727041153}
   _creatureDamage: {fileID: 8633156420727041207}
-  _aiPath: {fileID: 8633156420727041157}
-  maxClosestBuildings: 10
-  randomPickCount: 5
 --- !u!1 &1440072826470987812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,13 +2002,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 4
-  m_Radius: 0.55
+  m_Height: 6
+  m_Radius: 2
   m_SlopeLimit: 90
   m_StepOffset: 2
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!95 &2391146225327716093
 Animator:
   serializedVersion: 5

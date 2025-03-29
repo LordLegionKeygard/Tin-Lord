@@ -58,8 +58,8 @@ public class RadioWaveTrigger : MonoBehaviour
 
     private void ClearAllEffects(int id)
     {
-        _effectCollider.enabled = false;
         if (_buildingLevels.CurrentTileObject().GetId() != id) return;
+        _effectCollider.enabled = false;
 
         foreach (var enemy in _enemiesInRange)
         {
