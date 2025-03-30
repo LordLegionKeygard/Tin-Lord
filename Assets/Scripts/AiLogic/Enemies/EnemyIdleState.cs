@@ -2,16 +2,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Pathfinding;
+using Crosstales.TrueRandom;
 
 public class EnemyIdleState : EnemyState
 {
     [SerializeField] private EnemyPursueTargetState _pursueTargetState;
     [SerializeField] private AIDestinationSetter _aiDestinationSetter;
     [SerializeField] private BaseDamage _creatureDamage;
-
-    [Header("TargetSearch")]
-    private int _maxTargets = 10;
-    private int _randomNearTargets = 5;
+    private readonly int _numberOfClosestTargets = 10;
 
     private void Start()
     {
@@ -20,11 +18,11 @@ public class EnemyIdleState : EnemyState
 
     public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks, AIPath aiPath)
     {
-        if(aiPath.enabled == false) aiPath.enabled = true;
+        if (!aiPath.enabled) aiPath.enabled = true;
 
         stateChanger.CanRotateForwardToggle(false);
 
-        BaseHealth foundTarget = FindRandomReachableTarget(stateChanger);
+        BaseHealth foundTarget = FindNearestAmongTop(stateChanger);
         if (foundTarget != null)
         {
             SetTargetAndStartPursuit(foundTarget, attacks, aiPath);
@@ -39,82 +37,61 @@ public class EnemyIdleState : EnemyState
         return this;
     }
 
-    /// <summary>
-    /// Находит несколько ближайших зданий, проверяет доступность (IsPathPossible),
-    /// и выбирает одну случайно.
-    /// </summary>
-    private BaseHealth FindRandomReachableTarget(EnemyStateChanger stateChanger)
+    private BaseHealth FindNearestAmongTop(EnemyStateChanger stateChanger)
     {
         // 1) Берём все объекты в радиусе
-        Collider[] colliders = Physics.OverlapSphere(
-            transform.position, 
-            stateChanger.DetectionRadius(), 
-            stateChanger.DetectionLayer()
-        );
+        Collider[] colliders = Physics.OverlapSphere(transform.position, stateChanger.DetectionRadius(), stateChanger.DetectionLayer());
 
         List<BaseHealth> allTargets = new();
         foreach (var col in colliders)
         {
             var bh = col.GetComponent<BaseHealth>();
             if (bh != null && !bh.IsDeath())
+            {
                 allTargets.Add(bh);
+            }
         }
+
+        // Если нет никаких зданий
         if (allTargets.Count == 0) return null;
 
-        // 2) Сортируем по прямому расстоянию
+        // 2) Сортируем по прямой дистанции (ближайшее будет в allTargets[0])
         allTargets = allTargets.OrderBy(t => Vector3.Distance(transform.position, t.transform.position)).ToList();
 
-        // 3) Берём N ближайших
-        int takeCount = Mathf.Min(allTargets.Count, _maxTargets);
-        var subset = allTargets.GetRange(0, takeCount);
+        // 3) Берём numberOfClosestTargets ближайших (или меньше, если зданий < нужного числа)
+        int takeCount = Mathf.Min(allTargets.Count, _numberOfClosestTargets);
+        var closestSubset = allTargets.GetRange(0, takeCount);
 
-        // 4) Перемешиваем и берём M случайных
-        Shuffle(subset);
-        int randomCount = Mathf.Min(subset.Count, _randomNearTargets);
-        var randomSubset = subset.GetRange(0, randomCount);
-
-        // 5) Проверяем кто из них достижим
+        // 4) Проверяем достижимость (IsPathPossible)
         var startNode = AstarPath.active.GetNearest(transform.position).node;
         if (startNode == null) return null;
 
         List<BaseHealth> reachable = new();
-
-        foreach (var candidate in randomSubset)
+        foreach (var candidate in closestSubset)
         {
             var endNode = AstarPath.active.GetNearest(candidate.transform.position).node;
             if (endNode == null) continue;
 
-            // Если есть путь
             if (PathUtilities.IsPathPossible(startNode, endNode))
             {
                 reachable.Add(candidate);
             }
         }
 
-        // 6) Нет доступных зданий, значит скорее всего база окружена стенами
+        // 5) Если никто из N ближайших не достижим,
+        //    возвращаем самое ближайшее здание из всех (allTargets[0])
         if (reachable.Count == 0)
         {
-            //возвращаем самое близжайшее здание
             return allTargets[0];
         }
 
-        // 7) Из достижимых выбираем случайного
-        int idx = Random.Range(0, reachable.Count);
-        return reachable[idx];
-    }
+        // 6) Из достижимых берём случайное через TrueRandom PRNG
+        //    GenerateIntegerPRNG(min, max, number) вернёт List<int>
+        //    Нужно 1 число в диапазоне [0..(reachable.Count - 1)]
+        List<int> randomInts = TRManager.Instance.GenerateIntegerPRNG(0, reachable.Count - 1, 1);
 
-    /// <summary>
-    /// Fisher–Yates shuffle
-    /// </summary>
-    private void Shuffle<T>(List<T> list)
-    {
-        for (int i = list.Count - 1; i > 0; i--)
-        {
-            int j = Random.Range(0, i + 1);
-            var tmp = list[i];
-            list[i] = list[j];
-            list[j] = tmp;
-        }
+        int rndIndex = randomInts[0]; // Берём первый элемент (единственный)
+        return reachable[rndIndex];
     }
 
     private void SetTargetAndStartPursuit(BaseHealth targetHealth, EnemyAttacks attacks, AIPath aiPath)
