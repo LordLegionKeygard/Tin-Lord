@@ -9,14 +9,13 @@ public class EnemyIdleState : EnemyState
     [SerializeField] private EnemyPursueTargetState _pursueTargetState;
     [SerializeField] private AIDestinationSetter _aiDestinationSetter;
     [SerializeField] private BaseDamage _creatureDamage;
-    private readonly int _closestBuildingCount = 3;
 
     private void Start()
     {
         SetBaseTarget();
     }
 
-    public override EnemyState Tick(EnemyStateChanger stateChanger,BaseHealth health,BaseAnimator animator,AIDestinationSetter aiDestinationSetter,EnemyAttacks attacks,AIPath aiPath)
+    public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks, AIPath aiPath)
     {
         if (!aiPath.enabled)
             aiPath.enabled = true;
@@ -49,17 +48,17 @@ public class EnemyIdleState : EnemyState
     /// </summary>
     private BaseHealth FindTargetWithExtendedRadius(EnemyStateChanger stateChanger)
     {
-        // 1) Поиск в начальном радиусе
-        Collider[] smallColliders = Physics.OverlapSphere(transform.position,stateChanger.DetectionRadius(),stateChanger.DetectionLayer());
-
+        // 1) Поиск в начальном радиусе (DetectionRadius, например 50)
+        Collider[] smallColliders = Physics.OverlapSphere(transform.position, stateChanger.DetectionRadius(), stateChanger.DetectionLayer());
         if (smallColliders.Length == 0)
         {
             // Если в начальном радиусе здание не обнаружено – враг продолжает идти к базе
             return null;
         }
 
-        // 2) Расширенный радиус
-        float extendedRadius = stateChanger.ExtraDetectionRadius();Collider[] bigColliders = Physics.OverlapSphere(transform.position,extendedRadius,stateChanger.DetectionLayer());
+        // 2) Расширенный радиус – используем функцию ExtraDetectionRadius() (например, 200)
+        float extendedRadius = stateChanger.ExtraDetectionRadius();
+        Collider[] bigColliders = Physics.OverlapSphere(transform.position, extendedRadius, stateChanger.DetectionLayer());
 
         List<BaseHealth> allTargets = new();
         foreach (var col in bigColliders)
@@ -75,41 +74,32 @@ public class EnemyIdleState : EnemyState
             return null;
         }
 
-        // 3) Сортировка по расстоянию (самое ближнее – первое)
-        allTargets = allTargets.OrderBy(t => Vector3.Distance(transform.position, t.transform.position)).ToList();
-
-        // 4) Берем topCount ближайших (или меньше, если зданий меньше)
-        int countToTakeBuildings = Mathf.Min(allTargets.Count, _closestBuildingCount);
-        var closestBuildings = allTargets.GetRange(0, countToTakeBuildings);
-
-        // 5) Фильтруем по достижимости
+        // 3) Фильтруем по достижимости: из всех найденных зданий оставляем только те, до которых есть путь
         var startNode = AstarPath.active.GetNearest(transform.position).node;
-        if (startNode == null)
-            return null;
+        if (startNode == null) return null;
 
         List<BaseHealth> reachable = new();
-        foreach (var candidate in closestBuildings)
+        foreach (var candidate in allTargets)
         {
             var endNode = AstarPath.active.GetNearest(candidate.transform.position).node;
-            if (endNode == null)
-                continue;
-            if (PathUtilities.IsPathPossible(startNode, endNode))
+            if (endNode != null && PathUtilities.IsPathPossible(startNode, endNode))
             {
                 reachable.Add(candidate);
             }
         }
 
-        // 6) Если ни одно из topCount не достижимо, возвращаем fallback – самое ближайшее здание из всех
+        // 4) Если ни одно здание не достижимо, возвращаем первое здание из allTargets
         if (reachable.Count == 0)
         {
             return allTargets[0];
         }
 
-        // 7) Иначе, используя TrueRandom PRNG (локальный), выбираем случайное число в диапазоне [0, reachable.Count - 1]
+        // 5) Иначе, выбираем случайное число в диапазоне
         List<int> randomInts = TRManager.Instance.GenerateIntegerPRNG(0, reachable.Count - 1, 1);
         int rndIndex = randomInts[0];
         return reachable[rndIndex];
     }
+
 
     private void SetTargetAndStartPursuit(BaseHealth targetHealth, EnemyAttacks attacks, AIPath aiPath)
     {

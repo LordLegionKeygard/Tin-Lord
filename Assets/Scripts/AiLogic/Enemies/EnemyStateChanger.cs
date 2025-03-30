@@ -12,7 +12,7 @@ public class EnemyStateChanger : BaseAiStateChanger
     [Header("Detection")]
     private float _detectionRadius = 50;
     public float DetectionRadius() => _detectionRadius;
-    private float _extraDetectionRadius = 200;
+    private float _extraDetectionRadius = 100;
     public float ExtraDetectionRadius() => _extraDetectionRadius;
     [SerializeField] private LayerMask _detectionLayer;
     public LayerMask DetectionLayer() => _detectionLayer;
