@@ -25,9 +25,9 @@ MonoBehaviour:
   CanRotateBuilding: 1
   ResourcesForBuild:
   - ResourceEnum: 0
-    RecourceAmount: 5
+    RecourceAmount: 10
   - ResourceEnum: 1
-    RecourceAmount: 2
+    RecourceAmount: 5
   ResourcesForWork: []
   ResourcesProduction:
   - ProductionResource: {fileID: 11400000, guid: bfa570f1828818e49a04733c679a441d,

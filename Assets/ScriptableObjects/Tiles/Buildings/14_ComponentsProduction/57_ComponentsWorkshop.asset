@@ -24,10 +24,12 @@ MonoBehaviour:
   Price: 250
   CanRotateBuilding: 1
   ResourcesForBuild:
-  - ResourceEnum: 1
-    RecourceAmount: 10
   - ResourceEnum: 10
-    RecourceAmount: 5
+    RecourceAmount: 30
+  - ResourceEnum: 11
+    RecourceAmount: 20
+  - ResourceEnum: 12
+    RecourceAmount: 10
   ResourcesForWork:
   - ResourceForWork: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098, type: 2}
     ResourcesForWorkAmount: 0.2
