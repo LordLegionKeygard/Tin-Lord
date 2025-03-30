@@ -10,8 +10,10 @@ public class EnemyStateChanger : BaseAiStateChanger
     private AIPath _aiPath;
 
     [Header("Detection")]
-    private float _detectionRadius = 50000;
+    private float _detectionRadius = 50;
     public float DetectionRadius() => _detectionRadius;
+    private float _extraDetectionRadius = 200;
+    public float ExtraDetectionRadius() => _extraDetectionRadius;
     [SerializeField] private LayerMask _detectionLayer;
     public LayerMask DetectionLayer() => _detectionLayer;
 
