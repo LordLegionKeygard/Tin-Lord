@@ -9,12 +9,18 @@ public class UIPanelsCommandCenter : MonoBehaviour
     [SerializeField] private EscapePanelCommandCenter _escapePanel;
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private LearnBuildingInfoPanel _learnBuildingInfoPanel;
+    [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
 
     public void Click()
     {
         _buildingsPanelDoMove.PanelMove();
         _missionPanelDoMove.PanelMove();
         _buildingInfoPanel.PanelMove();
+
+        if(_buildingsPanelDoMove.IsOpen())
+        {
+            _buildingsLearnPanel.ResetScrollPosition();
+        }
 
         if(!_buildingInfoPanel.IsOpen())
         {

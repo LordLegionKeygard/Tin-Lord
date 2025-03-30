@@ -75,9 +75,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void SpawnEnemies(Spawner spawner)
     {
-        var rndCount = Random.Range(spawner.MinCount, spawner.MaxCount + 1);
-
-        for (int i = 0; i < rndCount; i++)
+        for (int i = 0; i < spawner.Count; i++)
         {
             var rndEnemy = Random.Range(0, spawner.EnemiesSpawnerInfo.Length);
             var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);

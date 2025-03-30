@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "EnemiesSpawnerInformation", menuName = "TinLord/Info/EnemySpawner")]
 public class EnemiesSpawnerInformation : ScriptableObject
@@ -17,8 +18,7 @@ public class Spawner
 {
     public int StartDaySpawn;
     public int SpawnPeriod;
-    public int MinCount;
-    public int MaxCount;
+    public int Count;
     public EnemySpawnerInfo[] EnemiesSpawnerInfo;
 
 }

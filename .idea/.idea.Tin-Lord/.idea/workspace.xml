@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Arathrox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Arathrox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/1_Serparmat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/1_Serparmat.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/2_Desert_Spawner.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/2_Desert_Spawner.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyIdleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Ground/WaterSlowTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiles/Ground/WaterSlowTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/Info/Enemy/EnemiesSpawnerInformation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/Info/Enemy/EnemiesSpawnerInformation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/EnemiesSpawnerSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/EnemiesSpawnerSystem.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +160,7 @@
       <workItem from="1743266590474" duration="643000" />
       <workItem from="1743267970180" duration="53000" />
       <workItem from="1743269764058" duration="1000" />
+      <workItem from="1743333820103" duration="38000" />
     </task>
     <servers />
   </component>
@@ -188,13 +183,27 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Systems/EndMissionSystem.cs</url>
           <line>54</line>
-          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Systems\EndMissionSystem.cs" containingFunctionPresentation="Method 'SetMissionEndViewInfo'" />
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Systems\EndMissionSystem.cs" containingFunctionPresentation="Method 'SetMissionEndViewInfo'">
+            <startOffsets>
+              <option value="1867" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1868" />
+            </endOffsets>
+          </properties>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyAttackState.cs</url>
-          <line>9</line>
-          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\AiLogic\Enemies\EnemyAttackState.cs" containingFunctionPresentation="Method 'Tick'" />
+          <line>10</line>
+          <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\AiLogic\Enemies\EnemyAttackState.cs" containingFunctionPresentation="Method 'Tick'">
+            <startOffsets>
+              <option value="412" />
+            </startOffsets>
+            <endOffsets>
+              <option value="413" />
+            </endOffsets>
+          </properties>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">

@@ -38,7 +38,7 @@ public class PrologueSystem : MonoBehaviour
     private void ScalePlanet()
     {
         _planetRectTransform.localScale = _startProloguePlanetScale;
-        _planetRectTransform.DOScale(_defaultPlanetScale, 94).OnComplete(() => ActiveCanvas());
+        _planetRectTransform.DOScale(_defaultPlanetScale, 92).OnComplete(() => ActiveCanvas());
     }
 
     private void ActiveCanvas()
