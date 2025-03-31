@@ -9,7 +9,6 @@ public class EnemyCombatState : EnemyState
 
     public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks, AIPath aiPath)
     {
-        if(aiPath.enabled == true) aiPath.enabled = false;
         if (aiDestinationSetter.CurrentTarget != null)
         {
             stateChanger.CanRotateForwardToggle(true);

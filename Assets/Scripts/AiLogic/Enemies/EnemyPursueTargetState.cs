@@ -7,9 +7,7 @@ public class EnemyPursueTargetState : EnemyState
     [SerializeField] private EnemyIdleState _idleState;
 
     public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks, AIPath aiPath)
-    {
-        if(aiPath.enabled == false) aiPath.enabled = true;
-        
+    {        
         if (aiDestinationSetter.CurrentTarget != null)
         {
             if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))
