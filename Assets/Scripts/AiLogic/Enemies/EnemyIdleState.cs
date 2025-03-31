@@ -87,7 +87,8 @@ public class EnemyIdleState : EnemyState
         // 4) Если ни одно здание не достижимо, возвращаем первое здание из allTargets
         if (reachable.Count == 0)
         {
-            return allTargets[0];
+            var rnd = Random.Range(0, 4);
+            return allTargets[rnd];
         }
 
         // 5) Иначе, выбираем случайное число в диапазоне

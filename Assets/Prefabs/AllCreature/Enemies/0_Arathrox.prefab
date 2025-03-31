@@ -216,9 +216,9 @@ GameObject:
   - component: {fileID: 5061451366417472304}
   - component: {fileID: 5061451366417472303}
   - component: {fileID: 5061451366417472296}
-  - component: {fileID: 6202608862765466030}
+  - component: {fileID: 8632697778389242314}
   - component: {fileID: 5061451366417472297}
-  - component: {fileID: 299742651393217844}
+  - component: {fileID: 4562478029693113603}
   - component: {fileID: 3780323426418365408}
   m_Layer: 6
   m_Name: 0_Arathrox
@@ -236,8 +236,8 @@ Transform:
   m_GameObject: {fileID: 1987810694274685944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.6000001, y: 1.6000001, z: 1.6000001}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3082086832447802070}
   - {fileID: 4001837379275788050}
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyEnum: 0
---- !u!114 &6202608862765466030
+--- !u!114 &8632697778389242314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &299742651393217844
+--- !u!114 &4562478029693113603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -777,9 +777,6 @@ MonoBehaviour:
   _pursueTargetState: {fileID: 2318056101767411053}
   _aiDestinationSetter: {fileID: 5061451366417472318}
   _creatureDamage: {fileID: 5061451366417472310}
-  _aiPath: {fileID: 5061451366417472317}
-  maxClosestBuildings: 10
-  randomPickCount: 5
 --- !u!1 &2318056101724557578
 GameObject:
   m_ObjectHideFlags: 0
