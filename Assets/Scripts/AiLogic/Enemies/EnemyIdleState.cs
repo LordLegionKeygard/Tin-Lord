@@ -33,18 +33,10 @@ public class EnemyIdleState : EnemyState
         return this;
     }
 
-    /// <summary>
-    /// Логика поиска цели:
-    /// 1) Если в радиусе stateChanger.DetectionRadius() (начальный, 50) обнаружено хотя бы одно здание,
-    ///    выполняется расширенный поиск во всём радиусе = stateChanger.DetectionRadius() + extraRadius.
-    /// 2) Из найденных в расширенном радиусе берутся topCount (3) ближайших,
-    ///    затем фильтруются по достижимости (IsPathPossible).
-    /// 3) Если ни одно из topCount не достижимо, возвращается самое ближайшее здание из всех.
-    /// 4) Иначе случайно выбирается одно из достижимых (через GenerateIntegerPRNG).
-    /// </summary>
+
     private BaseHealth FindTargetWithExtendedRadius(EnemyStateChanger stateChanger)
     {
-        // 1) Поиск в начальном радиусе (DetectionRadius, например 50)
+        // 1) Поиск в начальном радиусе
         Collider[] smallColliders = Physics.OverlapSphere(transform.position, stateChanger.DetectionRadius(), stateChanger.DetectionLayer());
         if (smallColliders.Length == 0)
         {
@@ -52,7 +44,7 @@ public class EnemyIdleState : EnemyState
             return null;
         }
 
-        // 2) Расширенный радиус – используем функцию ExtraDetectionRadius() (например, 200)
+        // 2) Расширенный радиус
         float extendedRadius = stateChanger.ExtraDetectionRadius();
         Collider[] bigColliders = Physics.OverlapSphere(transform.position, extendedRadius, stateChanger.DetectionLayer());
 
@@ -84,14 +76,14 @@ public class EnemyIdleState : EnemyState
             }
         }
 
-        // 4) Если ни одно здание не достижимо, возвращаем первое здание из allTargets
+        // 4) Если ни одно здание не достижимо значит база окружена стенами, возвращаем случайное из близжайших 
         if (reachable.Count == 0)
         {
             var rnd = Random.Range(0, 4);
             return allTargets[rnd];
         }
 
-        // 5) Иначе, выбираем случайное число в диапазоне
+        // 5) Иначе, выбираем случайное из всех достижимых в радиусе
         List<int> randomInts = TRManager.Instance.GenerateIntegerPRNG(0, reachable.Count - 1, 1);
         int rndIndex = randomInts[0];
         return reachable[rndIndex];

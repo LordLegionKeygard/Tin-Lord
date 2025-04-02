@@ -24,8 +24,10 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
+  CanBuildMachineProduction: 0
   BuildingTypes: []
   ProductionOnGroundResources: []
   BuildingTileView: 20
   Buildings:
   - {fileID: 11400000, guid: 4a69b699287b1b24e944f5962288644d, type: 2}
+  - {fileID: 11400000, guid: 129c980b03df78540b57988c5b61558d, type: 2}
