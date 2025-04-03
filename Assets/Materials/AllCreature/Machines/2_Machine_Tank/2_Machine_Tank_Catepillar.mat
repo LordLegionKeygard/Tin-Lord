@@ -44,7 +44,8 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - Color_be8d534a2e8e4ea685bbae01ff28fd65: {r: 1, g: 1, b: 1, a: 1}
-    - Vector2_f9b7b525e2bf407a8ac08d1a6de8aa71: {r: 2, g: 0, b: 0, a: 0}
+    - MainTexSpeed_: {r: 1.25, g: 0, b: 0, a: 0}
+    - Vector2_f9b7b525e2bf407a8ac08d1a6de8aa71: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2237643996529986040
 MonoBehaviour:

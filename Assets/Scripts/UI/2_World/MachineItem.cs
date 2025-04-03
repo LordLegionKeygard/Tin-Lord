@@ -23,6 +23,8 @@ public class MachineItem : MonoBehaviour
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
     [SerializeField] private WorldResourcesView _worldResourcesView;
     private bool _resourcesEnough;
+
+    public int GetRequiredBuildingLevel() => _macniheInformation.RequiredBuildingLevel;
     public bool CanRepair() => _currentMachineSystem.IsHaveMachine() &&
                                 !_currentMachineSystem.IsMachineDeath() &&
                                 !_currentMachineSystem.GetMachineHealth().FullHealth() &&
@@ -39,7 +41,7 @@ public class MachineItem : MonoBehaviour
     private void UpdateViewAfterMachineDie()
     {
         var time = WorldGameInfo.MachineDieDelay + WorldGameInfo.MachineDieDuration + 0.1f;
-        _icon.color = Color.black;
+        _icon.color = Colors.GreyFive;
         Invoke(nameof(SetButtonAndTextColor), time);
     }
 
@@ -82,7 +84,7 @@ public class MachineItem : MonoBehaviour
         _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
         _button.enabled = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? _currentMachineSystem.GetMachineHealth().FullHealth() || _currentMachineSystem.GetMachineHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
         _nameText.color = _currentMachineSystem.IsHaveMachine() ? _isSelect ? Color.white : Colors.GreyEight : _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
-        _icon.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() && !_currentMachineSystem.GetMachineHealth().IsDeath() ? Color.white : Color.black : _isSelect ? Color.white : Colors.GreyEight;
+        _icon.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() && !_currentMachineSystem.GetMachineHealth().IsDeath() ? Color.white : Colors.GreyFive : _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
     }
 

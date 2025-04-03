@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MachinePanel : MonoBehaviour
 {
-    [SerializeField] MachineItem[] _robotItems;
+    [SerializeField] MachineItem[] _machineItems;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
     private MachineInformation _currentSelectMachineInfo;
@@ -39,7 +39,7 @@ public class MachinePanel : MonoBehaviour
 
     public void PlayerInputMachineItemButton(int number)
     {
-        var robotitem = _robotItems[number - 1];
+        var robotitem = _machineItems[number - 1];
 
         if(robotitem.IsSelect())
         {
@@ -70,17 +70,25 @@ public class MachinePanel : MonoBehaviour
 
     public void DeselectAllMachineItems()
     {
-        for (int i = 0; i < _robotItems.Length; i++)
+        for (int i = 0; i < _machineItems.Length; i++)
         {
-            _robotItems[i].SelectToggleState(false);
+            _machineItems[i].SelectToggleState(false);
         }
     }
 
     public void RefreshAllMachineItemsView()
     {
-        for (int i = 0; i < _robotItems.Length; i++)
+        for (int i = 0; i < _machineItems.Length; i++)
         {
-            _robotItems[i].SetButtonAndTextColor();
+            _machineItems[i].SetButtonAndTextColor();
+        }
+    }
+
+    public void ActiveMacnineItems(int buildingLevel)
+    {
+        for (int i = 0; i < _machineItems.Length; i++)
+        {
+            _machineItems[i].gameObject.SetActive(_machineItems[i].GetRequiredBuildingLevel() <= buildingLevel);       
         }
     }
 

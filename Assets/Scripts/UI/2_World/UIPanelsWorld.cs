@@ -14,14 +14,13 @@ public class UIPanelsWorld : MonoBehaviour
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private MachinePanel _robotPanel;
-    // [SerializeField] private PanelDoMoveX _panelDoMove;
     [SerializeField] private EscapePanelWorld _escapePanel;
     [SerializeField] private SettingsPanels _settingsPanel;
 
-    public void MainPanelsViewToggle(bool selectTilePanel, bool robotPanel)
+    public void MainPanelsViewToggle(bool selectTilePanel, bool machinePanel)
     {
         _selectTilePanel.PanelViewToggle(selectTilePanel);
-        _robotPanel.PanelViewToggle(robotPanel);
+        _robotPanel.PanelViewToggle(machinePanel);
     }
 
     public bool ActiveInHierarchy(UIPanelsEnum panelEnum) => _selectTilePanels[(int)panelEnum].activeInHierarchy;

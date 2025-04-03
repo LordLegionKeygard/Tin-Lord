@@ -7,6 +7,7 @@ public class MachineInformation : ScriptableObject
     public Sprite MachineSprite;
     public MachineType MachineType;
     public float DetectionRadius;
+    public int RequiredBuildingLevel;
     [SerializeField] private MachineLevelInfo MachineLevelInfo;
     public ResourceWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства
 

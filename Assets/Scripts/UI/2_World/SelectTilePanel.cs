@@ -10,7 +10,7 @@ public class SelectTilePanel : MonoBehaviour
     [Inject] private PlayerResources _playerResources;
 
     [Header("Panels")]
-    [SerializeField] private MachinePanel _robotPanel;
+    [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanelsWorld _uiPanels;
@@ -21,7 +21,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private GameObject _workButton;
     [SerializeField] private GameObject _rotateButton;
     [SerializeField] private GameObject _destroyButton;
-    [SerializeField] private GameObject _robotButton;
+    [SerializeField] private GameObject _machineButton;
     [SerializeField] private RectTransform _objectTransform;
 
     [Header("Button Icons")]
@@ -39,7 +39,7 @@ public class SelectTilePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
 
     [Header("Other")]
-    [SerializeField] private MachineSpawnerSystem _robotSpawnerSystem;
+    [SerializeField] private MachineSpawnerSystem _machineSpawnerSystem;
     private TileObject _tileObject;
     private ResourceForWorkPanel _resourceForWorkPanel;
     private BaseProductionResourcePanel _productionResourcePanel;
@@ -239,7 +239,7 @@ public class SelectTilePanel : MonoBehaviour
         _buildButton.SetActive(buildButtonState);
         _rotateButton.SetActive(rotateButtonState);
         _destroyButton.SetActive(destroyButtonState);
-        _robotButton.SetActive(robotButtonState);
+        _machineButton.SetActive(robotButtonState);
 
         _uiPanels.SetButtonsPanelVisibility(onOffButtonState || buildButtonState || destroyButtonState);
     }
@@ -361,10 +361,11 @@ public class SelectTilePanel : MonoBehaviour
 
     public void RobotPanelButton()
     {
-        if (!_robotButton.activeInHierarchy || _tileObject == null) return;
+        if (!_machineButton.activeInHierarchy || _tileObject == null) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        _robotSpawnerSystem.SetTileObject(_tileObject);
-        _robotPanel.PanelViewToggle(true);
+        _machineSpawnerSystem.SetTileObject(_tileObject);
+        _machinePanel.ActiveMacnineItems(_tileObject.BuildingTileObject().CurrentBuildingLevel());
+        _machinePanel.PanelViewToggle(true);
         PanelViewToggle(false);
     }
 
