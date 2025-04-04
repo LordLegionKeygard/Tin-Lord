@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MachineStateChanger : BaseAiStateChanger
 {
-    [SerializeField] private float _rotationSpeed = 1;
+    [SerializeField] private float _rotationSpeed = 0.1f;
     [SerializeField] private MachineState _currentState;
     private BaseHealth _baseHealth;
     private MachineAttacks _machineAttacks;

@@ -501,7 +501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
-  _rotationSpeed: 1
+  _rotationSpeed: 0.1
   _currentState: {fileID: 5861853113795007516}
   _detectionLayer:
     serializedVersion: 2
