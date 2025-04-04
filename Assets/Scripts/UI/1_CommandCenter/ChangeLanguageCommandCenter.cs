@@ -26,7 +26,7 @@ public class ChangeLanguageCommandCenter : MonoBehaviour
             _buildingTypesNameTexts[i].text = _buildingTypesTiles[i].Name[Language.LanguageNumber];
         }
 
-        _escapeTexts[0].text = Language.TextStatic[44];
+        _escapeTexts[0].text = Language.TextStatic[33];
         _escapeTexts[1].text = Language.TextStatic[28];
         _escapeTexts[2].text = Language.TextStatic[47];
         _areYouSureText.text = Language.TextStatic[48];
