@@ -83,7 +83,7 @@ public class MachineItem : MonoBehaviour
     {
         _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
         _button.enabled = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? _currentMachineSystem.GetMachineHealth().FullHealth() || _currentMachineSystem.GetMachineHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
-        _nameText.color = _currentMachineSystem.IsHaveMachine() ? _isSelect ? Color.white : Colors.GreyEight : _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
+        _nameText.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? Color.green : Colors.GreyEight : _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() && !_currentMachineSystem.GetMachineHealth().IsDeath() ? Color.white : Colors.GreyFive : _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
     }
