@@ -132,9 +132,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "RobotPanelButton",
+                    "name": "MachinePanelButton",
                     "type": "Button",
                     "id": "79546fd7-65dd-4ca2-9073-83a276f45b60",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GeneralRepairButton",
+                    "type": "Button",
+                    "id": "a70262bd-5798-445c-a209-c90047db6fe1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -424,7 +433,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "RobotPanelButton",
+                    "action": "MachinePanelButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -436,6 +445,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightMouseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38479b0e-4188-4b90-957d-c6a437d7a6c0",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GeneralRepairButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

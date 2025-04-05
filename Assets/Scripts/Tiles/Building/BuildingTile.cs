@@ -395,6 +395,7 @@ public class BuildingTile : MonoBehaviour
          LoadResourceProduction(tileDataWrapper.BuildingData);
          CheckIsExtrabaseTileObject();
 
+
          _buildingHealth.LoadBuildingHealth(CurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth, false);
 
          _tileObject.SetBuildingWork(tileDataWrapper.BuildingData.IsBuildingWork);
@@ -402,6 +403,12 @@ public class BuildingTile : MonoBehaviour
 
          var rotationView = _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>();
          if (rotationView != null) rotationView.LoadRotate(tileDataWrapper.BuildingData.BuildingRotation);
+
+         if (tileDataWrapper.BuildingData.IsGeneralRepairSelect)
+         {
+            _tileObject.SetGeneralRepairSelect(true);
+            CustomEvents.FireChangeGeneralRepairTileObject(_tileObject);
+         }
       }
    }
 

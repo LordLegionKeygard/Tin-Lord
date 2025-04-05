@@ -465,8 +465,8 @@ public class Language : MonoBehaviour
         _text[145, 0] = "Toggle building";
         _text[145, 1] = "Включить / выключить здание";
 
-        _text[146, 0] = "Open robot panel";
-        _text[146, 1] = "Открыть панель роботов";
+        _text[146, 0] = "Open machine panel";
+        _text[146, 1] = "Открыть панель машин";
 
         _text[147, 0] = "Memory restored:";
         _text[147, 1] = "Восстановлено фрагментов:";
@@ -558,8 +558,11 @@ public class Language : MonoBehaviour
         _text[176, 0] = "Beam Energy";
         _text[176, 1] = "Энергия Луча";
 
-        _text[177, 0] = "";
-        _text[177, 1] = "";
+        _text[177, 0] = "Mark / Remove from general repair";
+        _text[177, 1] = "Пометить / Снять с общего ремонта";
+
+        _text[178, 0] = "General repair";
+        _text[178, 1] = "Общий ремонт";
 
 
 

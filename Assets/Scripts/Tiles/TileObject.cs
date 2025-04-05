@@ -7,6 +7,7 @@ public class TileObject : MonoBehaviour
     [Inject] PlayerResources _playerResources;
     [Inject] SelectTilePanel _selectTilePanel;
     [SerializeField] private TileObject[] _neighbourTiles;
+    [SerializeField] private bool _isGeneralRepairSelect;
     private GroundTile _groundTile;
     private BuildingTile _buildingTile;
     private TileEcology _tileEcology;
@@ -23,6 +24,7 @@ public class TileObject : MonoBehaviour
     private bool _isBuildingDestroyedNow;
     private bool _isGroundDestroyedNow;
     private int _riftViewNumber = -1;
+    public bool IsGeneralRepairSelect() => _isGeneralRepairSelect;
     public int GetRiftViewNumber() => _riftViewNumber;
     public bool IsBuildingWork() => _isBuildingWork;
     public bool IsBuildingDestroyedNow() => _isBuildingDestroyedNow;
@@ -42,6 +44,7 @@ public class TileObject : MonoBehaviour
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
     public void SetBuildingWork(bool state) => _isBuildingWork = state;
+    public void SetGeneralRepairSelect(bool state) => _isGeneralRepairSelect = state;
     public void SetRiftViewNumber(int number) => _riftViewNumber = number;
 
     //Neighbours

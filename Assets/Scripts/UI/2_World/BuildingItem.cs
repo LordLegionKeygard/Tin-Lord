@@ -83,8 +83,8 @@ public class BuildingItem : MonoBehaviour
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             return;
-        } 
-            
+        }
+
 
         _buildingResourcesView.ResetCells();
         _playerResources.UseResourcesForBuilding(GetResources());
@@ -127,13 +127,11 @@ public class BuildingItem : MonoBehaviour
             float healthPercentage = (float)(buildingHealth.GetMaxHealth() - buildingHealth.GetCurrentHealth()) / buildingHealth.GetMaxHealth();
 
             // Пропорционально рассчитываем ресурсы для ремонта
-            return building.ResourcesForBuild
-                .Select(resource => new ResourceWrapper
-                {
-                    ResourceEnum = resource.ResourceEnum,
-                    RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage)
-                })
-                .ToArray();
+            return building.ResourcesForBuild.Select(resource => new ResourceWrapper
+            {
+                ResourceEnum = resource.ResourceEnum,
+                RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage)
+            }).ToArray();
         }
 
         // Возвращаем ресурсы для строительства

@@ -3,6 +3,11 @@ using UnityEngine.InputSystem;
 
 public class CustomEvents
 {
+    public static event Action<TileObject> OnChangeGeneralRepairTileObject;
+    public static void FireChangeGeneralRepairTileObject(TileObject tileObject)
+    {
+        OnChangeGeneralRepairTileObject?.Invoke(tileObject);
+    }
     public static Action<string, InputActionReference> OnUpdateBindingText;
     public static void FireUpdateBindingText(string text, InputActionReference inputActionReference)
     {

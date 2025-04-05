@@ -81,6 +81,7 @@ public class AllTileObjects : MonoBehaviour
                     IsConstructionNow = buildingHaveTile && tileObject.BuildingTileObject().IsConstructionNow(),
                     IsUpgradeBase = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase(),
                     PreviousBaseBuildingHealth = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase() ? tileObject.BuildingTileObject().PreviousBaseBuildingHealth() : 0,
+                    IsGeneralRepairSelect = buildingHaveTile && tileObject.IsGeneralRepairSelect(),
                 },
                 WaterData = new WaterData
                 {

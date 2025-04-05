@@ -58,6 +58,7 @@ public class SettingsLanguage : MonoBehaviour
         _controlTexts[11].text = Language.TextStatic[144];
         _controlTexts[12].text = Language.TextStatic[145];
         _controlTexts[13].text = Language.TextStatic[146];
+        _controlTexts[14].text = Language.TextStatic[178];
 
         _gameplayTexts[0].text = Language.TextStatic[104];
         _gameplayTexts[1].text = Language.TextStatic[109];

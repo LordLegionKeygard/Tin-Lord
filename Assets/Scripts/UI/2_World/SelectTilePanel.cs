@@ -19,6 +19,8 @@ public class SelectTilePanel : MonoBehaviour
     [Header("Objects")]
     [SerializeField] private GameObject _buildButton;
     [SerializeField] private GameObject _workButton;
+    [SerializeField] private GameObject _generalRepairButton;
+
     [SerializeField] private GameObject _rotateButton;
     [SerializeField] private GameObject _destroyButton;
     [SerializeField] private GameObject _machineButton;
@@ -26,6 +28,7 @@ public class SelectTilePanel : MonoBehaviour
 
     [Header("Button Icons")]
     [SerializeField] private Image _workButtonIcon;
+    [SerializeField] private Image _generalRepairButtonIcon;
     [SerializeField] private Image _destroyButtonIcon;
 
     [Header("Texts")]
@@ -111,6 +114,7 @@ public class SelectTilePanel : MonoBehaviour
         _uiPanels.SetProductionResourcePanelVisibility(haveBuildingTile, currentBuilding);
         _uiPanels.SetReceptPanelVisibility(haveBuildingTile, _tileObject.CurrentResourceRecept());
         WorkButtonIconChangeColor();
+        GeneralRepairIconChangeColor();
         DestroyButtonChangeColor();
 
         if (haveBuildingTile)
@@ -134,6 +138,11 @@ public class SelectTilePanel : MonoBehaviour
     private void WorkButtonIconChangeColor()
     {
         _workButtonIcon.color = _tileObject.IsBuildingWork() ? Colors.GreySeven : Color.black;
+    }
+
+    private void GeneralRepairIconChangeColor()
+    {
+        _generalRepairButtonIcon.color = _tileObject.IsGeneralRepairSelect() ? Colors.GreySeven : Color.black; 
     }
 
     private void SetTextFields(TileObject tileObject, Tile tile, bool haveBuildingTile, Building building)
@@ -228,20 +237,21 @@ public class SelectTilePanel : MonoBehaviour
         var haveRotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>() != null;
         var canRotateBuilding = buildingTile.HaveTile() && buildingTile.HaveBuildingGameObject() && buildingTile.CurrentBuilding().CanRotateBuilding;
 
-        var onOffButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
         var buildButtonState = canRepairOrUpgrade && notRoadOrForwardRoad && groundHaveBuildings && !isConstructionNow;
+        var workButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
+        var generalRepairButtonState = haveBuildingNow;
         var rotateButtonState = haveRotationViewGround || canRotateBuilding;
-
+        var machineButtonState = haveBuildingNow && isMachineProduction;
         var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase && !isConstructionNow;
-        var robotButtonState = haveBuildingNow && isMachineProduction;
 
-        _workButton.SetActive(onOffButtonState);
         _buildButton.SetActive(buildButtonState);
+        _workButton.SetActive(workButtonState);
+        _generalRepairButton.SetActive(generalRepairButtonState);
         _rotateButton.SetActive(rotateButtonState);
+        _machineButton.SetActive(machineButtonState);
         _destroyButton.SetActive(destroyButtonState);
-        _machineButton.SetActive(robotButtonState);
 
-        _uiPanels.SetButtonsPanelVisibility(onOffButtonState || buildButtonState || destroyButtonState);
+        _uiPanels.SetButtonsPanelVisibility(workButtonState || buildButtonState || destroyButtonState);
     }
 
     private void CheckBuildingFullRepairFromRobot(int tileId)
@@ -291,12 +301,23 @@ public class SelectTilePanel : MonoBehaviour
         CustomEvents.FireChangeResourceForWork(_tileObject, _tileObject.CurrentResourceForWork(), _tileObject.IsBuildingWork() ? _tileObject.CurrentResourceForWorkAmount() : 0, _tileObject.CurrentResourceRecept());
     }
 
+    public void ToggleGeneralRepairButton()
+    {
+        if(!_generalRepairButton.activeInHierarchy || _tileObject == null) return;
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+
+        _tileObject.SetGeneralRepairSelect(!_tileObject.IsGeneralRepairSelect());
+        GeneralRepairIconChangeColor();
+
+        CustomEvents.FireChangeGeneralRepairTileObject(_tileObject);
+    }
+
     public void RotateButton()
     {
         if (!_rotateButton.activeInHierarchy || _tileObject == null) return;
 
         CustomEvents.FireToggleCheckTags(false);
-        if(_tagsCoroutine!= null) StopCoroutine(_tagsCoroutine);
+        if (_tagsCoroutine != null) StopCoroutine(_tagsCoroutine);
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Rotate], transform.position);
         var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
@@ -359,7 +380,7 @@ public class SelectTilePanel : MonoBehaviour
         }
     }
 
-    public void RobotPanelButton()
+    public void MachinePanelButton()
     {
         if (!_machineButton.activeInHierarchy || _tileObject == null) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);

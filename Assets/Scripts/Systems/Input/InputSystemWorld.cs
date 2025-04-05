@@ -41,8 +41,10 @@ public class InputSystemWorld : MonoBehaviour
     private DestroyTileButton _destroyTileButton;
     public delegate void WorkTileButton();
     private WorkTileButton _workTileButton;
-    public delegate void RobotPanelButton();
-    private RobotPanelButton _robotPanelButton;
+    public delegate void MachinePanelButton();
+    private MachinePanelButton _machinePanelButton;
+    public delegate void GeneralRepairButton();
+    private GeneralRepairButton _generalRepairButton;
 
 
     [Header("Links")]
@@ -53,7 +55,8 @@ public class InputSystemWorld : MonoBehaviour
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanelsWorld _uiPanels;
-    [SerializeField] private MachinePanel _robotPanel;
+    [SerializeField] private MachinePanel _machinePanel;
+    [SerializeField] private GeneralRepairSystem _generalRepairSystem;
 
     private void Awake()
     {
@@ -110,7 +113,8 @@ public class InputSystemWorld : MonoBehaviour
         _playerInput.actions["RotateTileButton"].performed += _ => _rotateTileButton();
         _playerInput.actions["DestroyTileButton"].performed += _ => _destroyTileButton();
         _playerInput.actions["WorkTileButton"].performed += _ => _workTileButton();
-        _playerInput.actions["RobotPanelButton"].performed += _ => _robotPanelButton();
+        _playerInput.actions["MachinePanelButton"].performed += _ => _machinePanelButton();
+        _playerInput.actions["GeneralRepairButton"].performed += _ => _generalRepairButton();
 
     }
 
@@ -138,7 +142,8 @@ public class InputSystemWorld : MonoBehaviour
         _rotateTileButton = new RotateTileButton(_selectTilePanel.RotateButton);
         _destroyTileButton = new DestroyTileButton(_selectTilePanel.DestroyButton);
         _workTileButton = new WorkTileButton(_selectTilePanel.ToggleBuildingWorkButton);
-        _robotPanelButton = new RobotPanelButton(_selectTilePanel.RobotPanelButton);
+        _machinePanelButton = new MachinePanelButton(_selectTilePanel.MachinePanelButton);
+        _generalRepairButton = new GeneralRepairButton(_generalRepairSystem.RepairAllBuildingButton);
     }
 
     private void OnNumberInput(InputAction.CallbackContext context)
@@ -147,9 +152,9 @@ public class InputSystemWorld : MonoBehaviour
         int pressedNumber;
         if (int.TryParse(key, out pressedNumber))
         {
-            if(_robotPanel.PanelActive())
+            if(_machinePanel.PanelActive())
             {
-                _robotPanel.PlayerInputMachineItemButton(pressedNumber);
+                _machinePanel.PlayerInputMachineItemButton(pressedNumber);
             }
             else if (_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildsPanel))
             {
@@ -201,6 +206,7 @@ public class InputSystemWorld : MonoBehaviour
         _rotateTileButton = delegate { };
         _destroyTileButton = delegate { };
         _workTileButton = delegate { };
-        _robotPanelButton = delegate { };
+        _machinePanelButton = delegate { };
+        _generalRepairButton = delegate { };
     }
 }

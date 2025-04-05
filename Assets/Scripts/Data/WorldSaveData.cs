@@ -121,6 +121,7 @@ public class BuildingData
     public bool IsConstructionNow;
     public bool IsUpgradeBase;
     public float PreviousBaseBuildingHealth;
+    public bool IsGeneralRepairSelect;
 }
 
 [System.Serializable]
