@@ -99,6 +99,7 @@ public class TileObject : MonoBehaviour
         _currentResourceProduction = null;
         _buildingProductionView = null;
         _currentModifier = 0;
+        _isGeneralRepairSelect = false;
         CustomEvents.FireChangeResourceProduction(ResourceEnum.None, 0, _id, true);
         CustomEvents.FireChangeResourceForWork(this, null, 0, null);
     }

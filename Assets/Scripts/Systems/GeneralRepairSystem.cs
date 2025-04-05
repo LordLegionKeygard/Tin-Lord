@@ -20,7 +20,10 @@ public class GeneralRepairSystem : MonoBehaviour
     {
         if (tileObject.IsGeneralRepairSelect())
         {
-            _repairList.Add(tileObject);
+            if (!_repairList.Contains(tileObject))
+            {
+                _repairList.Add(tileObject);
+            }
         }
         else
         {
@@ -64,14 +67,13 @@ public class GeneralRepairSystem : MonoBehaviour
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             return;
         }
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Repair], transform.position);
         _useRepairOnThisDay = true;
         CheckView();
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Repair], transform.position);
-        //нужен вызов на инпут
         for (int i = 0; i < _repairList.Count; i++)
         {
             var resources = GetResourcesForRepair(_repairList[i]);
-            if (_playerResources.ResourcesEnough(resources))
+            if (_playerResources.ResourcesEnough(resources) && !_repairList[i].BuildingTileObject().IsConstructionNow())
             {
                 _playerResources.UseResourcesForBuilding(resources);
                 _repairList[i].BuildingHealth().FullRepair();

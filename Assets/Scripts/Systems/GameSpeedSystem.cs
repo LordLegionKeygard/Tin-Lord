@@ -44,12 +44,22 @@ public class GameSpeedSystem : MonoBehaviour
         {
             case GameSpeedEnum.Pause:
                 _isPause = !_isPause;
-                Time.timeScale = _isPause ? WorldGameInfo.PausedTimeScale : (int)GameSpeedEnum.Default;
+                Time.timeScale = _isPause ? WorldGameInfo.PausedTimeScale : WorldGameInfo.DefaultTimeScale;
                 _currentGameSpeedEnum = _isPause ? GameSpeedEnum.Pause : GameSpeedEnum.Default;
                 break;
-            case GameSpeedEnum.Default or GameSpeedEnum.Double or GameSpeedEnum.Triple:
+            case GameSpeedEnum.Default:
                 _isPause = false;
-                Time.timeScale = (int)gameSpeedEnum;
+                Time.timeScale = WorldGameInfo.DefaultTimeScale;
+                _currentGameSpeedEnum = gameSpeedEnum;
+                break;
+            case GameSpeedEnum.Double:
+                _isPause = false;
+                Time.timeScale = WorldGameInfo.DoubleTimeScale;
+                _currentGameSpeedEnum = gameSpeedEnum;
+                break;
+            case GameSpeedEnum.Triple:
+                _isPause = false;
+                Time.timeScale = WorldGameInfo.TripleTimeScale;
                 _currentGameSpeedEnum = gameSpeedEnum;
                 break;
         }

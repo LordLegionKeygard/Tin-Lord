@@ -162,7 +162,7 @@ public class GroundTile : MonoBehaviour
 
         _currentGroundTileObject.transform.SetParent(_groundParent);
 
-        if (previousGroundTileViewEnum != GroundTileViewEnum.None) // его передает только ивент EarcthQuake при землетрясении
+        if (previousGroundTileViewEnum != GroundTileViewEnum.None) // его передает только ивент EarthQuake при землетрясении
         {
             _tileObject.SetRiftViewNumber((int)previousGroundTileViewEnum);
             var riftSetTileMaterial = _currentGroundTileObject.GetComponent<RiftSetTileMaterial>();
@@ -202,8 +202,14 @@ public class GroundTile : MonoBehaviour
 
         if (_currentGroundTile.GroundTileView == GroundTileViewEnum.Rift)
         {
+            var number = tileDataWrapper.GroundData.RiftViewNumber;
+            if(number == -1)
+            {
+                Debug.Log("Bug");
+                return;
+            }
             var riftSetTileMaterial = _currentGroundTileObject.GetComponent<RiftSetTileMaterial>();
-            riftSetTileMaterial.SetMaterial(_tilesSystem.GetGroundTileForNumber(tileDataWrapper.GroundData.RiftViewNumber).GroundTileView);
+            riftSetTileMaterial.SetMaterial(_tilesSystem.GetGroundTileForNumber(number).GroundTileView);
         }
     }
 

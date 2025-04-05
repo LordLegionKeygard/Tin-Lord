@@ -169,6 +169,8 @@ public class BuildingTile : MonoBehaviour
 
       _tileObject.SetBuildingWork(true);
       _tileObject.CheckResourceRequired(true);
+      _tileObject.SetGeneralRepairSelect(true);
+      CustomEvents.FireChangeGeneralRepairTileObject(_tileObject);
    }
 
    public void UpgradeBaseBuilding(int newLevel, TileObject tileObject)
@@ -404,11 +406,8 @@ public class BuildingTile : MonoBehaviour
          var rotationView = _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>();
          if (rotationView != null) rotationView.LoadRotate(tileDataWrapper.BuildingData.BuildingRotation);
 
-         if (tileDataWrapper.BuildingData.IsGeneralRepairSelect)
-         {
-            _tileObject.SetGeneralRepairSelect(true);
-            CustomEvents.FireChangeGeneralRepairTileObject(_tileObject);
-         }
+         _tileObject.SetGeneralRepairSelect(tileDataWrapper.BuildingData.IsGeneralRepairSelect);
+         CustomEvents.FireChangeGeneralRepairTileObject(_tileObject);
       }
    }
 
