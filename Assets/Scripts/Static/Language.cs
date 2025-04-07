@@ -564,8 +564,8 @@ public class Language : MonoBehaviour
         _text[178, 0] = "General repair";
         _text[178, 1] = "Общий ремонт";
 
-        _text[179, 0] = "";
-        _text[179, 1] = "";
+        _text[179, 0] = "Skills";
+        _text[179, 1] = "Умения";
 
         _text[180, 0] = "Description";
         _text[180, 1] = "Описание";

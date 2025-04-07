@@ -6,6 +6,7 @@ public class MusicFade : MonoBehaviour
 {
     [SerializeField] private StudioEventEmitter _eventEmitter;
     [SerializeField] private float _fadeDuration;
+    [SerializeField] private bool _isWorldScene;
 
     private void Awake()
     {
@@ -14,7 +15,10 @@ public class MusicFade : MonoBehaviour
 
     public void ControlFadeMusic(bool state)
     {
-        if(state) _eventEmitter.Play();
+        if (state)
+        {
+            if (!_isWorldScene) _eventEmitter.Play();
+        }
         else StartCoroutine(FadeOutCoroutine());
     }
 
