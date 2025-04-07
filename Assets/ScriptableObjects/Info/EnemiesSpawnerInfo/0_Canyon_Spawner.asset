@@ -45,7 +45,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 50
     SpawnPeriod: 2
-    Count: 110
+    Count: 100
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
@@ -57,7 +57,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 65
     SpawnPeriod: 1
-    Count: 50
+    Count: 60
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 3

@@ -449,15 +449,37 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "38479b0e-4188-4b90-957d-c6a437d7a6c0",
-                    "path": "<Keyboard>/z",
+                    "name": "One Modifier",
+                    "id": "1c8ca882-5af5-4421-b28c-68cc263d909d",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GeneralRepairButton",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "8085cb4e-afad-4e90-b548-4c8188380395",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "GeneralRepairButton",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "c1d62d0d-bef0-4594-b070-47e309c1e701",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GeneralRepairButton",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

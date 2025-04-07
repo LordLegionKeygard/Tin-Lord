@@ -7,9 +7,9 @@ public class CardsLayout : MonoBehaviour
     [Header("Layout Settings")]
     private float _cardWidth = 120;
     private float _spacing = 7;
-    private int _maxCards = 9;
-    private float _leftPadding = 84;
-    private float _bottomPadding = 92;
+    private int _maxCards = 8;
+    private float _leftPadding = 78;
+    private float _bottomPadding = 90;
     private float _duration = 0.5f;
 
     private Dictionary<RectTransform, float> targetPositions = new Dictionary<RectTransform, float>();

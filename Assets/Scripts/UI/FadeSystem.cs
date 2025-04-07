@@ -1,4 +1,3 @@
-using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,9 +7,14 @@ public class FadeSystem : MonoBehaviour
     [SerializeField] private GameObject _fade;
     [SerializeField] private Image _fadeImage;
 
+    /// <summary>
+    /// Tак как обьект лежит всегда в OnDestroyOlLoad, 
+    /// то мы таким образом запускаем музыку в главном меню
+    /// </summary>
     private void Start()
     {
         CustomEvents.OnFade += Fade;
+        CustomEvents.FireControlFadeMusic(true);
     }
 
     public void Fade(FadeType fadeType)
@@ -34,7 +38,7 @@ public class FadeSystem : MonoBehaviour
 
     private void StartFade(float time)
     {
-        CustomEvents.FireFadeOutAllMusic();
+        CustomEvents.FireControlFadeMusic(false);
         _fade.SetActive(true);
         DOVirtual.DelayedCall(time, () =>
         {
@@ -44,6 +48,7 @@ public class FadeSystem : MonoBehaviour
 
     private void FadeOut(float time)
     {
+        CustomEvents.FireControlFadeMusic(true);
         DOVirtual.DelayedCall(time, () =>
         {
             _fadeImage.DOFade(0f, 1f).SetEase(Ease.InOutQuad).SetUpdate(true).OnComplete(() =>

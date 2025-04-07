@@ -7,14 +7,15 @@ public class MusicFade : MonoBehaviour
     [SerializeField] private StudioEventEmitter _eventEmitter;
     [SerializeField] private float _fadeDuration;
 
-    private void Start()
+    private void Awake()
     {
-        CustomEvents.OnFadeOutAllMusic += FadeOutMusic;
+        CustomEvents.OnControlFadeMusic += ControlFadeMusic;
     }
 
-    public void FadeOutMusic()
+    public void ControlFadeMusic(bool state)
     {
-        StartCoroutine(FadeOutCoroutine());
+        if(state) _eventEmitter.Play();
+        else StartCoroutine(FadeOutCoroutine());
     }
 
     private IEnumerator FadeOutCoroutine()
@@ -34,6 +35,6 @@ public class MusicFade : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnFadeOutAllMusic -= FadeOutMusic;
+        CustomEvents.OnControlFadeMusic -= ControlFadeMusic;
     }
 }
