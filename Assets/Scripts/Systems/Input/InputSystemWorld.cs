@@ -56,7 +56,7 @@ public class InputSystemWorld : MonoBehaviour
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanelsWorld _uiPanels;
     [SerializeField] private MachinePanel _machinePanel;
-    [SerializeField] private GeneralRepairSystem _generalRepairSystem;
+    [SerializeField] private GeneralRepairSkill _generalRepairSystem;
 
     private void Awake()
     {

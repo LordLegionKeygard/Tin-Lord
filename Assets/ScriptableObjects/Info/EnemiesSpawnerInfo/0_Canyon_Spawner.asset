@@ -51,11 +51,23 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 60
     SpawnPeriod: 1
-    Count: 40
+    Count: 50
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 3
-  LastDaySpawn: 72
+  - StartDaySpawn: 65
+    SpawnPeriod: 1
+    Count: 50
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 3
+  - StartDaySpawn: 70
+    SpawnPeriod: 2
+    Count: 140
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 3
+  LastDaySpawn: 74
   BossEnum: -1
   BossLevel: 0
   BossDaySpawn: 0

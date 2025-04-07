@@ -1,0 +1,108 @@
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class ObjectivesPanel : MonoBehaviour
+{
+    [SerializeField] private GameObject _objectiveItemPrefab;
+    [SerializeField] private Transform _parentTransform;
+    private List<ObjectiveForListData> _objectivesForList = new();
+
+    private void Start()
+    {
+        CustomEvents.OnObjectiveAmountChange += UpdateAmount;
+    }
+
+    public int[] GetAllObjectivesAmount()
+    {
+        return _objectivesForList.Select(el => el.CurrentAmount).ToArray();
+    }
+
+    public bool CanEscape()
+    {
+        for (int i = 0; i < _objectivesForList.Count; i++)
+        {
+            if (_objectivesForList[i].CurrentAmount * 2 < _objectivesForList[i].NeedAmount)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void LoadObjectiveItems(int[] objectivesAmount, bool IsStartMission)
+    {
+        var objectives = CurrentMissionInfo.Instance.GetCurrentMission().Objectives;
+
+        for (int i = 0; i < objectives.Length; i++)
+        {
+            var objectiveAmount = IsStartMission ? 0 : objectivesAmount[i];
+
+            var complete = objectiveAmount >= objectives[i].ObjectiveAmount;
+            var objectiveItem = CreateItem();
+            objectiveItem.SetupItem(objectives[i], objectiveAmount, complete);
+
+            _objectivesForList.Add(new ObjectiveForListData
+            {
+                ObjectiveItem = objectiveItem,
+                ObjectiveEnum = objectives[i].ObjectiveEnum,
+                CurrentAmount = objectiveAmount,
+                NeedAmount = objectives[i].ObjectiveAmount,
+                Complete = complete,
+            });
+        }
+    }
+
+    private ObjectiveItem CreateItem()
+    {
+        var item = Instantiate(_objectiveItemPrefab, _parentTransform.position, Quaternion.identity);
+        item.transform.SetParent(_parentTransform, false);
+        item.transform.localScale = Vector3.one;
+        var objectiveItem = item.GetComponent<ObjectiveItem>();
+
+        return objectiveItem;
+    }
+
+    private void UpdateAmount(ObjectiveEnum objectiveEnum, int value)
+    {
+        var objective = _objectivesForList.Find(el => el.ObjectiveEnum == objectiveEnum);
+
+        if (objective != null)
+        {
+            if (objectiveEnum is ObjectiveEnum.RestoreEcology or ObjectiveEnum.SurviveDays) objective.CurrentAmount = value;
+            else objective.CurrentAmount += value;
+            objective.Complete = objective.CurrentAmount >= objective.NeedAmount;
+            objective.ObjectiveItem.UpdateText(objective.CurrentAmount, objective.Complete);
+        }
+
+        CheckIsMissionVictory();
+    }
+
+    private void CheckIsMissionVictory()
+    {
+        if (_objectivesForList.Count == 0) return;
+
+        for (int i = 0; i < _objectivesForList.Count; i++)
+        {
+            if (!_objectivesForList[i].Complete) return;
+        }
+        CustomEvents.FireMissionEnd(MissionEndEnum.Victory);
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnObjectiveAmountChange -= UpdateAmount;
+    }
+}
+
+[System.Serializable]
+public class ObjectiveForListData
+{
+    public ObjectiveItem ObjectiveItem;
+    public ObjectiveEnum ObjectiveEnum;
+    public int CurrentAmount;
+    public int NeedAmount;
+    public bool Complete;
+
+}

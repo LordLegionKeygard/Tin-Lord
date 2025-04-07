@@ -564,6 +564,15 @@ public class Language : MonoBehaviour
         _text[178, 0] = "General repair";
         _text[178, 1] = "Общий ремонт";
 
+        _text[179, 0] = "Skills";
+        _text[179, 1] = "Умения";
+
+        _text[180, 0] = "Description";
+        _text[180, 1] = "Описание";
+
+        _text[181, 0] = "Repairs all marked buildings. Can be used once per day.";
+        _text[181, 1] = "Чинит все помеченные здания. Можно использовать раз в день.";
+
 
 
         for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];
