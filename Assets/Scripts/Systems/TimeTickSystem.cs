@@ -6,6 +6,7 @@ public class TimeTickSystem : MonoBehaviour
 {
     [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly EndMissionSystem _endMissionSystem;
+    [SerializeField] private AllSkills _allSkills;
     [SerializeField] private float _tickSpeed;
     [SerializeField] private int _currentTick;
     [SerializeField] private TimeView _timeView;
@@ -45,6 +46,7 @@ public class TimeTickSystem : MonoBehaviour
             _currentTime = 0;
             _currentTick++;
             UpdateResourcesAfterTick();
+            _allSkills.TimeTickAllSkill();
 
             if (_currentTick >= _endTime)
             {

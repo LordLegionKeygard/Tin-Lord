@@ -41,6 +41,9 @@ public class WorldSaveLoad : MonoBehaviour
     [Header("Objectives")]
     [SerializeField] private ObjectivesPanel _objectivesPanel;
 
+    [Header("Skill")]
+    [SerializeField] private AllSkills _allSkills;
+
     private void Awake()
     {
         _worldSaveGame.WorldSaveLoad = this;
@@ -101,6 +104,9 @@ public class WorldSaveLoad : MonoBehaviour
 
         //Objectives
         currentSaveData.ObjectiveAmount = _objectivesPanel.GetAllObjectivesAmount();
+
+        //Skills
+        currentSaveData.SkillsCooldown = _allSkills.GetAllSkillsCooldown();
     }
 
     public void LoadMissionData(ref WorldSaveData currentSaveData)
@@ -142,6 +148,9 @@ public class WorldSaveLoad : MonoBehaviour
 
         //Objectives
         _objectivesPanel.LoadObjectiveItems(currentSaveData.ObjectiveAmount, currentSaveData.IsStartMission);
+
+        //Skills
+        _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, _commandCenterSaveGame.CommandCenterSaveData.LastOpenedMissionId);
 
         CustomEvents.FirePlayRandomLevelMusic();
         CustomEvents.FireDataLoad();

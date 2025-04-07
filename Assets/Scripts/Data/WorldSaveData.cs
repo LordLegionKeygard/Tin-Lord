@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -43,8 +44,10 @@ public class WorldSaveData
 
     [Header("Objectives")]
     public int[] ObjectiveAmount;
-}
 
+    [Header("Skills")]
+    public int[] SkillsCooldown;
+}
 
 [System.Serializable]
 public class EnemyData

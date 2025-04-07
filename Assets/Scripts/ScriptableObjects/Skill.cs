@@ -3,5 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Skill", menuName = "TinLord/Skill")]
 public class Skill : ScriptableObject
 {
-    public int DescriptionLanguageNumber; 
+    public Sprite Icon;
+    public int DescriptionLanguageNumber;
+    public int CooldownTicks;
+    public int RequiredOpenedMission;
 }

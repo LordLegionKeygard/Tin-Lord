@@ -8,7 +8,7 @@ public class CardsLayout : MonoBehaviour
     private float _cardWidth = 120;
     private float _spacing = 7;
     private int _maxCards = 8;
-    private float _leftPadding = 70;
+    private float _leftPadding = 68;
     private float _bottomPadding = 90;
     private float _duration = 0.5f;
 

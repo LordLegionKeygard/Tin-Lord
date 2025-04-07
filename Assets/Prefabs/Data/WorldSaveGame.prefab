@@ -62,14 +62,16 @@ MonoBehaviour:
     IsHaveMachineProduction: 0
     TilesData: []
     RoadTilesId: 
-    RobotsExperienceData: []
-    RobotData:
-      IsHaveRobotNow: 0
-      RobotType: 0
+    MachinesExperienceData: []
+    MachineData:
+      IsHaveMachineNow: 0
+      MachineType: 0
       PositionX: 0
       PositionY: 0
       PositionZ: 0
       Rotation: 0
       NextPatrolIndex: 0
+      MachineHealth: 0
     ObjectiveAmount: 
+    SkillsCooldown: 
   _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
