@@ -570,8 +570,8 @@ public class Language : MonoBehaviour
         _text[180, 0] = "Description";
         _text[180, 1] = "Описание";
 
-        _text[181, 0] = "Repairs all marked buildings. Can be used once per day.";
-        _text[181, 1] = "Чинит все помеченные здания. Можно использовать раз в день.";
+        _text[181, 0] = "General repair:\nRepairs all marked buildings. Requires resources.";
+        _text[181, 1] = "Общий ремонт:\nЧинит все помеченные здания. Требуются ресурсы.";
 
 
 

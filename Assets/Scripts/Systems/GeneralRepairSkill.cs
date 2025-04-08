@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneralRepairSkill : MonoBehaviour
 {
-    [SerializeField] private SkillLogic _skillLogic;
+    [SerializeField] private SkillView _skillView;
     [SerializeField] private PlayerResources _playerResources;
     [SerializeField] private List<TileObject> _repairList;
 
@@ -43,7 +43,7 @@ public class GeneralRepairSkill : MonoBehaviour
 
     public void RepairAllBuildingButton()
     {
-        if (_repairList.Count == 0 || _skillLogic.IsCooldownNow())
+        if (_repairList.Count == 0 || _skillView.IsCooldownNow())
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             return;
@@ -58,7 +58,7 @@ public class GeneralRepairSkill : MonoBehaviour
                 _repairList[i].BuildingHealth().FullRepair();
             }
         }
-        _skillLogic.StartSkillCooldown();
+        _skillView.StartSkillCooldown();
     }
 
     public ResourceWrapper[] GetResourcesForRepair(TileObject tileObject)

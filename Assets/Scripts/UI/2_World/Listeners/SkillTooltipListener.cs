@@ -3,11 +3,11 @@ using UnityEngine.EventSystems;
 
 public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private SkillLogic _skillLogic;
+    private SkillView _skillLogic;
 
     private void Awake()
     {
-        _skillLogic = GetComponent<SkillLogic>();
+        _skillLogic = GetComponent<SkillView>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
