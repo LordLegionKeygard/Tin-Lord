@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +36,7 @@ public class SkillLogic : MonoBehaviour
     public void StartSkillCooldown()
     {
         _currentCooldown = _skill.CooldownTicks;
+        _cooldownImage.fillAmount = 1;
         UpdateView();
     }
 
@@ -55,7 +57,10 @@ public class SkillLogic : MonoBehaviour
         else
         {
             _button.interactable = false;
-            _cooldownImage.fillAmount = 1f - (float)(1f / _currentCooldown);
+
+            var value = 1f / _skill.CooldownTicks;
+
+            _cooldownImage.DOFillAmount((float)(value * _currentCooldown), 2 * Time.timeScale);
         }
     }
 }
