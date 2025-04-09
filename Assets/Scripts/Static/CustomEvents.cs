@@ -164,10 +164,16 @@ public class CustomEvents
         OnCloseTooltips?.Invoke();
     }
 
-    public static Action<float, float, string> OnUpdateToolTip;
-    public static void FireUpdateToolTipTransform(float x, float y, string text)
+    public static Action<float, float, string> OnUpdateButtonToolTip;
+    public static void FireUpdateButtonToolTipTransform(float x, float y, string text)
     {
-        OnUpdateToolTip.Invoke(x, y, text);
+        OnUpdateButtonToolTip.Invoke(x, y, text);
+    }
+
+    public static Action<float, float, int, int, string> OnUpdateSkillToolTip;
+    public static void FireUpdateSkillToolTipTransform(float x, float y, int maxWidth, int padding, string text)
+    {
+        OnUpdateSkillToolTip.Invoke(x, y, maxWidth, padding, text);
     }
 
     public static Action<int> OnEnemyDeath;

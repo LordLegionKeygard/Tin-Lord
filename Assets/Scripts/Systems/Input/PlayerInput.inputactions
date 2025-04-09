@@ -458,8 +458,19 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "b3c3472e-1a44-4adc-b8a0-3edc727a7536",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleGeneralRepairButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "One Modifier",
-                    "id": "1c8ca882-5af5-4421-b28c-68cc263d909d",
+                    "id": "f6066af1-be76-457c-ad41-14a065c5864c",
                     "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
@@ -470,8 +481,8 @@
                 },
                 {
                     "name": "modifier",
-                    "id": "8085cb4e-afad-4e90-b548-4c8188380395",
-                    "path": "<Keyboard>/shift",
+                    "id": "b8b007b9-9084-4675-83fd-8d247fa388c4",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -481,7 +492,7 @@
                 },
                 {
                     "name": "binding",
-                    "id": "c1d62d0d-bef0-4594-b070-47e309c1e701",
+                    "id": "a6833959-e601-423e-afae-0ba3b65092cb",
                     "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
@@ -489,17 +500,6 @@
                     "action": "GeneralRepairButton",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "b3c3472e-1a44-4adc-b8a0-3edc727a7536",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleGeneralRepairButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }

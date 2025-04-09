@@ -8,7 +8,7 @@ public class SelectButton : MonoBehaviour
 
     private void Awake()
     {
-        CustomEvents.OnUpdateToolTip += UpdateView;
+        CustomEvents.OnUpdateButtonToolTip += UpdateView;
     }
 
     public void UpdateView(float x, float y, string text)
@@ -26,6 +26,6 @@ public class SelectButton : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnUpdateToolTip -= UpdateView;
+        CustomEvents.OnUpdateButtonToolTip -= UpdateView;
     }
 }

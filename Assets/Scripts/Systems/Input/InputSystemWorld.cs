@@ -118,7 +118,6 @@ public class InputSystemWorld : MonoBehaviour
         _playerInput.actions["MachinePanelButton"].performed += _ => _machinePanelButton();
         _playerInput.actions["GeneralRepairButton"].performed += _ => _generalRepairButton();
         _playerInput.actions["ToggleGeneralRepairButton"].performed += _ => _toggleGeneralRepairButton();
-
     }
 
     private void SetupDelegates()

@@ -20,7 +20,7 @@ public class ButtonTooltipListener : MonoBehaviour, IPointerEnterHandler, IPoint
     {
         var text = _action != null ? $"{Language.TextStatic[_textNumber]} [{_actionText}]" : Language.TextStatic[_textNumber];
         CustomEvents.FireTooltipToggle(true, 0);
-        CustomEvents.FireUpdateToolTipTransform(transform.position.x, transform.position.y, text);
+        CustomEvents.FireUpdateButtonToolTipTransform(transform.position.x, transform.position.y, text);
     }
 
     public void OnPointerExit(PointerEventData eventData)

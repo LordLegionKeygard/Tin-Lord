@@ -13,7 +13,7 @@ public class ResourceTypeTooltipListener : MonoBehaviour, IPointerEnterHandler, 
         CustomEvents.FireTooltipToggle(true, 0);
         if (_map.TryGetValue(_image.sprite.name, out int index))
         {
-            CustomEvents.FireUpdateToolTipTransform(transform.position.x, transform.position.y, Language.TextStatic[index]);
+            CustomEvents.FireUpdateButtonToolTipTransform(transform.position.x, transform.position.y, Language.TextStatic[index]);
         }
     }
 
