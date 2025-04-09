@@ -202,14 +202,9 @@ public class GroundTile : MonoBehaviour
 
         if (_currentGroundTile.GroundTileView == GroundTileViewEnum.Rift)
         {
-            var number = tileDataWrapper.GroundData.RiftViewNumber;
-            if(number == -1)
-            {
-                Debug.Log("Bug");
-                return;
-            }
+            _tileObject.SetRiftViewNumber(tileDataWrapper.GroundData.RiftViewNumber);
             var riftSetTileMaterial = _currentGroundTileObject.GetComponent<RiftSetTileMaterial>();
-            riftSetTileMaterial.SetMaterial(_tilesSystem.GetGroundTileForNumber(number).GroundTileView);
+            riftSetTileMaterial.SetMaterial(_tilesSystem.GetGroundTileForNumber(tileDataWrapper.GroundData.RiftViewNumber).GroundTileView);
         }
     }
 
