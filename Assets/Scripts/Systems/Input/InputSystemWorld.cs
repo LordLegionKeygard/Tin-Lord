@@ -45,6 +45,8 @@ public class InputSystemWorld : MonoBehaviour
     private MachinePanelButton _machinePanelButton;
     public delegate void GeneralRepairButton();
     private GeneralRepairButton _generalRepairButton;
+    public delegate void ToggleGeneralRepairButton();
+    private ToggleGeneralRepairButton _toggleGeneralRepairButton;
 
 
     [Header("Links")]
@@ -115,6 +117,7 @@ public class InputSystemWorld : MonoBehaviour
         _playerInput.actions["WorkTileButton"].performed += _ => _workTileButton();
         _playerInput.actions["MachinePanelButton"].performed += _ => _machinePanelButton();
         _playerInput.actions["GeneralRepairButton"].performed += _ => _generalRepairButton();
+        _playerInput.actions["ToggleGeneralRepairButton"].performed += _ => _toggleGeneralRepairButton();
 
     }
 
@@ -140,10 +143,11 @@ public class InputSystemWorld : MonoBehaviour
         _selectNumbers = new SelectNumbers(OnNumberInput);
         _buildTileButton = new BuildTileButton(_selectTilePanel.BuildButton);
         _rotateTileButton = new RotateTileButton(_selectTilePanel.RotateButton);
-        _destroyTileButton = new DestroyTileButton(_selectTilePanel.DestroyButton);
+        _destroyTileButton = new DestroyTileButton(_uiPanels.InputDestroyButton);
         _workTileButton = new WorkTileButton(_selectTilePanel.ToggleBuildingWorkButton);
         _machinePanelButton = new MachinePanelButton(_selectTilePanel.MachinePanelButton);
         _generalRepairButton = new GeneralRepairButton(_generalRepairSystem.RepairAllBuildingButton);
+        _toggleGeneralRepairButton = new ToggleGeneralRepairButton(_selectTilePanel.ToggleGeneralRepairButton);
     }
 
     private void OnNumberInput(InputAction.CallbackContext context)
@@ -152,7 +156,7 @@ public class InputSystemWorld : MonoBehaviour
         int pressedNumber;
         if (int.TryParse(key, out pressedNumber))
         {
-            if(_machinePanel.PanelActive())
+            if (_machinePanel.PanelActive())
             {
                 _machinePanel.PlayerInputMachineItemButton(pressedNumber);
             }
@@ -208,5 +212,6 @@ public class InputSystemWorld : MonoBehaviour
         _workTileButton = delegate { };
         _machinePanelButton = delegate { };
         _generalRepairButton = delegate { };
+        _toggleGeneralRepairButton = delegate { };
     }
 }

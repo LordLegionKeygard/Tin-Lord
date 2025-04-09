@@ -148,6 +148,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleGeneralRepairButton",
+                    "type": "Button",
+                    "id": "a7b95530-f825-489d-bf06-792836ff41a6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -462,7 +471,7 @@
                 {
                     "name": "modifier",
                     "id": "8085cb4e-afad-4e90-b548-4c8188380395",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -473,13 +482,24 @@
                 {
                     "name": "binding",
                     "id": "c1d62d0d-bef0-4594-b070-47e309c1e701",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "GeneralRepairButton",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b3c3472e-1a44-4adc-b8a0-3edc727a7536",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleGeneralRepairButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

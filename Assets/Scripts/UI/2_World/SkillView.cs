@@ -8,9 +8,9 @@ public class SkillView : MonoBehaviour
     [SerializeField] private Image _cooldownImage;
     [SerializeField] private GameObject _closeTextObject;
     [SerializeField] private Button _button;
-    [SerializeField] private bool _isOpen;
     [SerializeField] private Skill _skill;
-    [SerializeField] private int _currentCooldown;
+    private int _currentCooldown;
+    private bool _isOpen;
     public int GetCurrentCooldown() => _currentCooldown;
     public Skill GetSkill() => _skill;
     public bool IsOpen() => _isOpen;

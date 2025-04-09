@@ -48,6 +48,8 @@ public class SelectTilePanel : MonoBehaviour
     private BaseProductionResourcePanel _productionResourcePanel;
     private ReceptPanel _receptPanel;
     private Coroutine _tagsCoroutine;
+    private bool _isOpen;
+    public bool IsOpen() => _isOpen;
 
     private void Awake()
     {
@@ -71,6 +73,8 @@ public class SelectTilePanel : MonoBehaviour
 
     public void PanelViewToggle(bool state)
     {
+        _isOpen = state;
+        
         CustomEvents.FireTooltipToggle(false, 0);
         if (state)
         {

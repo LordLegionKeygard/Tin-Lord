@@ -12,6 +12,14 @@ public class ControlPanel : MonoBehaviour
         _applySettings = GetComponent<ApplySettings>();
     }
 
+    private void Start()
+    {
+        foreach (var component in _rebindActions)
+        {
+            component.UpdateBindingDisplay();
+        }
+    }
+
     public void SetSettingsToData()
     {
         var rebinds = _inputActionAsset.SaveBindingOverridesAsJson();
@@ -26,13 +34,13 @@ public class ControlPanel : MonoBehaviour
             _inputActionAsset.LoadBindingOverridesFromJson(rebinds);
         }
     }
-    
+
     public void Reset()
     {
-        // foreach (var rebind in _rebindActions)
-        // {
-        //     rebind.ResetToDefault();
-        // }
+        foreach (var rebind in _rebindActions)
+        {
+            rebind.ResetToDefault();
+        }
         // _applySettings.ApplyToggle(true);
     }
 }

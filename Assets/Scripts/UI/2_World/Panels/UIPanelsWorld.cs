@@ -13,14 +13,14 @@ public class UIPanelsWorld : MonoBehaviour
 
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
-    [SerializeField] private MachinePanel _robotPanel;
+    [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private EscapePanelWorld _escapePanel;
     [SerializeField] private SettingsPanels _settingsPanel;
 
     public void MainPanelsViewToggle(bool selectTilePanel, bool machinePanel)
     {
         _selectTilePanel.PanelViewToggle(selectTilePanel);
-        _robotPanel.PanelViewToggle(machinePanel);
+        _machinePanel.PanelViewToggle(machinePanel);
     }
 
     public bool ActiveInHierarchy(UIPanelsEnum panelEnum) => _selectTilePanels[(int)panelEnum].activeInHierarchy;
@@ -133,6 +133,12 @@ public class UIPanelsWorld : MonoBehaviour
     {
         CloseAllBuildsPanels();
         TogglePanel(UIPanelsEnum.DestroyPanel, false);
+    }
+
+    public void InputDestroyButton()
+    {
+        if(_selectTilePanel.IsOpen()) _selectTilePanel.DestroyButton();
+        else _machinePanel.DestroyMachineButton();
     }
 }
 

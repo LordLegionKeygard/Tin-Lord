@@ -208,7 +208,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             if (m_BindingText != null)
             {
                 m_BindingText.text = displayString;
-                CustomEvents.FireUpdateBindingText(displayString, actionReference); //пригодится потом если нужно будет обновить инпут где то визуально в игре
+                CustomEvents.FireUpdateBindingText(displayString, actionReference);
             }
 
             // Give listeners a chance to configure UI in response.
