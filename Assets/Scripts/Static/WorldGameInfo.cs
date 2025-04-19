@@ -5,8 +5,9 @@ public class WorldGameInfo
     public static bool StaticBlood = true;
     public const float PausedTimeScale = 0.00001f;
     public const float DefaultTimeScale = 1.5f;
-    public const float DoubleTimeScale = 2;
+    public const float DoubleTimeScale = 2.2f;
     public const float TripleTimeScale = 3;
+    public const float TickSpeed = 2;
 
     [Header("GoogleSheet")]
     public const string GoogleSheetId = "1phPv5iEL7Iw6A6CCdU4SdSgN5LwbEprCKEzY10dwDr4";

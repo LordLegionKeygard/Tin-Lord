@@ -11,10 +11,12 @@ public class SkillView : MonoBehaviour
     [SerializeField] private Skill _skill;
     private int _currentCooldown;
     private bool _isOpen;
+    private Tween _cooldownTween;
     public int GetCurrentCooldown() => _currentCooldown;
     public Skill GetSkill() => _skill;
     public bool IsOpen() => _isOpen;
-    public bool IsCooldownNow() => _currentCooldown != 0;
+    public bool IsCooldownNow() => _cooldownImage.fillAmount != 0;
+
 
     public void LoadSkill(int cooldown, int lastOpenedMissionId)
     {
@@ -26,7 +28,8 @@ public class SkillView : MonoBehaviour
             _currentCooldown = cooldown;
             _icon.sprite = _skill.Icon;
             _icon.enabled = true;
-            UpdateView();
+            _button.interactable = true;
+            UpdateView(true);
             _closeTextObject.SetActive(false);
         }
     }
@@ -35,30 +38,33 @@ public class SkillView : MonoBehaviour
     {
         _currentCooldown = _skill.CooldownTicks;
         _cooldownImage.fillAmount = 1;
-        UpdateView();
+        UpdateView(false);
     }
 
     public void TimeTick()
     {
         if (!_isOpen || _currentCooldown == 0 || _skill == null) return;
         _currentCooldown--;
-        UpdateView();
+        UpdateView(false);
     }
 
-    private void UpdateView()
+    private void UpdateView(bool isLoad)
     {
-        if (_currentCooldown == 0)
+        _cooldownTween?.Kill();
+
+        float target = (float)_currentCooldown / _skill.CooldownTicks;
+        float duration = WorldGameInfo.TickSpeed;
+
+        if (isLoad)
         {
-            _button.interactable = true;
-            _cooldownImage.fillAmount = 0;
+            _cooldownImage.fillAmount = target;
         }
         else
-        {
-            _button.interactable = false;
+            _cooldownTween = _cooldownImage.DOFillAmount(target, duration).SetEase(Ease.Linear);
+    }
 
-            var value = 1f / _skill.CooldownTicks;
-
-            _cooldownImage.DOFillAmount((float)(value * _currentCooldown), 2 * Time.timeScale);
-        }
+    private void OnDestroy()
+    {
+        _cooldownTween?.Kill();
     }
 }

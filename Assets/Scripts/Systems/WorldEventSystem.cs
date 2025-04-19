@@ -51,7 +51,7 @@ public class WorldEventSystem : MonoBehaviour
 
     private void SetEventDuration()
     {
-        _fullDuration = _timeTickSystem.GetTickSpeed() * _timeTickSystem.GetEndTime() * _dayBeforeSpawnEvent;
+        _fullDuration = WorldGameInfo.TickSpeed * _timeTickSystem.GetEndTime() * _dayBeforeSpawnEvent;
     }
 
     private void OnDayEnd(int currentDay)

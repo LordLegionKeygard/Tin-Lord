@@ -137,8 +137,8 @@ public class UIPanelsWorld : MonoBehaviour
 
     public void InputDestroyButton()
     {
-        if(_selectTilePanel.IsOpen()) _selectTilePanel.DestroyButton();
-        else _machinePanel.DestroyMachineButton();
+        if(_selectTilePanel.PanelActive()) _selectTilePanel.DestroyButton();
+        if (_machinePanel.PanelActive())_machinePanel.DestroyMachineButton();
     }
 }
 

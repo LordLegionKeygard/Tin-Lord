@@ -49,7 +49,7 @@ public class SelectTilePanel : MonoBehaviour
     private ReceptPanel _receptPanel;
     private Coroutine _tagsCoroutine;
     private bool _isOpen;
-    public bool IsOpen() => _isOpen;
+    public bool PanelActive() => _isOpen;
 
     private void Awake()
     {

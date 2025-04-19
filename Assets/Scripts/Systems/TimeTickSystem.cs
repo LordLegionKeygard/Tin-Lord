@@ -7,7 +7,6 @@ public class TimeTickSystem : MonoBehaviour
     [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly EndMissionSystem _endMissionSystem;
     [SerializeField] private AllSkills _allSkills;
-    [SerializeField] private float _tickSpeed;
     [SerializeField] private int _currentTick;
     [SerializeField] private TimeView _timeView;
     [SerializeField] private TextMeshProUGUI _dayText;
@@ -17,7 +16,6 @@ public class TimeTickSystem : MonoBehaviour
     [SerializeField] private float _currentTime = 0f;
     private readonly float _endTime = 25;
     private int _currentDay = 0;
-    public float GetTickSpeed() => _tickSpeed;
     public float GetEndTime() => _endTime;
     public int GetCurrentTick() => _currentTick;
     public int GetCurrentDay() => _currentDay;
@@ -41,7 +39,7 @@ public class TimeTickSystem : MonoBehaviour
 
         _currentTime += Time.deltaTime;
 
-        if (_currentTime >= _tickSpeed)
+        if (_currentTime >= WorldGameInfo.TickSpeed)
         {
             _currentTime = 0;
             _currentTick++;
