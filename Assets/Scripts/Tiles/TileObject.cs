@@ -7,7 +7,7 @@ public class TileObject : MonoBehaviour
     [Inject] PlayerResources _playerResources;
     [Inject] SelectTilePanel _selectTilePanel;
     [SerializeField] private TileObject[] _neighbourTiles;
-    [SerializeField] private bool _isGeneralRepairSelect;
+    private bool _isGeneralRepairSelect = true;
     private GroundTile _groundTile;
     private BuildingTile _buildingTile;
     private TileEcology _tileEcology;
@@ -99,7 +99,7 @@ public class TileObject : MonoBehaviour
         _currentResourceProduction = null;
         _buildingProductionView = null;
         _currentModifier = 0;
-        _isGeneralRepairSelect = false;
+        _isGeneralRepairSelect = true;
         CustomEvents.FireChangeResourceProduction(ResourceEnum.None, 0, _id, true);
         CustomEvents.FireChangeResourceForWork(this, null, 0, null);
     }
