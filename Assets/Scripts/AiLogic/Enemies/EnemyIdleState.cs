@@ -36,7 +36,7 @@ public class EnemyIdleState : EnemyState
 
     private BaseHealth FindTargetWithExtendedRadius(EnemyStateChanger stateChanger)
     {
-        // 1) Поиск в начальном радиусе
+        // Поиск в начальном радиусе
         Collider[] smallColliders = Physics.OverlapSphere(transform.position, stateChanger.DetectionRadius(), stateChanger.DetectionLayer());
         if (smallColliders.Length == 0)
         {
@@ -44,17 +44,17 @@ public class EnemyIdleState : EnemyState
             return null;
         }
 
-        // 2) Расширенный радиус
+        // Расширенный радиус
         float extendedRadius = stateChanger.ExtraDetectionRadius();
         Collider[] bigColliders = Physics.OverlapSphere(transform.position, extendedRadius, stateChanger.DetectionLayer());
 
         List<BaseHealth> allTargets = new();
-        foreach (var col in bigColliders)
+        foreach (var collider in bigColliders)
         {
-            var bh = col.GetComponent<BaseHealth>();
-            if (bh != null && !bh.IsDeath())
+            var baseHealth = collider.GetComponent<BaseHealth>();
+            if (baseHealth != null && !baseHealth.IsDeath())
             {
-                allTargets.Add(bh);
+                allTargets.Add(baseHealth);
             }
         }
         if (allTargets.Count == 0)
@@ -62,7 +62,25 @@ public class EnemyIdleState : EnemyState
             return null;
         }
 
-        // 3) Фильтруем по достижимости: из всех найденных зданий оставляем только те, до которых есть путь
+        var rndList = TRManager.Instance.GenerateIntegerPRNG(0, 100, 1);
+
+        // Берем случаную цель, кроме стен
+        if (rndList[0] > 50)
+        {
+            return GetRandomNearestNotWalls(allTargets);
+        }
+        // Берем любую цель, включая стены
+        else
+        {
+            List<int> randomInts = TRManager.Instance.GenerateIntegerPRNG(0, allTargets.Count - 1, 1);
+            int rndIndex = randomInts[0];
+            return allTargets[rndIndex];
+        }
+    }
+
+    private BaseHealth GetRandomNearestNotWalls(List<BaseHealth> allTargets)
+    {
+        // Фильтруем по достижимости: из всех найденных зданий оставляем только те, до которых есть путь
         var startNode = AstarPath.active.GetNearest(transform.position).node;
         if (startNode == null) return null;
 
@@ -76,14 +94,14 @@ public class EnemyIdleState : EnemyState
             }
         }
 
-        // 4) Если ни одно здание не достижимо значит база окружена стенами, возвращаем случайное из близжайших 
+        // Если ни одно здание не достижимо значит база окружена стенами, возвращаем случайное из близжайших 
         if (reachable.Count == 0)
         {
             var rnd = Random.Range(0, 4);
             return allTargets[rnd];
         }
 
-        // 5) Иначе, выбираем случайное из всех достижимых в радиусе
+        // Иначе, выбираем случайное из всех достижимых в радиусе
         List<int> randomInts = TRManager.Instance.GenerateIntegerPRNG(0, reachable.Count - 1, 1);
         int rndIndex = randomInts[0];
         return reachable[rndIndex];

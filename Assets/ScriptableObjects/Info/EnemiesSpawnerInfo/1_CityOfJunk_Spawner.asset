@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: 1_CityOfJunk_Spawner
   m_EditorClassIdentifier: 
   Spawners:
-  - StartDaySpawn: 3
+  - StartDaySpawn: 10
     SpawnPeriod: 3
-    Count: 10
+    Count: 12
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
       EnemyLevel: 1
   - StartDaySpawn: 20
     SpawnPeriod: 3
-    Count: 15
+    Count: 16
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 30
     SpawnPeriod: 3
-    Count: 30
+    Count: 20
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
@@ -37,7 +37,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 40
     SpawnPeriod: 2
-    Count: 40
+    Count: 30
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
@@ -45,15 +45,31 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 50
     SpawnPeriod: 2
-    Count: 50
+    Count: 30
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 3
     - EnemyEnum: 2
       EnemyLevel: 4
   - StartDaySpawn: 60
+    SpawnPeriod: 2
+    Count: 40
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 3
+    - EnemyEnum: 2
+      EnemyLevel: 4
+  - StartDaySpawn: 70
     SpawnPeriod: 1
     Count: 50
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 0
+      EnemyLevel: 3
+    - EnemyEnum: 2
+      EnemyLevel: 4
+  - StartDaySpawn: 80
+    SpawnPeriod: 1
+    Count: 60
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 4

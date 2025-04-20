@@ -114,14 +114,10 @@ public class TileObject : MonoBehaviour
 
     public void SetResourceModifier()
     {
+        if (_buildingTile.CurrentBuildingTile() == null || _buildingTile.IsConstructionNow() || (!_buildingTile.CurrentBuildingTile().IsHaveProductionResources() && !_buildingTile.IsEcologyBuilding())) return;
         if (_buildingTile == null)
         {
             Debug.LogError("SetResourceModifier: _buildingTile == null");
-            return;
-        }
-        if (_buildingTile.CurrentBuildingTile() == null)
-        {
-            Debug.Log("Нет текущего здания, пропускаем");
             return;
         }
         if (_buildingProductionView == null)
@@ -129,7 +125,6 @@ public class TileObject : MonoBehaviour
             Debug.LogError("SetResourceModifier: _buildingProductionView == null");
             return;
         }
-        if (_buildingTile.CurrentBuildingTile() == null || _buildingTile.IsConstructionNow() || (!_buildingTile.CurrentBuildingTile().IsHaveProductionResources() && !_buildingTile.IsEcologyBuilding())) return;
 
         _currentModifier = CalculateCurrentModifier();
         _buildingProductionView.RefreshModifierView();
