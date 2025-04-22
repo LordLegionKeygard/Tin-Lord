@@ -141,7 +141,16 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GeneralRepairButton",
+                    "name": "ToggleGeneralRepairButton",
+                    "type": "Button",
+                    "id": "a7b95530-f825-489d-bf06-792836ff41a6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Skill_0",
                     "type": "Button",
                     "id": "a70262bd-5798-445c-a209-c90047db6fe1",
                     "expectedControlType": "Button",
@@ -150,9 +159,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ToggleGeneralRepairButton",
+                    "name": "Skill_1",
                     "type": "Button",
-                    "id": "a7b95530-f825-489d-bf06-792836ff41a6",
+                    "id": "85bd3170-385b-49d4-9b05-67bbd4822e15",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -458,24 +467,13 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "b3c3472e-1a44-4adc-b8a0-3edc727a7536",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleGeneralRepairButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "One Modifier",
                     "id": "f6066af1-be76-457c-ad41-14a065c5864c",
                     "path": "OneModifier",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GeneralRepairButton",
+                    "action": "Skill_0",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -486,7 +484,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GeneralRepairButton",
+                    "action": "Skill_0",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -497,9 +495,53 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "GeneralRepairButton",
+                    "action": "Skill_0",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "6cde0977-daf5-4b48-8a7b-46c8489e1a65",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill_1",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "9ee42dad-38ef-4e97-8089-c2495a252212",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill_1",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "33f2aa51-5c80-4737-a0c1-3d5ede35c049",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill_1",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "b3c3472e-1a44-4adc-b8a0-3edc727a7536",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleGeneralRepairButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

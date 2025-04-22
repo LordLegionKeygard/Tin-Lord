@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class AllSkills : MonoBehaviour
 {
+    [SerializeField] private BaseSkill[] _baseSkills;
     [SerializeField] private SkillView[] _allSkills;
+    [SerializeField] private FortificationSkill _fortificationSkill;
+    public FortificationSkill GetFortificationSkill() => _fortificationSkill;
     public void TimeTickAllSkill()
     {
-        for (int i = 0; i < _allSkills.Length; i++)
+        for (int i = 0; i < _baseSkills.Length; i++)
         {
-            _allSkills[i].TimeTick();
+            _baseSkills[i].TimeTick();
         }
     }
 
@@ -15,9 +18,9 @@ public class AllSkills : MonoBehaviour
     {
         if (skillCooldown == null || skillCooldown.Length == 0) skillCooldown = new int[_allSkills.Length];
 
-        for (int i = 0; i < _allSkills.Length; i++)
+        for (int i = 0; i < _baseSkills.Length; i++)
         {
-            _allSkills[i].LoadSkill(skillCooldown[i], lastOpenedMissionId);
+            _baseSkills[i].LoadSkill(skillCooldown[i], lastOpenedMissionId);
         }
     }
 

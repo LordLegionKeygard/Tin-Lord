@@ -4,46 +4,37 @@ using UnityEngine.UI;
 
 public class SkillView : MonoBehaviour
 {
+    [SerializeField] private BaseSkill _baseSkill;
     [SerializeField] private Image _icon;
     [SerializeField] private Image _cooldownImage;
     [SerializeField] private GameObject _closeTextObject;
     [SerializeField] private Button _button;
-    [SerializeField] private Skill _skill;
     private int _currentCooldown;
-    private bool _isOpen;
     private Tween _cooldownTween;
     public int GetCurrentCooldown() => _currentCooldown;
-    public Skill GetSkill() => _skill;
-    public bool IsOpen() => _isOpen;
     public bool IsCooldownNow() => _cooldownImage.fillAmount != 0;
 
 
-    public void LoadSkill(int cooldown, int lastOpenedMissionId)
+    public void SetupSkill(int cooldown)
     {
-        if (_skill == null) return;
-
-        if (_skill.RequiredOpenedMission <= lastOpenedMissionId)
-        {
-            _isOpen = true;
-            _currentCooldown = cooldown;
-            _icon.sprite = _skill.Icon;
-            _icon.enabled = true;
-            _button.interactable = true;
-            UpdateView(true);
-            _closeTextObject.SetActive(false);
-        }
+        _currentCooldown = cooldown;
+        _icon.sprite = _baseSkill.GetSkill().Icon;
+        _icon.enabled = true;
+        _button.interactable = true;
+        UpdateView(true);
+        _closeTextObject.SetActive(false);
     }
 
     public void StartSkillCooldown()
     {
-        _currentCooldown = _skill.CooldownTicks;
+        _currentCooldown = _baseSkill.GetSkill().CooldownTicks;
         _cooldownImage.fillAmount = 1;
         UpdateView(false);
     }
 
-    public void TimeTick()
+    public void CooldownTick()
     {
-        if (!_isOpen || _currentCooldown == 0 || _skill == null) return;
+        if (_currentCooldown == 0) return;
         _currentCooldown--;
         UpdateView(false);
     }
@@ -52,7 +43,7 @@ public class SkillView : MonoBehaviour
     {
         _cooldownTween?.Kill();
 
-        float target = (float)_currentCooldown / _skill.CooldownTicks;
+        float target = (float)_currentCooldown / _baseSkill.GetSkill().CooldownTicks;
         float duration = WorldGameInfo.TickSpeed;
 
         if (isLoad)

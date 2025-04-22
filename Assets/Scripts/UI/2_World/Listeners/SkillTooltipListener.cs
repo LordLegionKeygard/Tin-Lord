@@ -3,18 +3,13 @@ using UnityEngine.EventSystems;
 
 public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private SkillView _skillView;
-
-    private void Awake()
-    {
-        _skillView = GetComponent<SkillView>();
-    }
+    private BaseSkill _baseSkill;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!_skillView.IsOpen()) return;
+        if (!_baseSkill.IsOpen()) return;
 
-        var skill = _skillView.GetSkill();
+        var skill = _baseSkill.GetSkill();
 
         var text = $"{Language.TextStatic[skill.DescriptionLanguageNumber]} [{skill.ActionText}]";
         CustomEvents.FireTooltipToggle(true, 1);
@@ -23,7 +18,7 @@ public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointe
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!_skillView.IsOpen()) return;
+        if (!_baseSkill.IsOpen()) return;
         CustomEvents.FireTooltipToggle(false, 1);
     }
 }

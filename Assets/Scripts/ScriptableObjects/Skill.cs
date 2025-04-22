@@ -4,14 +4,21 @@ using UnityEngine;
 public class Skill : ScriptableObject
 {
     [Header("Main")]
+    public SkillEnum SkillEnum;
     public Sprite Icon;
     public int CooldownTicks;
+    public int DurationTicks;
     public int RequiredOpenedMission;
     public string ActionText;
+
     [Header("Description")]
     public int DescriptionLanguageNumber;
     public int MaxWidth;
     public int Padding;
+}
 
-
+public enum SkillEnum
+{
+    GeneralRepair = 0,
+    Fortification = 1,
 }

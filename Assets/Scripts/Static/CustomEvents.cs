@@ -13,6 +13,18 @@ public class CustomEvents
     {
         OnUpdateBindingText?.Invoke(text, inputActionReference);
     }
+
+    public static event Action<Skill> OnUseSkill;
+    public static void FireUseSkill(Skill skill)
+    {
+        OnUseSkill?.Invoke(skill);
+    }
+
+    public static event Action<Skill> OnEndSkill;
+    public static void FireEndSkill(Skill skill)
+    {
+        OnEndSkill?.Invoke(skill);
+    }
     
     public static event Action OnSpawnRoadComplete;
     public static void FireSpawnRoadComplete()

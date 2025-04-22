@@ -81,4 +81,8 @@ public class WorldGameInfo
     public const float UiVolume = 0.6f;
     public const float MusicVolume = 0.6f;
 
+    [Header("Damage")]
+    public const float ConstructionExtraDamage = 3;
+    public const float FortificationSkillDamage = 0.5f;
+
 }

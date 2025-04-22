@@ -573,6 +573,9 @@ public class Language : MonoBehaviour
         _text[181, 0] = "General repair:\nRepairs all marked buildings. Requires resources.";
         _text[181, 1] = "Общий ремонт:\nЧинит все помеченные здания. Требуются ресурсы.";
 
+        _text[182, 0] = "Fortification:\nFor one day, reduces damage to all buildings by 2 times.";
+        _text[182, 1] = "Укрепление:\nНа один день, уменьшает урон по всем зданиям в 2 раза.";
+
 
 
         for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];

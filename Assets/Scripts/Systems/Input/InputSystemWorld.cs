@@ -43,10 +43,14 @@ public class InputSystemWorld : MonoBehaviour
     private WorkTileButton _workTileButton;
     public delegate void MachinePanelButton();
     private MachinePanelButton _machinePanelButton;
-    public delegate void GeneralRepairButton();
-    private GeneralRepairButton _generalRepairButton;
     public delegate void ToggleGeneralRepairButton();
     private ToggleGeneralRepairButton _toggleGeneralRepairButton;
+
+    //Skills
+    public delegate void SkillZero();
+    private SkillZero _skillZero;
+    public delegate void SkillOne();
+    private SkillOne _skillOne;
 
 
     [Header("Links")]
@@ -58,7 +62,7 @@ public class InputSystemWorld : MonoBehaviour
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanelsWorld _uiPanels;
     [SerializeField] private MachinePanel _machinePanel;
-    [SerializeField] private GeneralRepairSkill _generalRepairSystem;
+    [SerializeField] private BaseSkill[] _skills;
 
     private void Awake()
     {
@@ -116,8 +120,9 @@ public class InputSystemWorld : MonoBehaviour
         _playerInput.actions["DestroyTileButton"].performed += _ => _destroyTileButton();
         _playerInput.actions["WorkTileButton"].performed += _ => _workTileButton();
         _playerInput.actions["MachinePanelButton"].performed += _ => _machinePanelButton();
-        _playerInput.actions["GeneralRepairButton"].performed += _ => _generalRepairButton();
         _playerInput.actions["ToggleGeneralRepairButton"].performed += _ => _toggleGeneralRepairButton();
+        _playerInput.actions["Skill_0"].performed += _ => _skillZero();
+        _playerInput.actions["Skill_1"].performed += _ => _skillOne();
     }
 
     private void SetupDelegates()
@@ -145,8 +150,9 @@ public class InputSystemWorld : MonoBehaviour
         _destroyTileButton = new DestroyTileButton(_uiPanels.InputDestroyButton);
         _workTileButton = new WorkTileButton(_selectTilePanel.ToggleBuildingWorkButton);
         _machinePanelButton = new MachinePanelButton(_selectTilePanel.MachinePanelButton);
-        _generalRepairButton = new GeneralRepairButton(_generalRepairSystem.RepairAllBuildingButton);
         _toggleGeneralRepairButton = new ToggleGeneralRepairButton(_selectTilePanel.ToggleGeneralRepairButton);
+        _skillZero = new SkillZero(_skills[0].UseSkill);
+        _skillOne = new SkillOne(_skills[1].UseSkill);
     }
 
     private void OnNumberInput(InputAction.CallbackContext context)
@@ -210,7 +216,8 @@ public class InputSystemWorld : MonoBehaviour
         _destroyTileButton = delegate { };
         _workTileButton = delegate { };
         _machinePanelButton = delegate { };
-        _generalRepairButton = delegate { };
         _toggleGeneralRepairButton = delegate { };
+        _skillZero = delegate { };
+        _skillOne = delegate { };
     }
 }

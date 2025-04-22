@@ -4,6 +4,7 @@ using Zenject;
 
 public class BuildingHealth : BaseHealth
 {
+    [Inject] private readonly AllSkills _allSkills;
     [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly HealthCanvas _healthCanvas;
     [SerializeField] private GameObject _healthSliderPrefab;
@@ -96,8 +97,10 @@ public class BuildingHealth : BaseHealth
         if (!_buildingTile.HaveTile()) return;
         if (IsDeath()) return;
 
-        var extraDamage = _isConstructionNow ? 3 : 1;
-        TakeDamage(damage * extraDamage, knockBackPoints);
+        var extraDamage = _isConstructionNow ? WorldGameInfo.ConstructionExtraDamage : 1;
+        var fortification = _allSkills.GetFortificationSkill().IsActive() ? WorldGameInfo.FortificationSkillDamage : 1;
+        var resultDamage = damage * extraDamage * fortification;
+        TakeDamage(resultDamage, knockBackPoints);
         CustomEvents.FireBuildingTakeDamage(_tileObject.GetId());
     }
 
