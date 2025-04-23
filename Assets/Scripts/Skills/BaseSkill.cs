@@ -10,8 +10,9 @@ public class BaseSkill : MonoBehaviour
     public bool IsActive() => _isActive;
     public Skill GetSkill() => _skill;
     public bool IsOpen() => _isOpen;
+    public int GetCurrentDurationTick() => _currentDurationTick;
 
-    public void LoadSkill(int cooldown, int lastOpenedMissionId)
+    public void LoadSkill(int cooldown, int duration, int lastOpenedMissionId)
     {
         if (_skill == null) return;
 
@@ -19,6 +20,7 @@ public class BaseSkill : MonoBehaviour
         {
             _isOpen = true;
             SkillView.SetupSkill(cooldown);
+            CheckDuration(duration);
         }
     }
 
@@ -30,12 +32,18 @@ public class BaseSkill : MonoBehaviour
             return;
         }
 
+        AudioManager.Instance.PlayerOneShot(_skill.Sound, transform.position);
+
         SkillView.StartSkillCooldown();
-        
+        CheckDuration(_skill.DurationTicks);
+    }
+
+    private void CheckDuration(int newDuration)
+    {
         if (_skill.DurationTicks != 0)
         {
             _isActive = true;
-            _currentDurationTick = _skill.DurationTicks;
+            _currentDurationTick = newDuration;
             CustomEvents.FireUseSkill(_skill);
         }
     }

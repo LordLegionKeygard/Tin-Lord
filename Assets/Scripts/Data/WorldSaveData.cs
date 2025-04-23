@@ -1,5 +1,3 @@
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -39,7 +37,7 @@ public class WorldSaveData
     public int[] RoadTilesId;
 
     [Header("Machines")]
-    public MachinesExperienceData[] MachinesExperienceData; //Tank = 0, Sniper = 1, Engineer = 2
+    public MachinesExperienceData[] MachinesExperienceData;
     public MachineData MachineData;
 
     [Header("Objectives")]
@@ -47,6 +45,7 @@ public class WorldSaveData
 
     [Header("Skills")]
     public int[] SkillsCooldown;
+    public int[] SkillsDuration;
 }
 
 [System.Serializable]

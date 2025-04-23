@@ -9,12 +9,12 @@ public class BaseSlider : MonoBehaviour
     private float _heightOffset;
     private Transform _objectTransform;
 
-    private void Awake()
+    private void Start()
     {
         _mainCamera = Camera.main;
     }
 
-    public void SetValue(float value)
+    public virtual void SetValue(float value)
     {
         _slider.value = value;
         CheckSliderActive();
@@ -50,7 +50,7 @@ public class BaseSlider : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(_objectTransform == null) return;
+        if(_objectTransform == null || _mainCamera == null) return;
 
         Vector3 screenPosition = _mainCamera.WorldToScreenPoint(_objectTransform.position + Vector3.up * _heightOffset);
         _sliderTransform.position = screenPosition;

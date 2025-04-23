@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Skill", menuName = "TinLord/Skill")]
@@ -10,6 +11,7 @@ public class Skill : ScriptableObject
     public int DurationTicks;
     public int RequiredOpenedMission;
     public string ActionText;
+    public EventReference Sound;
 
     [Header("Description")]
     public int DescriptionLanguageNumber;

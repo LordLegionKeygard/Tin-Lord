@@ -107,6 +107,7 @@ public class WorldSaveLoad : MonoBehaviour
 
         //Skills
         currentSaveData.SkillsCooldown = _allSkills.GetAllSkillsCooldown();
+        currentSaveData.SkillsDuration = _allSkills.GetAllSkillsDuration();
     }
 
     public void LoadMissionData(ref WorldSaveData currentSaveData)
@@ -150,7 +151,7 @@ public class WorldSaveLoad : MonoBehaviour
         _objectivesPanel.LoadObjectiveItems(currentSaveData.ObjectiveAmount, currentSaveData.IsStartMission);
 
         //Skills
-        _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, _commandCenterSaveGame.CommandCenterSaveData.LastOpenedMissionId);
+        _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _commandCenterSaveGame.CommandCenterSaveData.LastOpenedMissionId);
 
         CustomEvents.FirePlayRandomLevelMusic();
         CustomEvents.FireDataLoad();

@@ -3,11 +3,11 @@ using UnityEngine.EventSystems;
 
 public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private BaseSkill _baseSkill;
+    [SerializeField] private BaseSkill _baseSkill;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!_baseSkill.IsOpen()) return;
+        if (_baseSkill == null || !_baseSkill.IsOpen()) return;
 
         var skill = _baseSkill.GetSkill();
 
@@ -18,7 +18,7 @@ public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointe
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!_baseSkill.IsOpen()) return;
+        if (_baseSkill == null || !_baseSkill.IsOpen()) return;
         CustomEvents.FireTooltipToggle(false, 1);
     }
 }

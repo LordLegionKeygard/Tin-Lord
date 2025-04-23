@@ -3,7 +3,7 @@ using UnityEngine;
 public class AllSkills : MonoBehaviour
 {
     [SerializeField] private BaseSkill[] _baseSkills;
-    [SerializeField] private SkillView[] _allSkills;
+    [SerializeField] private SkillView[] _allSkillView;
     [SerializeField] private FortificationSkill _fortificationSkill;
     public FortificationSkill GetFortificationSkill() => _fortificationSkill;
     public void TimeTickAllSkill()
@@ -14,23 +14,39 @@ public class AllSkills : MonoBehaviour
         }
     }
 
-    public void LoadAllSkills(int[] skillCooldown, int lastOpenedMissionId)
+    public void LoadAllSkills(int[] skillCooldown, int[] skillDuration, int lastOpenedMissionId)
     {
-        if (skillCooldown == null || skillCooldown.Length == 0) skillCooldown = new int[_allSkills.Length];
+        if (skillCooldown == null || skillDuration == null || skillCooldown.Length == 0 || skillDuration.Length == 0)
+        {
+            skillCooldown = new int[_allSkillView.Length];
+            skillDuration = new int[_allSkillView.Length];
+        }
 
         for (int i = 0; i < _baseSkills.Length; i++)
         {
-            _baseSkills[i].LoadSkill(skillCooldown[i], lastOpenedMissionId);
+            _baseSkills[i].LoadSkill(skillCooldown[i], skillDuration[i], lastOpenedMissionId);
         }
     }
 
     public int[] GetAllSkillsCooldown()
     {
-        var skillsData = new int[_allSkills.Length];
+        var skillsData = new int[_allSkillView.Length];
 
-        for (int i = 0; i < _allSkills.Length; i++)
+        for (int i = 0; i < _allSkillView.Length; i++)
         {
-            skillsData[i] = _allSkills[i].GetCurrentCooldown();
+            skillsData[i] = _allSkillView[i].GetCurrentCooldown();
+        }
+
+        return skillsData;
+    }
+
+    public int[] GetAllSkillsDuration()
+    {
+        var skillsData = new int[_baseSkills.Length];
+
+        for (int i = 0; i < _baseSkills.Length; i++)
+        {
+            skillsData[i] = _baseSkills[i].GetCurrentDurationTick();
         }
 
         return skillsData;
