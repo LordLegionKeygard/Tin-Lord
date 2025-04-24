@@ -488,46 +488,46 @@ public class Language : MonoBehaviour
 
         _text[153, 0] = "Wood";
         _text[153, 1] = "Древесина";
-        
+
         _text[154, 0] = "Stone";
         _text[154, 1] = "Камень";
-        
+
         _text[155, 0] = "Iron Ore";
         _text[155, 1] = "Железная Руда";
-        
+
         _text[156, 0] = "Copper Ore";
         _text[156, 1] = "Медная Руда";
-        
+
         _text[157, 0] = "Coal";
         _text[157, 1] = "Уголь";
-        
+
         _text[158, 0] = "Oil";
         _text[158, 1] = "Нефть";
-        
+
         _text[159, 0] = "Water";
         _text[159, 1] = "Вода";
-        
+
         _text[160, 0] = "Sand";
         _text[160, 1] = "Песок";
-        
+
         _text[161, 0] = "Electricity";
         _text[161, 1] = "Электричество";
-        
+
         _text[162, 0] = "Stone Block";
         _text[162, 1] = "Каменный Блок";
-        
+
         _text[163, 0] = "Iron Ingot";
         _text[163, 1] = "Слиток Железа";
-        
+
         _text[164, 0] = "Steel Ingot";
         _text[164, 1] = "Слиток Стали";
-        
+
         _text[165, 0] = "Copper Plate";
         _text[165, 1] = "Медная Пластина";
-        
+
         _text[166, 0] = "Concrete";
         _text[166, 1] = "Бетон";
-        
+
         _text[167, 0] = "Steam";
         _text[167, 1] = "Пар";
 
@@ -575,6 +575,9 @@ public class Language : MonoBehaviour
 
         _text[182, 0] = "Fortification:\nFor one day, reduces damage to all buildings by 2 times.";
         _text[182, 1] = "Укрепление:\nНа один день, уменьшает урон по всем зданиям в 2 раза.";
+
+        _text[183, 0] = "Production Optimization:\nFor one day, doubles resource production.";
+        _text[183, 1] = "Оптимизация производства:\nНа один день, увеличивает добычу ресурсов в два раза.";
 
 
 

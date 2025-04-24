@@ -98,7 +98,7 @@ public class BuildingHealth : BaseHealth
         if (IsDeath()) return;
 
         var extraDamage = _isConstructionNow ? WorldGameInfo.ConstructionExtraDamage : 1;
-        var fortification = _allSkills.GetFortificationSkill().IsActive() ? WorldGameInfo.FortificationSkillDamage : 1;
+        var fortification = _allSkills.GetSkill((int)SkillEnum.Fortification).IsActive() ? WorldGameInfo.FortificationSkillDamage : 1;
         var resultDamage = damage * extraDamage * fortification;
         TakeDamage(resultDamage, knockBackPoints);
         CustomEvents.FireBuildingTakeDamage(_tileObject.GetId());

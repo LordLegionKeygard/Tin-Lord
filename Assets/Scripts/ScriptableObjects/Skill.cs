@@ -23,4 +23,5 @@ public enum SkillEnum
 {
     GeneralRepair = 0,
     Fortification = 1,
+    ProductionOptimization = 2,
 }

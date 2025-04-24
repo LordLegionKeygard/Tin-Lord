@@ -52,6 +52,9 @@ public class InputSystemWorld : MonoBehaviour
     public delegate void SkillOne();
     private SkillOne _skillOne;
 
+    public delegate void SkillTwo();
+    private SkillTwo _skillTwo;
+
 
     [Header("Links")]
     [SerializeField] private TileDetector _tileDetector;
@@ -123,6 +126,7 @@ public class InputSystemWorld : MonoBehaviour
         _playerInput.actions["ToggleGeneralRepairButton"].performed += _ => _toggleGeneralRepairButton();
         _playerInput.actions["Skill_0"].performed += _ => _skillZero();
         _playerInput.actions["Skill_1"].performed += _ => _skillOne();
+        _playerInput.actions["Skill_2"].performed += _ => _skillTwo();
     }
 
     private void SetupDelegates()
@@ -153,6 +157,7 @@ public class InputSystemWorld : MonoBehaviour
         _toggleGeneralRepairButton = new ToggleGeneralRepairButton(_selectTilePanel.ToggleGeneralRepairButton);
         _skillZero = new SkillZero(_skills[0].UseSkill);
         _skillOne = new SkillOne(_skills[1].UseSkill);
+        _skillTwo = new SkillTwo(_skills[2].UseSkill);
     }
 
     private void OnNumberInput(InputAction.CallbackContext context)
@@ -219,5 +224,6 @@ public class InputSystemWorld : MonoBehaviour
         _toggleGeneralRepairButton = delegate { };
         _skillZero = delegate { };
         _skillOne = delegate { };
+        _skillTwo = delegate { };
     }
 }

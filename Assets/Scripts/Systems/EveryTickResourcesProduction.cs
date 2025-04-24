@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class EveryTickResourcesProduction : MonoBehaviour
 {
+    [Inject] private readonly AllSkills _allSkills;
     [SerializeField] private PlayerResources _playerResources;
     [SerializeField] private EveryTickResourcesWrapper[] _everyTickResourceProduction;
     [SerializeField] private List<ResourcesExtractionTilesInfo> _resourcesExtractionTilesInfoList = new();
@@ -33,7 +35,7 @@ public class EveryTickResourcesProduction : MonoBehaviour
             }
         }
 
-        if(remove) return;
+        if (remove) return;
 
         _resourcesExtractionTilesInfoList.Add(new ResourcesExtractionTilesInfo()
         {
@@ -59,9 +61,10 @@ public class EveryTickResourcesProduction : MonoBehaviour
 
     public void AddEveryTickResources()
     {
+        var productionOptimizationFactor = _allSkills.GetSkill((int)SkillEnum.ProductionOptimization).IsActive() ? 2 : 1;
         for (int i = 0; i < _everyTickResourceProduction.Length; i++)
         {
-            _playerResources.ChangeResource(_everyTickResourceProduction[i].Resource.ResourceEnum, _everyTickResourceProduction[i].Amount);
+            _playerResources.ChangeResource(_everyTickResourceProduction[i].Resource.ResourceEnum, _everyTickResourceProduction[i].Amount * productionOptimizationFactor);
         }
     }
 

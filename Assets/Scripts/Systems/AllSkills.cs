@@ -1,11 +1,12 @@
+using System.Globalization;
 using UnityEngine;
 
 public class AllSkills : MonoBehaviour
 {
     [SerializeField] private BaseSkill[] _baseSkills;
     [SerializeField] private SkillView[] _allSkillView;
-    [SerializeField] private FortificationSkill _fortificationSkill;
-    public FortificationSkill GetFortificationSkill() => _fortificationSkill;
+    public BaseSkill GetSkill(int skillNumber) => _baseSkills[skillNumber];
+    
     public void TimeTickAllSkill()
     {
         for (int i = 0; i < _baseSkills.Length; i++)
