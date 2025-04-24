@@ -41,14 +41,15 @@ public class GeneralRepairSkill : BaseSkill
     }
 
     public override void UseSkill()
-    {
-        base.UseSkill();
-        
-        if (_repairList.Count == 0)
+    {       
+        if (_repairList.Count == 0 || SkillView.IsCooldownNow() && IsOpen())
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             return;
         }
+
+
+        AudioManager.Instance.PlayerOneShot(GetSkill().Sound, transform.position);
 
         for (int i = 0; i < _repairList.Count; i++)
         {
@@ -59,6 +60,9 @@ public class GeneralRepairSkill : BaseSkill
                 _repairList[i].BuildingHealth().FullRepair();
             }
         }
+
+        SkillView.StartSkillCooldown();
+        CheckDuration(GetSkill().DurationTicks);
     }
 
     public ResourceWrapper[] GetResourcesForRepair(TileObject tileObject)

@@ -85,13 +85,15 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="30708">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="30708" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -165,6 +167,7 @@
       <workItem from="1743879965030" duration="1000" />
       <workItem from="1744036471418" duration="1000" />
       <workItem from="1744056191513" duration="1000" />
+      <workItem from="1745527472242" duration="64000" />
     </task>
     <servers />
   </component>
@@ -199,14 +202,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/UI/2_World/BuildTypesPanel.cs</url>
           <line>26</line>
-          <properties documentPath="E:\LegionProjects\Tin-Lord\Assets\Scripts\UI\2_World\BuildTypesPanel.cs" containingFunctionPresentation="Method 'SpawnBuildingTypesInScrollView'">
-            <startOffsets>
-              <option value="1160" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1161" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="E:\LegionProjects\Tin-Lord\Assets\Scripts\UI\2_World\BuildTypesPanel.cs" containingFunctionPresentation="Method 'SpawnBuildingTypesInScrollView'" />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>

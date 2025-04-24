@@ -6,7 +6,7 @@ public class BaseSkill : MonoBehaviour
     [SerializeField] private Skill _skill;
     [SerializeField] private bool _isActive;
     [SerializeField] private int _currentDurationTick;
-    private bool _isOpen;
+    [SerializeField] private bool _isOpen;
     public bool IsActive() => _isActive;
     public Skill GetSkill() => _skill;
     public bool IsOpen() => _isOpen;
@@ -26,7 +26,7 @@ public class BaseSkill : MonoBehaviour
 
     public virtual void UseSkill()
     {
-        if (SkillView.IsCooldownNow())
+        if (SkillView.IsCooldownNow() || !_isOpen)
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             return;
@@ -38,7 +38,7 @@ public class BaseSkill : MonoBehaviour
         CheckDuration(_skill.DurationTicks);
     }
 
-    private void CheckDuration(int newDuration)
+    public void CheckDuration(int newDuration)
     {
         if (_skill.DurationTicks != 0)
         {

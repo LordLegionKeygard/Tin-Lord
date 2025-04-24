@@ -20,10 +20,11 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 61e3e57b64d4cd4498bc4220512b622d, type: 3}
   TileTypeEnum: 0
   GroundTileView: 15
-  EnergyBeam: 6
+  EnergyBeam: 3
   GroundEcology: -5
   IsWater: 1
   IsFourTile: 0
+  CanBuildMachineProduction: 0
   BuildingTypes:
   - {fileID: 11400000, guid: f75a197b363f67549bc847eb987e8084, type: 2}
   ProductionOnGroundResources: []
