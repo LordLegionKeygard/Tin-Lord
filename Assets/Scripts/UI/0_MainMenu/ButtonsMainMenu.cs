@@ -10,7 +10,6 @@ public class ButtonsMainMenu : MonoBehaviour
     [Inject] readonly WorldSaveGame WorldSaveGame;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private TextMeshProUGUI[] _buttonsText;
-    [SerializeField] private GameObject _continueButtonObject;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _areYouSurePanel;
     private bool _isContinueGame;
@@ -19,15 +18,13 @@ public class ButtonsMainMenu : MonoBehaviour
 
     private void Start()
     {
-        UpdateContinueButton();
+        ToggleContinueButton(HaveSaveData());
     }
 
-    private void UpdateContinueButton()
+    private void ToggleContinueButton(bool state)
     {
-        if (HaveSaveData())
-        {
-            _continueButtonObject.SetActive(true);
-        }
+        _buttons[0].interactable = state;
+        _buttonsText[0].color = state == false ? Colors.GreySix : Color.white;
     }
 
     public void NewGame()
@@ -94,7 +91,7 @@ public class ButtonsMainMenu : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         CustomEvents.FireFade(FadeType.StartFade);
         _isContinueGame = false;
-        _continueButtonObject.SetActive(false);
+        ToggleContinueButton(false);
         StartCoroutine(nameof(PrepareLoad));
         _areYouSurePanel.SetActive(false);
         CustomEvents.FireCloseTooltips();

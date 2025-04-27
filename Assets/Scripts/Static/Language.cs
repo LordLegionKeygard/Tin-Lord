@@ -576,8 +576,8 @@ public class Language : MonoBehaviour
         _text[182, 0] = "Fortification:\nFor one day, reduces damage to all buildings by 2 times.";
         _text[182, 1] = "Укрепление:\nНа один день, уменьшает урон по всем зданиям в 2 раза.";
 
-        _text[183, 0] = "Production Optimization:\nFor one day, doubles resource production.";
-        _text[183, 1] = "Оптимизация производства:\nНа один день, увеличивает добычу ресурсов в два раза.";
+        _text[183, 0] = "Production Optimization:\nFor one day, increases resource production by 2 times.";
+        _text[183, 1] = "Оптимизация производства:\nНа один день, увеличивает добычу ресурсов в 2 раза.";
 
 
 

@@ -64,6 +64,12 @@ public class BuildingHealth : BaseHealth
         _healthSlider.SetupAllHealthValue(_maxHealth);
     }
 
+    private void SetBuildingSkillView()
+    {
+        var buildingSkillView = _healthSliderObject.GetComponent<BuildingSkillView>();
+        buildingSkillView.SetBuildingTile(_buildingTile.CurrentBuilding());
+    }
+
     public void SetNewBuildingHealth(Building building, bool isConstruction)
     {
         _isDeath = false;
@@ -72,6 +78,7 @@ public class BuildingHealth : BaseHealth
         _currentHealth = _isConstructionNow ? 1 : _maxHealth;
 
         CreateHealthSlider();
+        SetBuildingSkillView();
         UpdateSlider();
     }
 
@@ -89,6 +96,7 @@ public class BuildingHealth : BaseHealth
         _maxHealth = building.BuildingHealth;
         _currentHealth = currentHealth;
         CreateHealthSlider();
+        SetBuildingSkillView();
         UpdateSlider();
     }
 
