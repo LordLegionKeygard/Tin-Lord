@@ -9,14 +9,14 @@ public class Skill : ScriptableObject
     public Sprite Icon;
     public int CooldownTicks;
     public int DurationTicks;
+    public SkillResource RequiredResource;
     public int RequiredOpenedMission;
-    public string ActionText;
     public EventReference Sound;
 
-    [Header("Description")]
-    public int DescriptionLanguageNumber;
-    public int MaxWidth;
-    public int Padding;
+    [Header("Tooltip")]
+    public string[] Name;
+    public string[] Info;
+    public string Input;
 }
 
 public enum SkillEnum
@@ -24,4 +24,11 @@ public enum SkillEnum
     GeneralRepair = 0,
     Fortification = 1,
     ProductionOptimization = 2,
+}
+
+[System.Serializable]
+public class SkillResource
+{
+    public Resource Resource;
+    public int RecourceAmount;
 }

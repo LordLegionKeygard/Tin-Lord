@@ -16,8 +16,10 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 131ac40db6812934eb84b800cb4346ad, type: 3}
   CooldownTicks: 24
   DurationTicks: 0
+  RequiredResource:
+    Resource: {fileID: 0}
+    RecourceAmount: 0
   RequiredOpenedMission: 0
-  ActionText: Shift+1
   Sound:
     Guid:
       Data1: -181251051
@@ -25,6 +27,11 @@ MonoBehaviour:
       Data3: -67987800
       Data4: 700698466
     Path: event:/Ui/Click/RepairClick
-  DescriptionLanguageNumber: 181
-  MaxWidth: 400
-  Padding: 30
+  Name:
+  - General repair
+  - "\u041E\u0431\u0449\u0438\u0439 \u0440\u0435\u043C\u043E\u043D\u0442"
+  Info:
+  - Repairs all marked buildings.
+  - "\u0420\u0435\u043C\u043E\u043D\u0442\u0438\u0440\u0443\u0435\u0442 \u0432\u0441\u0435
+    \u043F\u043E\u043C\u0435\u0447\u0435\u043D\u043D\u044B\u0435 \u0437\u0434\u0430\u043D\u0438\u044F."
+  Input: Shift+1

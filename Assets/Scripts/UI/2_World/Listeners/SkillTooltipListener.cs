@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+
     [SerializeField] private BaseSkill _baseSkill;
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -11,9 +13,8 @@ public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointe
 
         var skill = _baseSkill.GetSkill();
 
-        var text = $"{Language.TextStatic[skill.DescriptionLanguageNumber]} [{skill.ActionText}]";
         CustomEvents.FireTooltipToggle(true, 1);
-        CustomEvents.FireUpdateSkillToolTipTransform(transform.position.x, transform.position.y, skill.MaxWidth, skill.Padding, text);
+        CustomEvents.FireUpdateSkillToolTipTransform(transform.position.x, transform.position.y, skill, _baseSkill.ResourceEnough());
     }
 
     public void OnPointerExit(PointerEventData eventData)

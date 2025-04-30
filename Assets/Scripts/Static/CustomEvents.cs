@@ -25,7 +25,7 @@ public class CustomEvents
     {
         OnEndSkill?.Invoke(skill);
     }
-    
+
     public static event Action OnSpawnRoadComplete;
     public static void FireSpawnRoadComplete()
     {
@@ -182,10 +182,10 @@ public class CustomEvents
         OnUpdateButtonToolTip.Invoke(x, y, text);
     }
 
-    public static Action<float, float, int, int, string> OnUpdateSkillToolTip;
-    public static void FireUpdateSkillToolTipTransform(float x, float y, int maxWidth, int padding, string text)
+    public static Action<float, float, Skill, bool> OnUpdateSkillToolTip;
+    public static void FireUpdateSkillToolTipTransform(float x, float y, Skill skill, bool resourceEnough)
     {
-        OnUpdateSkillToolTip.Invoke(x, y, maxWidth, padding, text);
+        OnUpdateSkillToolTip.Invoke(x, y, skill, resourceEnough);
     }
 
     public static Action<int> OnEnemyDeath;

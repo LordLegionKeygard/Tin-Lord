@@ -570,14 +570,14 @@ public class Language : MonoBehaviour
         _text[180, 0] = "Description";
         _text[180, 1] = "Описание";
 
-        _text[181, 0] = "General repair:\nRepairs all marked buildings. Requires resources.";
-        _text[181, 1] = "Общий ремонт:\nЧинит все помеченные здания. Требуются ресурсы.";
+        _text[181, 0] = "Requires resources to repair them.";
+        _text[181, 1] = "Требуются ресурсы для их починки";
 
-        _text[182, 0] = "Fortification:\nFor one day, reduces damage to all buildings by 2 times.";
-        _text[182, 1] = "Укрепление:\nНа один день, уменьшает урон по всем зданиям в 2 раза.";
+        _text[182, 0] = "Required";
+        _text[182, 1] = "Требуется";
 
-        _text[183, 0] = "Production Optimization:\nFor one day, increases resource production by 2 times.";
-        _text[183, 1] = "Оптимизация производства:\nНа один день, увеличивает добычу ресурсов в 2 раза.";
+        _text[183, 0] = "";
+        _text[183, 1] = "";
 
 
 

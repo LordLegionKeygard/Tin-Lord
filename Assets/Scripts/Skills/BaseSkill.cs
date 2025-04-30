@@ -1,7 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class BaseSkill : MonoBehaviour
 {
+    [Inject] private PlayerResources _playerResources;
     public SkillView SkillView;
     [SerializeField] private Skill _skill;
     [SerializeField] private bool _isActive;
@@ -26,7 +28,7 @@ public class BaseSkill : MonoBehaviour
 
     public virtual void UseSkill()
     {
-        if (SkillView.IsCooldownNow() || !_isOpen)
+        if (CanUseSkill())
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             return;
@@ -34,8 +36,16 @@ public class BaseSkill : MonoBehaviour
 
         AudioManager.Instance.PlayerOneShot(_skill.Sound, transform.position);
 
+        UseResources();
         SkillView.StartSkillCooldown();
         CheckDuration(_skill.DurationTicks);
+    }
+
+    public virtual bool CanUseSkill() => SkillView.IsCooldownNow() || !_isOpen || !ResourceEnough();
+
+    public virtual void UseResources()
+    {
+        _playerResources.ChangeResource(_skill.RequiredResource.Resource.ResourceEnum, -_skill.RequiredResource.RecourceAmount);
     }
 
     public void CheckDuration(int newDuration)
@@ -47,6 +57,8 @@ public class BaseSkill : MonoBehaviour
             CustomEvents.FireUseSkill(_skill);
         }
     }
+
+    public bool ResourceEnough() => _skill.RequiredResource.Resource == null || _playerResources.ResourceEnough(_skill.RequiredResource.Resource.ResourceEnum, _skill.RequiredResource.RecourceAmount);
 
     public void TimeTick()
     {

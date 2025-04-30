@@ -16,8 +16,10 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: cddab69ae86d91340b39d03f13896176, type: 3}
   CooldownTicks: 240
   DurationTicks: 24
+  RequiredResource:
+    Resource: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216, type: 2}
+    RecourceAmount: 40
   RequiredOpenedMission: 1
-  ActionText: Shift+2
   Sound:
     Guid:
       Data1: 1265617758
@@ -25,6 +27,12 @@ MonoBehaviour:
       Data3: 746936505
       Data4: 1045384843
     Path: event:/Ui/Skills/Fortification
-  DescriptionLanguageNumber: 182
-  MaxWidth: 420
-  Padding: 30
+  Name:
+  - Fortification
+  - "\u0423\u043A\u0440\u0435\u043F\u043B\u0435\u043D\u0438\u0435"
+  Info:
+  - For one day, reduces damage to all buildings by 2 times.
+  - "\u041D\u0430 \u043E\u0434\u0438\u043D \u0434\u0435\u043D\u044C, \u0443\u043C\u0435\u043D\u044C\u0448\u0430\u0435\u0442
+    \u0443\u0440\u043E\u043D \u043F\u043E \u0432\u0441\u0435\u043C \u0437\u0434\u0430\u043D\u0438\u044F\u043C
+    \u0432 2 \u0440\u0430\u0437\u0430."
+  Input: Shift+2

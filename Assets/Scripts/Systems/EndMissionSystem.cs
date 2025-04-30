@@ -63,7 +63,7 @@ public class EndMissionSystem : MonoBehaviour
 
         var ecologyBonus = GetEcologyBonus();
         var difficultyBonus = GetDifficultyMissionBonus();
-        var memoryRestoredAmount = (int)_playerResources.GetResourceNumberForEnum(ResourceEnum.MemoryFragment);
+        var memoryRestoredAmount = (int)_playerResources.GetResourceAmountForEnum(ResourceEnum.MemoryFragment);
         var totalFragmentsAmount = Mathf.RoundToInt(memoryRestoredAmount * ecologyBonus * difficultyBonus);
         _receivedFragments = Mathf.RoundToInt(totalFragmentsAmount * missionEndPercent);
 
