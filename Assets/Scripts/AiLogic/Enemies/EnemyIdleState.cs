@@ -97,7 +97,7 @@ public class EnemyIdleState : EnemyState
         // Если ни одно здание не достижимо значит база окружена стенами, возвращаем случайное из близжайших 
         if (reachable.Count == 0)
         {
-            var rnd = Random.Range(0, 4);
+            var rnd = Random.Range(0, allTargets.Count);
             return allTargets[rnd];
         }
 
