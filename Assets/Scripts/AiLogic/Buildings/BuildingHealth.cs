@@ -4,6 +4,7 @@ using Zenject;
 
 public class BuildingHealth : BaseHealth
 {
+    [Inject] private readonly DiContainer _diContainer;
     [Inject] private readonly AllSkills _allSkills;
     [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly HealthCanvas _healthCanvas;
@@ -55,7 +56,7 @@ public class BuildingHealth : BaseHealth
     {
         if (_healthSliderObject == null)
         {
-            _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
+            _healthSliderObject = _diContainer.InstantiatePrefab(_healthSliderPrefab, _healthCanvas.transform);
             _healthSlider = _healthSliderObject.GetComponent<BaseSlider>();
             _healthSlider.SetHeightOffset(-3.5f);
             _healthSlider.SetObjectTransform(transform);

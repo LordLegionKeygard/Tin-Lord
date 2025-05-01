@@ -3,7 +3,7 @@ using Zenject;
 
 public class BaseSkill : MonoBehaviour
 {
-    [Inject] private PlayerResources _playerResources;
+    [Inject] protected PlayerResources PlayerResources;
     public SkillView SkillView;
     [SerializeField] private Skill _skill;
     [SerializeField] private bool _isActive;
@@ -45,12 +45,12 @@ public class BaseSkill : MonoBehaviour
 
     public virtual void UseResources()
     {
-        _playerResources.ChangeResource(_skill.RequiredResource.Resource.ResourceEnum, -_skill.RequiredResource.RecourceAmount);
+        PlayerResources.ChangeResource(_skill.RequiredResource.Resource.ResourceEnum, -_skill.RequiredResource.RecourceAmount);
     }
 
     public void CheckDuration(int newDuration)
     {
-        if (_skill.DurationTicks != 0)
+        if (_skill.DurationTicks != 0 && newDuration != 0)
         {
             _isActive = true;
             _currentDurationTick = newDuration;
@@ -58,7 +58,7 @@ public class BaseSkill : MonoBehaviour
         }
     }
 
-    public bool ResourceEnough() => _skill.RequiredResource.Resource == null || _playerResources.ResourceEnough(_skill.RequiredResource.Resource.ResourceEnum, _skill.RequiredResource.RecourceAmount);
+    public bool ResourceEnough() => _skill.RequiredResource.Resource == null || PlayerResources.ResourceEnough(_skill.RequiredResource.Resource.ResourceEnum, _skill.RequiredResource.RecourceAmount);
 
     public void TimeTick()
     {

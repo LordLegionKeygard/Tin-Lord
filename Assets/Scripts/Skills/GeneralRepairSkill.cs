@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GeneralRepairSkill : BaseSkill
 {
-    [SerializeField] private PlayerResources _playerResources;
     [SerializeField] private List<TileObject> _repairList;
 
 
@@ -50,9 +49,9 @@ public class GeneralRepairSkill : BaseSkill
         for (int i = 0; i < _repairList.Count; i++)
         {
             var resources = GetResourcesForRepair(_repairList[i]);
-            if (_playerResources.ResourcesEnough(resources) && !_repairList[i].BuildingTileObject().IsConstructionNow())
+            if (PlayerResources.ResourcesEnough(resources) && !_repairList[i].BuildingTileObject().IsConstructionNow())
             {
-                _playerResources.UseResourcesForBuilding(resources);
+                PlayerResources.UseResourcesForBuilding(resources);
                 _repairList[i].BuildingHealth().FullRepair();
             }
         }

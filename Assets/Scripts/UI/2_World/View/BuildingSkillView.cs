@@ -1,7 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class BuildingSkillView : MonoBehaviour
 {
+    [Inject] private readonly AllSkills _allSkills;
     [SerializeField] private GameObject[] _skillIcons;
     [SerializeField] private Building _building;
 
@@ -14,6 +16,20 @@ public class BuildingSkillView : MonoBehaviour
     public void SetBuildingTile(Building building)
     {
         _building = building;
+        CheckActiveSkills();
+    }
+
+    private void CheckActiveSkills()
+    {
+        var allSkills = _allSkills.GetAllSkills();
+
+        for (int i = 0; i < allSkills.Length; i++)
+        {
+            if (allSkills[i].IsActive())
+            {
+                UseSkill(allSkills[i].GetSkill());
+            }
+        }
     }
 
     private void UseSkill(Skill skill)
