@@ -13,11 +13,19 @@ MonoBehaviour:
   m_Name: 3_Winter_Spawner
   m_EditorClassIdentifier: 
   Spawners:
-  - DaySpawn: 0
-    MinCount: 50
-    MaxCount: 70
+  - StartDaySpawn: 13
+    SpawnPeriod: 2
+    Count: 80
     EnemiesSpawnerInfo:
     - EnemyEnum: 8
-      EnemyLevel: 10
+      EnemyLevel: 16
+    - EnemyEnum: 8
+      EnemyLevel: 17
     - EnemyEnum: 7
-      EnemyLevel: 10
+      EnemyLevel: 18
+    - EnemyEnum: 7
+      EnemyLevel: 19
+  LastDaySpawn: 0
+  BossEnum: -1
+  BossLevel: 0
+  BossDaySpawn: 0
