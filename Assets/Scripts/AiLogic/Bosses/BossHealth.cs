@@ -47,7 +47,7 @@ public class BossHealth : BaseHealth
         BossHealthSlider.Instance.UpdateSliders(_currentHealth);
     }
 
-    public void LoadStartStats(float newHealth)
+    public override void LoadStartStats(float newHealth)
     {
         _isDeath = false;
         _maxHealth = _bossHealth;

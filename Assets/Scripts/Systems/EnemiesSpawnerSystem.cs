@@ -101,7 +101,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForNumber(enemyData[i].EnemyEnum), position, rotation, null);
             enemyObject.GetComponent<EnemyLevel>().SetLevel(enemyData[i].EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
-            enemyObject.GetComponent<EnemyHealth>().LoadStartStats(enemyData[i].EnemyHealth);
+            enemyObject.GetComponent<BaseHealth>().LoadStartStats(enemyData[i].EnemyHealth);
             enemyObject.transform.SetParent(_enemiesParent);
 
             AddEnemyToList(enemyData[i].EnemyEnum, _enemyNumber, enemyObject);

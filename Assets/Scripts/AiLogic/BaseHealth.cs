@@ -35,6 +35,11 @@ public class BaseHealth : MonoBehaviour
 		CheckDeath();
 	}
 
+	public virtual void LoadStartStats(float newHealth)
+    {
+
+    }
+
 	public void CheckDeath()
 	{
 		if (_currentHealth <= 0 && !IsDeath()) Death();

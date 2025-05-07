@@ -63,7 +63,7 @@ public class EnemyHealth : BaseHealth
         UpdateSlider();
     }
 
-    public void LoadStartStats(float newHealth)
+    public override void LoadStartStats(float newHealth)
     {
         _isDeath = false;
         _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
