@@ -25,7 +25,7 @@ MonoBehaviour:
   CanRotateBuilding: 1
   ResourcesForBuild:
   - ResourceEnum: 0
-    RecourceAmount: 50
+    RecourceAmount: 30
   - ResourceEnum: 1
     RecourceAmount: 15
   ResourcesForWork: []
@@ -35,7 +35,7 @@ MonoBehaviour:
     ResourceRecept:
     - ResourceForRecept: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216,
         type: 2}
-      ResourcesForReceptAmount: 2
+      ResourcesForReceptAmount: 1
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
     type: 3}
   ConstructionPrefab: {fileID: 2128213281935572813, guid: 5beb676f0fe6a494692d6cbcb0489cf8,

@@ -23,23 +23,23 @@ MonoBehaviour:
       EnemyLevel: 1
   - StartDaySpawn: 15
     SpawnPeriod: 3
-    Count: 16
+    Count: 20
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 2
+      EnemyLevel: 1
+    - EnemyEnum: 1
+      EnemyLevel: 1
+  - StartDaySpawn: 25
+    SpawnPeriod: 2
+    Count: 30
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
       EnemyLevel: 1
     - EnemyEnum: 1
       EnemyLevel: 2
-  - StartDaySpawn: 25
-    SpawnPeriod: 2
-    Count: 22
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 2
-      EnemyLevel: 2
-    - EnemyEnum: 1
-      EnemyLevel: 3
   - StartDaySpawn: 35
     SpawnPeriod: 2
-    Count: 30
+    Count: 40
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
       EnemyLevel: 2
@@ -47,52 +47,52 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 45
     SpawnPeriod: 2
-    Count: 36
+    Count: 50
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 2
+      EnemyLevel: 2
+    - EnemyEnum: 1
+      EnemyLevel: 3
+  - StartDaySpawn: 55
+    SpawnPeriod: 2
+    Count: 60
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
       EnemyLevel: 3
     - EnemyEnum: 1
       EnemyLevel: 4
-  - StartDaySpawn: 55
-    SpawnPeriod: 2
-    Count: 42
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 2
-      EnemyLevel: 4
-    - EnemyEnum: 1
-      EnemyLevel: 4
   - StartDaySpawn: 65
     SpawnPeriod: 1
-    Count: 48
+    Count: 65
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
+      EnemyLevel: 3
+    - EnemyEnum: 1
       EnemyLevel: 4
-    - EnemyEnum: 1
-      EnemyLevel: 5
   - StartDaySpawn: 75
-    SpawnPeriod: 1
-    Count: 54
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 2
-      EnemyLevel: 5
-    - EnemyEnum: 1
-      EnemyLevel: 5
-  - StartDaySpawn: 85
-    SpawnPeriod: 1
-    Count: 60
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 2
-      EnemyLevel: 5
-    - EnemyEnum: 1
-      EnemyLevel: 5
-  - StartDaySpawn: 95
     SpawnPeriod: 1
     Count: 70
     EnemiesSpawnerInfo:
     - EnemyEnum: 2
-      EnemyLevel: 5
+      EnemyLevel: 3
     - EnemyEnum: 1
-      EnemyLevel: 5
+      EnemyLevel: 4
+  - StartDaySpawn: 85
+    SpawnPeriod: 1
+    Count: 75
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 2
+      EnemyLevel: 3
+    - EnemyEnum: 1
+      EnemyLevel: 4
+  - StartDaySpawn: 95
+    SpawnPeriod: 1
+    Count: 80
+    EnemiesSpawnerInfo:
+    - EnemyEnum: 2
+      EnemyLevel: 3
+    - EnemyEnum: 1
+      EnemyLevel: 4
   LastDaySpawn: 100
   BossEnum: 9
   BossLevel: 30

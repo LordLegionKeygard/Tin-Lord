@@ -223,9 +223,9 @@ public class GroundTile : MonoBehaviour
     }
 
     /// <summary>
-    /// Превращаем тайлв  новый
+    /// Превращаем тайл в новый
     /// </summary>
-    private void TransformTo(GroundTileViewEnum newView)
+    private void ChangeTile(GroundTileViewEnum newView)
     {
         SetGroundTile(_tilesSystem.GetGroundTileForEnum(newView));
         SpawnGroundTile();
@@ -251,28 +251,28 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        TransformTo(GroundTileViewEnum.Barrenland);
+                        ChangeTile(GroundTileViewEnum.Barrenland);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Mountain) ||
                         neighbour.CheckTileView(GroundTileViewEnum.Forest))
                     {
-                        TransformTo(GroundTileViewEnum.Meadow);
+                        ChangeTile(GroundTileViewEnum.Meadow);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Barrenland) ||
                         neighbour.CheckTileView(GroundTileViewEnum.BlackDesert))
                     {
-                        TransformTo(GroundTileViewEnum.Ground);
+                        ChangeTile(GroundTileViewEnum.Ground);
                         return;
                     }
                 }
@@ -288,21 +288,21 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        TransformTo(GroundTileViewEnum.Barrenland);
+                        ChangeTile(GroundTileViewEnum.Barrenland);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Barrenland) ||
                         neighbour.CheckTileView(GroundTileViewEnum.BlackDesert))
                     {
-                        TransformTo(GroundTileViewEnum.Ground);
+                        ChangeTile(GroundTileViewEnum.Ground);
                         return;
                     }
                 }
@@ -318,14 +318,14 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Mountain))
                     {
-                        var rnd = Random.Range(0, 2);
-                        TransformTo(rnd == 0 ? GroundTileViewEnum.IronDeposits : GroundTileViewEnum.CopperDeposits);
+                        var rnd = Random.Range(0, 100);
+                        ChangeTile(rnd <= 70 ? GroundTileViewEnum.IronDeposits : GroundTileViewEnum.CopperDeposits);
                         return;
                     }
                 }
@@ -342,13 +342,13 @@ public class GroundTile : MonoBehaviour
                     if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        TransformTo(GroundTileViewEnum.PollutedRiver);
+                        ChangeTile(GroundTileViewEnum.PollutedRiver);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Oasis))
                     {
-                        TransformTo(GroundTileViewEnum.DesertRiver);
+                        ChangeTile(GroundTileViewEnum.DesertRiver);
                         return;
                     }
 
@@ -380,20 +380,20 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        TransformTo(GroundTileViewEnum.Barrenland);
+                        ChangeTile(GroundTileViewEnum.Barrenland);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Mountain))
                     {
-                        TransformTo(GroundTileViewEnum.CoalDeposits);
+                        ChangeTile(GroundTileViewEnum.CoalDeposits);
                         return;
                     }
                 }
@@ -409,7 +409,7 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
@@ -418,13 +418,13 @@ public class GroundTile : MonoBehaviour
                         neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver) ||
                         neighbour.CheckTileView(GroundTileViewEnum.Barrenland))
                     {
-                        TransformTo(GroundTileViewEnum.DeadForest);
+                        ChangeTile(GroundTileViewEnum.DeadForest);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Desert))
                     {
-                        TransformTo(GroundTileViewEnum.Oasis);
+                        ChangeTile(GroundTileViewEnum.Oasis);
                         return;
                     }
                 }
@@ -441,7 +441,7 @@ public class GroundTile : MonoBehaviour
                     if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        TransformTo(GroundTileViewEnum.PollutedRiver);
+                        ChangeTile(GroundTileViewEnum.PollutedRiver);
                         return;
                     }
 
@@ -460,21 +460,21 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        TransformTo(GroundTileViewEnum.BlackDesert);
+                        ChangeTile(GroundTileViewEnum.BlackDesert);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.River) ||
                         neighbour.CheckTileView(GroundTileViewEnum.DesertRiver))
                     {
-                        TransformTo(GroundTileViewEnum.Oasis);
+                        ChangeTile(GroundTileViewEnum.Oasis);
                         return;
                     }
                 }
@@ -490,14 +490,14 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
                         neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver))
                     {
-                        TransformTo(GroundTileViewEnum.ScarceCoalDeposits);
+                        ChangeTile(GroundTileViewEnum.ScarceCoalDeposits);
                         return;
                     }
                 }
@@ -513,13 +513,13 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Mountain))
                     {
-                        TransformTo(GroundTileViewEnum.ScarceCoalDeposits);
+                        ChangeTile(GroundTileViewEnum.ScarceCoalDeposits);
                         return;
                     }
                 }
@@ -534,7 +534,7 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
 
@@ -543,7 +543,7 @@ public class GroundTile : MonoBehaviour
                         neighbour.CheckTileView(GroundTileViewEnum.BlackDesert) ||
                         neighbour.CheckTileView(GroundTileViewEnum.Barrenland))
                     {
-                        TransformTo(GroundTileViewEnum.DriedOasis);
+                        ChangeTile(GroundTileViewEnum.DriedOasis);
                         return;
                     }
                 }
@@ -561,7 +561,7 @@ public class GroundTile : MonoBehaviour
 
                     if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
                     {
-                        TransformTo(GroundTileViewEnum.BlazingField);
+                        ChangeTile(GroundTileViewEnum.BlazingField);
                         return;
                     }
                 }
@@ -570,7 +570,7 @@ public class GroundTile : MonoBehaviour
             case GroundTileViewEnum.Mountain:
                 if (IsCheckAllCross(GroundTileViewEnum.Meadow))
                 {
-                    TransformTo(GroundTileViewEnum.OvergrownMountain);
+                    ChangeTile(GroundTileViewEnum.OvergrownMountain);
                 }
                 break;
         }

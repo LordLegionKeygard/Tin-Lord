@@ -26,7 +26,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
                 PositionZ = _currentEnemiesData[i].EnemyObject.transform.position.z,
                 Rotation = _currentEnemiesData[i].EnemyObject.transform.eulerAngles.y,
                 EnemyLevel = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyLevel>().GetLevel(),
-                EnemyHealth = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyHealth>().GetCurrentHealth(),
+                EnemyHealth = _currentEnemiesData[i].EnemyObject.GetComponent<BaseHealth>().GetCurrentHealth(),
             };
         }
 

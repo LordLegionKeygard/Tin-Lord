@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 231563003}
-  m_IndirectSpecularColor: {r: 0.023352768, g: 0.035106875, b: 0.09567624, a: 1}
+  m_IndirectSpecularColor: {r: 0.018793056, g: 0.027933603, b: 0.07508101, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18252,6 +18252,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_Name
       value: DesertStorm
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cc60e464c20541249940d3da106309ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_RootOrder
