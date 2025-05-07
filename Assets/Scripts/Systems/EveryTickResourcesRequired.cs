@@ -44,24 +44,24 @@ public class EveryTickResourcesRequired : MonoBehaviour
         }
     }
 
-    public void UseEveryTickRequiredResources() //
+    public void UseEveryTickRequiredResources()
     {
         for (int i = 0; i < _resourcesRequiresTilesInfoList.Count; i++)
         {
             var info = _resourcesRequiresTilesInfoList[i];
             if (info.TileObject.IsBuildingWork())
             {
-                info.TileObject.CheckResourceRequired(false);
                 if (info.TileObject.IsHaveRequiredResource())
                 {
                     if (info.ResourceForWork != null) _playerResources.ChangeResource(info.ResourceForWork.ResourceEnum, -info.ResourceForWorkAmount);
 
-                    if(info.ResourceRecept == null) continue; //это здание требует ресурс для работы, но ничего не создает, например "Очистка экологии"
+                    if (info.ResourceRecept == null) continue; //это здание требует ресурс для работы, но ничего не создает, например "Очистка экологии"
 
                     for (int k = 0; k < info.ResourceRecept.Length; k++)
                     {
                         _playerResources.ChangeResource(info.ResourceRecept[k].ResourceForRecept.ResourceEnum, -info.ResourceRecept[k].ResourcesForReceptAmount);
                     }
+                    info.TileObject.CheckResourceRequired(false);
                 }
             }
         }
