@@ -62,23 +62,23 @@ public class EnemyIdleState : EnemyState
             return null;
         }
 
-        var rndList = TRManager.Instance.GenerateIntegerPRNG(0, 100, 1);
+        var rnd = TRManager.Instance.GenerateIntegerPRNG(0, 100);
 
         // Берем случаную цель, кроме стен
         if (rndList[0] > 50)
         {
-            return GetRandomNearestNotWalls(allTargets);
+            return GetRandomReachableTarget(allTargets);
         }
         // Берем любую цель, включая стены
         else
         {
-            List<int> randomInts = TRManager.Instance.GenerateIntegerPRNG(0, allTargets.Count - 1, 1);
+            List<int> randomInts = TRManager.Instance.GenerateIntegerPRNG(0, allTargets.Count - 1);
             int rndIndex = randomInts[0];
             return allTargets[rndIndex];
         }
     }
 
-    private BaseHealth GetRandomNearestNotWalls(List<BaseHealth> allTargets)
+    private BaseHealth GetRandomReachableTarget(List<BaseHealth> allTargets)
     {
         // Фильтруем по достижимости: из всех найденных зданий оставляем только те, до которых есть путь
         var startNode = AstarPath.active.GetNearest(transform.position).node;
@@ -94,11 +94,22 @@ public class EnemyIdleState : EnemyState
             }
         }
 
-        // Если ни одно здание не достижимо значит база окружена стенами, возвращаем случайное из близжайших 
+        // Если ни одно здание не достижимо значит база окружена стенами, возвращаем близжайшее здание 
         if (reachable.Count == 0)
         {
-            var rnd = Random.Range(0, allTargets.Count);
-            return allTargets[rnd];
+            BaseHealth nearestTarget = null;
+            float minSqr = float.MaxValue;
+
+            foreach (var target in allTargets)
+            {
+                float sqr = (target.transform.position - transform.position).sqrMagnitude;
+                if (sqr < minSqr)
+                {
+                    minSqr = sqr;
+                    nearestTarget = target;
+                }
+            }
+            return nearestTarget;
         }
 
         // Иначе, выбираем случайное из всех достижимых в радиусе

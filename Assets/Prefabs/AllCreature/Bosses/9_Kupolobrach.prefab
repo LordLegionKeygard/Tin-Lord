@@ -2942,7 +2942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
-  _rotationSpeed: 0.5
+  _rotationSpeed: 1
   _currentState: {fileID: 1831594127989613337}
   _detectionLayer:
     serializedVersion: 2
@@ -3027,7 +3027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b9fbea0f1b98543b657803ed550c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bossDamage: 100
+  _bossDamage: 50
   _bulletFromPoolWrapper:
     BulletType: -1
     FirePoints: []
