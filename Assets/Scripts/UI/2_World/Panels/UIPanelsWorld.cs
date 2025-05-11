@@ -9,6 +9,7 @@ public class UIPanelsWorld : MonoBehaviour
     [SerializeField] private GameObject[] _selectTilePanels;
     [SerializeField] private GameObject[] _mainPanels;
     [SerializeField] private GameObject _settingsPanelObject;
+    [SerializeField] private GameObject _tutorialPanelObject;
 
 
     [Header("Panel Logic")]
@@ -16,6 +17,7 @@ public class UIPanelsWorld : MonoBehaviour
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private EscapePanelWorld _escapePanel;
     [SerializeField] private SettingsPanels _settingsPanel;
+    [SerializeField] private TutorialSystem _tutorialSystem;
 
     public void MainPanelsViewToggle(bool selectTilePanel, bool machinePanel)
     {
@@ -43,13 +45,13 @@ public class UIPanelsWorld : MonoBehaviour
         {
             ClearAndCancelCardHolderAndTileDetector();
         }
-        // else if (_panelDoMove.IsOpen())
-        // {
-        //     _panelDoMove.PanelClose();
-        // }
         else if (_settingsPanelObject.activeInHierarchy)
         {
             _settingsPanel.CloseButton();
+        }
+        else if(_tutorialPanelObject.activeInHierarchy)
+        {
+            _tutorialSystem.CloseTutorial();
         }
         else
         {
