@@ -65,7 +65,7 @@ public class EnemyIdleState : EnemyState
         var rnd = TRManager.Instance.GenerateIntegerPRNG(0, 100);
 
         // Берем случаную цель, кроме стен
-        if (rndList[0] > 50)
+        if (rnd[0] > 50)
         {
             return GetRandomReachableTarget(allTargets);
         }
