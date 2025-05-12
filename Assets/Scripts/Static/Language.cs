@@ -7,8 +7,8 @@ using UnityEngine;
 public class Language : MonoBehaviour
 {
     public static int LanguageNumber = 0;
-    private string[,] _text = new string[200, 2];
-    public static string[] TextStatic = new string[200];
+    private string[,] _text = new string[250, 2];
+    public static string[] TextStatic = new string[250];
 
     private void Awake()
     {
@@ -576,11 +576,122 @@ public class Language : MonoBehaviour
         _text[182, 0] = "Required";
         _text[182, 1] = "Требуется";
 
-        _text[183, 0] = "";
-        _text[183, 1] = "";
+        _text[183, 0] = "Interface";
+        _text[183, 1] = "Интерфейс";
+
+        _text[184, 0] = "Building a base";
+        _text[184, 1] = "Постройка базы";
+
+        _text[185, 0] = "Where to start?";
+        _text[185, 1] = "С чего начать?";
+
+        _text[186, 0] = "Types of buildings";
+        _text[186, 1] = "Типы зданий";
+
+        _text[187, 0] = "Combination of tiles";
+        _text[187, 1] = "Комбинация тайлов";
+
+        _text[188, 0] = "Command center";
+        _text[188, 1] = "Командный центр";
+
+        _text[189, 0] = "Mission objectives";
+        _text[189, 1] = "Цели миссии";
+
+        _text[190, 0] = "";
+        _text[190, 1] = "";
+
+        _text[191, 0] = "";
+        _text[191, 1] = "";
+
+        _text[192, 0] = "";
+        _text[192, 1] = "";
+
+        _text[193, 0] = "";
+        _text[193, 1] = "";
+
+        _text[194, 0] = "";
+        _text[194, 1] = "";
+
+        _text[195, 0] = "";
+        _text[195, 1] = "";
+
+        _text[196, 0] = "";
+        _text[196, 1] = "";
+
+        _text[197, 0] = "";
+        _text[197, 1] = "";
+
+        _text[198, 0] = "";
+        _text[198, 1] = "";
+
+        _text[199, 0] = "";
+        _text[199, 1] = "";
+
+        _text[200, 0] = "";
+        _text[200, 1] = "";
+
+        _text[201, 0] = "";
+        _text[201, 1] = "";
+
+        _text[202, 0] = "";
+        _text[202, 1] = "";
+
+        _text[203, 0] = "";
+        _text[203, 1] = "";
+
+        _text[204, 0] = "";
+        _text[204, 1] = "";
+
+        _text[205, 0] = "";
+        _text[205, 1] = "";
+
+        _text[206, 0] = "";
+        _text[206, 1] = "";
+
+        _text[207, 0] = "";
+        _text[207, 1] = "";
+
+        _text[208, 0] = "";
+        _text[208, 1] = "";
+
+        _text[209, 0] = "";
+        _text[209, 1] = "";
+
+        _text[210, 0] = "";
+        _text[210, 1] = "";
+
+        _text[211, 0] = "";
+        _text[211, 1] = "";
+
+        _text[212, 0] = "";
+        _text[212, 1] = "";
+
+        _text[213, 0] = "";
+        _text[213, 1] = "";
+
+        _text[214, 0] = "";
+        _text[214, 1] = "";
+
+        _text[215, 0] = "";
+        _text[215, 1] = "";
+
+        _text[216, 0] = "";
+        _text[216, 1] = "";
+
+        _text[217, 0] = "";
+        _text[217, 1] = "";
+
+        _text[218, 0] = "";
+        _text[218, 1] = "";
+
+        _text[219, 0] = "";
+        _text[219, 1] = "";
+
+        _text[220, 0] = "";
+        _text[220, 1] = "";
 
 
 
-        for (int x = 0; x < 200; x++) TextStatic[x] = _text[x, LanguageNumber];
+        for (int x = 0; x < 250; x++) TextStatic[x] = _text[x, LanguageNumber];
     }
 }
