@@ -597,35 +597,35 @@ public class Language : MonoBehaviour
         _text[189, 0] = "Mission objectives";
         _text[189, 1] = "Цели миссии";
 
-        _text[190, 0] = "";
-        _text[190, 1] = "";
+        _text[190, 0] = "Time and ticks";
+        _text[190, 1] = "Время и тики";
 
-        _text[191, 0] = "";
-        _text[191, 1] = "";
+        _text[191, 0] = "Event timeline";
+        _text[191, 1] = "Шкала событий";
 
-        _text[192, 0] = "";
-        _text[192, 1] = "";
+        _text[192, 0] = "Game speed";
+        _text[192, 1] = "Скорость игры";
 
-        _text[193, 0] = "";
-        _text[193, 1] = "";
+        _text[193, 0] = "Ecology";
+        _text[193, 1] = "Экология";
 
-        _text[194, 0] = "";
-        _text[194, 1] = "";
+        _text[194, 0] = "Radiation";
+        _text[194, 1] = "Радиация";
 
-        _text[195, 0] = "";
-        _text[195, 1] = "";
+        _text[195, 0] = "The top panel contains time cells. Time is divided into days, and each day consists of 24 ticks. This is the basic unit of time in the game. At each tick, all buildings produce and consume the necessary resources.";
+        _text[195, 1] = "В верхней панели расположены ячейки времени. Время разделено на дни, а каждый день состоит из 24 тиков. Это основная единица времени в игре. На каждом тике все здания производят и потребляют необходимые ресурсы.";
 
-        _text[196, 0] = "";
-        _text[196, 1] = "";
+        _text[196, 0] = "To the right of the time cells, you will find the event scale. It displays upcoming events as icons that move from right to left. When an event reaches the left edge of the scale, it is activated. For example, an earthquake, radioactive rain, or something else may begin.";
+        _text[196, 1] = "Справа от ячеек времени вы найдете шкалу событий. Она отображает предстоящие события в виде иконок, которые движутся справа налево. Когда событие доходит до левого края шкалы, оно активируется. Например может начаться землетрясение, радиоактивный дождь или что-то другое.";
 
-        _text[197, 0] = "";
-        _text[197, 1] = "";
+        _text[197, 0] = "Below the time cells are buttons for changing the game speed. You can speed up time to get through quiet periods faster or pause the game to check important moments.";
+        _text[197, 1] = "Под ячейками времени находятся кнопки изменения скорости игры. Вы можете ускорять время, чтобы быстрее пройти спокойные периоды или поставить игру на паузу, чтобы проконтролировать важные моменты.";
 
-        _text[198, 0] = "";
-        _text[198, 1] = "";
+        _text[198, 0] = "In the center of the top panel, two large numbers are displayed - the current level of ecology on the map. Each tile and each building has its own ecological parameter, which is summed up into a total. Ecology directly affects the final reward for the mission - the higher it is at the end, the more memory fragments you will receive.";
+        _text[198, 1] = "В центре верхней панели отображаются две большие цифры — текущий уровень экологии на карте. Каждый тайл и каждое здание имеет свой собственный экологический параметр, который суммируется в общий. Экология напрямую влияет на финальную награду за миссию - чем выше она будет в конце, тем больше фрагментов памяти вы получите.";
 
-        _text[199, 0] = "";
-        _text[199, 1] = "";
+        _text[199, 0] = "The radiation level is displayed under the event scale. Radiation accumulates depending on the events that occur and worsens the ecology of the area. The higher the radiation, the worse the impact on the environment and the final reward upon completion of the mission.";
+        _text[199, 1] = "Под шкалой событий отображается уровень радиации. Радиация накапливается в зависимости от происходящих событий и ухудшает экологию местности. Чем выше радиация — тем хуже воздействие на окружающую среду и на итоговую награду по завершению миссии.";
 
         _text[200, 0] = "";
         _text[200, 1] = "";

@@ -10,10 +10,7 @@ public class ChangeLanguageWorld : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _skillsPanelHeaderText;
     [SerializeField] private TextMeshProUGUI _continueButtonText;
     [SerializeField] private TextMeshProUGUI[] _escapeTexts;
-
-    [Header("Tutorial")]
-    [SerializeField] private TextMeshProUGUI[] _bigChaptersTexts;
-    [SerializeField] private TextMeshProUGUI[] _mainHeaderTexts;
+    [SerializeField] private TutorialTexts[] _tutorialTexts;
 
     private void Start()
     {
@@ -34,22 +31,84 @@ public class ChangeLanguageWorld : MonoBehaviour
         _escapeTexts[2].text = Language.TextStatic[28];
         _escapeTexts[3].text = Language.TextStatic[46];
 
-        _bigChaptersTexts[0].text = Language.TextStatic[183];
-        _bigChaptersTexts[1].text = Language.TextStatic[7];
-        _bigChaptersTexts[2].text = Language.TextStatic[184];
-        _bigChaptersTexts[3].text = Language.TextStatic[185];
-        _bigChaptersTexts[4].text = Language.TextStatic[186];
-        _bigChaptersTexts[5].text = Language.TextStatic[187];
-        _bigChaptersTexts[6].text = Language.TextStatic[188];
-        _bigChaptersTexts[7].text = Language.TextStatic[189];
 
-        _mainHeaderTexts[0].text = Language.TextStatic[183];
-        _mainHeaderTexts[1].text = Language.TextStatic[7];
-        _mainHeaderTexts[2].text = Language.TextStatic[184];
-        _mainHeaderTexts[3].text = Language.TextStatic[185];
-        _mainHeaderTexts[4].text = Language.TextStatic[186];
-        _mainHeaderTexts[5].text = Language.TextStatic[187];
-        _mainHeaderTexts[6].text = Language.TextStatic[188];
-        _mainHeaderTexts[7].text = Language.TextStatic[189];
+        //Interface
+        _tutorialTexts[0].ButtonText.text = Language.TextStatic[183];
+        _tutorialTexts[0].MainHeaderText.text = Language.TextStatic[183];
+        _tutorialTexts[0].Chapters[0].ChapterHeaderText.text = Language.TextStatic[190];
+        _tutorialTexts[0].Chapters[1].ChapterHeaderText.text = Language.TextStatic[191];
+        _tutorialTexts[0].Chapters[2].ChapterHeaderText.text = Language.TextStatic[192];
+        _tutorialTexts[0].Chapters[3].ChapterHeaderText.text = Language.TextStatic[193];
+        _tutorialTexts[0].Chapters[4].ChapterHeaderText.text = Language.TextStatic[194];
+
+        _tutorialTexts[0].Chapters[0].ChapterText.text = Language.TextStatic[195];
+        _tutorialTexts[0].Chapters[1].ChapterText.text = Language.TextStatic[196];
+        _tutorialTexts[0].Chapters[2].ChapterText.text = Language.TextStatic[197];
+        _tutorialTexts[0].Chapters[3].ChapterText.text = Language.TextStatic[198];
+        _tutorialTexts[0].Chapters[4].ChapterText.text = Language.TextStatic[199];
+
+
+        //Resources
+        _tutorialTexts[1].ButtonText.text = Language.TextStatic[7];
+        _tutorialTexts[1].MainHeaderText.text = Language.TextStatic[7];
+
+
+        //BuildingBase
+        _tutorialTexts[2].ButtonText.text = Language.TextStatic[184];
+        _tutorialTexts[2].MainHeaderText.text = Language.TextStatic[184];
+
+
+        //WhereStart
+        _tutorialTexts[3].ButtonText.text = Language.TextStatic[185];
+        _tutorialTexts[3].MainHeaderText.text = Language.TextStatic[185];
+
+
+        //BuildingTypes
+        _tutorialTexts[4].ButtonText.text = Language.TextStatic[186];
+        _tutorialTexts[4].MainHeaderText.text = Language.TextStatic[186];
+
+
+        //TileCombinations
+        _tutorialTexts[5].ButtonText.text = Language.TextStatic[187];
+        _tutorialTexts[5].MainHeaderText.text = Language.TextStatic[187];
+
+
+        //CommandCenter
+        _tutorialTexts[6].ButtonText.text = Language.TextStatic[188];
+        _tutorialTexts[6].MainHeaderText.text = Language.TextStatic[188];
+
+
+        //MissionObjectives
+        _tutorialTexts[7].ButtonText.text = Language.TextStatic[189];
+        _tutorialTexts[7].MainHeaderText.text = Language.TextStatic[189];
+
     }
+}
+
+[System.Serializable]
+public class TutorialTexts
+{
+    public TutorialEnum TutorialEnum;
+    public TextMeshProUGUI ButtonText;
+    public TextMeshProUGUI MainHeaderText;
+    public TutorialChapters[] Chapters;
+}
+
+[System.Serializable]
+public class TutorialChapters
+{
+    public TextMeshProUGUI ChapterHeaderText;
+    public TextMeshProUGUI ChapterText;
+}
+
+public enum TutorialEnum
+{
+    Interface = 0,
+    Resources = 1,
+    BuildingBase = 2,
+    WhereStart = 3,
+    BuildingTypes = 4,
+    TileCombinations = 5,
+    CommandCenter = 6,
+    MissionObjectives = 7
 }
