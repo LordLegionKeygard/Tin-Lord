@@ -51,7 +51,13 @@ public class ChangeLanguageWorld : MonoBehaviour
         //Resources
         _tutorialTexts[1].ButtonText.text = Language.TextStatic[7];
         _tutorialTexts[1].MainHeaderText.text = Language.TextStatic[7];
+        _tutorialTexts[1].Chapters[0].ChapterHeaderText.text = Language.TextStatic[200];
+        _tutorialTexts[1].Chapters[1].ChapterHeaderText.text = Language.TextStatic[201];
+        _tutorialTexts[1].Chapters[2].ChapterHeaderText.text = Language.TextStatic[202];
 
+        _tutorialTexts[1].Chapters[0].ChapterText.text = Language.TextStatic[203];
+        _tutorialTexts[1].Chapters[1].ChapterText.text = Language.TextStatic[204];
+        _tutorialTexts[1].Chapters[2].ChapterText.text = Language.TextStatic[205];
 
         //BuildingBase
         _tutorialTexts[2].ButtonText.text = Language.TextStatic[184];

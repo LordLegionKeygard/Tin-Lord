@@ -627,23 +627,23 @@ public class Language : MonoBehaviour
         _text[199, 0] = "The radiation level is displayed under the event scale. Radiation accumulates depending on the events that occur and worsens the ecology of the area. The higher the radiation, the worse the impact on the environment and the final reward upon completion of the mission.";
         _text[199, 1] = "Под шкалой событий отображается уровень радиации. Радиация накапливается в зависимости от происходящих событий и ухудшает экологию местности. Чем выше радиация — тем хуже воздействие на окружающую среду и на итоговую награду по завершению миссии.";
 
-        _text[200, 0] = "";
-        _text[200, 1] = "";
+        _text[200, 0] = "Resource panel";
+        _text[200, 1] = "Панель ресурсов";
 
-        _text[201, 0] = "";
-        _text[201, 1] = "";
+        _text[201, 0] = "Landscape cards";
+        _text[201, 1] = "Карты ландшафтов";
 
-        _text[202, 0] = "";
-        _text[202, 1] = "";
+        _text[202, 0] = "Energy beam";
+        _text[202, 1] = "Энергия луча";
 
-        _text[203, 0] = "";
-        _text[203, 1] = "";
+        _text[203, 0] = "On the left side of the screen, you can expand the resource panel. This displays the current amount of all available resources. These values ​​are updated every tick. The panel allows you to track which resources are being produced, consumed, and at what rate.";
+        _text[203, 1] = "Слева на экране можно раскрыть панель ресурсов. Здесь отображается текущее количество всех доступных ресурсов. Эти значения обновляются каждый тик времени. Панель позволяет отслеживать, какие ресурсы производятся, потребляются и в каком темпе.";
 
-        _text[204, 0] = "";
-        _text[204, 1] = "";
+        _text[204, 0] = "At the bottom of the screen is a map panel that can hold up to 8 landscape maps. Every day, the player receives 2 new maps. If the panel is full, old maps are removed from it in turn. For each removed map, the player receives the resource beam energy.";
+        _text[204, 1] = "В нижней части экрана расположена панель карт, вмещающая до 8 карт ландшафтов. Каждые сутки игрок получает 2 новые карты. Если панель переполняется, старые карты удаляются из него в порядке очереди. За каждую удалённую карту игрок получает ресурс энергия луча.";
 
-        _text[205, 0] = "";
-        _text[205, 1] = "";
+        _text[205, 0] = "The beam's energy allows you to destroy installed terrain. This is especially useful if you want to change the base configuration or clear space for more useful tiles.";
+        _text[205, 1] = "Энергия луча позволяет уничтожать установленные ландшафты. Это особенно полезно, если ты хочешь изменить конфигурацию базы или очистить место под более полезные тайлы.";
 
         _text[206, 0] = "";
         _text[206, 1] = "";
