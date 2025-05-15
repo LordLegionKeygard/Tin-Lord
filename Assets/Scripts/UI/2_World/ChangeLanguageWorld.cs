@@ -59,7 +59,7 @@ public class ChangeLanguageWorld : MonoBehaviour
         _tutorialTexts[1].Chapters[1].ChapterText.text = Language.TextStatic[204];
         _tutorialTexts[1].Chapters[2].ChapterText.text = Language.TextStatic[205];
 
-        //BuildingBase
+        //ConstructionBase
         _tutorialTexts[2].ButtonText.text = Language.TextStatic[184];
         _tutorialTexts[2].MainHeaderText.text = Language.TextStatic[184];
 
@@ -69,24 +69,19 @@ public class ChangeLanguageWorld : MonoBehaviour
         _tutorialTexts[3].MainHeaderText.text = Language.TextStatic[185];
 
 
-        //BuildingTypes
-        _tutorialTexts[4].ButtonText.text = Language.TextStatic[186];
-        _tutorialTexts[4].MainHeaderText.text = Language.TextStatic[186];
-
-
         //TileCombinations
-        _tutorialTexts[5].ButtonText.text = Language.TextStatic[187];
-        _tutorialTexts[5].MainHeaderText.text = Language.TextStatic[187];
+        _tutorialTexts[4].ButtonText.text = Language.TextStatic[187];
+        _tutorialTexts[4].MainHeaderText.text = Language.TextStatic[187];
 
 
         //CommandCenter
-        _tutorialTexts[6].ButtonText.text = Language.TextStatic[188];
-        _tutorialTexts[6].MainHeaderText.text = Language.TextStatic[188];
+        _tutorialTexts[5].ButtonText.text = Language.TextStatic[188];
+        _tutorialTexts[5].MainHeaderText.text = Language.TextStatic[188];
 
 
         //MissionObjectives
-        _tutorialTexts[7].ButtonText.text = Language.TextStatic[189];
-        _tutorialTexts[7].MainHeaderText.text = Language.TextStatic[189];
+        _tutorialTexts[6].ButtonText.text = Language.TextStatic[189];
+        _tutorialTexts[6].MainHeaderText.text = Language.TextStatic[189];
 
     }
 }
@@ -111,10 +106,9 @@ public enum TutorialEnum
 {
     Interface = 0,
     Resources = 1,
-    BuildingBase = 2,
+    Construction = 2,
     WhereStart = 3,
-    BuildingTypes = 4,
-    TileCombinations = 5,
-    CommandCenter = 6,
-    MissionObjectives = 7
+    TileCombinations = 4,
+    CommandCenter = 5,
+    MissionObjectives = 6
 }

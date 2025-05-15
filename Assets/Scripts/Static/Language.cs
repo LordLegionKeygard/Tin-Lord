@@ -579,14 +579,14 @@ public class Language : MonoBehaviour
         _text[183, 0] = "Interface";
         _text[183, 1] = "Интерфейс";
 
-        _text[184, 0] = "Building a base";
-        _text[184, 1] = "Постройка базы";
+        _text[184, 0] = "Construction";
+        _text[184, 1] = "Строительство";
 
         _text[185, 0] = "Where to start?";
         _text[185, 1] = "С чего начать?";
 
-        _text[186, 0] = "Types of buildings";
-        _text[186, 1] = "Типы зданий";
+        _text[186, 0] = "";
+        _text[186, 1] = "";
 
         _text[187, 0] = "Combination of tiles";
         _text[187, 1] = "Комбинация тайлов";
