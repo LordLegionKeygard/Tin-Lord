@@ -585,8 +585,8 @@ public class Language : MonoBehaviour
         _text[185, 0] = "Where to start?";
         _text[185, 1] = "С чего начать?";
 
-        _text[186, 0] = "";
-        _text[186, 1] = "";
+        _text[186, 0] = "By pressing the \"Escape\" key, the menu panel will drop down from the top. The following buttons are available in it:\n\nRestart - starts the current mission from the beginning, completely deleting the current progress and accumulated memory fragments.\n\nEscape - the ability to escape from the mission, provided that half of the mission's objectives are completed. Saves half of the accumulated memory fragments.\n\nSettings - opens the panel with game parameters.\n\nExit - saves the current mission progress. Makes a transition to the command center.\n\n     Training - opens the current panel with training";
+        _text[186, 1] = "Нажав на клавишу \"Escape\" сверху опустится панель меню. В ней доступны такие кнопки как:\n\nПерезапуск - начинает текущую миссию с начала, полностью удаляя текущий прогресс и накопленные фрагменты памяти.\n\nПобег - возможность сбежать с миссии, при условии выполнения половины от поставленных целей миссии. Сохраняет половину накопленных фрагментов памяти.\n\nНастройки - открывает панель с параметрами игры.\n\nВыход - сохраняет текущий прогресс миссии. Делает переход в командный центр.\n\n     Обучение - открывает текущую панель с  обучением";
 
         _text[187, 0] = "Combination of tiles";
         _text[187, 1] = "Комбинация тайлов";

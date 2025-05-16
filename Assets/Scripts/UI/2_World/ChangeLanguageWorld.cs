@@ -40,12 +40,14 @@ public class ChangeLanguageWorld : MonoBehaviour
         _tutorialTexts[0].Chapters[2].ChapterHeaderText.text = Language.TextStatic[192];
         _tutorialTexts[0].Chapters[3].ChapterHeaderText.text = Language.TextStatic[193];
         _tutorialTexts[0].Chapters[4].ChapterHeaderText.text = Language.TextStatic[194];
+        _tutorialTexts[0].Chapters[5].ChapterHeaderText.text = Language.TextStatic[141];
 
         _tutorialTexts[0].Chapters[0].ChapterText.text = Language.TextStatic[195];
         _tutorialTexts[0].Chapters[1].ChapterText.text = Language.TextStatic[196];
         _tutorialTexts[0].Chapters[2].ChapterText.text = Language.TextStatic[197];
         _tutorialTexts[0].Chapters[3].ChapterText.text = Language.TextStatic[198];
         _tutorialTexts[0].Chapters[4].ChapterText.text = Language.TextStatic[199];
+        _tutorialTexts[0].Chapters[5].ChapterText.text = Language.TextStatic[186];
 
 
         //Resources
