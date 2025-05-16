@@ -26,7 +26,8 @@ public class CommandCenterSaveGame : MonoBehaviour
         {
             MemoryFragments = 0,
             LastOpenedMissionId = 0,
-            NewGame = true,
+            PrologueCompleted = false,
+            TutorialCompleted = false,
             BuildingsLearned = new bool[_configLoaderBuildings.AllBuidingsCount()],
         };
 
@@ -60,6 +61,24 @@ public class CommandCenterSaveGame : MonoBehaviour
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveData.MemoryFragments += memoryFragments;
         CommandCenterSaveData.LastOpenedMissionId = lastOpenedMissionId;
+        _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
+    }
+
+    public void CompletePrologue()
+    {
+        if (CommandCenterSaveData.PrologueCompleted == true) return;
+
+        _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
+        CommandCenterSaveData.PrologueCompleted = true;
+        _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
+    }
+
+    public void CompleteTutorial()
+    {
+        if (CommandCenterSaveData.TutorialCompleted == true) return;
+
+        _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
+        CommandCenterSaveData.TutorialCompleted = true;
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
     }
 }

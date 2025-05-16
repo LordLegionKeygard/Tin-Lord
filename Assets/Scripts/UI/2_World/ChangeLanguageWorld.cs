@@ -35,6 +35,7 @@ public class ChangeLanguageWorld : MonoBehaviour
         //Interface
         _tutorialTexts[0].ButtonText.text = Language.TextStatic[183];
         _tutorialTexts[0].MainHeaderText.text = Language.TextStatic[183];
+
         _tutorialTexts[0].Chapters[0].ChapterHeaderText.text = Language.TextStatic[190];
         _tutorialTexts[0].Chapters[1].ChapterHeaderText.text = Language.TextStatic[191];
         _tutorialTexts[0].Chapters[2].ChapterHeaderText.text = Language.TextStatic[192];
@@ -53,6 +54,7 @@ public class ChangeLanguageWorld : MonoBehaviour
         //Resources
         _tutorialTexts[1].ButtonText.text = Language.TextStatic[7];
         _tutorialTexts[1].MainHeaderText.text = Language.TextStatic[7];
+
         _tutorialTexts[1].Chapters[0].ChapterHeaderText.text = Language.TextStatic[200];
         _tutorialTexts[1].Chapters[1].ChapterHeaderText.text = Language.TextStatic[201];
         _tutorialTexts[1].Chapters[2].ChapterHeaderText.text = Language.TextStatic[202];
@@ -65,6 +67,7 @@ public class ChangeLanguageWorld : MonoBehaviour
         //Construction
         _tutorialTexts[2].ButtonText.text = Language.TextStatic[184];
         _tutorialTexts[2].MainHeaderText.text = Language.TextStatic[184];
+
         _tutorialTexts[2].Chapters[0].ChapterHeaderText.text = Language.TextStatic[206];
         _tutorialTexts[2].Chapters[1].ChapterHeaderText.text = Language.TextStatic[207];
         _tutorialTexts[2].Chapters[2].ChapterHeaderText.text = Language.TextStatic[208];
@@ -83,6 +86,7 @@ public class ChangeLanguageWorld : MonoBehaviour
         //WhereStart
         _tutorialTexts[3].ButtonText.text = Language.TextStatic[185];
         _tutorialTexts[3].MainHeaderText.text = Language.TextStatic[185];
+
         _tutorialTexts[3].Chapters[0].ChapterHeaderText.text = Language.TextStatic[218];
         _tutorialTexts[3].Chapters[1].ChapterHeaderText.text = Language.TextStatic[219];
         _tutorialTexts[3].Chapters[2].ChapterHeaderText.text = Language.TextStatic[220];
@@ -99,15 +103,32 @@ public class ChangeLanguageWorld : MonoBehaviour
         _tutorialTexts[4].ButtonText.text = Language.TextStatic[187];
         _tutorialTexts[4].MainHeaderText.text = Language.TextStatic[187];
 
+        _tutorialTexts[4].Chapters[0].ChapterHeaderText.text = Language.TextStatic[226];
+        _tutorialTexts[4].Chapters[1].ChapterHeaderText.text = Language.TextStatic[227];
 
-        //CommandCenter
+
+        _tutorialTexts[4].Chapters[0].ChapterText.text = Language.TextStatic[228];
+        _tutorialTexts[4].Chapters[1].ChapterText.text = Language.TextStatic[229];
+
+        //Research
         _tutorialTexts[5].ButtonText.text = Language.TextStatic[188];
         _tutorialTexts[5].MainHeaderText.text = Language.TextStatic[188];
 
+        _tutorialTexts[5].Chapters[0].ChapterHeaderText.text = Language.TextStatic[230];
 
-        //MissionObjectives
+        _tutorialTexts[5].Chapters[0].ChapterText.text = Language.TextStatic[231];
+
+
+        //Missions
         _tutorialTexts[6].ButtonText.text = Language.TextStatic[189];
         _tutorialTexts[6].MainHeaderText.text = Language.TextStatic[189];
+
+        _tutorialTexts[6].Chapters[0].ChapterHeaderText.text = Language.TextStatic[232];
+        _tutorialTexts[6].Chapters[1].ChapterHeaderText.text = Language.TextStatic[233];
+
+
+        _tutorialTexts[6].Chapters[0].ChapterText.text = Language.TextStatic[234];
+        _tutorialTexts[6].Chapters[1].ChapterText.text = Language.TextStatic[235];
 
     }
 }
@@ -135,6 +156,6 @@ public enum TutorialEnum
     Construction = 2,
     WhereStart = 3,
     TileCombinations = 4,
-    CommandCenter = 5,
-    MissionObjectives = 6
+    Research = 5,
+    Missions = 6
 }

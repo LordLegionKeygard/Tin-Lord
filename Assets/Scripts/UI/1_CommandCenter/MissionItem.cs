@@ -20,7 +20,9 @@ public class MissionItem : MonoBehaviour
 
     public void SetMissionOpened(int lastOpenedMissionId)
     {
-        _missionOpened = _mission.MissionId <= lastOpenedMissionId;
+        _missionOpened = WorldGameInfo.IsDemo ?
+        _mission.MissionId <= lastOpenedMissionId && _mission.MissionId <= WorldGameInfo.LastAvailableDemoMissionId :
+        _mission.MissionId <= lastOpenedMissionId;
         SetMissionView();
     }
 
@@ -29,13 +31,17 @@ public class MissionItem : MonoBehaviour
         _button.interactable = _missionOpened;
         _missionIcon.enabled = _missionOpened;
         _missionIcon.sprite = _mission.MissionSprite;
-        _missionNameText.text = _missionOpened ? _mission.Name[Language.LanguageNumber] : "?";
+
+        bool isLockedDemoMission = WorldGameInfo.IsDemo && _mission.MissionId > WorldGameInfo.LastAvailableDemoMissionId;
+        
+        _missionNameText.text = isLockedDemoMission ? Language.TextStatic[236] : _missionOpened ? _mission.Name[Language.LanguageNumber] : "?";
+
     }
 
     public void SelectMissionItem()
     {
-        if(_isSelect) return;
-        
+        if (_isSelect) return;
+
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.SelectMission, transform.position);
         _missionPanel.RefreshInfo(_mission);
         SelectToggleView(true);

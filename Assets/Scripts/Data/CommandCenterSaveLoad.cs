@@ -16,7 +16,6 @@ public class CommandCenterSaveLoad : MonoBehaviour
     public void SaveData(ref CommandCenterSaveData currentSaveData)
     {
         currentSaveData.MemoryFragments = _buildingsLearnPanel.MemoryFragments();
-        currentSaveData.NewGame = false;
 
         for (int i = 0; i < _buildingsLearnPanel.AllLearnBuildingItems().Length; i++)
         {
@@ -27,7 +26,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
     public void LoadData(ref CommandCenterSaveData currentSaveData)
     {
         _buildingsLearnPanel.SetFragments(currentSaveData.MemoryFragments);
-        _prologue.StartPrologue(currentSaveData.NewGame);
+        _prologue.StartPrologue(!currentSaveData.PrologueCompleted);
 
         for (int i = 0; i < _buildingsLearnPanel.AllLearnBuildingItems().Length; i++)
         {

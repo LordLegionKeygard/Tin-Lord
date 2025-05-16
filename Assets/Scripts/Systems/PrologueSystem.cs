@@ -6,7 +6,7 @@ using Zenject;
 
 public class PrologueSystem : MonoBehaviour
 {
-    [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
+    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
 
     [Header("Planet")]
     [SerializeField] private RectTransform _planetRectTransform;
@@ -47,7 +47,7 @@ public class PrologueSystem : MonoBehaviour
         {
             _canvasGroup.interactable = true;
             _skyBoxRotation.enabled = true;
-            CommandCenterSaveGame.SaveGameData(false);
+            _commandCenterSaveGame.CompletePrologue();
             _prologueCanvas.SetActive(false);
         });
     }

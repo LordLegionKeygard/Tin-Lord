@@ -44,6 +44,9 @@ public class WorldSaveLoad : MonoBehaviour
     [Header("Skill")]
     [SerializeField] private AllSkills _allSkills;
 
+    [Header("Tutorial")]
+    [SerializeField] private TutorialSystem _tutorialSystem;
+
     private void Awake()
     {
         _worldSaveGame.WorldSaveLoad = this;
@@ -71,7 +74,7 @@ public class WorldSaveLoad : MonoBehaviour
     {
         //Main
         currentSaveData.IsStartMission = false;
-        currentSaveData.MissionId = CurrentMissionInfo.Instance.GetCurrentMission().MissionId; // при завершении миссии нужно будет вручную поднимать лвл в скрипте чтобы тут было правильное значение
+        currentSaveData.MissionId = CurrentMissionInfo.Instance.GetCurrentMission().MissionId;
 
         //UpPanel
         currentSaveData.Day = _timeTickSystem.GetCurrentDay();
@@ -152,6 +155,9 @@ public class WorldSaveLoad : MonoBehaviour
 
         //Skills
         _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _commandCenterSaveGame.CommandCenterSaveData.LastOpenedMissionId);
+
+        //Tutorial
+        if (!_commandCenterSaveGame.CommandCenterSaveData.TutorialCompleted) _tutorialSystem.OpenTutorial(true);
 
         CustomEvents.FirePlayRandomLevelMusic();
         CustomEvents.FireDataLoad();

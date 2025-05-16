@@ -41,7 +41,7 @@ public class LoadingScreenController : MonoBehaviour
                 ScreenToggle(false);
                 break;
             case (int)SceneEnum.CommandCenter:
-                if (_commandCenterSaveGame.CommandCenterSaveData.NewGame)
+                if (!_commandCenterSaveGame.CommandCenterSaveData.PrologueCompleted)
                 {
                     CustomEvents.FireFade(FadeType.FadeOutPrologue);
                 }

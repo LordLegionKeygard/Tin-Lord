@@ -1,25 +1,36 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class TutorialSystem : MonoBehaviour
 {
+    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [SerializeField] private GameObject _tutorial;
     [SerializeField] private EscapePanelWorld _escapePanel;
     [SerializeField] private GameObject[] _chapters;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private TextMeshProUGUI[] _buttonTexts;
     private bool _needSound;
+    private bool _isFirstOpen;
 
     private void OnEnable()
     {
+        _needSound = false;
+        OpenChapter(0);
         _needSound = true;
     }
 
-    public void OpenTutorial()
+    public void OpenTutorial(bool firstOpen)
     {
-        _escapePanel.PanelViewToggle(false);
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        _isFirstOpen = firstOpen;
+
+        if (!_isFirstOpen)
+        {
+            _escapePanel.PanelViewToggle(false);
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        }
+
         _tutorial.SetActive(true);
     }
 
@@ -49,14 +60,9 @@ public class TutorialSystem : MonoBehaviour
 
     public void CloseTutorial()
     {
+        _commandCenterSaveGame.CompleteTutorial();
         _tutorial.SetActive(false);
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        _escapePanel.PanelViewToggle(true);
-    }
-
-    private void OnDisable()
-    {
-        _needSound = false;
-        OpenChapter(0);
+        if (!_isFirstOpen) _escapePanel.PanelViewToggle(true);
     }
 }

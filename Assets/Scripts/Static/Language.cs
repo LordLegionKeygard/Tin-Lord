@@ -591,11 +591,11 @@ public class Language : MonoBehaviour
         _text[187, 0] = "Combination of tiles";
         _text[187, 1] = "Комбинация тайлов";
 
-        _text[188, 0] = "Command center";
-        _text[188, 1] = "Командный центр";
+        _text[188, 0] = "Research";
+        _text[188, 1] = "Исследования";
 
-        _text[189, 0] = "Mission objectives";
-        _text[189, 1] = "Цели миссии";
+        _text[189, 0] = "Missions";
+        _text[189, 1] = "Миссии";
 
         _text[190, 0] = "Time and ticks";
         _text[190, 1] = "Время и тики";
@@ -702,41 +702,41 @@ public class Language : MonoBehaviour
         _text[224, 0] = "If you get a random land, desert or plain tile, use it to build attack buildings.\n\nBuild a ballista to start defending against monsters. It:\n\n1)Works automatically\n\n2)Has a fixed attack radius\n\n3)Can be built on most basic terrain\n\nIt is important to build the ballista so that it blocks the approach to the base and construction zones.";
         _text[224, 1] = "Если среди случайных тайлов вам выпали земля, пустыня или равнина — используйте их для постройки атакующих зданий.\n\nПостройте баллисту, чтобы начать защиту от монстров. Она:\n\n1)Работает автоматически\n\n2)Имеет фиксированный радиус атаки\n\n3)Может быть построена на большинстве базовых ландшафтов\n\nВажно строить баллисту так, чтобы она перекрывала подход к базе и зонам строительства.";
 
-        _text[225, 0] = "Continue to place forests and mountains. This will increase the flow of basic resources.\n\nSwitch the resource used by the shelter (wood ↔ stone) to maintain balance and not stop memory production.\n\nIf there are not enough resources, temporarily disable buildings in the control panel to prevent overspending.\n\nExpand the base and surround it with multiple turrets.";
-        _text[225, 1] = "Продолжайте устанавливать леса и горы. Это позволит увеличить поступление основных ресурсов.\n\nПереключайте ресурс, используемый убежищем (древесина ↔ камень), чтобы поддерживать баланс и не останавливать производство памяти.\n\nЕсли ресурсов не хватает — временно отключайте здания в панели управления, чтобы не допустить перерасхода.\n\nРасширяйте базу и окружайте ее многочесленными турелями.";
+        _text[225, 0] = "Continue to place forests and mountains. This will increase the flow of basic resources.\n\nSwitch the resource used by the shelter (wood, stone) to maintain balance and not stop memory production.\n\nIf there are not enough resources, temporarily disable buildings in the control panel to prevent overspending.\n\nExpand the base and surround it with multiple turrets.";
+        _text[225, 1] = "Продолжайте устанавливать леса и горы. Это позволит увеличить поступление основных ресурсов.\n\nПереключайте ресурс, используемый убежищем (древесина, камень), чтобы поддерживать баланс и не останавливать производство памяти.\n\nЕсли ресурсов не хватает — временно отключайте здания в панели управления, чтобы не допустить перерасхода.\n\nРасширяйте базу и окружайте ее многочесленными турелями.";
 
-        _text[226, 0] = "";
-        _text[226, 1] = "";
+        _text[226, 0] = "Evolution of tiles";
+        _text[226, 1] = "Эволюция тайлов";
 
-        _text[227, 0] = "";
-        _text[227, 1] = "";
+        _text[227, 0] = "Impact on efficiency";
+        _text[227, 1] = "Влияние на эффективность";
 
-        _text[228, 0] = "";
-        _text[228, 1] = "";
+        _text[228, 0] = "The game's terrains can be combined. By placing certain tiles next to each other, you can transform them into more advanced forms.\n\nExamples:\n\nPlain + Mountain or River = Meadow - increased ecology and component production\n\nDesert + River = Oasis - reduces sand production, but improves ecology\n\nLand + Oil Swamp = Barren Land - reduces all resource production and ecology, but you can still build offensive and defensive structures";
+        _text[228, 1] = "Ландшафты в игре можно комбинировать. Размещая определённые тайлы рядом друг с другом, вы можете превратить их в более продвинутые формы.\n\nПримеры:\n\nРавнина + Гора или Река = Луг — повышенная экология и производство компонентов\n\nПустыня + Река = Оазис - снижает добычу песка, но улучшает экологию\n\nЗемля + Нефтяное Болото = Бесплодная Земля — снижает добычу всех ресурсов и экологию, но вы все еще можете строить атакующие и защитные сооружения";
 
-        _text[229, 0] = "";
-        _text[229, 1] = "";
+        _text[229, 0] = "Combined tiles can increase mining speed, unlock new building types, or reduce resource consumption.\n\nThey also affect ecology, which is added to the overall map value.\n\nExperiment! Placing new tiles next to already placed ones can lead to unexpected improvements.\n\nPlease note that tile transformation is irreversible - plan your placement in advance.";
+        _text[229, 1] = "Комбинированные тайлы могут повышать скорость добычи, открывать новые типы зданий, или уменьшать потребление ресурсов.\n\nТакже они влияют на экологию, которая суммируется в общий показатель карты.\n\nЭкспериментируй! Установка новых тайлов рядом с уже размещёнными может привести к неожиданным улучшениям.\n\nУчтите, что трансформация тайла необратима — планируйте размещение заранее.";
 
-        _text[230, 0] = "";
-        _text[230, 1] = "";
+        _text[230, 0] = "Study of buildings";
+        _text[230, 1] = "Изучение построек";
 
-        _text[231, 0] = "";
-        _text[231, 1] = "";
+        _text[231, 0] = "After completing the mission, you return to the Command Center. Click on the arrow on the left edge of the screen to open the building research panel.\n\nAt the bottom of the panel, you will see the total amount of accumulated memory fragments - this is the main resource for opening new buildings.\n\nSelect a building to open its description.\n\nA panel with details will appear on the right: a description, the resources it uses, and its purpose.\n\nClick the \"Research\" button to make this building available for construction in future missions.\n\nThe higher your ecology at the end of the mission, the more memory fragments you will receive. This will speed up progress.";
+        _text[231, 1] = "После завершения миссии вы возвращаетесь в командный центр. Нажмите на стрелку у левого края экрана, чтобы открыть панель исследований зданий.\n\nВ нижней части панели отображается общее количество накопленных фрагментов памяти — это основной ресурс для открытия новых зданий.\n\nВыберите здание, чтобы открыть его описание.\n\nСправа появится панель с подробностями: описание, ресурсы, которые оно использует, и его назначение.\n\nНажмите кнопку \"Изучить\", чтобы это здание стало доступно для строительства в будущих миссиях.\n\nЧем выше ваша экология на момент окончания миссии — тем больше фрагментов памяти вы получите. Это ускорит прогресс.";
 
-        _text[232, 0] = "";
-        _text[232, 1] = "";
+        _text[232, 0] = "Selecting a mission";
+        _text[232, 1] = "Выбор миссии";
 
-        _text[233, 0] = "";
-        _text[233, 1] = "";
+        _text[233, 0] = "Mission features";
+        _text[233, 1] = "Особенности миссий";
 
-        _text[234, 0] = "";
-        _text[234, 1] = "";
+        _text[234, 0] = "In the command center, in the lower right part of the screen, there is a mission selection panel. Each mission is a unique challenge with its own conditions:\n\n1) Resource set\n\n2) Starting radiation\n\n3) Mission objectives (for example: survive 10 days, destroy 150 enemies, achieve a certain ecology)\n\nHaving completed all the objectives, you successfully complete the mission and open a new one, receiving all the accumulated memory fragments + bonuses for ecology and mission difficulty.";
+        _text[234, 1] = "В командном центре, в правой нижней части экрана, находится панель выбора миссий. Каждая миссия — это уникальное испытание с собственными условиями:\n\n1)Набор ресурсов\n\n2)Стартовая радиация\n\n3)Цели миссии (например: выжить 10 дней, уничтожить 150 врагов, достичь определённой экологии)\n\nВыполнив все цели, вы успешно завершаете миссию и открываете новую, получая при этом все накопленные фрагменты памяти + бонусы за экологию и сложность миссии.";
 
-        _text[235, 0] = "";
-        _text[235, 1] = "";
+        _text[235, 0] = "In some missions you will have a huge area for construction, while others will have a small construction zone.\n\nAlso, depending on the landscape, enemies will attack from different sides, take this into account when defending the base.\n\nYou can not complete the missions in full: if you feel that you will lose, escape early to save at least some of the fragments of memory and explore new buildings. But this will require completing at least half of the mission objectives.";
+        _text[235, 1] = "В некоторых миссиях у вас будет огромная территория для строительства, а другие будут обладать маленькой зоной постройки.\n\nТак же в зависимости от ландшафта враги будут наступать из разных сторон, учитывайте это при защите базы.\n\nМиссии можно проходить не полностью: если чувствуете, что проиграете  — сбегите досрочно, чтобы сохранить хотя бы часть фрагментов памяти и изучить новые здания. Но для этого потребуется выполнить хотя бы половину от поставленных целей миссии.";
 
-        _text[236, 0] = "";
-        _text[236, 1] = "";
+        _text[236, 0] = "Demo";
+        _text[236, 1] = "Демо";
 
         _text[237, 0] = "";
         _text[237, 1] = "";
