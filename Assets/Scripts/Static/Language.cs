@@ -645,50 +645,110 @@ public class Language : MonoBehaviour
         _text[205, 0] = "The beam's energy allows you to destroy installed terrain. This is especially useful if you want to change the base configuration or clear space for more useful tiles.";
         _text[205, 1] = "Энергия луча позволяет уничтожать установленные ландшафты. Это особенно полезно, если ты хочешь изменить конфигурацию базы или очистить место под более полезные тайлы.";
 
-        _text[206, 0] = "";
-        _text[206, 1] = "";
+        _text[206, 0] = "Installing the base foundation";
+        _text[206, 1] = "Установка фундамента базы";
 
-        _text[207, 0] = "";
-        _text[207, 1] = "";
+        _text[207, 0] = "Tile panel";
+        _text[207, 1] = "Панель тайла";
 
-        _text[208, 0] = "";
-        _text[208, 1] = "";
+        _text[208, 0] = "Construction of buildings";
+        _text[208, 1] = "Строительство зданий";
 
-        _text[209, 0] = "";
-        _text[209, 1] = "";
+        _text[209, 0] = "Building types";
+        _text[209, 1] = "Типы зданий";
 
-        _text[210, 0] = "";
-        _text[210, 1] = "";
+        _text[210, 0] = "Setting up buildings";
+        _text[210, 1] = "Настройка зданий";
 
-        _text[211, 0] = "";
-        _text[211, 1] = "";
+        _text[211, 0] = "Removing buildings and tiles";
+        _text[211, 1] = "Удаление зданий и тайлов";
 
-        _text[212, 0] = "";
-        _text[212, 1] = "";
+        _text[212, 0] = "At the start of the game, a ring road is randomly generated. You are given 1 terrain card - the base foundation. This is a unique 2x2 tile (occupies 4 cells).\n\nClick the \"Base Foundation\" card to place it. When placing a tile, you will see green or red squares - they indicate whether it can be placed in the selected area. In addition, when approaching the edges of the map, red border lines will appear, indicating the restrictions of the placement zone.";
+        _text[212, 1] = "В начале игры случайным образом генерируется кольцевая дорога. Вам дается 1 карта ландшафта - фундамент для базы. Это уникальный тайл размером 2x2 (занимает 4 клетки).\n\nЩёлкните по карте \"Фундмаент базы\", чтобы поставить её. При установке тайла вы увидите зелёные или красные квадраты — они указывают, можно ли разместить его в выбранной области. Кроме того, при приближении к краям карты появятся красные линии границы, обозначающие ограничения зоны размещения.";
 
-        _text[213, 0] = "";
-        _text[213, 1] = "";
+        _text[213, 0] = "After placing the foundation, click on it. An information panel will appear at the bottom right. In it, you can see the following information:\n\n-Ecology level of the land\n\n-Type and level of the building\n\n-Produced and consumed resources\n\n-Available actions: construction, enabling/disabling the building, rotating the tile, destroying the building/landscape";
+        _text[213, 1] = "После размещения фундамента нажмите на него. Справа внизу появится информационная панель. В ней вы можете увидеть такую информацию:\n\n-Уровень экологии земли\n\n-Тип и уровень здания\n\n-Производимые и потребляемые ресурсы\n\n-Доступные действия: постройка, включение/выключение работы здания, поворот тайла, уничтожения здания/ландшафта";
 
-        _text[214, 0] = "";
-        _text[214, 1] = "";
+        _text[214, 0] = "In the information panel at the bottom, click the \"Build\" button.\n\nIf the landscape has multiple building types available, a panel with a choice of building type will open.\n\nClick on a building type to open buildings of that type available for construction.\n\nHover over a building to display the resources needed for its construction. Clicking on the building card a second time will begin construction.\n\nDuring construction, a progress indicator will appear under the building. If at this point the building is attacked by monsters and their damage exceeds the construction progress, the building will be destroyed.\n\nIf a building is already installed on the landscape, you can change it for a better building of the same type. In this case, you will get back some of the resources for the previous building, there is no need to destroy it before building a new one.";
+        _text[214, 1] = "В информационной панели внизу нажмите кнопку \"Построить\".\n\nЕсли у ландшафта доступна установка нескольких типов зданий, то откроется панель с выбором типа здания.\n\nНажмите на тип здания, чтобы открыть доступные для строительства здания этого типа.\n\nНаведите на здание, чтобы отобразились ресурсы необходимые для его строительства. Нажав на карточку здания второй раз начнется строительство.\n\nВо время постройки под зданием появится индикатор прогресса. Если в этот момент здание будет атаковано монстрами, и их урон превысит прогресс строительства, здание будет разрушено.\n\nЕсли на ландшафте уже установлено здание, вы можете его поменять на здание лучше, но того же типа. При этом вам вернется часть ресурсов за прошлое здание, нет необходимости в его уничтожении, перед постройкой нового.";
 
-        _text[215, 0] = "";
-        _text[215, 1] = "";
+        _text[215, 0] = "Each landscape has its own supported building types (ore mining, power generation, etc.) If you do not have available buildings in the category, the button will be gray. By clicking on the category, you will see specific available buildings.\n\nFor example:\nThe \"Wood mining\" category may include: manual mining, sawmill, steam and electric sawmill.";
+        _text[215, 1] = "У каждого ландшафта есть свои поддерживаемые типы построек (добыча руды, электроэнергетика и др.) Если у вас нет доступных зданий в категории - кнопка будет серой. Нажав на категорию, ты увидишь конкретные доступные здания.\n\nНапример:\nКатегория \"Добыча дерева\" может включать: ручную добычу, распилочный стол, паровую и электро-лесопилку.";
 
-        _text[216, 0] = "";
-        _text[216, 1] = "";
+        _text[216, 0] = "Once the building is completed, it will automatically turn on. However, you can turn it off manually to save resources.\n\nIf the required resource runs out, the building will turn off and turn on automatically as soon as the resource appears.\n\nSome buildings, such as the sawmill, allow you to choose the resource they will use - wood, coal or fuel.";
+        _text[216, 1] = "После завершения постройки здание автоматически включается. Однако вы можете выключить его вручную, чтобы сэкономить ресурсы.\n\nЕсли необходимый ресурс закончится здание выключится и включится автоматически как только ресурс появится.\n\nНекоторые здания, например лесопилка, позволяют выбирать ресурс, который они будут использовать - дерево, уголь или топливо.";
 
-        _text[217, 0] = "";
-        _text[217, 1] = "";
+        _text[217, 0] = "If a building is already built on the tile, when you click the \"Destroy\" button, you will get back some resources depending on the remaining health. If there is no building, you can delete the landscape itself, but only at the expense of the beam's energy.";
+        _text[217, 1] = "Если на тайле уже построено здание, при нажатии на кнопку \"Уничтожить\" вы получите обратно часть ресурсов, зависящую от оставшегося здоровья. Если здания нету - можно удалить сам ландшафт, но только за счёт энергии луча.";
 
-        _text[218, 0] = "";
-        _text[218, 1] = "";
+        _text[218, 0] = "Base";
+        _text[218, 1] = "База";
 
-        _text[219, 0] = "";
-        _text[219, 1] = "";
+        _text[219, 0] = "Resource extraction";
+        _text[219, 1] = "Добыча ресурсов";
 
-        _text[220, 0] = "";
-        _text[220, 1] = "";
+        _text[220, 0] = "Defense";
+        _text[220, 1] = "Оборона";
+
+        _text[221, 0] = "Continuing development";
+        _text[221, 1] = "Продолжение развития";
+
+        _text[222, 0] = "At the start of each mission, you have access to one Base Foundation card.\n\nOnce installed, you can build a Shelter, the first building in your base that produces Memory Fragments.\n\nAlong with this, you are guaranteed to receive 4 starting terrain cards:\n\nForest (for wood),\n\nMountain (for stone),\n\nAnd two random cards.\n\nWood and stone are key resources at the beginning of the game. They are needed to build most base buildings, and they are also used to operate some buildings.";
+        _text[222, 1] = "В начале каждой миссии вам доступна одна карточка фундамента базы.\n\nПосле установки вы сможете построить убежище — первое здание вашей базы, которое производит фрагменты памяти.\n\nВместе с этим вы гарантированно получаете 4 стартовые карты ландшафта:\n\nЛес (для древесины),\n\nГора (для камня),\n\nИ две случайные карты.\n\nРесурсы древесина и камень — ключевые в начале игры. Они нужны для постройки большинства базовых зданий, а так же они используются для работы некоторых зданий.";
+
+        _text[223, 0] = "Build:\n\nIn the forest - manual wood mining,\n\nOn the mountain - manual stone mining.\n\nThese are the simplest production buildings that do not require energy or other resources.\n\nBe sure to check consumption and production in the tile panel so as not to overload the economy.";
+        _text[223, 1] = "Постройте:\n\nВ лесу — ручную добычу дерева,\n\nНа горе — ручную добычу камня.\n\nЭто простейшие производственные здания, не требующие энергии или других ресурсов.\n\nОбязательно проверяйте потребление и производство в панели тайла, чтобы не перегружать экономику.";
+
+        _text[224, 0] = "If you get a random land, desert or plain tile, use it to build attack buildings.\n\nBuild a ballista to start defending against monsters. It:\n\n1)Works automatically\n\n2)Has a fixed attack radius\n\n3)Can be built on most basic terrain\n\nIt is important to build the ballista so that it blocks the approach to the base and construction zones.";
+        _text[224, 1] = "Если среди случайных тайлов вам выпали земля, пустыня или равнина — используйте их для постройки атакующих зданий.\n\nПостройте баллисту, чтобы начать защиту от монстров. Она:\n\n1)Работает автоматически\n\n2)Имеет фиксированный радиус атаки\n\n3)Может быть построена на большинстве базовых ландшафтов\n\nВажно строить баллисту так, чтобы она перекрывала подход к базе и зонам строительства.";
+
+        _text[225, 0] = "Continue to place forests and mountains. This will increase the flow of basic resources.\n\nSwitch the resource used by the shelter (wood ↔ stone) to maintain balance and not stop memory production.\n\nIf there are not enough resources, temporarily disable buildings in the control panel to prevent overspending.\n\nExpand the base and surround it with multiple turrets.";
+        _text[225, 1] = "Продолжайте устанавливать леса и горы. Это позволит увеличить поступление основных ресурсов.\n\nПереключайте ресурс, используемый убежищем (древесина ↔ камень), чтобы поддерживать баланс и не останавливать производство памяти.\n\nЕсли ресурсов не хватает — временно отключайте здания в панели управления, чтобы не допустить перерасхода.\n\nРасширяйте базу и окружайте ее многочесленными турелями.";
+
+        _text[226, 0] = "";
+        _text[226, 1] = "";
+
+        _text[227, 0] = "";
+        _text[227, 1] = "";
+
+        _text[228, 0] = "";
+        _text[228, 1] = "";
+
+        _text[229, 0] = "";
+        _text[229, 1] = "";
+
+        _text[230, 0] = "";
+        _text[230, 1] = "";
+
+        _text[231, 0] = "";
+        _text[231, 1] = "";
+
+        _text[232, 0] = "";
+        _text[232, 1] = "";
+
+        _text[233, 0] = "";
+        _text[233, 1] = "";
+
+        _text[234, 0] = "";
+        _text[234, 1] = "";
+
+        _text[235, 0] = "";
+        _text[235, 1] = "";
+
+        _text[236, 0] = "";
+        _text[236, 1] = "";
+
+        _text[237, 0] = "";
+        _text[237, 1] = "";
+
+        _text[238, 0] = "";
+        _text[238, 1] = "";
+
+        _text[239, 0] = "";
+        _text[239, 1] = "";
+
+        _text[240, 0] = "";
+        _text[240, 1] = "";
 
 
 

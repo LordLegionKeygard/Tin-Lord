@@ -59,14 +59,38 @@ public class ChangeLanguageWorld : MonoBehaviour
         _tutorialTexts[1].Chapters[1].ChapterText.text = Language.TextStatic[204];
         _tutorialTexts[1].Chapters[2].ChapterText.text = Language.TextStatic[205];
 
-        //ConstructionBase
+
+        //Construction
         _tutorialTexts[2].ButtonText.text = Language.TextStatic[184];
         _tutorialTexts[2].MainHeaderText.text = Language.TextStatic[184];
+        _tutorialTexts[2].Chapters[0].ChapterHeaderText.text = Language.TextStatic[206];
+        _tutorialTexts[2].Chapters[1].ChapterHeaderText.text = Language.TextStatic[207];
+        _tutorialTexts[2].Chapters[2].ChapterHeaderText.text = Language.TextStatic[208];
+        _tutorialTexts[2].Chapters[3].ChapterHeaderText.text = Language.TextStatic[209];
+        _tutorialTexts[2].Chapters[4].ChapterHeaderText.text = Language.TextStatic[210];
+        _tutorialTexts[2].Chapters[5].ChapterHeaderText.text = Language.TextStatic[211];
+
+        _tutorialTexts[2].Chapters[0].ChapterText.text = Language.TextStatic[212];
+        _tutorialTexts[2].Chapters[1].ChapterText.text = Language.TextStatic[213];
+        _tutorialTexts[2].Chapters[2].ChapterText.text = Language.TextStatic[214];
+        _tutorialTexts[2].Chapters[3].ChapterText.text = Language.TextStatic[215];
+        _tutorialTexts[2].Chapters[4].ChapterText.text = Language.TextStatic[216];
+        _tutorialTexts[2].Chapters[5].ChapterText.text = Language.TextStatic[217];
 
 
         //WhereStart
         _tutorialTexts[3].ButtonText.text = Language.TextStatic[185];
         _tutorialTexts[3].MainHeaderText.text = Language.TextStatic[185];
+        _tutorialTexts[3].Chapters[0].ChapterHeaderText.text = Language.TextStatic[218];
+        _tutorialTexts[3].Chapters[1].ChapterHeaderText.text = Language.TextStatic[219];
+        _tutorialTexts[3].Chapters[2].ChapterHeaderText.text = Language.TextStatic[220];
+        _tutorialTexts[3].Chapters[3].ChapterHeaderText.text = Language.TextStatic[221];
+
+
+        _tutorialTexts[3].Chapters[0].ChapterText.text = Language.TextStatic[222];
+        _tutorialTexts[3].Chapters[1].ChapterText.text = Language.TextStatic[223];
+        _tutorialTexts[3].Chapters[2].ChapterText.text = Language.TextStatic[224];
+        _tutorialTexts[3].Chapters[3].ChapterText.text = Language.TextStatic[225];
 
 
         //TileCombinations
