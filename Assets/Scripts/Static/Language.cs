@@ -741,8 +741,8 @@ public class Language : MonoBehaviour
         _text[237, 0] = "Tutorial";
         _text[237, 1] = "Обучение";
 
-        _text[238, 0] = "";
-        _text[238, 1] = "";
+        _text[238, 0] = "Toggle resources/shop panels";
+        _text[238, 1] = "Переключает панель ресурсов/магазина";
 
         _text[239, 0] = "";
         _text[239, 1] = "";

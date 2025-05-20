@@ -28,7 +28,7 @@ public class WorldGameInfo
     public const int MaximumRadiation = 50;
 
     [Header("DayEvent")]
-    public const int DayEventChance = 20;
+    public const int DayEventChance = 30;
 
     [Header("Machine")]
     public const int MachinesCount = 1;

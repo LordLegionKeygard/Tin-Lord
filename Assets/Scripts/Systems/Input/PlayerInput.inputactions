@@ -175,6 +175,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LeftPanel",
+                    "type": "Button",
+                    "id": "c2983498-3bc8-4bae-b361-52d1015fe2e8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -584,6 +593,17 @@
                     "action": "Skill_2",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "2819fe22-84ff-4f6a-8978-60e5b1e87616",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftPanel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

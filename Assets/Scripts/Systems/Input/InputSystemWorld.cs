@@ -30,6 +30,9 @@ public class InputSystemWorld : MonoBehaviour
     public delegate void Escape();
     private Escape _escape;
 
+    public delegate void LeftPanel();
+    private LeftPanel _leftPanel;
+
     //SelectTilePanel
     private delegate void SelectNumbers(InputAction.CallbackContext context);
     private SelectNumbers _selectNumbers;
@@ -64,6 +67,7 @@ public class InputSystemWorld : MonoBehaviour
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanelsWorld _uiPanels;
+    [SerializeField] private PanelDoMoveX _leftResourcesPanel;
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private BaseSkill[] _skills;
 
@@ -115,6 +119,7 @@ public class InputSystemWorld : MonoBehaviour
 
         //UserInterface
         _playerInput.actions["Escape"].performed += _ => _escape();
+        _playerInput.actions["LeftPanel"].performed += _ => _leftPanel();
 
         //SelectTilePanel
         _playerInput.actions["SelectNumbers"].performed += ctx => _selectNumbers(ctx);
@@ -146,6 +151,7 @@ public class InputSystemWorld : MonoBehaviour
 
         //UserInterface
         _escape = new Escape(_uiPanels.EscapeClick);
+        _leftPanel = new LeftPanel(_leftResourcesPanel.PanelMove);
 
         //SelectTilePanel
         _selectNumbers = new SelectNumbers(OnNumberInput);
@@ -213,6 +219,7 @@ public class InputSystemWorld : MonoBehaviour
 
         //UserInterface
         _escape = delegate { };
+        _leftPanel = delegate { };
 
         //SelectTilePanel
         _selectNumbers = delegate { };

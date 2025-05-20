@@ -18,7 +18,8 @@ public class ResourceForWorkPanelCommandCenter : MonoBehaviour
             { ResourceEnum.Oil, (_buttons[2], _select[2]) },
             { ResourceEnum.Electricity, (_buttons[3], _select[3]) },
             { ResourceEnum.Steam, (_buttons[4], _select[4]) },
-            {ResourceEnum.Water, (_buttons[5], _select[5]) },
+            { ResourceEnum.Water, (_buttons[5], _select[5]) },
+            { ResourceEnum.Stone, (_buttons[6], _select[6]) },
         };
     }
 
