@@ -738,8 +738,8 @@ public class Language : MonoBehaviour
         _text[236, 0] = "Demo";
         _text[236, 1] = "Демо";
 
-        _text[237, 0] = "";
-        _text[237, 1] = "";
+        _text[237, 0] = "Tutorial";
+        _text[237, 1] = "Обучение";
 
         _text[238, 0] = "";
         _text[238, 1] = "";
