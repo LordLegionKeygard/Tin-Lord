@@ -15,11 +15,11 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.8, g: 0.7411765, b: 0.7058824, a: 1}
+  m_FogColor: {r: 0.38431373, g: 0.35686275, b: 0.36862746, a: 1}
   m_FogMode: 1
-  m_FogDensity: 0.003
-  m_LinearFogStart: 3.34
-  m_LinearFogEnd: 245.86
+  m_FogDensity: 0.1
+  m_LinearFogStart: 45.5
+  m_LinearFogEnd: 85.71
   m_AmbientSkyColor: {r: 0, g: 0.4509804, b: 0.7254902, a: 1}
   m_AmbientEquatorColor: {r: 0.65882355, g: 0.65882355, b: 0.65882355, a: 1}
   m_AmbientGroundColor: {r: 0, g: 0, b: 0, a: 1}
@@ -18253,41 +18253,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: DesertStorm
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: cc60e464c20541249940d3da106309ac, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 152.5
+      value: 154.99
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.8
+      value: -22.69
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 509.8
+      value: 507.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99417925
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.10773913
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -18295,23 +18291,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -12.37
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cc60e464c20541249940d3da106309ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: cc60e464c20541249940d3da106309ac, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: cc60e464c20541249940d3da106309ac, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19800000, guid: cc60e464c20541249940d3da106309ac, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc60e464c20541249940d3da106309ac, type: 3}
