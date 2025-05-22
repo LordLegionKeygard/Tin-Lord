@@ -58,7 +58,7 @@ public class MachineHealth : BaseHealth
         UpdateSlider();
     }
 
-    public void LoadStartStats(float newHealth)
+    public override void LoadStartStats(float newHealth)
     {
         _isDeath = false;
         _maxHealth = MachinesDataWorld.Instance.GetCurrentDurability();

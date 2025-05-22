@@ -3,6 +3,7 @@ using UnityEngine;
 public class WorldGameInfo
 {
     public static bool IsDemo = true;
+    public static int LanguageLength = 300;
     public static int LastAvailableDemoMissionId = 2;
     public static bool StaticBlood = true;
     public const float PausedTimeScale = 0.00001f;
