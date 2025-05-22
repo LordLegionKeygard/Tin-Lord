@@ -11,6 +11,7 @@ public class ChangeLanguageWorld : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _continueButtonText;
     [SerializeField] private TextMeshProUGUI[] _escapeTexts;
     [SerializeField] private TutorialTexts[] _tutorialTexts;
+    [SerializeField] private TextMeshProUGUI[] _terminalTexts;
 
     private void Start()
     {
@@ -32,7 +33,24 @@ public class ChangeLanguageWorld : MonoBehaviour
         _escapeTexts[3].text = Language.TextStatic[46];
         _escapeTexts[4].text = Language.TextStatic[237];
 
+        SetTutorialTexts();
+        SetTerminalTexts();
+    }
 
+    private void SetTerminalTexts()
+    {
+        _terminalTexts[0].text = Language.TextStatic[239];
+        _terminalTexts[1].text = Language.TextStatic[240];
+        _terminalTexts[2].text = Language.TextStatic[241];
+        _terminalTexts[3].text = Language.TextStatic[242];
+        _terminalTexts[4].text = Language.TextStatic[243];
+        _terminalTexts[5].text = Language.TextStatic[244];
+        _terminalTexts[6].text = Language.TextStatic[245];
+        _terminalTexts[7].text = Language.TextStatic[33];
+    }
+
+    private void SetTutorialTexts()
+    {
         //Interface
         _tutorialTexts[0].ButtonText.text = Language.TextStatic[183];
         _tutorialTexts[0].MainHeaderText.text = Language.TextStatic[183];
@@ -130,7 +148,6 @@ public class ChangeLanguageWorld : MonoBehaviour
 
         _tutorialTexts[6].Chapters[0].ChapterText.text = Language.TextStatic[234];
         _tutorialTexts[6].Chapters[1].ChapterText.text = Language.TextStatic[235];
-
     }
 }
 

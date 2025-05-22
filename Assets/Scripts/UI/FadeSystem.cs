@@ -14,7 +14,7 @@ public class FadeSystem : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnFade += Fade;
-        CustomEvents.FireControlFadeMusic(true);
+        CustomEvents.FireControlFadeMusic(true, MusicType.Main);
     }
 
     public void Fade(FadeType fadeType)
@@ -38,7 +38,7 @@ public class FadeSystem : MonoBehaviour
 
     private void StartFade(float time)
     {
-        CustomEvents.FireControlFadeMusic(false);
+        CustomEvents.FireControlFadeMusic(false, MusicType.Main);
         _fade.SetActive(true);
         DOVirtual.DelayedCall(time, () =>
         {
@@ -48,7 +48,7 @@ public class FadeSystem : MonoBehaviour
 
     private void FadeOut(float time)
     {
-        CustomEvents.FireControlFadeMusic(true);
+        CustomEvents.FireControlFadeMusic(true, MusicType.Main);
         DOVirtual.DelayedCall(time, () =>
         {
             _fadeImage.DOFade(0f, 1f).SetEase(Ease.InOutQuad).SetUpdate(true).OnComplete(() =>

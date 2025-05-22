@@ -21,6 +21,10 @@ public class Mission : ScriptableObject
     public GameEventInfo[] MissionEvents;
     public Tile[] Cards;
     [TextArea(1, 8)] public string[] Description;
+
+    [Header("Terminal")]
+    public int[] StoryTextsIndexes;
+    public int[] ConsoleTextsIndexes;
 }
 
 [System.Serializable]

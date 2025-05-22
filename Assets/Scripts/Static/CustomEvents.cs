@@ -206,10 +206,10 @@ public class CustomEvents
         OnMissionEnd?.Invoke(missionEndEnum);
     }
 
-    public static Action<bool> OnControlFadeMusic;
-    public static void FireControlFadeMusic(bool state)
+    public static Action<bool, MusicType> OnControlFadeMusic;
+    public static void FireControlFadeMusic(bool state, MusicType musicType)
     {
-        OnControlFadeMusic?.Invoke(state);
+        OnControlFadeMusic?.Invoke(state, musicType);
     }
 
     public static Action OnLearnBuilding;

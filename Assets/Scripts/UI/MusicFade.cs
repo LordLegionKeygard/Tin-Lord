@@ -4,6 +4,7 @@ using System.Collections;
 
 public class MusicFade : MonoBehaviour
 {
+    [SerializeField] private MusicType _musicType;
     [SerializeField] private StudioEventEmitter _eventEmitter;
     [SerializeField] private float _fadeDuration;
     [SerializeField] private bool _isWorldScene;
@@ -13,8 +14,10 @@ public class MusicFade : MonoBehaviour
         CustomEvents.OnControlFadeMusic += ControlFadeMusic;
     }
 
-    public void ControlFadeMusic(bool state)
+    public void ControlFadeMusic(bool state, MusicType musicType)
     {
+        if (_musicType != musicType) return;
+        
         if (state)
         {
             if (!_isWorldScene) _eventEmitter.Play();
@@ -41,4 +44,10 @@ public class MusicFade : MonoBehaviour
     {
         CustomEvents.OnControlFadeMusic -= ControlFadeMusic;
     }
+}
+
+public enum MusicType
+{
+    Main = 0,
+    Terminal = 1,
 }

@@ -11,13 +11,14 @@ public class ConsoleTextsTyping : MonoBehaviour
     private float _consoleDelayBetweenTexts = 2f;  // Время мигания курсора перед печатью сообщения
 
     // Индексы строк для консоли
-    private int[] _consoleTextIndices = new int[14] { 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89};
+    private int[] _consoleTextIndexes;
 
     // Хранит несколько последних строк консоли
     private List<string> _consoleMessages = new();
 
-    private void Start()
+    public void StartTyping(int[] indexes)
     {
+        _consoleTextIndexes = indexes;
         StartCoroutine(UpdateConsoleMessages());
     }
 
@@ -26,9 +27,9 @@ public class ConsoleTextsTyping : MonoBehaviour
     {
         int textIndex = 0;
 
-        while (textIndex < _consoleTextIndices.Length)
+        while (textIndex < _consoleTextIndexes.Length)
         {
-            int currentIndex = _consoleTextIndices[textIndex];
+            int currentIndex = _consoleTextIndexes[textIndex];
             textIndex++;
 
             // Берём очередное сообщение из Language.TextStatic

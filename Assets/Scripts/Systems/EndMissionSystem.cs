@@ -12,6 +12,7 @@ public class EndMissionSystem : MonoBehaviour
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private UIPanelsWorld _uIPanelsWorld;
     [SerializeField] private EcologySystem _ecologySystem;
+    [SerializeField] private TerminalSystem _terminalSystem;
 
     [Header("View")]
     [SerializeField] private GameObject _panel;
@@ -27,6 +28,7 @@ public class EndMissionSystem : MonoBehaviour
     private bool _isMissionEnd = false;
     private int _receivedFragments;
     public bool IsMissionEnd() => _isMissionEnd;
+    private MissionEndEnum _missionEndEnum;
 
 
     private void Start()
@@ -53,7 +55,9 @@ public class EndMissionSystem : MonoBehaviour
 
     private void SetMissionEndViewInfo(MissionEndEnum missionEndEnum)
     {
-        var missionEndPercent = missionEndEnum switch
+        _missionEndEnum = missionEndEnum;
+
+        var missionEndPercent = _missionEndEnum switch
         {
             MissionEndEnum.Defeat => WorldGameInfo.DefeatFragmentsPercent / 100f,
             MissionEndEnum.Escape => WorldGameInfo.EscapeFragmentsPercent / 100f,
@@ -67,16 +71,16 @@ public class EndMissionSystem : MonoBehaviour
         var totalFragmentsAmount = Mathf.RoundToInt(memoryRestoredAmount * ecologyBonus * difficultyBonus);
         _receivedFragments = Mathf.RoundToInt(totalFragmentsAmount * missionEndPercent);
 
-        SetTexts(missionEndEnum, memoryRestoredAmount, ecologyBonus, difficultyBonus, totalFragmentsAmount);
+        SetTexts(memoryRestoredAmount, ecologyBonus, difficultyBonus, totalFragmentsAmount);
         _slider.value = 0;
         _panel.SetActive(true);
         StartCoroutine(UpdateFragmentsAndSlider(_receivedFragments, missionEndPercent));
     }
 
-    private void SetTexts(MissionEndEnum missionEndEnum, int memoryRestoredAmount, float ecologyBonus, float difficultyBonus, float totalFragmentsAmount)
+    private void SetTexts(int memoryRestoredAmount, float ecologyBonus, float difficultyBonus, float totalFragmentsAmount)
     {
-        var headerTextNumber = missionEndEnum is MissionEndEnum.Defeat ? 64 : missionEndEnum is MissionEndEnum.Escape ? 65 : 63;
-        var headerTextColor = missionEndEnum is MissionEndEnum.Defeat ? Color.black : missionEndEnum is MissionEndEnum.Escape ? Colors.GreyEight : Colors.WarningYellow;
+        var headerTextNumber = _missionEndEnum is MissionEndEnum.Defeat ? 64 : _missionEndEnum is MissionEndEnum.Escape ? 65 : 63;
+        var headerTextColor = _missionEndEnum is MissionEndEnum.Defeat ? Color.black : _missionEndEnum is MissionEndEnum.Escape ? Colors.GreyEight : Colors.WarningYellow;
 
         _headerText.color = headerTextColor;
         _headerText.text = Language.TextStatic[headerTextNumber];
@@ -145,6 +149,19 @@ public class EndMissionSystem : MonoBehaviour
     public void ContinueButton()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+
+        if (_missionEndEnum == MissionEndEnum.Victory)
+        {
+            _terminalSystem.ActiveTerminal();
+        }
+        else
+        {
+            LoadCommandCenter();
+        }
+    }
+
+    public void LoadCommandCenter()
+    {
         CustomEvents.FireFade(FadeType.StartFade);
         StartCoroutine(nameof(PrepareLoad));
     }

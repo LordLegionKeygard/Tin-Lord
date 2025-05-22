@@ -5,21 +5,23 @@ using UnityEngine;
 public class StoryTextTyping : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _storyText;
-    private int[] _storyTextIndices = new int[7] { 69, 70, 71, 72, 73, 74, 75 };
+    private int[] _storyTextIndexes;
     private float _typingSpeed = 0.04f;
     private float _storyDelayBetweenTexts = 3f;
+    [SerializeField] private GameObject _continueButton;
 
-    private void Start()
+    public void StartTyping(int[] indexes)
     {
+        _storyTextIndexes = indexes;
         StartCoroutine(ShowStory());
     }
 
-     private IEnumerator ShowStory()
+    private IEnumerator ShowStory()
     {
         // Небольшая задержка перед историей (примерно 3 секунды)
         yield return new WaitForSeconds(3f);
 
-        foreach (int textIndex in _storyTextIndices)
+        foreach (int textIndex in _storyTextIndexes)
         {
             string fullText = Language.TextStatic[textIndex];
 
@@ -42,5 +44,7 @@ public class StoryTextTyping : MonoBehaviour
             // Задержка перед следующим блоком
             yield return new WaitForSeconds(_storyDelayBetweenTexts);
         }
+        
+        _continueButton.SetActive(true);
     }
 }
