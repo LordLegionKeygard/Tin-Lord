@@ -255,22 +255,22 @@ public class Language : MonoBehaviour
         _text[75, 0] = "Restoring the ecology of the entire planet.";
         _text[75, 1] = "Восстановление экологии всей планеты.";
 
-        _text[76, 0] = "";
+        _text[76, 0] = "[UPDATE: SECTOR K-12 CLEARED]";
         _text[76, 1] = "[ОБНОВЛЕНИЕ: СЕКТОР К-12 ОЧИЩЕН]";
 
-        _text[77, 0] = "";
+        _text[77, 0] = "Reconstruction of the territory is complete.\nThe population of aggressive life forms has been reduced by 78%.";
         _text[77, 1] = "Реконструкция территории завершена.\nПопуляция агрессивных форм жизни снижена на 78%.";
 
-        _text[78, 0] = "";
+        _text[78, 0] = "Traces of destroyed drones of previous generations have been detected.\nawait DecryptFragments();";
         _text[78, 1] = "Обнаружены следы уничтоженных дронов предыдущих поколений.\nawait DecryptFragments();";
 
-        _text[79, 0] = "";
-        _text[79, 1] = "ФРАГМЕНТ ПАМЯТИ 1.0.1 — [ЧАСТИЧНО ВОССТАНОВЛЕН]\n«Проект \"Источник\"… завершение протокола отложено…»";
+        _text[79, 0] = "MEMORY FRAGMENT 1.0.1 - [PARTIALLY RECOVERED]\n«Project \"Source\"... protocol completion delayed...»";
+        _text[79, 1] = "ФРАГМЕНТ ПАМЯТИ 1.0.1 — [ЧАСТИЧНО ВОССТАНОВЛЕН]\n«Проект \"Источник\"... завершение протокола отложено...»";
 
-        _text[80, 0] = "";
+        _text[80, 0] = "We move on to the next zone - Junk City.";
         _text[80, 1] = "Продвигаемся к следующей зоне — Город Хлама.";
 
-        _text[81, 0] = "";
+        _text[81, 0] = "Objective: Find surviving power nodes and restore communications with other sectors.";
         _text[81, 1] = "Цель: Найти уцелевшие узлы питания и восстановить связь с другими секторами.";
 
         _text[82, 0] = "";
@@ -282,19 +282,19 @@ public class Language : MonoBehaviour
         _text[84, 0] = "";
         _text[84, 1] = "";
 
-        _text[85, 0] = "";
+        _text[85, 0] = "Sector K-12 scan complete";
         _text[85, 1] = "Сканирование сектора К-12 завершено";
 
-        _text[86, 0] = "";
+        _text[86, 0] = "Combat unit losses: 18%";
         _text[86, 1] = "Потери среди боевых юнитов: 18%";
 
-        _text[87, 0] = "";
+        _text[87, 0] = "Memory Signal: 47% match found";
         _text[87, 1] = "Сигнал воспоминаний: обнаружено совпадение 47%";
 
-        _text[88, 0] = "";
+        _text[88, 0] = "Preparing route to next node... () => return true";
         _text[88, 1] = "Подготовка маршрута к следующему узлу... () => return true";
 
-        _text[89, 0] = "";
+        _text[89, 0] = "Assigning a new target";
         _text[89, 1] = "Назначение новой цели";
 
         _text[90, 0] = "ICOSA CORP";
@@ -765,22 +765,22 @@ public class Language : MonoBehaviour
         _text[245, 0] = "-Radiation: High\n-Pollution: Critical\n-Update: Active";
         _text[245, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
 
-        _text[246, 0] = "";
+        _text[246, 0] = "[COMMUNICATION NODE 3-X DETECTED]";
         _text[246, 1] = "[УЗЕЛ СВЯЗИ 3-Х ОБНАРУЖЕН]";
 
-        _text[247, 0] = "";
+        _text[247, 0] = "The signal is stable. We managed to activate 7 archive nodes.\nDrones with the IKOSA corporation emblem were found among the debris.";
         _text[247, 1] = "Сигнал стабилен. Удалось активировать 7 архивных узлов.\nСреди обломков обнаружены дроны с эмблемой корпорации ИКОСА.";
 
-        _text[248, 0] = "";
-        _text[248, 1] = "ФРАГМЕНТ ПАМЯТИ 2.4.3 — [await Расшифровка()]\n«Решение ИИ признано опасным… Вариант эвакуации отклонён…»";
+        _text[248, 0] = "MEMORY FRAGMENT 2.4.3 — [await Decrypt()]\n«AI decision deemed dangerous... Evacuation option rejected...»";
+        _text[248, 1] = "ФРАГМЕНТ ПАМЯТИ 2.4.3 — [await Расшифровка()]\n«Решение ИИ признано опасным... Вариант эвакуации отклонён...»";
 
-        _text[249, 0] = "";
-        _text[249, 1] = "Повторяющаяся запись на частоте 1838.3:\n«Не приближаться к Эпицентру…»";
+        _text[249, 0] = "Repeating recording on frequency 1838.3:\n«Do not approach Epicenter...»";
+        _text[249, 1] = "Повторяющаяся запись на частоте 1838.3:\n«Не приближаться к Эпицентру...»";
 
-        _text[250, 0] = "";
+        _text[250, 0] = "Ignore the warning. Progress continues - next zone: Desert.";
         _text[250, 1] = "Игнорируем предупреждение. Продвижение продолжается — следующая зона: Пустыня.";
 
-        _text[251, 0] = "";
+        _text[251, 0] = "Objective: Destroy the signal source and deal with the new type of aggressor.";
         _text[251, 1] = "Цель: Уничтожить источник сигнала и разобраться с новым типом агрессора.";
 
         _text[252, 0] = "";
@@ -789,34 +789,34 @@ public class Language : MonoBehaviour
         _text[253, 0] = "";
         _text[253, 1] = "";
 
-        _text[254, 0] = "";
+        _text[254, 0] = "Connection to node 3-X restored";
         _text[254, 1] = "Восстановлено соединение с узлом 3-Х";
 
-        _text[255, 0] = "";
+        _text[255, 0] = "14.7 TB of archived data downloaded";
         _text[255, 1] = "Загружено 14.7 ТБ архивных данных";
 
-        _text[256, 0] = "";
+        _text[256, 0] = "await DecodeSignal(1838.3 Hz) → warning: [cipher: danger]";
         _text[256, 1] = "await DecodeSignal(1838.3 Hz) → предупреждение: [шифр: опасность]";
 
-        _text[257, 0] = "";
+        _text[257, 0] = "Ignoring protocol C-189 enabled\ntry { ProcessWarning(); } catch { continue; }";
         _text[257, 1] = "Игнорирование протокола C-189 активировано\ntry { ProcessWarning(); } catch { continue; }";
 
-        _text[258, 0] = "";
+        _text[258, 0] = "Moving to the next region...";
         _text[258, 1] = "Переход к следующему региону...";
 
-        _text[259, 0] = "";
+        _text[259, 0] = "[SURFACE ANALYSIS COMPLETED]";
         _text[259, 1] = "[АНАЛИЗ ПОВЕРХНОСТИ ЗАВЕРШЁН]";
 
-        _text[260, 0] = "";
+        _text[260, 0] = "Enemy neutralized\nHigh level of unstable energy detected below surface.";
         _text[260, 1] = "Враг нейтрализован\nЗафиксирован высокий уровень нестабильной энергии под поверхностью.";
 
-        _text[261, 0] = "";
-        _text[261, 1] = "ФРАГМЕНТ ПАМЯТИ 3.7.9 — [ВОССТАНОВЛЕН]\n«Отклонения в протоколе восстановления… вызвали необратимые изменения среды…»";
+        _text[261, 0] = "MEMORY FRAGMENT 3.7.9 - [RESTORED]\n«Deviations in the recovery protocol... have caused irreversible changes to the environment...»";
+        _text[261, 1] = "ФРАГМЕНТ ПАМЯТИ 3.7.9 — [ВОССТАНОВЛЕН]\n«Отклонения в протоколе восстановления... вызвали необратимые изменения среды...»";
 
-        _text[262, 0] = "";
+        _text[262, 0] = "Trying to build a route: return false";
         _text[262, 1] = "Попытка построить маршрут: return false";
 
-        _text[263, 0] = "";
+        _text[263, 0] = "Next step: [UNKNOWN]\nRequires access via the extended terminal module.";
         _text[263, 1] = "Следующий шаг: [НЕИЗВЕСТЕН]\nТребуется доступ через расширенный терминальный модуль.";
 
         _text[264, 0] = "";
@@ -825,19 +825,19 @@ public class Language : MonoBehaviour
         _text[265, 0] = "";
         _text[265, 1] = "";
 
-        _text[266, 0] = "";
+        _text[266, 0] = "Structural distortions were detected in the soil layer";
         _text[266, 1] = "Обнаружены структурные искажения в почвенном слое";
 
-        _text[267, 0] = "";
+        _text[267, 0] = "Operation: async/await - building a route...";
         _text[267, 1] = "Операция: async/await — построение маршрута...";
 
-        _text[268, 0] = "";
+        _text[268, 0] = "Exception: NullReferenceException - path not defined";
         _text[268, 1] = "Исключение: NullReferenceException — путь не определён";
 
-        _text[269, 0] = "";
+        _text[269, 0] = "Request: Accessibility module not found";
         _text[269, 1] = "Запрос: модуль расширенного доступа не найден";
 
-        _text[270, 0] = "";
+        _text[270, 0] = "Waiting for external interface confirmation";
         _text[270, 1] = "Ожидание внешнего интерфейса подтверждения";
 
 
