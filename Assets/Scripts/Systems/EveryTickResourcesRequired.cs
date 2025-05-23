@@ -51,6 +51,7 @@ public class EveryTickResourcesRequired : MonoBehaviour
             var info = _resourcesRequiresTilesInfoList[i];
             if (info.TileObject.IsBuildingWork())
             {
+                info.TileObject.CheckResourceRequired(true);
                 if (info.TileObject.IsHaveRequiredResource())
                 {
                     if (info.ResourceForWork != null) _playerResources.ChangeResource(info.ResourceForWork.ResourceEnum, -info.ResourceForWorkAmount);
@@ -61,7 +62,6 @@ public class EveryTickResourcesRequired : MonoBehaviour
                     {
                         _playerResources.ChangeResource(info.ResourceRecept[k].ResourceForRecept.ResourceEnum, -info.ResourceRecept[k].ResourcesForReceptAmount);
                     }
-                    info.TileObject.CheckResourceRequired(false);
                 }
             }
         }
