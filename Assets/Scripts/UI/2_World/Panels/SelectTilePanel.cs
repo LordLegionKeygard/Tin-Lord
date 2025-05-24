@@ -102,7 +102,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void RefreshInfo()
     {
-        CustomEvents.FireTooltipToggle(false, 0);
+        // CustomEvents.FireTooltipToggle(false, 0);
         if (_tileObject == null) return;
 
         var buildingTileObject = _tileObject.BuildingTileObject();

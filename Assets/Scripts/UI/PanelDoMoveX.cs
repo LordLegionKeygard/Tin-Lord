@@ -9,9 +9,9 @@ public class PanelDoMoveX : MonoBehaviour
     private bool _isOpen = false;
     public bool IsOpen() => _isOpen;
     
-    public void PanelMove()
+    public void PanelMove(bool needSound = true)
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        if (needSound) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _isOpen = !_isOpen;
 
         if (_isOpen)

@@ -10,15 +10,15 @@ public class PanelDoMoveY : MonoBehaviour
     [SerializeField] private ScrollRect _scrollRect;
     private bool _isOpen = false;
     public bool IsOpen() => _isOpen;
-    
-    public void PanelMove()
+
+    public void PanelMove(bool needSound = true)
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        if (needSound) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _isOpen = !_isOpen;
 
         if (_isOpen)
         {
-            if(_scrollRect!= null) _scrollRect.verticalNormalizedPosition = 1;
+            if (_scrollRect != null) _scrollRect.verticalNormalizedPosition = 1;
             _objectTransform.DOAnchorPosY(0, _moveSpeed).SetUpdate(true);
         }
         else

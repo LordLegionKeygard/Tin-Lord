@@ -13,9 +13,9 @@ public class UIPanelsCommandCenter : MonoBehaviour
 
     public void Click()
     {
-        _buildingsPanelDoMove.PanelMove();
-        _missionPanelDoMove.PanelMove();
-        _buildingInfoPanel.PanelMove();
+        _buildingsPanelDoMove.PanelMove(true);
+        _missionPanelDoMove.PanelMove(false);
+        _buildingInfoPanel.PanelMove(false);
 
         if(_buildingsPanelDoMove.IsOpen())
         {

@@ -30,7 +30,7 @@ public class InputSystemWorld : MonoBehaviour
     public delegate void Escape();
     private Escape _escape;
 
-    public delegate void LeftPanel();
+    public delegate void LeftPanel(bool state);
     private LeftPanel _leftPanel;
 
     //SelectTilePanel
@@ -119,7 +119,7 @@ public class InputSystemWorld : MonoBehaviour
 
         //UserInterface
         _playerInput.actions["Escape"].performed += _ => _escape();
-        _playerInput.actions["LeftPanel"].performed += _ => _leftPanel();
+        _playerInput.actions["LeftPanel"].performed += _ => _leftPanel(true);
 
         //SelectTilePanel
         _playerInput.actions["SelectNumbers"].performed += ctx => _selectNumbers(ctx);
