@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class WorldEventSystem : MonoBehaviour
 {
+    [Inject] private EcologySystem _ecologySystem;
+    
     [Header("Event Settings")]
     [SerializeField] private TimeTickSystem _timeTickSystem;
     [SerializeField] private GameObject _gameEventPrefab;
@@ -15,7 +18,6 @@ public class WorldEventSystem : MonoBehaviour
     private List<DayEventForListData> _currentEventsData = new();
 
     [Header("Other")]
-    [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private EarthquakeWorldEvent _earthquakeEvent;
     [SerializeField] private AcidRainWorldEvent _acidRainEvent;
     [SerializeField] private MeteorStrikeWorldEvent _meteorStrikeEvent;

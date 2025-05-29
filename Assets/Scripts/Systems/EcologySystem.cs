@@ -108,6 +108,7 @@ public class EcologySystem : MonoBehaviour
 
         _setupRenderSettings.UpdateEcologyRender(_totalEcology);
         CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.RestoreEcology, _totalEcology);
+        CustomEvents.FireUpdateEnemyDefence();
     }
 
     private IEnumerator ChangeTextSmoothly(int oldValue, int newValue)

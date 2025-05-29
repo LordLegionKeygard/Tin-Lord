@@ -47,7 +47,6 @@ MonoBehaviour:
   _pursueTargetState: {fileID: 5934005811618072887}
   _aiDestinationSetter: {fileID: 8246848921953063672}
   _creatureDamage: {fileID: 8246848921953063648}
-  _aiPath: {fileID: 8246848921953063675}
 --- !u!1 &5934005811618072884
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +367,7 @@ GameObject:
   - component: {fileID: 8246848921953063652}
   - component: {fileID: 8246848921953063653}
   - component: {fileID: 8246848921953063650}
+  - component: {fileID: 8459997358406402343}
   - component: {fileID: 8246848921953063651}
   - component: {fileID: 8246848921953063648}
   - component: {fileID: 8246848921953063649}
@@ -637,6 +637,19 @@ MonoBehaviour:
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 4
+--- !u!114 &8459997358406402343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246848921953063667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfed5b61cde961e409a526463b2d6502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentDefencePercent: 1
 --- !u!114 &8246848921953063651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -699,6 +712,9 @@ MonoBehaviour:
   _meshRenderers:
   - {fileID: 8246848922364042381}
   - {fileID: 8246848922550826295}
+  _radioWaveSlowAmount: 0
+  _riverSlowAmount: 0
+  _speedFactor: 1
 --- !u!114 &8246848921953063679
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -200,6 +200,12 @@ public class CustomEvents
         OnObjectiveAmountChange?.Invoke(objectiveEnum, value);
     }
 
+    public static Action OnUpdateEnemyDefence;
+    public static void FireUpdateEnemyDefence()
+    {
+        OnUpdateEnemyDefence?.Invoke();
+    }
+
     public static Action<MissionEndEnum> OnMissionEnd;
     public static void FireMissionEnd(MissionEndEnum missionEndEnum)
     {

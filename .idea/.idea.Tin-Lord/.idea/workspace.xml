@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="444a54e1-b9a9-4177-9f39-6b886017f7b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/EnemyDefence.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/EnemyDefence.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tin-Lord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/0_MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/0_Canyon_Spawner.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/0_Canyon_Spawner.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/1_CityOfJunk_Spawner.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Info/EnemiesSpawnerInfo/1_CityOfJunk_Spawner.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Static/WorldGameInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Static/WorldGameInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Arathrox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AllCreature/Enemies/0_Arathrox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/2_World/Sliders/EnemySlider.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/2_World/Sliders/EnemySlider.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/2_World.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AiLogic/Enemies/EnemyHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/WorldSaveLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/WorldSaveLoad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Installers/WorldInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Installers/WorldInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Static/CustomEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Static/CustomEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/EcologySystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/EcologySystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/EndMissionSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/EndMissionSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Systems/WorldEventSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Systems/WorldEventSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/2_World/Sliders/BaseSlider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/2_World/Sliders/BaseSlider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/2_World/Sliders/EnemySlider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/2_World/Sliders/EnemySlider.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +182,8 @@
       <workItem from="1745590277352" duration="3000" />
       <workItem from="1746638224703" duration="1000" />
       <workItem from="1748010733108" duration="1000" />
+      <workItem from="1748479111899" duration="40000" />
+      <workItem from="1748479343705" duration="5000" />
     </task>
     <servers />
   </component>
@@ -181,6 +192,7 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
     <option name="unityProject" value="true" />
     <option name="unityProjectFolder" value="true" />
   </component>
@@ -193,7 +205,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Systems/EndMissionSystem.cs</url>
-          <line>54</line>
+          <line>57</line>
           <properties documentPath="C:\Projects\Tin-Lord\Assets\Scripts\Systems\EndMissionSystem.cs" containingFunctionPresentation="Method 'SetMissionEndViewInfo'" />
           <option name="timeStamp" value="13" />
         </line-breakpoint>

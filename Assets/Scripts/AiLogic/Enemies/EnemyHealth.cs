@@ -6,6 +6,7 @@ using System.Collections;
 
 public class EnemyHealth : BaseHealth
 {
+    [Inject] private DiContainer _diContainer;
     [Inject] private readonly HealthCanvas _healthCanvas;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private float _sliderHeightOffset;
@@ -17,6 +18,7 @@ public class EnemyHealth : BaseHealth
     private BaseTakeDamageVFX _takeDamageVFX;
     private EnemyCenterPoint _enemyCenterPoint;
     private EnemyInfo _enemyInfo;
+    private EnemyDefence _enemyDefence;
 
     public override Transform GetTransform()
     {
@@ -33,6 +35,7 @@ public class EnemyHealth : BaseHealth
         _enemyAnimator = GetComponent<EnemyAnimator>();
         _enemyCenterPoint = GetComponent<EnemyCenterPoint>();
         _enemyInfo = GetComponent<EnemyInfo>();
+        _enemyDefence = GetComponent<EnemyDefence>();
     }
 
     public override void CalculateDamage(float damage, float knockBackPoints)
@@ -45,7 +48,7 @@ public class EnemyHealth : BaseHealth
     {
         if (_healthSliderObject == null)
         {
-            _healthSliderObject = Instantiate(_healthSliderPrefab, _healthCanvas.transform);
+            _healthSliderObject = _diContainer.InstantiatePrefab(_healthSliderPrefab, _healthCanvas.transform);
             _healthSlider = _healthSliderObject.GetComponent<EnemySlider>();
             _healthSlider.SetupAllHealthValue(_maxHealth);
             _healthSlider.SetHeightOffset(_sliderHeightOffset);
@@ -74,7 +77,10 @@ public class EnemyHealth : BaseHealth
 
     public override void TakeDamage(float damage, float knockBackPoints)
     {
-        base.TakeDamage(damage, knockBackPoints);
+        var totalDamage = _enemyDefence.GetDefencePercent() * damage;
+        _currentHealth -= totalDamage;
+		UpdateSlider();
+
         _creatureKnockBackController.TakeKnockbackPoints(knockBackPoints);
     }
 

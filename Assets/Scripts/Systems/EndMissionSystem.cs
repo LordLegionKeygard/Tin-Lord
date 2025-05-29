@@ -9,9 +9,10 @@ public class EndMissionSystem : MonoBehaviour
     [Inject] private readonly WorldSaveGame _worldSaveGame;
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private PlayerResources _playerResources;
+    [Inject] private EcologySystem _ecologySystem;
+    
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private UIPanelsWorld _uIPanelsWorld;
-    [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private TerminalSystem _terminalSystem;
 
     [Header("View")]

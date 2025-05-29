@@ -12,6 +12,7 @@ public class WorldInstaller : MonoInstaller
     [SerializeField] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
     [SerializeField] private EndMissionSystem _endMissionSystem;
     [SerializeField] private AllSkills _allSkills;
+    [SerializeField] private EcologySystem _ecologySystem;
 
     public override void InstallBindings()
     {
@@ -21,8 +22,9 @@ public class WorldInstaller : MonoInstaller
         Container.Bind<HealthCanvas>().FromInstance(_healthCanvas).AsSingle();
         Container.Bind<BulletsPool>().FromInstance(_bulletsPool).AsSingle();
         Container.Bind<TakeDamageVFXPool>().FromInstance(_pool).AsSingle();
-        Container.Bind<LearnedBuildingsDataWorld >().FromInstance(_learnedBuildingsDataWorld).AsSingle();
+        Container.Bind<LearnedBuildingsDataWorld>().FromInstance(_learnedBuildingsDataWorld).AsSingle();
         Container.Bind<EndMissionSystem>().FromInstance(_endMissionSystem).AsSingle();
         Container.Bind<AllSkills>().FromInstance(_allSkills).AsSingle();
+        Container.Bind<EcologySystem>().FromInstance(_ecologySystem).AsSingle();
     }
 }
