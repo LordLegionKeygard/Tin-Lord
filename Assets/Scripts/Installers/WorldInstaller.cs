@@ -3,6 +3,7 @@ using Zenject;
 
 public class WorldInstaller : MonoInstaller
 {
+    [SerializeField] private EnemyDefenceSystem _enemyDefenceSystem;
     [SerializeField] private TilesSystem _tilesSystem;
     [SerializeField] private PlayerResources _playerResources;
     [SerializeField] private SelectTilePanel _selectTilePanel;
@@ -12,7 +13,6 @@ public class WorldInstaller : MonoInstaller
     [SerializeField] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
     [SerializeField] private EndMissionSystem _endMissionSystem;
     [SerializeField] private AllSkills _allSkills;
-    [SerializeField] private EcologySystem _ecologySystem;
 
     public override void InstallBindings()
     {
@@ -25,6 +25,6 @@ public class WorldInstaller : MonoInstaller
         Container.Bind<LearnedBuildingsDataWorld>().FromInstance(_learnedBuildingsDataWorld).AsSingle();
         Container.Bind<EndMissionSystem>().FromInstance(_endMissionSystem).AsSingle();
         Container.Bind<AllSkills>().FromInstance(_allSkills).AsSingle();
-        Container.Bind<EcologySystem>().FromInstance(_ecologySystem).AsSingle();
+        Container.Bind<EnemyDefenceSystem>().FromInstance(_enemyDefenceSystem).AsSingle();
     }
 }

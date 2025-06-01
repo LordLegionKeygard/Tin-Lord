@@ -5,9 +5,12 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class EcologySystem : MonoBehaviour
 {
+    [Inject] private EnemyDefenceSystem _enemyDefenceSystem;
+
     [Header("Ecology")]
     [SerializeField] private int _tilesEcology;
     [SerializeField] private int _radiation;
@@ -104,11 +107,11 @@ public class EcologySystem : MonoBehaviour
         }
 
         _changeTextCoroutine = StartCoroutine(ChangeTextSmoothly(previousTotalEcology, _totalEcology));
-        UpdateGearRotation(previousTotalEcology, _totalEcology);  // Передаем старое и новое значение экологии
+        UpdateGearRotation(previousTotalEcology, _totalEcology);
 
         _setupRenderSettings.UpdateEcologyRender(_totalEcology);
         CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.RestoreEcology, _totalEcology);
-        CustomEvents.FireUpdateEnemyDefence();
+        _enemyDefenceSystem.ChangeDefence();
     }
 
     private IEnumerator ChangeTextSmoothly(int oldValue, int newValue)

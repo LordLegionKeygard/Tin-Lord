@@ -4,26 +4,33 @@ using Zenject;
 
 public class EnemySlider : BaseSlider
 {
-    [Inject] private EcologySystem _ecologySystem;
+    [Inject] private EnemyDefenceSystem _enemyDefenceSystem;
     [SerializeField] private TextMeshProUGUI _levelText;
-    [SerializeField] private TextMeshProUGUI _defenceText;
-    public override void SetLevel(string level) => _levelText.text = level;
+    [SerializeField] private GameObject[] _defenceView;
 
+    public override void SetLevel(string level) => _levelText.text = level;
 
     public override void Start()
     {
         base.Start();
-        CustomEvents.OnUpdateEnemyDefence += UpdateDefenceView;
-        UpdateDefenceView();
+        CustomEvents.OnUpdateEnemySliderDefence += UpdateDefenceView;
+    }
+
+    private void OnEnable()
+    {
+        UpdateDefenceView(_enemyDefenceSystem.GetSliderValue());
     }
 
     private void OnDestroy()
     {
-        CustomEvents.OnUpdateEnemyDefence -= UpdateDefenceView;
+        CustomEvents.OnUpdateEnemySliderDefence -= UpdateDefenceView;
     }
 
-    public void UpdateDefenceView()
+    public void UpdateDefenceView(int level)
     {
-        _defenceText.text = $"{_ecologySystem.GetTotalEcology()}%";
+        for (int i = 0; i < _defenceView.Length; i++)
+        {
+            _defenceView[i].SetActive(i < level);
+        }
     }
 }

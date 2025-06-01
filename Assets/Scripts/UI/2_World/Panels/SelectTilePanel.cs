@@ -358,9 +358,9 @@ public class SelectTilePanel : MonoBehaviour
         {
             _tileObject.BuildingHealth().Death();
         }
-        else if (!_tileObject.BuildingTileObject().HaveTile() && _playerResources.ResourceEnough(ResourceEnum.BeamEnergy, groundTileObject.CurrentGroundTile().EnergyBeam))
+        else if (!_tileObject.BuildingTileObject().HaveTile() && _playerResources.ResourceEnough(ResourceEnum.BeamEnergy, groundTileObject.CurrentGroundTile().GetEnergyBeam()))
         {
-            _playerResources.ChangeResource(ResourceEnum.BeamEnergy, -groundTileObject.CurrentGroundTile().EnergyBeam);
+            _playerResources.ChangeResource(ResourceEnum.BeamEnergy, -groundTileObject.CurrentGroundTile().GetEnergyBeam());
             groundTileObject.DestroyGroundTile();
             PanelViewToggle(false);
         }

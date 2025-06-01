@@ -4,9 +4,9 @@ using Zenject;
 
 public class WorldEventSystem : MonoBehaviour
 {
-    [Inject] private EcologySystem _ecologySystem;
     
     [Header("Event Settings")]
+    [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private TimeTickSystem _timeTickSystem;
     [SerializeField] private GameObject _gameEventPrefab;
     [SerializeField] private RectTransform _container;

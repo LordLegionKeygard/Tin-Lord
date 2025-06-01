@@ -6,12 +6,12 @@ public class WorldSaveLoad : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private WorldSaveGame _worldSaveGame;
-    [Inject] private EcologySystem _ecologySystem;
 
     [Header("Main")]
     [SerializeField] private TileMapBuilder _tileMapBuilder;
 
     [Header("UpPanel")]
+    [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private TimeTickSystem _timeTickSystem;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
 

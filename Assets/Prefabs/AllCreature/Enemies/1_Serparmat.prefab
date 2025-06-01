@@ -1955,7 +1955,6 @@ GameObject:
   - component: {fileID: 8633156420727041165}
   - component: {fileID: 8633156420727041164}
   - component: {fileID: 8633156420727041167}
-  - component: {fileID: 1655978738012321534}
   - component: {fileID: 8633156420727041166}
   - component: {fileID: 8633156420727041207}
   - component: {fileID: 8633156420727041206}
@@ -2224,19 +2223,6 @@ MonoBehaviour:
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 4
---- !u!114 &1655978738012321534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8972563172428953149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfed5b61cde961e409a526463b2d6502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentDefencePercent: 1
 --- !u!114 &8633156420727041166
 MonoBehaviour:
   m_ObjectHideFlags: 0

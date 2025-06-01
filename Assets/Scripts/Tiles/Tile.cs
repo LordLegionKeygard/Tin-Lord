@@ -14,7 +14,6 @@ public class Tile : ScriptableObject
 
     [Header("Ground")]
     public GroundTileViewEnum GroundTileView;
-    public int EnergyBeam;
     public int GroundEcology;
     public bool IsWater;
     public bool IsFourTile;
@@ -26,6 +25,17 @@ public class Tile : ScriptableObject
     public BuildingTileViewEnum BuildingTileView;
     public Building[] Buildings;
     public bool IsHaveProductionResources() => Buildings[0].ResourcesProduction.Length > 0; //берем 0 здание так как у нас обычно все здания определенного типа имеют ресурс или нет
+
+
+    public int GetEnergyBeam()
+    {
+        if (GroundEcology < 0)
+        {
+            return Mathf.Abs(GroundEcology * 2);
+        }
+
+        return GroundEcology + 1;
+    }
 }
 
 [System.Serializable]
