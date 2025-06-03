@@ -121,7 +121,10 @@ public class EndMissionSystem : MonoBehaviour
     private void PrepareData(MissionEndEnum missionEndEnum)
     {
         _worldSaveGame.DeleteMissionGameData();
-        _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments, CurrentMissionInfo.Instance.GetLastOpenedMissionId(missionEndEnum));
+        var missionInfo = CurrentMissionInfo.Instance;
+        missionInfo.IsOpenNewMission(missionEndEnum);
+        var newLastOpenedMissionId = missionInfo.IsOpenNewMission(missionEndEnum) ? missionInfo.GetLastOpenedMissionId() + 1 : missionInfo.GetLastOpenedMissionId();
+        _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments, newLastOpenedMissionId);
     }
 
     private IEnumerator UpdateFragmentsAndSlider(int targetFragments, float targetPercent)
@@ -151,7 +154,7 @@ public class EndMissionSystem : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
-        if (_missionEndEnum == MissionEndEnum.Victory)
+        if (_missionEndEnum == MissionEndEnum.Victory && CurrentMissionInfo.Instance.IsLastOpenedMission())
         {
             _terminalSystem.ActiveTerminal();
         }

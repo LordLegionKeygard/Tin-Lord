@@ -20,15 +20,18 @@ public class CurrentMissionInfo : MonoBehaviour
         _lastOpenedMissionId = lastOpenedMissionId;
     }
 
-    public int GetLastOpenedMissionId(MissionEndEnum missionEndEnum)
+    public bool IsOpenNewMission(MissionEndEnum missionEndEnum)
     {
-        if (_currentMissionId == _lastOpenedMissionId && missionEndEnum == MissionEndEnum.Victory)
+        if (IsLastOpenedMission() && missionEndEnum == MissionEndEnum.Victory)
         {
-            _lastOpenedMissionId++;
-            return _lastOpenedMissionId;
+            return true;
         }
-        return _lastOpenedMissionId;
+        return false;
     }
+
+    public int GetLastOpenedMissionId() => _lastOpenedMissionId;
+
+    public bool IsLastOpenedMission() => _currentMissionId == _lastOpenedMissionId;
 
     public Mission GetCurrentMission()
     {
