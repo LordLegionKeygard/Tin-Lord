@@ -30,6 +30,7 @@ public class WorldGameInfo
 
     [Header("DayEvent")]
     public const int DayEventChance = 30;
+    public const int ToxicGasTicks = 72;
 
     [Header("Machine")]
     public const int MachinesCount = 1;

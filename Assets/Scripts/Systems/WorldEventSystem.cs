@@ -4,12 +4,13 @@ using Zenject;
 
 public class WorldEventSystem : MonoBehaviour
 {
-    
+
     [Header("Event Settings")]
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private TimeTickSystem _timeTickSystem;
     [SerializeField] private GameObject _gameEventPrefab;
     [SerializeField] private RectTransform _container;
+    [SerializeField] private GameEventInfo[] _allEvents;
     private GameEventInfo[] _availableEvents;
     private float _fullDuration;
     private int _dayBeforeSpawnEvent = 3;
@@ -21,6 +22,7 @@ public class WorldEventSystem : MonoBehaviour
     [SerializeField] private EarthquakeWorldEvent _earthquakeEvent;
     [SerializeField] private AcidRainWorldEvent _acidRainEvent;
     [SerializeField] private MeteorStrikeWorldEvent _meteorStrikeEvent;
+    [SerializeField] private ToxicGasWorldEvent _toxicGasEvent;
 
     public DayEventData[] GetAllCurrentEvents()
     {
@@ -93,7 +95,7 @@ public class WorldEventSystem : MonoBehaviour
 
         for (int i = 0; i < dayEventsData.Length; i++)
         {
-            var info = _availableEvents[dayEventsData[i].GameEventTypeNumber];
+            var info = _allEvents[dayEventsData[i].GameEventTypeNumber];
             var prefab = Instantiate(_gameEventPrefab, _container);
             Vector2 startPosition = new(_container.rect.width / 2f + _offset, 0f);
             Vector2 endPosition = new(-_container.rect.width / 2f - _offset, 0f);
@@ -135,6 +137,9 @@ public class WorldEventSystem : MonoBehaviour
                 break;
             case GameEventType.Earthquake:
                 _earthquakeEvent.StartEvent();
+                break;
+            case GameEventType.ToxicGas:
+                _toxicGasEvent.StartEvent();
                 break;
         }
     }

@@ -91,6 +91,10 @@ public class AllTileObjects : MonoBehaviour
                     IsLastRiverTile = isWater && riverTile.IsLastRiverTile(),
                     RiverType = isWater ? (int)riverTile.GetRiverTypeEnum() : (int)RiverTypeEnum.None,
                     RiverRotation = isWater ? riverTile.GetRiverRotation() : 0
+                },
+                TileWorldEventData = new TileWorldEventData
+                {
+                    ToxicGasTicksNumber = tileObject.GetTileObjectEvents().GetToxicGasTicks(),
                 }
             };
         }
@@ -115,6 +119,13 @@ public class AllTileObjects : MonoBehaviour
         {
             if (tilesData[i].BuildingData.BuildingTileTypeId == (int)BuildingTileViewEnum.None) continue;
             TileObjects[i].BuildingTileObject().LoadBuildingTile(tilesData[i]);
+        }
+
+        for (int i = 0; i < TileObjects.Count; i++)
+        {
+            var toxicGasTicksNumber = tilesData[i].TileWorldEventData.ToxicGasTicksNumber;
+            if (toxicGasTicksNumber == 0) continue;
+            TileObjects[i].GetTileObjectEvents().ActiveEvent(toxicGasTicksNumber);
         }
 
         CustomEvents.FireCompleteLoadTiles();

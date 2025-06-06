@@ -94,6 +94,7 @@ public class TileDataWrapper
     public GroundData GroundData;
     public BuildingData BuildingData;
     public WaterData WaterData;
+    public TileWorldEventData TileWorldEventData;
 }
 
 [System.Serializable]
@@ -135,6 +136,12 @@ public class WaterData
     public bool IsLastRiverTile;
     public int RiverType;
     public int RiverRotation;
+}
+
+[System.Serializable]
+public class TileWorldEventData
+{
+    public int ToxicGasTicksNumber;
 }
 
 

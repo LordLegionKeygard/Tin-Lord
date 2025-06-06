@@ -63,7 +63,7 @@ public class TimeTickSystem : MonoBehaviour
     {
         _everyTickResourcesRequired.UseEveryTickRequiredResources();
         _everyTickResourcesExtraction.AddEveryTickResources();
-        CustomEvents.FireTickAfterResourcesChanged();
+        CustomEvents.FireTimeTick();
     }
 
     private void UpdateDayText()

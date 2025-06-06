@@ -29,7 +29,7 @@ public class BuildingItem : MonoBehaviour
 
     private void Start()
     {
-        CustomEvents.OnTimeTickAfterResourcesChanged += RefreshView;
+        CustomEvents.OnTimeTick += RefreshView;
         RefreshView();
     }
 
@@ -141,7 +141,7 @@ public class BuildingItem : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnTimeTickAfterResourcesChanged -= RefreshView;
+        CustomEvents.OnTimeTick -= RefreshView;
     }
 }
 

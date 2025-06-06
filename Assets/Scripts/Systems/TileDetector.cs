@@ -191,14 +191,23 @@ public class TileDetector : MonoBehaviour
             var haveNeighbours = groundTile.HaveNeighbour(0) && groundTile.HaveNeighbour(1) && groundTile.HaveNeighbour(2);
             var neighboursHaveGroundTile = groundTile.NeighbourHaveGroundTile(0) || groundTile.NeighbourHaveGroundTile(1) || groundTile.NeighbourHaveGroundTile(2);
 
+            var neighboursZeroToxicGasActive = _currentTileObject.GetNeighbourTileObject(0).GetTileObjectEvents().IsToxicGasActive();
+            var neighboursOneToxicGasActive = _currentTileObject.GetNeighbourTileObject(1).GetTileObjectEvents().IsToxicGasActive();
+            var neighboursTwoToxicGasActive = _currentTileObject.GetNeighbourTileObject(2).GetTileObjectEvents().IsToxicGasActive();
+
+            var haveToxicGasEvent = _currentTileObject.GetTileObjectEvents().IsToxicGasActive() ||
+                                    (groundTile.HaveNeighbour(0) && neighboursZeroToxicGasActive) ||
+                                    (groundTile.HaveNeighbour(1) && neighboursOneToxicGasActive) ||
+                                    (groundTile.HaveNeighbour(2) && neighboursTwoToxicGasActive);
+
 
             groundTile.SelectTile(true, _currentTileObject.GroundTileObject().HaveTile() || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(true, groundTile.NeighbourHaveGroundTile(0) || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(true, groundTile.NeighbourHaveGroundTile(1) || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(true, groundTile.NeighbourHaveGroundTile(2) || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(true, groundTile.NeighbourHaveGroundTile(0) || !haveNeighbours || neighboursZeroToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(true, groundTile.NeighbourHaveGroundTile(1) || !haveNeighbours || neighboursOneToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(true, groundTile.NeighbourHaveGroundTile(2) || !haveNeighbours || neighboursTwoToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
 
 
-            _canSetTile = !groundTile.HaveTile() && !neighboursHaveGroundTile && haveNeighbours;
+            _canSetTile = !groundTile.HaveTile() && !neighboursHaveGroundTile && haveNeighbours && !haveToxicGasEvent;
         }
         else
         {
@@ -212,10 +221,10 @@ public class TileDetector : MonoBehaviour
             }
             else
             {
-                _currentTileObject.GroundTileObject().SelectTile(true, newTileObject.GroundTileObject().HaveTile() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+                _currentTileObject.GroundTileObject().SelectTile(true, newTileObject.GroundTileObject().HaveTile() || newTileObject.GetTileObjectEvents().IsToxicGasActive() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
             }
 
-            _canSetTile = !_currentTileObject.GroundTileObject().HaveTile();
+            _canSetTile = !_currentTileObject.GroundTileObject().HaveTile() && !newTileObject.GetTileObjectEvents().IsToxicGasActive();
         }
     }
 

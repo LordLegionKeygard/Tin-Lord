@@ -6,11 +6,12 @@ public class TileObject : MonoBehaviour
 {
     [Inject] PlayerResources _playerResources;
     [Inject] SelectTilePanel _selectTilePanel;
-    [SerializeField] private TileObject[] _neighbourTiles;
+    private TileObject[] _neighbourTiles = new TileObject[8];
     private bool _isGeneralRepairSelect = true;
     private GroundTile _groundTile;
     private BuildingTile _buildingTile;
     private TileEcology _tileEcology;
+    private TileObjectEvents _tileObjectEvents;
     private BuildingProductionView _buildingProductionView;
     private BuildingHealth _buildingHealth;
     private int _id;
@@ -35,6 +36,7 @@ public class TileObject : MonoBehaviour
     public BuildingTile BuildingTileObject() => _buildingTile;
     public BuildingHealth BuildingHealth() => _buildingHealth;
     public TileEcology TileEcology() => _tileEcology;
+    public TileObjectEvents GetTileObjectEvents() => _tileObjectEvents;
     public int CurrentTileId() => _id;
     public int GetId() => _id;
     public float CurrentModifier() => _currentModifier;
@@ -48,6 +50,7 @@ public class TileObject : MonoBehaviour
     public void SetRiftViewNumber(int number) => _riftViewNumber = number;
 
     //Neighbours
+    public TileObject GetNeighbourTileObject(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number] : null;
     public GroundTile GetNeighbourGroundTile(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number].GroundTileObject() : null;
     public GroundTile[] GetNeighbourGroundTilesArray() => _neighbourTiles.Select(tile => tile?.GroundTileObject()).ToArray();
     public BuildingTile GetNeighbourBuildingTile(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number].BuildingTileObject() : null;
@@ -59,6 +62,7 @@ public class TileObject : MonoBehaviour
         _buildingTile = GetComponent<BuildingTile>();
         _tileEcology = GetComponent<TileEcology>();
         _buildingHealth = GetComponent<BuildingHealth>();
+        _tileObjectEvents = GetComponent<TileObjectEvents>();
     }
 
     public TileObject GetNearNeighbourCrossRoad()

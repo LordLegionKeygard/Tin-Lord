@@ -18,4 +18,5 @@ public enum GameEventType
     AcidRain = 6,
     MeteorStrike = 7,
     Earthquake = 8,
+    ToxicGas = 9,
 }

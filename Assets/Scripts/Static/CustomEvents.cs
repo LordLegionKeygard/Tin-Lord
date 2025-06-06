@@ -56,10 +56,10 @@ public class CustomEvents
         OnBuildingDestroyed?.Invoke(tileId);
     }
 
-    public static event Action OnTimeTickAfterResourcesChanged;
-    public static void FireTickAfterResourcesChanged()
+    public static event Action OnTimeTick;
+    public static void FireTimeTick()
     {
-        OnTimeTickAfterResourcesChanged?.Invoke();
+        OnTimeTick?.Invoke();
     }
 
     public static event Action<ResourceEnum, float, int, bool> OnChangeResourceProduction;
