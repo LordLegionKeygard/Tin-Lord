@@ -4,29 +4,24 @@ using UnityEngine;
 public class MapVisualizer : MonoBehaviour
 {
     [Header("References")]
-    public MapGenerator mapGenerator;
-    public RectTransform contentTransform; // <-- Сюда ставим твой Content
-    public UINode nodePrefab;
+    [SerializeField] private MapGenerator _mapGenerator;
+    [SerializeField] private RectTransform _contentTransform; // <-- Сюда ставим твой Content
+    [SerializeField] private UINode _nodePrefab;
 
     private List<UINode> spawnedNodes = new List<UINode>();
 
-    private void Start()
-    {
-        GenerateAndDisplayMap();
-    }
-
     public void GenerateAndDisplayMap()
     {
-        mapGenerator.GenerateDesertMap();
+        _mapGenerator.GenerateDesertMap();
 
         // Чистим старые ноды
         foreach (var node in spawnedNodes)
             Destroy(node.gameObject);
         spawnedNodes.Clear();
 
-        foreach (var nodeInstance in mapGenerator.generatedNodes)
+        foreach (var nodeInstance in _mapGenerator.GetGeneratedNodes())
         {
-            var newNode = Instantiate(nodePrefab, contentTransform);
+            var newNode = Instantiate(_nodePrefab, _contentTransform);
             newNode.Setup(nodeInstance.nodeData);
             newNode.GetComponent<RectTransform>().anchoredPosition = nodeInstance.position;
             spawnedNodes.Add(newNode);

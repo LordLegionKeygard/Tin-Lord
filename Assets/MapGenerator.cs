@@ -4,27 +4,34 @@ using UnityEngine;
 public class MapGenerator : MonoBehaviour
 {
     [Header("Node Pools")]
-    public NodeDataPool nodeDataPool;
+    [SerializeField] private NodeDataPool _nodeDataPool;
 
     [Header("Generation Settings")]
     public int totalLayers = 5;
-    public float xOffset = 300f;
-    public float yOffset = 400f;
+    private float _xOffset = 300f;
+    private float _yOffset = 300f;
+    private float _yRandomSpread = 100f;
 
-    public List<NodeInstance> generatedNodes = new List<NodeInstance>();
+    [SerializeField] private List<NodeInstance> _generatedNodes = new();
+    public List<NodeInstance> GetGeneratedNodes() => _generatedNodes;
+
+    private readonly Dictionary<int, List<NodeInstance>> _layers = new();
 
     public void GenerateDesertMap()
     {
-        generatedNodes.Clear();
+        _generatedNodes.Clear();
+        _layers.Clear();
 
         // Стартовая миссия
-        MissionNode startMission = GetRandomNode(nodeDataPool.Missions);
+        MissionNode startMission = GetRandomNode(_nodeDataPool.Missions);
         NodeInstance startInstance = new NodeInstance
         {
             nodeData = startMission,
+            layer = 0,
             position = GetNodePosition(0, 0)
         };
-        generatedNodes.Add(startInstance);
+        _generatedNodes.Add(startInstance);
+        _layers[0] = new List<NodeInstance> { startInstance };
 
         // Промежуточные
         List<NodeType> nodeTypes = new List<NodeType>
@@ -37,12 +44,13 @@ public class MapGenerator : MonoBehaviour
         };
 
         Shuffle(nodeTypes);
-
         int currentLayer = 1;
 
         while (nodeTypes.Count > 0 && currentLayer < totalLayers - 1)
         {
             int nodesInLayer = Random.Range(1, 3);
+            List<NodeInstance> layerNodes = new List<NodeInstance>();
+
             for (int i = 0; i < nodesInLayer; i++)
             {
                 if (nodeTypes.Count == 0) break;
@@ -55,22 +63,31 @@ public class MapGenerator : MonoBehaviour
                 NodeInstance instance = new NodeInstance
                 {
                     nodeData = nodeData,
+                    layer = currentLayer,
                     position = position
                 };
-                generatedNodes.Add(instance);
+
+                _generatedNodes.Add(instance);
+                layerNodes.Add(instance);
             }
+
+            _layers[currentLayer] = layerNodes;
             currentLayer++;
         }
 
         // Финальный босс
         NodeInstance bossInstance = new NodeInstance
         {
-            nodeData = nodeDataPool.Boss,
+            nodeData = _nodeDataPool.Boss,
+            layer = totalLayers - 1,
             position = GetNodePosition(totalLayers - 1, 0)
         };
-        generatedNodes.Add(bossInstance);
+        _generatedNodes.Add(bossInstance);
+        _layers[totalLayers - 1] = new List<NodeInstance> { bossInstance };
 
-        Debug.Log($"Карта сгенерирована: {generatedNodes.Count} нодов");
+        GenerateConnections();
+
+        Debug.Log($"Карта сгенерирована: {_generatedNodes.Count} нодов");
     }
 
     private NodeData GetNodeDataByType(NodeType type)
@@ -78,11 +95,11 @@ public class MapGenerator : MonoBehaviour
         switch (type)
         {
             case NodeType.Mission:
-                return GetRandomNode(nodeDataPool.Missions);
+                return GetRandomNode(_nodeDataPool.Missions);
             case NodeType.Event:
-                return GetRandomNode(nodeDataPool.Events);
+                return GetRandomNode(_nodeDataPool.Events);
             case NodeType.Trader:
-                return GetRandomNode(nodeDataPool.Traders);
+                return GetRandomNode(_nodeDataPool.Traders);
             default:
                 return null;
         }
@@ -95,7 +112,7 @@ public class MapGenerator : MonoBehaviour
         return list[index];
     }
 
-    private void Shuffle(List<NodeType> list)
+    private void Shuffle<T>(List<T> list)
     {
         for (int i = 0; i < list.Count; i++)
         {
@@ -104,19 +121,43 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+
     private Vector2 GetNodePosition(int layer, int indexInLayer)
     {
-        float x = layer * xOffset;
-        float ySpread = 100f; // максимальный сдвиг по вертикали
-        float y = (indexInLayer - 0.5f) * yOffset + Random.Range(-ySpread, ySpread);
+        float x = layer * _xOffset;
+        float y = (indexInLayer - 0.5f) * _yOffset + Random.Range(-_yRandomSpread, _yRandomSpread);
         return new Vector2(x, y);
     }
 
+    private void GenerateConnections()
+    {
+        for (int layer = 0; layer < totalLayers - 1; layer++)
+        {
+            if (!_layers.ContainsKey(layer) || !_layers.ContainsKey(layer + 1))
+                continue;
+
+            List<NodeInstance> currentLayerNodes = _layers[layer];
+            List<NodeInstance> nextLayerNodes = _layers[layer + 1];
+
+            foreach (var currentNode in currentLayerNodes)
+            {
+                int connections = Random.Range(1, 3);
+                var targets = new List<NodeInstance>(nextLayerNodes);
+                Shuffle(targets);
+
+                for (int i = 0; i < Mathf.Min(connections, targets.Count); i++)
+                {
+                    currentNode.connectedNodes.Add(targets[i]);
+                }
+            }
+        }
+    }
 }
 
 public class NodeInstance
 {
     public NodeData nodeData;
+    public int layer;
     public Vector2 position;
     public List<NodeInstance> connectedNodes = new List<NodeInstance>();
 }
@@ -129,4 +170,3 @@ public class NodeDataPool
     public List<TraderNode> Traders;
     public BossNode Boss;
 }
-
