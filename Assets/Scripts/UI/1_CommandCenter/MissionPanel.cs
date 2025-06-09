@@ -22,7 +22,7 @@ public class MissionPanel : MonoBehaviour
     private bool _isContinueMission;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private Image[] _buttonsIcon;
-    [SerializeField] private RectTransform _planetTargetTransform;
+
     private bool HaveSaveData() => _worldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists(_currentMission.MissionId.ToString());
 
     public void LoadLastOpenedMissionId(int lastOpenedMissionId)
@@ -41,7 +41,6 @@ public class MissionPanel : MonoBehaviour
 
         UnselectAllMission();
         UnactiveAll();
-        UpdatePlanetTargetTransform();
 
         _ecologyLevelText.text = $"{Language.TextStatic[34]}: {_currentMission.StartEcology}";
         _startResourcesText.text = $"{Language.TextStatic[35]}: ";
@@ -79,12 +78,6 @@ public class MissionPanel : MonoBehaviour
         _resourcesView.SetResourcesView(mission.StartResources);
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(_objectivesRectTransform);
-    }
-
-    private void UpdatePlanetTargetTransform()
-    {
-        _planetTargetTransform.anchoredPosition = new Vector2(_currentMission.PlanetTarget.x, _currentMission.PlanetTarget.y);
-        _planetTargetTransform.gameObject.SetActive(true);
     }
 
     private void UnactiveAll()

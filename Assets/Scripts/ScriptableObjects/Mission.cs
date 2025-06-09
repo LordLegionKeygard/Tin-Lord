@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Mission", menuName = "TinLord/WorldMap/Mission")]
-
+[CreateAssetMenu(fileName = "Mission", menuName = "TinLord/Missions/Mission")]
 public class Mission : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
@@ -10,7 +9,6 @@ public class Mission : ScriptableObject
     public Sprite MissionSprite;
     public int MissionId;
     public int StartEcology;
-    public Vector2 PlanetTarget;
     public int MapWidth;
     public int MapLength;
     public int MapEdge = 4;
