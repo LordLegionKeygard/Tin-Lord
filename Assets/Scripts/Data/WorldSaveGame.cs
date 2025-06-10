@@ -31,7 +31,6 @@ public class WorldSaveGame : MonoBehaviour
         CurrentWorldSaveData = new WorldSaveData
         {
             IsStartMission = true,
-            MissionId = mission.MissionId,
             GameSpeed = (int)GameSpeedEnum.Default,
             ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
         };
@@ -43,7 +42,7 @@ public class WorldSaveGame : MonoBehaviour
         }
 
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _selectedMissionId);
-        LoadMissionGameData(mission.MissionId);
+        LoadMissionGameData();
     }
 
     public void DeleteMissionGameData()
@@ -53,7 +52,7 @@ public class WorldSaveGame : MonoBehaviour
 
     public void DeleteAllMissionsGameData()
     {
-        _worldGameSaveDataWriter.DeleteAllMissionsSaveFiles(_allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert].Missions.Length);
+        _worldGameSaveDataWriter.DeleteAllMissionsSaveFiles(_allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert].Landscapes.Length);
     }
 
     public void SaveMissionGameData(bool loadCommandCenter)
@@ -64,19 +63,19 @@ public class WorldSaveGame : MonoBehaviour
         if (loadCommandCenter) CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, WorldGameInfo.DefaultLoadingScreenSpriteId);
     }
 
-    public void ResetMissionGameData(int missionId)
+    public void ResetMissionGameData()
     {
         DeleteMissionGameData();
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         WorldSaveLoad.ResetMissionData(ref CurrentWorldSaveData);
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _selectedMissionId);
-        CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, missionId);
+        CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, WorldGameInfo.DefaultLoadingScreenSpriteId);
     }
 
-    public void LoadMissionGameData(int missionId)
+    public void LoadMissionGameData()
     {
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CurrentWorldSaveData = _worldGameSaveDataWriter.LoadMissionDataFromJson(_selectedMissionId);
-        CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, missionId);
+        CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, WorldGameInfo.DefaultLoadingScreenSpriteId);
     }
 }

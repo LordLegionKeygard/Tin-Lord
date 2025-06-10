@@ -11,7 +11,7 @@ public class BiomeRockTexture : MonoBehaviour
 
     private void SetTexture()
     {
-        var currentBiomTileTextures = CurrentMissionInfo.Instance.GetCurrentMission().MissionView.RockTexture;
+        var currentBiomTileTextures = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.RockTexture;
 
         foreach (var materials in _rockMaterials)
         {

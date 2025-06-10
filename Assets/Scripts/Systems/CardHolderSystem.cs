@@ -66,7 +66,7 @@ public class CardHolderSystem : MonoBehaviour
 
     private void SetAvailableCards()
     {
-        _availableCards = CurrentMissionInfo.Instance.GetCurrentMission().Cards;
+        _availableCards = CurrentMissionInfo.Instance.GetCurrentLandscape().Cards;
     }
 
     public int[] GetAllCards()

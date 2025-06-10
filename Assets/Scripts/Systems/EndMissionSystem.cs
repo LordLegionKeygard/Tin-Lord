@@ -21,7 +21,6 @@ public class EndMissionSystem : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _memoryRestoredText;
     [SerializeField] private TextMeshProUGUI _ecologyBonusText;
-    [SerializeField] private TextMeshProUGUI _difficultyBonusText;
     [SerializeField] private TextMeshProUGUI _receivedFragmentsText;
 
     [SerializeField] private TextMeshProUGUI _maxFragmentsText;
@@ -67,18 +66,17 @@ public class EndMissionSystem : MonoBehaviour
         };
 
         var ecologyBonus = GetEcologyBonus();
-        var difficultyBonus = GetDifficultyMissionBonus();
         var memoryRestoredAmount = (int)_playerResources.GetResourceAmountForEnum(ResourceEnum.MemoryFragment);
-        var totalFragmentsAmount = Mathf.RoundToInt(memoryRestoredAmount * ecologyBonus * difficultyBonus);
+        var totalFragmentsAmount = Mathf.RoundToInt(memoryRestoredAmount * ecologyBonus);
         _receivedFragments = Mathf.RoundToInt(totalFragmentsAmount * missionEndPercent);
 
-        SetTexts(memoryRestoredAmount, ecologyBonus, difficultyBonus, totalFragmentsAmount);
+        SetTexts(memoryRestoredAmount, ecologyBonus, totalFragmentsAmount);
         _slider.value = 0;
         _panel.SetActive(true);
         StartCoroutine(UpdateFragmentsAndSlider(_receivedFragments, missionEndPercent));
     }
 
-    private void SetTexts(int memoryRestoredAmount, float ecologyBonus, float difficultyBonus, float totalFragmentsAmount)
+    private void SetTexts(int memoryRestoredAmount, float ecologyBonus, float totalFragmentsAmount)
     {
         var headerTextNumber = _missionEndEnum is MissionEndEnum.Defeat ? 64 : _missionEndEnum is MissionEndEnum.Escape ? 65 : 63;
         var headerTextColor = _missionEndEnum is MissionEndEnum.Defeat ? Color.black : _missionEndEnum is MissionEndEnum.Escape ? Colors.GreyEight : Colors.WarningYellow;
@@ -87,19 +85,8 @@ public class EndMissionSystem : MonoBehaviour
         _headerText.text = Language.TextStatic[headerTextNumber];
         _memoryRestoredText.text = $"{Language.TextStatic[147]} {memoryRestoredAmount}";
         _ecologyBonusText.text = $"{Language.TextStatic[148]} {ecologyBonus}x";
-        _difficultyBonusText.text = $"{Language.TextStatic[149]} {difficultyBonus}x";
 
         _maxFragmentsText.text = totalFragmentsAmount.ToString();
-    }
-
-    private float GetDifficultyMissionBonus()
-    {
-        var lastMissionSubtraction = CurrentMissionInfo.Instance.LastMissionRemainderFromSubtraction();
-        var maximumMissionBonus = 1;
-        var modificator = 0.2f;
-        var subtractor = modificator * lastMissionSubtraction;
-        if (subtractor > 1) return 0;
-        return maximumMissionBonus - subtractor;
     }
 
     private float GetEcologyBonus()
@@ -121,10 +108,7 @@ public class EndMissionSystem : MonoBehaviour
     private void PrepareData(MissionEndEnum missionEndEnum)
     {
         _worldSaveGame.DeleteMissionGameData();
-        var missionInfo = CurrentMissionInfo.Instance;
-        missionInfo.IsOpenNewMission(missionEndEnum);
-        var newLastOpenedMissionId = missionInfo.IsOpenNewMission(missionEndEnum) ? missionInfo.GetLastOpenedMissionId() + 1 : missionInfo.GetLastOpenedMissionId();
-        _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments, newLastOpenedMissionId);
+        _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments);
     }
 
     private IEnumerator UpdateFragmentsAndSlider(int targetFragments, float targetPercent)
@@ -154,7 +138,7 @@ public class EndMissionSystem : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
-        if (_missionEndEnum == MissionEndEnum.Victory && CurrentMissionInfo.Instance.IsLastOpenedMission())
+        if (_missionEndEnum == MissionEndEnum.Victory)
         {
             _terminalSystem.ActiveTerminal();
         }

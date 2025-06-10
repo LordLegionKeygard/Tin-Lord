@@ -54,11 +54,10 @@ public class WorldSaveLoad : MonoBehaviour
 
     public void ResetMissionData(ref WorldSaveData currentSaveData)
     {
-        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
+        var mission = CurrentMissionInfo.Instance.GetCurrentLandscape();
         currentSaveData = new WorldSaveData
         {
             IsStartMission = true,
-            MissionId = mission.MissionId,
             GameSpeed = (int)GameSpeedEnum.Default,
             ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
         };
@@ -74,7 +73,6 @@ public class WorldSaveLoad : MonoBehaviour
     {
         //Main
         currentSaveData.IsStartMission = false;
-        currentSaveData.MissionId = CurrentMissionInfo.Instance.GetCurrentMission().MissionId;
 
         //UpPanel
         currentSaveData.Day = _timeTickSystem.GetCurrentDay();
@@ -116,7 +114,7 @@ public class WorldSaveLoad : MonoBehaviour
     public void LoadMissionData(ref WorldSaveData currentSaveData)
     {
         //Main
-        CurrentMissionInfo.Instance.LoadMission(currentSaveData.MissionId, _commandCenterSaveGame.CommandCenterSaveData.LastOpenedMissionId);
+        CurrentMissionInfo.Instance.LoadMission();
         _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
 
         //UpPanel

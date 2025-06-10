@@ -50,7 +50,7 @@ public class WorldEventSystem : MonoBehaviour
 
     private void SetAvailableMissionEvents()
     {
-        _availableEvents = CurrentMissionInfo.Instance.GetCurrentMission().MissionEvents;
+        _availableEvents = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionEvents;
     }
 
     private void SetEventDuration()

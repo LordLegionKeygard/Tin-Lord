@@ -65,7 +65,7 @@ public class BuildingProductionView : MonoBehaviour
         }
         else
         {
-            var biomEnum = CurrentMissionInfo.Instance.GetCurrentMission().MissionView.BiomEnum;
+            var biomEnum = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.BiomEnum;
             var treeNumber = biomEnum == BiomEnum.Winter ? 2 : 1;
             _trees[treeNumber].SetActive(state);
             _trees[0].SetActive(!state); // мертвое дерево

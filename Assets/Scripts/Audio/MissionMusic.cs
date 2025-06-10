@@ -14,7 +14,7 @@ public class MissionMusic : MonoBehaviour
 
     private void PlayRandomMusic()
     {
-        var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentMission().MusicTheme];
+        var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentLandscape().MusicTheme];
 
         sound.Music.Play();
         if (sound.Ambience != null) sound.Ambience.Play();
@@ -22,7 +22,7 @@ public class MissionMusic : MonoBehaviour
 
     private void PauseMusicToggle(bool isPause)
     {
-        var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentMission().MusicTheme];
+        var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentLandscape().MusicTheme];
         
         sound.Music.EventInstance.setPaused(isPause && _escapeObject.activeInHierarchy);
     }

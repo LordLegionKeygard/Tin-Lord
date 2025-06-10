@@ -44,9 +44,9 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         var enemiesSpawnerInfo = CurrentMissionInfo.Instance.GetEnemiesSpawnerInformation();
         var allSpawners = enemiesSpawnerInfo.Spawners;
 
-        if(enemiesSpawnerInfo.BossEnum!= EnemyEnum.None)
+        if (enemiesSpawnerInfo.BossEnum != EnemyEnum.None)
         {
-            if(enemiesSpawnerInfo.BossDaySpawn == day) SpawnBoss(enemiesSpawnerInfo);
+            if (enemiesSpawnerInfo.BossDaySpawn == day) SpawnBoss(enemiesSpawnerInfo);
         }
 
         if (allSpawners.Length == 0) return;
@@ -119,9 +119,9 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private Vector3 GetRandomSpawnTransform()
     {
-        var missionId = CurrentMissionInfo.Instance.GetCurrentMission().MissionId;
-        var randomTransform = Random.Range(0, _enemiesBiomeSpawnTransforms[missionId].SpawnPoints.Length);
-        return _enemiesBiomeSpawnTransforms[missionId].SpawnPoints[randomTransform].position;
+        var landscapeNumber = (int)CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum;
+        var randomTransform = Random.Range(0, _enemiesBiomeSpawnTransforms[landscapeNumber].SpawnPoints.Length);
+        return _enemiesBiomeSpawnTransforms[landscapeNumber].SpawnPoints[randomTransform].position;
     }
 
     private void AddEnemyToList(int enemyEnum, int enemyNumber, GameObject prefab)
@@ -160,5 +160,6 @@ public class EnemiesForListData
 [System.Serializable]
 public class EnemiesBiomeSpawnTransforms
 {
+    public LandscapeEnum LandscapeEnum;
     public Transform[] SpawnPoints;
 }

@@ -1,17 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TerrainView : MonoBehaviour
 {
-    [Header("Terrain")]
     [SerializeField] private TerrainObjectsWrapper[] _terrainObjects;
 
     public void PrepareTerrain()
     {
-        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
+        var landscape = CurrentMissionInfo.Instance.GetCurrentLandscape();
 
-        foreach (var item in _terrainObjects[mission.MissionId].TerrainObjects)
+        foreach (var item in _terrainObjects[(int)landscape.LandscapeEnum].TerrainObjects)
         {
             item.SetActive(true);
         }

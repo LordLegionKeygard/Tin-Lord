@@ -4,6 +4,7 @@ using UnityEngine;
 public class ChangeLanguageCommandCenter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _mapText;
+    [SerializeField] private TextMeshProUGUI _learningText;
     [SerializeField] private TextMeshProUGUI[] _buildingTypesNameTexts;
     [SerializeField] private Tile[] _buildingTypesTiles;
     [SerializeField] private TextMeshProUGUI[] _escapeTexts;
@@ -20,6 +21,7 @@ public class ChangeLanguageCommandCenter : MonoBehaviour
     private void Start()
     {
         _mapText.text = Language.TextStatic[271];
+        _learningText.text = Language.TextStatic[272];
 
         for (int i = 0; i < _buildingTypesNameTexts.Length; i++)
         {

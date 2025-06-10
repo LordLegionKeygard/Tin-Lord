@@ -4,10 +4,10 @@ using UnityEngine;
 public class Landscape : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
+    public LandscapeEnum LandscapeEnum;
     public MusicThemeEnum MusicTheme;
     public MissionView MissionView;
     public Sprite MissionSprite;
-    public int MissionId;
     public int StartEcology;
     public int MapWidth;
     public int MapLength;
@@ -32,16 +32,6 @@ public class MissionView
 }
 
 [System.Serializable]
-public enum ObjectiveEnum
-{
-    RestoreEcology = 0,
-    KillEnemies = 1,
-    ConstructBuilding = 2,
-    SurviveDays = 3,
-    KillBoss = 4,
-}
-
-[System.Serializable]
 public class MissionLight
 {
     public Vector2 LightRotation;
@@ -52,4 +42,13 @@ public class MissionLight
     [ColorUsage(true, true)] public Color GroundColor;
     public int Temperature;
     public float Intencity;
+}
+
+[System.Serializable]
+public enum LandscapeEnum
+{
+    Canyon = 0,
+    CityOfJunk = 1,
+    Wasteland = 2,
+    Winter = 3,
 }

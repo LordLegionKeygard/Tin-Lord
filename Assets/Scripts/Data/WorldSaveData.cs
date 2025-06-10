@@ -8,7 +8,6 @@ using UnityEngine;
 public class WorldSaveData
 {
     [Header("Main")]
-    public int MissionId;
     public bool IsStartMission;
 
     [Header("UpPanel")]

@@ -12,30 +12,14 @@ public class CurrentMissionInfo : MonoBehaviour
         Instance = this;
     }
 
-    public int LastMissionRemainderFromSubtraction() => _lastOpenedMissionId - _currentMissionId;
-
-    public void LoadMission(int missionId, int lastOpenedMissionId)
+    public void LoadMission()
     {
-        _currentMissionId = missionId;
-        _lastOpenedMissionId = lastOpenedMissionId;
+        
     }
 
-    public bool IsOpenNewMission(MissionEndEnum missionEndEnum)
+    public Landscape GetCurrentLandscape()
     {
-        if (IsLastOpenedMission() && missionEndEnum == MissionEndEnum.Victory)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public int GetLastOpenedMissionId() => _lastOpenedMissionId;
-
-    public bool IsLastOpenedMission() => _currentMissionId == _lastOpenedMissionId;
-
-    public Landscape GetCurrentMission()
-    {
-        return _allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert].Missions[_currentMissionId];
+        return _allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert].Landscapes[_currentMissionId]; 
     }
 
     public EnemiesSpawner GetEnemiesSpawnerInformation()

@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class PanelDoMoveY : MonoBehaviour
 {
-    [SerializeField] private int _positionY;
+    [SerializeField] private int _closePositionY;
+    [SerializeField] private int _openPositionY;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private ScrollRect _scrollRect;
@@ -19,17 +20,17 @@ public class PanelDoMoveY : MonoBehaviour
         if (_isOpen)
         {
             if (_scrollRect != null) _scrollRect.verticalNormalizedPosition = 1;
-            _objectTransform.DOAnchorPosY(_positionY, _moveSpeed).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(_openPositionY, _moveSpeed).SetUpdate(true);
         }
         else
         {
-            _objectTransform.DOAnchorPosY(-_positionY, _moveSpeed).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(_closePositionY, _moveSpeed).SetUpdate(true);
         }
     }
 
     public void PanelClose()
     {
         _isOpen = false;
-        _objectTransform.DOAnchorPosX(-_positionY, _moveSpeed).SetUpdate(true);
+        _objectTransform.DOAnchorPosX(-_openPositionY, _moveSpeed).SetUpdate(true);
     }
 }

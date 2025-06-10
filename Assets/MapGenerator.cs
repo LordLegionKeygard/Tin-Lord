@@ -28,7 +28,7 @@ public class MapGenerator : MonoBehaviour
 
         MapChapter chapter = _allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert];
         List<int> availableMissionIndices = new();
-        for (int i = 0; i < chapter.Missions.Length; i++) availableMissionIndices.Add(i);
+        for (int i = 0; i < chapter.Landscapes.Length; i++) availableMissionIndices.Add(i);
         Shuffle(availableMissionIndices);
 
         int objectiveIndex = 0;
@@ -96,7 +96,7 @@ public class MapGenerator : MonoBehaviour
     private MissionNode CreateMissionNode(MapChapter chapter, int missionIndex, int objectiveIndex, int spawnerIndex)
     {
         var node = ScriptableObject.CreateInstance<MissionNode>();
-        node.Landscape = chapter.Missions[missionIndex];
+        node.Landscape = chapter.Landscapes[missionIndex];
         node.Objective = chapter.Objectives[objectiveIndex];
         node.EnemiesSpawner = chapter.EnemiesSpawnerInformation[spawnerIndex];
         node.Icon = _nodeDataPool.Missions[0].Icon;

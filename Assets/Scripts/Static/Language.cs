@@ -843,6 +843,9 @@ public class Language : MonoBehaviour
         _text[271, 0] = "Map";
         _text[271, 1] = "Карта";
 
+        _text[272, 0] = "Learning";
+        _text[272, 1] = "Изучения";
+
 
 
         for (int x = 0; x < WorldGameInfo.LanguageLength; x++) TextStatic[x] = _text[x, LanguageNumber];

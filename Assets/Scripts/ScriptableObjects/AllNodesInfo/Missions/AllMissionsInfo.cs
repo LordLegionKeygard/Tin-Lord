@@ -10,7 +10,7 @@ public class AllMissionsInfo : ScriptableObject
 public class MapChapter
 {
     public ChaptersEnum ChaptersEnum;
-    public Landscape[] Missions; //случайные ландшафты
+    public Landscape[] Landscapes; //случайные ландшафты
     public EnemiesSpawner[] EnemiesSpawnerInformation; //информация о врагах, пока что стоит друг за другом подряд
     public Objective[] Objectives; //информация о целях миссии, пока что стоит друг за другом подряд
 }

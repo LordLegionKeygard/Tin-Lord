@@ -15,6 +15,7 @@ MonoBehaviour:
   Name:
   - City of Junk
   - "\u0413\u043E\u0440\u043E\u0434 \u0425\u043B\u0430\u043C\u0430"
+  LandscapeEnum: 1
   MusicTheme: 0
   MissionView:
     BiomEnum: 0
@@ -27,13 +28,11 @@ MonoBehaviour:
       Temperature: 5922
       Intencity: 2
   MissionSprite: {fileID: 21300000, guid: 81a5a8fbef6e107418adba896953256e, type: 3}
-  MissionId: 1
   StartEcology: -5
   MapWidth: 10
   MapLength: 10
   MapEdge: 4
   StartPosEdge: 4
-  EnemiesSpawnerInfo: {fileID: 11400000, guid: 74fcce83908ba2040b51b4edc3b58c8c, type: 2}
   StartResources:
   - ResourceEnum: 0
     RecourceAmount: 80
@@ -43,9 +42,6 @@ MonoBehaviour:
     RecourceAmount: 15
   - ResourceEnum: 10
     RecourceAmount: 10
-  Objectives:
-  - ObjectiveEnum: 3
-    ObjectiveAmount: 100
   MissionEvents:
   - {fileID: 11400000, guid: d49694d92c2ca064fbd724a765463f2a, type: 2}
   - {fileID: 11400000, guid: f31e1355a13e3d74f8a04ca87d106172, type: 2}

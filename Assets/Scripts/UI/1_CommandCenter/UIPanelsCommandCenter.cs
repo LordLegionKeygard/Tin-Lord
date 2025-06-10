@@ -3,7 +3,7 @@ using UnityEngine;
 public class UIPanelsCommandCenter : MonoBehaviour
 {
     [SerializeField] private PanelDoMoveX _buildingsPanelDoMove;
-    [SerializeField] private PanelDoMoveX _missionPanelDoMove;
+    [SerializeField] private PanelDoMoveY _mapPanelDoMove;
     [SerializeField] private PanelDoMoveY _buildingInfoPanel;
 
     [SerializeField] private EscapePanelCommandCenter _escapePanel;
@@ -11,31 +11,47 @@ public class UIPanelsCommandCenter : MonoBehaviour
     [SerializeField] private LearnBuildingInfoPanel _learnBuildingInfoPanel;
     [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
 
-    public void Click()
+    public void LearnBuildingPanelToggle(bool needSound = true)
     {
-        _buildingsPanelDoMove.PanelMove(true);
-        _missionPanelDoMove.PanelMove(false);
+        _buildingsPanelDoMove.PanelMove();
         _buildingInfoPanel.PanelMove(false);
 
-        if(_buildingsPanelDoMove.IsOpen())
+        if (_buildingsPanelDoMove.IsOpen())
         {
             _buildingsLearnPanel.ResetScrollPosition();
         }
 
-        if(!_buildingInfoPanel.IsOpen())
+        if (!_buildingInfoPanel.IsOpen())
         {
             _learnBuildingInfoPanel.Reset();
         }
     }
 
+    public void MapPanelToggle()
+    {
+        if (_buildingsPanelDoMove.IsOpen())
+        {
+            LearnBuildingPanelToggle(false);
+        }
+
+        if (!_mapPanelDoMove.IsOpen())
+        {
+            _mapPanelDoMove.PanelMove();
+        }
+    }
+
     public void EscapeClick()
     {
-        if(_canvasGroup.interactable == false) return;
-        
+        if (_canvasGroup.interactable == false) return;
+
         CustomEvents.FireTooltipToggle(false, 0);
         if (_buildingsPanelDoMove.IsOpen())
         {
-            Click();
+            LearnBuildingPanelToggle();
+        }
+        else if (_mapPanelDoMove.IsOpen())
+        {
+            _mapPanelDoMove.PanelMove();
         }
         else
         {

@@ -63,7 +63,7 @@ public class TileMapBuilder : MonoBehaviour
 
     private void SetMapSize()
     {
-        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
+        var mission = CurrentMissionInfo.Instance.GetCurrentLandscape();
         _mapWidth = mission.MapWidth;
         _mapLength = mission.MapLength;
         _mapEdge = mission.MapEdge;

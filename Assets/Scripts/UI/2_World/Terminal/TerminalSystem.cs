@@ -18,8 +18,8 @@ public class TerminalSystem : MonoBehaviour
         UnactiveObjects();
         ActiveRender();
         _terminal.SetActive(true);
-        _consoleTextsTyping.StartTyping(CurrentMissionInfo.Instance.GetCurrentMission().ConsoleTextsIndexes);
-        _storyTextTyping.StartTyping(CurrentMissionInfo.Instance.GetCurrentMission().StoryTextsIndexes);
+        _consoleTextsTyping.StartTyping(CurrentMissionInfo.Instance.GetCurrentLandscape().ConsoleTextsIndexes);
+        _storyTextTyping.StartTyping(CurrentMissionInfo.Instance.GetCurrentLandscape().StoryTextsIndexes);
         _eventEmitter.Play();
     }
 

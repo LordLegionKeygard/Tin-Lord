@@ -15,6 +15,7 @@ MonoBehaviour:
   Name:
   - Wasteland
   - "\u041F\u0443\u0441\u0442\u043E\u0448\u044C"
+  LandscapeEnum: 2
   MusicTheme: 0
   MissionView:
     BiomEnum: 1
@@ -27,13 +28,11 @@ MonoBehaviour:
       Temperature: 3640
       Intencity: 2
   MissionSprite: {fileID: 21300000, guid: 919432989fbffdd43be65c417a567397, type: 3}
-  MissionId: 2
   StartEcology: -5
   MapWidth: 16
   MapLength: 20
   MapEdge: 4
   StartPosEdge: 4
-  EnemiesSpawnerInfo: {fileID: 11400000, guid: 5393e13a42baf594e9b3c23d089ec3e3, type: 2}
   StartResources:
   - ResourceEnum: 0
     RecourceAmount: 80
@@ -45,11 +44,6 @@ MonoBehaviour:
     RecourceAmount: 20
   - ResourceEnum: 5
     RecourceAmount: 15
-  Objectives:
-  - ObjectiveEnum: 3
-    ObjectiveAmount: 100
-  - ObjectiveEnum: 4
-    ObjectiveAmount: 1
   MissionEvents:
   - {fileID: 11400000, guid: d49694d92c2ca064fbd724a765463f2a, type: 2}
   - {fileID: 11400000, guid: f31e1355a13e3d74f8a04ca87d106172, type: 2}

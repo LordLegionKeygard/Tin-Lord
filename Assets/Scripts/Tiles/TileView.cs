@@ -57,8 +57,8 @@ public class TileView : MonoBehaviour
     public void EdgeViewToggle(float x, float y, bool state)
     {
         _edgeViews[0].SetActive(y == 0 && state);
-        _edgeViews[1].SetActive(y == CurrentMissionInfo.Instance.GetCurrentMission().MapWidth * 10 - 10 && state);
-        _edgeViews[2].SetActive(x == CurrentMissionInfo.Instance.GetCurrentMission().MapLength * 10 - 10 && state);
+        _edgeViews[1].SetActive(y == CurrentMissionInfo.Instance.GetCurrentLandscape().MapWidth * 10 - 10 && state);
+        _edgeViews[2].SetActive(x == CurrentMissionInfo.Instance.GetCurrentLandscape().MapLength * 10 - 10 && state);
         _edgeViews[3].SetActive(x == 0 && state);
     }
 

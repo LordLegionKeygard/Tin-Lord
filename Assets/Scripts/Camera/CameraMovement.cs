@@ -51,10 +51,10 @@ public class CameraMovement : MonoBehaviour
 
     private void SetCameraEdges()
     {
-        var mission = CurrentMissionInfo.Instance.GetCurrentMission();
+        var landscape = CurrentMissionInfo.Instance.GetCurrentLandscape();
 
-        _xMax = 50 + (mission.MapLength - 10) * 10;
-        _yMax = 50 + (mission.MapWidth - 10) * 10;
+        _xMax = 50 + (landscape.MapLength - 10) * 10;
+        _yMax = 50 + (landscape.MapWidth - 10) * 10;
     }
 
     public void ChangeCameraSpeedCoeff(float value)

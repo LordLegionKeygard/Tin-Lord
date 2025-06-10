@@ -14,14 +14,14 @@ public class DayLightTimeSystem : MonoBehaviour
 
     public void SetDayLightTime()
     {
-        var missionLight = CurrentMissionInfo.Instance.GetCurrentMission().MissionView.MissionLight;
-        Vector2 dayLightTime = missionLight.LightRotation;
+        var landscapeLight = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.MissionLight;
+        Vector2 dayLightTime = landscapeLight.LightRotation;
         _light.transform.rotation = Quaternion.Euler(dayLightTime.x, dayLightTime.y, 0f);
-        _light.colorTemperature = missionLight.Temperature;
-        RenderSettings.ambientSkyColor = missionLight.SkyColor;
-        RenderSettings.ambientEquatorColor = missionLight.EquatorColor;
-        RenderSettings.ambientGroundColor = missionLight.GroundColor;
-        _light.intensity = missionLight.Intencity;
+        _light.colorTemperature = landscapeLight.Temperature;
+        RenderSettings.ambientSkyColor = landscapeLight.SkyColor;
+        RenderSettings.ambientEquatorColor = landscapeLight.EquatorColor;
+        RenderSettings.ambientGroundColor = landscapeLight.GroundColor;
+        _light.intensity = landscapeLight.Intencity;
     }
 
     private void ResetLight()
