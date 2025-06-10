@@ -19,11 +19,11 @@ public class PanelDoMoveY : MonoBehaviour
         if (_isOpen)
         {
             if (_scrollRect != null) _scrollRect.verticalNormalizedPosition = 1;
-            _objectTransform.DOAnchorPosY(0, _moveSpeed).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(_positionY, _moveSpeed).SetUpdate(true);
         }
         else
         {
-            _objectTransform.DOAnchorPosY(_positionY, _moveSpeed).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(-_positionY, _moveSpeed).SetUpdate(true);
         }
     }
 

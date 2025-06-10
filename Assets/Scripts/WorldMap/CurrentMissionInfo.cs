@@ -33,9 +33,19 @@ public class CurrentMissionInfo : MonoBehaviour
 
     public bool IsLastOpenedMission() => _currentMissionId == _lastOpenedMissionId;
 
-    public Mission GetCurrentMission()
+    public Landscape GetCurrentMission()
     {
-        return _allMissionsInfo.AllMissions[_currentMissionId];
+        return _allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert].Missions[_currentMissionId];
+    }
+
+    public EnemiesSpawner GetEnemiesSpawnerInformation()
+    {
+        return null;
+    }
+
+    public Objective GetObjective()
+    {
+        return null;
     }
 
 }

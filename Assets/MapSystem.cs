@@ -6,7 +6,7 @@ public class MapSystem : MonoBehaviour
     public MapVisualizer mapVisualizer;
     public ConnectionsDrawer connectionsDrawer;
 
-    private void Start()
+    private void Start() //при старте новой игры
     {
         GenerateFullMap();
     }

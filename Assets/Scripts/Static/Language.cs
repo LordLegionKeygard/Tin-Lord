@@ -840,6 +840,9 @@ public class Language : MonoBehaviour
         _text[270, 0] = "Waiting for external interface confirmation";
         _text[270, 1] = "Ожидание внешнего интерфейса подтверждения";
 
+        _text[271, 0] = "Map";
+        _text[271, 1] = "Карта";
+
 
 
         for (int x = 0; x < WorldGameInfo.LanguageLength; x++) TextStatic[x] = _text[x, LanguageNumber];

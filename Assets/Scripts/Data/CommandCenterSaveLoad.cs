@@ -5,7 +5,6 @@ public class CommandCenterSaveLoad : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
-    [SerializeField] private MissionPanel _missionPanel;
     [SerializeField] private PrologueSystem _prologue;
 
     private void Awake()
@@ -33,7 +32,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
             _buildingsLearnPanel.AllLearnBuildingItems()[i].SetupData(currentSaveData.BuildingsLearned[i]);
         }
 
-        _missionPanel.LoadLastOpenedMissionId(currentSaveData.LastOpenedMissionId);
+        // _missionPanel.LoadLastOpenedMissionId(currentSaveData.LastOpenedMissionId);
 
         CustomEvents.FireDataLoad();
     }

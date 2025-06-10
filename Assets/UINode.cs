@@ -19,7 +19,7 @@ public class UINode : MonoBehaviour
         // Тут потом вставим переход к миссии или ивенту
         if (_nodeData is MissionNode missionNode)
         {
-            Debug.Log("Миссия: " + missionNode.Mission.MissionId);
+            Debug.Log("Миссия: " + missionNode.Landscape.MissionId);
         }
         else if (_nodeData is BossNode bossNode)
         {

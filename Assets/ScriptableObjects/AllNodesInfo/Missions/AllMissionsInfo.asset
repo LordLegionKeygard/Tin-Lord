@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78b2c1a812cca44fb8f9b41755e8b1d, type: 3}
+  m_Name: AllMissionsInfo
+  m_EditorClassIdentifier: 
+  MapChapters:
+  - ChaptersEnum: 0
+    Missions:
+    - {fileID: 11400000, guid: 33063797d5fd5a143b021e4a8f617133, type: 2}
+    - {fileID: 11400000, guid: dfebb67d0b6e9e440a9720fbaca62b42, type: 2}
+    - {fileID: 11400000, guid: e58031502e48fbc43901a4da2f42ef76, type: 2}
+    EnemiesSpawnerInformation:
+    - {fileID: 11400000, guid: c597c508d61e0814491057739e736086, type: 2}
+    - {fileID: 11400000, guid: 74fcce83908ba2040b51b4edc3b58c8c, type: 2}
+    - {fileID: 11400000, guid: 5393e13a42baf594e9b3c23d089ec3e3, type: 2}
+    Objectives:
+    - {fileID: 11400000, guid: a81b2184296288e4a90e203fc56c2a9c, type: 2}
+    - {fileID: 11400000, guid: 5d07668f97d30e04aa7444482a9839bc, type: 2}
+    - {fileID: 11400000, guid: eb19c5b34599dcd469be852b95c70982, type: 2}

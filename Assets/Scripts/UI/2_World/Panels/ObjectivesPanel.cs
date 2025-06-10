@@ -33,7 +33,7 @@ public class ObjectivesPanel : MonoBehaviour
 
     public void LoadObjectiveItems(int[] objectivesAmount, bool IsStartMission)
     {
-        var objectives = CurrentMissionInfo.Instance.GetCurrentMission().Objectives;
+        var objectives = CurrentMissionInfo.Instance.GetObjective().Objectives;
 
         for (int i = 0; i < objectives.Length; i++)
         {

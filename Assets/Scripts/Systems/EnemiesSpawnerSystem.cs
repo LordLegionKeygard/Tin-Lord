@@ -41,7 +41,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void PrepareSpawnEnemy(int day)
     {
-        var enemiesSpawnerInfo = CurrentMissionInfo.Instance.GetCurrentMission().EnemiesSpawnerInfo;
+        var enemiesSpawnerInfo = CurrentMissionInfo.Instance.GetEnemiesSpawnerInformation();
         var allSpawners = enemiesSpawnerInfo.Spawners;
 
         if(enemiesSpawnerInfo.BossEnum!= EnemyEnum.None)
@@ -60,7 +60,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         SpawnEnemies(spawner);
     }
 
-    private void SpawnBoss(EnemiesSpawnerInformation info)
+    private void SpawnBoss(EnemiesSpawner info)
     {
         var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(info.BossEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
         enemyObject.GetComponent<EnemyLevel>().SetLevel(info.BossLevel);

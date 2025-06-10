@@ -26,7 +26,7 @@ public class WorldSaveGame : MonoBehaviour
         _selectedMissionId = newMissionId;
     }
 
-    public void NewMission(Mission mission)
+    public void NewMission(Landscape mission)
     {
         CurrentWorldSaveData = new WorldSaveData
         {
@@ -53,7 +53,7 @@ public class WorldSaveGame : MonoBehaviour
 
     public void DeleteAllMissionsGameData()
     {
-        _worldGameSaveDataWriter.DeleteAllMissionsSaveFiles(_allMissionsInfo.AllMissions.Length);
+        _worldGameSaveDataWriter.DeleteAllMissionsSaveFiles(_allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert].Missions.Length);
     }
 
     public void SaveMissionGameData(bool loadCommandCenter)
