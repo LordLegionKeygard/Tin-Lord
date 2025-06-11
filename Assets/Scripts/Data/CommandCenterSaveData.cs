@@ -5,7 +5,6 @@
 public class CommandCenterSaveData
 {
     public float MemoryFragments;
-    public int LastOpenedMissionId;
     public bool PrologueCompleted;
     public bool TutorialCompleted;
     public bool[] BuildingsLearned;
