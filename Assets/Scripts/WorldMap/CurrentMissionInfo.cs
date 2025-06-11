@@ -19,7 +19,7 @@ public class CurrentMissionInfo : MonoBehaviour
 
     public Landscape GetCurrentLandscape()
     {
-        return _allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert].Landscapes[_currentMissionId]; 
+        return _allMissionsInfo.Landscapes[_currentMissionId]; 
     }
 
     public EnemiesSpawner GetEnemiesSpawnerInformation()

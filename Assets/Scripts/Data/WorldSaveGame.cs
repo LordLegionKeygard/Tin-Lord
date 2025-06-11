@@ -52,7 +52,7 @@ public class WorldSaveGame : MonoBehaviour
 
     public void DeleteAllMissionsGameData()
     {
-        _worldGameSaveDataWriter.DeleteAllMissionsSaveFiles(_allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert].Landscapes.Length);
+        _worldGameSaveDataWriter.DeleteAllMissionsSaveFiles(_allMissionsInfo.Landscapes.Length);
     }
 
     public void SaveMissionGameData(bool loadCommandCenter)

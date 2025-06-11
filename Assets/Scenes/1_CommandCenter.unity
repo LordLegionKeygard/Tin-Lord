@@ -15385,16 +15385,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _contentTransform: {fileID: 1115393801}
-  _nodeDataPool:
-    Missions:
-    - {fileID: 11400000, guid: 4b4634f94e8a6f64e85554f13258c43f, type: 2}
-    - {fileID: 11400000, guid: 52ee11695a8f15c4f9a314a2d5da4431, type: 2}
-    Events:
-    - {fileID: 11400000, guid: 3c09af0849ff53240937ea32bd01bdcf, type: 2}
-    Traders:
-    - {fileID: 11400000, guid: b34a6b9559365e247849a493ff616b00, type: 2}
-    Boss: {fileID: 11400000, guid: 087bdfd10427bc94986dca955c470ad8, type: 2}
   _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
+  _nodeXoffset: 300
+  _nodeYoffset: 150
+  _nodeYrandomSpread: 20
+  _mainXOffset: 100
+  _mainYOffset: 180
   SavedMap:
     Nodes: []
 --- !u!114 &849943934

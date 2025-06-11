@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ace92099cd8ea489bceb3f5244651c, type: 3}
-  m_Name: Desert_BossNode
+  m_Script: {fileID: 11500000, guid: 6dec09aa9e6ec63459f9e4296334d773, type: 3}
+  m_Name: Desert_EventNode_1
   m_EditorClassIdentifier: 
-  NodeType: 3
-  Icon: {fileID: 21300000, guid: 962aeac4f2a861648baacf1646473bdd, type: 3}
-  Mission: {fileID: 11400000, guid: e58031502e48fbc43901a4da2f42ef76, type: 2}
+  NodeType: 2
+  Icon: {fileID: 21300000, guid: 3d5bbed581fff8b41907af57dedb20d6, type: 3}

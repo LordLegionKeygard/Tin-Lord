@@ -12,8 +12,6 @@ public class MapVisualizer : MonoBehaviour
 
     public void GenerateAndDisplayMap()
     {
-        _mapGenerator.GenerateDesertMap();
-
         // Чистим старые ноды
         foreach (var node in spawnedNodes)
             Destroy(node.gameObject);

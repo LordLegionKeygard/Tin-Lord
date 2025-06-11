@@ -14,7 +14,7 @@ public class MapSystem : MonoBehaviour
     public void GenerateFullMap()
     {
         // Генерируем структуру
-        mapGenerator.GenerateDesertMap();
+        mapGenerator.GenerateMap();
 
         // Спавним визуальные ноды
         mapVisualizer.GenerateAndDisplayMap();

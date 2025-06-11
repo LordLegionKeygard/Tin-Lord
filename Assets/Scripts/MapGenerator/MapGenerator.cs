@@ -4,15 +4,14 @@ using UnityEngine;
 public class MapGenerator : MonoBehaviour
 {
     [SerializeField] private RectTransform _contentTransform;
-    [SerializeField] private NodeDataPool _nodeDataPool;
     [SerializeField] private AllMissionsInfo _allMissionsInfo;
 
     [Header("Generation Settings")]
-    private int _totalLayers = 4;
-    private float _xOffset = 300f;
-    private float _yOffset = 300f;
-    private float _yRandomSpread = 50f;
-    private float _leftOffset = 100f;
+    [SerializeField] private float _nodeXoffset = 300f;
+    [SerializeField] private float _nodeYoffset = 200f;
+    [SerializeField] private float _nodeYrandomSpread = 25f;
+    [SerializeField] private float _mainXOffset = 100f;
+    [SerializeField] private float _mainYOffset = -150f;
 
     [SerializeField] private List<NodeInstance> _generatedNodes = new();
     public List<NodeInstance> GetGeneratedNodes() => _generatedNodes;
@@ -20,58 +19,69 @@ public class MapGenerator : MonoBehaviour
 
     private readonly Dictionary<int, List<NodeInstance>> _layers = new();
 
-    public void GenerateDesertMap()
+    public void GenerateMap()
     {
         _generatedNodes.Clear();
         _layers.Clear();
         SavedMap = new SavedMapData();
 
-        MapChapter chapter = _allMissionsInfo.MapChapters[(int)ChaptersEnum.Desert];
-        List<int> availableMissionIndices = new();
-        for (int i = 0; i < chapter.Landscapes.Length; i++) availableMissionIndices.Add(i);
-        Shuffle(availableMissionIndices);
+        var landscapes = new List<Landscape>(_allMissionsInfo.Landscapes);
+        var objectives = new List<Objective>(_allMissionsInfo.Objectives);
+        var spawners = new List<EnemiesSpawner>(_allMissionsInfo.EnemiesSpawnerInformation);
+        var events = new List<EventNode>(_allMissionsInfo.Events);
+        var traders = new List<TraderNode>(_allMissionsInfo.Traders);
+
+        Shuffle(landscapes);
+        Shuffle(objectives);
+        Shuffle(spawners);
+        Shuffle(events);
+        Shuffle(traders);
+
+        int totalContentNodes = landscapes.Count + events.Count + traders.Count;
+        int maxNodesPerLayer = 3;
+        int contentLayers = Mathf.CeilToInt(totalContentNodes / (float)maxNodesPerLayer);
+        int totalLayers = contentLayers + 3; // start, at least one mission, boss
 
         int objectiveIndex = 0;
         int spawnerIndex = 0;
 
-        // Стартовая миссия
-        int startIndex = availableMissionIndices[0];
-        availableMissionIndices.RemoveAt(0);
+        // Стартовая нода
+        NodeInstance startNode = CreateNode(_allMissionsInfo.StartNode, 0, 0);
+        AddToLayer(0, startNode);
+        _generatedNodes.Add(startNode);
+        AddToSavedMap(startNode, NodeType.Start, 0);
 
-        MissionNode startMission = CreateMissionNode(chapter, startIndex, objectiveIndex++, spawnerIndex++);
-        NodeInstance startInstance = CreateNode(startMission, 0, 0);
-        AddToLayer(0, startInstance);
-        _generatedNodes.Add(startInstance);
-        AddToSavedMap(startInstance, NodeType.Mission, 0, startIndex, objectiveIndex - 1, spawnerIndex - 1);
+        // Первая миссия
+        MissionNode firstMission = CreateMissionNode(landscapes, objectives, spawners, ref objectiveIndex, ref spawnerIndex);
+        NodeInstance firstMissionNode = CreateNode(firstMission, 1, 0);
+        AddToLayer(1, firstMissionNode);
+        _generatedNodes.Add(firstMissionNode);
+        AddToSavedMap(firstMissionNode, NodeType.Mission, _generatedNodes.Count - 1);
 
-        // Заполнение остальных слоев
-        for (int layer = 1; layer < _totalLayers - 1; layer++)
+        for (int layer = 2; layer < totalLayers - 1; layer++)
         {
-            int nodesInLayer = Random.Range(1, 3);
-            for (int i = 0; i < nodesInLayer; i++)
+            int nodesThisLayer = 0;
+            while (nodesThisLayer < maxNodesPerLayer && (landscapes.Count > 0 || events.Count > 0 || traders.Count > 0))
             {
                 NodeInstance instance = null;
                 NodeType type = NodeType.Event;
-                int indexInChapter = -1;
 
-                if (availableMissionIndices.Count > 0)
+                if (landscapes.Count > 0)
                 {
-                    indexInChapter = availableMissionIndices[0];
-                    availableMissionIndices.RemoveAt(0);
-                    MissionNode node = CreateMissionNode(chapter, indexInChapter, objectiveIndex++, spawnerIndex++);
-                    instance = CreateNode(node, layer, i);
+                    var mission = CreateMissionNode(landscapes, objectives, spawners, ref objectiveIndex, ref spawnerIndex);
+                    instance = CreateNode(mission, layer, nodesThisLayer);
                     type = NodeType.Mission;
                 }
-                else if (_nodeDataPool.Events.Count > 0)
+                else if (events.Count > 0)
                 {
-                    var node = GetRandomNode(_nodeDataPool.Events);
-                    instance = CreateNode(node, layer, i);
+                    instance = CreateNode(events[0], layer, nodesThisLayer);
+                    events.RemoveAt(0);
                     type = NodeType.Event;
                 }
-                else if (_nodeDataPool.Traders.Count > 0)
+                else if (traders.Count > 0)
                 {
-                    var node = GetRandomNode(_nodeDataPool.Traders);
-                    instance = CreateNode(node, layer, i);
+                    instance = CreateNode(traders[0], layer, nodesThisLayer);
+                    traders.RemoveAt(0);
                     type = NodeType.Trader;
                 }
 
@@ -79,40 +89,40 @@ public class MapGenerator : MonoBehaviour
                 {
                     AddToLayer(layer, instance);
                     _generatedNodes.Add(instance);
-                    AddToSavedMap(instance, type, _generatedNodes.Count - 1, indexInChapter, objectiveIndex - 1, spawnerIndex - 1);
+                    AddToSavedMap(instance, type, _generatedNodes.Count - 1);
+                    nodesThisLayer++;
                 }
             }
         }
 
         // Финальный босс
-        var boss = CreateNode(_nodeDataPool.Boss, _totalLayers - 1, 0);
-        AddToLayer(_totalLayers - 1, boss);
+        NodeInstance boss = CreateNode(_allMissionsInfo.BossNode, totalLayers - 1, 0);
+        AddToLayer(totalLayers - 1, boss);
         _generatedNodes.Add(boss);
         AddToSavedMap(boss, NodeType.Boss, _generatedNodes.Count - 1);
 
         GenerateConnections();
     }
 
-    private MissionNode CreateMissionNode(MapChapter chapter, int missionIndex, int objectiveIndex, int spawnerIndex)
+    private MissionNode CreateMissionNode(List<Landscape> landscapes, List<Objective> objectives, List<EnemiesSpawner> spawners, ref int objectiveIndex, ref int spawnerIndex)
     {
         var node = ScriptableObject.CreateInstance<MissionNode>();
-        node.Landscape = chapter.Landscapes[missionIndex];
-        node.Objective = chapter.Objectives[objectiveIndex];
-        node.EnemiesSpawner = chapter.EnemiesSpawnerInformation[spawnerIndex];
-        node.Icon = _nodeDataPool.Missions[0].Icon;
-
+        node.Landscape = landscapes[0]; landscapes.RemoveAt(0);
+        node.Objective = objectives[objectiveIndex++ % objectives.Count];
+        node.EnemiesSpawner = spawners[spawnerIndex++ % spawners.Count];
+        node.Icon = _allMissionsInfo.MissionNodeTemplate.Icon;
         return node;
     }
 
-    private void AddToSavedMap(NodeInstance instance, NodeType type, int nodeIndex, int missionIndex = -1, int objectiveIndex = -1, int spawnerIndex = -1)
+    private void AddToSavedMap(NodeInstance instance, NodeType type, int nodeIndex)
     {
         SavedMap.Nodes.Add(new SavedNodeData
         {
             NodeIndex = nodeIndex,
             NodeType = type,
-            MissionIndex = missionIndex,
-            ObjectiveIndex = objectiveIndex,
-            SpawnerIndex = spawnerIndex,
+            MissionIndex = -1,
+            ObjectiveIndex = -1,
+            SpawnerIndex = -1,
             Position = instance.position,
             Layer = instance.layer,
             ConnectedNodeIndices = new List<int>()
@@ -121,11 +131,12 @@ public class MapGenerator : MonoBehaviour
 
     private NodeInstance CreateNode(NodeData data, int layer, int indexInLayer)
     {
+        int nodesInLayer = _layers.ContainsKey(layer) ? _layers[layer].Count + 1 : 1;
         return new NodeInstance
         {
             nodeData = data,
             layer = layer,
-            position = GetNodePosition(layer, indexInLayer),
+            position = GetNodePosition(layer, indexInLayer, nodesInLayer),
             connectedNodes = new List<NodeInstance>()
         };
     }
@@ -137,12 +148,14 @@ public class MapGenerator : MonoBehaviour
         _layers[layer].Add(instance);
     }
 
-    private Vector2 GetNodePosition(int layer, int indexInLayer)
+    private Vector2 GetNodePosition(int layer, int indexInLayer, int nodesInLayer)
     {
         float totalWidth = _contentTransform.rect.width;
-        float xOffset = layer * _xOffset;
-        float x = xOffset - totalWidth / 2f + _leftOffset;
-        float y = -((indexInLayer - 0.5f) * _yOffset + Random.Range(-_yRandomSpread, _yRandomSpread));
+        float x = layer * _nodeXoffset - totalWidth / 2f + _mainXOffset;
+
+        float layerHeight = (nodesInLayer - 1) * _nodeYoffset;
+        float y = -indexInLayer * _nodeYoffset + layerHeight / 2f + _mainYOffset + Random.Range(-_nodeYrandomSpread, _nodeYrandomSpread);
+
         return new Vector2(x, y);
     }
 
@@ -161,7 +174,7 @@ public class MapGenerator : MonoBehaviour
 
             foreach (var current in currentNodes)
             {
-                int count = Mathf.Min(nextNodes.Count, Random.Range(1, 3));
+                int count = Mathf.Min(nextNodes.Count, Random.Range(1, 4));
                 var targets = new List<NodeInstance>(nextNodes);
                 Shuffle(targets);
 
@@ -170,7 +183,6 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        // Сохраняем связи по индексам
         for (int i = 0; i < _generatedNodes.Count; i++)
         {
             var instance = _generatedNodes[i];
@@ -182,12 +194,6 @@ public class MapGenerator : MonoBehaviour
                     saved.ConnectedNodeIndices.Add(targetIndex);
             }
         }
-    }
-
-    private T GetRandomNode<T>(List<T> list) where T : NodeData
-    {
-        if (list == null || list.Count == 0) return null;
-        return list[Random.Range(0, list.Count)];
     }
 
     private void Shuffle<T>(List<T> list)
@@ -221,10 +227,11 @@ public class SavedNodeData
 
 public enum NodeType
 {
-    Mission,
-    Event,
-    Trader,
-    Boss
+    Start = 0,
+    Mission = 1,
+    Event = 2,
+    Trader = 3,
+    Boss = 4,
 }
 
 public class NodeInstance
@@ -233,13 +240,4 @@ public class NodeInstance
     public int layer;
     public Vector2 position;
     public List<NodeInstance> connectedNodes = new();
-}
-
-[System.Serializable]
-public class NodeDataPool
-{
-    public List<MissionNode> Missions;
-    public List<EventNode> Events;
-    public List<TraderNode> Traders;
-    public BossNode Boss;
 }

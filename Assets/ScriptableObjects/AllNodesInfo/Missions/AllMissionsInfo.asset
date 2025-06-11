@@ -12,17 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78b2c1a812cca44fb8f9b41755e8b1d, type: 3}
   m_Name: AllMissionsInfo
   m_EditorClassIdentifier: 
-  MapChapters:
-  - ChaptersEnum: 0
-    Landscapes:
-    - {fileID: 11400000, guid: 33063797d5fd5a143b021e4a8f617133, type: 2}
-    - {fileID: 11400000, guid: dfebb67d0b6e9e440a9720fbaca62b42, type: 2}
-    - {fileID: 11400000, guid: e58031502e48fbc43901a4da2f42ef76, type: 2}
-    EnemiesSpawnerInformation:
-    - {fileID: 11400000, guid: c597c508d61e0814491057739e736086, type: 2}
-    - {fileID: 11400000, guid: 74fcce83908ba2040b51b4edc3b58c8c, type: 2}
-    - {fileID: 11400000, guid: 5393e13a42baf594e9b3c23d089ec3e3, type: 2}
-    Objectives:
-    - {fileID: 11400000, guid: a81b2184296288e4a90e203fc56c2a9c, type: 2}
-    - {fileID: 11400000, guid: 5d07668f97d30e04aa7444482a9839bc, type: 2}
-    - {fileID: 11400000, guid: eb19c5b34599dcd469be852b95c70982, type: 2}
+  StartNode: {fileID: 11400000, guid: 046bc9887d86b3a419894c3509028c10, type: 2}
+  Events:
+  - {fileID: 11400000, guid: 3c09af0849ff53240937ea32bd01bdcf, type: 2}
+  - {fileID: 11400000, guid: e0662c803f22337409b6dee7d9e398bf, type: 2}
+  Traders:
+  - {fileID: 11400000, guid: b34a6b9559365e247849a493ff616b00, type: 2}
+  - {fileID: 11400000, guid: 59ee87a2e9d55e4478b9aa0afb3a9b36, type: 2}
+  BossNode: {fileID: 11400000, guid: 087bdfd10427bc94986dca955c470ad8, type: 2}
+  MissionNodeTemplate: {fileID: 11400000, guid: 4b4634f94e8a6f64e85554f13258c43f,
+    type: 2}
+  Landscapes:
+  - {fileID: 11400000, guid: 33063797d5fd5a143b021e4a8f617133, type: 2}
+  - {fileID: 11400000, guid: dfebb67d0b6e9e440a9720fbaca62b42, type: 2}
+  - {fileID: 11400000, guid: e58031502e48fbc43901a4da2f42ef76, type: 2}
+  EnemiesSpawnerInformation:
+  - {fileID: 11400000, guid: c597c508d61e0814491057739e736086, type: 2}
+  - {fileID: 11400000, guid: 74fcce83908ba2040b51b4edc3b58c8c, type: 2}
+  - {fileID: 11400000, guid: 5393e13a42baf594e9b3c23d089ec3e3, type: 2}
+  Objectives:
+  - {fileID: 11400000, guid: a81b2184296288e4a90e203fc56c2a9c, type: 2}
+  - {fileID: 11400000, guid: 5d07668f97d30e04aa7444482a9839bc, type: 2}
+  - {fileID: 11400000, guid: eb19c5b34599dcd469be852b95c70982, type: 2}
