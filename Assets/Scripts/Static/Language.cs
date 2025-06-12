@@ -735,8 +735,8 @@ public class Language : MonoBehaviour
         _text[235, 0] = "In some missions you will have a huge area for construction, while others will have a small construction zone.\n\nAlso, depending on the landscape, enemies will attack from different sides, take this into account when defending the base.\n\nYou can not complete the missions in full: if you feel that you will lose, escape early to save at least some of the fragments of memory and explore new buildings. But this will require completing at least half of the mission objectives.";
         _text[235, 1] = "В некоторых миссиях у вас будет огромная территория для строительства, а другие будут обладать маленькой зоной постройки.\n\nТак же в зависимости от ландшафта враги будут наступать из разных сторон, учитывайте это при защите базы.\n\nМиссии можно проходить не полностью: если чувствуете, что проиграете  — сбегите досрочно, чтобы сохранить хотя бы часть фрагментов памяти и изучить новые здания. Но для этого потребуется выполнить хотя бы половину от поставленных целей миссии.";
 
-        _text[236, 0] = "Demo";
-        _text[236, 1] = "Демо";
+        _text[236, 0] = "";
+        _text[236, 1] = "";
 
         _text[237, 0] = "Tutorial";
         _text[237, 1] = "Обучение";

@@ -1,35 +1,34 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CurrentMissionInfo : MonoBehaviour
 {
     public static CurrentMissionInfo Instance;
-    [SerializeField] private AllMissionsInfo _allMissionsInfo;
-    [SerializeField] private int _currentMissionId;
-    [SerializeField] private int _lastOpenedMissionId;
+    private MissionNode _currentMissionNode;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void LoadMission()
+    public void LoadMission(MissionNode node)
     {
-        
+        _currentMissionNode = node;
     }
 
     public Landscape GetCurrentLandscape()
     {
-        return _allMissionsInfo.Landscapes[_currentMissionId]; 
+        return _currentMissionNode.Landscape;
     }
 
     public EnemiesSpawner GetEnemiesSpawnerInformation()
     {
-        return null;
+        return _currentMissionNode.EnemiesSpawner;
     }
 
     public Objective GetObjective()
     {
-        return null;
+        return _currentMissionNode.Objective;
     }
 
 }

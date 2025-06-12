@@ -5,6 +5,7 @@ public class UIPanelsCommandCenter : MonoBehaviour
     [SerializeField] private PanelDoMoveX _buildingsPanelDoMove;
     [SerializeField] private PanelDoMoveY _mapPanelDoMove;
     [SerializeField] private PanelDoMoveY _buildingInfoPanel;
+    [SerializeField] private PanelDoMoveX _missionPanelDoMove;
 
     [SerializeField] private EscapePanelCommandCenter _escapePanel;
     [SerializeField] private CanvasGroup _canvasGroup;
@@ -57,5 +58,16 @@ public class UIPanelsCommandCenter : MonoBehaviour
         {
             _escapePanel.PanelViewToggle();
         }
+    }
+
+    public void MissionPanelToggle()
+    {
+        // закрываем карту
+        if (_mapPanelDoMove.IsOpen())
+            _mapPanelDoMove.PanelMove();
+
+        // открываем миссию
+        if (!_missionPanelDoMove.IsOpen())
+            _missionPanelDoMove.PanelMove();
     }
 }

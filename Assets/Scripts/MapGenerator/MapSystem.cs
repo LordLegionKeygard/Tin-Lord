@@ -9,6 +9,8 @@ public class MapSystem : MonoBehaviour
     [SerializeField] private MapGenerator _generator;
     [SerializeField] private MapVisualizer _visualizer;
     [SerializeField] private ConnectionsDrawer _drawer;
+    [SerializeField] private UIPanelsCommandCenter _panels;
+    [SerializeField] private MissionPanel _missionPanel;
 
     [Header("UI")]
     [SerializeField] private RectTransform _currentTarget;   // иконка-курсор
@@ -54,17 +56,26 @@ public class MapSystem : MonoBehaviour
     // ---------------- публичные методы ---------------------------------------
     public void TrySelectNode(int nodeIndex)
     {
+        if (!IsReachable(nodeIndex)) return;
+
         var map = _save.CommandCenterSaveData.Map;
 
         // Нельзя уходить, если текущий узел ещё не завершён
         if (!map.Nodes[_currentNodeIndex].IsCompleted) return;
-        if (!IsReachable(nodeIndex)) return;
 
         _currentNodeIndex = nodeIndex;
         map.CurrentNodeIndex = nodeIndex;
 
         MoveTargetTo(nodeIndex);
         RefreshHighlights();
+
+        if (map.Nodes[nodeIndex].NodeType == NodeType.Mission)
+        {
+            var missionNode = (MissionNode)_generator.GetGeneratedNodes()[nodeIndex].nodeData;
+
+            _missionPanel.RefreshInfo(missionNode, nodeIndex); 
+            _panels.MissionPanelToggle(); 
+        }
 
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
     }

@@ -8,6 +8,7 @@ public class WorldSaveLoad : MonoBehaviour
     [Inject] private WorldSaveGame _worldSaveGame;
 
     [Header("Main")]
+    [SerializeField] private AllMissionsInfo _allMissionsInfo;
     [SerializeField] private TileMapBuilder _tileMapBuilder;
 
     [Header("UpPanel")]
@@ -114,7 +115,20 @@ public class WorldSaveLoad : MonoBehaviour
     public void LoadMissionData(ref WorldSaveData currentSaveData)
     {
         //Main
-        CurrentMissionInfo.Instance.LoadMission();
+        SelectedMissionData selectedMissionData =
+        _commandCenterSaveGame.CommandCenterSaveData.CurrentMission;
+
+        /* --- 2. собираем MissionNode заново ---------------- */
+        MissionNode node = ScriptableObject.CreateInstance<MissionNode>();
+        node.Landscape = _allMissionsInfo.Landscapes[selectedMissionData.LandscapeId];
+        node.Objective = _allMissionsInfo.Objectives[selectedMissionData.ObjectiveId];
+        node.EnemiesSpawner = _allMissionsInfo.EnemiesSpawnerInformation[selectedMissionData.SpawnerId];
+        node.Icon = _allMissionsInfo.MissionNodeTemplate.Icon;
+        node.IconColor = _allMissionsInfo.MissionNodeTemplate.IconColor;
+        node.IconWidth = _allMissionsInfo.MissionNodeTemplate.IconWidth;
+        node.IconHeight = _allMissionsInfo.MissionNodeTemplate.IconHeight;
+
+        CurrentMissionInfo.Instance.LoadMission(node);
         _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
 
         //UpPanel
