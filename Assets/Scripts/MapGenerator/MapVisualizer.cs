@@ -7,22 +7,29 @@ public class MapVisualizer : MonoBehaviour
     [SerializeField] private MapGenerator _mapGenerator;
     [SerializeField] private RectTransform _contentTransform; // <-- Сюда ставим твой Content
     [SerializeField] private UINode _nodePrefab;
+    public IReadOnlyList<UINode> GetSpawnedNodes() => spawnedNodes;
 
     private List<UINode> spawnedNodes = new List<UINode>();
 
-    public void GenerateAndDisplayMap()
+    public List<UINode> GenerateAndDisplayMap()
     {
         // Чистим старые ноды
         foreach (var node in spawnedNodes)
+        {
             Destroy(node.gameObject);
+        }
+
         spawnedNodes.Clear();
 
-        foreach (var nodeInstance in _mapGenerator.GetGeneratedNodes())
+        List<NodeInstance> nodes = _mapGenerator.GetGeneratedNodes();
+        for (int i = 0; i < nodes.Count; i++)
         {
-            var newNode = Instantiate(_nodePrefab, _contentTransform);
-            newNode.Setup(nodeInstance.nodeData);
-            newNode.GetComponent<RectTransform>().anchoredPosition = nodeInstance.position;
-            spawnedNodes.Add(newNode);
+            var ui = Instantiate(_nodePrefab, _contentTransform);
+            ui.Setup(nodes[i].nodeData, i, FindObjectOfType<MapSystem>());
+            ui.GetComponent<RectTransform>().anchoredPosition = nodes[i].position;
+            spawnedNodes.Add(ui);
         }
+        
+        return spawnedNodes;
     }
 }

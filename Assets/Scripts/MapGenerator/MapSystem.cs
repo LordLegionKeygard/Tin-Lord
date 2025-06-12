@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,12 @@ public class MapSystem : MonoBehaviour
     [SerializeField] private MapGenerator _generator;
     [SerializeField] private MapVisualizer _visualizer;
     [SerializeField] private ConnectionsDrawer _drawer;
+
+    [Header("UI")]
+    [SerializeField] private RectTransform _currentTarget;   // иконка-курсор
+
+    private List<UINode> _uiNodes;
+    private int _currentNodeIndex;
 
     private void OnEnable() => CustomEvents.OnDataLoad += HandleDataLoaded;
     private void OnDisable() => CustomEvents.OnDataLoad -= HandleDataLoaded;
@@ -33,7 +40,76 @@ public class MapSystem : MonoBehaviour
         }
 
         _drawer.DrawConnections();
-        _visualizer.GenerateAndDisplayMap();
+        _uiNodes = _visualizer.GenerateAndDisplayMap();
+
+        _currentNodeIndex = data.Map.CurrentNodeIndex;
+        MoveTargetTo(_currentNodeIndex);
+        RefreshHighlights();
+        RefreshCompletedMarks();
+    }
+
+    // ---------------- публичные методы ---------------------------------------
+    public void TrySelectNode(int nodeIndex)
+    {
+        if (!IsReachable(nodeIndex)) return;
+
+        _currentNodeIndex = nodeIndex;
+        var map = _save.CommandCenterSaveData.Map;
+        map.CurrentNodeIndex = nodeIndex;
+
+        MoveTargetTo(nodeIndex);
+        RefreshHighlights();
+        _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
+    }
+
+    /// <summary> Тестовый вызов из твоих скриптов </summary>
+    public void CompleteCurrentNode()
+    {
+        var map = _save.CommandCenterSaveData.Map;
+        var nodeSave = map.Nodes[_currentNodeIndex];
+
+        if (nodeSave.IsCompleted) return;
+
+        nodeSave.IsCompleted = true;
+
+        _uiNodes[_currentNodeIndex].SetCompleted(true);
+
+        _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
+    }
+
+    private bool IsReachable(int nodeIndex)
+    {
+        var curInst = _generator.GetGeneratedNodes()[_currentNodeIndex];
+        var target = _generator.GetGeneratedNodes()[nodeIndex];
+        return curInst.connectedNodes.Contains(target);
+    }
+
+    private void RefreshHighlights()
+    {
+        // Сначала обнуляем
+        foreach (var ui in _uiNodes) ui.SetAvailable(false);
+
+        // Потом отмечаем доступные
+        var curInst = _generator.GetGeneratedNodes()[_currentNodeIndex];
+        foreach (var target in curInst.connectedNodes)
+        {
+            int idx = _generator.GetGeneratedNodes().IndexOf(target);
+            _uiNodes[idx].SetAvailable(true);
+        }
+    }
+
+    private void RefreshCompletedMarks()
+    {
+        var map = _save.CommandCenterSaveData.Map;
+        for (int i = 0; i < map.Nodes.Count; i++)
+        {
+            _uiNodes[i].SetCompleted(map.Nodes[i].IsCompleted);
+        }
+    }
+
+    private void MoveTargetTo(int nodeIndex)
+    {
+        _currentTarget.anchoredPosition = _uiNodes[nodeIndex].GetComponent<RectTransform>().anchoredPosition;
     }
 
 

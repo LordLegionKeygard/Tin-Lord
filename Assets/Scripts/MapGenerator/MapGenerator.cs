@@ -320,6 +320,7 @@ public class MapGenerator : MonoBehaviour
 public class SavedMapData
 {
     public List<SavedNodeData> Nodes = new();
+    public int CurrentNodeIndex; 
 }
 
 [System.Serializable]
@@ -333,6 +334,7 @@ public class SavedNodeData
     public Vector2 Position;
     public int Layer;
     public List<int> ConnectedNodeIndices = new();
+    public bool IsCompleted; 
 }
 
 public enum NodeType
