@@ -27,15 +27,18 @@ public class MapSystem : MonoBehaviour
 
         if (needGenerate)
         {
-            // Debug.Log("1  — новая карта");
             _generator.GenerateMap();
             data.Map = _generator.SavedMap;
 
-            _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(data);
+            // стартовый узел сразу «пройден»
+            data.Map.CurrentNodeIndex = 0;
+            data.Map.Nodes[0].IsCompleted = true;
+
+            _save.GetCommandCenterSaveGameDataWriter()
+                 .WriteCommandCenterDataToSaveFile(data);
         }
         else
         {
-            // Debug.Log("2  — загружаем сохранённую карту");
             RestoreNodes(data.Map);
         }
 
@@ -51,14 +54,18 @@ public class MapSystem : MonoBehaviour
     // ---------------- публичные методы ---------------------------------------
     public void TrySelectNode(int nodeIndex)
     {
+        var map = _save.CommandCenterSaveData.Map;
+
+        // Нельзя уходить, если текущий узел ещё не завершён
+        if (!map.Nodes[_currentNodeIndex].IsCompleted) return;
         if (!IsReachable(nodeIndex)) return;
 
         _currentNodeIndex = nodeIndex;
-        var map = _save.CommandCenterSaveData.Map;
         map.CurrentNodeIndex = nodeIndex;
 
         MoveTargetTo(nodeIndex);
         RefreshHighlights();
+
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
     }
 
@@ -71,8 +78,10 @@ public class MapSystem : MonoBehaviour
         if (nodeSave.IsCompleted) return;
 
         nodeSave.IsCompleted = true;
-
         _uiNodes[_currentNodeIndex].SetCompleted(true);
+
+        // после завершения открываем следующие
+        RefreshHighlights();
 
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
     }
@@ -86,10 +95,14 @@ public class MapSystem : MonoBehaviour
 
     private void RefreshHighlights()
     {
-        // Сначала обнуляем
+        // 1. Сбрасываем все подсветки
         foreach (var ui in _uiNodes) ui.SetAvailable(false);
 
-        // Потом отмечаем доступные
+        // 2. Если текущий узел не завершён ‒ дальнейшие ноды недоступны
+        var map = _save.CommandCenterSaveData.Map;
+        if (!map.Nodes[_currentNodeIndex].IsCompleted) return;
+
+        // 3. Подсвечиваем доступные
         var curInst = _generator.GetGeneratedNodes()[_currentNodeIndex];
         foreach (var target in curInst.connectedNodes)
         {
