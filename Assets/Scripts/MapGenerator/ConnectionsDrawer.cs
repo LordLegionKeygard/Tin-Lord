@@ -41,7 +41,7 @@ public class ConnectionsDrawer : MonoBehaviour
 
         GameObject line = Instantiate(_linePrefab, _contentTransform);
         var rt = line.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(cutDistance, 7);
+        rt.sizeDelta = new Vector2(cutDistance, 6);
         rt.anchoredPosition = midPoint;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

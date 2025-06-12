@@ -16,22 +16,19 @@ public class MapSystem : MonoBehaviour
     {
         var data = _save.CommandCenterSaveData;
 
-        bool needGenerate = data.Map == null ||
-                            data.Map.Nodes == null ||
-                            data.Map.Nodes.Count == 0;
+        bool needGenerate = data.Map == null || data.Map.Nodes == null || data.Map.Nodes.Count == 0;
 
         if (needGenerate)
         {
-            Debug.Log("1  — новая карта");
+            // Debug.Log("1  — новая карта");
             _generator.GenerateMap();
             data.Map = _generator.SavedMap;
 
-            _save.GetCommandCenterSaveGameDataWriter()
-                 .WriteCommandCenterDataToSaveFile(data);
+            _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(data);
         }
         else
         {
-            Debug.Log("2  — загружаем сохранённую карту");
+            // Debug.Log("2  — загружаем сохранённую карту");
             RestoreNodes(data.Map);
         }
 
@@ -56,7 +53,8 @@ public class MapSystem : MonoBehaviour
             });
         }
         for (int i = 0; i < map.Nodes.Count; i++)
-            list[i].connectedNodes =
-                map.Nodes[i].ConnectedNodeIndices.ConvertAll(idx => list[idx]);
+        {
+            list[i].connectedNodes = map.Nodes[i].ConnectedNodeIndices.ConvertAll(idx => list[idx]);
+        }
     }
 }

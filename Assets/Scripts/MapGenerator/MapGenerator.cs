@@ -29,7 +29,8 @@ public class MapGenerator : MonoBehaviour
             NodeType.Start => _allMissionsInfo.StartNode,
             NodeType.Boss => _allMissionsInfo.BossNode,
             NodeType.Event => _allMissionsInfo.Events.Length > 0 ? _allMissionsInfo.Events[0] : null,
-            NodeType.Trader => _allMissionsInfo.Traders.Length > 0 ? _allMissionsInfo.Traders[0] : null,
+            NodeType.ModuleTrader => _allMissionsInfo.ModuleTraders.Length > 0 ? _allMissionsInfo.ModuleTraders[0] : null,
+            NodeType.SkillTrader => _allMissionsInfo.SkillTraders.Length > 0 ? _allMissionsInfo.SkillTraders[0] : null,
             NodeType.Mission => _allMissionsInfo.MissionNodeTemplate,
             _ => null
         };
@@ -52,18 +53,20 @@ public class MapGenerator : MonoBehaviour
         var objectives = new List<Objective>(_allMissionsInfo.Objectives);
         var spawners = new List<EnemiesSpawner>(_allMissionsInfo.EnemiesSpawnerInformation);
         var events = new List<EventNode>(_allMissionsInfo.Events);
-        var traders = new List<TraderNode>(_allMissionsInfo.Traders);
+        var moduleTraders = new List<ModuleTraderNode>(_allMissionsInfo.ModuleTraders);
+        var skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
 
         Shuffle(landscapes);
         Shuffle(objectives);
         Shuffle(spawners);
         Shuffle(events);
-        Shuffle(traders);
+        Shuffle(moduleTraders);
+        Shuffle(skillTraders);
 
         // --------------------------------------------------------------------
         // 2. Считаем, сколько потребуется слоёв
         // --------------------------------------------------------------------
-        int totalContentNodes = landscapes.Count + events.Count + traders.Count;
+        int totalContentNodes = landscapes.Count + events.Count + moduleTraders.Count + skillTraders.Count;
         const int maxNodesPerLayer = 3;
         int contentLayers = Mathf.CeilToInt(totalContentNodes / (float)maxNodesPerLayer);
         int totalLayers = contentLayers + 3; // старт, минимум один слой миссий, босс
@@ -82,8 +85,7 @@ public class MapGenerator : MonoBehaviour
         // --------------------------------------------------------------------
         // 2.2  Первая обязательная миссия
         // --------------------------------------------------------------------
-        MissionNode firstMissionData = CreateMissionNode(landscapes, objectives, spawners,
-                                                         ref objectiveIdx, ref spawnerIdx);
+        MissionNode firstMissionData = CreateMissionNode(landscapes, objectives, spawners, ref objectiveIdx, ref spawnerIdx);
         NodeInstance firstMission = CreateNode(firstMissionData, 1);
         AddToLayer(1, firstMission);
         _generatedNodes.Add(firstMission);
@@ -97,8 +99,7 @@ public class MapGenerator : MonoBehaviour
             int nodesPlanned = Mathf.Min(maxNodesPerLayer, Random.Range(2, maxNodesPerLayer + 1));
             int nodesThisLayer = 0;
 
-            while (nodesThisLayer < nodesPlanned &&
-                  (landscapes.Count + events.Count + traders.Count) > 0)
+            while (nodesThisLayer < nodesPlanned && (landscapes.Count + events.Count + moduleTraders.Count + skillTraders.Count) > 0)
             {
                 // -------- 1) формируем «мешок» доступных сейчас типов ---------
                 var makers = new List<System.Action>();
@@ -119,12 +120,20 @@ public class MapGenerator : MonoBehaviour
                         AddNodeToLayer(e, NodeType.Event);
                     });
 
-                if (traders.Count > 0)
+                if (moduleTraders.Count > 0)
                     makers.Add(() =>
                     {
-                        var t = traders[0];
-                        traders.RemoveAt(0);
-                        AddNodeToLayer(t, NodeType.Trader);
+                        var t = moduleTraders[0];
+                        moduleTraders.RemoveAt(0);
+                        AddNodeToLayer(t, NodeType.ModuleTrader);
+                    });
+
+                if (skillTraders.Count > 0)
+                    makers.Add(() =>
+                    {
+                        var t = skillTraders[0];
+                        skillTraders.RemoveAt(0);
+                        AddNodeToLayer(t, NodeType.SkillTrader);
                     });
 
                 // -------- 2) случайно выбираем лямбду и вызываем её -------------
@@ -161,11 +170,7 @@ public class MapGenerator : MonoBehaviour
 
 
     // Создание конкретной MissionNode из независимых частей -----
-    private MissionNode CreateMissionNode(List<Landscape> landscapes,
-                                          List<Objective> objectives,
-                                          List<EnemiesSpawner> spawners,
-                                          ref int objectiveIdx,
-                                          ref int spawnerIdx)
+    private MissionNode CreateMissionNode(List<Landscape> landscapes, List<Objective> objectives, List<EnemiesSpawner> spawners, ref int objectiveIdx, ref int spawnerIdx)
     {
         var node = ScriptableObject.CreateInstance<MissionNode>();
 
@@ -195,7 +200,9 @@ public class MapGenerator : MonoBehaviour
     private void AddToLayer(int layer, NodeInstance instance)
     {
         if (!_layers.ContainsKey(layer))
+        {
             _layers[layer] = new List<NodeInstance>();
+        }
 
         _layers[layer].Add(instance);
     }
@@ -231,9 +238,7 @@ public class MapGenerator : MonoBehaviour
             for (int i = 0; i < nodesInLay.Count; i++)
             {
                 // «0» по центру, дальше вниз положительные Y (Canvas-координаты)
-                float y = (i - (nodesInLay.Count - 1) / 2f) * _nodeYoffset
-                          + _mainYOffset
-                          + Random.Range(-_nodeYrandomSpread, _nodeYrandomSpread);
+                float y = (i - (nodesInLay.Count - 1) / 2f) * _nodeYoffset + _mainYOffset + Random.Range(-_nodeYrandomSpread, _nodeYrandomSpread);
 
                 Vector2 pos = new(x, y);
                 nodesInLay[i].position = pos;
@@ -241,7 +246,9 @@ public class MapGenerator : MonoBehaviour
                 // записываем и в сохранённую структуру
                 int idx = _generatedNodes.IndexOf(nodesInLay[i]);
                 if (idx >= 0)
+                {
                     SavedMap.Nodes[idx].Position = pos;
+                }
             }
         }
     }
@@ -266,14 +273,18 @@ public class MapGenerator : MonoBehaviour
                 NodeInstance to = next[Mathf.Clamp(i, 0, next.Count - 1)];
 
                 if (!from.connectedNodes.Contains(to))
+                {
                     from.connectedNodes.Add(to);
+                }
 
                 // 30 % шанс добавить «резервную» нижнюю связь, не создавая пересечений
                 if (Random.value < 0.3f && i + 1 < next.Count)
                 {
                     NodeInstance alt = next[i + 1];
                     if (!from.connectedNodes.Contains(alt))
+                    {
                         from.connectedNodes.Add(alt);
+                    }
                 }
             }
         }
@@ -288,7 +299,9 @@ public class MapGenerator : MonoBehaviour
             {
                 int tIdx = _generatedNodes.IndexOf(target);
                 if (tIdx >= 0)
+                {
                     saveIns.ConnectedNodeIndices.Add(tIdx);
+                }
             }
         }
     }
@@ -327,8 +340,9 @@ public enum NodeType
     Start = 0,
     Mission = 1,
     Event = 2,
-    Trader = 3,
-    Boss = 4,
+    ModuleTrader = 3,
+    SkillTrader = 4,
+    Boss = 5,
 }
 
 public class NodeInstance

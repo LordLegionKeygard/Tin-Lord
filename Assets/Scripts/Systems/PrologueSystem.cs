@@ -22,6 +22,7 @@ public class PrologueSystem : MonoBehaviour
 
     public void StartPrologue(bool newGame)
     {
+        return;
         if (!newGame) return;
         _skyBoxRotation.enabled = false;
         _prologueCanvas.SetActive(true);

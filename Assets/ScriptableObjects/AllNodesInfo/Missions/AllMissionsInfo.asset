@@ -16,9 +16,10 @@ MonoBehaviour:
   Events:
   - {fileID: 11400000, guid: 3c09af0849ff53240937ea32bd01bdcf, type: 2}
   - {fileID: 11400000, guid: e0662c803f22337409b6dee7d9e398bf, type: 2}
-  Traders:
+  ModuleTraders:
   - {fileID: 11400000, guid: b34a6b9559365e247849a493ff616b00, type: 2}
-  - {fileID: 11400000, guid: 59ee87a2e9d55e4478b9aa0afb3a9b36, type: 2}
+  SkillTraders:
+  - {fileID: 11400000, guid: 340684fbb5fcd234b9539939ab78ac1e, type: 2}
   BossNode: {fileID: 11400000, guid: 087bdfd10427bc94986dca955c470ad8, type: 2}
   MissionNodeTemplate: {fileID: 11400000, guid: 4b4634f94e8a6f64e85554f13258c43f,
     type: 2}

@@ -6,11 +6,12 @@ public class AllMissionsInfo : ScriptableObject
     [Header("Nodes")]
     public StartNode StartNode; // стартовая точка
     public EventNode[] Events; // все возможные ивенты
-    public TraderNode[] Traders; // все возможные торговцы
+    public ModuleTraderNode[] ModuleTraders; // все торговцы модулями
+    public SkillTraderNode[] SkillTraders; // все торговцы умениями
     public BossNode BossNode; // финальный босс
 
     [Header("Templates")]
-    public MissionNode MissionNodeTemplate; // шаблон для получения иконки
+    public MissionNode MissionNodeTemplate; // шаблон для получения иконки миссии
     
 
     [Header("Parts for MissionNode")]

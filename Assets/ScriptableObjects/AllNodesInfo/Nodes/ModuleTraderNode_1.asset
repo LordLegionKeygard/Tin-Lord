@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75ace92099cd8ea489bceb3f5244651c, type: 3}
-  m_Name: Desert_BossNode
+  m_Script: {fileID: 11500000, guid: 8af9b92b56844464987cacbdb58a95bb, type: 3}
+  m_Name: ModuleTraderNode_1
   m_EditorClassIdentifier: 
-  NodeType: 4
-  Icon: {fileID: 21300000, guid: 962aeac4f2a861648baacf1646473bdd, type: 3}
-  Landscape: {fileID: 0}
-  Objective: {fileID: 0}
-  EnemiesSpawner: {fileID: 0}
+  NodeType: 3
+  Icon: {fileID: 21300000, guid: e34383b9c8e61f743b10cec4e78d7255, type: 3}
+  IconColor: {r: 1, g: 1, b: 1, a: 1}
+  IconWidth: 112
+  IconHeight: 112
