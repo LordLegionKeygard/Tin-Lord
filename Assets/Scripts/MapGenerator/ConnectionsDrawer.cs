@@ -24,16 +24,32 @@ public class ConnectionsDrawer : MonoBehaviour
 
     private void DrawLine(Vector2 start, Vector2 end)
     {
-        GameObject line = Instantiate(_linePrefab, _contentTransform);
+        const float cutLength = 30f; // расстояние, на которое линия обрезается с каждой стороны
+
         Vector2 direction = end - start;
-        float distance = direction.magnitude;
-        line.GetComponent<RectTransform>().sizeDelta = new Vector2(distance, 3f);
-        line.GetComponent<RectTransform>().anchoredPosition = start + direction / 2f;
+        float fullDistance = direction.magnitude;
+
+        if (fullDistance <= cutLength * 2f)
+            return; // если расстояние слишком маленькое — не рисуем
+
+        Vector2 cutDirection = direction.normalized;
+        Vector2 newStart = start + cutDirection * cutLength;
+        Vector2 newEnd = end - cutDirection * cutLength;
+        Vector2 midPoint = (newStart + newEnd) / 2f;
+
+        float cutDistance = Vector2.Distance(newStart, newEnd);
+
+        GameObject line = Instantiate(_linePrefab, _contentTransform);
+        var rt = line.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(cutDistance, 7);
+        rt.anchoredPosition = midPoint;
+
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        line.GetComponent<RectTransform>().rotation = Quaternion.Euler(0, 0, angle);
+        rt.rotation = Quaternion.Euler(0, 0, angle);
 
         _spawnedLines.Add(line);
     }
+
 
     public void ClearConnections()
     {

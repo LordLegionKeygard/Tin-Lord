@@ -8,6 +8,8 @@ public class CommandCenterSaveData
     public bool PrologueCompleted;
     public bool TutorialCompleted;
     public bool[] BuildingsLearned;
+
+    public SavedMapData Map; 
 }
 
 

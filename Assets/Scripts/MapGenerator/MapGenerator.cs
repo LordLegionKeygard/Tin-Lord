@@ -22,6 +22,20 @@ public class MapGenerator : MonoBehaviour
     // Внутренние данные
     private readonly Dictionary<int, List<NodeInstance>> _layers = new();
 
+    public NodeData GetNodeTemplate(NodeType type)
+    {
+        return type switch
+        {
+            NodeType.Start => _allMissionsInfo.StartNode,
+            NodeType.Boss => _allMissionsInfo.BossNode,
+            NodeType.Event => _allMissionsInfo.Events.Length > 0 ? _allMissionsInfo.Events[0] : null,
+            NodeType.Trader => _allMissionsInfo.Traders.Length > 0 ? _allMissionsInfo.Traders[0] : null,
+            NodeType.Mission => _allMissionsInfo.MissionNodeTemplate,
+            _ => null
+        };
+    }
+
+
     public void GenerateMap()
     {
         // --------------------------------------------------------------------
@@ -159,6 +173,9 @@ public class MapGenerator : MonoBehaviour
         node.Objective = objectives[objectiveIdx++ % objectives.Count];
         node.EnemiesSpawner = spawners[spawnerIdx++ % spawners.Count];
         node.Icon = _allMissionsInfo.MissionNodeTemplate.Icon;
+        node.IconColor = _allMissionsInfo.MissionNodeTemplate.IconColor;
+        node.IconWidth = _allMissionsInfo.MissionNodeTemplate.IconWidth;
+        node.IconHeight = _allMissionsInfo.MissionNodeTemplate.IconHeight;
 
         return node;
     }
