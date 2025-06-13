@@ -6,6 +6,7 @@ public class MapSystem : MonoBehaviour
 {
     [Inject] private CommandCenterSaveGame _save;
 
+    [SerializeField] private AllMissionsInfo _allMissionsInfo;
     [SerializeField] private MapGenerator _generator;
     [SerializeField] private MapVisualizer _visualizer;
     [SerializeField] private ConnectionsDrawer _drawer;
@@ -36,8 +37,7 @@ public class MapSystem : MonoBehaviour
             data.Map.CurrentNodeIndex = 0;
             data.Map.Nodes[0].IsCompleted = true;
 
-            _save.GetCommandCenterSaveGameDataWriter()
-                 .WriteCommandCenterDataToSaveFile(data);
+            _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(data);
         }
         else
         {
@@ -56,29 +56,49 @@ public class MapSystem : MonoBehaviour
     // ---------------- публичные методы ---------------------------------------
     public void TrySelectNode(int nodeIndex)
     {
-        if (!IsReachable(nodeIndex)) return;
-
         var map = _save.CommandCenterSaveData.Map;
+        bool isCurrent = nodeIndex == _currentNodeIndex;
 
-        // Нельзя уходить, если текущий узел ещё не завершён
-        if (!map.Nodes[_currentNodeIndex].IsCompleted) return;
+        /* 1.  Проверяем достижимость:
+               – если это тот же узел → всегда OK;
+               – иначе можно только по обычным связям. */
+        if (!isCurrent && !IsReachable(nodeIndex)) return;
 
-        _currentNodeIndex = nodeIndex;
-        map.CurrentNodeIndex = nodeIndex;
+        /* 2.  Запрет покинуть незавершённый узел
+               (но проигнорировать, если кликаем по самому себе). */
+        if (!isCurrent && !map.Nodes[_currentNodeIndex].IsCompleted) return;
 
-        MoveTargetTo(nodeIndex);
-        RefreshHighlights();
-
-        if (map.Nodes[nodeIndex].NodeType == NodeType.Mission)
+        /* 3.  Переход на новый узел (если он не тот же самый). */
+        if (!isCurrent)
         {
-            var missionNode = (MissionNode)_generator.GetGeneratedNodes()[nodeIndex].nodeData;
+            _currentNodeIndex = nodeIndex;
+            map.CurrentNodeIndex = nodeIndex;
 
-            _missionPanel.RefreshInfo(missionNode, nodeIndex); 
-            _panels.MissionPanelToggle(); 
+            MoveTargetTo(nodeIndex);
+            RefreshHighlights();
         }
 
-        _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
+        /* 4.  Если узел – миссия, показываем панель */
+        if (map.Nodes[nodeIndex].NodeType == NodeType.Mission)
+        {
+            MissionNode missionNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as MissionNode;
+
+            /* ---- ВАЖНО: если шаблон пустой ─ достраиваем по сейву ---- */
+            if (missionNode == null || missionNode.Landscape == null)
+            {
+                missionNode = RebuildMissionFromSave();
+                _generator.GetGeneratedNodes()[nodeIndex].nodeData = missionNode; // кеш
+            }
+
+            _missionPanel.RefreshInfo(missionNode, nodeIndex);
+            _panels.MissionPanelOpen();
+        }
+
+        /* 5.  Сохраняем изменения (позиция курсора могла измениться). */
+        _save.GetCommandCenterSaveGameDataWriter()
+             .WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
     }
+
 
     /// <summary> Тестовый вызов из твоих скриптов </summary>
     public void CompleteCurrentNode()
@@ -115,6 +135,7 @@ public class MapSystem : MonoBehaviour
 
         // 3. Подсвечиваем доступные
         var curInst = _generator.GetGeneratedNodes()[_currentNodeIndex];
+
         foreach (var target in curInst.connectedNodes)
         {
             int idx = _generator.GetGeneratedNodes().IndexOf(target);
@@ -136,8 +157,8 @@ public class MapSystem : MonoBehaviour
         _currentTarget.anchoredPosition = _uiNodes[nodeIndex].GetComponent<RectTransform>().anchoredPosition;
     }
 
-
-    /* ----- восстановление NodeInstance-ов из SavedMapData -------- */
+    // структурное восстановление карты после загрузки сейва (Логики миссии внутри узлов нет)
+    // загружает кол-во нодов, их порядок, соденинения между и индексы миссий
     private void RestoreNodes(SavedMapData map)
     {
         var list = _generator.GetGeneratedNodes();
@@ -157,4 +178,25 @@ public class MapSystem : MonoBehaviour
             list[i].connectedNodes = map.Nodes[i].ConnectedNodeIndices.ConvertAll(idx => list[idx]);
         }
     }
+
+    // восстанавливает полноценный MissionNode используя индексы из SaveMapData
+    private MissionNode RebuildMissionFromSave()
+    {
+        var sel = _save.CommandCenterSaveData.CurrentMission;
+        if (sel == null) return null;
+
+        var info = _allMissionsInfo;
+
+        var node = ScriptableObject.CreateInstance<MissionNode>();
+        node.Landscape = info.Landscapes[sel.LandscapeId];
+        node.Objective = info.Objectives[sel.ObjectiveId];
+        node.EnemiesSpawner = info.EnemiesSpawnerInformation[sel.SpawnerId];
+        node.Icon = info.MissionNodeTemplate.Icon;
+        node.IconColor = info.MissionNodeTemplate.IconColor;
+        node.IconWidth = info.MissionNodeTemplate.IconWidth;
+        node.IconHeight = info.MissionNodeTemplate.IconHeight;
+
+        return node;
+    }
+
 }

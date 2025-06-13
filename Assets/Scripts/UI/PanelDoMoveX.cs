@@ -6,7 +6,7 @@ public class PanelDoMoveX : MonoBehaviour
     [SerializeField] private int _positionX;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private RectTransform _objectTransform;
-    private bool _isOpen = false;
+    [SerializeField] private bool _isOpen = false;
     public bool IsOpen() => _isOpen;
     
     public void PanelMove(bool needSound = true)

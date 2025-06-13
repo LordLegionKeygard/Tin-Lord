@@ -28,11 +28,16 @@ public class UIPanelsCommandCenter : MonoBehaviour
         }
     }
 
-    public void MapPanelToggle()
+    public void MapPanelOpen()
     {
         if (_buildingsPanelDoMove.IsOpen())
         {
             LearnBuildingPanelToggle(false);
+        }
+
+        if (_missionPanelDoMove.IsOpen())
+        {
+            _missionPanelDoMove.PanelMove();
         }
 
         if (!_mapPanelDoMove.IsOpen())
@@ -60,7 +65,7 @@ public class UIPanelsCommandCenter : MonoBehaviour
         }
     }
 
-    public void MissionPanelToggle()
+    public void MissionPanelOpen()
     {
         // закрываем карту
         if (_mapPanelDoMove.IsOpen())

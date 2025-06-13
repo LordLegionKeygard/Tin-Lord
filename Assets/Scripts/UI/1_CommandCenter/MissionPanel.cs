@@ -8,6 +8,7 @@ public class MissionPanel : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private readonly WorldSaveGame _worldSaveGame;
+    [SerializeField] private AllMissionsInfo _allMissionsInfo;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
     [SerializeField] private TextMeshProUGUI _startResourcesText;
     [SerializeField] private TextMeshProUGUI _objectiveText;
@@ -158,7 +159,7 @@ public class MissionPanel : MonoBehaviour
 
     private void SaveSelectedMission()
     {
-        var info = _worldSaveGame.GetComponent<AllMissionsInfo>(); // или инжектни
+        var info = _allMissionsInfo;
 
         int landId = System.Array.IndexOf(info.Landscapes, _currentNode.Landscape);
         int objId = System.Array.IndexOf(info.Objectives, _currentNode.Objective);
