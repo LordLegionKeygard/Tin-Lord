@@ -6,22 +6,30 @@ public class CosmosView : MonoBehaviour
     [SerializeField] private GameObject _planetObject;
     [SerializeField] private MeshRenderer _planetRenderer;
 
+    [SerializeField] private Material _prologueSkybox;
+
     public void ChangeCosmos(CosmosVariations[] cosmosVariations)
     {
         var randomIndex = Random.Range(0, cosmosVariations.Length);
-        var cosmos = cosmosVariations[randomIndex];
+        var randomCosmos = cosmosVariations[randomIndex];
 
-        _planetRenderer.material.mainTexture = cosmos.PlanetTexture;
+        _planetRenderer.material.mainTexture = randomCosmos.PlanetTexture;
 
-        _planetObject.transform.localPosition = cosmos.PlanetPosition;
-        _planetObject.transform.localRotation = Quaternion.Euler(cosmos.PlanetRotation);
+        _planetObject.transform.localPosition = randomCosmos.PlanetPosition;
+        _planetObject.transform.localRotation = Quaternion.Euler(randomCosmos.PlanetRotation);
 
-        RenderSettings.skybox = cosmos.CosmosSkybox;
-        DynamicGI.UpdateEnvironment(); // обновить GI
-
-        _directionalLight.transform.rotation = Quaternion.Euler(cosmos.LightRotation);
-        _directionalLight.colorTemperature = cosmos.Temperature;
+        _directionalLight.transform.rotation = Quaternion.Euler(randomCosmos.LightRotation);
+        _directionalLight.colorTemperature = randomCosmos.Temperature;
         _directionalLight.useColorTemperature = true;
 
+        RenderSettings.skybox = randomCosmos.CosmosSkybox;
+        RenderSettings.skybox.SetFloat("_Rotation", randomCosmos.SkyboxRotation);
+        DynamicGI.UpdateEnvironment();
+    }
+
+    public void SetDefaultCosmos()
+    {
+        RenderSettings.skybox = _prologueSkybox;
+        DynamicGI.UpdateEnvironment();
     }
 }

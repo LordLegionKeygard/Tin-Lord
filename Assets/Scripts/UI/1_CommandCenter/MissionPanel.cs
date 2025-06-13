@@ -37,7 +37,6 @@ public class MissionPanel : MonoBehaviour
         _loadMissionButton.SetActive(HaveSaveData());
 
         UnactiveAll();
-        // UpdatePlanetTargetTransform();
 
         _missionNameHeaderText.text = _currentNode.Landscape.Name[Language.LanguageNumber];
         _ecologyLevelText.text = $"{Language.TextStatic[34]}: {_currentNode.Landscape.StartEcology}";
@@ -78,12 +77,6 @@ public class MissionPanel : MonoBehaviour
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(_objectivesRectTransform);
     }
-
-    // private void UpdatePlanetTargetTransform()
-    // {
-    //     _planetTargetTransform.anchoredPosition = new Vector2(_currentMission.PlanetTarget.x, _currentMission.PlanetTarget.y);
-    //     _planetTargetTransform.gameObject.SetActive(true);
-    // }
 
     private void UnactiveAll()
     {

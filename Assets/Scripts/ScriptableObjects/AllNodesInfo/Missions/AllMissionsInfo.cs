@@ -12,6 +12,7 @@ public class AllMissionsInfo : ScriptableObject
 
     [Header("Templates")]
     public MissionNode MissionNodeTemplate; // шаблон для получения иконки миссии
+    public Material DefaultCosmos;
     
 
     [Header("Parts for MissionNode")]

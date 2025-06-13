@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 using Zenject;
 
 public class PrologueSystem : MonoBehaviour
@@ -13,13 +11,14 @@ public class PrologueSystem : MonoBehaviour
     [SerializeField] private GameObject _prologueCanvas;
 
     [Header("Other")]
-    [SerializeField] private SkyBoxRotation _skyBoxRotation;
+
+    [SerializeField] private CosmosView _cosmosView;
 
     public void StartPrologue(bool newGame)
     {
-        return;
+        // return;
         if (!newGame) return;
-        _skyBoxRotation.enabled = false;
+        _cosmosView.SetDefaultCosmos();
         _prologueCanvas.SetActive(true);
         PrepareCanvas();
     }
@@ -30,12 +29,11 @@ public class PrologueSystem : MonoBehaviour
         _canvasGroup.interactable = false;
     }
 
-    private void ActiveCanvas()
+    public void ActiveCanvas()
     {
         _canvasGroup.DOFade(1, 1f).OnComplete(() =>
         {
             _canvasGroup.interactable = true;
-            _skyBoxRotation.enabled = true;
             _commandCenterSaveGame.CompletePrologue();
             _prologueCanvas.SetActive(false);
         });

@@ -63,6 +63,7 @@ public class CosmosVariations
     public Vector3 PlanetPosition;
     public Vector3 PlanetRotation;
     public Material CosmosSkybox;
+    public float SkyboxRotation;
 
     public Vector3 LightRotation;
     public float Temperature;

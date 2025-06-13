@@ -52,24 +52,18 @@ public class MapSystem : MonoBehaviour
         MoveTargetTo(_currentNodeIndex);
         RefreshHighlights();
         RefreshCompletedMarks();
+        UpdateCosmosForCurrentNode();
     }
 
-    // ---------------- публичные методы ---------------------------------------
     public void TrySelectNode(int nodeIndex)
     {
         var map = _save.CommandCenterSaveData.Map;
         bool isCurrent = nodeIndex == _currentNodeIndex;
 
-        /* 1.  Проверяем достижимость:
-               – если это тот же узел → всегда OK;
-               – иначе можно только по обычным связям. */
         if (!isCurrent && !IsReachable(nodeIndex)) return;
 
-        /* 2.  Запрет покинуть незавершённый узел
-               (но проигнорировать, если кликаем по самому себе). */
         if (!isCurrent && !map.Nodes[_currentNodeIndex].IsCompleted) return;
 
-        /* 3.  Переход на новый узел (если он не тот же самый). */
         if (!isCurrent)
         {
             _currentNodeIndex = nodeIndex;
@@ -79,26 +73,42 @@ public class MapSystem : MonoBehaviour
             RefreshHighlights();
         }
 
-        /* 4.  Если узел – миссия, показываем панель */
-        if (map.Nodes[nodeIndex].NodeType == NodeType.Mission)
-        {
-            MissionNode missionNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as MissionNode;
+        NodeType nodeType = map.Nodes[nodeIndex].NodeType;
 
-            /* ---- ВАЖНО: если шаблон пустой ─ достраиваем по сейву ---- */
+        if (nodeType == NodeType.Mission)
+        {
+            var missionNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as MissionNode;
+
             if (missionNode == null || missionNode.Landscape == null)
             {
                 missionNode = RebuildMissionFromSave();
-                _generator.GetGeneratedNodes()[nodeIndex].nodeData = missionNode; // кеш
+                _generator.GetGeneratedNodes()[nodeIndex].nodeData = missionNode;
             }
 
             _missionPanel.RefreshInfo(missionNode, nodeIndex);
             _panels.MissionPanelOpen();
             _cosmosView.ChangeCosmos(missionNode.Landscape.CosmosVariations);
         }
+        else
+        {
+            UpdateCosmosForCurrentNode();
+        }
 
-        /* 5.  Сохраняем изменения (позиция курсора могла измениться). */
-        _save.GetCommandCenterSaveGameDataWriter()
-             .WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
+        _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
+    }
+
+    private void UpdateCosmosForCurrentNode()
+    {
+        var mission = _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData as MissionNode;
+
+        if (mission != null && mission.Landscape != null)
+        {
+            _cosmosView.ChangeCosmos(mission.Landscape.CosmosVariations);
+        }
+        else
+        {
+            _cosmosView.SetDefaultCosmos();
+        }
     }
 
 

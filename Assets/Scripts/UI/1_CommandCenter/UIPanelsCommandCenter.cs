@@ -26,6 +26,11 @@ public class UIPanelsCommandCenter : MonoBehaviour
         {
             _learnBuildingInfoPanel.Reset();
         }
+
+        if (_missionPanelDoMove.IsOpen())
+        {
+            _missionPanelDoMove.PanelMove();
+        }
     }
 
     public void MapPanelOpen()

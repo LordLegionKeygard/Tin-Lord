@@ -237,23 +237,23 @@ public class Language : MonoBehaviour
         _text[69, 0] = "In 2100 the first robots were created to help humans.";
         _text[69, 1] = "В 2100 году были созданы первые роботы для помощи людям.";
 
-        _text[70, 0] = "2150 an artificial intelligence is developed to restore the ecology of the planet, depleted by years of destruction of nature.";
-        _text[70, 1] = "2150 год, разработан искусственный интеллект, предназначенный для восстановления экологии планеты, истощенной многолетним разрушением природы.";
+        _text[70, 0] = "2150: An artificial intelligence is developed to find a habitable planet.";
+        _text[70, 1] = "2150 год. Разработан искусственный интеллект, предназначенный найти пригодную для жизни планету.";
 
-        _text[71, 0] = "However, the AI ​​did not have time to complete its training...";
-        _text[71, 1] = "Однако ИИ не успел завершить обучение...";
+        _text[71, 0] = "2200. An interstellar ship controlled by artificial intelligence is launched.";
+        _text[71, 1] = "2200 год. Запущен межзвёздный корабль под управлением искусственного интеллекта.";
 
-        _text[72, 0] = "A catastrophe occurred that turned the planet into ruins.";
-        _text[72, 1] = "Произошла катастрофа, превратившая планету в руины.";
+        _text[72, 0] = "The ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.";
+        _text[72, 1] = "На борту корабля снарядили экипаж роботов и дронов, созданных для восстановления и стабилизации экосистем.";
 
-        _text[73, 0] = "Humanity perished, and robots began to wander aimlessly through the wasteland until it led to a breakdown.";
-        _text[73, 1] = "Человечество погибло, а роботы стали бесцельно скитаться по пустоши до тех пор, пока это не приводило к поломке.";
+        _text[73, 0] = "However, the search dragged on. Contact with the creators was lost...";
+        _text[73, 1] = "Однако поиски затянулись. Связь с создателями была утрачена...";
 
-        _text[74, 0] = "After 100 years, the AI ​​sends a signal to the surviving robots. All this time, it has been learning to assign them a new purpose.";
-        _text[74, 1] = "Спустя 100 лет ИИ отправляет сигнал выжившим роботам. Все это время он обучался чтобы назначить им новую цель.";
+        _text[74, 0] = "But the goal remains the same: to find a habitable planet.";
+        _text[74, 1] = "Но цель осталась прежней: найти пригодную для жизни планету.";
 
-        _text[75, 0] = "Restoring the ecology of the entire planet.";
-        _text[75, 1] = "Восстановление экологии всей планеты.";
+        _text[75, 0] = "";
+        _text[75, 1] = "";
 
         _text[76, 0] = "[UPDATE: SECTOR K-12 CLEARED]";
         _text[76, 1] = "[ОБНОВЛЕНИЕ: СЕКТОР К-12 ОЧИЩЕН]";

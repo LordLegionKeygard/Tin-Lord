@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 3448e2747fc48e940943297ff4f3ba05, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,8 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.009493681, g: 0.0050229784, b: 0.005451696, a: 1}
+  m_IndirectSpecularColor: {r: 0.00007794125, g: 0.00009613825, b: 0.000115749404,
+    a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2220,7 +2221,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104494366}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf47470d332034786a136ff32f2969, type: 3}
   m_Name: 
@@ -2905,7 +2906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvasGroup: {fileID: 2011502892}
   _prologueCanvas: {fileID: 1808600982}
-  _skyBoxRotation: {fileID: 104494372}
+  _cosmosView: {fileID: 417999332}
 --- !u!1 &136102798
 GameObject:
   m_ObjectHideFlags: 0
@@ -8822,7 +8823,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 4936
+  m_ColorTemperature: 7326
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 1.02e-43, y: 6e-44, z: 1.25e-43, w: 4.613e-42}
   m_UseBoundingSphereOverride: 0
@@ -8836,14 +8837,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305643355}
-  m_LocalRotation: {x: 0.05332022, y: -0.9391193, z: 0.17066687, w: 0.29340228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 20.6, y: -145.3, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &311521327
 GameObject:
   m_ObjectHideFlags: 0
@@ -10504,6 +10505,7 @@ MonoBehaviour:
   _directionalLight: {fileID: 305643357}
   _planetObject: {fileID: 590263866}
   _planetRenderer: {fileID: 587999482}
+  _prologueSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
 --- !u!1001 &419857918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13895,7 +13897,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590263866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 71.09}
+  m_LocalPosition: {x: 0, y: 0, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37550,6 +37552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe687186ef4cc54a801b264f3f0f5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prologueSystem: {fileID: 133807602}
   _prologueText: {fileID: 269275750}
 --- !u!1001 &1811606266
 PrefabInstance:

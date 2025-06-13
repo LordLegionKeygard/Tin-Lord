@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class PrologueText : MonoBehaviour
 {
+    [SerializeField] private PrologueSystem _prologueSystem;
     [SerializeField] private TextMeshProUGUI _prologueText;
-    private int[] _prologueTextIndices = new int[7] { 69, 70, 71, 72, 73, 74, 75 };
+    private int[] _prologueTextIndices = new int[6] { 69, 70, 71, 72, 73, 74 };
 
     private void Start()
     {
@@ -29,5 +30,7 @@ public class PrologueText : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
         }
+
+        _prologueSystem.ActiveCanvas();
     }
 }
