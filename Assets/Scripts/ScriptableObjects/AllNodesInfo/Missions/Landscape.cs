@@ -18,6 +18,9 @@ public class Landscape : ScriptableObject
     public Tile[] Cards;
     [TextArea(1, 8)] public string[] Description;
 
+    [Header("Cosmos")]
+    public CosmosVariations[] CosmosVariations;
+
     [Header("Terminal")]
     public int[] StoryTextsIndexes;
     public int[] ConsoleTextsIndexes;
@@ -51,4 +54,16 @@ public enum LandscapeEnum
     CityOfJunk = 1,
     Wasteland = 2,
     Winter = 3,
+}
+
+[System.Serializable]
+public class CosmosVariations
+{
+    public Texture PlanetTexture;
+    public Vector3 PlanetPosition;
+    public Vector3 PlanetRotation;
+    public Material CosmosSkybox;
+
+    public Vector3 LightRotation;
+    public float Temperature;
 }

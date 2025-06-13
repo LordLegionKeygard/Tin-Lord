@@ -6,6 +6,7 @@ public class MapSystem : MonoBehaviour
 {
     [Inject] private CommandCenterSaveGame _save;
 
+    [SerializeField] private CosmosView _cosmosView;
     [SerializeField] private AllMissionsInfo _allMissionsInfo;
     [SerializeField] private MapGenerator _generator;
     [SerializeField] private MapVisualizer _visualizer;
@@ -92,6 +93,7 @@ public class MapSystem : MonoBehaviour
 
             _missionPanel.RefreshInfo(missionNode, nodeIndex);
             _panels.MissionPanelOpen();
+            _cosmosView.ChangeCosmos(missionNode.Landscape.CosmosVariations);
         }
 
         /* 5.  Сохраняем изменения (позиция курсора могла измениться). */

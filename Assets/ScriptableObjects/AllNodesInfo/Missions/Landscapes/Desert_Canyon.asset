@@ -15,6 +15,7 @@ MonoBehaviour:
   Name:
   - Canyon
   - "\u041A\u0430\u043D\u044C\u043E\u043D"
+  LandscapeEnum: 0
   MusicTheme: 0
   MissionView:
     BiomEnum: 0
@@ -27,23 +28,16 @@ MonoBehaviour:
       Temperature: 3640
       Intencity: 2.5
   MissionSprite: {fileID: 21300000, guid: b4c0cef6411c7d74dad8831069ac140d, type: 3}
-  MissionId: 0
   StartEcology: 0
   MapWidth: 14
   MapLength: 14
   MapEdge: 4
   StartPosEdge: 4
-  EnemiesSpawnerInfo: {fileID: 11400000, guid: c597c508d61e0814491057739e736086, type: 2}
   StartResources:
   - ResourceEnum: 0
     RecourceAmount: 100
   - ResourceEnum: 1
     RecourceAmount: 50
-  Objectives:
-  - ObjectiveEnum: 2
-    ObjectiveAmount: 30
-  - ObjectiveEnum: 1
-    ObjectiveAmount: 800
   MissionEvents:
   - {fileID: 11400000, guid: d49694d92c2ca064fbd724a765463f2a, type: 2}
   - {fileID: 11400000, guid: f31e1355a13e3d74f8a04ca87d106172, type: 2}
@@ -79,5 +73,24 @@ MonoBehaviour:
     - \u044D\u0442\u043E \u043B\u0430\u0431\u0438\u0440\u0438\u043D\u0442 \u0438\u0437
     \u043A\u0430\u043C\u043D\u044F \u0438 \u0442\u0435\u043D\u0438, \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u043E\u0435
     \u043C\u0435\u0441\u0442\u043E \u0434\u043B\u044F \u0437\u0430\u0441\u0430\u0434."
+  CosmosVariations:
+  - PlanetTexture: {fileID: 2800000, guid: a12543ad064cd3d4b8850dd98406e137, type: 3}
+    PlanetPosition: {x: -9.7, y: 5.3, z: 58.2}
+    PlanetRotation: {x: 0, y: 89.1, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 890f6863e99bfb14b8264cb64e0fa38d, type: 2}
+    LightRotation: {x: 20.599998, y: 208.30002, z: 0}
+    Temperature: 20000
+  - PlanetTexture: {fileID: 2800000, guid: a12543ad064cd3d4b8850dd98406e137, type: 3}
+    PlanetPosition: {x: 31.9, y: 9, z: 58.9}
+    PlanetRotation: {x: 0, y: -90.3, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
+    LightRotation: {x: 20.599998, y: -11.3, z: 0}
+    Temperature: 7000
+  - PlanetTexture: {fileID: 2800000, guid: a12543ad064cd3d4b8850dd98406e137, type: 3}
+    PlanetPosition: {x: 0, y: 0, z: 71.09}
+    PlanetRotation: {x: 0, y: 0, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 3448e2747fc48e940943297ff4f3ba05, type: 2}
+    LightRotation: {x: 20.6, y: -145.3, z: 0}
+    Temperature: 4936
   StoryTextsIndexes: 4c0000004d0000004e0000004f0000005000000051000000
   ConsoleTextsIndexes: 5500000056000000570000005800000059000000

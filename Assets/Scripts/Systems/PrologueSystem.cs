@@ -8,11 +8,6 @@ public class PrologueSystem : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
 
-    [Header("Planet")]
-    [SerializeField] private RectTransform _planetRectTransform;
-    [SerializeField] private Vector3 _defaultPlanetScale;
-    [SerializeField] private Vector3 _startProloguePlanetScale;
-
     [Header("UI")]
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private GameObject _prologueCanvas;
@@ -26,7 +21,6 @@ public class PrologueSystem : MonoBehaviour
         if (!newGame) return;
         _skyBoxRotation.enabled = false;
         _prologueCanvas.SetActive(true);
-        ScalePlanet();
         PrepareCanvas();
     }
 
@@ -34,12 +28,6 @@ public class PrologueSystem : MonoBehaviour
     {
         _canvasGroup.alpha = 0;
         _canvasGroup.interactable = false;
-    }
-
-    private void ScalePlanet()
-    {
-        _planetRectTransform.localScale = _startProloguePlanetScale;
-        _planetRectTransform.DOScale(_defaultPlanetScale, 92).OnComplete(() => ActiveCanvas());
     }
 
     private void ActiveCanvas()

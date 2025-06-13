@@ -15,6 +15,7 @@ MonoBehaviour:
   Name:
   - Winter
   - "\u0417\u0438\u043C\u0430"
+  LandscapeEnum: 0
   MusicTheme: 1
   MissionView:
     BiomEnum: 2
@@ -27,14 +28,11 @@ MonoBehaviour:
       Temperature: 20000
       Intencity: 2.5
   MissionSprite: {fileID: 21300000, guid: 46e99776e379f924d84e30b5019912de, type: 3}
-  MissionId: 3
   StartEcology: -5
-  PlanetTarget: {x: -23, y: -115}
   MapWidth: 12
   MapLength: 12
   MapEdge: 4
   StartPosEdge: 4
-  EnemiesSpawnerInfo: {fileID: 11400000, guid: d4cbde7bbf05e934e9974edbeb2ea22d, type: 2}
   StartResources:
   - ResourceEnum: 0
     RecourceAmount: 100
@@ -44,9 +42,6 @@ MonoBehaviour:
     RecourceAmount: 25
   - ResourceEnum: 5
     RecourceAmount: 10
-  Objectives:
-  - ObjectiveEnum: 1
-    ObjectiveAmount: 200
   MissionEvents:
   - {fileID: 11400000, guid: d49694d92c2ca064fbd724a765463f2a, type: 2}
   - {fileID: 11400000, guid: f31e1355a13e3d74f8a04ca87d106172, type: 2}
@@ -65,3 +60,7 @@ MonoBehaviour:
   Description:
   - '-'
   - '-'
+  PlanetTexture: {fileID: 2800000, guid: c35a72f0ab77a1c49a8ec52c2d01e794, type: 3}
+  CosmosSkybox: {fileID: 0}
+  StoryTextsIndexes: 
+  ConsoleTextsIndexes: 
