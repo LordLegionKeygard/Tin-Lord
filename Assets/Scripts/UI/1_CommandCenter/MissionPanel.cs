@@ -169,8 +169,6 @@ public class MissionPanel : MonoBehaviour
         var ccSave = _commandCenterSaveGame.CommandCenterSaveData;
         ccSave.CurrentMission = sel;
 
-        _commandCenterSaveGame
-            .GetCommandCenterSaveGameDataWriter()
-            .WriteCommandCenterDataToSaveFile(ccSave);
+        _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(ccSave);
     }
 }

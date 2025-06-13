@@ -7,7 +7,7 @@ public class InputSystemCommandCenter : MonoBehaviour
     private PlayerInput _playerInput;
 
     //UserInterface
-    public delegate void Escape();
+    public delegate void Escape(bool emptyEscapeClick);
     private Escape _escape;
 
     [Header("Links")]
@@ -35,7 +35,7 @@ public class InputSystemCommandCenter : MonoBehaviour
     private void SetupInputActions()
     {
         //UserInterface
-        _playerInput.actions["Escape"].performed += _ => _escape();
+        _playerInput.actions["Escape"].performed += _ => _escape(false);
     }
 
     private void SetupDelegates()

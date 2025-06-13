@@ -15,8 +15,7 @@ public class MapSystem : MonoBehaviour
     [SerializeField] private MissionPanel _missionPanel;
 
     [Header("UI")]
-    [SerializeField] private RectTransform _currentTarget;   // иконка-курсор
-
+    [SerializeField] private RectTransform _currentTarget;
     private List<UINode> _uiNodes;
     private int _currentNodeIndex;
 
@@ -34,7 +33,6 @@ public class MapSystem : MonoBehaviour
             _generator.GenerateMap();
             data.Map = _generator.SavedMap;
 
-            // стартовый узел сразу «пройден»
             data.Map.CurrentNodeIndex = 0;
             data.Map.Nodes[0].IsCompleted = true;
 
@@ -61,21 +59,17 @@ public class MapSystem : MonoBehaviour
         bool isCurrent = nodeIndex == _currentNodeIndex;
 
         if (!isCurrent && !IsReachable(nodeIndex)) return;
-
         if (!isCurrent && !map.Nodes[_currentNodeIndex].IsCompleted) return;
 
         if (!isCurrent)
         {
             _currentNodeIndex = nodeIndex;
             map.CurrentNodeIndex = nodeIndex;
-
             MoveTargetTo(nodeIndex);
             RefreshHighlights();
         }
 
-        NodeType nodeType = map.Nodes[nodeIndex].NodeType;
-
-        if (nodeType == NodeType.Mission)
+        if (map.Nodes[nodeIndex].NodeType == NodeType.Mission)
         {
             var missionNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as MissionNode;
 
@@ -85,9 +79,13 @@ public class MapSystem : MonoBehaviour
                 _generator.GetGeneratedNodes()[nodeIndex].nodeData = missionNode;
             }
 
+            var nodeSave = map.Nodes[nodeIndex];
+            int cosmosIndex = nodeSave.CosmosIndex;
+            cosmosIndex = _cosmosView.ChangeCosmos(missionNode.Landscape.CosmosVariations, cosmosIndex);
+            nodeSave.CosmosIndex = cosmosIndex;
+
             _missionPanel.RefreshInfo(missionNode, nodeIndex);
             _panels.MissionPanelOpen();
-            _cosmosView.ChangeCosmos(missionNode.Landscape.CosmosVariations);
         }
         else
         {
@@ -97,13 +95,18 @@ public class MapSystem : MonoBehaviour
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
     }
 
+
     private void UpdateCosmosForCurrentNode()
     {
-        var mission = _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData as MissionNode;
+        var nodeData = _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData;
+        var mission = nodeData as MissionNode;
+        var nodeSave = _save.CommandCenterSaveData.Map.Nodes[_currentNodeIndex];
 
         if (mission != null && mission.Landscape != null)
         {
-            _cosmosView.ChangeCosmos(mission.Landscape.CosmosVariations);
+            int cosmosIndex = nodeSave.CosmosIndex;
+            cosmosIndex = _cosmosView.ChangeCosmos(mission.Landscape.CosmosVariations, cosmosIndex);
+            nodeSave.CosmosIndex = cosmosIndex;
         }
         else
         {
@@ -111,8 +114,7 @@ public class MapSystem : MonoBehaviour
         }
     }
 
-
-    /// <summary> Тестовый вызов из твоих скриптов </summary>
+    // Тестовый вызов
     public void CompleteCurrentNode()
     {
         var map = _save.CommandCenterSaveData.Map;
@@ -123,7 +125,6 @@ public class MapSystem : MonoBehaviour
         nodeSave.IsCompleted = true;
         _uiNodes[_currentNodeIndex].SetCompleted(true);
 
-        // после завершения открываем следующие
         RefreshHighlights();
 
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
@@ -138,14 +139,11 @@ public class MapSystem : MonoBehaviour
 
     private void RefreshHighlights()
     {
-        // 1. Сбрасываем все подсветки
         foreach (var ui in _uiNodes) ui.SetAvailable(false);
 
-        // 2. Если текущий узел не завершён ‒ дальнейшие ноды недоступны
         var map = _save.CommandCenterSaveData.Map;
         if (!map.Nodes[_currentNodeIndex].IsCompleted) return;
 
-        // 3. Подсвечиваем доступные
         var curInst = _generator.GetGeneratedNodes()[_currentNodeIndex];
 
         foreach (var target in curInst.connectedNodes)
@@ -167,6 +165,7 @@ public class MapSystem : MonoBehaviour
     private void MoveTargetTo(int nodeIndex)
     {
         _currentTarget.anchoredPosition = _uiNodes[nodeIndex].GetComponent<RectTransform>().anchoredPosition;
+        _currentTarget.SetAsLastSibling();
     }
 
     // структурное восстановление карты после загрузки сейва (Логики миссии внутри узлов нет)
@@ -180,13 +179,9 @@ public class MapSystem : MonoBehaviour
         {
             NodeData data;
 
-            if (n.NodeType == NodeType.Mission &&              // ► миссия
-                n.MissionIndex >= 0 &&
-                n.ObjectiveIndex >= 0 &&
-                n.SpawnerIndex >= 0)
+            if (n.NodeType == NodeType.Mission && n.MissionIndex >= 0 && n.ObjectiveIndex >= 0 && n.SpawnerIndex >= 0)
             {
-                // --- восстанавливаем полноценный MissionNode ---------
-                var info = _allMissionsInfo;                   // ссылка есть в MapSystem
+                var info = _allMissionsInfo;
                 var m = ScriptableObject.CreateInstance<MissionNode>();
 
                 m.Landscape = info.Landscapes[n.MissionIndex];
@@ -201,7 +196,6 @@ public class MapSystem : MonoBehaviour
             }
             else
             {
-                // --- обычный узел либо миссия без индексов -----------
                 data = _generator.GetNodeTemplate(n.NodeType);
             }
 
@@ -213,11 +207,9 @@ public class MapSystem : MonoBehaviour
             });
         }
 
-        // связи — как было
         for (int i = 0; i < map.Nodes.Count; i++)
         {
-            list[i].connectedNodes =
-                map.Nodes[i].ConnectedNodeIndices.ConvertAll(idx => list[idx]);
+            list[i].connectedNodes = map.Nodes[i].ConnectedNodeIndices.ConvertAll(idx => list[idx]);
         }
     }
 

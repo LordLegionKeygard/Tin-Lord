@@ -353,6 +353,7 @@ public class SavedNodeData
     public int Layer;
     public List<int> ConnectedNodeIndices = new();
     public bool IsCompleted;
+    public int CosmosIndex = -1;
 }
 
 public enum NodeType

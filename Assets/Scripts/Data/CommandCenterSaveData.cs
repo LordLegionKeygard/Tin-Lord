@@ -10,16 +10,16 @@ public class CommandCenterSaveData
     public bool[] BuildingsLearned;
 
     public SavedMapData Map;
-    public SelectedMissionData CurrentMission; 
+    public SelectedMissionData CurrentMission;
 }
 
 [System.Serializable]
-public class SelectedMissionData          // ← новое
+public class SelectedMissionData
 {
-    public int NodeId;        // индекс узла на карте (для сейва/лоада)
-    public int LandscapeId;   // индекс в AllMissionsInfo.Landscapes
-    public int ObjectiveId;   // индекс в AllMissionsInfo.Objectives
-    public int SpawnerId;     // индекс в AllMissionsInfo.EnemiesSpawnerInformation
+    public int NodeId;
+    public int LandscapeId;
+    public int ObjectiveId;
+    public int SpawnerId;
 }
 
 

@@ -9,7 +9,7 @@ public class PanelDoMoveY : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private ScrollRect _scrollRect;
-    private bool _isOpen = false;
+    [SerializeField] private bool _isOpen = false;
     public bool IsOpen() => _isOpen;
 
     public void PanelMove(bool needSound = true)

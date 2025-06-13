@@ -9,7 +9,7 @@ public class EndMissionSystem : MonoBehaviour
     [Inject] private readonly WorldSaveGame _worldSaveGame;
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private PlayerResources _playerResources;
-    
+
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private UIPanelsWorld _uIPanelsWorld;
@@ -107,6 +107,21 @@ public class EndMissionSystem : MonoBehaviour
 
     private void PrepareData(MissionEndEnum missionEndEnum)
     {
+        if (missionEndEnum == MissionEndEnum.Victory)
+        {
+            var ccSave = _commandCenterSaveGame.CommandCenterSaveData;
+            var map = ccSave.Map;
+
+            int curIdx = map.CurrentNodeIndex;
+            if (curIdx >= 0 && curIdx < map.Nodes.Count)
+            {
+                map.Nodes[curIdx].IsCompleted = true;
+            }
+
+            // сразу сохраняем изменения карты
+            _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(ccSave);
+        }
+
         _worldSaveGame.DeleteMissionGameData();
         _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments);
     }
@@ -138,14 +153,14 @@ public class EndMissionSystem : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
-        if (_missionEndEnum == MissionEndEnum.Victory)
-        {
-            _terminalSystem.ActiveTerminal();
-        }
-        else
-        {
+        // if (_missionEndEnum == MissionEndEnum.Victory)
+        // {
+        //     _terminalSystem.ActiveTerminal();
+        // }
+        // else
+        // {
             LoadCommandCenter();
-        }
+        // }
     }
 
     public void LoadCommandCenter()

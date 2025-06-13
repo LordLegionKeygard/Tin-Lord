@@ -5,30 +5,33 @@ public class CosmosView : MonoBehaviour
     [SerializeField] private Light _directionalLight;
     [SerializeField] private GameObject _planetObject;
     [SerializeField] private MeshRenderer _planetRenderer;
-
     [SerializeField] private Material _prologueSkybox;
 
-    public void ChangeCosmos(CosmosVariations[] cosmosVariations)
+    public int ChangeCosmos(CosmosVariations[] cosmosVariations, int forcedIndex = -1)
     {
-        var randomIndex = Random.Range(0, cosmosVariations.Length);
-        var randomCosmos = cosmosVariations[randomIndex];
+        int id = forcedIndex < 0 ? Random.Range(0, cosmosVariations.Length) : Mathf.Clamp(forcedIndex, 0, cosmosVariations.Length - 1);
 
-        _planetRenderer.material.mainTexture = randomCosmos.PlanetTexture;
+        var v = cosmosVariations[id];
 
-        _planetObject.transform.localPosition = randomCosmos.PlanetPosition;
-        _planetObject.transform.localRotation = Quaternion.Euler(randomCosmos.PlanetRotation);
+        _planetRenderer.material.mainTexture = v.PlanetTexture;
+        _planetObject.transform.localPosition = v.PlanetPosition;
+        _planetObject.transform.localRotation = Quaternion.Euler(v.PlanetRotation);
+        _planetObject.SetActive(true);
 
-        _directionalLight.transform.rotation = Quaternion.Euler(randomCosmos.LightRotation);
-        _directionalLight.colorTemperature = randomCosmos.Temperature;
+        _directionalLight.transform.rotation = Quaternion.Euler(v.LightRotation);
+        _directionalLight.colorTemperature = v.Temperature;
         _directionalLight.useColorTemperature = true;
 
-        RenderSettings.skybox = randomCosmos.CosmosSkybox;
-        RenderSettings.skybox.SetFloat("_Rotation", randomCosmos.SkyboxRotation);
+        RenderSettings.skybox = v.CosmosSkybox;
+        RenderSettings.skybox.SetFloat("_Rotation", v.SkyboxRotation);
         DynamicGI.UpdateEnvironment();
+
+        return id;
     }
 
     public void SetDefaultCosmos()
     {
+        _planetObject.SetActive(false);
         RenderSettings.skybox = _prologueSkybox;
         DynamicGI.UpdateEnvironment();
     }

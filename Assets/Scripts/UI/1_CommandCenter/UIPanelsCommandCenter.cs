@@ -51,7 +51,7 @@ public class UIPanelsCommandCenter : MonoBehaviour
         }
     }
 
-    public void EscapeClick()
+    public void EscapeClick(bool emptyEscapeClick)
     {
         if (_canvasGroup.interactable == false) return;
 
@@ -66,6 +66,8 @@ public class UIPanelsCommandCenter : MonoBehaviour
         }
         else
         {
+            if (emptyEscapeClick) return;
+
             _escapePanel.PanelViewToggle();
         }
     }
