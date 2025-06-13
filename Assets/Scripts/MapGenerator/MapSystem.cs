@@ -166,18 +166,49 @@ public class MapSystem : MonoBehaviour
 
         foreach (var n in map.Nodes)
         {
+            NodeData data;
+
+            if (n.NodeType == NodeType.Mission &&              // ► миссия
+                n.MissionIndex >= 0 &&
+                n.ObjectiveIndex >= 0 &&
+                n.SpawnerIndex >= 0)
+            {
+                // --- восстанавливаем полноценный MissionNode ---------
+                var info = _allMissionsInfo;                   // ссылка есть в MapSystem
+                var m = ScriptableObject.CreateInstance<MissionNode>();
+
+                m.Landscape = info.Landscapes[n.MissionIndex];
+                m.Objective = info.Objectives[n.ObjectiveIndex];
+                m.EnemiesSpawner = info.EnemiesSpawnerInformation[n.SpawnerIndex];
+                m.Icon = info.MissionNodeTemplate.Icon;
+                m.IconColor = info.MissionNodeTemplate.IconColor;
+                m.IconWidth = info.MissionNodeTemplate.IconWidth;
+                m.IconHeight = info.MissionNodeTemplate.IconHeight;
+
+                data = m;
+            }
+            else
+            {
+                // --- обычный узел либо миссия без индексов -----------
+                data = _generator.GetNodeTemplate(n.NodeType);
+            }
+
             list.Add(new NodeInstance
             {
-                nodeData = _generator.GetNodeTemplate(n.NodeType),
+                nodeData = data,
                 layer = n.Layer,
                 position = n.Position
             });
         }
+
+        // связи — как было
         for (int i = 0; i < map.Nodes.Count; i++)
         {
-            list[i].connectedNodes = map.Nodes[i].ConnectedNodeIndices.ConvertAll(idx => list[idx]);
+            list[i].connectedNodes =
+                map.Nodes[i].ConnectedNodeIndices.ConvertAll(idx => list[idx]);
         }
     }
+
 
     // восстанавливает полноценный MissionNode используя индексы из SaveMapData
     private MissionNode RebuildMissionFromSave()

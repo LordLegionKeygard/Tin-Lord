@@ -164,8 +164,26 @@ public class MapGenerator : MonoBehaviour
         // 3. Связи и финальный layout
         // --------------------------------------------------------------------
         GenerateConnections();
-        LayoutLayers();          // координаты
-                                 // при необходимости: AutoCenterVertically(); CenterMapHorizontally(...);
+        LayoutLayers();
+
+        FillMissionIndices();       // проставляем MissionIndex-ы
+    }
+
+    // заполняем в SaveMapData реальными сгенерирвоанными индексами 
+    private void FillMissionIndices()
+    {
+        for (int i = 0; i < _generatedNodes.Count; i++)
+        {
+            var save = SavedMap.Nodes[i];
+            if (save.NodeType != NodeType.Mission) continue;
+
+            var mission = _generatedNodes[i].nodeData as MissionNode;
+            if (mission == null) continue;
+
+            save.MissionIndex = System.Array.IndexOf(_allMissionsInfo.Landscapes, mission.Landscape);
+            save.ObjectiveIndex = System.Array.IndexOf(_allMissionsInfo.Objectives, mission.Objective);
+            save.SpawnerIndex = System.Array.IndexOf(_allMissionsInfo.EnemiesSpawnerInformation, mission.EnemiesSpawner);
+        }
     }
 
 
@@ -320,7 +338,7 @@ public class MapGenerator : MonoBehaviour
 public class SavedMapData
 {
     public List<SavedNodeData> Nodes = new();
-    public int CurrentNodeIndex; 
+    public int CurrentNodeIndex;
 }
 
 [System.Serializable]
@@ -334,7 +352,7 @@ public class SavedNodeData
     public Vector2 Position;
     public int Layer;
     public List<int> ConnectedNodeIndices = new();
-    public bool IsCompleted; 
+    public bool IsCompleted;
 }
 
 public enum NodeType

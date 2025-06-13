@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e66a00a56736149a69e5056b93ccb2, type: 3}
+  m_Name: Desert_Canyon
+  m_EditorClassIdentifier: 
+  Name:
+  - Canyon
+  - "\u041A\u0430\u043D\u044C\u043E\u043D"
+  MusicTheme: 0
+  MissionView:
+    BiomEnum: 0
+    RockTexture: {fileID: 2800000, guid: a6f76ba62a992ee4fabbe04e5315ac04, type: 3}
+    MissionLight:
+      LightRotation: {x: 23.93, y: -105.4}
+      SkyColor: {r: 1, g: 0.9647059, b: 0.8627451, a: 1}
+      EquatorColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
+      GroundColor: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 1}
+      Temperature: 3640
+      Intencity: 2.5
+  MissionSprite: {fileID: 21300000, guid: b4c0cef6411c7d74dad8831069ac140d, type: 3}
+  MissionId: 0
+  StartEcology: 0
+  MapWidth: 14
+  MapLength: 14
+  MapEdge: 4
+  StartPosEdge: 4
+  EnemiesSpawnerInfo: {fileID: 11400000, guid: c597c508d61e0814491057739e736086, type: 2}
+  StartResources:
+  - ResourceEnum: 0
+    RecourceAmount: 100
+  - ResourceEnum: 1
+    RecourceAmount: 50
+  Objectives:
+  - ObjectiveEnum: 2
+    ObjectiveAmount: 30
+  - ObjectiveEnum: 1
+    ObjectiveAmount: 800
+  MissionEvents:
+  - {fileID: 11400000, guid: d49694d92c2ca064fbd724a765463f2a, type: 2}
+  - {fileID: 11400000, guid: f31e1355a13e3d74f8a04ca87d106172, type: 2}
+  - {fileID: 11400000, guid: 1885003221e2d2542bb13d02ddecac30, type: 2}
+  - {fileID: 11400000, guid: cf5029c26ff6b1d4c9f7df124499f7c4, type: 2}
+  - {fileID: 11400000, guid: b01517c9cc44abb43bbb8b412d1d229f, type: 2}
+  - {fileID: 11400000, guid: d7945db18c22138408e919098ed72839, type: 2}
+  - {fileID: 11400000, guid: e8d2194d0eb1e96498765b5f192c8d4c, type: 2}
+  - {fileID: 11400000, guid: f0fe6c302849e3645a8ab3899aae67a0, type: 2}
+  - {fileID: 11400000, guid: 9f1032a85967ad244a6e279af0c61b47, type: 2}
+  - {fileID: 11400000, guid: 99f94f0f253ce294cbe096adc6993fa0, type: 2}
+  Cards:
+  - {fileID: 11400000, guid: 4721036f466c86a4d94c149b6ee8f790, type: 2}
+  - {fileID: 11400000, guid: 419af5759a767c14cb33898e99882029, type: 2}
+  - {fileID: 11400000, guid: 4a4396315f837f14fa447567d9b23600, type: 2}
+  - {fileID: 11400000, guid: 922a878113ad15b44b539c3a539a69f5, type: 2}
+  - {fileID: 11400000, guid: 0436ec09a8dc5fb4498827cdea0315b2, type: 2}
+  - {fileID: 11400000, guid: 834e6c1dfd5dcf74480dac385be07c7c, type: 2}
+  - {fileID: 11400000, guid: 3f79d7498863a8d48b1eb22f90ae331b, type: 2}
+  - {fileID: 11400000, guid: adc20fa2d0fb7a04499607598b1290d7, type: 2}
+  Description:
+  - Deep cracks in the earth, sun-baked rocks and narrow passages where every sound
+    echoes. Once rivers flowed here and life seethed, but now it is a labyrinth of
+    stone and shadow, the perfect place for ambushes.
+  - "\u0413\u043B\u0443\u0431\u043E\u043A\u0438\u0435 \u0442\u0440\u0435\u0449\u0438\u043D\u044B
+    \u0432 \u0437\u0435\u043C\u043B\u0435, \u0432\u044B\u0436\u0436\u0435\u043D\u043D\u044B\u0435
+    \u0441\u043E\u043B\u043D\u0446\u0435\u043C \u0441\u043A\u0430\u043B\u044B \u0438
+    \u0443\u0437\u043A\u0438\u0435 \u043F\u0440\u043E\u0445\u043E\u0434\u044B, \u0433\u0434\u0435
+    \u044D\u0445\u043E \u0440\u0430\u0437\u043D\u043E\u0441\u0438\u0442 \u043B\u044E\u0431\u043E\u0439
+    \u0437\u0432\u0443\u043A. \u041A\u043E\u0433\u0434\u0430-\u0442\u043E \u0437\u0434\u0435\u0441\u044C
+    \u0442\u0435\u043A\u043B\u0438 \u0440\u0435\u043A\u0438 \u0438 \u0431\u0443\u0440\u043B\u0438\u043B\u0430
+    \u0436\u0438\u0437\u043D\u044C, \u043D\u043E \u0442\u0435\u043F\u0435\u0440\u044C
+    - \u044D\u0442\u043E \u043B\u0430\u0431\u0438\u0440\u0438\u043D\u0442 \u0438\u0437
+    \u043A\u0430\u043C\u043D\u044F \u0438 \u0442\u0435\u043D\u0438, \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u043E\u0435
+    \u043C\u0435\u0441\u0442\u043E \u0434\u043B\u044F \u0437\u0430\u0441\u0430\u0434."
+  StoryTextsIndexes: 4c0000004d0000004e0000004f0000005000000051000000
+  ConsoleTextsIndexes: 5500000056000000570000005800000059000000

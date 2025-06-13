@@ -9,6 +9,7 @@ public class MissionPanel : MonoBehaviour
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private readonly WorldSaveGame _worldSaveGame;
     [SerializeField] private AllMissionsInfo _allMissionsInfo;
+    [SerializeField] private TextMeshProUGUI _missionNameHeaderText;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
     [SerializeField] private TextMeshProUGUI _startResourcesText;
     [SerializeField] private TextMeshProUGUI _objectiveText;
@@ -38,6 +39,7 @@ public class MissionPanel : MonoBehaviour
         UnactiveAll();
         // UpdatePlanetTargetTransform();
 
+        _missionNameHeaderText.text = _currentNode.Landscape.Name[Language.LanguageNumber];
         _ecologyLevelText.text = $"{Language.TextStatic[34]}: {_currentNode.Landscape.StartEcology}";
         _startResourcesText.text = $"{Language.TextStatic[35]}: ";
         _objectiveText.text = $"{Language.TextStatic[36]}: ";
