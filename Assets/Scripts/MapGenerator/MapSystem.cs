@@ -51,6 +51,22 @@ public class MapSystem : MonoBehaviour
         RefreshHighlights();
         RefreshCompletedMarks();
         UpdateCosmosForCurrentNode();
+
+        /* 3. ─── ОТКРЫВАЕМ ПАНЕЛЬ, ЕСЛИ ТЕКУЩИЙ УЗЕЛ – МИССИЯ ──────────── */
+
+        if (data.Map.Nodes[_currentNodeIndex].NodeType == NodeType.Mission)
+        {
+            var missionNode = _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData as MissionNode;
+
+            if (missionNode == null || missionNode.Landscape == null)
+            {
+                missionNode = RebuildMissionFromSave();
+                _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData = missionNode;
+            }
+
+            _missionPanel.RefreshInfo(missionNode, _currentNodeIndex);
+            _panels.MissionPanelOpen();            // сразу показываем окно
+        }
     }
 
     public void TrySelectNode(int nodeIndex)
