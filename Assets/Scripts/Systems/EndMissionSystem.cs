@@ -107,6 +107,7 @@ public class EndMissionSystem : MonoBehaviour
 
     private void PrepareData(MissionEndEnum missionEndEnum)
     {
+        var aiCores = missionEndEnum == MissionEndEnum.Victory ? 0 : -2;
         if (missionEndEnum == MissionEndEnum.Victory)
         {
             var ccSave = _commandCenterSaveGame.CommandCenterSaveData;
@@ -123,7 +124,7 @@ public class EndMissionSystem : MonoBehaviour
         }
 
         _worldSaveGame.DeleteMissionGameData();
-        _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments);
+        _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments, aiCores);
     }
 
     private IEnumerator UpdateFragmentsAndSlider(int targetFragments, float targetPercent)
@@ -159,7 +160,7 @@ public class EndMissionSystem : MonoBehaviour
         // }
         // else
         // {
-            LoadCommandCenter();
+        LoadCommandCenter();
         // }
     }
 

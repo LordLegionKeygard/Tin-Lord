@@ -8,7 +8,7 @@ public class TimeTickSystem : MonoBehaviour
     [Inject] private readonly EndMissionSystem _endMissionSystem;
     [SerializeField] private AllSkills _allSkills;
     [SerializeField] private int _currentTick;
-    [SerializeField] private TimeView _timeView;
+    [SerializeField] private CellsView _timeView;
     [SerializeField] private TextMeshProUGUI _dayText;
     [SerializeField] private EveryTickResourcesProduction _everyTickResourcesExtraction;
     [SerializeField] private EveryTickResourcesRequired _everyTickResourcesRequired;
@@ -25,7 +25,7 @@ public class TimeTickSystem : MonoBehaviour
         _currentDay = day;
         _currentTick = tick;
         UpdateDayText();
-        _timeView.UpdateTimeSlotsView(_currentTick);
+        _timeView.UpdateCellSlotsView(_currentTick);
     }
 
     private void Start()
@@ -55,7 +55,7 @@ public class TimeTickSystem : MonoBehaviour
                 CustomEvents.FireDayEnd(_currentDay);
             }
 
-            _timeView.UpdateTimeSlotsView(_currentTick);
+            _timeView.UpdateCellSlotsView(_currentTick);
         }
     }
 

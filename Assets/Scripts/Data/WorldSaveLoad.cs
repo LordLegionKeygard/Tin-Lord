@@ -115,14 +115,13 @@ public class WorldSaveLoad : MonoBehaviour
     public void LoadMissionData(ref WorldSaveData currentSaveData)
     {
         //Main
-        SelectedMissionData selectedMissionData =
-        _commandCenterSaveGame.CommandCenterSaveData.CurrentMission;
+        SelectedMissionData data = _commandCenterSaveGame.CommandCenterSaveData.CurrentMission;
 
-        /* --- 2. собираем MissionNode заново ---------------- */
+        //MissionNode
         MissionNode node = ScriptableObject.CreateInstance<MissionNode>();
-        node.Landscape = _allMissionsInfo.Landscapes[selectedMissionData.LandscapeId];
-        node.Objective = _allMissionsInfo.Objectives[selectedMissionData.ObjectiveId];
-        node.EnemiesSpawner = _allMissionsInfo.EnemiesSpawnerInformation[selectedMissionData.SpawnerId];
+        node.Landscape = _allMissionsInfo.Landscapes[data.LandscapeId];
+        node.Objective = _allMissionsInfo.Objectives[data.ObjectiveId];
+        node.EnemiesSpawner = _allMissionsInfo.EnemiesSpawnerInformation[data.SpawnerId];
         node.Icon = _allMissionsInfo.MissionNodeTemplate.Icon;
         node.IconColor = _allMissionsInfo.MissionNodeTemplate.IconColor;
         node.IconWidth = _allMissionsInfo.MissionNodeTemplate.IconWidth;

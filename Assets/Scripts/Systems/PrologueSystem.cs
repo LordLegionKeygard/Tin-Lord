@@ -16,7 +16,7 @@ public class PrologueSystem : MonoBehaviour
 
     public void StartPrologue(bool newGame)
     {
-        // return;
+        return;
         if (!newGame) return;
         _cosmosView.SetDefaultCosmos();
         _prologueCanvas.SetActive(true);

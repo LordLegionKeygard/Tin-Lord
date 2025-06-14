@@ -24,6 +24,7 @@ public class CommandCenterSaveGame : MonoBehaviour
     {
         CommandCenterSaveData = new CommandCenterSaveData
         {
+            AiCores = 6,
             MemoryFragments = 0,
             PrologueCompleted = false,
             TutorialCompleted = false,
@@ -55,10 +56,11 @@ public class CommandCenterSaveGame : MonoBehaviour
         CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, WorldGameInfo.DefaultLoadingScreenSpriteId);
     }
 
-    public void SaveCommandCenterWorldData(int memoryFragments)
+    public void SaveCommandCenterWorldData(int memoryFragments, int aiCores)
     {
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveData.MemoryFragments += memoryFragments;
+        CommandCenterSaveData.AiCores += aiCores;
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
     }
 
