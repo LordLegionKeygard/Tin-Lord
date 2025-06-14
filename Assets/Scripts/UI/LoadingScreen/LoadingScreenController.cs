@@ -11,7 +11,7 @@ public class LoadingScreenController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _loading;
     [SerializeField] private Image _loadingScreen;
     [SerializeField] private GameObject _blackScreen;
-    [SerializeField] private Sprite[] _loadingScreenSprites;
+    [SerializeField] private Sprite _defaultSprite;
 
     private void Start()
     {
@@ -19,9 +19,9 @@ public class LoadingScreenController : MonoBehaviour
         CustomEvents.OnLoadingScreenToggle += ScreenToggle;
     }
 
-    public void ShowLoadingScreen(int missionId)
+    public void ShowLoadingScreen(Sprite sprite)
     {
-        _loadingScreen.sprite = _loadingScreenSprites[missionId + 1];     
+        _loadingScreen.sprite = sprite == null ? _defaultSprite : sprite;
         ScreenToggle(true);
     }
 

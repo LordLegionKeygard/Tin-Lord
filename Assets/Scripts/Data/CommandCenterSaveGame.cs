@@ -46,14 +46,14 @@ public class CommandCenterSaveGame : MonoBehaviour
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveLoad.SaveData(ref CommandCenterSaveData);
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
-        if (loadMainMenu) CustomEvents.FireLoadScene(SceneEnum.MainMenu, WorldGameInfo.LoadSceneTime, true, WorldGameInfo.DefaultLoadingScreenSpriteId);
+        if (loadMainMenu) CustomEvents.FireLoadScene(SceneEnum.MainMenu, WorldGameInfo.LoadSceneTime, true, null);
     }
 
     public void LoadGameData()
     {
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveData = _commandCenterSaveGameDataWriter.LoadCommandCenterDataFromJson();
-        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, WorldGameInfo.DefaultLoadingScreenSpriteId);
+        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, null);
     }
 
     public void SaveCommandCenterWorldData(int memoryFragments, int aiCores)

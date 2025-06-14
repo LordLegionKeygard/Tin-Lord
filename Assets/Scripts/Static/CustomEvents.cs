@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CustomEvents
@@ -146,10 +147,10 @@ public class CustomEvents
         OnDestroyMachineProduction?.Invoke();
     }
 
-    public static Action<SceneEnum, float, bool, int> OnLoadScene;
-    public static void FireLoadScene(SceneEnum sceneEnum, float timeInSec, bool isLoadData, int missionId)
+    public static Action<SceneEnum, float, bool, Sprite> OnLoadScene;
+    public static void FireLoadScene(SceneEnum sceneEnum, float timeInSec, bool isLoadData, Sprite sprite)
     {
-        OnLoadScene?.Invoke(sceneEnum, timeInSec, isLoadData, missionId);
+        OnLoadScene?.Invoke(sceneEnum, timeInSec, isLoadData, sprite);
     }
 
     public static Action<FadeType> OnFade;

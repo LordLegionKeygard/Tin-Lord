@@ -8,6 +8,7 @@ public class Landscape : ScriptableObject
     public MusicThemeEnum MusicTheme;
     public MissionView MissionView;
     public Sprite MissionSprite;
+    public Sprite LoadingScreenSprite;
     public int StartEcology;
     public int MapWidth;
     public int MapLength;

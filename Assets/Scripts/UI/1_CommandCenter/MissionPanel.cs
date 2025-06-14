@@ -23,7 +23,6 @@ public class MissionPanel : MonoBehaviour
     private bool _isContinueMission;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private Image[] _buttonsIcon;
-    [SerializeField] private RectTransform _planetTargetTransform;
     private MissionNode _currentNode;
     private int _currentNodeId;
     private bool HaveSaveData() => _worldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists(_currentNodeId.ToString());
@@ -33,7 +32,7 @@ public class MissionPanel : MonoBehaviour
         _currentNode = node;
         _currentNodeId = nodeId;
 
-        _worldSaveGame.ChangeSelectedMissionId(_currentNodeId.ToString());
+        _worldSaveGame.ChangeNodeId(_currentNodeId.ToString());
         _loadMissionButton.SetActive(HaveSaveData());
 
         UnactiveAll();
@@ -116,7 +115,7 @@ public class MissionPanel : MonoBehaviour
     private IEnumerator PrepareLoad()
     {
         yield return new WaitForSecondsRealtime(1);
-        if (_isContinueMission) _worldSaveGame.LoadMissionGameData();
+        if (_isContinueMission) _worldSaveGame.LoadMissionGameData(_currentNode.Landscape.LoadingScreenSprite);
         else _worldSaveGame.NewMission(_currentNode.Landscape);
     }
 
