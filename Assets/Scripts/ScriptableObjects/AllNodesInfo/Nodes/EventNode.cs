@@ -11,8 +11,8 @@ public class EventNode : NodeData
 [System.Serializable]
 public class EventStep
 {
-   [TextArea(3, 8)]
-   public string Text;
+   [TextArea(3, 18)]
+   public string[] Text;
 
    public List<EventChoice> Choices = new();
 }
@@ -20,13 +20,10 @@ public class EventStep
 [System.Serializable]
 public class EventChoice
 {
-   public string Caption;
+   public string[] ChoiseText;
+   public bool IsFinal;
+   
    public List<EventReward> Rewards = new();
-
-   /// <summary>
-   /// Следующий шаг для этого варианта.  
-   /// null ⇒ событие завершается.
-   /// </summary>
    public EventStep NextStep;
 }
 
@@ -35,7 +32,6 @@ public struct EventReward
 {
    public RewardType Type;
    public int Amount;
-   public string Id;
 }
 
 public enum RewardType

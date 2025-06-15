@@ -5,9 +5,7 @@ using TMPro;
 public class EventNodeButton : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _text;
-    private Button _button;
-
-    private void Awake() => _button = GetComponent<Button>();
+    [SerializeField] private Button _button;
 
     public void Setup(string text, System.Action callback)
     {

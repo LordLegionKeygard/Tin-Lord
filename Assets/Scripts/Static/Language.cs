@@ -846,6 +846,30 @@ public class Language : MonoBehaviour
         _text[272, 0] = "Learning";
         _text[272, 1] = "Изучения";
 
+        _text[273, 0] = "";
+        _text[273, 1] = "";
+        
+        _text[274, 0] = "";
+        _text[274, 1] = "";
+        
+        _text[275, 0] = "";
+        _text[275, 1] = "";
+        
+        _text[276, 0] = "";
+        _text[276, 1] = "";
+        
+        _text[277, 0] = "";
+        _text[277, 1] = "";
+        
+        _text[278, 0] = "";
+        _text[278, 1] = "";
+        
+        _text[279, 0] = "";
+        _text[279, 1] = "";
+        
+        _text[280, 0] = "";
+        _text[280, 1] = "";
+
 
 
         for (int x = 0; x < WorldGameInfo.LanguageLength; x++) TextStatic[x] = _text[x, LanguageNumber];

@@ -169,8 +169,8 @@ public class InputSystemWorld : MonoBehaviour
     private void OnNumberInput(InputAction.CallbackContext context)
     {
         var key = context.control.displayName; // Получаем нажатую клавишу как строку
-        int pressedNumber;
-        if (int.TryParse(key, out pressedNumber))
+
+        if (int.TryParse(key, out int pressedNumber))
         {
             if (_machinePanel.PanelActive())
             {

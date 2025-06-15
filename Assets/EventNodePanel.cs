@@ -20,26 +20,36 @@ public class EventNodePanel : MonoBehaviour
 
     private void ShowStep(EventStep step)
     {
-        _mainText.text = step.Text;
+        _mainText.text = step.Text[Language.LanguageNumber];
 
-        foreach (Transform c in _buttonsHolder) Destroy(c.gameObject);
+        foreach (Transform trans in _buttonsHolder) Destroy(trans.gameObject);
 
-        for (int i = 0; i < step.Choices.Count && i < step.Choices.Count; i++)
+        int lang = Language.LanguageNumber;
+        int visible = Mathf.Min(step.Choices.Count, 4);
+
+        for (int i = 0; i < visible; i++)
         {
             var choice = step.Choices[i];
-            var btn = Instantiate(_buttonPrefab, _buttonsHolder);
-            btn.Setup(choice.Caption, () => OnChoice(choice));
+            string text = $"{i + 1}. {choice.ChoiseText[lang]}";
+
+            var button = Instantiate(_buttonPrefab, _buttonsHolder);
+            button.Setup(text, () => OnChoice(choice));
         }
     }
 
     private void OnChoice(EventChoice choice)
     {
-        foreach (var r in choice.Rewards)
-            GrantReward(r);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
-        if (choice.NextStep == null)
+        // выдаём награды
+        if (choice.Rewards != null)
         {
-            Close();            // финал
+            foreach (var r in choice.Rewards) GrantReward(r);
+        }
+
+        if (choice.IsFinal || choice.NextStep == null)
+        {
+            Close();
         }
         else
         {
@@ -47,6 +57,7 @@ public class EventNodePanel : MonoBehaviour
             ShowStep(choice.NextStep);
         }
     }
+
 
     private void GrantReward(EventReward r)
     {
@@ -57,6 +68,18 @@ public class EventNodePanel : MonoBehaviour
         }
 
         // TODO: сохранение прогресса
+    }
+
+    public void PlayerInputSelectNumber(int number)
+    {
+        if (!gameObject.activeInHierarchy) return;
+        if (number < 1 || number > 4) return;
+
+        var step = _stack.Peek();
+        int idx = number - 1;
+
+        if (idx < step.Choices.Count)
+            OnChoice(step.Choices[idx]);
     }
 
     public void Close() => gameObject.SetActive(false);
