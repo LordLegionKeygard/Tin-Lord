@@ -31,6 +31,6 @@ public class PrologueText : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        _prologueSystem.ActiveCanvas();
+        // _prologueSystem.ActiveCanvas();
     }
 }

@@ -7,6 +7,8 @@ public class UIPanelsCommandCenter : MonoBehaviour
     [SerializeField] private PanelDoMoveY _buildingInfoPanel;
     [SerializeField] private PanelDoMoveX _missionPanelDoMove;
 
+
+    [SerializeField] private GameObject _eventPanel;
     [SerializeField] private EscapePanelCommandCenter _escapePanel;
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private LearnBuildingInfoPanel _learnBuildingInfoPanel;
@@ -72,14 +74,20 @@ public class UIPanelsCommandCenter : MonoBehaviour
         }
     }
 
+    public void EventPanelOpen()
+    {
+        // закрываем карту
+        if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove();
+
+        _eventPanel.SetActive(true);
+    }
+
     public void MissionPanelOpen()
     {
         // закрываем карту
-        if (_mapPanelDoMove.IsOpen())
-            _mapPanelDoMove.PanelMove();
+        if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove();
 
         // открываем миссию
-        if (!_missionPanelDoMove.IsOpen())
-            _missionPanelDoMove.PanelMove();
+        if (!_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove();
     }
 }

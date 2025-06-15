@@ -6,6 +6,7 @@ public class MapSystem : MonoBehaviour
 {
     [Inject] private CommandCenterSaveGame _save;
 
+    [SerializeField] private EventNodePanel _eventPanel;
     [SerializeField] private CosmosView _cosmosView;
     [SerializeField] private AllMissionsInfo _allMissionsInfo;
     [SerializeField] private MapGenerator _generator;
@@ -102,6 +103,12 @@ public class MapSystem : MonoBehaviour
 
             _missionPanel.RefreshInfo(missionNode, nodeIndex);
             _panels.MissionPanelOpen();
+        }
+        else if (map.Nodes[nodeIndex].NodeType == NodeType.Event)
+        {
+            var eventNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as EventNode;
+            _eventPanel.Open(eventNode);
+            _panels.EventPanelOpen();
         }
         else
         {
