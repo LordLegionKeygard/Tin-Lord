@@ -105,7 +105,7 @@ namespace FMODUnity
             }
             else if (flags == FMOD.DEBUG_FLAGS.WARNING)
             {
-                RuntimeUtils.DebugLogWarning(string.Format(("[FMOD] {0} : {1}"), (string)func, (string)message));
+                // RuntimeUtils.DebugLogWarning(string.Format(("[FMOD] {0} : {1}"), (string)func, (string)message));
             }
             else if (flags == FMOD.DEBUG_FLAGS.LOG)
             {

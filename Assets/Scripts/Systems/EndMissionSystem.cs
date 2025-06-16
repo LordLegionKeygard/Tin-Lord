@@ -124,7 +124,7 @@ public class EndMissionSystem : MonoBehaviour
         }
 
         _worldSaveGame.DeleteMissionGameData();
-        _commandCenterSaveGame.SaveCommandCenterWorldData(_receivedFragments, aiCores);
+        _commandCenterSaveGame.SaveCommandCenterFragmentsAiCoresData(_receivedFragments, aiCores);
     }
 
     private IEnumerator UpdateFragmentsAndSlider(int targetFragments, float targetPercent)

@@ -8,7 +8,7 @@ public class MapSystem : MonoBehaviour
 
     [SerializeField] private EventNodePanel _eventPanel;
     [SerializeField] private CosmosView _cosmosView;
-    [SerializeField] private AllMissionsInfo _allMissionsInfo;
+    [SerializeField] private AllNodesInfo _allMissionsInfo;
     [SerializeField] private MapGenerator _generator;
     [SerializeField] private MapVisualizer _visualizer;
     [SerializeField] private ConnectionsDrawer _drawer;
@@ -20,6 +20,18 @@ public class MapSystem : MonoBehaviour
     private List<UINode> _uiNodes;
     private readonly HashSet<int> _reachable = new();
     private int _currentNodeIndex;
+
+    public bool IsCurrent(int nodeIdx) => nodeIdx == _currentNodeIndex;
+
+    public bool IsVisited(int nodeIdx)
+    {
+        var map = _save.CommandCenterSaveData.Map;
+        return map != null &&
+               map.Nodes != null &&
+               nodeIdx >= 0 &&
+               nodeIdx < map.Nodes.Count &&
+               map.Nodes[nodeIdx].IsCompleted;
+    }
 
     private void OnEnable() => CustomEvents.OnDataLoad += HandleDataLoaded;
     private void OnDisable() => CustomEvents.OnDataLoad -= HandleDataLoaded;
@@ -103,6 +115,12 @@ public class MapSystem : MonoBehaviour
             var eventNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as EventNode;
             int sequenceIndex = map.Nodes[nodeIndex].EventSequenceIndex;
             _eventPanel.Open(eventNode.Dialogue[sequenceIndex]);
+            _panels.EventPanelOpen();
+        }
+        if (map.Nodes[nodeIndex].NodeType == NodeType.HealCoreEvent)
+        {
+            var healNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as HealCoreEventNode;
+            _eventPanel.Open(healNode.Dialogue);
             _panels.EventPanelOpen();
         }
 
@@ -204,6 +222,7 @@ public class MapSystem : MonoBehaviour
                 node.IconWidth = info.MissionNodeTemplate.IconWidth;
                 node.IconHeight = info.MissionNodeTemplate.IconHeight;
                 node.CosmosVariations = node.Landscape.CosmosVariations;
+                node.DescriptionTextNumber = 275;
 
                 data = node;
             }

@@ -5,7 +5,7 @@ public class MapGenerator : MonoBehaviour
 {
     [Header("UI/Content")]
     [SerializeField] private RectTransform _contentTransform;   // Content из ScrollView
-    [SerializeField] private AllMissionsInfo _allMissionsInfo;   // Все возможные данные
+    [SerializeField] private AllNodesInfo _allMissionsInfo;   // Все возможные данные
 
     [Header("Generation Settings")]
     private float _nodeXoffset = 300f;   // Шаг слоёв по X
@@ -19,7 +19,6 @@ public class MapGenerator : MonoBehaviour
     public List<NodeInstance> GetGeneratedNodes() => _generatedNodes;
     public SavedMapData SavedMap = new();
 
-    // Внутренние данные
     private readonly Dictionary<int, List<NodeInstance>> _layers = new();
 
     public NodeData GetNodeTemplate(NodeType type)
@@ -28,9 +27,10 @@ public class MapGenerator : MonoBehaviour
         {
             NodeType.Start => _allMissionsInfo.StartNode,
             NodeType.Boss => _allMissionsInfo.BossNode,
-            NodeType.Event => _allMissionsInfo.EventPools.Length > 0 ? _allMissionsInfo.EventPools[0].EventNode : null,
-            NodeType.ModuleTrader => _allMissionsInfo.ModuleTraders.Length > 0 ? _allMissionsInfo.ModuleTraders[0] : null,
-            NodeType.SkillTrader => _allMissionsInfo.SkillTraders.Length > 0 ? _allMissionsInfo.SkillTraders[0] : null,
+            NodeType.Event => _allMissionsInfo.EventPools[0].Node,
+            NodeType.HealCoreEvent => _allMissionsInfo.EventPools[1].Node,
+            NodeType.ModuleTrader => _allMissionsInfo.ModuleTraders[0],
+            NodeType.SkillTrader => _allMissionsInfo.SkillTraders[0],
             NodeType.Mission => _allMissionsInfo.MissionNodeTemplate,
             _ => null
         };
@@ -42,10 +42,26 @@ public class MapGenerator : MonoBehaviour
 
         foreach (var pool in pools)
         {
-            int limit = Mathf.Clamp(pool.MaxOnMap, 1, pool.EventNode.Dialogue.Length);
+            int limit;
+            if (pool.IgnoreDialogueVariants)          // для Heal-Core и пр.
+            {
+                limit = pool.MaxOnMap;
+            }
+            else if (pool.Node is EventNode ev)       // «обычный» EventNode
+            {
+                limit = Mathf.Clamp(pool.MaxOnMap, 1, ev.Dialogue.Length);
+            }
+            else                                      // на всякий случай
+            {
+                limit = pool.MaxOnMap;
+            }
 
             for (int i = 0; i < limit; i++)
-                list.Add(new EventEntry { Node = pool.EventNode, SequenceIndex = i });
+                list.Add(new EventEntry
+                {
+                    Node = pool.Node,
+                    SequenceIndex = pool.IgnoreDialogueVariants ? 0 : i
+                });
         }
 
         return list;
@@ -172,7 +188,8 @@ public class MapGenerator : MonoBehaviour
                 AddToLayer(layer, inst);
                 _generatedNodes.Add(inst);
 
-                AddToSavedMap(inst, NodeType.Event, _generatedNodes.Count - 1, e.SequenceIndex);
+                var nType = e.Node is HealCoreEventNode ? NodeType.HealCoreEvent : NodeType.Event;
+                AddToSavedMap(inst, nType, _generatedNodes.Count - 1, e.SequenceIndex);
             }
         }
 
@@ -224,6 +241,7 @@ public class MapGenerator : MonoBehaviour
         node.IconWidth = _allMissionsInfo.MissionNodeTemplate.IconWidth;
         node.IconHeight = _allMissionsInfo.MissionNodeTemplate.IconHeight;
         node.CosmosVariations = node.Landscape.CosmosVariations;
+        node.DescriptionTextNumber = 275;
 
         return node;
     }
@@ -392,6 +410,7 @@ public enum NodeType
     ModuleTrader = 3,
     SkillTrader = 4,
     Boss = 5,
+    HealCoreEvent = 6,
 }
 
 public class NodeInstance
@@ -404,6 +423,6 @@ public class NodeInstance
 
 public struct EventEntry
 {
-    public EventNode Node;     // какой ScriptableObject-ивент
-    public int SequenceIndex; // номер диалога внутри .Sequences
+    public NodeData Node;
+    public int SequenceIndex;
 }

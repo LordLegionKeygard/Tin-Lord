@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ace92099cd8ea489bceb3f5244651c, type: 3}
   m_Name: BossNode
   m_EditorClassIdentifier: 
-  NodeType: 4
+  NodeType: 5
   Icon: {fileID: 21300000, guid: 962aeac4f2a861648baacf1646473bdd, type: 3}
   IconColor: {r: 0.9150943, g: 0.7027549, b: 0, a: 1}
   IconWidth: 100
   IconHeight: 100
+  DescriptionTextNumber: 275
+  CosmosVariations: []
   Landscape: {fileID: 0}
   Objective: {fileID: 0}
   EnemiesSpawner: {fileID: 0}

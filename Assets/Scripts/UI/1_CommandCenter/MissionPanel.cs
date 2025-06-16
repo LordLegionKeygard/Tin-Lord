@@ -8,7 +8,7 @@ public class MissionPanel : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private readonly WorldSaveGame _worldSaveGame;
-    [SerializeField] private AllMissionsInfo _allMissionsInfo;
+    [SerializeField] private AllNodesInfo _allMissionsInfo;
     [SerializeField] private TextMeshProUGUI _missionNameHeaderText;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
     [SerializeField] private TextMeshProUGUI _startResourcesText;

@@ -8,7 +8,7 @@ public class WorldSaveLoad : MonoBehaviour
     [Inject] private WorldSaveGame _worldSaveGame;
 
     [Header("Main")]
-    [SerializeField] private AllMissionsInfo _allMissionsInfo;
+    [SerializeField] private AllNodesInfo _allMissionsInfo;
     [SerializeField] private TileMapBuilder _tileMapBuilder;
 
     [Header("UpPanel")]

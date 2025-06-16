@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AllMissions", menuName = "TinLord/Missions/AllMissions")]
-public class AllMissionsInfo : ScriptableObject
+[CreateAssetMenu(fileName = "AllNodesInfo", menuName = "TinLord/Missions/AllNodesInfo")]
+public class AllNodesInfo : ScriptableObject
 {
     [Header("Nodes")]
     public StartNode StartNode; // стартовая точка
@@ -24,6 +24,7 @@ public class AllMissionsInfo : ScriptableObject
 [System.Serializable]
 public class EventPool
 {
-    public EventNode EventNode;
+    public NodeData Node;
     [Min(1)] public int MaxOnMap = 1;
+    public bool IgnoreDialogueVariants = false;
 }

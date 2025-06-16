@@ -11,8 +11,17 @@ public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private int _index;
     private MapSystem _mapSystem;
     private Color _defaultColor;
+    public int GetDescriptionTextNumber()
+    {
+        if (_mapSystem.IsCurrent(_index))
+            return 274;
 
-    // ---------------------------------------------------------------------    
+        if (_mapSystem.IsVisited(_index))
+            return 273;
+
+        return _nodeData.DescriptionTextNumber;
+    }
+
     public void Setup(NodeData data, int index, MapSystem map)
     {
         _nodeData = data;

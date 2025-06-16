@@ -5,15 +5,14 @@ public class MapVisualizer : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private MapGenerator _mapGenerator;
-    [SerializeField] private RectTransform _contentTransform; // <-- Сюда ставим твой Content
+    [SerializeField] private RectTransform _contentTransform;
     [SerializeField] private UINode _nodePrefab;
     public IReadOnlyList<UINode> GetSpawnedNodes() => spawnedNodes;
 
-    private List<UINode> spawnedNodes = new List<UINode>();
+    private List<UINode> spawnedNodes = new();
 
     public List<UINode> GenerateAndDisplayMap()
     {
-        // Чистим старые ноды
         foreach (var node in spawnedNodes)
         {
             Destroy(node.gameObject);
@@ -29,7 +28,7 @@ public class MapVisualizer : MonoBehaviour
             ui.GetComponent<RectTransform>().anchoredPosition = nodes[i].position;
             spawnedNodes.Add(ui);
         }
-        
+
         return spawnedNodes;
     }
 }

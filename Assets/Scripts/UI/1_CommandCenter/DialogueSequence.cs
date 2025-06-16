@@ -18,8 +18,8 @@ public class DialogueStep
 public class StepChoice
 {
     public int ChoiseTextNumber;
-    public List<EventReward> Rewards;
     public int NextStepIndex = -1;
+    public List<EventReward> Rewards;
 }
 
 [System.Serializable]
@@ -31,6 +31,7 @@ public struct EventReward
 
 public enum RewardType
 {
-    None = 0
+    None = 0,
+    AiCore = 1,
 }
 

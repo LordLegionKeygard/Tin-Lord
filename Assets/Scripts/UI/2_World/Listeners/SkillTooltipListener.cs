@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Zenject;
 
 public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {

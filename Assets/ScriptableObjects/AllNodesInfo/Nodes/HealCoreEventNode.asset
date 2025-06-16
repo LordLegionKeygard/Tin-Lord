@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6ec4c2c677e2ae4db1dee572550e53f, type: 3}
-  m_Name: StartNode
+  m_Script: {fileID: 11500000, guid: cc1d6ebe3876fa74180dff3cddec6791, type: 3}
+  m_Name: HealCoreEventNode
   m_EditorClassIdentifier: 
-  NodeType: 0
-  Icon: {fileID: 21300000, guid: 3930d3da6c8ac774aa4f9ad174884858, type: 3}
+  NodeType: 6
+  Icon: {fileID: 21300000, guid: 27fb08d72eb888a46a0bb4db8e69ae66, type: 3}
   IconColor: {r: 1, g: 1, b: 1, a: 1}
-  IconWidth: 40
-  IconHeight: 40
-  DescriptionTextNumber: 274
+  IconWidth: 112
+  IconHeight: 112
+  DescriptionTextNumber: 276
   CosmosVariations:
   - PlanetTexture: {fileID: 0}
     PlanetPosition: {x: 0, y: 0, z: 0}
@@ -26,3 +26,4 @@ MonoBehaviour:
     SkyboxRotation: 0
     LightRotation: {x: 0, y: 0, z: 0}
     Temperature: 0
+  Dialogue: {fileID: 11400000, guid: 5653c961e81f1af419899d5f1ad70041, type: 2}

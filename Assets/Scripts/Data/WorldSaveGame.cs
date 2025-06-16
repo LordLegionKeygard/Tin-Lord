@@ -13,7 +13,7 @@ public class WorldSaveGame : MonoBehaviour
     public WorldSaveData CurrentWorldSaveData;
 
     [Header("Other")]
-    [SerializeField] private AllMissionsInfo _allMissionsInfo;
+    [SerializeField] private AllNodesInfo _allMissionsInfo;
 
     private void Awake()
     {

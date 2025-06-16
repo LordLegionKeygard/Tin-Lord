@@ -18,7 +18,9 @@ public class TooltipSystem : MonoBehaviour
     public void CloseAll()
     {
         foreach (var item in _tooltip)
+        {
             item.SetActive(false);
+        }
     }
 
     private void OnDestroy()

@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c78b2c1a812cca44fb8f9b41755e8b1d, type: 3}
-  m_Name: AllMissionsInfo
+  m_Name: AllNodesInfo
   m_EditorClassIdentifier: 
   StartNode: {fileID: 11400000, guid: 046bc9887d86b3a419894c3509028c10, type: 2}
   EventPools:
-  - EventNode: {fileID: 11400000, guid: 3c09af0849ff53240937ea32bd01bdcf, type: 2}
+  - Node: {fileID: 11400000, guid: 3c09af0849ff53240937ea32bd01bdcf, type: 2}
     MaxOnMap: 2
+    IgnoreDialogueVariants: 0
+  - Node: {fileID: 11400000, guid: a99ffd8955a41ab4b92d140bd008855a, type: 2}
+    MaxOnMap: 2
+    IgnoreDialogueVariants: 1
   ModuleTraders:
   - {fileID: 11400000, guid: b34a6b9559365e247849a493ff616b00, type: 2}
   SkillTraders:

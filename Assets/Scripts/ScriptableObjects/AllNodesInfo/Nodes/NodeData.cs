@@ -8,6 +8,7 @@ public class NodeData : ScriptableObject
     public Color IconColor;
     public int IconWidth;
     public int IconHeight;
+    public int DescriptionTextNumber;
     public CosmosVariations[] CosmosVariations;
 }
 

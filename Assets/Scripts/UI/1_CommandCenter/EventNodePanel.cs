@@ -1,18 +1,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Zenject;
 
 public class EventNodePanel : MonoBehaviour
 {
+    [Inject] private CommandCenterSaveGame _commandCenterSaveGame;
     private Stack<int> _stack = new();
     private DialogueSequence _dialogue;
     [SerializeField] private MapSystem _mapSystem;
-    private System.Action _onFinished;  
+    private System.Action _onFinished;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _mainText;
     [SerializeField] private EventNodeButton _buttonPrefab;
     [SerializeField] private Transform _buttonsHolder;
+    [SerializeField] private AiCoreSystem _aiCoreSystem;
 
     public void Open(DialogueSequence node, System.Action onFinished = null)
     {
@@ -55,7 +58,7 @@ public class EventNodePanel : MonoBehaviour
 
         if (choice.NextStepIndex < 0)
         {
-            _onFinished?.Invoke();  
+            _onFinished?.Invoke();
             _mapSystem.CompleteCurrentNode();
             Close();
         }
@@ -67,15 +70,16 @@ public class EventNodePanel : MonoBehaviour
     }
 
 
-    private void GrantReward(EventReward r)
+    private void GrantReward(EventReward eventReward)
     {
-        switch (r.Type)
+        switch (eventReward.Type)
         {
-            case RewardType.None:
+            case RewardType.AiCore:
+                _aiCoreSystem.ChangeAiCores(1);
                 break;
         }
 
-        // TODO: сохранение прогресса
+        _commandCenterSaveGame.SaveGameData(false);
     }
 
     public void PlayerInputSelectNumber(int n)
