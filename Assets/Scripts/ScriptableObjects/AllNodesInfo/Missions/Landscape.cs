@@ -56,16 +56,3 @@ public enum LandscapeEnum
     Wasteland = 2,
     Winter = 3,
 }
-
-[System.Serializable]
-public class CosmosVariations
-{
-    public Texture PlanetTexture;
-    public Vector3 PlanetPosition;
-    public Vector3 PlanetRotation;
-    public Material CosmosSkybox;
-    public float SkyboxRotation;
-
-    public Vector3 LightRotation;
-    public float Temperature;
-}

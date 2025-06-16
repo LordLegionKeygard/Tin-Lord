@@ -25,14 +25,13 @@ public class MissionPanel : MonoBehaviour
     [SerializeField] private Image[] _buttonsIcon;
     private MissionNode _currentNode;
     private int _currentNodeId;
-    private bool HaveSaveData() => _worldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists(_currentNodeId.ToString());
+    private bool HaveSaveData() => _worldSaveGame.GetWorldGameSaveDataWriter().CheckIfSaveFileExists();
 
     public void RefreshInfo(MissionNode node, int nodeId)
     {
         _currentNode = node;
         _currentNodeId = nodeId;
 
-        _worldSaveGame.ChangeNodeId(_currentNodeId.ToString());
         _loadMissionButton.SetActive(HaveSaveData());
 
         UnactiveAll();

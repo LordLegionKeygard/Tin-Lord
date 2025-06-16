@@ -199,6 +199,7 @@ public class MapGenerator : MonoBehaviour
         node.IconColor = _allMissionsInfo.MissionNodeTemplate.IconColor;
         node.IconWidth = _allMissionsInfo.MissionNodeTemplate.IconWidth;
         node.IconHeight = _allMissionsInfo.MissionNodeTemplate.IconHeight;
+        node.CosmosVariations = node.Landscape.CosmosVariations; 
 
         return node;
     }
@@ -358,6 +359,7 @@ public class SavedNodeData
 
 public enum NodeType
 {
+    None = -1,
     Start = 0,
     Mission = 1,
     Event = 2,

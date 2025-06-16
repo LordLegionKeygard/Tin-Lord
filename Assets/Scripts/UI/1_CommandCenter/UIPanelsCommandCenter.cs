@@ -6,8 +6,6 @@ public class UIPanelsCommandCenter : MonoBehaviour
     [SerializeField] private PanelDoMoveY _mapPanelDoMove;
     [SerializeField] private PanelDoMoveY _buildingInfoPanel;
     [SerializeField] private PanelDoMoveX _missionPanelDoMove;
-
-
     [SerializeField] private GameObject _eventPanel;
     [SerializeField] private EscapePanelCommandCenter _escapePanel;
     [SerializeField] private CanvasGroup _canvasGroup;

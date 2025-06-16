@@ -4,7 +4,6 @@ using UnityEngine;
 public class WorldSaveGame : MonoBehaviour
 {
     public WorldSaveLoad WorldSaveLoad;
-    [SerializeField] private string _missionNodeId = "";
 
     [Header("Save Data Writer")]
     private WorldSaveGameDataWriter _worldGameSaveDataWriter;
@@ -19,11 +18,6 @@ public class WorldSaveGame : MonoBehaviour
     private void Awake()
     {
         _worldGameSaveDataWriter = new WorldSaveGameDataWriter(Application.persistentDataPath);
-    }
-
-    public void ChangeNodeId(string newNodeId)
-    {
-        _missionNodeId = newNodeId;
     }
 
     public void NewMission(Landscape landscape)
@@ -41,25 +35,20 @@ public class WorldSaveGame : MonoBehaviour
             CurrentWorldSaveData.ResourcesData[resourceIndex] = landscape.StartResources[i].RecourceAmount;
         }
 
-        _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _missionNodeId);
+        _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData);
         LoadMissionGameData(landscape.LoadingScreenSprite);
     }
 
     public void DeleteMissionGameData()
     {
-        _worldGameSaveDataWriter.DeleteMissionSaveFile(_missionNodeId);
-    }
-
-    public void DeleteAllMissionsGameData()
-    {
-        _worldGameSaveDataWriter.DeleteAllMissionsSaveFiles(99); //?
+        _worldGameSaveDataWriter.DeleteMissionSaveFile();
     }
 
     public void SaveMissionGameData(bool loadCommandCenter)
     {
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         WorldSaveLoad.SaveMissionData(ref CurrentWorldSaveData);
-        _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _missionNodeId);
+        _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData);
         if (loadCommandCenter) CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, null);
     }
 
@@ -68,14 +57,14 @@ public class WorldSaveGame : MonoBehaviour
         DeleteMissionGameData();
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         WorldSaveLoad.ResetMissionData(ref CurrentWorldSaveData);
-        _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData, _missionNodeId);
+        _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData);
         CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, CurrentMissionInfo.Instance.GetCurrentLandscape().LoadingScreenSprite);
     }
 
     public void LoadMissionGameData(Sprite sprite)
     {
         _worldGameSaveDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        CurrentWorldSaveData = _worldGameSaveDataWriter.LoadMissionDataFromJson(_missionNodeId);
+        CurrentWorldSaveData = _worldGameSaveDataWriter.LoadMissionDataFromJson();
         CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, sprite);
     }
 }

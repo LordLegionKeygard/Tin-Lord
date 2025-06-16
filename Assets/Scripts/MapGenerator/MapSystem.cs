@@ -52,9 +52,7 @@ public class MapSystem : MonoBehaviour
         MoveTargetTo(_currentNodeIndex);
         RefreshHighlights();
         RefreshCompletedMarks();
-        UpdateCosmosForCurrentNode();
-
-        /* 3. ─── ОТКРЫВАЕМ ПАНЕЛЬ, ЕСЛИ ТЕКУЩИЙ УЗЕЛ – МИССИЯ ──────────── */
+        ApplyCosmos();
 
         if (data.Map.Nodes[_currentNodeIndex].NodeType == NodeType.Mission)
         {
@@ -67,7 +65,7 @@ public class MapSystem : MonoBehaviour
             }
 
             _missionPanel.RefreshInfo(missionNode, _currentNodeIndex);
-            _panels.MissionPanelOpen();            // сразу показываем окно
+            _panels.MissionPanelOpen();
         }
     }
 
@@ -97,45 +95,30 @@ public class MapSystem : MonoBehaviour
                 _generator.GetGeneratedNodes()[nodeIndex].nodeData = missionNode;
             }
 
-            var nodeSave = map.Nodes[nodeIndex];
-            int cosmosIndex = nodeSave.CosmosIndex;
-            cosmosIndex = _cosmosView.ChangeCosmos(missionNode.Landscape.CosmosVariations, cosmosIndex);
-            nodeSave.CosmosIndex = cosmosIndex;
-
             _missionPanel.RefreshInfo(missionNode, nodeIndex);
             _panels.MissionPanelOpen();
         }
-        else if (map.Nodes[nodeIndex].NodeType == NodeType.Event)
+        if (map.Nodes[nodeIndex].NodeType == NodeType.Event)
         {
             var eventNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as EventNode;
             _eventPanel.Open(eventNode);
             _panels.EventPanelOpen();
         }
-        else
-        {
-            UpdateCosmosForCurrentNode();
-        }
 
+        ApplyCosmos();
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
     }
 
-
-    private void UpdateCosmosForCurrentNode()
+    private void ApplyCosmos()
     {
-        var nodeData = _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData;
-        var mission = nodeData as MissionNode;
-        var nodeSave = _save.CommandCenterSaveData.Map.Nodes[_currentNodeIndex];
+        var node = _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData;
+        var save = _save.CommandCenterSaveData.Map.Nodes[_currentNodeIndex];
 
-        if (mission != null && mission.Landscape != null)
-        {
-            int cosmosIndex = nodeSave.CosmosIndex;
-            cosmosIndex = _cosmosView.ChangeCosmos(mission.Landscape.CosmosVariations, cosmosIndex);
-            nodeSave.CosmosIndex = cosmosIndex;
-        }
-        else
-        {
-            _cosmosView.SetDefaultCosmos();
-        }
+        var variations = node.CosmosVariations;
+        int cosmosId = save.CosmosIndex;
+
+        cosmosId = _cosmosView.ChangeCosmos(variations, cosmosId);
+        save.CosmosIndex = cosmosId;
     }
 
     // Тестовый вызов
@@ -210,17 +193,18 @@ public class MapSystem : MonoBehaviour
             if (n.NodeType == NodeType.Mission && n.MissionIndex >= 0 && n.ObjectiveIndex >= 0 && n.SpawnerIndex >= 0)
             {
                 var info = _allMissionsInfo;
-                var m = ScriptableObject.CreateInstance<MissionNode>();
+                var node = ScriptableObject.CreateInstance<MissionNode>();
 
-                m.Landscape = info.Landscapes[n.MissionIndex];
-                m.Objective = info.Objectives[n.ObjectiveIndex];
-                m.EnemiesSpawner = info.EnemiesSpawnerInformation[n.SpawnerIndex];
-                m.Icon = info.MissionNodeTemplate.Icon;
-                m.IconColor = info.MissionNodeTemplate.IconColor;
-                m.IconWidth = info.MissionNodeTemplate.IconWidth;
-                m.IconHeight = info.MissionNodeTemplate.IconHeight;
+                node.Landscape = info.Landscapes[n.MissionIndex];
+                node.Objective = info.Objectives[n.ObjectiveIndex];
+                node.EnemiesSpawner = info.EnemiesSpawnerInformation[n.SpawnerIndex];
+                node.Icon = info.MissionNodeTemplate.Icon;
+                node.IconColor = info.MissionNodeTemplate.IconColor;
+                node.IconWidth = info.MissionNodeTemplate.IconWidth;
+                node.IconHeight = info.MissionNodeTemplate.IconHeight;
+                node.CosmosVariations = node.Landscape.CosmosVariations;
 
-                data = m;
+                data = node;
             }
             else
             {
@@ -258,6 +242,7 @@ public class MapSystem : MonoBehaviour
         node.IconColor = info.MissionNodeTemplate.IconColor;
         node.IconWidth = info.MissionNodeTemplate.IconWidth;
         node.IconHeight = info.MissionNodeTemplate.IconHeight;
+        node.CosmosVariations = node.Landscape.CosmosVariations;
 
         return node;
     }
@@ -269,5 +254,4 @@ public class MapSystem : MonoBehaviour
         _uiNodes[nodeIdx].SetOnPointerColor(enter);
         _drawer.SetLineHighlight(_currentNodeIndex, nodeIdx, enter);
     }
-
 }

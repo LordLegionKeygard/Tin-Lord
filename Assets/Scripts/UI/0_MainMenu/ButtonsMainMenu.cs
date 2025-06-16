@@ -69,7 +69,7 @@ public class ButtonsMainMenu : MonoBehaviour
 
     private void StartNewGame()
     {
-        WorldSaveGame.DeleteAllMissionsGameData();
+        WorldSaveGame.DeleteMissionGameData();
         CommandCenterSaveGame.NewGame();
     }
 

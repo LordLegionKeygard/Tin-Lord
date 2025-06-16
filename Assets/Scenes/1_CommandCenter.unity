@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007794125, g: 0.00009613825, b: 0.000115749404,
+  m_IndirectSpecularColor: {r: 0.00007779167, g: 0.00009598933, b: 0.000115386225,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -2298,12 +2298,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104494366}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf47470d332034786a136ff32f2969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skyBoxMat: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
 --- !u!114 &104494373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3029,6 +3028,7 @@ MonoBehaviour:
   _eventPanel: {fileID: 1451985186}
   _canvasGroup: {fileID: 2011502892}
   _prologueCanvas: {fileID: 1808600982}
+  _panels: {fileID: 616848379}
   _prologueEvent: {fileID: 11400000, guid: 7d0833bfa40a6f94bada5a803392f9ec, type: 2}
   _cosmosView: {fileID: 417999332}
 --- !u!1 &136102798
@@ -4339,7 +4339,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &163225550
@@ -8915,7 +8915,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 7326
+  m_ColorTemperature: 6500
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 1.02e-43, y: 6e-44, z: 1.25e-43, w: 4.613e-42}
   m_UseBoundingSphereOverride: 0
@@ -10258,7 +10258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -10656,7 +10656,6 @@ MonoBehaviour:
   _directionalLight: {fileID: 305643357}
   _planetObject: {fileID: 590263866}
   _planetRenderer: {fileID: 587999482}
-  _prologueSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
 --- !u!1001 &419857918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14348,7 +14347,7 @@ MonoBehaviour:
   _mapPanelDoMove: {fileID: 1964336889}
   _buildingInfoPanel: {fileID: 1729158873}
   _missionPanelDoMove: {fileID: 223234110}
-  _eventPanel: {fileID: 0}
+  _eventPanel: {fileID: 1451985182}
   _escapePanel: {fileID: 698942902}
   _canvasGroup: {fileID: 2011502892}
   _learnBuildingInfoPanel: {fileID: 1729158872}
@@ -16447,7 +16446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514
@@ -17824,7 +17823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd0518778e7d4a42998f099d3907588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventPanel: {fileID: 0}
+  _eventPanel: {fileID: 1451985186}
   _cosmosView: {fileID: 417999332}
   _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
   _generator: {fileID: 849943933}
@@ -22841,7 +22840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -52.115906, y: -187.05798}
+  m_AnchoredPosition: {x: -52.115967, y: -187.05798}
   m_SizeDelta: {x: -1192.6858, y: -914.0598}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103591707
@@ -30672,6 +30671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c25a74e7b1f4143bcc7da4a7add0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mapSystem: {fileID: 849943935}
   _mainText: {fileID: 510276530}
   _buttonPrefab: {fileID: 568721058014202588, guid: 0ab6d0bad2b5c5644af1843e66320873,
     type: 3}
@@ -42190,6 +42190,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aiCore: 0
   _cellsView: {fileID: 392172266}
+  _eventPanel: {fileID: 1451985186}
+  _endGameNode: {fileID: 11400000, guid: d8e4fbe4e9e5ac74f9bbff6a992aa9a3, type: 2}
+  _uiPanelsCommandCenter: {fileID: 616848379}
 --- !u!1 &1967881617
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,16 +5,16 @@ using UnityEngine;
 public class WorldSaveGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
-    private string _worldDataSaveFileName = "Mission_";
+    private string _worldDataSaveFileName = "Mission";
 
     public WorldSaveGameDataWriter(string saveDataDirectoryPath)
     {
         SaveDataDirectoryPath = saveDataDirectoryPath;
     }
 
-    public WorldSaveData LoadMissionDataFromJson(string missionId)
+    public WorldSaveData LoadMissionDataFromJson()
     {
-        string savePath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + missionId + ".txt");
+        string savePath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + ".txt");
 
         WorldSaveData loadedSaveData = null;
 
@@ -43,9 +43,9 @@ public class WorldSaveGameDataWriter
         return loadedSaveData;
     }
 
-    public void WriteMissionDataToSaveFile(WorldSaveData worldData, string missionId)
+    public void WriteMissionDataToSaveFile(WorldSaveData worldData)
     {
-        string savePath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + missionId + ".txt");
+        string savePath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + ".txt");
 
         try
         {
@@ -64,30 +64,18 @@ public class WorldSaveGameDataWriter
         }
     }
 
-    public void DeleteMissionSaveFile(string missionId)
+    public void DeleteMissionSaveFile()
     {
-        var missionPath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + missionId + ".txt");
+        var missionPath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + ".txt");
         if (File.Exists(missionPath))
         {
             File.Delete(missionPath);
         }
     }
 
-    public void DeleteAllMissionsSaveFiles(int missionsNumber)
+    public bool CheckIfSaveFileExists()
     {
-        for (int i = 0; i < missionsNumber; i++)
-        {
-            var missionPath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + i + ".txt");
-            if (File.Exists(missionPath))
-            {
-                File.Delete(missionPath);
-            }
-        }
-    }
-
-    public bool CheckIfSaveFileExists(string missionId)
-    {
-        if (File.Exists(Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + missionId + ".txt"))) return true;
+        if (File.Exists(Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + ".txt"))) return true;
 
         else return false;
     }

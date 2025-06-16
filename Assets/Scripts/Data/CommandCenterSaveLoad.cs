@@ -35,9 +35,6 @@ public class CommandCenterSaveLoad : MonoBehaviour
             _buildingsLearnPanel.AllLearnBuildingItems()[i].SetupData(currentSaveData.BuildingsLearned[i]);
         }
 
-
-        // _missionPanel.LoadLastOpenedMissionId(currentSaveData.LastOpenedMissionId);
-
         CustomEvents.FireDataLoad();
     }
 }

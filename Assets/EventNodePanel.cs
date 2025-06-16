@@ -4,33 +4,39 @@ using TMPro;
 
 public class EventNodePanel : MonoBehaviour
 {
+    private Stack<int> _stack = new();
+    private EventNode _currentNode;
+    [SerializeField] private MapSystem _mapSystem;
+    private System.Action _onFinished;  
+
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _mainText;
     [SerializeField] private EventNodeButton _buttonPrefab;
     [SerializeField] private Transform _buttonsHolder;
-    private Stack<EventStep> _stack = new();   // стек пройденных шагов
 
-    public void Open(EventNode node)
+    public void Open(EventNode node, System.Action onFinished = null)
     {
+        _onFinished = onFinished;
+        _currentNode = node;
         _stack.Clear();
-        _stack.Push(node.RootStep);
-        ShowStep(node.RootStep);
-        gameObject.SetActive(true);
+        _stack.Push(0);
+        ShowStep(0);
     }
 
-    private void ShowStep(EventStep step)
+    private void ShowStep(int stepIndex)
     {
-        _mainText.text = step.Text[Language.LanguageNumber];
+        var step = _currentNode.Steps[stepIndex];
+
+        _mainText.text = Language.TextStatic[step.TextNumber];
 
         foreach (Transform trans in _buttonsHolder) Destroy(trans.gameObject);
 
-        int lang = Language.LanguageNumber;
         int visible = Mathf.Min(step.Choices.Count, 4);
 
         for (int i = 0; i < visible; i++)
         {
             var choice = step.Choices[i];
-            string text = $"{i + 1}. {choice.ChoiseText[lang]}";
+            string text = $"{i + 1}. {Language.TextStatic[choice.ChoiseTextNumber]}";
 
             var button = Instantiate(_buttonPrefab, _buttonsHolder);
             button.Setup(text, () => OnChoice(choice));
@@ -44,17 +50,19 @@ public class EventNodePanel : MonoBehaviour
         // выдаём награды
         if (choice.Rewards != null)
         {
-            foreach (var r in choice.Rewards) GrantReward(r);
+            foreach (var reward in choice.Rewards) GrantReward(reward);
         }
 
-        if (choice.IsFinal || choice.NextStep == null)
+        if (choice.NextStepIndex < 0)
         {
+            _onFinished?.Invoke();  
+            _mapSystem.CompleteCurrentNode();
             Close();
         }
         else
         {
-            _stack.Push(choice.NextStep);
-            ShowStep(choice.NextStep);
+            _stack.Push(choice.NextStepIndex);
+            ShowStep(choice.NextStepIndex);
         }
     }
 
@@ -70,16 +78,17 @@ public class EventNodePanel : MonoBehaviour
         // TODO: сохранение прогресса
     }
 
-    public void PlayerInputSelectNumber(int number)
+    public void PlayerInputSelectNumber(int n)
     {
-        if (!gameObject.activeInHierarchy) return;
-        if (number < 1 || number > 4) return;
+        if (!gameObject.activeInHierarchy || n is < 1 or > 4) return;
 
-        var step = _stack.Peek();
-        int idx = number - 1;
+        var step = _currentNode.Steps[_stack.Peek()];
+        int idx = n - 1;
 
         if (idx < step.Choices.Count)
+        {
             OnChoice(step.Choices[idx]);
+        }
     }
 
     public void Close() => gameObject.SetActive(false);

@@ -7,6 +7,7 @@ public class ConnectionsDrawer : MonoBehaviour
     [SerializeField] private MapGenerator _mapGenerator;
     [SerializeField] private RectTransform _contentTransform;
     [SerializeField] private GameObject _linePrefab;
+    private float _cut = 30f; //отступ от нод
 
     private readonly List<GameObject> _spawnedLines = new();
     private readonly Dictionary<(int, int), Image> _lineLookup = new();
@@ -26,7 +27,7 @@ public class ConnectionsDrawer : MonoBehaviour
             {
                 int j = nodes.IndexOf(trg);
                 var img = CreateLine(src.position, trg.position);
-                _lineLookup[(i, j)] = img;           // сохраняем для подсветки
+                _lineLookup[(i, j)] = img;
             }
         }
     }
@@ -50,15 +51,14 @@ public class ConnectionsDrawer : MonoBehaviour
 
     private Image CreateLine(Vector2 start, Vector2 end)
     {
-        const float cut = 30f;                        // отступ от нод
         Vector2 dir = end - start;
         float distance = dir.magnitude;
 
-        if (distance <= cut * 2f) return null;        // слишком близко
+        if (distance <= _cut * 2f) return null;
 
         Vector2 cutDir = dir.normalized;
-        Vector2 p1 = start + cutDir * cut;
-        Vector2 p2 = end - cutDir * cut;
+        Vector2 p1 = start + cutDir * _cut;
+        Vector2 p2 = end - cutDir * _cut;
         Vector2 center = (p1 + p2) * 0.5f;
 
         GameObject go = Instantiate(_linePrefab, _contentTransform);
@@ -67,8 +67,7 @@ public class ConnectionsDrawer : MonoBehaviour
         var rt = go.GetComponent<RectTransform>();
         rt.sizeDelta = new Vector2(Vector2.Distance(p1, p2), 6);
         rt.anchoredPosition = center;
-        rt.rotation = Quaternion.Euler(0, 0,
-                               Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
+        rt.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
 
         return go.GetComponent<Image>();
     }

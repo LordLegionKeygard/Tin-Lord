@@ -10,10 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dec09aa9e6ec63459f9e4296334d773, type: 3}
-  m_Name: EventNode_2
+  m_Name: EmptyEventNode_4
   m_EditorClassIdentifier: 
   NodeType: 2
   Icon: {fileID: 21300000, guid: 3d5bbed581fff8b41907af57dedb20d6, type: 3}
   IconColor: {r: 0.9137255, g: 0.7019608, b: 0, a: 1}
   IconWidth: 70
   IconHeight: 70
+  CosmosVariations:
+  - PlanetTexture: {fileID: 0}
+    PlanetPosition: {x: 0, y: 0, z: 0}
+    PlanetRotation: {x: 0, y: 0, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
+    SkyboxRotation: 0
+    LightRotation: {x: 0, y: 0, z: 0}
+    Temperature: 0
+  Steps:
+  - TextNumber: 304
+    Choices:
+    - ChoiseTextNumber: 33
+      Rewards: []
+      NextStepIndex: -1

@@ -1,30 +1,25 @@
-// EventNode.cs
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EventNode", menuName = "TinLord/Nodes/EventNode")]
 public class EventNode : NodeData
 {
-   public EventStep RootStep;
+   public List<EventStep> Steps = new();
 }
 
 [System.Serializable]
 public class EventStep
 {
-   [TextArea(3, 18)]
-   public string[] Text;
-
+   public int TextNumber;
    public List<EventChoice> Choices = new();
 }
 
 [System.Serializable]
 public class EventChoice
 {
-   public string[] ChoiseText;
-   public bool IsFinal;
-   
+   public int ChoiseTextNumber;
    public List<EventReward> Rewards = new();
-   public EventStep NextStep;
+   public int NextStepIndex = -1;
 }
 
 [System.Serializable]
@@ -36,5 +31,5 @@ public struct EventReward
 
 public enum RewardType
 {
-   None = 0,
+   None = 0
 }

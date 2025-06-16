@@ -17,3 +17,11 @@ MonoBehaviour:
   IconColor: {r: 1, g: 1, b: 1, a: 1}
   IconWidth: 40
   IconHeight: 40
+  CosmosVariations:
+  - PlanetTexture: {fileID: 0}
+    PlanetPosition: {x: 0, y: 0, z: 0}
+    PlanetRotation: {x: 0, y: 0, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
+    SkyboxRotation: 0
+    LightRotation: {x: 0, y: 0, z: 0}
+    Temperature: 0
