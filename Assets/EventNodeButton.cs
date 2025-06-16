@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class EventNodeButton : MonoBehaviour
+public class EventNodeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private Button _button;
@@ -12,5 +13,15 @@ public class EventNodeButton : MonoBehaviour
         _text.text = text;
         _button.onClick.RemoveAllListeners();
         _button.onClick.AddListener(() => callback?.Invoke());
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _text.color = Colors.WarningYellow;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _text.color = Colors.GreySix;
     }
 }

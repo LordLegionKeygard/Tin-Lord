@@ -18,6 +18,7 @@ public class MapSystem : MonoBehaviour
     [Header("UI")]
     [SerializeField] private RectTransform _currentTarget;
     private List<UINode> _uiNodes;
+    private readonly HashSet<int> _reachable = new();
     private int _currentNodeIndex;
 
     private void OnEnable() => CustomEvents.OnDataLoad += HandleDataLoaded;
@@ -162,17 +163,21 @@ public class MapSystem : MonoBehaviour
 
     private void RefreshHighlights()
     {
+        _drawer.ResetAllLineColors();
+        _reachable.Clear();
+
         foreach (var ui in _uiNodes) ui.SetAvailable(false);
 
         var map = _save.CommandCenterSaveData.Map;
         if (!map.Nodes[_currentNodeIndex].IsCompleted) return;
 
-        var curInst = _generator.GetGeneratedNodes()[_currentNodeIndex];
+        var cur = _generator.GetGeneratedNodes()[_currentNodeIndex];
 
-        foreach (var target in curInst.connectedNodes)
+        foreach (var t in cur.connectedNodes)
         {
-            int idx = _generator.GetGeneratedNodes().IndexOf(target);
+            int idx = _generator.GetGeneratedNodes().IndexOf(t);
             _uiNodes[idx].SetAvailable(true);
+            _reachable.Add(idx);
         }
     }
 
@@ -255,6 +260,14 @@ public class MapSystem : MonoBehaviour
         node.IconHeight = info.MissionNodeTemplate.IconHeight;
 
         return node;
+    }
+
+    public void OnHoverNode(int nodeIdx, bool enter)
+    {
+        if (!_reachable.Contains(nodeIdx)) return;
+
+        _uiNodes[nodeIdx].SetOnPointerColor(enter);
+        _drawer.SetLineHighlight(_currentNodeIndex, nodeIdx, enter);
     }
 
 }

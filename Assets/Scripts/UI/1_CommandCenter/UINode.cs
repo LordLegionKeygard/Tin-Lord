@@ -1,18 +1,16 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UINode : MonoBehaviour
+public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Graphics")]
     [SerializeField] private Image _icon;
-    [SerializeField] private GameObject _availableOverlay;   // «можно перейти»
-    //  _completedOverlay  БОЛЬШЕ НЕ НУЖЕН → поле удаляем
-
+    [SerializeField] private Image _availableOverlay;
     private NodeData _nodeData;
     private int _index;
     private MapSystem _mapSystem;
-
-    private Color _defaultColor;     // чтобы вернуть исходный цвет
+    private Color _defaultColor;
 
     // ---------------------------------------------------------------------    
     public void Setup(NodeData data, int index, MapSystem map)
@@ -21,29 +19,41 @@ public class UINode : MonoBehaviour
         _index = index;
         _mapSystem = map;
 
-        _defaultColor = data.IconColor;
-        _icon.sprite = data.Icon;
+        _defaultColor = _nodeData.IconColor;
+        _icon.sprite = _nodeData.Icon;
         _icon.color = _defaultColor;
-        _icon.rectTransform.sizeDelta =
-            new Vector2(data.IconWidth, data.IconHeight);
+        _icon.rectTransform.sizeDelta = new Vector2(_nodeData.IconWidth, _nodeData.IconHeight);
 
         SetAvailable(false);
-        SetCompleted(false);   // ← теперь просто вернёт базовый цвет
+        SetCompleted(false);
     }
 
     public void SelectNode() => _mapSystem.TrySelectNode(_index);
 
-    // ---------------------------------------------------------------------
     public void SetAvailable(bool value)
     {
-        _availableOverlay.SetActive(value);
+        _availableOverlay.enabled = value;
         transform.localScale = value ? Vector3.one * 1.2f : Vector3.one;
     }
 
-    /// <summary> Узел помечаем завершённым — красим саму иконку. </summary>
     public void SetCompleted(bool value)
     {
         _icon.color = value ? Color.green : _defaultColor;
-        // ничего больше показывать не нужно
+    }
+
+    public void OnPointerEnter(PointerEventData e)
+    {
+        _mapSystem.OnHoverNode(_index, true);
+    }
+
+    public void OnPointerExit(PointerEventData e)
+    {
+        _mapSystem.OnHoverNode(_index, false);
+    }
+
+    public void SetOnPointerColor(bool state)
+    {
+        _icon.color = state ? Color.green : _defaultColor;
+        _availableOverlay.color = state ? Color.green : Color.white;
     }
 }

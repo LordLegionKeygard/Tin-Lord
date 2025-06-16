@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ConnectionsDrawer : MonoBehaviour
 {
@@ -8,56 +9,75 @@ public class ConnectionsDrawer : MonoBehaviour
     [SerializeField] private GameObject _linePrefab;
 
     private readonly List<GameObject> _spawnedLines = new();
+    private readonly Dictionary<(int, int), Image> _lineLookup = new();
+
 
     public void DrawConnections()
     {
         ClearConnections();
+        _lineLookup.Clear();
 
-        foreach (var node in _mapGenerator.GetGeneratedNodes())
+        List<NodeInstance> nodes = _mapGenerator.GetGeneratedNodes();
+
+        for (int i = 0; i < nodes.Count; i++)
         {
-            foreach (var target in node.connectedNodes)
+            var src = nodes[i];
+            foreach (var trg in src.connectedNodes)
             {
-                DrawLine(node.position, target.position);
+                int j = nodes.IndexOf(trg);
+                var img = CreateLine(src.position, trg.position);
+                _lineLookup[(i, j)] = img;           // сохраняем для подсветки
             }
         }
     }
 
-    private void DrawLine(Vector2 start, Vector2 end)
+    public void SetLineHighlight(int fromIdx, int toIdx, bool active)
     {
-        const float cutLength = 30f; // расстояние, на которое линия обрезается с каждой стороны
-
-        Vector2 direction = end - start;
-        float fullDistance = direction.magnitude;
-
-        if (fullDistance <= cutLength * 2f)
-            return; // если расстояние слишком маленькое — не рисуем
-
-        Vector2 cutDirection = direction.normalized;
-        Vector2 newStart = start + cutDirection * cutLength;
-        Vector2 newEnd = end - cutDirection * cutLength;
-        Vector2 midPoint = (newStart + newEnd) / 2f;
-
-        float cutDistance = Vector2.Distance(newStart, newEnd);
-
-        GameObject line = Instantiate(_linePrefab, _contentTransform);
-        var rt = line.GetComponent<RectTransform>();
-        rt.sizeDelta = new Vector2(cutDistance, 6);
-        rt.anchoredPosition = midPoint;
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rt.rotation = Quaternion.Euler(0, 0, angle);
-
-        _spawnedLines.Add(line);
+        if (_lineLookup.TryGetValue((fromIdx, toIdx), out var img) ||
+            _lineLookup.TryGetValue((toIdx, fromIdx), out img))
+        {
+            img.color = active ? Color.green : Color.white;
+        }
     }
-
 
     public void ClearConnections()
     {
-        foreach (var item in _spawnedLines)
-        {
-            Destroy(item);
-        }
-
+        foreach (var go in _spawnedLines) Destroy(go);
         _spawnedLines.Clear();
+        _lineLookup.Clear();
+    }
+
+
+    private Image CreateLine(Vector2 start, Vector2 end)
+    {
+        const float cut = 30f;                        // отступ от нод
+        Vector2 dir = end - start;
+        float distance = dir.magnitude;
+
+        if (distance <= cut * 2f) return null;        // слишком близко
+
+        Vector2 cutDir = dir.normalized;
+        Vector2 p1 = start + cutDir * cut;
+        Vector2 p2 = end - cutDir * cut;
+        Vector2 center = (p1 + p2) * 0.5f;
+
+        GameObject go = Instantiate(_linePrefab, _contentTransform);
+        _spawnedLines.Add(go);
+
+        var rt = go.GetComponent<RectTransform>();
+        rt.sizeDelta = new Vector2(Vector2.Distance(p1, p2), 6);
+        rt.anchoredPosition = center;
+        rt.rotation = Quaternion.Euler(0, 0,
+                               Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg);
+
+        return go.GetComponent<Image>();
+    }
+
+    public void ResetAllLineColors()
+    {
+        foreach (var lines in _lineLookup)
+        {
+            lines.Value.color = Color.white;
+        }
     }
 }
