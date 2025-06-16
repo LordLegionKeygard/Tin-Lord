@@ -28,7 +28,7 @@ public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         SetCompleted(false);
     }
 
-    public void SelectNode() => _mapSystem.TrySelectNode(_index);
+    public void SelectNodeButton() => _mapSystem.TrySelectNode(_index);
 
     public void SetAvailable(bool value)
     {
@@ -53,7 +53,6 @@ public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void SetOnPointerColor(bool state)
     {
-        _icon.color = state ? Color.green : _defaultColor;
         _availableOverlay.color = state ? Color.green : Color.white;
     }
 }

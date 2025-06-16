@@ -12,7 +12,7 @@ public class PrologueSystem : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private UIPanelsCommandCenter _panels;
-    [SerializeField] private EventNode _prologueEvent;
+    [SerializeField] private DialogueSequence _prologueDialog;
     [SerializeField] private CosmosView _cosmosView;
 
 
@@ -20,7 +20,7 @@ public class PrologueSystem : MonoBehaviour
     {
         if (!newGame) return;
 
-        _eventPanel.Open(_prologueEvent);
+        _eventPanel.Open(_prologueDialog);
         _panels.EventPanelOpen();
         _commandCenterSaveGame.CompletePrologue(); // логика старого пролога, пока удалять не будем
     }

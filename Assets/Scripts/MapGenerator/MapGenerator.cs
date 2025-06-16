@@ -28,12 +28,27 @@ public class MapGenerator : MonoBehaviour
         {
             NodeType.Start => _allMissionsInfo.StartNode,
             NodeType.Boss => _allMissionsInfo.BossNode,
-            NodeType.Event => _allMissionsInfo.Events.Length > 0 ? _allMissionsInfo.Events[0] : null,
+            NodeType.Event => _allMissionsInfo.EventPools.Length > 0 ? _allMissionsInfo.EventPools[0].EventNode : null,
             NodeType.ModuleTrader => _allMissionsInfo.ModuleTraders.Length > 0 ? _allMissionsInfo.ModuleTraders[0] : null,
             NodeType.SkillTrader => _allMissionsInfo.SkillTraders.Length > 0 ? _allMissionsInfo.SkillTraders[0] : null,
             NodeType.Mission => _allMissionsInfo.MissionNodeTemplate,
             _ => null
         };
+    }
+
+    List<EventEntry> BuildEventEntries(EventPool[] pools)
+    {
+        var list = new List<EventEntry>();
+
+        foreach (var pool in pools)
+        {
+            int limit = Mathf.Clamp(pool.MaxOnMap, 1, pool.EventNode.Dialogue.Length);
+
+            for (int i = 0; i < limit; i++)
+                list.Add(new EventEntry { Node = pool.EventNode, SequenceIndex = i });
+        }
+
+        return list;
     }
 
 
@@ -52,21 +67,21 @@ public class MapGenerator : MonoBehaviour
         var landscapes = new List<Landscape>(_allMissionsInfo.Landscapes);
         var objectives = new List<Objective>(_allMissionsInfo.Objectives);
         var spawners = new List<EnemiesSpawner>(_allMissionsInfo.EnemiesSpawnerInformation);
-        var events = new List<EventNode>(_allMissionsInfo.Events);
+        var eventEntries = BuildEventEntries(_allMissionsInfo.EventPools);
         var moduleTraders = new List<ModuleTraderNode>(_allMissionsInfo.ModuleTraders);
         var skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
 
         Shuffle(landscapes);
         Shuffle(objectives);
         Shuffle(spawners);
-        Shuffle(events);
+        Shuffle(eventEntries);
         Shuffle(moduleTraders);
         Shuffle(skillTraders);
 
         // --------------------------------------------------------------------
         // 2. Считаем, сколько потребуется слоёв
         // --------------------------------------------------------------------
-        int totalContentNodes = landscapes.Count + events.Count + moduleTraders.Count + skillTraders.Count;
+        int totalContentNodes = landscapes.Count + eventEntries.Count + moduleTraders.Count + skillTraders.Count;
         const int maxNodesPerLayer = 3;
         int contentLayers = Mathf.CeilToInt(totalContentNodes / (float)maxNodesPerLayer);
         int totalLayers = contentLayers + 3; // старт, минимум один слой миссий, босс
@@ -99,7 +114,7 @@ public class MapGenerator : MonoBehaviour
             int nodesPlanned = Mathf.Min(maxNodesPerLayer, Random.Range(2, maxNodesPerLayer + 1));
             int nodesThisLayer = 0;
 
-            while (nodesThisLayer < nodesPlanned && (landscapes.Count + events.Count + moduleTraders.Count + skillTraders.Count) > 0)
+            while (nodesThisLayer < nodesPlanned && (landscapes.Count + eventEntries.Count + moduleTraders.Count + skillTraders.Count) > 0)
             {
                 // -------- 1) формируем «мешок» доступных сейчас типов ---------
                 var makers = new List<System.Action>();
@@ -112,12 +127,12 @@ public class MapGenerator : MonoBehaviour
                         AddNodeToLayer(m, NodeType.Mission);
                     });
 
-                if (events.Count > 0)
+                if (eventEntries.Count > 0)
                     makers.Add(() =>
                     {
-                        var e = events[0];
-                        events.RemoveAt(0);
-                        AddNodeToLayer(e, NodeType.Event);
+                        var entry = eventEntries[0];
+                        eventEntries.RemoveAt(0);           // диалог больше не появится
+                        AddEventToLayer(entry);
                     });
 
                 if (moduleTraders.Count > 0)
@@ -149,6 +164,15 @@ public class MapGenerator : MonoBehaviour
                 AddToLayer(layer, inst);
                 _generatedNodes.Add(inst);
                 AddToSavedMap(inst, type, _generatedNodes.Count - 1);
+            }
+
+            void AddEventToLayer(EventEntry e)
+            {
+                var inst = CreateNode(e.Node, layer);
+                AddToLayer(layer, inst);
+                _generatedNodes.Add(inst);
+
+                AddToSavedMap(inst, NodeType.Event, _generatedNodes.Count - 1, e.SequenceIndex);
             }
         }
 
@@ -199,7 +223,7 @@ public class MapGenerator : MonoBehaviour
         node.IconColor = _allMissionsInfo.MissionNodeTemplate.IconColor;
         node.IconWidth = _allMissionsInfo.MissionNodeTemplate.IconWidth;
         node.IconHeight = _allMissionsInfo.MissionNodeTemplate.IconHeight;
-        node.CosmosVariations = node.Landscape.CosmosVariations; 
+        node.CosmosVariations = node.Landscape.CosmosVariations;
 
         return node;
     }
@@ -227,7 +251,7 @@ public class MapGenerator : MonoBehaviour
     }
 
     // Сохраняем в SavedMap
-    private void AddToSavedMap(NodeInstance instance, NodeType type, int nodeIndex)
+    private void AddToSavedMap(NodeInstance instance, NodeType type, int nodeIndex, int eventIndex = -1)
     {
         SavedMap.Nodes.Add(new SavedNodeData
         {
@@ -236,6 +260,7 @@ public class MapGenerator : MonoBehaviour
             MissionIndex = -1,
             ObjectiveIndex = -1,
             SpawnerIndex = -1,
+            EventSequenceIndex = eventIndex,
             Position = Vector2.zero, // выставим позже
             Layer = instance.layer,
             ConnectedNodeIndices = new List<int>()
@@ -350,6 +375,7 @@ public class SavedNodeData
     public int MissionIndex;
     public int ObjectiveIndex;
     public int SpawnerIndex;
+    public int EventSequenceIndex = -1;
     public Vector2 Position;
     public int Layer;
     public List<int> ConnectedNodeIndices = new();
@@ -374,4 +400,10 @@ public class NodeInstance
     public int layer;
     public Vector2 position;
     public List<NodeInstance> connectedNodes = new();
+}
+
+public struct EventEntry
+{
+    public EventNode Node;     // какой ScriptableObject-ивент
+    public int SequenceIndex; // номер диалога внутри .Sequences
 }

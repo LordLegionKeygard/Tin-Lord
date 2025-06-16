@@ -5,18 +5,25 @@ public class AllMissionsInfo : ScriptableObject
 {
     [Header("Nodes")]
     public StartNode StartNode; // стартовая точка
-    public EventNode[] Events; // все возможные ивенты
+    public EventPool[] EventPools; // все возможные ивенты
     public ModuleTraderNode[] ModuleTraders; // все торговцы модулями
     public SkillTraderNode[] SkillTraders; // все торговцы умениями
     public BossNode BossNode; // финальный босс
 
     [Header("Templates")]
     public MissionNode MissionNodeTemplate; // шаблон для получения иконки миссии
-    
+
 
     [Header("Parts for MissionNode")]
     public Landscape[] Landscapes; // случайные ландшафты
     public EnemiesSpawner[] EnemiesSpawnerInformation; // информация о врагах
     public Objective[] Objectives; // информация о целях миссии
 
+}
+
+[System.Serializable]
+public class EventPool
+{
+    public EventNode EventNode;
+    [Min(1)] public int MaxOnMap = 1;
 }

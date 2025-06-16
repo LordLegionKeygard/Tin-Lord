@@ -5,7 +5,7 @@ using TMPro;
 public class EventNodePanel : MonoBehaviour
 {
     private Stack<int> _stack = new();
-    private EventNode _currentNode;
+    private DialogueSequence _dialogue;
     [SerializeField] private MapSystem _mapSystem;
     private System.Action _onFinished;  
 
@@ -14,10 +14,10 @@ public class EventNodePanel : MonoBehaviour
     [SerializeField] private EventNodeButton _buttonPrefab;
     [SerializeField] private Transform _buttonsHolder;
 
-    public void Open(EventNode node, System.Action onFinished = null)
+    public void Open(DialogueSequence node, System.Action onFinished = null)
     {
         _onFinished = onFinished;
-        _currentNode = node;
+        _dialogue = node;
         _stack.Clear();
         _stack.Push(0);
         ShowStep(0);
@@ -25,7 +25,7 @@ public class EventNodePanel : MonoBehaviour
 
     private void ShowStep(int stepIndex)
     {
-        var step = _currentNode.Steps[stepIndex];
+        var step = _dialogue.Steps[stepIndex];
 
         _mainText.text = Language.TextStatic[step.TextNumber];
 
@@ -43,7 +43,7 @@ public class EventNodePanel : MonoBehaviour
         }
     }
 
-    private void OnChoice(EventChoice choice)
+    private void OnChoice(StepChoice choice)
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
@@ -82,7 +82,7 @@ public class EventNodePanel : MonoBehaviour
     {
         if (!gameObject.activeInHierarchy || n is < 1 or > 4) return;
 
-        var step = _currentNode.Steps[_stack.Peek()];
+        var step = _dialogue.Steps[_stack.Peek()];
         int idx = n - 1;
 
         if (idx < step.Choices.Count)

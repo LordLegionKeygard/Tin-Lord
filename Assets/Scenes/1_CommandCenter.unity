@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007779167, g: 0.00009598933, b: 0.000115386225,
+  m_IndirectSpecularColor: {r: 0.000077994366, g: 0.00009619406, b: 0.00011582064,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -3029,7 +3029,7 @@ MonoBehaviour:
   _canvasGroup: {fileID: 2011502892}
   _prologueCanvas: {fileID: 1808600982}
   _panels: {fileID: 616848379}
-  _prologueEvent: {fileID: 11400000, guid: 7d0833bfa40a6f94bada5a803392f9ec, type: 2}
+  _prologueDialog: {fileID: 11400000, guid: 3aab2769bd18b344a94576766b6a9ff6, type: 2}
   _cosmosView: {fileID: 417999332}
 --- !u!1 &136102798
 GameObject:
@@ -42191,7 +42191,7 @@ MonoBehaviour:
   _aiCore: 0
   _cellsView: {fileID: 392172266}
   _eventPanel: {fileID: 1451985186}
-  _endGameNode: {fileID: 11400000, guid: d8e4fbe4e9e5ac74f9bbff6a992aa9a3, type: 2}
+  _endGameDialogue: {fileID: 11400000, guid: e64af431980a7bb44860aefe1d956cac, type: 2}
   _uiPanelsCommandCenter: {fileID: 616848379}
 --- !u!1 &1967881617
 GameObject:

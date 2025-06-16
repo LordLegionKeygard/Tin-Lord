@@ -9,7 +9,7 @@ public class AiCoreSystem : MonoBehaviour
     [SerializeField] private int _aiCore;
     [SerializeField] private CellsView _cellsView;
     [SerializeField] private EventNodePanel _eventPanel;
-    [SerializeField] private EventNode _endGameNode;
+    [SerializeField] private DialogueSequence _endGameDialogue;
     [SerializeField] private UIPanelsCommandCenter _uiPanelsCommandCenter;
 
     public int GetAiCores() => _aiCore;
@@ -37,7 +37,7 @@ public class AiCoreSystem : MonoBehaviour
 
     private void ShowGameOverPanel()
     {
-        _eventPanel.Open(_endGameNode, GameOver);
+        _eventPanel.Open(_endGameDialogue, GameOver);
         _uiPanelsCommandCenter.EventPanelOpen();
     }
 

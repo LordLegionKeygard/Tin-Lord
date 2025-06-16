@@ -101,7 +101,8 @@ public class MapSystem : MonoBehaviour
         if (map.Nodes[nodeIndex].NodeType == NodeType.Event)
         {
             var eventNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as EventNode;
-            _eventPanel.Open(eventNode);
+            int sequenceIndex = map.Nodes[nodeIndex].EventSequenceIndex;
+            _eventPanel.Open(eventNode.Dialogue[sequenceIndex]);
             _panels.EventPanelOpen();
         }
 
