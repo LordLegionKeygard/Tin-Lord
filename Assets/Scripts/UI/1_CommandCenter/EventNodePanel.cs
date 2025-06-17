@@ -46,11 +46,18 @@ public class EventNodePanel : MonoBehaviour
                 foreach (var reward in rewards)
                 {
                     int amount = Random.Range(reward.MinAmount, reward.MaxAmount);
+
                     string rewardText = reward.Type switch
                     {
-                        RewardType.AiCore => $"{Language.TextStatic[279]} {amount}",
-                        RewardType.Quants => $"{Language.TextStatic[280]} {amount}",
-                        RewardType.Memory => $"{Language.TextStatic[281]} {amount}",
+                        RewardType.AiCore => amount >= 0
+                            ? $"{Language.TextStatic[279]} {amount}"    // "Вы получили ядра ИИ:"
+                            : $"{Language.TextStatic[282]} {amount}",  // "Вы потеряли ядра ИИ:"
+                        RewardType.Quants => amount >= 0
+                            ? $"{Language.TextStatic[280]} {amount}"    // "Вы получили кванты:"
+                            : $"{Language.TextStatic[283]} {amount}",  // "Вы потеряли кванты:"
+                        RewardType.Memory => amount >= 0
+                            ? $"{Language.TextStatic[281]} {amount}"    // "Вы получили фрагменты памяти:"
+                            : $"{Language.TextStatic[284]} {amount}",  // "Вы потеряли фрагменты памяти:"
                         _ => null
                     };
 
@@ -61,6 +68,7 @@ public class EventNodePanel : MonoBehaviour
                 }
             }
         }
+
 
         _mainText.text = mainTextBuilder.ToString();
 
