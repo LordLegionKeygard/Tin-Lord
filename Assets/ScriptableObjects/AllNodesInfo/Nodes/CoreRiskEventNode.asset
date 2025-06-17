@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CoreRiskEventNode
   m_EditorClassIdentifier: 
   NodeType: 2
-  Icon: {fileID: 21300000, guid: 3d5bbed581fff8b41907af57dedb20d6, type: 3}
+  Icon: {fileID: 21300000, guid: a19a0509345331e4aaf28cf7544f5f93, type: 3}
   IconColor: {r: 0.9, g: 0.7, b: 0, a: 1}
   IconWidth: 70
   IconHeight: 70
@@ -27,10 +27,4 @@ MonoBehaviour:
     LightRotation: {x: 0, y: 0, z: 0}
     Temperature: 0
   Dialogue:
-  - {fileID: 11400000, guid: 8511c8132a2526f46ae51b6c1743391d, type: 2}
-  - {fileID: 11400000, guid: 5261cb82807fc044b9a02b81a3980790, type: 2}
-  - {fileID: 11400000, guid: a052909c0366bdb4a95a64e97e7cd98f, type: 2}
-  - {fileID: 11400000, guid: 288bdf74adcfbe74483bec2c3ef77336, type: 2}
-  - {fileID: 11400000, guid: d0a764c2e0b29e74eaec79116c81b64c, type: 2}
-  - {fileID: 11400000, guid: 0cf2da606ea78e04f897e2c4b483b82f, type: 2}
-  - {fileID: 11400000, guid: 9e13769fbd2999847a2cb5425d66bcfd, type: 2}
+  - {fileID: 11400000, guid: 1e33a335850b944419cd735d2604543d, type: 2}

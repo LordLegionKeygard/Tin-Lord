@@ -10,21 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 043b2baa39c66b3458497ac75327445a, type: 3}
-  m_Name: 0_CoreRiskDialog
+  m_Name: 1_CoreRiskDialog
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 316
+  - TextNumber: 323
     Choices:
-    - ChoiseTextNumber: 317
+    - ChoiseTextNumber: 324
       NextStepIndex: 1
       Rewards: []
-    - ChoiseTextNumber: 319
+    - ChoiseTextNumber: 326
       NextStepIndex: 2
       Rewards: []
-    - ChoiseTextNumber: 321
+    - ChoiseTextNumber: 334
+      NextStepIndex: -1
+      Rewards: []
+  - TextNumber: 325
+    Choices:
+    - ChoiseTextNumber: 33
+      NextStepIndex: -1
+      Rewards: []
+  - TextNumber: 327
+    Choices:
+    - ChoiseTextNumber: 328
       NextStepIndex: 3
       Rewards: []
-  - TextNumber: 318
+    - ChoiseTextNumber: 330
+      NextStepIndex: 4
+      Rewards: []
+    - ChoiseTextNumber: 332
+      NextStepIndex: 5
+      Rewards: []
+  - TextNumber: 329
+    Choices:
+    - ChoiseTextNumber: 33
+      NextStepIndex: -1
+      Rewards: []
+  - TextNumber: 331
     Choices:
     - ChoiseTextNumber: 33
       NextStepIndex: -1
@@ -32,12 +53,7 @@ MonoBehaviour:
       - Type: 1
         MinAmount: -1
         MaxAmount: -1
-  - TextNumber: 320
-    Choices:
-    - ChoiseTextNumber: 33
-      NextStepIndex: -1
-      Rewards: []
-  - TextNumber: 322
+  - TextNumber: 333
     Choices:
     - ChoiseTextNumber: 33
       NextStepIndex: -1
