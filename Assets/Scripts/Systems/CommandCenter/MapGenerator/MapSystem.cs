@@ -118,9 +118,9 @@ public class MapSystem : MonoBehaviour
             _eventPanel.Open(eventNode.Dialogue[sequenceIndex]);
             _panels.EventPanelOpen();
         }
-        if (map.Nodes[nodeIndex].NodeType == NodeType.HealCoreEvent)
+        if (map.Nodes[nodeIndex].NodeType == NodeType.RewardEvent)
         {
-            var healNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as HealCoreEventNode;
+            var healNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as RewardEventNode;
             _eventPanel.Open(healNode.Dialogue);
             _panels.EventPanelOpen();
         }

@@ -26,12 +26,15 @@ public class StepChoice
 public struct EventReward
 {
     public RewardType Type;
-    public int Amount;
+    public int MinAmount;
+    public int MaxAmount;
 }
 
 public enum RewardType
 {
     None = 0,
     AiCore = 1,
+    Quants = 2,
+    Memory = 3,
 }
 

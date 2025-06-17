@@ -15,7 +15,11 @@ public class EventNodePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _mainText;
     [SerializeField] private EventNodeButton _buttonPrefab;
     [SerializeField] private Transform _buttonsHolder;
+
+    [Header("Rewards")]
+    [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private AiCoreSystem _aiCoreSystem;
+    [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
 
     public void Open(DialogueSequence node, System.Action onFinished = null)
     {
@@ -29,14 +33,45 @@ public class EventNodePanel : MonoBehaviour
     private void ShowStep(int stepIndex)
     {
         var step = _dialogue.Steps[stepIndex];
+        var mainTextBuilder = new System.Text.StringBuilder();
 
-        _mainText.text = Language.TextStatic[step.TextNumber];
+        mainTextBuilder.AppendLine(Language.TextStatic[step.TextNumber]);
 
-        foreach (Transform trans in _buttonsHolder) Destroy(trans.gameObject);
+        if (step.Choices != null && step.Choices.Count > 0)
+        {
+            var rewards = step.Choices[0].Rewards;
+            if (rewards != null && rewards.Count > 0)
+            {
+                mainTextBuilder.AppendLine();
+                foreach (var reward in rewards)
+                {
+                    int amount = Random.Range(reward.MinAmount, reward.MaxAmount);
+                    string rewardText = reward.Type switch
+                    {
+                        RewardType.AiCore => $"{Language.TextStatic[279]} {amount}",
+                        RewardType.Quants => $"{Language.TextStatic[280]} {amount}",
+                        RewardType.Memory => $"{Language.TextStatic[281]} {amount}",
+                        _ => null
+                    };
+
+                    if (!string.IsNullOrEmpty(rewardText))
+                    {
+                        mainTextBuilder.AppendLine(rewardText);
+                    }
+                }
+            }
+        }
+
+        _mainText.text = mainTextBuilder.ToString();
+
+        // очищаем старые кнопки
+        foreach (Transform trans in _buttonsHolder)
+        {
+            Destroy(trans.gameObject);
+        }
 
         int visible = Mathf.Min(step.Choices.Count, 4);
-
-        for (int i = 0; i < visible; i++)
+        for (int i = visible - 1; i >= 0; i--)
         {
             var choice = step.Choices[i];
             string text = $"{i + 1}. {Language.TextStatic[choice.ChoiseTextNumber]}";
@@ -46,15 +81,21 @@ public class EventNodePanel : MonoBehaviour
         }
     }
 
+
     private void OnChoice(StepChoice choice)
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
-        // выдаём награды
         if (choice.Rewards != null)
         {
-            foreach (var reward in choice.Rewards) GrantReward(reward);
+            foreach (var reward in choice.Rewards)
+            {
+                int amount = Random.Range(reward.MinAmount, reward.MaxAmount);
+                GrantReward(reward, amount);
+            }
         }
+
+        _commandCenterSaveGame.SaveGameData(false);
 
         if (choice.NextStepIndex < 0)
         {
@@ -70,12 +111,19 @@ public class EventNodePanel : MonoBehaviour
     }
 
 
-    private void GrantReward(EventReward eventReward)
+
+    private void GrantReward(EventReward reward, int amount)
     {
-        switch (eventReward.Type)
+        switch (reward.Type)
         {
             case RewardType.AiCore:
-                _aiCoreSystem.ChangeAiCores(1);
+                _aiCoreSystem.ChangeAiCores(amount);
+                break;
+            case RewardType.Quants:
+                _quantsSystem.ChangeQuants(amount);
+                break;
+            case RewardType.Memory:
+                _buildingsLearnPanel.ChangeFragments(amount);
                 break;
         }
 

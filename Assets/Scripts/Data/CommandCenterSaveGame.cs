@@ -24,6 +24,7 @@ public class CommandCenterSaveGame : MonoBehaviour
     {
         CommandCenterSaveData = new CommandCenterSaveData
         {
+            Quants = 35,
             AiCores = 6,
             MemoryFragments = 0,
             PrologueCompleted = false,

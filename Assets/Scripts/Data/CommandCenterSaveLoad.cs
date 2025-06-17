@@ -4,9 +4,10 @@ using Zenject;
 public class CommandCenterSaveLoad : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
-    [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
     [SerializeField] private PrologueSystem _prologue;
+    [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private AiCoreSystem _aiCoreSystem;
+    [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
 
     public void SaveData(ref CommandCenterSaveData currentSaveData)
     {
+        currentSaveData.Quants = _quantsSystem.GetQuants();
         currentSaveData.AiCores = _aiCoreSystem.GetAiCores();
         currentSaveData.MemoryFragments = _buildingsLearnPanel.MemoryFragments();
 
@@ -26,6 +28,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
 
     public void LoadData(ref CommandCenterSaveData currentSaveData)
     {
+        _quantsSystem.LoadQuants(currentSaveData.Quants);
         _aiCoreSystem.LoadAiCore(currentSaveData.AiCores);
         _buildingsLearnPanel.SetFragments(currentSaveData.MemoryFragments);
         _prologue.StartPrologue(!currentSaveData.PrologueCompleted);

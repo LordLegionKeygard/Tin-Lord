@@ -28,7 +28,7 @@ public class MapGenerator : MonoBehaviour
             NodeType.Start => _allMissionsInfo.StartNode,
             NodeType.Boss => _allMissionsInfo.BossNode,
             NodeType.Event => _allMissionsInfo.EventPools[0].Node,
-            NodeType.HealCoreEvent => _allMissionsInfo.EventPools[1].Node,
+            NodeType.RewardEvent => _allMissionsInfo.EventPools[1].Node,
             NodeType.ModuleTrader => _allMissionsInfo.ModuleTraders[0],
             NodeType.SkillTrader => _allMissionsInfo.SkillTraders[0],
             NodeType.Mission => _allMissionsInfo.MissionNodeTemplate,
@@ -188,7 +188,7 @@ public class MapGenerator : MonoBehaviour
                 AddToLayer(layer, inst);
                 _generatedNodes.Add(inst);
 
-                var nType = e.Node is HealCoreEventNode ? NodeType.HealCoreEvent : NodeType.Event;
+                var nType = e.Node is RewardEventNode ? NodeType.RewardEvent : NodeType.Event;
                 AddToSavedMap(inst, nType, _generatedNodes.Count - 1, e.SequenceIndex);
             }
         }
@@ -410,7 +410,7 @@ public enum NodeType
     ModuleTrader = 3,
     SkillTrader = 4,
     Boss = 5,
-    HealCoreEvent = 6,
+    RewardEvent = 6,
 }
 
 public class NodeInstance

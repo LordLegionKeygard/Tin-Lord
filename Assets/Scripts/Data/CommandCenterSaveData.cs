@@ -4,6 +4,7 @@
 [System.Serializable]
 public class CommandCenterSaveData
 {
+    public int Quants;
     public int AiCores;
     public float MemoryFragments;
     public bool PrologueCompleted;
