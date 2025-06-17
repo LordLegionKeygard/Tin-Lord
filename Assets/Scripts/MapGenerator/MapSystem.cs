@@ -6,6 +6,7 @@ public class MapSystem : MonoBehaviour
 {
     [Inject] private CommandCenterSaveGame _save;
 
+    [SerializeField] private MapDragScroller _mapScroller;
     [SerializeField] private EventNodePanel _eventPanel;
     [SerializeField] private CosmosView _cosmosView;
     [SerializeField] private AllNodesInfo _allMissionsInfo;
@@ -273,5 +274,13 @@ public class MapSystem : MonoBehaviour
 
         _uiNodes[nodeIdx].SetOnPointerColor(enter);
         _drawer.SetLineHighlight(_currentNodeIndex, nodeIdx, enter);
+    }
+
+    public void FocusOnCurrentNode()
+    {
+        if (_uiNodes == null || _uiNodes.Count == 0) return;
+
+        var curRect = _uiNodes[_currentNodeIndex].GetComponent<RectTransform>();
+        _mapScroller.JumpTo(curRect);
     }
 }

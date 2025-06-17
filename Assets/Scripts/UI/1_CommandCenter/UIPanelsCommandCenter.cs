@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class UIPanelsCommandCenter : MonoBehaviour
 {
+    [SerializeField] private MapSystem _mapSystem;
     [SerializeField] private PanelDoMoveX _buildingsPanelDoMove;
     [SerializeField] private PanelDoMoveY _mapPanelDoMove;
     [SerializeField] private PanelDoMoveY _buildingInfoPanel;
@@ -47,6 +48,7 @@ public class UIPanelsCommandCenter : MonoBehaviour
 
         if (!_mapPanelDoMove.IsOpen())
         {
+            _mapSystem.FocusOnCurrentNode();
             _mapPanelDoMove.PanelMove();
         }
     }
