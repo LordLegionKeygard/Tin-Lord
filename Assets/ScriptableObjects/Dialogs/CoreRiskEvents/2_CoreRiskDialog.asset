@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 043b2baa39c66b3458497ac75327445a, type: 3}
-  m_Name: Rest_Dialogue
+  m_Name: 2_CoreRiskDialog
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 309
+  - TextNumber: 335
     Choices:
-    - ChoiseTextNumber: 310
+    - ChoiseTextNumber: 336
       Kind: 0
       Standard:
         NextStepIndex: 1
@@ -26,7 +26,7 @@ MonoBehaviour:
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
-    - ChoiseTextNumber: 312
+    - ChoiseTextNumber: 338
       Kind: 0
       Standard:
         NextStepIndex: 2
@@ -37,7 +37,7 @@ MonoBehaviour:
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
-    - ChoiseTextNumber: 314
+    - ChoiseTextNumber: 340
       Kind: 0
       Standard:
         NextStepIndex: 3
@@ -48,7 +48,24 @@ MonoBehaviour:
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
-  - TextNumber: 311
+    - ChoiseTextNumber: 342
+      Kind: 1
+      Standard:
+        NextStepIndex: -1
+        Rewards: []
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 343
+        FailureTextNumber: 344
+        SuccessRewards:
+        - Type: 1
+          MinAmount: 1
+          MaxAmount: 1
+        FailureRewards:
+        - Type: 1
+          MinAmount: -2
+          MaxAmount: -2
+  - TextNumber: 337
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -56,40 +73,40 @@ MonoBehaviour:
         NextStepIndex: -1
         Rewards:
         - Type: 1
-          MinAmount: 1
-          MaxAmount: 1
-      Chance:
-        SuccessChance: 0.5
-        SuccessTextNumber: 0
-        FailureTextNumber: 0
-        SuccessRewards: []
-        FailureRewards: []
-  - TextNumber: 313
-    Choices:
-    - ChoiseTextNumber: 33
-      Kind: 0
-      Standard:
-        NextStepIndex: -1
-        Rewards:
-        - Type: 2
-          MinAmount: 10
-          MaxAmount: 40
-      Chance:
-        SuccessChance: 0.5
-        SuccessTextNumber: 0
-        FailureTextNumber: 0
-        SuccessRewards: []
-        FailureRewards: []
-  - TextNumber: 315
-    Choices:
-    - ChoiseTextNumber: 33
-      Kind: 0
-      Standard:
-        NextStepIndex: -1
-        Rewards:
+          MinAmount: -2
+          MaxAmount: -2
         - Type: 3
           MinAmount: 10
           MaxAmount: 40
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 339
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 1
+          MinAmount: -1
+          MaxAmount: -1
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 341
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards: []
       Chance:
         SuccessChance: 0.5
         SuccessTextNumber: 0

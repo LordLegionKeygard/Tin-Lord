@@ -70,16 +70,12 @@ public class MapGenerator : MonoBehaviour
 
     public void GenerateMap()
     {
-        // --------------------------------------------------------------------
         // 0. Сброс старых данных
-        // --------------------------------------------------------------------
         _generatedNodes.Clear();
         _layers.Clear();
         SavedMap = new SavedMapData();
 
-        // --------------------------------------------------------------------
         // 1. Копируем и перемешиваем исходные списки
-        // --------------------------------------------------------------------
         var landscapes = new List<Landscape>(_allMissionsInfo.Landscapes);
         var objectives = new List<Objective>(_allMissionsInfo.Objectives);
         var spawners = new List<EnemiesSpawner>(_allMissionsInfo.EnemiesSpawnerInformation);
@@ -94,9 +90,7 @@ public class MapGenerator : MonoBehaviour
         Shuffle(moduleTraders);
         Shuffle(skillTraders);
 
-        // --------------------------------------------------------------------
         // 2. Считаем, сколько потребуется слоёв
-        // --------------------------------------------------------------------
         int totalContentNodes = landscapes.Count + eventEntries.Count + moduleTraders.Count + skillTraders.Count;
         const int maxNodesPerLayer = 3;
         int contentLayers = Mathf.CeilToInt(totalContentNodes / (float)maxNodesPerLayer);
@@ -105,26 +99,20 @@ public class MapGenerator : MonoBehaviour
         int objectiveIdx = 0;
         int spawnerIdx = 0;
 
-        // --------------------------------------------------------------------
         // 2.1  Стартовый узел
-        // --------------------------------------------------------------------
         NodeInstance start = CreateNode(_allMissionsInfo.StartNode, 0);
         AddToLayer(0, start);
         _generatedNodes.Add(start);
         AddToSavedMap(start, NodeType.Start, _generatedNodes.Count - 1);
 
-        // --------------------------------------------------------------------
         // 2.2  Первая обязательная миссия
-        // --------------------------------------------------------------------
         MissionNode firstMissionData = CreateMissionNode(landscapes, objectives, spawners, ref objectiveIdx, ref spawnerIdx);
         NodeInstance firstMission = CreateNode(firstMissionData, 1);
         AddToLayer(1, firstMission);
         _generatedNodes.Add(firstMission);
         AddToSavedMap(firstMission, NodeType.Mission, _generatedNodes.Count - 1);
 
-        // --------------------------------------------------------------------
         // 2.3  Промежуточные слои (2 … totalLayers-2) — случайное чередование типов
-        // --------------------------------------------------------------------
         for (int layer = 2; layer < totalLayers - 1; layer++)
         {
             int nodesPlanned = Mathf.Min(maxNodesPerLayer, Random.Range(2, maxNodesPerLayer + 1));
@@ -132,7 +120,6 @@ public class MapGenerator : MonoBehaviour
 
             while (nodesThisLayer < nodesPlanned && (landscapes.Count + eventEntries.Count + moduleTraders.Count + skillTraders.Count) > 0)
             {
-                // -------- 1) формируем «мешок» доступных сейчас типов ---------
                 var makers = new List<System.Action>();
 
                 if (landscapes.Count > 0)
@@ -147,7 +134,7 @@ public class MapGenerator : MonoBehaviour
                     makers.Add(() =>
                     {
                         var entry = eventEntries[0];
-                        eventEntries.RemoveAt(0);           // диалог больше не появится
+                        eventEntries.RemoveAt(0);
                         AddEventToLayer(entry);
                     });
 
@@ -167,13 +154,11 @@ public class MapGenerator : MonoBehaviour
                         AddNodeToLayer(t, NodeType.SkillTrader);
                     });
 
-                // -------- 2) случайно выбираем лямбду и вызываем её -------------
                 int pick = Random.Range(0, makers.Count);
                 makers[pick].Invoke();
                 nodesThisLayer++;
             }
 
-            // --- локальная функция, чтобы не дублировать код вставки ----------
             void AddNodeToLayer(NodeData data, NodeType type)
             {
                 var inst = CreateNode(data, layer);
@@ -193,24 +178,20 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        // --------------------------------------------------------------------
         // 2.4  Финальный босс
-        // --------------------------------------------------------------------
         NodeInstance boss = CreateNode(_allMissionsInfo.BossNode, totalLayers - 1);
         AddToLayer(totalLayers - 1, boss);
         _generatedNodes.Add(boss);
         AddToSavedMap(boss, NodeType.Boss, _generatedNodes.Count - 1);
 
-        // --------------------------------------------------------------------
         // 3. Связи и финальный layout
-        // --------------------------------------------------------------------
         GenerateConnections();
         LayoutLayers();
 
-        FillMissionIndices();       // проставляем MissionIndex-ы
+        FillMissionIndices();
     }
 
-    // заполняем в SaveMapData реальными сгенерирвоанными индексами 
+    // заполняем в SaveMapData реальными сгенерированными индексами 
     private void FillMissionIndices()
     {
         for (int i = 0; i < _generatedNodes.Count; i++)
@@ -228,7 +209,7 @@ public class MapGenerator : MonoBehaviour
     }
 
 
-    // Создание конкретной MissionNode из независимых частей -----
+    // Создание конкретной MissionNode из независимых частей
     private MissionNode CreateMissionNode(List<Landscape> landscapes, List<Objective> objectives, List<EnemiesSpawner> spawners, ref int objectiveIdx, ref int spawnerIdx)
     {
         var node = ScriptableObject.CreateInstance<MissionNode>();
@@ -246,7 +227,7 @@ public class MapGenerator : MonoBehaviour
         return node;
     }
 
-    // Создание NodeInstance (без позиции!) ----------------------
+    // Создание NodeInstance (без позиции!)
     private NodeInstance CreateNode(NodeData data, int layer)
     {
         return new NodeInstance
@@ -315,7 +296,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    // Связи: «верхняя к верхней» — без перекрёстий --------------
+    // Связи: «верхняя к верхней» — без перекрёстий
     private void GenerateConnections()
     {
         var sortedLayers = new List<int>(_layers.Keys);
