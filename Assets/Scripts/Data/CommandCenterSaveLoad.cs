@@ -18,7 +18,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
     {
         currentSaveData.Quants = _quantsSystem.GetQuants();
         currentSaveData.AiCores = _aiCoreSystem.GetAiCores();
-        currentSaveData.MemoryFragments = _buildingsLearnPanel.MemoryFragments();
+        currentSaveData.MemoryFragments = _buildingsLearnPanel.GetMemoryFragments();
 
         for (int i = 0; i < _buildingsLearnPanel.AllLearnBuildingItems().Length; i++)
         {

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dec09aa9e6ec63459f9e4296334d773, type: 3}
+  m_Name: FactionGuardiansEventNode
+  m_EditorClassIdentifier: 
+  NodeType: 2
+  Icon: {fileID: 21300000, guid: cddab69ae86d91340b39d03f13896176, type: 3}
+  IconColor: {r: 0.6039216, g: 0.78431374, b: 0.98039216, a: 1}
+  IconWidth: 70
+  IconHeight: 70
+  DescriptionTextNumber: 275
+  CosmosVariations:
+  - PlanetPrefab: {fileID: 0}
+    PlanetPosition: {x: 0, y: 0, z: 0}
+    PlanetRotation: {x: 0, y: 0, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
+    SkyboxRotation: 0
+    LightRotation: {x: 0, y: 0, z: 0}
+    Temperature: 0
+  Dialogue:
+  - {fileID: 11400000, guid: d3230c1be9df7474c9e525ecf365500e, type: 2}
+  EachCosmosForEachDialogue: 0

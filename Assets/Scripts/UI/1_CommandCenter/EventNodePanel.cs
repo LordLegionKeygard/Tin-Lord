@@ -39,42 +39,40 @@ public class EventNodePanel : MonoBehaviour
     {
         var step = _dialogue.Steps[stepIndex];
         var sb = new StringBuilder();
-
         sb.AppendLine(Language.TextStatic[step.TextNumber]);
 
         _cachedRewards.Clear();
-        foreach (var choice in step.Choices)
+        foreach (var ch in step.Choices)
         {
-            if (choice.Kind == ChoiceKind.Standard &&
-                choice.Standard.Rewards != null &&
-                choice.Standard.Rewards.Count > 0)
+            if (ch.Kind == ChoiceKind.Standard &&
+                ch.Standard.Rewards != null &&
+                ch.Standard.Rewards.Count > 0)
             {
                 sb.AppendLine();
-                foreach (var r in choice.Standard.Rewards)
+                foreach (var r in ch.Standard.Rewards)
                 {
                     int amt = UnityEngine.Random.Range(r.MinAmount, r.MaxAmount);
                     _cachedRewards.Add((r, amt));
-
-                    var line = FormatRewardLine(r, amt);
-                    if (!string.IsNullOrEmpty(line))
-                        sb.AppendLine(line);
+                    sb.AppendLine(FormatRewardLine(r, amt));
                 }
                 break;
             }
         }
-
         _mainText.text = sb.ToString();
 
         foreach (Transform t in _buttonsHolder) Destroy(t.gameObject);
 
-        int count = Mathf.Min(step.Choices.Count, 4);
-        for (int i = count - 1; i >= 0; i--)
+        int visible = Mathf.Min(step.Choices.Count, 4);
+        for (int i = visible - 1; i >= 0; i--)
         {
             var choice = step.Choices[i];
             string text = $"{i + 1}. {Language.TextStatic[choice.ChoiseTextNumber]}";
 
             var btn = Instantiate(_buttonPrefab, _buttonsHolder);
             btn.Setup(text, () => OnChoice(choice));
+
+            bool allowed = choice.Kind == ChoiceKind.Standard ? RequirementMet(choice.Standard) : true;
+            btn.SetInteractable(allowed);
         }
     }
 
@@ -194,18 +192,41 @@ public class EventNodePanel : MonoBehaviour
         }
     }
 
+    private int GetCurrent(RewardType type)
+    {
+        return type switch
+        {
+            RewardType.Quants => _quantsSystem.GetQuants(),
+            RewardType.AiCore => _aiCoreSystem.GetAiCores(),
+            RewardType.Memory => (int)_buildingsLearnPanel.GetMemoryFragments(),
+            _ => 0
+        };
+    }
+
+    private bool RequirementMet(StandardChoiceData std)
+    {
+        if (std == null) return true;
+
+        var req = std.ChoiceRequired;
+        if (req.RequiredType == RewardType.None) return true;
+
+        return GetCurrent(req.RequiredType) >= req.Amount;
+    }
+
     public void PlayerInputSelectNumber(int n)
     {
         if (!gameObject.activeInHierarchy || n is < 1 or > 4) return;
 
         var step = _dialogue.Steps[_stack.Peek()];
         int idx = n - 1;
+        if (idx >= step.Choices.Count) return;
 
-        if (idx < step.Choices.Count)
-        {
-            OnChoice(step.Choices[idx]);
-        }
+        var choice = step.Choices[idx];
+        if (choice.Kind == ChoiceKind.Standard && !RequirementMet(choice.Standard)) return;
+
+        OnChoice(choice);
     }
+
 
     public void Close() => gameObject.SetActive(false);
 }

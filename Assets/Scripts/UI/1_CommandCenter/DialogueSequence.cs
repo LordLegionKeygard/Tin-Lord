@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "TinLord/Dialogue")]
@@ -35,6 +36,7 @@ public class StandardChoiceData
 {
     public int NextStepIndex = -1;
     public List<EventReward> Rewards;
+    public ChoiceRequired ChoiceRequired;
 }
 
 [System.Serializable]
@@ -47,6 +49,13 @@ public class ChanceChoiceData
 
     public List<EventReward> SuccessRewards;
     public List<EventReward> FailureRewards;
+}
+
+[System.Serializable]
+public struct ChoiceRequired
+{
+    public RewardType RequiredType;
+    public int Amount;
 }
 
 [System.Serializable]

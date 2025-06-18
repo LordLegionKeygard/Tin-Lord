@@ -17,11 +17,17 @@ public class EventNodeButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _text.color = Colors.WarningYellow;
+        if (_button.interactable) _text.color = Colors.WarningYellow;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _text.color = Colors.GreySix;
+        if (_button.interactable) _text.color = Colors.GreySix;
+    }
+
+    public void SetInteractable(bool value)
+    {
+        _button.interactable = value;
+        _text.color = value ? Colors.GreySix : Color.black;
     }
 }

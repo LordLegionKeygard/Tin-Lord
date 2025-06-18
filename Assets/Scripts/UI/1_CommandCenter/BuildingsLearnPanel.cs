@@ -11,7 +11,7 @@ public class BuildingsLearnPanel : MonoBehaviour
 
     public LearnBuildingItem[] AllLearnBuildingItems() => _learnBuildingItems;
     public void SetFragments(float fragments) => _memoryFragments = fragments;
-    public float MemoryFragments() => _memoryFragments;
+    public float GetMemoryFragments() => _memoryFragments;
     public bool IsFragmentEnought(float fragments) => fragments <= _memoryFragments;
 
     private void Start()
