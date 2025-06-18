@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NodeType: 2
   Icon: {fileID: 21300000, guid: 3d5bbed581fff8b41907af57dedb20d6, type: 3}
-  IconColor: {r: 0.9, g: 0.7, b: 0, a: 1}
+  IconColor: {r: 0.6039216, g: 0.78431374, b: 0.98039216, a: 1}
   IconWidth: 70
   IconHeight: 70
   DescriptionTextNumber: 275
   CosmosVariations:
-  - PlanetTexture: {fileID: 0}
+  - PlanetPrefab: {fileID: 0}
     PlanetPosition: {x: 0, y: 0, z: 0}
     PlanetRotation: {x: 0, y: 0, z: 0}
     CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
@@ -30,3 +30,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e33a335850b944419cd735d2604543d, type: 2}
   - {fileID: 11400000, guid: e94c46bfef4037f4bace302218f28f60, type: 2}
   - {fileID: 11400000, guid: 7e80f27331dbe564287ed7028aa65b7d, type: 2}
+  EachCosmosForEachDialogue: 0

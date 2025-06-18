@@ -15,11 +15,11 @@ MonoBehaviour:
   NodeType: 6
   Icon: {fileID: 21300000, guid: 27fb08d72eb888a46a0bb4db8e69ae66, type: 3}
   IconColor: {r: 1, g: 1, b: 1, a: 1}
-  IconWidth: 112
-  IconHeight: 112
+  IconWidth: 80
+  IconHeight: 80
   DescriptionTextNumber: 276
   CosmosVariations:
-  - PlanetTexture: {fileID: 0}
+  - PlanetPrefab: {fileID: 0}
     PlanetPosition: {x: 0, y: 0, z: 0}
     PlanetRotation: {x: 0, y: 0, z: 0}
     CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
