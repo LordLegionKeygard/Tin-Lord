@@ -76,21 +76,24 @@ MonoBehaviour:
     \u043A\u0430\u043C\u043D\u044F \u0438 \u0442\u0435\u043D\u0438, \u0438\u0434\u0435\u0430\u043B\u044C\u043D\u043E\u0435
     \u043C\u0435\u0441\u0442\u043E \u0434\u043B\u044F \u0437\u0430\u0441\u0430\u0434."
   CosmosVariations:
-  - PlanetTexture: {fileID: 2800000, guid: a12543ad064cd3d4b8850dd98406e137, type: 3}
+  - PlanetPrefab: {fileID: 3737507109534531556, guid: 53b4ec9a9f9e83942aa7cc42fe485f21,
+      type: 3}
     PlanetPosition: {x: 31.9, y: 9, z: 58.9}
     PlanetRotation: {x: 0, y: -90.3, z: 0}
     CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
     SkyboxRotation: 0
     LightRotation: {x: 20.599998, y: -11.3, z: 0}
     Temperature: 7000
-  - PlanetTexture: {fileID: 2800000, guid: a12543ad064cd3d4b8850dd98406e137, type: 3}
+  - PlanetPrefab: {fileID: 3737507109534531556, guid: 53b4ec9a9f9e83942aa7cc42fe485f21,
+      type: 3}
     PlanetPosition: {x: 0, y: 0, z: 71.09}
     PlanetRotation: {x: 0, y: 0, z: 0}
     CosmosSkybox: {fileID: 2100000, guid: 3448e2747fc48e940943297ff4f3ba05, type: 2}
     SkyboxRotation: 177
     LightRotation: {x: 20.6, y: -145.3, z: 0}
     Temperature: 4936
-  - PlanetTexture: {fileID: 2800000, guid: a12543ad064cd3d4b8850dd98406e137, type: 3}
+  - PlanetPrefab: {fileID: 3737507109534531556, guid: 53b4ec9a9f9e83942aa7cc42fe485f21,
+      type: 3}
     PlanetPosition: {x: -9.7, y: 5.3, z: 58.2}
     PlanetRotation: {x: 0, y: 89.1, z: 0}
     CosmosSkybox: {fileID: 2100000, guid: 890f6863e99bfb14b8264cb64e0fa38d, type: 2}

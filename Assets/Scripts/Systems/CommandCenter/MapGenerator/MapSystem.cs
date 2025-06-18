@@ -131,14 +131,25 @@ public class MapSystem : MonoBehaviour
 
     private void ApplyCosmos()
     {
-        var node = _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData;
+        var nodeData = _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData;
         var save = _save.CommandCenterSaveData.Map.Nodes[_currentNodeIndex];
+        var variations = nodeData.CosmosVariations;
 
-        var variations = node.CosmosVariations;
-        int cosmosId = save.CosmosIndex;
-
-        cosmosId = _cosmosView.ChangeCosmos(variations, cosmosId);
-        save.CosmosIndex = cosmosId;
+        if (nodeData is EventNode eventNode && eventNode.EachCosmosForEachDialogue)
+        {
+            // Привязываем строго: один-к-одному по индексу диалога
+            int cosmosId = save.EventSequenceIndex;
+            // сохраняем в map
+            save.CosmosIndex = cosmosId;
+            // и сразу рисуем точно его
+            _cosmosView.ChangeCosmos(variations, cosmosId);
+        }
+        else
+        {
+            int cosmosId = save.CosmosIndex;
+            cosmosId = _cosmosView.ChangeCosmos(variations, cosmosId);
+            save.CosmosIndex = cosmosId;
+        }
     }
 
     // Тестовый вызов
@@ -206,43 +217,65 @@ public class MapSystem : MonoBehaviour
         var list = _generator.GetGeneratedNodes();
         list.Clear();
 
-        foreach (var n in map.Nodes)
+        for (int i = 0; i < map.Nodes.Count; i++)
         {
+            var n = map.Nodes[i];
             NodeData data;
 
-            if (n.NodeType == NodeType.Mission && n.MissionIndex >= 0 && n.ObjectiveIndex >= 0 && n.SpawnerIndex >= 0)
+            switch (n.NodeType)
             {
-                var info = _allMissionsInfo;
-                var node = ScriptableObject.CreateInstance<MissionNode>();
+                case NodeType.Mission:
+                    // Восстанавливаем миссию по сохранённым индексам
+                    var info = _allMissionsInfo;
+                    var mNode = ScriptableObject.CreateInstance<MissionNode>();
+                    mNode.Landscape = info.Landscapes[n.MissionIndex];
+                    mNode.Objective = info.Objectives[n.ObjectiveIndex];
+                    mNode.EnemiesSpawner = info.EnemiesSpawnerInformation[n.SpawnerIndex];
+                    mNode.Icon = info.MissionNodeTemplate.Icon;
+                    mNode.IconColor = info.MissionNodeTemplate.IconColor;
+                    mNode.IconWidth = info.MissionNodeTemplate.IconWidth;
+                    mNode.IconHeight = info.MissionNodeTemplate.IconHeight;
+                    mNode.CosmosVariations = mNode.Landscape.CosmosVariations;
+                    mNode.DescriptionTextNumber = info.MissionNodeTemplate.DescriptionTextNumber;
+                    data = mNode;
+                    break;
 
-                node.Landscape = info.Landscapes[n.MissionIndex];
-                node.Objective = info.Objectives[n.ObjectiveIndex];
-                node.EnemiesSpawner = info.EnemiesSpawnerInformation[n.SpawnerIndex];
-                node.Icon = info.MissionNodeTemplate.Icon;
-                node.IconColor = info.MissionNodeTemplate.IconColor;
-                node.IconWidth = info.MissionNodeTemplate.IconWidth;
-                node.IconHeight = info.MissionNodeTemplate.IconHeight;
-                node.CosmosVariations = node.Landscape.CosmosVariations;
-                node.DescriptionTextNumber = 275;
+                case NodeType.Event:
+                case NodeType.RewardEvent:
+                    // Берём нод из правильного EventPool
+                    if (n.EventPoolIndex >= 0 && n.EventPoolIndex < _allMissionsInfo.EventPools.Length)
+                    {
+                        var pool = _allMissionsInfo.EventPools[n.EventPoolIndex];
+                        data = pool.Node;
+                    }
+                    else
+                    {
+                        // fallback на шаблон
+                        data = _generator.GetNodeTemplate(n.NodeType);
+                    }
+                    break;
 
-                data = node;
-            }
-            else
-            {
-                data = _generator.GetNodeTemplate(n.NodeType);
+                default:
+                    // Старт, трейдеры, босс и т.д.
+                    data = _generator.GetNodeTemplate(n.NodeType);
+                    break;
             }
 
             list.Add(new NodeInstance
             {
                 nodeData = data,
                 layer = n.Layer,
-                position = n.Position
+                position = n.Position,
+                connectedNodes = new List<NodeInstance>()
             });
         }
 
+        // Восстановливаем связи
         for (int i = 0; i < map.Nodes.Count; i++)
         {
-            list[i].connectedNodes = map.Nodes[i].ConnectedNodeIndices.ConvertAll(idx => list[idx]);
+            list[i].connectedNodes =
+                map.Nodes[i].ConnectedNodeIndices
+                    .ConvertAll(idx => list[idx]);
         }
     }
 

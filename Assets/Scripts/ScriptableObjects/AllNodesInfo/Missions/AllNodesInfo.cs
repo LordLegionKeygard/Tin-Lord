@@ -26,5 +26,5 @@ public class EventPool
 {
     public NodeData Node;
     [Min(1)] public int MaxOnMap = 1;
-    public bool IgnoreDialogueVariants = false;
+    public bool RepeatOneEventSameTime = false;
 }

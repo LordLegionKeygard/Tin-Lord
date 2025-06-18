@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043b2baa39c66b3458497ac75327445a, type: 3}
+  m_Name: 0_PlanetDialogue
+  m_EditorClassIdentifier: 
+  Steps:
+  - TextNumber: 345
+    Choices:
+    - ChoiseTextNumber: 346
+      Kind: 0
+      Standard:
+        NextStepIndex: 1
+        Rewards: []
+      Chance:
+        SuccessChance: 0
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+    - ChoiseTextNumber: 356
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 357
+        FailureTextNumber: 358
+        SuccessRewards:
+        - Type: 2
+          MinAmount: 30
+          MaxAmount: 50
+        FailureRewards: []
+    - ChoiseTextNumber: 359
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards: []
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 357
+        FailureTextNumber: 358
+        SuccessRewards:
+        - Type: 2
+          MinAmount: 30
+          MaxAmount: 50
+        FailureRewards: []
+  - TextNumber: 347
+    Choices:
+    - ChoiseTextNumber: 348
+      Kind: 0
+      Standard:
+        NextStepIndex: 2
+        Rewards: []
+      Chance:
+        SuccessChance: 0
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+    - ChoiseTextNumber: 360
+      Kind: 0
+      Standard:
+        NextStepIndex: 3
+        Rewards: []
+      Chance:
+        SuccessChance: 0
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 349
+    Choices:
+    - ChoiseTextNumber: 350
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+      Chance:
+        SuccessChance: 0.7
+        SuccessTextNumber: 351
+        FailureTextNumber: 352
+        SuccessRewards:
+        - Type: 3
+          MinAmount: 50
+          MaxAmount: 100
+        FailureRewards:
+        - Type: 3
+          MinAmount: -10
+          MaxAmount: -50
+    - ChoiseTextNumber: 353
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 354
+        FailureTextNumber: 355
+        SuccessRewards:
+        - Type: 3
+          MinAmount: 50
+          MaxAmount: 100
+        FailureRewards:
+        - Type: 1
+          MinAmount: -1
+          MaxAmount: -1
+  - TextNumber: 361
+    Choices:
+    - ChoiseTextNumber: 362
+      Kind: 0
+      Standard:
+        NextStepIndex: 4
+        Rewards: []
+      Chance:
+        SuccessChance: 0
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+    - ChoiseTextNumber: 364
+      Kind: 0
+      Standard:
+        NextStepIndex: 5
+        Rewards: []
+      Chance:
+        SuccessChance: 0
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+    - ChoiseTextNumber: 366
+      Kind: 0
+      Standard:
+        NextStepIndex: 6
+        Rewards: []
+      Chance:
+        SuccessChance: 0
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 363
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 2
+          MinAmount: 50
+          MaxAmount: 100
+      Chance:
+        SuccessChance: 0
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 365
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards: []
+      Chance:
+        SuccessChance: 0
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 367
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 1
+          MinAmount: -1
+          MaxAmount: -1
+      Chance:
+        SuccessChance: 0
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []

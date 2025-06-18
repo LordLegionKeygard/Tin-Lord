@@ -66,7 +66,7 @@ public class LearnBuildingItem : MonoBehaviour
     public void LearnBuilding()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.LearnBuilding], transform.position);
-        _buildingsLearnPanel.ChangeFragments(_building.Price);
+        _buildingsLearnPanel.ChangeFragments(-_building.Price);
         _isLearn = true;
         RefreshView();
 

@@ -26,7 +26,7 @@ public class BuildingsLearnPanel : MonoBehaviour
 
     public void ChangeFragments(float fragments)
     {
-        _memoryFragments -= fragments;
+        _memoryFragments += fragments;
         UpdateText();
     }
 

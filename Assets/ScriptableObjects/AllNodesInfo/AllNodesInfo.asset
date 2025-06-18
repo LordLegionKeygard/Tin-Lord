@@ -16,13 +16,16 @@ MonoBehaviour:
   EventPools:
   - Node: {fileID: 11400000, guid: 3c09af0849ff53240937ea32bd01bdcf, type: 2}
     MaxOnMap: 6
-    IgnoreDialogueVariants: 0
+    RepeatOneEventSameTime: 0
   - Node: {fileID: 11400000, guid: a99ffd8955a41ab4b92d140bd008855a, type: 2}
     MaxOnMap: 2
-    IgnoreDialogueVariants: 1
+    RepeatOneEventSameTime: 1
   - Node: {fileID: 11400000, guid: cb022a0799d0a4743ada1348366b14eb, type: 2}
     MaxOnMap: 3
-    IgnoreDialogueVariants: 0
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: 9a4fb79b82bf85349b69d90a41975195, type: 2}
+    MaxOnMap: 1
+    RepeatOneEventSameTime: 0
   ModuleTraders:
   - {fileID: 11400000, guid: b34a6b9559365e247849a493ff616b00, type: 2}
   SkillTraders:

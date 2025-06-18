@@ -40,7 +40,7 @@ public class StandardChoiceData
 [System.Serializable]
 public class ChanceChoiceData
 {
-    public float SuccessChance = 0;
+    [Range(0, 1)] public float SuccessChance = 0;
 
     public int SuccessTextNumber;
     public int FailureTextNumber;

@@ -40,32 +40,38 @@ public class MapGenerator : MonoBehaviour
     {
         var list = new List<EventEntry>();
 
-        foreach (var pool in pools)
+        for (int poolIndex = 0; poolIndex < pools.Length; poolIndex++)
         {
+            var pool = pools[poolIndex];
             int limit;
-            if (pool.IgnoreDialogueVariants)          // для Heal-Core и пр.
+
+            if (pool.RepeatOneEventSameTime)
             {
                 limit = pool.MaxOnMap;
             }
-            else if (pool.Node is EventNode ev)       // «обычный» EventNode
+            else if (pool.Node is EventNode ev)
             {
                 limit = Mathf.Clamp(pool.MaxOnMap, 1, ev.Dialogue.Length);
             }
-            else                                      // на всякий случай
+            else
             {
                 limit = pool.MaxOnMap;
             }
 
             for (int i = 0; i < limit; i++)
+            {
                 list.Add(new EventEntry
                 {
                     Node = pool.Node,
-                    SequenceIndex = pool.IgnoreDialogueVariants ? 0 : i
+                    PoolIndex = poolIndex,
+                    SequenceIndex = pool.RepeatOneEventSameTime ? 0 : i
                 });
+            }
         }
 
         return list;
     }
+
 
 
     public void GenerateMap()
@@ -169,12 +175,17 @@ public class MapGenerator : MonoBehaviour
 
             void AddEventToLayer(EventEntry e)
             {
+                // создаём узел
                 var inst = CreateNode(e.Node, layer);
                 AddToLayer(layer, inst);
                 _generatedNodes.Add(inst);
 
-                var nType = e.Node is RewardEventNode ? NodeType.RewardEvent : NodeType.Event;
-                AddToSavedMap(inst, nType, _generatedNodes.Count - 1, e.SequenceIndex);
+                // определяем тип
+                var type = e.Node is RewardEventNode ? NodeType.RewardEvent : NodeType.Event;
+
+                // сохраняем сразу и SequenceIndex, и PoolIndex
+                AddToSavedMap(inst, type, _generatedNodes.Count - 1, e.SequenceIndex, e.PoolIndex
+                );
             }
         }
 
@@ -250,7 +261,7 @@ public class MapGenerator : MonoBehaviour
     }
 
     // Сохраняем в SavedMap
-    private void AddToSavedMap(NodeInstance instance, NodeType type, int nodeIndex, int eventIndex = -1)
+    private void AddToSavedMap(NodeInstance instance, NodeType type, int nodeIndex, int eventSequenceIndex = -1, int eventPoolIndex = -1)
     {
         SavedMap.Nodes.Add(new SavedNodeData
         {
@@ -259,8 +270,9 @@ public class MapGenerator : MonoBehaviour
             MissionIndex = -1,
             ObjectiveIndex = -1,
             SpawnerIndex = -1,
-            EventSequenceIndex = eventIndex,
-            Position = Vector2.zero, // выставим позже
+            EventSequenceIndex = eventSequenceIndex,
+            EventPoolIndex = eventPoolIndex,
+            Position = Vector2.zero,
             Layer = instance.layer,
             ConnectedNodeIndices = new List<int>()
         });
@@ -374,6 +386,7 @@ public class SavedNodeData
     public int MissionIndex;
     public int ObjectiveIndex;
     public int SpawnerIndex;
+    public int EventPoolIndex;
     public int EventSequenceIndex = -1;
     public Vector2 Position;
     public int Layer;
@@ -405,5 +418,6 @@ public class NodeInstance
 public struct EventEntry
 {
     public NodeData Node;
+    public int PoolIndex;
     public int SequenceIndex;
 }
