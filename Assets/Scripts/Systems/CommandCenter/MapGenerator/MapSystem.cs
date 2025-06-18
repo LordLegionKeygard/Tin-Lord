@@ -78,7 +78,7 @@ public class MapSystem : MonoBehaviour
             }
 
             _missionPanel.RefreshInfo(missionNode, _currentNodeIndex);
-            _panels.MissionPanelOpen();
+            _panels.MissionPanelOpen(false);
         }
     }
 
@@ -109,7 +109,7 @@ public class MapSystem : MonoBehaviour
             }
 
             _missionPanel.RefreshInfo(missionNode, nodeIndex);
-            _panels.MissionPanelOpen();
+            _panels.MissionPanelOpen(true);
         }
         if (map.Nodes[nodeIndex].NodeType == NodeType.Event)
         {

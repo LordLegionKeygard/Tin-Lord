@@ -3,8 +3,8 @@ using UnityEngine;
 public class CosmosView : MonoBehaviour
 {
     [SerializeField] private Light _directionalLight;
-    [SerializeField] private GameObject _planetObject;
-    [SerializeField] private MeshRenderer _planetRenderer;
+    [SerializeField] private Transform _parent;
+    private GameObject _currentPlanetObject;
 
     public int ChangeCosmos(CosmosVariations[] cosmosVariations, int forcedIndex = -1)
     {
@@ -12,18 +12,16 @@ public class CosmosView : MonoBehaviour
 
         var variations = cosmosVariations[id];
 
-        if (variations.PlanetTexture != null)
-        {
-            _planetRenderer.material.mainTexture = variations.PlanetTexture;
-            _planetObject.transform.localPosition = variations.PlanetPosition;
-            _planetObject.transform.localRotation = Quaternion.Euler(variations.PlanetRotation);
-            _planetObject.SetActive(true);
-        }
-        else
-        {
-            _planetObject.SetActive(false);
-        }
+        if (_currentPlanetObject != null) Destroy(_currentPlanetObject);
 
+
+        if (variations.PlanetPrefab != null)
+        {
+            var planet = Instantiate(variations.PlanetPrefab, _parent);
+            _currentPlanetObject = planet;
+            _currentPlanetObject.transform.localPosition = variations.PlanetPosition;
+            _currentPlanetObject.transform.localRotation = Quaternion.Euler(variations.PlanetRotation);
+        }
 
         _directionalLight.transform.rotation = Quaternion.Euler(variations.LightRotation);
         _directionalLight.colorTemperature = variations.Temperature;

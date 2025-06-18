@@ -108,7 +108,7 @@ public class EventNodePanel : MonoBehaviour
             foreach (Transform t in _buttonsHolder) Destroy(t.gameObject);
 
             var contBtn = Instantiate(_buttonPrefab, _buttonsHolder);
-            contBtn.Setup($"1.{Language.TextStatic[33]}", () =>
+            contBtn.Setup($"1. {Language.TextStatic[33]}", () =>
             {
                 AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 

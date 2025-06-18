@@ -82,12 +82,12 @@ public class UIPanelsCommandCenter : MonoBehaviour
         _eventPanel.SetActive(true);
     }
 
-    public void MissionPanelOpen()
+    public void MissionPanelOpen(bool needSound)
     {
         // закрываем карту
-        if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove();
+        if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove(needSound);
 
         // открываем миссию
-        if (!_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove();
+        if (!_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove(needSound);
     }
 }

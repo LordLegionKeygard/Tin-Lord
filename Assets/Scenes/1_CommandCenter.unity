@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.0000779945, g: 0.00009618772, b: 0.000115815536,
+  m_IndirectSpecularColor: {r: 0.000077875164, g: 0.00009606336, b: 0.000115642055,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -2272,8 +2272,7 @@ Transform:
   m_LocalPosition: {x: 359, y: -4, z: 4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 589900314}
+  m_Children: []
   m_Father: {fileID: 2048867708}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.839, y: -87.5, z: 5.721}
@@ -10880,8 +10879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _directionalLight: {fileID: 305643357}
-  _planetObject: {fileID: 590263866}
-  _planetRenderer: {fileID: 587999482}
+  _parent: {fileID: 104494370}
 --- !u!1001 &419857918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14253,89 +14251,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585961824}
   m_CullTransparentMesh: 1
---- !u!23 &587999482
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590263866}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 715c6cfb15480df49b37f283e3619019, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &589130298
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590263866}
-  m_Mesh: {fileID: 4300000, guid: 1e2f07eab80474e40a1c17bc8c3146ec, type: 3}
---- !u!4 &589900314
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590263866}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -50}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 104494370}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &590263866
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 589900314}
-  - component: {fileID: 589130298}
-  - component: {fileID: 587999482}
-  m_Layer: 0
-  m_Name: Planet
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &592619512
 GameObject:
   m_ObjectHideFlags: 0
@@ -30984,7 +30899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c25a74e7b1f4143bcc7da4a7add0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mapSystem: {fileID: 849943935}
   _mainText: {fileID: 510276530}
   _buttonPrefab: {fileID: 568721058014202588, guid: 0ab6d0bad2b5c5644af1843e66320873,
     type: 3}
@@ -30992,6 +30906,7 @@ MonoBehaviour:
   _quantsSystem: {fileID: 732658678}
   _aiCoreSystem: {fileID: 1966886381}
   _buildingsLearnPanel: {fileID: 1789072449}
+  _mapSystem: {fileID: 849943935}
 --- !u!1 &1465673621
 GameObject:
   m_ObjectHideFlags: 0

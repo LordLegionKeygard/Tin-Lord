@@ -15,7 +15,7 @@ public class NodeData : ScriptableObject
 [System.Serializable]
 public class CosmosVariations
 {
-    public Texture PlanetTexture;
+    public GameObject PlanetPrefab;
     public Vector3 PlanetPosition;
     public Vector3 PlanetRotation;
     public Material CosmosSkybox;
