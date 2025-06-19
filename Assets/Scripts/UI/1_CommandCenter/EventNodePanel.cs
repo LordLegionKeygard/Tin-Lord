@@ -11,6 +11,7 @@ public class EventNodePanel : MonoBehaviour
     private Stack<int> _stack = new();
     private DialogueSequence _dialogue;
     private Action _onFinished;
+    private bool _waitingForContinueAfterChance; 
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _mainText;
@@ -105,18 +106,10 @@ public class EventNodePanel : MonoBehaviour
 
             foreach (Transform t in _buttonsHolder) Destroy(t.gameObject);
 
+            _waitingForContinueAfterChance = true;
+
             var contBtn = Instantiate(_buttonPrefab, _buttonsHolder);
-            contBtn.Setup($"1. {Language.TextStatic[33]}", () =>
-            {
-                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-
-                foreach (var (r, amt) in _pendingRewards) GrantReward(r, amt);
-
-                _onFinished?.Invoke();
-                _mapSystem.CompleteCurrentNode();
-                _stack.Clear();
-                Close();
-            });
+            contBtn.Setup($"1. {Language.TextStatic[33]}", () => FinishChance());
         }
         else
         {
@@ -154,6 +147,19 @@ public class EventNodePanel : MonoBehaviour
         }
 
         _commandCenterSaveGame.SaveGameData(false);
+    }
+
+    private void FinishChance()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+
+        foreach (var (r, amt) in _pendingRewards) GrantReward(r, amt);
+
+        _waitingForContinueAfterChance = false;
+        _onFinished?.Invoke();
+        _mapSystem.CompleteCurrentNode();
+        _stack.Clear();
+        Close();
     }
 
     private string FormatRewardLine(EventReward reward, int amount)
@@ -217,15 +223,29 @@ public class EventNodePanel : MonoBehaviour
     {
         if (!gameObject.activeInHierarchy || n is < 1 or > 4) return;
 
-        var step = _dialogue.Steps[_stack.Peek()];
-        int idx = n - 1;
-        if (idx >= step.Choices.Count) return;
+        if (_waitingForContinueAfterChance)
+        {
+            if (n == 1) FinishChance();
+            return;
+        }
 
-        var choice = step.Choices[idx];
+        if (_stack.Count == 0 || _dialogue == null) return;
+
+        int stepIndex = _stack.Peek();
+        if (stepIndex < 0 || stepIndex >= _dialogue.Steps.Count) return;
+
+        var step = _dialogue.Steps[stepIndex];
+
+        int choiceIndex = n - 1;
+        if (choiceIndex >= step.Choices.Count) return;
+
+        var choice = step.Choices[choiceIndex];
+
         if (choice.Kind == ChoiceKind.Standard && !RequirementMet(choice.Standard)) return;
 
         OnChoice(choice);
     }
+
 
 
     public void Close() => gameObject.SetActive(false);

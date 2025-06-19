@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WorldGameInfo
 {
-    public static int LanguageLength = 400;
+    public static int LanguageLength = 500;
     public static bool StaticBlood = true;
     public const float PausedTimeScale = 0.00001f;
     public const float DefaultTimeScale = 1.5f;
