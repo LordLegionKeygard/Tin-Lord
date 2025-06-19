@@ -11,12 +11,10 @@ public class MissionPanel : MonoBehaviour
     [SerializeField] private AllNodesInfo _allMissionsInfo;
     [SerializeField] private TextMeshProUGUI _missionNameHeaderText;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
-    [SerializeField] private TextMeshProUGUI _startResourcesText;
     [SerializeField] private TextMeshProUGUI _objectiveText;
     [SerializeField] private TextMeshProUGUI[] _objectiveTexts;
     [SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private GameObject[] _activeObjects;
-    [SerializeField] private ResourcesViewCommandCenter _resourcesView;
     [SerializeField] private RectTransform _objectivesRectTransform;
     [SerializeField] private GameObject _loadMissionButton;
     [SerializeField] private GameObject _areYouSurePanel;
@@ -38,7 +36,6 @@ public class MissionPanel : MonoBehaviour
 
         _missionNameHeaderText.text = _currentNode.Landscape.Name[Language.LanguageNumber];
         _ecologyLevelText.text = $"{Language.TextStatic[34]}: {_currentNode.Landscape.StartEcology}";
-        _startResourcesText.text = $"{Language.TextStatic[35]}: ";
         _objectiveText.text = $"{Language.TextStatic[36]}: ";
         _descriptionText.text = _currentNode.Landscape.Description[Language.LanguageNumber];
 
@@ -70,8 +67,6 @@ public class MissionPanel : MonoBehaviour
         {
             item.SetActive(true);
         }
-
-        _resourcesView.SetResourcesView(_currentNode.Landscape.StartResources);
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(_objectivesRectTransform);
     }
@@ -115,7 +110,7 @@ public class MissionPanel : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         if (_isContinueMission) _worldSaveGame.LoadMissionGameData(_currentNode.Landscape.LoadingScreenSprite);
-        else _worldSaveGame.NewMission(_currentNode.Landscape);
+        else _worldSaveGame.NewMission(_currentNode.Landscape, _commandCenterSaveGame.CommandCenterSaveData.MainResourcesData);
     }
 
     public void AreYouSureYes()

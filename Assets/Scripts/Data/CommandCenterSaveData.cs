@@ -6,7 +6,7 @@ public class CommandCenterSaveData
 {
     public int Quants;
     public int AiCores;
-    public float MemoryFragments;
+    public float[] MainResourcesData;
     public bool PrologueCompleted;
     public bool TutorialCompleted;
     public bool[] BuildingsLearned;

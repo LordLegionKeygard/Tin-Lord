@@ -6,7 +6,7 @@ using Zenject;
 public class EveryTickResourcesProduction : MonoBehaviour
 {
     [Inject] private readonly AllSkills _allSkills;
-    [SerializeField] private PlayerResources _playerResources;
+    [Inject] private MissionResources _missionResources;
     [SerializeField] private EveryTickResourcesWrapper[] _everyTickResourceProduction;
     [SerializeField] private List<ResourcesExtractionTilesInfo> _resourcesExtractionTilesInfoList = new();
 
@@ -64,7 +64,7 @@ public class EveryTickResourcesProduction : MonoBehaviour
         var productionOptimizationFactor = _allSkills.GetSkill((int)SkillEnum.ProductionOptimization).IsActive() ? 2 : 1;
         for (int i = 0; i < _everyTickResourceProduction.Length; i++)
         {
-            _playerResources.ChangeResource(_everyTickResourceProduction[i].Resource.ResourceEnum, _everyTickResourceProduction[i].Amount * productionOptimizationFactor);
+            _missionResources.ChangeResource(_everyTickResourceProduction[i].Resource.ResourceEnum, _everyTickResourceProduction[i].Amount * productionOptimizationFactor);
         }
     }
 

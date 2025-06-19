@@ -6,7 +6,7 @@ using Zenject;
 public class CardHolderSystem : MonoBehaviour
 {
     [Inject] private readonly TilesSystem _tilesSystem;
-    [Inject] PlayerResources _playerResources;
+    [Inject] MissionResources _missionResources;
 
     [Header("Test")]
     [SerializeField] private bool _addAllCards;
@@ -154,7 +154,7 @@ public class CardHolderSystem : MonoBehaviour
                 {
                     cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.Linear).SetUpdate(true).OnComplete(() =>
                     {
-                        _playerResources.ChangeResource(ResourceEnum.BeamEnergy, 1);
+                        _missionResources.ChangeResource(ResourceEnum.BeamEnergy, 1);
                         Destroy(cardToRemove.gameObject);
                     });
                 }));

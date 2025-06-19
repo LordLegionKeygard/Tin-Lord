@@ -6,6 +6,7 @@ public class WorldSaveLoad : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private WorldSaveGame _worldSaveGame;
+    [Inject] private MissionResources _missionResources;
 
     [Header("Main")]
     [SerializeField] private AllNodesInfo _allMissionsInfo;
@@ -16,8 +17,6 @@ public class WorldSaveLoad : MonoBehaviour
     [SerializeField] private TimeTickSystem _timeTickSystem;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
 
-    [Header("Resources")]
-    [Inject] private PlayerResources _playerResources;
 
     [Header("Cards")]
     [SerializeField] private CardHolderSystem _cardHolderSystem;
@@ -63,10 +62,9 @@ public class WorldSaveLoad : MonoBehaviour
             ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
         };
 
-        for (int i = 0; i < mission.StartResources.Length; i++)
+        for (int i = 0; i < _commandCenterSaveGame.CommandCenterSaveData.MainResourcesData.Length; i++)
         {
-            int resourceIndex = (int)mission.StartResources[i].ResourceEnum;
-            currentSaveData.ResourcesData[resourceIndex] = mission.StartResources[i].RecourceAmount;
+            currentSaveData.ResourcesData[i] = _commandCenterSaveGame.CommandCenterSaveData.MainResourcesData[i];
         }
     }
 
@@ -82,7 +80,7 @@ public class WorldSaveLoad : MonoBehaviour
         currentSaveData.GameSpeed = (int)GameSpeedEnum.Pause;
 
         //Resources
-        currentSaveData.ResourcesData = _playerResources.GetAllResourcesAmount();
+        currentSaveData.ResourcesData = _missionResources.GetAllResourcesAmount();
 
         //Cards
         currentSaveData.Cards = _cardHolderSystem.GetAllCards();
@@ -136,7 +134,7 @@ public class WorldSaveLoad : MonoBehaviour
         _gameSpeedSystem.ChangeGameSpeed(currentSaveData.GameSpeed);
 
         //Resources
-        _playerResources.LoadResources(currentSaveData.ResourcesData);
+        _missionResources.LoadResources(currentSaveData.ResourcesData);
 
         //Cards
         _cardHolderSystem.LoadCards(currentSaveData.IsStartMission, currentSaveData.Cards);

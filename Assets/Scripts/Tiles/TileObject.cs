@@ -4,7 +4,7 @@ using Zenject;
 
 public class TileObject : MonoBehaviour
 {
-    [Inject] PlayerResources _playerResources;
+    [Inject] MissionResources _missionResources;
     [Inject] SelectTilePanel _selectTilePanel;
     private TileObject[] _neighbourTiles = new TileObject[8];
     private bool _isGeneralRepairSelect = true;
@@ -78,7 +78,7 @@ public class TileObject : MonoBehaviour
 
     public bool IsHaveRequiredResource()
     {
-        var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length == 0 || _playerResources.ResourceEnough(_currentResourceForWork.ResourceEnum, _currentResourceForWorkAmount);
+        var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length == 0 || _missionResources.ResourceEnough(_currentResourceForWork.ResourceEnum, _currentResourceForWorkAmount);
         if (!haveResourcesForWork)
         {
             if (_buildingTile.IsEcologyBuilding())
@@ -90,7 +90,7 @@ public class TileObject : MonoBehaviour
         if (_currentResourceRecept == null || _currentResourceRecept.Length == 0) return true;
 
         var haveResourceForRecept = _currentResourceRecept.All(recept =>
-        _playerResources.ResourceEnough(recept.ResourceForRecept.ResourceEnum, recept.ResourcesForReceptAmount));
+        _missionResources.ResourceEnough(recept.ResourceForRecept.ResourceEnum, recept.ResourcesForReceptAmount));
 
         return haveResourceForRecept;
     }

@@ -14,7 +14,6 @@ public class CommandCenterSaveGame : MonoBehaviour
     [Header("Other")]
     [SerializeField] private ConfigLoaderBuildings _configLoaderBuildings;
 
-
     private void Awake()
     {
         _commandCenterSaveGameDataWriter = new CommandCenterSaveGameDataWriter(Application.persistentDataPath);
@@ -26,7 +25,7 @@ public class CommandCenterSaveGame : MonoBehaviour
         {
             Quants = 35,
             AiCores = 6,
-            MemoryFragments = 0,
+            MainResourcesData = new float[WorldGameInfo.ResourcesCount],
             PrologueCompleted = false,
             TutorialCompleted = false,
             BuildingsLearned = new bool[_configLoaderBuildings.AllBuidingsCount()],
@@ -36,6 +35,9 @@ public class CommandCenterSaveGame : MonoBehaviour
         CommandCenterSaveData.BuildingsLearned[20] = true; // WoodManualMining
         CommandCenterSaveData.BuildingsLearned[32] = true; // StoneManualMining
         CommandCenterSaveData.BuildingsLearned[75] = true; // Ballista
+
+        CommandCenterSaveData.MainResourcesData[(int)ResourceEnum.Wood] = 100;
+        CommandCenterSaveData.MainResourcesData[(int)ResourceEnum.Stone] = 50;
 
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 
@@ -60,7 +62,7 @@ public class CommandCenterSaveGame : MonoBehaviour
     public void SaveCommandCenterFragmentsAiCoresData(int memoryFragments, int aiCores)
     {
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        CommandCenterSaveData.MemoryFragments += memoryFragments;
+        CommandCenterSaveData.MainResourcesData[(int)ResourceEnum.MemoryFragment] += memoryFragments;
         CommandCenterSaveData.AiCores += aiCores;
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
     }

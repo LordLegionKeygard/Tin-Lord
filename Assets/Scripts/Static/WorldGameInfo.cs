@@ -10,6 +10,9 @@ public class WorldGameInfo
     public const float TripleTimeScale = 3;
     public const float TickSpeed = 2;
 
+    [Header("Resources")]
+    public const int ResourcesCount = 25;
+
     [Header("GoogleSheet")]
     public const string GoogleSheetId = "1phPv5iEL7Iw6A6CCdU4SdSgN5LwbEprCKEzY10dwDr4";
     public const string BuildingGridId = "1534982770";

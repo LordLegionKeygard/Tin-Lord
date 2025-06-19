@@ -49,9 +49,9 @@ public class GeneralRepairSkill : BaseSkill
         for (int i = 0; i < _repairList.Count; i++)
         {
             var resources = GetResourcesForRepair(_repairList[i]);
-            if (PlayerResources.ResourcesEnough(resources) && !_repairList[i].BuildingTileObject().IsConstructionNow())
+            if (MissionResources.ResourcesEnough(resources) && !_repairList[i].BuildingTileObject().IsConstructionNow())
             {
-                PlayerResources.UseResourcesForBuilding(resources);
+                MissionResources.UseResourcesForBuilding(resources);
                 _repairList[i].BuildingHealth().FullRepair();
             }
         }

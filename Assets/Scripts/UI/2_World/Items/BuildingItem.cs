@@ -6,7 +6,7 @@ using System.Linq;
 
 public class BuildingItem : MonoBehaviour
 {
-    [Inject] private PlayerResources _playerResources;
+    [Inject] private MissionResources _missionResources;
     [SerializeField] private Tile _currentTile;
     public int GetBuildingLevel() => _currentTile.Buildings[_buildingIndex - 1].BuildingLevel;
     private TileObject _currentTileObject;
@@ -56,7 +56,7 @@ public class BuildingItem : MonoBehaviour
 
     private void RefreshView()
     {
-        _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
+        _resourcesEnough = _missionResources.ResourcesEnough(GetResources());
         _button.enabled = _resourcesEnough;
         _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _isSelect ? Color.white : Colors.GreyEight;
@@ -87,7 +87,7 @@ public class BuildingItem : MonoBehaviour
 
 
         _buildingResourcesView.ResetCells();
-        _playerResources.UseResourcesForBuilding(GetResources());
+        _missionResources.UseResourcesForBuilding(GetResources());
 
         switch (_currentBuildingState)
         {

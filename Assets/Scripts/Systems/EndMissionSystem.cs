@@ -8,7 +8,7 @@ public class EndMissionSystem : MonoBehaviour
 {
     [Inject] private readonly WorldSaveGame _worldSaveGame;
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
-    [Inject] private PlayerResources _playerResources;
+    [Inject] private MissionResources _missionResources;
 
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
@@ -66,7 +66,7 @@ public class EndMissionSystem : MonoBehaviour
         };
 
         var ecologyBonus = GetEcologyBonus();
-        var memoryRestoredAmount = (int)_playerResources.GetResourceAmountForEnum(ResourceEnum.MemoryFragment);
+        var memoryRestoredAmount = (int)_missionResources.GetResourceAmountForEnum(ResourceEnum.MemoryFragment);
         var totalFragmentsAmount = Mathf.RoundToInt(memoryRestoredAmount * ecologyBonus);
         _receivedFragments = Mathf.RoundToInt(totalFragmentsAmount * missionEndPercent);
 

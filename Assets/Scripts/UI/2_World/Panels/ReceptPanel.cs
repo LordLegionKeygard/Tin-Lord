@@ -5,7 +5,7 @@ using Zenject;
 
 public class ReceptPanel : MonoBehaviour
 {
-    [Inject] PlayerResources _playerResources;
+    [Inject] MissionResources _missionResources;
     [SerializeField] private GameObject[] _receptCells;
     [SerializeField] private Image[] _receptCellResourceIcon;
     [SerializeField] private TextMeshProUGUI[] _receptCellResourceText;
@@ -23,7 +23,7 @@ public class ReceptPanel : MonoBehaviour
             _receptCells[i].SetActive(true);
             _receptCellResourceIcon[i].sprite = resourceRecept[i].ResourceForRecept.Icon;
 
-            if (_playerResources.ResourceEnough(resourceRecept[i].ResourceForRecept.ResourceEnum, resourceRecept[i].ResourcesForReceptAmount))
+            if (_missionResources.ResourceEnough(resourceRecept[i].ResourceForRecept.ResourceEnum, resourceRecept[i].ResourcesForReceptAmount))
             {
                 _receptCellResourceText[i].text = $"{resourceRecept[i].ResourcesForReceptAmount}";
 

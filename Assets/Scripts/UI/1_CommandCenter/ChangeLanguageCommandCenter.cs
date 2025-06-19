@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ChangeLanguageCommandCenter : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI[] _resourceTypesPanel;
     [SerializeField] private TextMeshProUGUI _mapText;
     [SerializeField] private TextMeshProUGUI _learningText;
     [SerializeField] private TextMeshProUGUI[] _buildingTypesNameTexts;
@@ -20,6 +21,10 @@ public class ChangeLanguageCommandCenter : MonoBehaviour
 
     private void Start()
     {
+        _resourceTypesPanel[0].text = Language.TextStatic[7];
+        _resourceTypesPanel[1].text = Language.TextStatic[8];
+        _resourceTypesPanel[2].text = Language.TextStatic[9];
+        _resourceTypesPanel[3].text = Language.TextStatic[17];
         _mapText.text = Language.TextStatic[271];
         _learningText.text = Language.TextStatic[272];
 

@@ -6,7 +6,7 @@ using Zenject;
 public class BuildingTile : MonoBehaviour
 {
    [Inject] private DiContainer _diContainer;
-   [Inject] private PlayerResources _playerResources;
+   [Inject] private MissionResources _missionResources;
    [Inject] private TilesSystem _tilesSystem;
    [Inject] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
 
@@ -237,7 +237,7 @@ public class BuildingTile : MonoBehaviour
 
       var previousBuilding = _tileObject.BuildingTileObject()._currentBuildingTile.Buildings[previousLevel - 1].ResourcesForBuild;
 
-      _playerResources.AddResourcesAfterDestroyBuilding(previousBuilding, _previousBuildingHealthPercent); // возвращаем часть ресурсов за прошлое здание
+      _missionResources.AddResourcesAfterDestroyBuilding(previousBuilding, _previousBuildingHealthPercent); // возвращаем часть ресурсов за прошлое здание
    }
 
    public void UpgradeBaseAterLoad(Tile tile, int level)
@@ -304,7 +304,7 @@ public class BuildingTile : MonoBehaviour
       if (_currentBuildingTile == null) return;
       StopConstruction();
 
-      if (isUpgrade) _playerResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
+      if (isUpgrade) _missionResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
 
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.ProtectiveStructures)
       {
@@ -340,7 +340,7 @@ public class BuildingTile : MonoBehaviour
 
    public void LoadResourceRequired(BuildingData data)
    {
-      var resource = data.RequiredResource < 0 ? null : _playerResources.GetResourceForNumber(data.RequiredResource);
+      var resource = data.RequiredResource < 0 ? null : _missionResources.GetResourceForNumber(data.RequiredResource);
       var amount = data.RequiredResourceAmount;
       var recept = CurrentBuilding().ResourcesProduction.Length == 0 ? null : CurrentBuilding().ResourcesProduction[0].ResourceRecept;
       _tileObject.SetResourceForWork(resource, amount, recept);
@@ -350,7 +350,7 @@ public class BuildingTile : MonoBehaviour
    {
       if (CurrentBuilding().ResourcesProduction.Length == 0) return;
 
-      var resource = _playerResources.GetResourceForNumber(data.ResourceProduction);
+      var resource = _missionResources.GetResourceForNumber(data.ResourceProduction);
       ResourceRecept[] recept = null;
 
       for (int i = 0; i < CurrentBuilding().ResourcesProduction.Length; i++)

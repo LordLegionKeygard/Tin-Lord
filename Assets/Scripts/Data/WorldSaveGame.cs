@@ -20,7 +20,7 @@ public class WorldSaveGame : MonoBehaviour
         _worldGameSaveDataWriter = new WorldSaveGameDataWriter(Application.persistentDataPath);
     }
 
-    public void NewMission(Landscape landscape)
+    public void NewMission(Landscape landscape, float[] startResources)
     {
         CurrentWorldSaveData = new WorldSaveData
         {
@@ -29,10 +29,9 @@ public class WorldSaveGame : MonoBehaviour
             ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
         };
 
-        for (int i = 0; i < landscape.StartResources.Length; i++)
+        for (int i = 0; i < startResources.Length; i++)
         {
-            int resourceIndex = (int)landscape.StartResources[i].ResourceEnum;
-            CurrentWorldSaveData.ResourcesData[resourceIndex] = landscape.StartResources[i].RecourceAmount;
+            CurrentWorldSaveData.ResourcesData[i] = startResources[i];
         }
 
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData);

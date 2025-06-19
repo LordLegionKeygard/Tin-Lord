@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class EveryTickResourcesRequired : MonoBehaviour
 {
-    [SerializeField] private PlayerResources _playerResources;
+    [Inject] private MissionResources _missionResources;
     [SerializeField] private List<ResourcesRequiredTilesInfo> _resourcesRequiresTilesInfoList = new();
 
     private void Awake()
@@ -54,13 +54,13 @@ public class EveryTickResourcesRequired : MonoBehaviour
                 info.TileObject.CheckResourceRequired(true);
                 if (info.TileObject.IsHaveRequiredResource())
                 {
-                    if (info.ResourceForWork != null) _playerResources.ChangeResource(info.ResourceForWork.ResourceEnum, -info.ResourceForWorkAmount);
+                    if (info.ResourceForWork != null) _missionResources.ChangeResource(info.ResourceForWork.ResourceEnum, -info.ResourceForWorkAmount);
 
                     if (info.ResourceRecept == null) continue; //это здание требует ресурс для работы, но ничего не создает, например "Очистка экологии"
 
                     for (int k = 0; k < info.ResourceRecept.Length; k++)
                     {
-                        _playerResources.ChangeResource(info.ResourceRecept[k].ResourceForRecept.ResourceEnum, -info.ResourceRecept[k].ResourcesForReceptAmount);
+                        _missionResources.ChangeResource(info.ResourceRecept[k].ResourceForRecept.ResourceEnum, -info.ResourceRecept[k].ResourcesForReceptAmount);
                     }
                 }
             }

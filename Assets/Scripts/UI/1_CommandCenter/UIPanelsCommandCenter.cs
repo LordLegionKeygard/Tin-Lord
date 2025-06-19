@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class UIPanelsCommandCenter : MonoBehaviour
 {
-    [SerializeField] private MapSystem _mapSystem;
+    [Header("DoMove")]
     [SerializeField] private PanelDoMoveX _buildingsPanelDoMove;
     [SerializeField] private PanelDoMoveY _mapPanelDoMove;
-    [SerializeField] private PanelDoMoveY _buildingInfoPanel;
+    [SerializeField] private PanelDoMoveY _buildingInfoPanelDoMove;
     [SerializeField] private PanelDoMoveX _missionPanelDoMove;
+    [SerializeField] private PanelDoMoveX _mainResourcesPanelDoMove;
+
+    [Header("Other")]
+    [SerializeField] private MapSystem _mapSystem;
     [SerializeField] private GameObject _eventPanel;
     [SerializeField] private EscapePanelCommandCenter _escapePanel;
     [SerializeField] private CanvasGroup _canvasGroup;
@@ -16,14 +20,19 @@ public class UIPanelsCommandCenter : MonoBehaviour
     public void LearnBuildingPanelToggle(bool needSound = true)
     {
         _buildingsPanelDoMove.PanelMove();
-        _buildingInfoPanel.PanelMove(false);
+        _buildingInfoPanelDoMove.PanelMove(false);
 
         if (_buildingsPanelDoMove.IsOpen())
         {
             _buildingsLearnPanel.ResetScrollPosition();
         }
 
-        if (!_buildingInfoPanel.IsOpen())
+        if (_mainResourcesPanelDoMove.IsOpen())
+        {
+            _mainResourcesPanelDoMove.PanelMove();
+        }
+
+        if (!_buildingInfoPanelDoMove.IsOpen())
         {
             _learnBuildingInfoPanel.Reset();
         }
@@ -46,6 +55,11 @@ public class UIPanelsCommandCenter : MonoBehaviour
             _missionPanelDoMove.PanelMove();
         }
 
+        if (_mainResourcesPanelDoMove.IsOpen())
+        {
+            _mainResourcesPanelDoMove.PanelMove();
+        }
+
         if (!_mapPanelDoMove.IsOpen())
         {
             _mapSystem.FocusOnCurrentNode();
@@ -65,6 +79,10 @@ public class UIPanelsCommandCenter : MonoBehaviour
         else if (_mapPanelDoMove.IsOpen())
         {
             _mapPanelDoMove.PanelMove();
+        }
+        else if (_mainResourcesPanelDoMove.IsOpen())
+        {
+            _mainResourcesPanelDoMove.PanelMove();
         }
         else
         {

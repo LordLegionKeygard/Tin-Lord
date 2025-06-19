@@ -6,7 +6,7 @@ using Zenject;
 
 public class MachineItem : MonoBehaviour
 {
-    [Inject] private PlayerResources _playerResources;
+    [Inject] private MissionResources _missionResources;
     [SerializeField] private MachineInformation _macniheInformation;
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private MachineSpawnerSystem _machineSpawnerSystem;
@@ -81,7 +81,7 @@ public class MachineItem : MonoBehaviour
 
     public void SetButtonAndTextColor()
     {
-        _resourcesEnough = _playerResources.ResourcesEnough(GetResources());
+        _resourcesEnough = _missionResources.ResourcesEnough(GetResources());
         _button.enabled = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? _currentMachineSystem.GetMachineHealth().FullHealth() || _currentMachineSystem.GetMachineHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
         _nameText.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? Colors.LightGreen : Colors.GreyEight : _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() && !_currentMachineSystem.GetMachineHealth().IsDeath() ? Color.white : Colors.GreyFive : _isSelect ? Color.white : Colors.GreyEight;
@@ -112,7 +112,7 @@ public class MachineItem : MonoBehaviour
         if (!_button.enabled) return;
 
         _worldResourcesView.ResetCells();
-        _playerResources.UseResourcesForBuilding(GetResources());
+        _missionResources.UseResourcesForBuilding(GetResources());
 
 
         if (CanRepair())

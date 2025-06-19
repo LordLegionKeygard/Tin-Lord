@@ -4,7 +4,7 @@ using Zenject;
 
 public class AllTileObjects : MonoBehaviour
 {
-    [Inject] readonly PlayerResources _playerResources;
+    [Inject] readonly MissionResources _missionResources;
     public List<TileObject> TileObjects;
 
     public void SetNeighbours(int mapLength)
@@ -75,9 +75,9 @@ public class AllTileObjects : MonoBehaviour
                     BuildingTilePositionX = buildingHaveTile ? tileObject.BuildingTileObject().GetBuildingTileTransform().GetPositionX() : 0,
                     BuildingTilePositionZ = buildingHaveTile ? tileObject.BuildingTileObject().GetBuildingTileTransform().GetPositionZ() : 0,
                     BuildingRotation = buildingHaveTile && haveBuildingTileGameObject && haveRotationView ? tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>().GetObjectRotation() : 0,
-                    RequiredResource = haveRequiredResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceForWork()) : -1,
+                    RequiredResource = haveRequiredResource ? _missionResources.GetResourceNumberForResource(tileObject.CurrentResourceForWork()) : -1,
                     RequiredResourceAmount = buildingHaveTile ? tileObject.CurrentResourceForWorkAmount() : 0,
-                    ResourceProduction = haveProductionResource ? _playerResources.GetResourceNumberForResource(tileObject.CurrentResourceProduction()) : -1,
+                    ResourceProduction = haveProductionResource ? _missionResources.GetResourceNumberForResource(tileObject.CurrentResourceProduction()) : -1,
                     IsConstructionNow = buildingHaveTile && tileObject.BuildingTileObject().IsConstructionNow(),
                     IsUpgradeBase = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase(),
                     PreviousBaseBuildingHealth = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase() ? tileObject.BuildingTileObject().PreviousBaseBuildingHealth() : 0,

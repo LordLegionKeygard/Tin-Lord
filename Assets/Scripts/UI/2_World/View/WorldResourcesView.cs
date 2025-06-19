@@ -4,7 +4,7 @@ using Zenject;
 
 public class WorldResourcesView : BaseResourceView
 {
-    [Inject] PlayerResources _playerResources;
+    [Inject] MissionResources _missionResources;
     
     public override void SetResourcesView(ResourceWrapper[] resources)
     {
@@ -14,7 +14,7 @@ public class WorldResourcesView : BaseResourceView
         {
             _icons[i].sprite = _resourceSpritesInfo.Sprites[(int)resources[i].ResourceEnum];
 
-            if (_playerResources.ResourceEnough(resources[i].ResourceEnum, resources[i].RecourceAmount))
+            if (_missionResources.ResourceEnough(resources[i].ResourceEnum, resources[i].RecourceAmount))
             {
                 _amountText[i].text = $"{resources[i].RecourceAmount}";
 

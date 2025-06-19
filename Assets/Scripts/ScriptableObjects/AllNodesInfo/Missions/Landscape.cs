@@ -14,7 +14,6 @@ public class Landscape : ScriptableObject
     public int MapLength;
     public int MapEdge = 4;
     public int StartPosEdge = 4;
-    public ResourceWrapper[] StartResources;
     public GameEventInfo[] MissionEvents;
     public Tile[] Cards;
     [TextArea(1, 8)] public string[] Description;

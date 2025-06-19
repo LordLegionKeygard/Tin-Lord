@@ -7,7 +7,7 @@ using System.Collections;
 
 public class SelectTilePanel : MonoBehaviour
 {
-    [Inject] private PlayerResources _playerResources;
+    [Inject] private MissionResources _missionResources;
 
     [Header("Panels")]
     [SerializeField] private MachinePanel _machinePanel;
@@ -358,9 +358,9 @@ public class SelectTilePanel : MonoBehaviour
         {
             _tileObject.BuildingHealth().Death();
         }
-        else if (!_tileObject.BuildingTileObject().HaveTile() && _playerResources.ResourceEnough(ResourceEnum.BeamEnergy, groundTileObject.CurrentGroundTile().GetEnergyBeam()))
+        else if (!_tileObject.BuildingTileObject().HaveTile() && _missionResources.ResourceEnough(ResourceEnum.BeamEnergy, groundTileObject.CurrentGroundTile().GetEnergyBeam()))
         {
-            _playerResources.ChangeResource(ResourceEnum.BeamEnergy, -groundTileObject.CurrentGroundTile().GetEnergyBeam());
+            _missionResources.ChangeResource(ResourceEnum.BeamEnergy, -groundTileObject.CurrentGroundTile().GetEnergyBeam());
             groundTileObject.DestroyGroundTile();
             PanelViewToggle(false);
         }

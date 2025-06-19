@@ -8,6 +8,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
     [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private AiCoreSystem _aiCoreSystem;
     [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
+    [SerializeField] private MainResources _mainResources;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
     {
         currentSaveData.Quants = _quantsSystem.GetQuants();
         currentSaveData.AiCores = _aiCoreSystem.GetAiCores();
-        currentSaveData.MemoryFragments = _buildingsLearnPanel.GetMemoryFragments();
+        currentSaveData.MainResourcesData = _mainResources.GetAllResourcesAmount();
 
         for (int i = 0; i < _buildingsLearnPanel.AllLearnBuildingItems().Length; i++)
         {
@@ -30,7 +31,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
     {
         _quantsSystem.LoadQuants(currentSaveData.Quants);
         _aiCoreSystem.LoadAiCore(currentSaveData.AiCores);
-        _buildingsLearnPanel.SetFragments(currentSaveData.MemoryFragments);
+        _mainResources.LoadResources(currentSaveData.MainResourcesData);
         _prologue.StartPrologue(!currentSaveData.PrologueCompleted);
 
         for (int i = 0; i < _buildingsLearnPanel.AllLearnBuildingItems().Length; i++)

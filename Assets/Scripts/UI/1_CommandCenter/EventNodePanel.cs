@@ -22,7 +22,7 @@ public class EventNodePanel : MonoBehaviour
     [Header("Systems")]
     [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private AiCoreSystem _aiCoreSystem;
-    [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
+    [SerializeField] private MainResources _mainResources;
     [SerializeField] private MapSystem _mapSystem;
 
     private readonly List<(EventReward reward, int amount)> _cachedRewards = new();
@@ -196,7 +196,7 @@ public class EventNodePanel : MonoBehaviour
                 break;
             case RewardType.Memory:
                 AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedMemory : FMODEvents.Instance.LostMemory, transform.position);
-                _buildingsLearnPanel.ChangeFragments(amount);
+                _mainResources.ChangeResource(ResourceEnum.MemoryFragment, amount);
                 break;
         }
     }
@@ -207,7 +207,7 @@ public class EventNodePanel : MonoBehaviour
         {
             RewardType.Quants => _quantsSystem.GetQuants(),
             RewardType.AiCore => _aiCoreSystem.GetAiCores(),
-            RewardType.Memory => (int)_buildingsLearnPanel.GetMemoryFragments(),
+            RewardType.Memory => (int)_mainResources.GetResourceAmountForEnum(ResourceEnum.MemoryFragment),
             _ => 0
         };
     }
