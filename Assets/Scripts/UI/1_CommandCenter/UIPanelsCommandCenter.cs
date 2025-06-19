@@ -77,7 +77,7 @@ public class UIPanelsCommandCenter : MonoBehaviour
     public void EventPanelOpen()
     {
         // закрываем карту
-        if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove();
+        if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove(false);
 
         _eventPanel.SetActive(true);
     }

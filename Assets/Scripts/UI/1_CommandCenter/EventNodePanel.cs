@@ -11,7 +11,7 @@ public class EventNodePanel : MonoBehaviour
     private Stack<int> _stack = new();
     private DialogueSequence _dialogue;
     private Action _onFinished;
-    private bool _waitingForContinueAfterChance; 
+    private bool _waitingForContinueAfterChance;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _mainText;
@@ -187,6 +187,7 @@ public class EventNodePanel : MonoBehaviour
         switch (reward.Type)
         {
             case RewardType.AiCore:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedAiCore : FMODEvents.Instance.LostAiCore, transform.position);
                 _aiCoreSystem.ChangeAiCores(amount);
                 break;
             case RewardType.Quants:

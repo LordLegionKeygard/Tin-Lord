@@ -161,6 +161,41 @@ MonoBehaviour:
       Data3: -646021227
       Data4: -1195971988
     Path: event:/Ui/EscapePanel
+  OpenMap:
+    Guid:
+      Data1: 733779791
+      Data2: 1150254937
+      Data3: -354722626
+      Data4: 1828945651
+    Path: event:/Ui/OpenMap
+  CloseMap:
+    Guid:
+      Data1: -477400028
+      Data2: 1146540391
+      Data3: -1207802960
+      Data4: -1495546425
+    Path: event:/Ui/CloseMap
+  Warp:
+    Guid:
+      Data1: 991759841
+      Data2: 1098686986
+      Data3: -1588668526
+      Data4: 1382433744
+    Path: event:/Sfx/MapNodes/Warp
+  ReceivedAiCore:
+    Guid:
+      Data1: -1133809355
+      Data2: 1081197208
+      Data3: 39175302
+      Data4: -2090624599
+    Path: event:/Sfx/MapNodes/ReceivedAiCore
+  LostAiCore:
+    Guid:
+      Data1: -1688221372
+      Data2: 1270387131
+      Data3: -1849041517
+      Data4: 1777563094
+    Path: event:/Sfx/MapNodes/LostAiCore
   GroundTiles:
   - Guid:
       Data1: 831788631

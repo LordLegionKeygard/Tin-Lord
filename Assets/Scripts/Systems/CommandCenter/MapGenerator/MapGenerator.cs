@@ -9,7 +9,7 @@ public class MapGenerator : MonoBehaviour
 
     [Header("Generation Settings")]
     private float _nodeXoffset = 300f;   // Шаг слоёв по X
-    private float _nodeYoffset = 250;   // Шаг нод по Y
+    private float _nodeYoffset = 200;   // Шаг нод по Y
     private float _nodeYrandomSpread = 0;    // Случайное отклонение по Y
     private float _mainXOffset = 100;   // Смещение всей сетки по X
     private float _mainYOffset = 0;  // Смещение всей сетки по Y
@@ -98,7 +98,7 @@ public class MapGenerator : MonoBehaviour
 
         // 2. Считаем, сколько потребуется слоёв
         int totalContentNodes = landscapes.Count + eventEntries.Count + moduleTraders.Count + skillTraders.Count;
-        const int maxNodesPerLayer = 3;
+        const int maxNodesPerLayer = 4;
         int contentLayers = Mathf.CeilToInt(totalContentNodes / (float)maxNodesPerLayer);
         int totalLayers = contentLayers + 3; // старт, минимум один слой миссий, босс
 
@@ -111,12 +111,62 @@ public class MapGenerator : MonoBehaviour
         _generatedNodes.Add(start);
         AddToSavedMap(start, NodeType.Start, _generatedNodes.Count - 1);
 
-        // 2.2  Первая обязательная миссия
-        MissionNode firstMissionData = CreateMissionNode(landscapes, objectives, spawners, ref objectiveIdx, ref spawnerIdx);
-        NodeInstance firstMission = CreateNode(firstMissionData, 1);
-        AddToLayer(1, firstMission);
-        _generatedNodes.Add(firstMission);
-        AddToSavedMap(firstMission, NodeType.Mission, _generatedNodes.Count - 1);
+        // 2.2  Первый контент-слой (layer = 1).
+        //      Должен содержать 2-3 нода; разрешены Mission и Event, трейдеры не допускаются.
+        {
+            int layer = 1;
+            int nodesPlanned = Mathf.Min(maxNodesPerLayer, Random.Range(2, maxNodesPerLayer)); // 2–3
+            int nodesThisLayer = 0;
+
+            // миссии + ивенты, пока не заполним план или не кончатся ресурсы
+            while (nodesThisLayer < nodesPlanned &&
+                   (landscapes.Count + eventEntries.Count) > 0)
+            {
+                var makers = new List<System.Action>();
+
+                // --- миссия
+                if (landscapes.Count > 0)
+                    makers.Add(() =>
+                    {
+                        var m = CreateMissionNode(landscapes, objectives, spawners,
+                                                  ref objectiveIdx, ref spawnerIdx);
+                        AddNodeToLayer(m, NodeType.Mission);
+                    });
+
+                // --- ивент
+                if (eventEntries.Count > 0)
+                    makers.Add(() =>
+                    {
+                        var entry = eventEntries[0];
+                        eventEntries.RemoveAt(0);
+                        AddEventToLayer(entry);
+                    });
+
+                int pick = Random.Range(0, makers.Count);
+                makers[pick].Invoke();
+                nodesThisLayer++;
+            }
+
+            // --- локальные помощники ---
+            void AddNodeToLayer(NodeData data, NodeType type)
+            {
+                var inst = CreateNode(data, layer);
+                AddToLayer(layer, inst);
+                _generatedNodes.Add(inst);
+                AddToSavedMap(inst, type, _generatedNodes.Count - 1);
+            }
+
+            void AddEventToLayer(EventEntry e)
+            {
+                var inst = CreateNode(e.Node, layer);
+                AddToLayer(layer, inst);
+                _generatedNodes.Add(inst);
+
+                var type = e.Node is RewardEventNode ? NodeType.RewardEvent : NodeType.Event;
+                AddToSavedMap(inst, type, _generatedNodes.Count - 1,
+                              e.SequenceIndex, e.PoolIndex);
+            }
+        }
 
         // 2.3  Промежуточные слои (2 … totalLayers-2) — случайное чередование типов
         for (int layer = 2; layer < totalLayers - 1; layer++)
@@ -333,7 +383,7 @@ public class MapGenerator : MonoBehaviour
                 }
 
                 // 30 % шанс добавить «резервную» нижнюю связь, не создавая пересечений
-                if (Random.value < 0.3f && i + 1 < next.Count)
+                if (Random.value < 0.5f && i + 1 < next.Count)
                 {
                     NodeInstance alt = next[i + 1];
                     if (!from.connectedNodes.Contains(alt))

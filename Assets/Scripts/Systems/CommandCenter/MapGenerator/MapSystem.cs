@@ -90,6 +90,8 @@ public class MapSystem : MonoBehaviour
         if (!isCurrent && !IsReachable(nodeIndex)) return;
         if (!isCurrent && !map.Nodes[_currentNodeIndex].IsCompleted) return;
 
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp, transform.position);
+
         if (!isCurrent)
         {
             _currentNodeIndex = nodeIndex;

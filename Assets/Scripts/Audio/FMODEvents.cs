@@ -8,6 +8,13 @@ public class FMODEvents : MonoBehaviour
     [Header("UiSFX")]
     public EventReference[] UiClick;
     public EventReference EscapePanel;
+    public EventReference Warp;
+
+    [Header("DialogueReward")]
+
+    public EventReference ReceivedAiCore;
+    public EventReference LostAiCore;
+
     
     [Header("Environment")]
     public EventReference[] GroundTiles;
