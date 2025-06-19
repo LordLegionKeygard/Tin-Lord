@@ -12,6 +12,7 @@ public class EventNodePanel : MonoBehaviour
     private DialogueSequence _dialogue;
     private Action _onFinished;
     private bool _waitingForContinueAfterChance;
+    private float _successChance = 0.5f;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _mainText;
@@ -45,11 +46,9 @@ public class EventNodePanel : MonoBehaviour
         _cachedRewards.Clear();
         foreach (var ch in step.Choices)
         {
-            if (ch.Kind == ChoiceKind.Standard &&
-                ch.Standard.Rewards != null &&
-                ch.Standard.Rewards.Count > 0)
+            if (ch.Kind == ChoiceKind.Standard && ch.Standard.Rewards != null && ch.Standard.Rewards.Count > 0)
             {
-                sb.AppendLine();
+                sb.AppendLine(); //пропускаем строку перед выводом награды
                 foreach (var r in ch.Standard.Rewards)
                 {
                     int amt = UnityEngine.Random.Range(r.MinAmount, r.MaxAmount);
@@ -83,11 +82,12 @@ public class EventNodePanel : MonoBehaviour
 
         if (choice.Kind == ChoiceKind.Chance)
         {
-            bool success = UnityEngine.Random.value < choice.Chance.SuccessChance;
+            bool success = UnityEngine.Random.value < _successChance;
             int textId = success ? choice.Chance.SuccessTextNumber : choice.Chance.FailureTextNumber;
             var rewards = success ? choice.Chance.SuccessRewards : choice.Chance.FailureRewards;
             var sb = new StringBuilder();
             sb.AppendLine(Language.TextStatic[textId]);
+            sb.AppendLine(); //пропускаем строку перед выводом награды
 
             _pendingRewards.Clear();
             if (rewards != null)

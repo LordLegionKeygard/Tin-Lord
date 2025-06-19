@@ -66,12 +66,6 @@ public class StepChoiceDrawer : PropertyDrawer
         }
         else    // ---------------- Chance branch ----------------
         {
-            var succChance = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.SuccessChance));
-            EditorGUI.PropertyField(
-                new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-                succChance);
-            y += EditorGUIUtility.singleLineHeight + PadY;
-
             var succText = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.SuccessTextNumber));
             EditorGUI.PropertyField(
                 new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
