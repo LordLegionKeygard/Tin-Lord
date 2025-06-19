@@ -191,9 +191,11 @@ public class EventNodePanel : MonoBehaviour
                 _aiCoreSystem.ChangeAiCores(amount);
                 break;
             case RewardType.Quants:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedQuants : FMODEvents.Instance.LostQuants, transform.position);
                 _quantsSystem.ChangeQuants(amount);
                 break;
             case RewardType.Memory:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedMemory : FMODEvents.Instance.LostMemory, transform.position);
                 _buildingsLearnPanel.ChangeFragments(amount);
                 break;
         }
