@@ -8,8 +8,10 @@ public class UIPanelsCommandCenter : MonoBehaviour
     [SerializeField] private PanelDoMoveY _buildingInfoPanelDoMove;
     [SerializeField] private PanelDoMoveX _missionPanelDoMove;
     [SerializeField] private PanelDoMoveX _mainResourcesPanelDoMove;
+    [SerializeField] private PanelDoMoveY _resourceTraderPanelDoMove;
 
     [Header("Other")]
+    [SerializeField] private ResourceTraderPanel _resourceTraderPanel;
     [SerializeField] private MapSystem _mapSystem;
     [SerializeField] private GameObject _eventPanel;
     [SerializeField] private EscapePanelCommandCenter _escapePanel;
@@ -17,53 +19,38 @@ public class UIPanelsCommandCenter : MonoBehaviour
     [SerializeField] private LearnBuildingInfoPanel _learnBuildingInfoPanel;
     [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
 
-    public void LearnBuildingPanelToggle(bool needSound = true)
+    public void LearnBuildingPanelToggle()
     {
         _buildingsPanelDoMove.PanelMove();
         _buildingInfoPanelDoMove.PanelMove(false);
 
-        if (_buildingsPanelDoMove.IsOpen())
-        {
-            _buildingsLearnPanel.ResetScrollPosition();
-        }
-
-        if (_mainResourcesPanelDoMove.IsOpen())
-        {
-            _mainResourcesPanelDoMove.PanelMove();
-        }
-
-        if (!_buildingInfoPanelDoMove.IsOpen())
-        {
-            _learnBuildingInfoPanel.Reset();
-        }
-
-        if (_missionPanelDoMove.IsOpen())
-        {
-            _missionPanelDoMove.PanelMove();
-        }
+        if (_buildingsPanelDoMove.IsOpen()) _buildingsLearnPanel.ResetScrollPosition();
+        if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
+        if (_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove();
+        if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
+        if (!_buildingInfoPanelDoMove.IsOpen()) _learnBuildingInfoPanel.Reset();
     }
 
     public void MapPanelOpen()
     {
-        if (_buildingsPanelDoMove.IsOpen())
-        {
-            LearnBuildingPanelToggle(false);
-        }
-
-        if (_missionPanelDoMove.IsOpen())
-        {
-            _missionPanelDoMove.PanelMove();
-        }
-
-        if (_mainResourcesPanelDoMove.IsOpen())
-        {
-            _mainResourcesPanelDoMove.PanelMove();
-        }
-
+        if (_buildingsPanelDoMove.IsOpen()) LearnBuildingPanelToggle();
+        if (_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove();
+        if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
+        if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
         if (!_mapPanelDoMove.IsOpen())
         {
             _mapSystem.FocusOnCurrentNode();
             _mapPanelDoMove.PanelMove();
+        }
+    }
+
+    public void OpenResourceTraderPanel()
+    {
+        if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove(false);
+        if (!_resourceTraderPanelDoMove.IsOpen())
+        {
+            _resourceTraderPanel.PrepareTraderPanel();
+            _resourceTraderPanelDoMove.PanelMove();
         }
     }
 
@@ -72,40 +59,26 @@ public class UIPanelsCommandCenter : MonoBehaviour
         if (_canvasGroup.interactable == false) return;
 
         CustomEvents.FireTooltipToggle(false, 0);
-        if (_buildingsPanelDoMove.IsOpen())
-        {
-            LearnBuildingPanelToggle();
-        }
-        else if (_mapPanelDoMove.IsOpen())
-        {
-            _mapPanelDoMove.PanelMove();
-        }
-        else if (_mainResourcesPanelDoMove.IsOpen())
-        {
-            _mainResourcesPanelDoMove.PanelMove();
-        }
+        if (_buildingsPanelDoMove.IsOpen()) LearnBuildingPanelToggle();
+        else if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove();
+        else if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
+        else if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
         else
         {
             if (emptyEscapeClick) return;
-
             _escapePanel.PanelViewToggle();
         }
     }
 
     public void EventPanelOpen()
     {
-        // закрываем карту
         if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove(false);
-
         _eventPanel.SetActive(true);
     }
 
     public void MissionPanelOpen(bool needSound)
     {
-        // закрываем карту
         if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove(needSound);
-
-        // открываем миссию
         if (!_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove(needSound);
     }
 }

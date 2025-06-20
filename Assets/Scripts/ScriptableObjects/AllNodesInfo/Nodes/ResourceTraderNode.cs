@@ -3,5 +3,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ResourceTraderNode", menuName = "TinLord/Nodes/ResourceTraderNode")]
 public class ResourceTraderNode : NodeData
 {
-    
+    public DialogueSequence Dialogue;
 }

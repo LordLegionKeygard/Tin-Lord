@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -9,6 +10,7 @@ public class ResourceTraderPanel : MonoBehaviour
 {
     [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
     [SerializeField] private Resource[] _resources;
+    [SerializeField] private PanelDoMoveY _panelDoMoveY;
     [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private MainResources _mainResources;
     [SerializeField] private Image _image;
@@ -20,7 +22,7 @@ public class ResourceTraderPanel : MonoBehaviour
     private int _currentResource;
 
 
-    public void OpenResourceTraderPanel()
+    public void PrepareTraderPanel()
     {
         _currentResource = 0;
         UpdateView();
@@ -28,6 +30,7 @@ public class ResourceTraderPanel : MonoBehaviour
 
     public void ChangeResource(bool right)
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         if (right) _currentResource++;
         else _currentResource--;
 
@@ -43,13 +46,15 @@ public class ResourceTraderPanel : MonoBehaviour
         _image.sprite = _resources[_currentResource].Icon;
         _priceText.text = _resources[_currentResource].Price.ToString();
 
-        var interactable = _quantsSystem.GetQuants() >= _resources[_currentResource].Price;
-        _buttonImage.sprite = interactable ? _buttonSprites[0] : _buttonSprites[1];
-        _buyButton.interactable = interactable;
+        var enoughtQuants = _quantsSystem.GetQuants() >= _resources[_currentResource].Price;
+        _buttonImage.sprite = enoughtQuants ? _buttonSprites[0] : _buttonSprites[1];
+        _buyButton.interactable = enoughtQuants;
+        _priceText.color = enoughtQuants ? Color.white : Colors.WarningYellow;
     }
 
     public void BuyResource()
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _quantsSystem.ChangeQuants(-_resources[_currentResource].Price);
         _mainResources.ChangeResource(_resources[_currentResource].ResourceEnum, 1);
         CommandCenterSaveGame.SaveGameData(false);

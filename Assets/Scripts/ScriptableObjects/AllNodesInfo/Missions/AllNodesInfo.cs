@@ -6,8 +6,7 @@ public class AllNodesInfo : ScriptableObject
     [Header("Nodes")]
     public StartNode StartNode; // стартовая точка
     public EventPool[] EventPools; // все возможные ивенты
-    public ModuleTraderNode[] ModuleTraders; // все торговцы модулями
-    public ResourceTraderNode[] SkillTraders; // все торговцы умениями
+    public ResourceTraderNode[] ResourceTraders; // все торговцы ресурсами
     public BossNode BossNode; // финальный босс
 
     [Header("Templates")]

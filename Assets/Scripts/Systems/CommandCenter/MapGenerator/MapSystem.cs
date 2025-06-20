@@ -90,8 +90,6 @@ public class MapSystem : MonoBehaviour
         if (!isCurrent && !IsReachable(nodeIndex)) return;
         if (!isCurrent && !map.Nodes[_currentNodeIndex].IsCompleted) return;
 
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp, transform.position);
-
         if (!isCurrent)
         {
             _currentNodeIndex = nodeIndex;
@@ -129,11 +127,40 @@ public class MapSystem : MonoBehaviour
 
         if (map.Nodes[nodeIndex].NodeType == NodeType.ResourceTrader)
         {
-            
+            var traderInst = _generator.GetGeneratedNodes()[nodeIndex];
+            var traderNode = traderInst.nodeData as ResourceTraderNode;
+
+            if (map.Nodes[nodeIndex].IsCompleted && nodeIndex == _currentNodeIndex)
+            {
+                _panels.OpenResourceTraderPanel();
+                return;
+            }
+
+            map.Nodes[nodeIndex].IsCompleted = true;
+            _uiNodes[nodeIndex].SetCompleted(true);
+            RefreshHighlights();
+
+            _eventPanel.OnChoiceSelected -= HandleTraderChoice;
+            _eventPanel.OnChoiceSelected += HandleTraderChoice;
+
+            _eventPanel.Open(traderNode.Dialogue);
+            _panels.EventPanelOpen();
         }
 
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp, transform.position);
         ApplyCosmos();
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
+    }
+
+    private void HandleTraderChoice(int idx)
+    {
+        _eventPanel.OnChoiceSelected -= HandleTraderChoice;
+        _eventPanel.Close();
+
+        if (idx == 0) // текст выбора торговать
+        {
+            _panels.OpenResourceTraderPanel();
+        }
     }
 
     private void ApplyCosmos()

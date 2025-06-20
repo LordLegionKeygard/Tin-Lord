@@ -11,6 +11,7 @@ public class EventNodePanel : MonoBehaviour
     private Stack<int> _stack = new();
     private DialogueSequence _dialogue;
     private Action _onFinished;
+    public Action<int> OnChoiceSelected;
     private bool _waitingForContinueAfterChance;
     private float _successChance = 0.5f;
 
@@ -79,6 +80,10 @@ public class EventNodePanel : MonoBehaviour
     private void OnChoice(StepChoice choice)
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+
+        var step = _dialogue.Steps[_stack.Peek()];
+        int idx = step.Choices.IndexOf(choice);
+        OnChoiceSelected?.Invoke(idx);
 
         if (choice.Kind == ChoiceKind.Chance)
         {

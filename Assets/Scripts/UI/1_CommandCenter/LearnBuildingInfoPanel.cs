@@ -189,6 +189,8 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     public void Reset()
     {
+        _resourceForWorkPanelObject.SetActive(false);
+        _resourceForWorkPanelLine.SetActive(false);
         _buildingResourcesPanelObject.SetActive(false);
         _buildingResourcesPanelLine.SetActive(false);
         _receptPanelObject.SetActive(false);
