@@ -7,6 +7,7 @@ public class Resource : ScriptableObject
     public Sprite Icon;
     public ResourceEnum ResourceEnum;
     public ResourceType ResourceType;
+    public int Price;
     
     [Header("TextInfo")]
     public int NameNumber;

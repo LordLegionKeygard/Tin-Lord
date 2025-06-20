@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "TinLord/Dialogue")]

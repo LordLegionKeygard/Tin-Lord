@@ -127,6 +127,11 @@ public class MapSystem : MonoBehaviour
             _panels.EventPanelOpen();
         }
 
+        if (map.Nodes[nodeIndex].NodeType == NodeType.ResourceTrader)
+        {
+            
+        }
+
         ApplyCosmos();
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
     }

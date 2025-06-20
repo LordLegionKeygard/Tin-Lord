@@ -87,7 +87,7 @@ public class MapGenerator : MonoBehaviour
         var spawners = new List<EnemiesSpawner>(_allMissionsInfo.EnemiesSpawnerInformation);
         var eventEntries = BuildEventEntries(_allMissionsInfo.EventPools);
         var moduleTraders = new List<ModuleTraderNode>(_allMissionsInfo.ModuleTraders);
-        var skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
+        var skillTraders = new List<ResourceTraderNode>(_allMissionsInfo.SkillTraders);
 
         Shuffle(landscapes);
         Shuffle(objectives);
@@ -455,6 +455,8 @@ public enum NodeType
     SkillTrader = 4,
     Boss = 5,
     RewardEvent = 6,
+    ResourceTrader = 7,
+
 }
 
 public class NodeInstance

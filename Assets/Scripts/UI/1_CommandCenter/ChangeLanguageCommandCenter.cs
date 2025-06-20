@@ -17,10 +17,22 @@ public class ChangeLanguageCommandCenter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
 
+    [Header("ResourceTraderPanel")]
+    [SerializeField] private TextMeshProUGUI _resourceTraderHeaderText;
+    [SerializeField] private TextMeshProUGUI _priceText;
+    [SerializeField] private TextMeshProUGUI _buyText;
+    [SerializeField] private TextMeshProUGUI _resourceText;
+
+
 
 
     private void Start()
     {
+        _resourceTraderHeaderText.text = Language.TextStatic[287];
+        _priceText.text = Language.TextStatic[288];
+        _buyText.text = Language.TextStatic[289];
+        _resourceText.text = Language.TextStatic[290];
+
         _resourceTypesPanel[0].text = Language.TextStatic[7];
         _resourceTypesPanel[1].text = Language.TextStatic[8];
         _resourceTypesPanel[2].text = Language.TextStatic[9];
@@ -39,7 +51,7 @@ public class ChangeLanguageCommandCenter : MonoBehaviour
         _areYouSureText.text = Language.TextStatic[48];
 
         _selectBuildingText.text = Language.TextStatic[12];
-        _buildingHealthText.text =  $"{Language.TextStatic[97]}: -";
+        _buildingHealthText.text = $"{Language.TextStatic[97]}: -";
         _buildingEcologyText.text = $"{Language.TextStatic[16]}: -";
         _buildingLevelText.text = $"{Language.TextStatic[3]}: -";
     }
