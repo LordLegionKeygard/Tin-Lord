@@ -888,8 +888,8 @@ public class Language : MonoBehaviour
         _text[286, 0] = "AI cores are the ship's vital modules.";
         _text[286, 1] = "Ядра ИИ - жизненно важные модули корабля";
 
-        _text[287, 0] = "Resource Trader";
-        _text[287, 1] = "Торговец Ресурсами";
+        _text[287, 0] = "Resource Seller";
+        _text[287, 1] = "Продавец Ресурсов";
 
         _text[288, 0] = "Price";
         _text[288, 1] = "Цена";
@@ -900,8 +900,8 @@ public class Language : MonoBehaviour
         _text[290, 0] = "Resource";
         _text[290, 1] = "Ресурс";
 
-        _text[291, 0] = "Resource Seller";
-        _text[291, 1] = "Продавец Ресурсов";
+        _text[291, 0] = "";
+        _text[291, 1] = "";
 
         _text[292, 0] = "";
         _text[292, 1] = "";

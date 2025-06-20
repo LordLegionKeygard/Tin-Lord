@@ -86,6 +86,7 @@ public class MapSystem : MonoBehaviour
     {
         var map = _save.CommandCenterSaveData.Map;
         bool isCurrent = nodeIndex == _currentNodeIndex;
+        var nodeType = map.Nodes[nodeIndex].NodeType;
 
         if (!isCurrent && !IsReachable(nodeIndex)) return;
         if (!isCurrent && !map.Nodes[_currentNodeIndex].IsCompleted) return;
@@ -98,7 +99,7 @@ public class MapSystem : MonoBehaviour
             RefreshHighlights();
         }
 
-        if (map.Nodes[nodeIndex].NodeType == NodeType.Mission)
+        if (nodeType == NodeType.Mission)
         {
             var missionNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as MissionNode;
 
@@ -111,40 +112,23 @@ public class MapSystem : MonoBehaviour
             _missionPanel.RefreshInfo(missionNode, nodeIndex);
             _panels.MissionPanelOpen(true);
         }
-        if (map.Nodes[nodeIndex].NodeType == NodeType.Event)
+        if (nodeType == NodeType.Event)
         {
             var eventNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as EventNode;
             int sequenceIndex = map.Nodes[nodeIndex].EventSequenceIndex;
             _eventPanel.Open(eventNode.Dialogue[sequenceIndex]);
             _panels.EventPanelOpen();
         }
-        if (map.Nodes[nodeIndex].NodeType == NodeType.RewardEvent)
+        if (nodeType == NodeType.RewardEvent)
         {
-            var healNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as RewardEventNode;
-            _eventPanel.Open(healNode.Dialogue);
+            var rewardNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as RewardEventNode;
+            _eventPanel.Open(rewardNode.Dialogue);
             _panels.EventPanelOpen();
         }
-
-        if (map.Nodes[nodeIndex].NodeType == NodeType.ResourceTrader)
+        if (nodeType == NodeType.ResourceTrader || nodeType == NodeType.SkillTrader || nodeType == NodeType.ModuleTrader)
         {
-            var traderInst = _generator.GetGeneratedNodes()[nodeIndex];
-            var traderNode = traderInst.nodeData as ResourceTraderNode;
-
-            if (map.Nodes[nodeIndex].IsCompleted && nodeIndex == _currentNodeIndex)
-            {
-                _panels.OpenResourceTraderPanel();
-                return;
-            }
-
-            map.Nodes[nodeIndex].IsCompleted = true;
-            _uiNodes[nodeIndex].SetCompleted(true);
-            RefreshHighlights();
-
-            _eventPanel.OnChoiceSelected -= HandleTraderChoice;
-            _eventPanel.OnChoiceSelected += HandleTraderChoice;
-
-            _eventPanel.Open(traderNode.Dialogue);
-            _panels.EventPanelOpen();
+            var traderNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as BaseTraderNode;
+            OpenTrader(traderNode, nodeIndex);
         }
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp, transform.position);
@@ -152,16 +136,43 @@ public class MapSystem : MonoBehaviour
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
     }
 
+    private TraderKind _activeTraderKind;
+
+    private void OpenTrader(BaseTraderNode node, int nodeIndex)
+    {
+        var map = _save.CommandCenterSaveData.Map;
+
+        // повторный клик на уже пройденном узле, на котором мы стоим
+        if (map.Nodes[nodeIndex].IsCompleted && nodeIndex == _currentNodeIndex)
+        {
+            _panels.OpenTraderPanel(node.TraderKind);
+            return;
+        }
+
+        // первый визит
+        map.Nodes[nodeIndex].IsCompleted = true;
+        _uiNodes[nodeIndex].SetCompleted(true);
+        RefreshHighlights();
+
+        _activeTraderKind = node.TraderKind;
+
+        _eventPanel.OnChoiceSelected -= HandleTraderChoice;
+        _eventPanel.OnChoiceSelected += HandleTraderChoice;
+
+        _eventPanel.Open(node.Dialogue);
+        _panels.EventPanelOpen();
+    }
+
     private void HandleTraderChoice(int idx)
     {
         _eventPanel.OnChoiceSelected -= HandleTraderChoice;
         _eventPanel.Close();
 
-        if (idx == 0) // текст выбора торговать
-        {
-            _panels.OpenResourceTraderPanel();
-        }
+        if (idx != 0) return;
+
+        _panels.OpenTraderPanel(_activeTraderKind);
     }
+
 
     private void ApplyCosmos()
     {

@@ -44,13 +44,25 @@ public class UIPanelsCommandCenter : MonoBehaviour
         }
     }
 
-    public void OpenResourceTraderPanel()
+    public void OpenTraderPanel(TraderKind traderKind)
     {
         if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove(false);
-        if (!_resourceTraderPanelDoMove.IsOpen())
+
+        switch (traderKind)
         {
-            _resourceTraderPanel.PrepareTraderPanel();
-            _resourceTraderPanelDoMove.PanelMove();
+            case TraderKind.Resource:
+                if (!_resourceTraderPanelDoMove.IsOpen())
+                {
+                    _resourceTraderPanel.PrepareTraderPanel();
+                    _resourceTraderPanelDoMove.PanelMove();
+                }
+                break;
+            case TraderKind.Skill:
+
+                break;
+            case TraderKind.Module:
+
+                break;
         }
     }
 

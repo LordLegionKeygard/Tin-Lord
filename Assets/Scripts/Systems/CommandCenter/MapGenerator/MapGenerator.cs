@@ -30,6 +30,7 @@ public class MapGenerator : MonoBehaviour
             NodeType.Event => _allMissionsInfo.EventPools[0].Node,
             NodeType.RewardEvent => _allMissionsInfo.EventPools[1].Node,
             NodeType.ResourceTrader => _allMissionsInfo.ResourceTraders[0],
+            NodeType.SkillTrader => _allMissionsInfo.SkillTraders[0],
             NodeType.Mission => _allMissionsInfo.MissionNodeTemplate,
             _ => null
         };
@@ -86,15 +87,17 @@ public class MapGenerator : MonoBehaviour
         var spawners = new List<EnemiesSpawner>(_allMissionsInfo.EnemiesSpawnerInformation);
         var eventEntries = BuildEventEntries(_allMissionsInfo.EventPools);
         var resourceTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
+        var skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
 
         Shuffle(landscapes);
         Shuffle(objectives);
         Shuffle(spawners);
         Shuffle(eventEntries);
         Shuffle(resourceTraders);
+        Shuffle(skillTraders);
 
         // 2. Считаем, сколько потребуется слоёв
-        int totalContentNodes = landscapes.Count + eventEntries.Count + resourceTraders.Count;
+        int totalContentNodes = landscapes.Count + eventEntries.Count + resourceTraders.Count + skillTraders.Count;
         const int maxNodesPerLayer = 4;
         int contentLayers = Mathf.CeilToInt(totalContentNodes / (float)maxNodesPerLayer);
         int totalLayers = contentLayers + 3; // старт, минимум один слой миссий, босс
@@ -171,7 +174,7 @@ public class MapGenerator : MonoBehaviour
             int nodesPlanned = Mathf.Min(maxNodesPerLayer, Random.Range(2, maxNodesPerLayer + 1));
             int nodesThisLayer = 0;
 
-            while (nodesThisLayer < nodesPlanned && (landscapes.Count + eventEntries.Count + resourceTraders.Count) > 0)
+            while (nodesThisLayer < nodesPlanned && (landscapes.Count + eventEntries.Count + resourceTraders.Count + skillTraders.Count) > 0)
             {
                 var makers = new List<System.Action>();
 
@@ -197,6 +200,14 @@ public class MapGenerator : MonoBehaviour
                         var t = resourceTraders[0];
                         resourceTraders.RemoveAt(0);
                         AddNodeToLayer(t, NodeType.ResourceTrader);
+                    });
+
+                if (skillTraders.Count > 0)
+                    makers.Add(() =>
+                    {
+                        var t = skillTraders[0];
+                        skillTraders.RemoveAt(0);
+                        AddNodeToLayer(t, NodeType.SkillTrader);
                     });
 
                 int pick = Random.Range(0, makers.Count);
