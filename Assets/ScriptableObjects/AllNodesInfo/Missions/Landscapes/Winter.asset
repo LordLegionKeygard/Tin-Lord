@@ -35,15 +35,6 @@ MonoBehaviour:
   MapLength: 12
   MapEdge: 4
   StartPosEdge: 4
-  StartResources:
-  - ResourceEnum: 0
-    RecourceAmount: 100
-  - ResourceEnum: 1
-    RecourceAmount: 50
-  - ResourceEnum: 4
-    RecourceAmount: 25
-  - ResourceEnum: 5
-    RecourceAmount: 10
   MissionEvents:
   - {fileID: 11400000, guid: d49694d92c2ca064fbd724a765463f2a, type: 2}
   - {fileID: 11400000, guid: f31e1355a13e3d74f8a04ca87d106172, type: 2}
@@ -62,6 +53,14 @@ MonoBehaviour:
   Description:
   - '-'
   - '-'
-  CosmosVariations: []
+  CosmosVariations:
+  - PlanetPrefab: {fileID: 1036261144296232, guid: 0fade6951b518034c96bc8c1ef101c5c,
+      type: 3}
+    PlanetPosition: {x: 0.28, y: 0.06, z: 1.02}
+    PlanetRotation: {x: 0, y: 0, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 29f7eb4ef68545141b687e420fdb4b83, type: 2}
+    SkyboxRotation: 110
+    LightRotation: {x: 30.43, y: -30.13, z: 0}
+    Temperature: 6500
   StoryTextsIndexes: 
   ConsoleTextsIndexes: 

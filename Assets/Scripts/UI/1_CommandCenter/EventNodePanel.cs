@@ -173,16 +173,16 @@ public class EventNodePanel : MonoBehaviour
         {
             RewardType.AiCore =>
                 amount >= 0
-                    ? $"{Language.TextStatic[279]} {amount}"
-                    : $"{Language.TextStatic[282]} {amount}",
+                    ? $"<color=#00FF00>{Language.TextStatic[279]} {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[282]} {amount}<color=#00FF00>",
             RewardType.Quants =>
                 amount >= 0
-                    ? $"{Language.TextStatic[280]} {amount}"
-                    : $"{Language.TextStatic[283]} {amount}",
+                    ? $"<color=#00FF00>{Language.TextStatic[280]} {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[283]} {amount}<color=#00FF00>",
             RewardType.Memory =>
                 amount >= 0
-                    ? $"{Language.TextStatic[281]} {amount}"
-                    : $"{Language.TextStatic[284]} {amount}",
+                    ? $"<color=#00FF00>{Language.TextStatic[281]} {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[284]} {amount}<color=#00FF00>",
             _ => null
         };
     }
