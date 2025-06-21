@@ -29,6 +29,7 @@ public class CommandCenterSaveGame : MonoBehaviour
             PrologueCompleted = false,
             TutorialCompleted = false,
             BuildingsLearned = new bool[_configLoaderBuildings.AllBuidingsCount()],
+            OpenedSkills = new bool[WorldGameInfo.SkillsCount],
         };
 
         CommandCenterSaveData.BuildingsLearned[0] = true; // Shelter
@@ -38,6 +39,8 @@ public class CommandCenterSaveGame : MonoBehaviour
 
         CommandCenterSaveData.MainResourcesData[(int)ResourceEnum.Wood] = 100;
         CommandCenterSaveData.MainResourcesData[(int)ResourceEnum.Stone] = 50;
+
+        CommandCenterSaveData.OpenedSkills[0] = true;
 
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 

@@ -1,16 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 public class ResourceTraderPanel : MonoBehaviour
 {
-    [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
+    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [SerializeField] private Resource[] _resources;
-    [SerializeField] private PanelDoMoveY _panelDoMoveY;
     [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private MainResources _mainResources;
     [SerializeField] private Image _image;
@@ -57,7 +53,7 @@ public class ResourceTraderPanel : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _quantsSystem.ChangeQuants(-_resources[_currentResource].Price);
         _mainResources.ChangeResource(_resources[_currentResource].ResourceEnum, 1);
-        CommandCenterSaveGame.SaveGameData(false);
+        _commandCenterSaveGame.SaveGameData(false);
         UpdateView();
     }
 }

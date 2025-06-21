@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class BaseSkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
     [SerializeField] private BaseSkill _baseSkill;

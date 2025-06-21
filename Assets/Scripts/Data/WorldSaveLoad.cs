@@ -163,7 +163,7 @@ public class WorldSaveLoad : MonoBehaviour
         _objectivesPanel.LoadObjectiveItems(currentSaveData.ObjectiveAmount, currentSaveData.IsStartMission);
 
         //Skills
-        // _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _commandCenterSaveGame.CommandCenterSaveData.LastOpenedMissionId);
+        _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _commandCenterSaveGame.CommandCenterSaveData.OpenedSkills);
 
         //Tutorial
         if (!_commandCenterSaveGame.CommandCenterSaveData.TutorialCompleted) _tutorialSystem.OpenTutorial(true);

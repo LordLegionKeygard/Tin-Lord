@@ -14,11 +14,11 @@ public class BaseSkill : MonoBehaviour
     public bool IsOpen() => _isOpen;
     public int GetCurrentDurationTick() => _currentDurationTick;
 
-    public void LoadSkill(int cooldown, int duration, int lastOpenedMissionId)
+    public void LoadSkill(int cooldown, int duration, bool openSkill)
     {
         if (_skill == null) return;
 
-        if (_skill.RequiredOpenedMission <= lastOpenedMissionId)
+        if (openSkill)
         {
             _isOpen = true;
             SkillView.SetupSkill(cooldown);

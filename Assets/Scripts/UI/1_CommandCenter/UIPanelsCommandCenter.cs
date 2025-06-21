@@ -9,9 +9,11 @@ public class UIPanelsCommandCenter : MonoBehaviour
     [SerializeField] private PanelDoMoveX _missionPanelDoMove;
     [SerializeField] private PanelDoMoveX _mainResourcesPanelDoMove;
     [SerializeField] private PanelDoMoveY _resourceTraderPanelDoMove;
+    [SerializeField] private PanelDoMoveY _skillTraderPanelDoMove;
 
     [Header("Other")]
     [SerializeField] private ResourceTraderPanel _resourceTraderPanel;
+    [SerializeField] private SkillTraderPanel _skillTraderPanel;
     [SerializeField] private MapSystem _mapSystem;
     [SerializeField] private GameObject _eventPanel;
     [SerializeField] private EscapePanelCommandCenter _escapePanel;
@@ -28,6 +30,7 @@ public class UIPanelsCommandCenter : MonoBehaviour
         if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
         if (_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove();
         if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
+        if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelMove();
         if (!_buildingInfoPanelDoMove.IsOpen()) _learnBuildingInfoPanel.Reset();
     }
 
@@ -37,6 +40,7 @@ public class UIPanelsCommandCenter : MonoBehaviour
         if (_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove();
         if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
         if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
+        if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelMove();
         if (!_mapPanelDoMove.IsOpen())
         {
             _mapSystem.FocusOnCurrentNode();
@@ -58,7 +62,11 @@ public class UIPanelsCommandCenter : MonoBehaviour
                 }
                 break;
             case TraderKind.Skill:
-
+                if (!_skillTraderPanelDoMove.IsOpen())
+                {
+                    _skillTraderPanel.PrepareTraderPanel();
+                    _skillTraderPanelDoMove.PanelMove();
+                }
                 break;
             case TraderKind.Module:
 
@@ -75,6 +83,7 @@ public class UIPanelsCommandCenter : MonoBehaviour
         else if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove();
         else if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
         else if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
+        else if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelMove();
         else
         {
             if (emptyEscapeClick) return;

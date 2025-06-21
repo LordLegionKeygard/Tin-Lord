@@ -15,17 +15,17 @@ public class AllSkills : MonoBehaviour
         }
     }
 
-    public void LoadAllSkills(int[] skillCooldown, int[] skillDuration, int lastOpenedMissionId)
+    public void LoadAllSkills(int[] skillCooldown, int[] skillDuration, bool[] openedSkills)
     {
         if (skillCooldown == null || skillDuration == null || skillCooldown.Length == 0 || skillDuration.Length == 0)
         {
-            skillCooldown = new int[_allSkillView.Length];
-            skillDuration = new int[_allSkillView.Length];
+            skillCooldown = new int[WorldGameInfo.SkillsCount];
+            skillDuration = new int[WorldGameInfo.SkillsCount];
         }
 
         for (int i = 0; i < _baseSkills.Length; i++)
         {
-            _baseSkills[i].LoadSkill(skillCooldown[i], skillDuration[i], lastOpenedMissionId);
+            _baseSkills[i].LoadSkill(skillCooldown[i], skillDuration[i], openedSkills[i]);
         }
     }
 

@@ -19,19 +19,26 @@ public class ChangeLanguageCommandCenter : MonoBehaviour
 
     [Header("ResourceTraderPanel")]
     [SerializeField] private TextMeshProUGUI _resourceTraderHeaderText;
-    [SerializeField] private TextMeshProUGUI _priceText;
-    [SerializeField] private TextMeshProUGUI _buyText;
-    [SerializeField] private TextMeshProUGUI _resourceText;
+    [SerializeField] private TextMeshProUGUI _resourceTraderPriceText;
+    [SerializeField] private TextMeshProUGUI _resourceTradeBuyText;
+    [SerializeField] private TextMeshProUGUI _resourceTraderResourceText;
 
-
+    [Header("SkillTraderPanel")]
+    [SerializeField] private TextMeshProUGUI _skillTraderHeaderText;
+    [SerializeField] private TextMeshProUGUI _skillTraderPriceText;
+    [SerializeField] private TextMeshProUGUI _skillTraderBuyText;
 
 
     private void Start()
     {
         _resourceTraderHeaderText.text = Language.TextStatic[287];
-        _priceText.text = Language.TextStatic[288];
-        _buyText.text = Language.TextStatic[289];
-        _resourceText.text = Language.TextStatic[290];
+        _resourceTraderPriceText.text = Language.TextStatic[288];
+        _resourceTradeBuyText.text = Language.TextStatic[289];
+        _resourceTraderResourceText.text = Language.TextStatic[290];
+
+        _skillTraderHeaderText.text = Language.TextStatic[291];
+        _skillTraderPriceText.text = Language.TextStatic[288];
+        _skillTraderBuyText.text = Language.TextStatic[289];
 
         _resourceTypesPanel[0].text = Language.TextStatic[7];
         _resourceTypesPanel[1].text = Language.TextStatic[8];

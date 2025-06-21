@@ -1,6 +1,3 @@
-/// <summary>
-/// Хранит дату о глобальных ресурсах и об открытых зданиях
-/// </summary>
 [System.Serializable]
 public class CommandCenterSaveData
 {
@@ -10,7 +7,7 @@ public class CommandCenterSaveData
     public bool PrologueCompleted;
     public bool TutorialCompleted;
     public bool[] BuildingsLearned;
-
+    public bool[] OpenedSkills;
     public SavedMapData Map;
     public SelectedMissionData CurrentMission;
 }
@@ -23,5 +20,3 @@ public class SelectedMissionData
     public int ObjectiveId;
     public int SpawnerId;
 }
-
-

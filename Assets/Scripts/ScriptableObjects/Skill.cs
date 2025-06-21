@@ -6,6 +6,7 @@ public class Skill : ScriptableObject
 {
     [Header("Main")]
     public SkillEnum SkillEnum;
+    public int Price;
     public Sprite Icon;
     public int CooldownTicks;
     public int DurationTicks;

@@ -4,6 +4,11 @@ public class WorldGameInfo
 {
     public static int LanguageLength = 500;
     public static bool StaticBlood = true;
+
+    [Header("Skills")]
+    public const int SkillsCount = 10;
+
+    [Header("Time")]
     public const float PausedTimeScale = 0.00001f;
     public const float DefaultTimeScale = 1.5f;
     public const float DoubleTimeScale = 2.2f;
