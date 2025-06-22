@@ -1,4 +1,3 @@
-using System.Collections;
 using FMODUnity;
 using UnityEngine;
 
@@ -18,8 +17,8 @@ public class TerminalSystem : MonoBehaviour
         UnactiveObjects();
         ActiveRender();
         _terminal.SetActive(true);
-        _consoleTextsTyping.StartTyping(CurrentMissionInfo.Instance.GetCurrentLandscape().ConsoleTextsIndexes);
-        _storyTextTyping.StartTyping(CurrentMissionInfo.Instance.GetCurrentLandscape().StoryTextsIndexes);
+        // _consoleTextsTyping.StartTyping();
+        // _storyTextTyping.StartTyping();
         _eventEmitter.Play();
     }
 

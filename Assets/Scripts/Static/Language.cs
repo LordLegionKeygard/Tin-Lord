@@ -255,23 +255,23 @@ public class Language : MonoBehaviour
         _text[75, 0] = "";
         _text[75, 1] = "";
 
-        _text[76, 0] = "[UPDATE: SECTOR K-12 CLEARED]";
-        _text[76, 1] = "[ОБНОВЛЕНИЕ: СЕКТОР К-12 ОЧИЩЕН]";
+        _text[76, 0] = "";
+        _text[76, 1] = "";
 
-        _text[77, 0] = "Reconstruction of the territory is complete.\nThe population of aggressive life forms has been reduced by 78%.";
-        _text[77, 1] = "Реконструкция территории завершена.\nПопуляция агрессивных форм жизни снижена на 78%.";
+        _text[77, 0] = "";
+        _text[77, 1] = "";
 
-        _text[78, 0] = "Traces of destroyed drones of previous generations have been detected.\nawait DecryptFragments();";
-        _text[78, 1] = "Обнаружены следы уничтоженных дронов предыдущих поколений.\nawait DecryptFragments();";
+        _text[78, 0] = "";
+        _text[78, 1] = "";
 
-        _text[79, 0] = "MEMORY FRAGMENT 1.0.1 - [PARTIALLY RECOVERED]\n\"Project Source... protocol completion delayed...\"";
-        _text[79, 1] = "ФРАГМЕНТ ПАМЯТИ 1.0.1 — [ЧАСТИЧНО ВОССТАНОВЛЕН]\n\"Проект Источник... завершение протокола отложено...\"";
+        _text[79, 0] = "";
+        _text[79, 1] = "";
 
-        _text[80, 0] = "We move on to the next zone - Junk City.";
-        _text[80, 1] = "Продвигаемся к следующей зоне — Город Хлама.";
+        _text[80, 0] = "";
+        _text[80, 1] = "";
 
-        _text[81, 0] = "Objective: Find surviving power nodes and restore communications with other sectors.";
-        _text[81, 1] = "Цель: Найти уцелевшие узлы питания и восстановить связь с другими секторами.";
+        _text[81, 0] = "";
+        _text[81, 1] = "";
 
         _text[82, 0] = "";
         _text[82, 1] = "";
@@ -282,20 +282,20 @@ public class Language : MonoBehaviour
         _text[84, 0] = "";
         _text[84, 1] = "";
 
-        _text[85, 0] = "Sector K-12 scan complete";
-        _text[85, 1] = "Сканирование сектора К-12 завершено";
+        _text[85, 0] = "";
+        _text[85, 1] = "";
 
-        _text[86, 0] = "Combat unit losses: 18%";
-        _text[86, 1] = "Потери среди боевых юнитов: 18%";
+        _text[86, 0] = "";
+        _text[86, 1] = "";
 
-        _text[87, 0] = "Memory Signal: 47% match found";
-        _text[87, 1] = "Сигнал воспоминаний: обнаружено совпадение 47%";
+        _text[87, 0] = "";
+        _text[87, 1] = "";
 
-        _text[88, 0] = "Preparing route to next node... () => return true";
-        _text[88, 1] = "Подготовка маршрута к следующему узлу... () => return true";
+        _text[88, 0] = "";
+        _text[88, 1] = "";
 
-        _text[89, 0] = "Assigning a new target";
-        _text[89, 1] = "Назначение новой цели";
+        _text[89, 0] = "";
+        _text[89, 1] = "";
 
         _text[90, 0] = "ICOSA CORP";
         _text[90, 1] = "ИКОСА КОРП";
@@ -576,170 +576,170 @@ public class Language : MonoBehaviour
         _text[182, 0] = "Required";
         _text[182, 1] = "Требуется";
 
-        _text[183, 0] = "Interface";
-        _text[183, 1] = "Интерфейс";
+        _text[183, 0] = "You have received";
+        _text[183, 1] = "Вы получили";
 
-        _text[184, 0] = "Construction";
-        _text[184, 1] = "Строительство";
+        _text[184, 0] = "You have lost";
+        _text[184, 1] = "Вы потеряли";
 
-        _text[185, 0] = "Where to start?";
-        _text[185, 1] = "С чего начать?";
+        _text[185, 0] = "Ai Core";
+        _text[185, 1] = "Ядро ИИ";
 
-        _text[186, 0] = "By pressing the \"Escape\" key, the menu panel will drop down from the top. The following buttons are available in it:\n\nRestart - starts the current mission from the beginning, completely deleting the current progress and accumulated memory fragments.\n\nEscape - the ability to escape from the mission, provided that half of the mission's objectives are completed. Saves half of the accumulated memory fragments.\n\nSettings - opens the panel with game parameters.\n\nExit - saves the current mission progress. Makes a transition to the command center.\n\n     Training - opens the current panel with training";
-        _text[186, 1] = "Нажав на клавишу \"Escape\" сверху опустится панель меню. В ней доступны такие кнопки как:\n\nПерезапуск - начинает текущую миссию с начала, полностью удаляя текущий прогресс и накопленные фрагменты памяти.\n\nПобег - возможность сбежать с миссии, при условии выполнения половины от поставленных целей миссии. Сохраняет половину накопленных фрагментов памяти.\n\nНастройки - открывает панель с параметрами игры.\n\nВыход - сохраняет текущий прогресс миссии. Делает переход в командный центр.\n\n     Обучение - открывает текущую панель с  обучением";
+        _text[186, 0] = "Quants";
+        _text[186, 1] = "Кванты";
 
-        _text[187, 0] = "Combination of tiles";
-        _text[187, 1] = "Комбинация тайлов";
+        _text[187, 0] = "";
+        _text[187, 1] = "";
 
-        _text[188, 0] = "Research";
-        _text[188, 1] = "Исследования";
+        _text[188, 0] = "";
+        _text[188, 1] = "";
 
-        _text[189, 0] = "Missions";
-        _text[189, 1] = "Миссии";
+        _text[189, 0] = "";
+        _text[189, 1] = "";
 
-        _text[190, 0] = "Time and ticks";
-        _text[190, 1] = "Время и тики";
+        _text[190, 0] = "";
+        _text[190, 1] = "";
 
-        _text[191, 0] = "Event timeline";
-        _text[191, 1] = "Шкала событий";
+        _text[191, 0] = "";
+        _text[191, 1] = "";
 
-        _text[192, 0] = "Game speed";
-        _text[192, 1] = "Скорость игры";
+        _text[192, 0] = "";
+        _text[192, 1] = "";
 
-        _text[193, 0] = "Ecology";
-        _text[193, 1] = "Экология";
+        _text[193, 0] = "";
+        _text[193, 1] = "";
 
-        _text[194, 0] = "Radiation";
-        _text[194, 1] = "Радиация";
+        _text[194, 0] = "";
+        _text[194, 1] = "";
 
-        _text[195, 0] = "The top panel contains time cells. Time is divided into days, and each day consists of 24 ticks. This is the basic unit of time in the game. At each tick, all buildings produce and consume the necessary resources.";
-        _text[195, 1] = "В верхней панели расположены ячейки времени. Время разделено на дни, а каждый день состоит из 24 тиков. Это основная единица времени в игре. На каждом тике все здания производят и потребляют необходимые ресурсы.";
+        _text[195, 0] = "";
+        _text[195, 1] = "";
 
-        _text[196, 0] = "To the right of the time cells, you will find the event scale. It displays upcoming events as icons that move from right to left. When an event reaches the left edge of the scale, it is activated. For example, an earthquake, radioactive rain, or something else may begin.";
-        _text[196, 1] = "Справа от ячеек времени вы найдете шкалу событий. Она отображает предстоящие события в виде иконок, которые движутся справа налево. Когда событие доходит до левого края шкалы, оно активируется. Например может начаться землетрясение, радиоактивный дождь или что-то другое.";
+        _text[196, 0] = "";
+        _text[196, 1] = "";
 
-        _text[197, 0] = "Below the time cells are buttons for changing the game speed. You can speed up time to get through quiet periods faster or pause the game to check important moments.";
-        _text[197, 1] = "Под ячейками времени находятся кнопки изменения скорости игры. Вы можете ускорять время, чтобы быстрее пройти спокойные периоды или поставить игру на паузу, чтобы проконтролировать важные моменты.";
+        _text[197, 0] = "";
+        _text[197, 1] = "";
 
-        _text[198, 0] = "In the center of the top panel, two large numbers are displayed - the current level of ecology on the map. Each tile and each building has its own ecological parameter, which is summed up into a total. Ecology directly affects the final reward for the mission - the higher it is at the end, the more memory fragments you will receive.";
-        _text[198, 1] = "В центре верхней панели отображаются две большие цифры — текущий уровень экологии на карте. Каждый тайл и каждое здание имеет свой собственный экологический параметр, который суммируется в общий. Экология напрямую влияет на финальную награду за миссию - чем выше она будет в конце, тем больше фрагментов памяти вы получите.";
+        _text[198, 0] = "";
+        _text[198, 1] = "";
 
-        _text[199, 0] = "The radiation level is displayed under the event scale. Radiation accumulates depending on the events that occur and worsens the ecology of the area. The higher the radiation, the worse the impact on the environment and the final reward upon completion of the mission.";
-        _text[199, 1] = "Под шкалой событий отображается уровень радиации. Радиация накапливается в зависимости от происходящих событий и ухудшает экологию местности. Чем выше радиация — тем хуже воздействие на окружающую среду и на итоговую награду по завершению миссии.";
+        _text[199, 0] = "";
+        _text[199, 1] = "";
 
-        _text[200, 0] = "Resource panel";
-        _text[200, 1] = "Панель ресурсов";
+        _text[200, 0] = "";
+        _text[200, 1] = "";
 
-        _text[201, 0] = "Landscape cards";
-        _text[201, 1] = "Карты ландшафтов";
+        _text[201, 0] = "";
+        _text[201, 1] = "";
 
-        _text[202, 0] = "Energy beam";
-        _text[202, 1] = "Энергия луча";
+        _text[202, 0] = "";
+        _text[202, 1] = "";
 
-        _text[203, 0] = "On the left side of the screen, you can expand the resource panel. This displays the current amount of all available resources. These values ​​are updated every tick. The panel allows you to track which resources are being produced, consumed, and at what rate.";
-        _text[203, 1] = "Слева на экране можно раскрыть панель ресурсов. Здесь отображается текущее количество всех доступных ресурсов. Эти значения обновляются каждый тик времени. Панель позволяет отслеживать, какие ресурсы производятся, потребляются и в каком темпе.";
+        _text[203, 0] = "";
+        _text[203, 1] = "";
 
-        _text[204, 0] = "At the bottom of the screen is a map panel that can hold up to 8 landscape maps. Every day, the player receives 2 new maps. If the panel is full, old maps are removed from it in turn. For each removed map, the player receives the resource beam energy.";
-        _text[204, 1] = "В нижней части экрана расположена панель карт, вмещающая до 8 карт ландшафтов. Каждые сутки игрок получает 2 новые карты. Если панель переполняется, старые карты удаляются из него в порядке очереди. За каждую удалённую карту игрок получает ресурс энергия луча.";
+        _text[204, 0] = "";
+        _text[204, 1] = "";
 
-        _text[205, 0] = "The beam's energy allows you to destroy installed terrain. This is especially useful if you want to change the base configuration or clear space for more useful tiles.";
-        _text[205, 1] = "Энергия луча позволяет уничтожать установленные ландшафты. Это особенно полезно, если ты хочешь изменить конфигурацию базы или очистить место под более полезные тайлы.";
+        _text[205, 0] = "";
+        _text[205, 1] = "";
 
-        _text[206, 0] = "Installing the base foundation";
-        _text[206, 1] = "Установка фундамента базы";
+        _text[206, 0] = "";
+        _text[206, 1] = "";
 
-        _text[207, 0] = "Tile panel";
-        _text[207, 1] = "Панель тайла";
+        _text[207, 0] = "";
+        _text[207, 1] = "";
 
-        _text[208, 0] = "Construction of buildings";
-        _text[208, 1] = "Строительство зданий";
+        _text[208, 0] = "";
+        _text[208, 1] = "";
 
-        _text[209, 0] = "Building types";
-        _text[209, 1] = "Типы зданий";
+        _text[209, 0] = "";
+        _text[209, 1] = "";
 
-        _text[210, 0] = "Setting up buildings";
-        _text[210, 1] = "Настройка зданий";
+        _text[210, 0] = "";
+        _text[210, 1] = "";
 
-        _text[211, 0] = "Removing buildings and tiles";
-        _text[211, 1] = "Удаление зданий и тайлов";
+        _text[211, 0] = "";
+        _text[211, 1] = "";
 
-        _text[212, 0] = "At the start of the game, a ring road is randomly generated. You are given 1 terrain card - the base foundation. This is a unique 2x2 tile (occupies 4 cells).\n\nClick the \"Base Foundation\" card to place it. When placing a tile, you will see green or red squares - they indicate whether it can be placed in the selected area. In addition, when approaching the edges of the map, red border lines will appear, indicating the restrictions of the placement zone.";
-        _text[212, 1] = "В начале игры случайным образом генерируется кольцевая дорога. Вам дается 1 карта ландшафта - фундамент для базы. Это уникальный тайл размером 2x2 (занимает 4 клетки).\n\nЩёлкните по карте \"Фундмаент базы\", чтобы поставить её. При установке тайла вы увидите зелёные или красные квадраты — они указывают, можно ли разместить его в выбранной области. Кроме того, при приближении к краям карты появятся красные линии границы, обозначающие ограничения зоны размещения.";
+        _text[212, 0] = "";
+        _text[212, 1] = "";
 
-        _text[213, 0] = "After placing the foundation, click on it. An information panel will appear at the bottom right. In it, you can see the following information:\n\n-Ecology level of the land\n\n-Type and level of the building\n\n-Produced and consumed resources\n\n-Available actions: construction, enabling/disabling the building, rotating the tile, destroying the building/landscape";
-        _text[213, 1] = "После размещения фундамента нажмите на него. Справа внизу появится информационная панель. В ней вы можете увидеть такую информацию:\n\n-Уровень экологии земли\n\n-Тип и уровень здания\n\n-Производимые и потребляемые ресурсы\n\n-Доступные действия: постройка, включение/выключение работы здания, поворот тайла, уничтожения здания/ландшафта";
+        _text[213, 0] = "";
+        _text[213, 1] = "";
 
-        _text[214, 0] = "In the information panel at the bottom, click the \"Build\" button.\n\nIf the landscape has multiple building types available, a panel with a choice of building type will open.\n\nClick on a building type to open buildings of that type available for construction.\n\nHover over a building to display the resources needed for its construction. Clicking on the building card a second time will begin construction.\n\nDuring construction, a progress indicator will appear under the building. If at this point the building is attacked by monsters and their damage exceeds the construction progress, the building will be destroyed.\n\nIf a building is already installed on the landscape, you can change it for a better building of the same type. In this case, you will get back some of the resources for the previous building, there is no need to destroy it before building a new one.";
-        _text[214, 1] = "В информационной панели внизу нажмите кнопку \"Построить\".\n\nЕсли у ландшафта доступна установка нескольких типов зданий, то откроется панель с выбором типа здания.\n\nНажмите на тип здания, чтобы открыть доступные для строительства здания этого типа.\n\nНаведите на здание, чтобы отобразились ресурсы необходимые для его строительства. Нажав на карточку здания второй раз начнется строительство.\n\nВо время постройки под зданием появится индикатор прогресса. Если в этот момент здание будет атаковано монстрами, и их урон превысит прогресс строительства, здание будет разрушено.\n\nЕсли на ландшафте уже установлено здание, вы можете его поменять на здание лучше, но того же типа. При этом вам вернется часть ресурсов за прошлое здание, нет необходимости в его уничтожении, перед постройкой нового.";
+        _text[214, 0] = "";
+        _text[214, 1] = "";
 
-        _text[215, 0] = "Each landscape has its own supported building types (ore mining, power generation, etc.) If you do not have available buildings in the category, the button will be gray. By clicking on the category, you will see specific available buildings.\n\nFor example:\nThe \"Wood mining\" category may include: manual mining, sawmill, steam and electric sawmill.";
-        _text[215, 1] = "У каждого ландшафта есть свои поддерживаемые типы построек (добыча руды, электроэнергетика и др.) Если у вас нет доступных зданий в категории - кнопка будет серой. Нажав на категорию, ты увидишь конкретные доступные здания.\n\nНапример:\nКатегория \"Добыча дерева\" может включать: ручную добычу, распилочный стол, паровую и электро-лесопилку.";
+        _text[215, 0] = "";
+        _text[215, 1] = "";
 
-        _text[216, 0] = "Once the building is completed, it will automatically turn on. However, you can turn it off manually to save resources.\n\nIf the required resource runs out, the building will turn off and turn on automatically as soon as the resource appears.\n\nSome buildings, such as the sawmill, allow you to choose the resource they will use - wood, coal or fuel.";
-        _text[216, 1] = "После завершения постройки здание автоматически включается. Однако вы можете выключить его вручную, чтобы сэкономить ресурсы.\n\nЕсли необходимый ресурс закончится здание выключится и включится автоматически как только ресурс появится.\n\nНекоторые здания, например лесопилка, позволяют выбирать ресурс, который они будут использовать - дерево, уголь или топливо.";
+        _text[216, 0] = "";
+        _text[216, 1] = "";
 
-        _text[217, 0] = "If a building is already built on the tile, when you click the \"Destroy\" button, you will get back some resources depending on the remaining health. If there is no building, you can delete the landscape itself, but only at the expense of the beam's energy.";
-        _text[217, 1] = "Если на тайле уже построено здание, при нажатии на кнопку \"Уничтожить\" вы получите обратно часть ресурсов, зависящую от оставшегося здоровья. Если здания нету - можно удалить сам ландшафт, но только за счёт энергии луча.";
+        _text[217, 0] = "";
+        _text[217, 1] = "";
 
-        _text[218, 0] = "Base";
-        _text[218, 1] = "База";
+        _text[218, 0] = "";
+        _text[218, 1] = "";
 
-        _text[219, 0] = "Resource extraction";
-        _text[219, 1] = "Добыча ресурсов";
+        _text[219, 0] = "";
+        _text[219, 1] = "";
 
-        _text[220, 0] = "Defense";
-        _text[220, 1] = "Оборона";
+        _text[220, 0] = "";
+        _text[220, 1] = "";
 
-        _text[221, 0] = "Continuing development";
-        _text[221, 1] = "Продолжение развития";
+        _text[221, 0] = "";
+        _text[221, 1] = "";
 
-        _text[222, 0] = "At the start of each mission, you have access to one Base Foundation card.\n\nOnce installed, you can build a Shelter, the first building in your base that produces Memory Fragments.\n\nAlong with this, you are guaranteed to receive 4 starting terrain cards:\n\nForest (for wood),\n\nMountain (for stone),\n\nAnd two random cards.\n\nWood and stone are key resources at the beginning of the game. They are needed to build most base buildings, and they are also used to operate some buildings.";
-        _text[222, 1] = "В начале каждой миссии вам доступна одна карточка фундамента базы.\n\nПосле установки вы сможете построить убежище — первое здание вашей базы, которое производит фрагменты памяти.\n\nВместе с этим вы гарантированно получаете 4 стартовые карты ландшафта:\n\nЛес (для древесины),\n\nГора (для камня),\n\nИ две случайные карты.\n\nРесурсы древесина и камень — ключевые в начале игры. Они нужны для постройки большинства базовых зданий, а так же они используются для работы некоторых зданий.";
+        _text[222, 0] = "";
+        _text[222, 1] = "";
 
-        _text[223, 0] = "Build:\n\nIn the forest - manual wood mining,\n\nOn the mountain - manual stone mining.\n\nThese are the simplest production buildings that do not require energy or other resources.\n\nBe sure to check consumption and production in the tile panel so as not to overload the economy.";
-        _text[223, 1] = "Постройте:\n\nВ лесу — ручную добычу дерева,\n\nНа горе — ручную добычу камня.\n\nЭто простейшие производственные здания, не требующие энергии или других ресурсов.\n\nОбязательно проверяйте потребление и производство в панели тайла, чтобы не перегружать экономику.";
+        _text[223, 0] = "";
+        _text[223, 1] = "";
 
-        _text[224, 0] = "If you get a random land, desert or plain tile, use it to build attack buildings.\n\nBuild a ballista to start defending against monsters. It:\n\n1)Works automatically\n\n2)Has a fixed attack radius\n\n3)Can be built on most basic terrain\n\nIt is important to build the ballista so that it blocks the approach to the base and construction zones.";
-        _text[224, 1] = "Если среди случайных тайлов вам выпали земля, пустыня или равнина — используйте их для постройки атакующих зданий.\n\nПостройте баллисту, чтобы начать защиту от монстров. Она:\n\n1)Работает автоматически\n\n2)Имеет фиксированный радиус атаки\n\n3)Может быть построена на большинстве базовых ландшафтов\n\nВажно строить баллисту так, чтобы она перекрывала подход к базе и зонам строительства.";
+        _text[224, 0] = "";
+        _text[224, 1] = "";
 
-        _text[225, 0] = "Continue to place forests and mountains. This will increase the flow of basic resources.\n\nSwitch the resource used by the shelter (wood, stone) to maintain balance and not stop memory production.\n\nIf there are not enough resources, temporarily disable buildings in the control panel to prevent overspending.\n\nExpand the base and surround it with multiple turrets.";
-        _text[225, 1] = "Продолжайте устанавливать леса и горы. Это позволит увеличить поступление основных ресурсов.\n\nПереключайте ресурс, используемый убежищем (древесина, камень), чтобы поддерживать баланс и не останавливать производство памяти.\n\nЕсли ресурсов не хватает — временно отключайте здания в панели управления, чтобы не допустить перерасхода.\n\nРасширяйте базу и окружайте ее многочесленными турелями.";
+        _text[225, 0] = "";
+        _text[225, 1] = "";
 
-        _text[226, 0] = "Evolution of tiles";
-        _text[226, 1] = "Эволюция тайлов";
+        _text[226, 0] = "";
+        _text[226, 1] = "";
 
-        _text[227, 0] = "Impact on efficiency";
-        _text[227, 1] = "Влияние на эффективность";
+        _text[227, 0] = "";
+        _text[227, 1] = "";
 
-        _text[228, 0] = "The game's terrains can be combined. By placing certain tiles next to each other, you can transform them into more advanced forms.\n\nExamples:\n\nPlain + Mountain or River = Meadow - increased ecology and component production\n\nDesert + River = Oasis - reduces sand production, but improves ecology\n\nLand + Oil Swamp = Barren Land - reduces all resource production and ecology, but you can still build offensive and defensive structures";
-        _text[228, 1] = "Ландшафты в игре можно комбинировать. Размещая определённые тайлы рядом друг с другом, вы можете превратить их в более продвинутые формы.\n\nПримеры:\n\nРавнина + Гора или Река = Луг — повышенная экология и производство компонентов\n\nПустыня + Река = Оазис - снижает добычу песка, но улучшает экологию\n\nЗемля + Нефтяное Болото = Бесплодная Земля — снижает добычу всех ресурсов и экологию, но вы все еще можете строить атакующие и защитные сооружения";
+        _text[228, 0] = "";
+        _text[228, 1] = "";
 
-        _text[229, 0] = "Combined tiles can increase mining speed, unlock new building types, or reduce resource consumption.\n\nThey also affect ecology, which is added to the overall map value.\n\nExperiment! Placing new tiles next to already placed ones can lead to unexpected improvements.\n\nPlease note that tile transformation is irreversible - plan your placement in advance.";
-        _text[229, 1] = "Комбинированные тайлы могут повышать скорость добычи, открывать новые типы зданий, или уменьшать потребление ресурсов.\n\nТакже они влияют на экологию, которая суммируется в общий показатель карты.\n\nЭкспериментируй! Установка новых тайлов рядом с уже размещёнными может привести к неожиданным улучшениям.\n\nУчтите, что трансформация тайла необратима — планируйте размещение заранее.";
+        _text[229, 0] = "";
+        _text[229, 1] = "";
 
-        _text[230, 0] = "Study of buildings";
-        _text[230, 1] = "Изучение построек";
+        _text[230, 0] = "";
+        _text[230, 1] = "";
 
-        _text[231, 0] = "After completing the mission, you return to the Command Center. Click on the arrow on the left edge of the screen to open the building research panel.\n\nAt the bottom of the panel, you will see the total amount of accumulated memory fragments - this is the main resource for opening new buildings.\n\nSelect a building to open its description.\n\nA panel with details will appear on the right: a description, the resources it uses, and its purpose.\n\nClick the \"Research\" button to make this building available for construction in future missions.\n\nThe higher your ecology at the end of the mission, the more memory fragments you will receive. This will speed up progress.";
-        _text[231, 1] = "После завершения миссии вы возвращаетесь в командный центр. Нажмите на стрелку у левого края экрана, чтобы открыть панель исследований зданий.\n\nВ нижней части панели отображается общее количество накопленных фрагментов памяти — это основной ресурс для открытия новых зданий.\n\nВыберите здание, чтобы открыть его описание.\n\nСправа появится панель с подробностями: описание, ресурсы, которые оно использует, и его назначение.\n\nНажмите кнопку \"Изучить\", чтобы это здание стало доступно для строительства в будущих миссиях.\n\nЧем выше ваша экология на момент окончания миссии — тем больше фрагментов памяти вы получите. Это ускорит прогресс.";
+        _text[231, 0] = "";
+        _text[231, 1] = "";
 
-        _text[232, 0] = "Selecting a mission";
-        _text[232, 1] = "Выбор миссии";
+        _text[232, 0] = "";
+        _text[232, 1] = "";
 
-        _text[233, 0] = "Mission features";
-        _text[233, 1] = "Особенности миссий";
+        _text[233, 0] = "";
+        _text[233, 1] = "";
 
-        _text[234, 0] = "In the command center, in the lower right part of the screen, there is a mission selection panel. Each mission is a unique challenge with its own conditions:\n\n1) Resource set\n\n2) Starting radiation\n\n3) Mission objectives (for example: survive 10 days, destroy 150 enemies, achieve a certain ecology)\n\nHaving completed all the objectives, you successfully complete the mission and open a new one, receiving all the accumulated memory fragments + bonuses for ecology and mission difficulty.";
-        _text[234, 1] = "В командном центре, в правой нижней части экрана, находится панель выбора миссий. Каждая миссия — это уникальное испытание с собственными условиями:\n\n1)Набор ресурсов\n\n2)Стартовая радиация\n\n3)Цели миссии (например: выжить 10 дней, уничтожить 150 врагов, достичь определённой экологии)\n\nВыполнив все цели, вы успешно завершаете миссию и открываете новую, получая при этом все накопленные фрагменты памяти + бонусы за экологию и сложность миссии.";
+        _text[234, 0] = "";
+        _text[234, 1] = "";
 
-        _text[235, 0] = "In some missions you will have a huge area for construction, while others will have a small construction zone.\n\nAlso, depending on the landscape, enemies will attack from different sides, take this into account when defending the base.\n\nYou can not complete the missions in full: if you feel that you will lose, escape early to save at least some of the fragments of memory and explore new buildings. But this will require completing at least half of the mission objectives.";
-        _text[235, 1] = "В некоторых миссиях у вас будет огромная территория для строительства, а другие будут обладать маленькой зоной постройки.\n\nТак же в зависимости от ландшафта враги будут наступать из разных сторон, учитывайте это при защите базы.\n\nМиссии можно проходить не полностью: если чувствуете, что проиграете  — сбегите досрочно, чтобы сохранить хотя бы часть фрагментов памяти и изучить новые здания. Но для этого потребуется выполнить хотя бы половину от поставленных целей миссии.";
+        _text[235, 0] = "";
+        _text[235, 1] = "";
 
         _text[236, 0] = "";
         _text[236, 1] = "";
 
-        _text[237, 0] = "Tutorial";
-        _text[237, 1] = "Обучение";
+        _text[237, 0] = "";
+        _text[237, 1] = "";
 
         _text[238, 0] = "Toggle resources/shop panels";
         _text[238, 1] = "Переключает панель ресурсов/магазина";
@@ -765,23 +765,23 @@ public class Language : MonoBehaviour
         _text[245, 0] = "-Radiation: High\n-Pollution: Critical\n-Update: Active";
         _text[245, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
 
-        _text[246, 0] = "[COMMUNICATION NODE 3-X DETECTED]";
-        _text[246, 1] = "[УЗЕЛ СВЯЗИ 3-Х ОБНАРУЖЕН]";
+        _text[246, 0] = "";
+        _text[246, 1] = "";
 
-        _text[247, 0] = "The signal is stable. We managed to activate 7 archive nodes.\nDrones with the IKOSA corporation emblem were found among the debris.";
-        _text[247, 1] = "Сигнал стабилен. Удалось активировать 7 архивных узлов.\nСреди обломков обнаружены дроны с эмблемой корпорации ИКОСА.";
+        _text[247, 0] = "";
+        _text[247, 1] = "";
 
-        _text[248, 0] = "MEMORY FRAGMENT 2.4.3 — [await Decrypt()]\n\"AI decision deemed dangerous... Evacuation option rejected...\"";
-        _text[248, 1] = "ФРАГМЕНТ ПАМЯТИ 2.4.3 — [await Расшифровка()]\n\"Решение ИИ признано опасным... Вариант эвакуации отклонён...\"";
+        _text[248, 0] = "";
+        _text[248, 1] = "";
 
-        _text[249, 0] = "Repeating recording on frequency 1838.3:\n\"Do not approach Epicenter...\"";
-        _text[249, 1] = "Повторяющаяся запись на частоте 1838.3:\n\"Не приближаться к Эпицентру...\"";
+        _text[249, 0] = "";
+        _text[249, 1] = "";
 
-        _text[250, 0] = "Ignore the warning. Progress continues - next zone: Desert.";
-        _text[250, 1] = "Игнорируем предупреждение. Продвижение продолжается — следующая зона: Пустыня.";
+        _text[250, 0] = "";
+        _text[250, 1] = "";
 
-        _text[251, 0] = "Objective: Destroy the signal source and deal with the new type of aggressor.";
-        _text[251, 1] = "Цель: Уничтожить источник сигнала и разобраться с новым типом агрессора.";
+        _text[251, 0] = "";
+        _text[251, 1] = "";
 
         _text[252, 0] = "";
         _text[252, 1] = "";
@@ -789,35 +789,35 @@ public class Language : MonoBehaviour
         _text[253, 0] = "";
         _text[253, 1] = "";
 
-        _text[254, 0] = "Connection to node 3-X restored";
-        _text[254, 1] = "Восстановлено соединение с узлом 3-Х";
+        _text[254, 0] = "";
+        _text[254, 1] = "";
 
-        _text[255, 0] = "14.7 TB of archived data downloaded";
-        _text[255, 1] = "Загружено 14.7 ТБ архивных данных";
+        _text[255, 0] = "";
+        _text[255, 1] = "";
 
-        _text[256, 0] = "await DecodeSignal(1838.3 Hz) → warning: [cipher: danger]";
-        _text[256, 1] = "await DecodeSignal(1838.3 Hz) → предупреждение: [шифр: опасность]";
+        _text[256, 0] = "";
+        _text[256, 1] = "";
 
-        _text[257, 0] = "Ignoring protocol C-189 enabled\ntry { ProcessWarning(); } catch { continue; }";
-        _text[257, 1] = "Игнорирование протокола C-189 активировано\ntry { ProcessWarning(); } catch { continue; }";
+        _text[257, 0] = "";
+        _text[257, 1] = "";
 
-        _text[258, 0] = "Moving to the next region...";
-        _text[258, 1] = "Переход к следующему региону...";
+        _text[258, 0] = "";
+        _text[258, 1] = "";
 
-        _text[259, 0] = "[SURFACE ANALYSIS COMPLETED]";
-        _text[259, 1] = "[АНАЛИЗ ПОВЕРХНОСТИ ЗАВЕРШЁН]";
+        _text[259, 0] = "";
+        _text[259, 1] = "";
 
-        _text[260, 0] = "Enemy neutralized\nHigh level of unstable energy detected below surface.";
-        _text[260, 1] = "Враг нейтрализован\nЗафиксирован высокий уровень нестабильной энергии под поверхностью.";
+        _text[260, 0] = "";
+        _text[260, 1] = "";
 
-        _text[261, 0] = "MEMORY FRAGMENT 3.7.9 - [RESTORED]\n\"Deviations in the recovery protocol... have caused irreversible changes to the environment...\"";
-        _text[261, 1] = "ФРАГМЕНТ ПАМЯТИ 3.7.9 — [ВОССТАНОВЛЕН]\n\"Отклонения в протоколе восстановления... вызвали необратимые изменения среды...\"";
+        _text[261, 0] = "";
+        _text[261, 1] = "";
 
-        _text[262, 0] = "Trying to build a route: return false";
-        _text[262, 1] = "Попытка построить маршрут: return false";
+        _text[262, 0] = "";
+        _text[262, 1] = "";
 
-        _text[263, 0] = "Next step: [UNKNOWN]\nRequires access via the extended terminal module.";
-        _text[263, 1] = "Следующий шаг: [НЕИЗВЕСТЕН]\nТребуется доступ через расширенный терминальный модуль.";
+        _text[263, 0] = "";
+        _text[263, 1] = "";
 
         _text[264, 0] = "";
         _text[264, 1] = "";
@@ -825,20 +825,20 @@ public class Language : MonoBehaviour
         _text[265, 0] = "";
         _text[265, 1] = "";
 
-        _text[266, 0] = "Structural distortions were detected in the soil layer";
-        _text[266, 1] = "Обнаружены структурные искажения в почвенном слое";
+        _text[266, 0] = "";
+        _text[266, 1] = "";
 
-        _text[267, 0] = "Operation: async/await - building a route...";
-        _text[267, 1] = "Операция: async/await — построение маршрута...";
+        _text[267, 0] = "";
+        _text[267, 1] = "";
 
-        _text[268, 0] = "Exception: NullReferenceException - path not defined";
-        _text[268, 1] = "Исключение: NullReferenceException — путь не определён";
+        _text[268, 0] = "";
+        _text[268, 1] = "";
 
-        _text[269, 0] = "Request: Accessibility module not found";
-        _text[269, 1] = "Запрос: модуль расширенного доступа не найден";
+        _text[269, 0] = "";
+        _text[269, 1] = "";
 
-        _text[270, 0] = "Waiting for external interface confirmation";
-        _text[270, 1] = "Ожидание внешнего интерфейса подтверждения";
+        _text[270, 0] = "";
+        _text[270, 1] = "";
 
         _text[271, 0] = "Map";
         _text[271, 1] = "Карта";
@@ -864,23 +864,23 @@ public class Language : MonoBehaviour
         _text[278, 0] = "";
         _text[278, 1] = "";
 
-        _text[279, 0] = "You have received AI cores:";
-        _text[279, 1] = "Вы получили ядра ИИ:";
+        _text[279, 0] = "";
+        _text[279, 1] = "";
 
-        _text[280, 0] = "You have received quants:";
-        _text[280, 1] = "Вы получили кванты:";
+        _text[280, 0] = "";
+        _text[280, 1] = "";
 
-        _text[281, 0] = "You have received memory fragments:";
-        _text[281, 1] = "Вы получили фрагменты памяти:";
+        _text[281, 0] = "";
+        _text[281, 1] = "";
 
-        _text[282, 0] = "You have lost AI cores:";
-        _text[282, 1] = "Вы потеряли ядра ИИ:";
+        _text[282, 0] = "";
+        _text[282, 1] = "";
 
-        _text[283, 0] = "You have lost quants:";
-        _text[283, 1] = "Вы потеряли кванты:";
+        _text[283, 0] = "";
+        _text[283, 1] = "";
 
-        _text[284, 0] = "You have lost memory fragments:";
-        _text[284, 1] = "Вы потеряли фрагменты памяти:";
+        _text[284, 0] = "";
+        _text[284, 1] = "";
 
         _text[285, 0] = "Quants - intergalactic currency";
         _text[285, 1] = "Кванты - межгалактическая валюта";

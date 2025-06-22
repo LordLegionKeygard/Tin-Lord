@@ -47,9 +47,11 @@ public class EventNodePanel : MonoBehaviour
         _cachedRewards.Clear();
         foreach (var ch in step.Choices)
         {
-            if (ch.Kind == ChoiceKind.Standard && ch.Standard.Rewards != null && ch.Standard.Rewards.Count > 0)
+            if (ch.Kind == ChoiceKind.Standard &&
+                ch.Standard.Rewards != null &&
+                ch.Standard.Rewards.Count > 0)
             {
-                sb.AppendLine(); //пропускаем строку перед выводом награды
+                sb.AppendLine();
                 foreach (var r in ch.Standard.Rewards)
                 {
                     int amt = UnityEngine.Random.Range(r.MinAmount, r.MaxAmount);
@@ -116,6 +118,33 @@ public class EventNodePanel : MonoBehaviour
             var contBtn = Instantiate(_buttonPrefab, _buttonsHolder);
             contBtn.Setup($"1. {Language.TextStatic[33]}", () => FinishChance());
         }
+        else if (choice.Kind == ChoiceKind.Random)
+        {
+            var rnd = choice.Random;
+            var type = rnd.PossibleRewards[UnityEngine.Random.Range(0, rnd.PossibleRewards.Count)];
+            int amount = UnityEngine.Random.Range(rnd.MinAmount, rnd.MaxAmount + 1);
+
+            GrantReward(new EventReward { Type = type }, amount);
+
+            var sb = new StringBuilder();
+            sb.AppendLine(Language.TextStatic[choice.ChoiseTextNumber]);
+            sb.AppendLine();
+            sb.AppendLine(FormatRewardLine(new EventReward { Type = type }, amount)); _mainText.text = sb.ToString();
+
+            int next = rnd.NextStepIndex;
+            if (next < 0)
+            {
+                _onFinished?.Invoke();
+                _mapSystem.CompleteCurrentNode();
+                _stack.Clear();
+                Close();
+            }
+            else
+            {
+                _stack.Push(next);
+                ShowStep(next);
+            }
+        }
         else
         {
             var toGrant = new List<(EventReward, int)>();
@@ -173,16 +202,108 @@ public class EventNodePanel : MonoBehaviour
         {
             RewardType.AiCore =>
                 amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[279]} {amount}<color=#00FF00>"
-                    : $"<color=#FF0000>{Language.TextStatic[282]} {amount}<color=#00FF00>",
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[185]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[185]}: {amount}<color=#00FF00>",
             RewardType.Quants =>
                 amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[280]} {amount}<color=#00FF00>"
-                    : $"<color=#FF0000>{Language.TextStatic[283]} {amount}<color=#00FF00>",
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[186]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[186]}: {amount}<color=#00FF00>",
             RewardType.Memory =>
                 amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[281]} {amount}<color=#00FF00>"
-                    : $"<color=#FF0000>{Language.TextStatic[284]} {amount}<color=#00FF00>",
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[175]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[175]}: {amount}<color=#00FF00>",
+            RewardType.Wood =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[153]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[153]}: {amount}<color=#00FF00>",
+            RewardType.Stone =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[154]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[154]}: {amount}<color=#00FF00>",
+            RewardType.IronOre =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[155]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[155]}: {amount}<color=#00FF00>",
+            RewardType.CopperOre =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[156]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[156]}: {amount}<color=#00FF00>",
+            RewardType.Coal =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[157]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[157]}: {amount}<color=#00FF00>",
+            RewardType.Oil =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[158]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[158]}: {amount}<color=#00FF00>",
+            RewardType.Water =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[159]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[159]}: {amount}<color=#00FF00>",
+            RewardType.Sand =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[160]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[160]}: {amount}<color=#00FF00>",
+            RewardType.Electricity =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[161]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[161]}: {amount}<color=#00FF00>",
+            RewardType.StoneBlock =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[162]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[162]}: {amount}<color=#00FF00>",
+            RewardType.IronIngot =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[163]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[163]}: {amount}<color=#00FF00>",
+            RewardType.SteelIngot =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[164]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[164]}: {amount}<color=#00FF00>",
+            RewardType.CopperPlate =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[165]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[165]}: {amount}<color=#00FF00>",
+            RewardType.Concrete =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[166]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[166]}: {amount}<color=#00FF00>",
+            RewardType.Steam =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[167]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[167]}: {amount}<color=#00FF00>",
+            RewardType.Glass =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[168]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[168]}: {amount}<color=#00FF00>",
+            RewardType.CopperWire =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[169]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[169]}: {amount}<color=#00FF00>",
+            RewardType.GearWheel =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[170]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[170]}: {amount}<color=#00FF00>",
+            RewardType.ElectronicCircuit =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[171]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[171]}: {amount}<color=#00FF00>",
+            RewardType.Processor =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[172]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[172]}: {amount}<color=#00FF00>",
+            RewardType.Engine =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[173]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[173]}: {amount}<color=#00FF00>",
+            RewardType.ElectricEngine =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[174]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[174]}: {amount}<color=#00FF00>",
+            RewardType.BeamEnergy =>
+                amount >= 0
+                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[176]}: {amount}<color=#00FF00>"
+                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[176]}: {amount}<color=#00FF00>",
             _ => null
         };
     }
@@ -253,8 +374,6 @@ public class EventNodePanel : MonoBehaviour
 
         OnChoice(choice);
     }
-
-
 
     public void Close() => gameObject.SetActive(false);
 }

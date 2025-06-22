@@ -20,10 +20,6 @@ public class Landscape : ScriptableObject
 
     [Header("Cosmos")]
     public CosmosVariations[] CosmosVariations;
-
-    [Header("Terminal")]
-    public int[] StoryTextsIndexes;
-    public int[] ConsoleTextsIndexes;
 }
 
 [System.Serializable]

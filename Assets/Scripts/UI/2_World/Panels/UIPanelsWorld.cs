@@ -17,7 +17,6 @@ public class UIPanelsWorld : MonoBehaviour
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private EscapePanelWorld _escapePanel;
     [SerializeField] private SettingsPanels _settingsPanel;
-    [SerializeField] private TutorialSystem _tutorialSystem;
 
     public void MainPanelsViewToggle(bool selectTilePanel, bool machinePanel)
     {
@@ -48,10 +47,6 @@ public class UIPanelsWorld : MonoBehaviour
         else if (_settingsPanelObject.activeInHierarchy)
         {
             _settingsPanel.CloseButton();
-        }
-        else if(_tutorialPanelObject.activeInHierarchy)
-        {
-            _tutorialSystem.CloseTutorial();
         }
         else
         {

@@ -45,9 +45,6 @@ public class WorldSaveLoad : MonoBehaviour
     [Header("Skill")]
     [SerializeField] private AllSkills _allSkills;
 
-    [Header("Tutorial")]
-    [SerializeField] private TutorialSystem _tutorialSystem;
-
     private void Awake()
     {
         _worldSaveGame.WorldSaveLoad = this;
@@ -156,7 +153,7 @@ public class WorldSaveLoad : MonoBehaviour
         _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _commandCenterSaveGame.CommandCenterSaveData.OpenedSkills);
 
         //Tutorial
-        if (!_commandCenterSaveGame.CommandCenterSaveData.TutorialCompleted) _tutorialSystem.OpenTutorial(true);
+        // if (!_commandCenterSaveGame.CommandCenterSaveData.TutorialCompleted) _tutorialSystem.OpenTutorial(true);
 
         CustomEvents.FirePlayRandomLevelMusic();
         CustomEvents.FireDataLoad();

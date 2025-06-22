@@ -17,7 +17,8 @@ public class DialogueStep
 public enum ChoiceKind
 {
     Standard,
-    Chance
+    Chance,
+    Random
 }
 
 [System.Serializable]
@@ -28,6 +29,7 @@ public class StepChoice
 
     public StandardChoiceData Standard;
     public ChanceChoiceData Chance;
+    public RandomChoiceData Random;
 }
 
 [System.Serializable]
@@ -46,6 +48,15 @@ public class ChanceChoiceData
 
     public List<EventReward> SuccessRewards;
     public List<EventReward> FailureRewards;
+}
+
+[System.Serializable]
+public class RandomChoiceData
+{
+    public int NextStepIndex = -1;
+    public List<RewardType> PossibleRewards;
+    public int MinAmount;
+    public int MaxAmount;
 }
 
 [System.Serializable]
@@ -69,4 +80,27 @@ public enum RewardType
     AiCore = 1,
     Quants = 2,
     Memory = 3,
+    Wood = 4,
+    Stone = 5,
+    IronOre = 6,
+    CopperOre = 7,
+    Coal = 8,
+    Oil = 9,
+    Water = 10,
+    Sand = 11,
+    Electricity = 12,
+    StoneBlock = 13,
+    IronIngot = 14,
+    SteelIngot = 15,
+    CopperPlate = 16,
+    Concrete = 17,
+    Steam = 18,
+    Glass = 19,
+    CopperWire = 20,
+    GearWheel = 21,
+    ElectronicCircuit = 22,
+    Processor = 23,
+    Engine = 24,
+    ElectricEngine = 25,
+    BeamEnergy = 26,
 }
