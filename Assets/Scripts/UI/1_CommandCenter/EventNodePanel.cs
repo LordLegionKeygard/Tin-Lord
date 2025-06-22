@@ -151,7 +151,7 @@ public class EventNodePanel : MonoBehaviour
             }
         }
 
-        _commandCenterSaveGame.SaveGameData(false);
+        if (_aiCoreSystem.GetAiCores() > 0) _commandCenterSaveGame.SaveGameData(false);
     }
 
     private void FinishChance()
