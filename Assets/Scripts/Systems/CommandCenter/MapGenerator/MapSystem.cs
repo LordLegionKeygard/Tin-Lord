@@ -158,7 +158,7 @@ public class MapSystem : MonoBehaviour
                 }
         }
 
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp, transform.position);
+        if (!isCurrent) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp, transform.position);
         ApplyCosmos();
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.CommandCenterSaveData);
     }
@@ -289,29 +289,36 @@ public class MapSystem : MonoBehaviour
             switch (n.NodeType)
             {
                 case NodeType.Boss:
-                case NodeType.Mission:
                     if (n.MissionDeckIndex >= 0 && n.SavedLandscapeIndex >= 0 && n.SavedObjectives != null && n.SavedObjectives.Length > 0)
                     {
-                        data = BuildMissionFixed(n.MissionDeckIndex, n.SavedLandscapeIndex, n.SavedObjectives);
+                        data = BuildMissionFixed(n.MissionDeckIndex, n.SavedLandscapeIndex, n.SavedObjectives, true);
                     }
                     else
                     {
-                        data = _generator.GetNodeTemplate(NodeType.Mission); // пустышка
+                        data = _generator.GetNodeTemplate(NodeType.Boss);
+                    }
+                    break;
+                case NodeType.Mission:
+                    if (n.MissionDeckIndex >= 0 && n.SavedLandscapeIndex >= 0 && n.SavedObjectives != null && n.SavedObjectives.Length > 0)
+                    {
+                        data = BuildMissionFixed(n.MissionDeckIndex, n.SavedLandscapeIndex, n.SavedObjectives, false);
+                    }
+                    else
+                    {
+                        data = _generator.GetNodeTemplate(NodeType.Mission);
                     }
                     break;
                 case NodeType.Event:
                 case NodeType.RewardEvent:
                     if (n.EventPoolIndex >= 0 && n.EventPoolIndex < _allMissionsInfo.EventPools.Length)
                     {
-                        var pool = _allMissionsInfo.EventPools[n.EventPoolIndex];
-                        data = pool.Node;
+                        data = _allMissionsInfo.EventPools[n.EventPoolIndex].Node;
                     }
                     else
                     {
                         data = _generator.GetNodeTemplate(n.NodeType);
                     }
                     break;
-
                 default:
                     data = _generator.GetNodeTemplate(n.NodeType);
                     break;
@@ -331,6 +338,7 @@ public class MapSystem : MonoBehaviour
             list[i].connectedNodes = map.Nodes[i].ConnectedNodeIndices.ConvertAll(idx => list[idx]);
         }
     }
+
 
     private int GetCompletedMissionsCount()
     {
@@ -355,7 +363,7 @@ public class MapSystem : MonoBehaviour
         var def = info.MissionDeck[deckIdx];
         var landscape = info.Landscapes[landscapeIdx];
 
-        MonsterBiome biome = (MonsterBiome)landscape.LandscapeEnum;
+        MonsterBiome biome = landscape.MonsterBiome;
 
         var biomeEntry = def.BiomeSpawners.FirstOrDefault(b => b.Biome == biome);
         var spawnerSO = biomeEntry != null ? biomeEntry.Spawner : null;
@@ -407,16 +415,8 @@ public class MapSystem : MonoBehaviour
             var range = pickedSet.Objectives[i];
 
             int amount;
-            if (range.Values == null || range.Values.Length == 0)
-            {
-                Debug.LogWarning($"Objective {range.ObjectiveEnum} has empty Values array");
-                amount = 1;
-            }
-            else
-            {
-                amount = range.Values[
-                    Random.Range(0, range.Values.Length)];
-            }
+
+            amount = range.Values[Random.Range(0, range.Values.Length)];
 
             wrappers[i] = new ObjectiveWrapper
             {
@@ -436,7 +436,6 @@ public class MapSystem : MonoBehaviour
         return obj;
     }
 
-
     // Восстанавливаем Objective из сохранённого массива
     private Objective BuildObjectiveFromSave(ObjectiveSave[] saved)
     {
@@ -455,21 +454,18 @@ public class MapSystem : MonoBehaviour
         return obj;
     }
 
-    // Строит MissionNode для случайной планеты.
+    // Строит Mission-/Boss-Node для случайной планеты
     private MissionNode BuildMissionRandom(int deckIdx, bool isBossNode, out int landscapeIdx, out ObjectiveSave[] savedObj)
     {
         var def = _allMissionsInfo.MissionDeck[deckIdx];
-        var tpl = _allMissionsInfo.MissionNodeTemplate;
+        var tplMission = _allMissionsInfo.MissionNodeTemplate;
+        var tplBoss = _allMissionsInfo.BossNode;
 
-        /* 1. случайный уникальный Landscape */
         landscapeIdx = PickUniqueLandscape();
         var landscape = _allMissionsInfo.Landscapes[landscapeIdx];
-
-        /* 2. готовый EnemiesSpawner по биому */
-        MonsterBiome biome = (MonsterBiome)landscape.LandscapeEnum;
+        var biome = landscape.MonsterBiome;
         var spawnerSO = def.BiomeSpawners.First(b => b.Biome == biome).Spawner;
 
-        /* 3. цели */
         Objective objectiveSO;
         if (isBossNode)
         {
@@ -482,12 +478,13 @@ public class MapSystem : MonoBehaviour
             objectiveSO = BuildObjectiveFromRandomSet(def, out savedObj);
         }
 
-        /* 4. собираем MissionNode */
-        var node = ScriptableObject.CreateInstance<MissionNode>();
+        var node = isBossNode ? ScriptableObject.CreateInstance<BossNode>() : ScriptableObject.CreateInstance<MissionNode>();
+
         node.Landscape = landscape;
         node.EnemiesSpawner = spawnerSO;
         node.Objective = objectiveSO;
 
+        var tpl = isBossNode ? tplBoss : tplMission;
         node.Icon = tpl.Icon;
         node.IconColor = tpl.IconColor;
         node.IconWidth = tpl.IconWidth;
@@ -499,29 +496,27 @@ public class MapSystem : MonoBehaviour
     }
 
 
-
-    /// <summary>
-    /// Восстанавливает MissionNode из сейва, не бросая новый рандом.
-    /// Использует сохранённый индекс колоды (deckIdx) и индекс ландшафта,
-    /// чтобы детерминированно подобрать тот же EnemiesSpawner, что был
-    /// выбран при первом входе.
-    /// </summary>
-    private MissionNode BuildMissionFixed(int deckIdx, int landscapeIdx, ObjectiveSave[] savedObj)
+    // Восстанавливает Mission-/Boss-Node из сейва (без RNG)
+    private MissionNode BuildMissionFixed(int deckIdx, int landscapeIdx, ObjectiveSave[] savedObj, bool isBossNode)
     {
         var def = _allMissionsInfo.MissionDeck[deckIdx];
-        var tpl = _allMissionsInfo.MissionNodeTemplate;
+        var tplMission = _allMissionsInfo.MissionNodeTemplate;
+        var tplBoss = _allMissionsInfo.BossNode;
+
         landscapeIdx = Mathf.Clamp(landscapeIdx, 0, _allMissionsInfo.Landscapes.Length - 1);
         var landscape = _allMissionsInfo.Landscapes[landscapeIdx];
-        MonsterBiome biome = (MonsterBiome)landscape.LandscapeEnum;
-        var biomeEntry = def.BiomeSpawners.FirstOrDefault(b => b.Biome == biome);
-        var spawnerSO = biomeEntry != null ? biomeEntry.Spawner : null;
+        var biome = landscape.MonsterBiome;
+        var spawnerSO = def.BiomeSpawners.FirstOrDefault(b => b.Biome == biome)?.Spawner;
+
         var objectiveSO = BuildObjectiveFromSave(savedObj);
-        var node = ScriptableObject.CreateInstance<MissionNode>();
+
+        var node = isBossNode ? ScriptableObject.CreateInstance<BossNode>() : ScriptableObject.CreateInstance<MissionNode>();
 
         node.Landscape = landscape;
         node.EnemiesSpawner = spawnerSO;
         node.Objective = objectiveSO;
 
+        var tpl = isBossNode ? tplBoss : tplMission;
         node.Icon = tpl.Icon;
         node.IconColor = tpl.IconColor;
         node.IconWidth = tpl.IconWidth;
@@ -531,9 +526,6 @@ public class MapSystem : MonoBehaviour
 
         return node;
     }
-
-
-
 
     // возвращает индекс ландшафта, который ещё не использовался
     private int PickUniqueLandscape()

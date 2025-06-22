@@ -5,7 +5,7 @@ public class Landscape : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
     public LandscapeEnum LandscapeEnum;
-    public MusicThemeEnum MusicTheme;
+    public MonsterBiome MonsterBiome;
     public MissionView MissionView;
     public Sprite MissionSprite;
     public Sprite LoadingScreenSprite;
@@ -53,5 +53,5 @@ public enum LandscapeEnum
     Canyon = 0,
     CityOfJunk = 1,
     Wasteland = 2,
-    Winter = 3,
+    FrozenValley = 3,
 }

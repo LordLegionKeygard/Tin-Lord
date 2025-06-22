@@ -14,7 +14,7 @@ public class MissionMusic : MonoBehaviour
 
     private void PlayRandomMusic()
     {
-        var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentLandscape().MusicTheme];
+        var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum];
 
         sound.Music.Play();
         if (sound.Ambience != null) sound.Ambience.Play();
@@ -22,7 +22,7 @@ public class MissionMusic : MonoBehaviour
 
     private void PauseMusicToggle(bool isPause)
     {
-        var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentLandscape().MusicTheme];
+        var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum];
         
         sound.Music.EventInstance.setPaused(isPause && _escapeObject.activeInHierarchy);
     }
@@ -37,14 +37,7 @@ public class MissionMusic : MonoBehaviour
 [System.Serializable]
 public class MusicWrapper
 {
-    public MusicThemeEnum MusicTheme;
+    public LandscapeEnum MusicTheme;
     public StudioEventEmitter Music;
     public StudioEventEmitter Ambience;
-}
-
-[System.Serializable]
-public enum MusicThemeEnum
-{
-    WasteLand = 0,
-    Winter = 1,
 }

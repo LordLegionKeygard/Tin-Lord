@@ -55,7 +55,6 @@ public class WorldSaveLoad : MonoBehaviour
 
     public void ResetMissionData(ref WorldSaveData currentSaveData)
     {
-        var mission = CurrentMissionInfo.Instance.GetCurrentLandscape();
         currentSaveData = new WorldSaveData
         {
             IsStartMission = true,
@@ -67,6 +66,8 @@ public class WorldSaveLoad : MonoBehaviour
         {
             currentSaveData.ResourcesData[i] = _commandCenterSaveGame.CommandCenterSaveData.MainResourcesData[i];
         }
+
+        currentSaveData.ResourcesData[(int)ResourceEnum.MemoryFragment] = 0;
     }
 
     public void SaveMissionData(ref WorldSaveData currentSaveData)
@@ -171,7 +172,7 @@ public class WorldSaveLoad : MonoBehaviour
         var tpl = _allMissionsInfo.MissionNodeTemplate;
         var landscape = _allMissionsInfo.Landscapes[sel.LandscapeId];
 
-        MonsterBiome biome = (MonsterBiome)landscape.LandscapeEnum;
+        MonsterBiome biome = landscape.MonsterBiome;
         var biomeEntry = def.BiomeSpawners.FirstOrDefault(b => b.Biome == biome);
         var spawnerSO = biomeEntry?.Spawner;
 

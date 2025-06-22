@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e66a00a56736149a69e5056b93ccb2, type: 3}
+  m_Name: Winter_FrozenValley
+  m_EditorClassIdentifier: 
+  Name:
+  - Frozen Valley
+  - "\u0417\u0430\u043C\u0451\u0440\u0437\u0448\u0430\u044F \u0414\u043E\u043B\u0438\u043D\u0430"
+  LandscapeEnum: 3
+  MonsterBiome: 1
+  MissionView:
+    BiomEnum: 2
+    RockTexture: {fileID: 2800000, guid: 91324e422eb81fe4c93da18e480dd26f, type: 3}
+    MissionLight:
+      LightRotation: {x: 35, y: 179.4}
+      SkyColor: {r: 1, g: 0.9647059, b: 0.8627451, a: 1}
+      EquatorColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
+      GroundColor: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 1}
+      Temperature: 20000
+      Intencity: 2.5
+  MissionSprite: {fileID: 21300000, guid: 46e99776e379f924d84e30b5019912de, type: 3}
+  LoadingScreenSprite: {fileID: 21300000, guid: 90bb945da69a028468edf59570c5c1a5,
+    type: 3}
+  StartEcology: -5
+  MapWidth: 12
+  MapLength: 12
+  MapEdge: 4
+  StartPosEdge: 4
+  MissionEvents:
+  - {fileID: 11400000, guid: d49694d92c2ca064fbd724a765463f2a, type: 2}
+  - {fileID: 11400000, guid: f31e1355a13e3d74f8a04ca87d106172, type: 2}
+  - {fileID: 11400000, guid: 1885003221e2d2542bb13d02ddecac30, type: 2}
+  - {fileID: 11400000, guid: cf5029c26ff6b1d4c9f7df124499f7c4, type: 2}
+  - {fileID: 11400000, guid: b01517c9cc44abb43bbb8b412d1d229f, type: 2}
+  - {fileID: 11400000, guid: d7945db18c22138408e919098ed72839, type: 2}
+  Cards:
+  - {fileID: 11400000, guid: 4721036f466c86a4d94c149b6ee8f790, type: 2}
+  - {fileID: 11400000, guid: 419af5759a767c14cb33898e99882029, type: 2}
+  - {fileID: 11400000, guid: 4a4396315f837f14fa447567d9b23600, type: 2}
+  - {fileID: 11400000, guid: 922a878113ad15b44b539c3a539a69f5, type: 2}
+  - {fileID: 11400000, guid: 834e6c1dfd5dcf74480dac385be07c7c, type: 2}
+  - {fileID: 11400000, guid: 3f79d7498863a8d48b1eb22f90ae331b, type: 2}
+  - {fileID: 11400000, guid: adc20fa2d0fb7a04499607598b1290d7, type: 2}
+  Description:
+  - A deadly cold has gripped this valley. Everything is covered in ice, from the
+    ridges and pines to the remains of long-destroyed buildings. Once there might
+    have been pastures or small settlements here, but now there is only the crunch
+    of snow underfoot and shadows sliding between the trees. The frost penetrates
+    not only metal, but also consciousness, erasing the line between life and oblivion.
+  - "\u041C\u0451\u0440\u0442\u0432\u044B\u0439 \u0445\u043E\u043B\u043E\u0434 \u0441\u043A\u043E\u0432\u0430\u043B
+    \u044D\u0442\u0443 \u0434\u043E\u043B\u0438\u043D\u0443. \u0412\u0441\u0451 \u043F\u043E\u043A\u0440\u044B\u0442\u043E
+    \u043B\u044C\u0434\u043E\u043C \u2014 \u043E\u0442 \u043A\u0440\u044F\u0436\u0435\u0439
+    \u0438 \u0441\u043E\u0441\u0435\u043D \u0434\u043E \u043E\u0441\u0442\u0430\u0442\u043A\u043E\u0432
+    \u0434\u0430\u0432\u043D\u043E \u0440\u0430\u0437\u0440\u0443\u0448\u0435\u043D\u043D\u044B\u0445
+    \u0441\u0442\u0440\u043E\u0435\u043D\u0438\u0439. \u041A\u043E\u0433\u0434\u0430-\u0442\u043E
+    \u0437\u0434\u0435\u0441\u044C \u043C\u043E\u0433\u043B\u0438 \u0431\u044B\u0442\u044C
+    \u043F\u0430\u0441\u0442\u0431\u0438\u0449\u0430 \u0438\u043B\u0438 \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u0438\u0435
+    \u043F\u043E\u0441\u0435\u043B\u0435\u043D\u0438\u044F, \u043D\u043E \u0442\u0435\u043F\u0435\u0440\u044C
+    \u2014 \u0442\u043E\u043B\u044C\u043A\u043E \u0445\u0440\u0443\u0441\u0442 \u0441\u043D\u0435\u0433\u0430
+    \u043F\u043E\u0434 \u043D\u043E\u0433\u0430\u043C\u0438 \u0438 \u0442\u0435\u043D\u0438,
+    \u0441\u043A\u043E\u043B\u044C\u0437\u044F\u0449\u0438\u0435 \u043C\u0435\u0436\u0434\u0443
+    \u0434\u0435\u0440\u0435\u0432\u044C\u044F\u043C\u0438. \u041C\u043E\u0440\u043E\u0437
+    \u043F\u0440\u043E\u043D\u0438\u0437\u044B\u0432\u0430\u0435\u0442 \u043D\u0435
+    \u0442\u043E\u043B\u044C\u043A\u043E \u043C\u0435\u0442\u0430\u043B\u043B, \u043D\u043E
+    \u0438 \u0441\u043E\u0437\u043D\u0430\u043D\u0438\u0435, \u0441\u0442\u0438\u0440\u0430\u044F
+    \u0433\u0440\u0430\u043D\u044C \u043C\u0435\u0436\u0434\u0443 \u0436\u0438\u0437\u043D\u044C\u044E
+    \u0438 \u0437\u0430\u0431\u0432\u0435\u043D\u0438\u0435\u043C."
+  CosmosVariations:
+  - PlanetPrefab: {fileID: 1036261144296232, guid: 0fade6951b518034c96bc8c1ef101c5c,
+      type: 3}
+    PlanetPosition: {x: 0.28, y: 0.06, z: 1.02}
+    PlanetRotation: {x: 0, y: 0, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 29f7eb4ef68545141b687e420fdb4b83, type: 2}
+    SkyboxRotation: 110
+    LightRotation: {x: 30.43, y: -30.13, z: 0}
+    Temperature: 6500
+  StoryTextsIndexes: 
+  ConsoleTextsIndexes: 

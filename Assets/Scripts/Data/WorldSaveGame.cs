@@ -34,6 +34,8 @@ public class WorldSaveGame : MonoBehaviour
             CurrentWorldSaveData.ResourcesData[i] = startResources[i];
         }
 
+        CurrentWorldSaveData.ResourcesData[(int)ResourceEnum.MemoryFragment] = 0;
+
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData);
         LoadMissionGameData(landscape.LoadingScreenSprite);
     }
