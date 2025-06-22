@@ -191,9 +191,9 @@ public class TileDetector : MonoBehaviour
             var haveNeighbours = groundTile.HaveNeighbour(0) && groundTile.HaveNeighbour(1) && groundTile.HaveNeighbour(2);
             var neighboursHaveGroundTile = groundTile.NeighbourHaveGroundTile(0) || groundTile.NeighbourHaveGroundTile(1) || groundTile.NeighbourHaveGroundTile(2);
 
-            var neighboursZeroToxicGasActive = _currentTileObject.GetNeighbourTileObject(0).GetTileObjectEvents().IsToxicGasActive();
-            var neighboursOneToxicGasActive = _currentTileObject.GetNeighbourTileObject(1).GetTileObjectEvents().IsToxicGasActive();
-            var neighboursTwoToxicGasActive = _currentTileObject.GetNeighbourTileObject(2).GetTileObjectEvents().IsToxicGasActive();
+            var neighboursZeroToxicGasActive = groundTile.HaveNeighbour(0) ? _currentTileObject.GetNeighbourTileObject(0).GetTileObjectEvents().IsToxicGasActive() : false;
+            var neighboursOneToxicGasActive = groundTile.HaveNeighbour(1) ? _currentTileObject.GetNeighbourTileObject(1).GetTileObjectEvents().IsToxicGasActive() : false;
+            var neighboursTwoToxicGasActive = groundTile.HaveNeighbour(2) ? _currentTileObject.GetNeighbourTileObject(2).GetTileObjectEvents().IsToxicGasActive() : false;
 
             var haveToxicGasEvent = _currentTileObject.GetTileObjectEvents().IsToxicGasActive() ||
                                     (groundTile.HaveNeighbour(0) && neighboursZeroToxicGasActive) ||

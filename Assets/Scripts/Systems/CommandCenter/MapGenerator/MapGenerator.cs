@@ -76,64 +76,82 @@ public class MapGenerator : MonoBehaviour
 
     public void GenerateMap()
     {
-        // 0. Сброс старых данных
+        // ────────────────── 0. Сброс старых данных ──────────────────
         _generatedNodes.Clear();
         _layers.Clear();
         SavedMap = new SavedMapData();
 
-        // 1. Копируем и перемешиваем исходные списки
-        var landscapes = new List<Landscape>(_allMissionsInfo.Landscapes);
-        var objectives = new List<Objective>(_allMissionsInfo.Objectives);
-        var spawners = new List<EnemiesSpawner>(_allMissionsInfo.EnemiesSpawnerInformation);
+        // ────────────────── 1. Исходные списки ──────────────────────
+        int missionPlaceholders = _allMissionsInfo.MissionDeck.Length;   // <- сколько Mission-узлов нужно
         var eventEntries = BuildEventEntries(_allMissionsInfo.EventPools);
-        var resourceTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
+        var resTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
         var skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
 
-        Shuffle(landscapes);
-        Shuffle(objectives);
-        Shuffle(spawners);
         Shuffle(eventEntries);
-        Shuffle(resourceTraders);
+        Shuffle(resTraders);
         Shuffle(skillTraders);
 
-        // 2. Считаем, сколько потребуется слоёв
-        int totalContentNodes = landscapes.Count + eventEntries.Count + resourceTraders.Count + skillTraders.Count;
-        const int maxNodesPerLayer = 4;
-        int contentLayers = Mathf.CeilToInt(totalContentNodes / (float)maxNodesPerLayer);
-        int totalLayers = contentLayers + 3; // старт, минимум один слой миссий, босс
+        // ────────────────── 2. Подсчёт слоёв ────────────────────────
+        int totalContentNodes = missionPlaceholders +
+                                eventEntries.Count +
+                                resTraders.Count +
+                                skillTraders.Count;
 
-        int objectiveIdx = 0;
-        int spawnerIdx = 0;
+        const int maxPerLayer = 4;
+        int contentLayers = Mathf.CeilToInt(totalContentNodes / (float)maxPerLayer);
+        int totalLayers = contentLayers + 3;        // старт + контент + босс
 
-        // 2.1  Стартовый узел
-        NodeInstance start = CreateNode(_allMissionsInfo.StartNode, 0);
-        AddToLayer(0, start);
-        _generatedNodes.Add(start);
-        AddToSavedMap(start, NodeType.Start, _generatedNodes.Count - 1);
-
-        // 2.2  Первый контент-слой (layer = 1).
-        //      Должен содержать 2-3 нода; разрешены Mission и Event, трейдеры не допускаются.
+        // ────────────────── 2.1  Стартовый узел ─────────────────────
         {
-            int layer = 1;
-            int nodesPlanned = Mathf.Min(maxNodesPerLayer, Random.Range(2, maxNodesPerLayer)); // 2–3
+            var start = CreateNode(_allMissionsInfo.StartNode, 0);
+            AddToLayer(0, start);
+            _generatedNodes.Add(start);
+            AddToSavedMap(start, NodeType.Start, _generatedNodes.Count - 1);
+        }
+
+        // ────────────────── 2.2  Первый контент-слой (layer = 1) ────
+        GenerateContentLayer(layer: 1,
+                             minNodes: 2, maxNodes: 3,
+                             allowTraders: false);
+
+        // ────────────────── 2.3  Промежуточные слои ─────────────────
+        for (int layer = 2; layer < totalLayers - 1; layer++)
+            GenerateContentLayer(layer, 2, 4, true);
+
+        // ────────────────── 2.4  Финальный босс ─────────────────────
+        {
+            var boss = CreateNode(_allMissionsInfo.BossNode, totalLayers - 1);
+            AddToLayer(totalLayers - 1, boss);
+            _generatedNodes.Add(boss);
+            AddToSavedMap(boss, NodeType.Boss, _generatedNodes.Count - 1);
+        }
+
+        // ────────────────── 3. Связи + Layout ───────────────────────
+        GenerateConnections();
+        LayoutLayers();
+
+        // ────────────────── Локальная функция слоя ──────────────────
+        void GenerateContentLayer(int layer, int minNodes, int maxNodes, bool allowTraders)
+        {
+            int nodesPlanned = Mathf.Min(maxPerLayer, Random.Range(minNodes, maxNodes + 1));
             int nodesThisLayer = 0;
 
-            // миссии + ивенты, пока не заполним план или не кончатся ресурсы
             while (nodesThisLayer < nodesPlanned &&
-                   (landscapes.Count + eventEntries.Count) > 0)
+                   (missionPlaceholders + eventEntries.Count +
+                    (allowTraders ? resTraders.Count + skillTraders.Count : 0)) > 0)
             {
                 var makers = new List<System.Action>();
 
-                // --- миссия
-                if (landscapes.Count > 0)
+                // ---------- Mission ----------
+                if (missionPlaceholders > 0)
                     makers.Add(() =>
                     {
-                        var m = CreateMissionNode(landscapes, objectives, spawners,
-                                                  ref objectiveIdx, ref spawnerIdx);
+                        var m = CreateEmptyMissionNode();
+                        missionPlaceholders--;
                         AddNodeToLayer(m, NodeType.Mission);
                     });
 
-                // --- ивент
+                // ---------- Event / RewardEvent ----------
                 if (eventEntries.Count > 0)
                     makers.Add(() =>
                     {
@@ -142,12 +160,30 @@ public class MapGenerator : MonoBehaviour
                         AddEventToLayer(entry);
                     });
 
+                // ---------- Traders ----------
+                if (allowTraders && resTraders.Count > 0)
+                    makers.Add(() =>
+                    {
+                        var t = resTraders[0];
+                        resTraders.RemoveAt(0);
+                        AddNodeToLayer(t, NodeType.ResourceTrader);
+                    });
+
+                if (allowTraders && skillTraders.Count > 0)
+                    makers.Add(() =>
+                    {
+                        var t = skillTraders[0];
+                        skillTraders.RemoveAt(0);
+                        AddNodeToLayer(t, NodeType.SkillTrader);
+                    });
+
+                // Выбираем случайный «maker» и применяем
                 int pick = Random.Range(0, makers.Count);
                 makers[pick].Invoke();
                 nodesThisLayer++;
             }
 
-            // --- локальные помощники ---
+            // ---------- локальные помощники ----------
             void AddNodeToLayer(NodeData data, NodeType type)
             {
                 var inst = CreateNode(data, layer);
@@ -167,108 +203,28 @@ public class MapGenerator : MonoBehaviour
                               e.SequenceIndex, e.PoolIndex);
             }
         }
-
-        // 2.3  Промежуточные слои (2 … totalLayers-2) — случайное чередование типов
-        for (int layer = 2; layer < totalLayers - 1; layer++)
-        {
-            int nodesPlanned = Mathf.Min(maxNodesPerLayer, Random.Range(2, maxNodesPerLayer + 1));
-            int nodesThisLayer = 0;
-
-            while (nodesThisLayer < nodesPlanned && (landscapes.Count + eventEntries.Count + resourceTraders.Count + skillTraders.Count) > 0)
-            {
-                var makers = new List<System.Action>();
-
-                if (landscapes.Count > 0)
-                    makers.Add(() =>
-                    {
-                        var m = CreateMissionNode(landscapes, objectives, spawners,
-                                                  ref objectiveIdx, ref spawnerIdx);
-                        AddNodeToLayer(m, NodeType.Mission);
-                    });
-
-                if (eventEntries.Count > 0)
-                    makers.Add(() =>
-                    {
-                        var entry = eventEntries[0];
-                        eventEntries.RemoveAt(0);
-                        AddEventToLayer(entry);
-                    });
-
-                if (resourceTraders.Count > 0)
-                    makers.Add(() =>
-                    {
-                        var t = resourceTraders[0];
-                        resourceTraders.RemoveAt(0);
-                        AddNodeToLayer(t, NodeType.ResourceTrader);
-                    });
-
-                if (skillTraders.Count > 0)
-                    makers.Add(() =>
-                    {
-                        var t = skillTraders[0];
-                        skillTraders.RemoveAt(0);
-                        AddNodeToLayer(t, NodeType.SkillTrader);
-                    });
-
-                int pick = Random.Range(0, makers.Count);
-                makers[pick].Invoke();
-                nodesThisLayer++;
-            }
-
-            void AddNodeToLayer(NodeData data, NodeType type)
-            {
-                var inst = CreateNode(data, layer);
-                AddToLayer(layer, inst);
-                _generatedNodes.Add(inst);
-                AddToSavedMap(inst, type, _generatedNodes.Count - 1);
-            }
-
-            void AddEventToLayer(EventEntry e)
-            {
-                // создаём узел
-                var inst = CreateNode(e.Node, layer);
-                AddToLayer(layer, inst);
-                _generatedNodes.Add(inst);
-
-                // определяем тип
-                var type = e.Node is RewardEventNode ? NodeType.RewardEvent : NodeType.Event;
-
-                // сохраняем сразу и SequenceIndex, и PoolIndex
-                AddToSavedMap(inst, type, _generatedNodes.Count - 1, e.SequenceIndex, e.PoolIndex
-                );
-            }
-        }
-
-        // 2.4  Финальный босс
-        NodeInstance boss = CreateNode(_allMissionsInfo.BossNode, totalLayers - 1);
-        AddToLayer(totalLayers - 1, boss);
-        _generatedNodes.Add(boss);
-        AddToSavedMap(boss, NodeType.Boss, _generatedNodes.Count - 1);
-
-        // 3. Связи и финальный layout
-        GenerateConnections();
-        LayoutLayers();
-
-        FillMissionIndices();
     }
 
-    // заполняем в SaveMapData реальными сгенерированными индексами 
-    private void FillMissionIndices()
+
+    private MissionNode CreateEmptyMissionNode()
     {
-        for (int i = 0; i < _generatedNodes.Count; i++)
-        {
-            var save = SavedMap.Nodes[i];
-            if (save.NodeType != NodeType.Mission) continue;
+        var node = ScriptableObject.CreateInstance<MissionNode>();
 
-            var mission = _generatedNodes[i].nodeData as MissionNode;
-            if (mission == null) continue;
+        // Контент пока пустой
+        node.Landscape = null;
+        node.Objective = null;
+        node.EnemiesSpawner = null;
 
-            save.MissionIndex = System.Array.IndexOf(_allMissionsInfo.Landscapes, mission.Landscape);
-            save.ObjectiveIndex = System.Array.IndexOf(_allMissionsInfo.Objectives, mission.Objective);
-            save.SpawnerIndex = System.Array.IndexOf(_allMissionsInfo.EnemiesSpawnerInformation, mission.EnemiesSpawner);
-        }
+        // Визуал берём из шаблона
+        var tpl = _allMissionsInfo.MissionNodeTemplate;
+        node.Icon = tpl.Icon;
+        node.IconColor = tpl.IconColor;
+        node.IconWidth = tpl.IconWidth;
+        node.IconHeight = tpl.IconHeight;
+        node.DescriptionTextNumber = tpl.DescriptionTextNumber;
+
+        return node;
     }
-
 
     // Создание конкретной MissionNode из независимых частей
     private MissionNode CreateMissionNode(List<Landscape> landscapes, List<Objective> objectives, List<EnemiesSpawner> spawners, ref int objectiveIdx, ref int spawnerIdx)
@@ -317,9 +273,7 @@ public class MapGenerator : MonoBehaviour
         {
             NodeIndex = nodeIndex,
             NodeType = type,
-            MissionIndex = -1,
-            ObjectiveIndex = -1,
-            SpawnerIndex = -1,
+            MissionDeckIndex = -1,
             EventSequenceIndex = eventSequenceIndex,
             EventPoolIndex = eventPoolIndex,
             Position = Vector2.zero,
@@ -429,13 +383,22 @@ public class SavedMapData
 }
 
 [System.Serializable]
+public struct ObjectiveSave
+{
+    public ObjectiveEnum Objective;
+    public int Amount;
+}
+
+[System.Serializable]
 public class SavedNodeData
 {
+    public int MissionDeckIndex = -1;
+    public int SavedLandscapeIndex = -1;
+    public ObjectiveSave[] SavedObjectives = null;
+
+
     public int NodeIndex;
     public NodeType NodeType;
-    public int MissionIndex;
-    public int ObjectiveIndex;
-    public int SpawnerIndex;
     public int EventPoolIndex;
     public int EventSequenceIndex = -1;
     public Vector2 Position;

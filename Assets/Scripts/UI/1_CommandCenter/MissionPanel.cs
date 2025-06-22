@@ -147,21 +147,50 @@ public class MissionPanel : MonoBehaviour
 
     private void SaveSelectedMission()
     {
+        var ccSave = _commandCenterSaveGame.CommandCenterSaveData;
         var info = _allMissionsInfo;
 
+        /* ---------- индекс ландшафта ---------- */
         int landId = System.Array.IndexOf(info.Landscapes, _currentNode.Landscape);
-        int objId = System.Array.IndexOf(info.Objectives, _currentNode.Objective);
-        int spId = System.Array.IndexOf(info.EnemiesSpawnerInformation, _currentNode.EnemiesSpawner);
 
-        var sel = new SelectedMissionData();
-        sel.NodeId = _currentNodeId;
-        sel.LandscapeId = landId;
-        sel.ObjectiveId = objId;
-        sel.SpawnerId = spId;
+        /* ---------- данные из SavedMap для этого узла ---------- */
+        var mapNode = ccSave.Map.Nodes[_currentNodeId];
+        int deckIdx = mapNode.MissionDeckIndex;
 
-        var ccSave = _commandCenterSaveGame.CommandCenterSaveData;
+        // если миссия ещё ни разу не открывалась (крайне редкий случай),
+        // подстрахуемся, чтобы не получить -1
+        if (deckIdx < 0)
+        {
+            deckIdx = 0;
+            Debug.LogWarning("MissionDeckIndex not set yet – fallback to 0");
+        }
+
+        /* ---------- конвертация ObjectiveWrapper[] → ObjectiveSave[] ---------- */
+        var wrappers = _currentNode.Objective.Objectives;
+        var savedObj = new ObjectiveSave[wrappers.Length];
+
+        for (int i = 0; i < wrappers.Length; i++)
+        {
+            savedObj[i] = new ObjectiveSave
+            {
+                Objective = wrappers[i].ObjectiveEnum,
+                Amount = wrappers[i].ObjectiveAmount
+            };
+        }
+
+        /* ---------- формируем структуру SelectedMissionData ---------- */
+        var sel = new SelectedMissionData
+        {
+            NodeId = _currentNodeId,
+            MissionDeckIndex = deckIdx,
+            LandscapeId = landId,
+            SavedObjectives = savedObj
+        };
+
+        /* ---------- сохраняем ---------- */
         ccSave.CurrentMission = sel;
-
-        _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(ccSave);
+        _commandCenterSaveGame
+            .GetCommandCenterSaveGameDataWriter()
+            .WriteCommandCenterDataToSaveFile(ccSave);
     }
 }

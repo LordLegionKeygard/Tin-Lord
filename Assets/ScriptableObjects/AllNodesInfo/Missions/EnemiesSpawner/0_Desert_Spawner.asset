@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e025a72d5c3a743add5457e9f1553f, type: 3}
   m_Name: 0_Desert_Spawner
   m_EditorClassIdentifier: 
+  Biome: 0
   Spawners:
   - StartDaySpawn: 4
     SpawnPeriod: 2
@@ -55,25 +56,7 @@ MonoBehaviour:
     EnemiesSpawnerInfo:
     - EnemyEnum: 0
       EnemyLevel: 2
-  - StartDaySpawn: 65
-    SpawnPeriod: 2
-    Count: 40
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-  - StartDaySpawn: 70
-    SpawnPeriod: 1
-    Count: 45
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-  - StartDaySpawn: 74
-    SpawnPeriod: 1
-    Count: 60
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-  LastDaySpawn: 74
-  BossEnum: -1
-  BossLevel: 0
-  BossDaySpawn: 0
+  LastDaySpawn: 0
+  BossEnum: 9
+  BossLevel: 10
+  BossDaySpawn: 60

@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -112,20 +113,8 @@ public class WorldSaveLoad : MonoBehaviour
 
     public void LoadMissionData(ref WorldSaveData currentSaveData)
     {
-        //Main
-        SelectedMissionData data = _commandCenterSaveGame.CommandCenterSaveData.CurrentMission;
-
-        //MissionNode
-        MissionNode node = ScriptableObject.CreateInstance<MissionNode>();
-        node.Landscape = _allMissionsInfo.Landscapes[data.LandscapeId];
-        node.Objective = _allMissionsInfo.Objectives[data.ObjectiveId];
-        node.EnemiesSpawner = _allMissionsInfo.EnemiesSpawnerInformation[data.SpawnerId];
-        node.Icon = _allMissionsInfo.MissionNodeTemplate.Icon;
-        node.IconColor = _allMissionsInfo.MissionNodeTemplate.IconColor;
-        node.IconWidth = _allMissionsInfo.MissionNodeTemplate.IconWidth;
-        node.IconHeight = _allMissionsInfo.MissionNodeTemplate.IconHeight;
-
-        CurrentMissionInfo.Instance.LoadMission(node);
+        // Main
+        CurrentMissionInfo.Instance.LoadMission(BuildMissionFromSelected());
         _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
 
         //UpPanel
@@ -171,4 +160,46 @@ public class WorldSaveLoad : MonoBehaviour
         CustomEvents.FirePlayRandomLevelMusic();
         CustomEvents.FireDataLoad();
     }
+
+    //  Собирает MissionNode из SelectedMissionData
+    private MissionNode BuildMissionFromSelected()
+    {
+        SelectedMissionData sel = _commandCenterSaveGame.CommandCenterSaveData.CurrentMission;
+        if (sel == null) return null;
+
+        var def = _allMissionsInfo.MissionDeck[sel.MissionDeckIndex];
+        var tpl = _allMissionsInfo.MissionNodeTemplate;
+        var landscape = _allMissionsInfo.Landscapes[sel.LandscapeId];
+
+        MonsterBiome biome = (MonsterBiome)landscape.LandscapeEnum;
+        var biomeEntry = def.BiomeSpawners.FirstOrDefault(b => b.Biome == biome);
+        var spawnerSO = biomeEntry?.Spawner;
+
+        var wrappers = new ObjectiveWrapper[sel.SavedObjectives.Length];
+        for (int i = 0; i < wrappers.Length; i++)
+        {
+            wrappers[i] = new ObjectiveWrapper
+            {
+                ObjectiveEnum = sel.SavedObjectives[i].Objective,
+                ObjectiveAmount = sel.SavedObjectives[i].Amount
+            };
+        }
+        var objectiveSO = ScriptableObject.CreateInstance<Objective>();
+        objectiveSO.Objectives = wrappers;
+
+        var node = ScriptableObject.CreateInstance<MissionNode>();
+        node.Landscape = landscape;
+        node.Objective = objectiveSO;
+        node.EnemiesSpawner = spawnerSO;
+
+        node.Icon = tpl.Icon;
+        node.IconColor = tpl.IconColor;
+        node.IconWidth = tpl.IconWidth;
+        node.IconHeight = tpl.IconHeight;
+        node.DescriptionTextNumber = tpl.DescriptionTextNumber;
+        node.CosmosVariations = landscape.CosmosVariations;
+
+        return node;
+    }
+
 }

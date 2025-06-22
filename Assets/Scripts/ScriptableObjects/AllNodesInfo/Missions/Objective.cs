@@ -1,6 +1,8 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Objective", menuName = "TinLord/Missions/Objective")]
+/// <summary>
+/// Выполняет роль контейнера данных, создается динамически, передается по ссылке в MissionNode, сериализуется в save
+/// </summary>
 public class Objective : ScriptableObject
 {
     public ObjectiveWrapper[] Objectives;

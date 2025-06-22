@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemiesSpawner", menuName = "TinLord/Missions/EnemySpawner")]
 public class EnemiesSpawner : ScriptableObject
 {
+    public MonsterBiome Biome; 
     public Spawner[] Spawners;
     public int LastDaySpawn;
 
@@ -27,5 +28,11 @@ public class EnemySpawnerInfo
 {
     public EnemyEnum EnemyEnum = EnemyEnum.None;
     public int EnemyLevel;
+}
+
+public enum MonsterBiome
+{
+    Desert = 0,
+    Winter = 1,
 }
 

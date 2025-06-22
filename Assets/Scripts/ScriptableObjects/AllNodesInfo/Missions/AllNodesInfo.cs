@@ -10,15 +10,15 @@ public class AllNodesInfo : ScriptableObject
     public SkillTraderNode[] SkillTraders; // все торговцы ресурсами
     public BossNode BossNode; // финальный босс
 
+    [Header("Campaign")]
+    public MissionDefinition[] MissionDeck;
+
     [Header("Templates")]
     public MissionNode MissionNodeTemplate; // шаблон для получения иконки миссии
 
 
     [Header("Parts for MissionNode")]
     public Landscape[] Landscapes; // случайные ландшафты
-    public EnemiesSpawner[] EnemiesSpawnerInformation; // информация о врагах
-    public Objective[] Objectives; // информация о целях миссии
-
 }
 
 [System.Serializable]

@@ -15,8 +15,8 @@ public class CommandCenterSaveData
 [System.Serializable]
 public class SelectedMissionData
 {
-    public int NodeId;
-    public int LandscapeId;
-    public int ObjectiveId;
-    public int SpawnerId;
+    public int NodeId;               // к какому узлу относится
+    public int MissionDeckIndex;     // какой элемент MissionDeck
+    public int LandscapeId;          // какой Landscape взяли
+    public ObjectiveSave[] SavedObjectives; // цели с зафиксированным количеством
 }
