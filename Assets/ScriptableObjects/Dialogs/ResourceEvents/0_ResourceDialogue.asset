@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: 0_ResourceDialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 0
+  - TextNumber: 407
     Choices:
-    - ChoiseTextNumber: 0
-      Kind: 2
+    - ChoiseTextNumber: 408
+      Kind: 0
       Standard:
-        NextStepIndex: 0
+        NextStepIndex: 1
         Rewards: []
         ChoiceRequired:
           RequiredType: 0
@@ -31,5 +31,63 @@ MonoBehaviour:
       Random:
         NextStepIndex: 0
         PossibleRewards: 0400000005000000
+        MinAmount: 0
+        MaxAmount: 0
+    - ChoiseTextNumber: 410
+      Kind: 0
+      Standard:
+        NextStepIndex: 2
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 0400000005000000
+        MinAmount: 0
+        MaxAmount: 0
+  - TextNumber: 409
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 2
+      Standard:
+        NextStepIndex: -1
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 0400000005000000060000000700000008000000090000000a0000000b0000000c00000012000000
+        MinAmount: 5
+        MaxAmount: 10
+  - TextNumber: 411
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
         MinAmount: 0
         MaxAmount: 0

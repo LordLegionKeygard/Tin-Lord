@@ -38,6 +38,9 @@ MonoBehaviour:
   - Node: {fileID: 11400000, guid: 5377a8c8c56073f4495e21d5e104becd, type: 2}
     MaxOnMap: 1
     RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: 7d24b654d865d3a4e9fae8efdfeba349, type: 2}
+    MaxOnMap: 1
+    RepeatOneEventSameTime: 0
   ResourceTraders:
   - {fileID: 11400000, guid: 989e931db47d8a1458374d10dbde8b7c, type: 2}
   SkillTraders:
@@ -55,7 +58,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dfebb67d0b6e9e440a9720fbaca62b42, type: 2}
   - {fileID: 11400000, guid: e58031502e48fbc43901a4da2f42ef76, type: 2}
   - {fileID: 11400000, guid: 6b65fa9dac9c50048a6e3f3972182ed7, type: 2}
-  EnemiesSpawnerInformation:
-  - {fileID: 11400000, guid: c597c508d61e0814491057739e736086, type: 2}
-  - {fileID: 11400000, guid: 74fcce83908ba2040b51b4edc3b58c8c, type: 2}
-  - {fileID: 11400000, guid: 5393e13a42baf594e9b3c23d089ec3e3, type: 2}
