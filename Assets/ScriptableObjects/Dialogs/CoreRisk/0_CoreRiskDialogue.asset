@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043b2baa39c66b3458497ac75327445a, type: 3}
+  m_Name: 0_CoreRiskDialogue
+  m_EditorClassIdentifier: 
+  Steps:
+  - TextNumber: 316
+    Choices:
+    - ChoiseTextNumber: 317
+      Kind: 0
+      Standard:
+        NextStepIndex: 1
+        Rewards: []
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+    - ChoiseTextNumber: 319
+      Kind: 0
+      Standard:
+        NextStepIndex: 2
+        Rewards: []
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+    - ChoiseTextNumber: 321
+      Kind: 0
+      Standard:
+        NextStepIndex: 3
+        Rewards: []
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 318
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 1
+          MinAmount: -1
+          MaxAmount: -1
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 320
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards: []
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 322
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 1
+          MinAmount: -2
+          MaxAmount: -2
+      Chance:
+        SuccessChance: 0.5
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []

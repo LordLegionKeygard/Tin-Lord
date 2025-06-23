@@ -175,13 +175,6 @@ MonoBehaviour:
       Data3: 599604358
       Data4: -1958367202
     Path: event:/Sfx/MapNodes/ReceivedAiCore
-  ReceivedMemory:
-    Guid:
-      Data1: -1133809355
-      Data2: 1081197208
-      Data3: 39175302
-      Data4: -2090624599
-    Path: event:/Sfx/MapNodes/ReceivedMemory
   ReceivedQuants:
     Guid:
       Data1: 495844151
@@ -189,6 +182,20 @@ MonoBehaviour:
       Data3: -239990385
       Data4: 872894662
     Path: event:/Sfx/MapNodes/ReceivedQuants
+  ReceivedMemory:
+    Guid:
+      Data1: -1133809355
+      Data2: 1081197208
+      Data3: 39175302
+      Data4: -2090624599
+    Path: event:/Sfx/MapNodes/ReceivedMemory
+  ReceivedResource:
+    Guid:
+      Data1: -1752675481
+      Data2: 1254383520
+      Data3: -2067898212
+      Data4: 1578604544
+    Path: event:/Sfx/MapNodes/ReceivedResource
   LostAiCore:
     Guid:
       Data1: -1688221372
@@ -196,13 +203,6 @@ MonoBehaviour:
       Data3: -1849041517
       Data4: 1777563094
     Path: event:/Sfx/MapNodes/LostAiCore
-  LostMemory:
-    Guid:
-      Data1: 1368616561
-      Data2: 1138977657
-      Data3: -445946207
-      Data4: 451169280
-    Path: event:/Sfx/MapNodes/LostMemory
   LostQuants:
     Guid:
       Data1: 903870417
@@ -210,6 +210,20 @@ MonoBehaviour:
       Data3: 774122420
       Data4: -1284706682
     Path: event:/Sfx/MapNodes/LostQuants
+  LostMemory:
+    Guid:
+      Data1: 1368616561
+      Data2: 1138977657
+      Data3: -445946207
+      Data4: 451169280
+    Path: event:/Sfx/MapNodes/LostMemory
+  LostResource:
+    Guid:
+      Data1: -405840280
+      Data2: 1223593793
+      Data3: -1406128729
+      Data4: -1389641240
+    Path: event:/Sfx/MapNodes/LostResource
   GroundTiles:
   - Guid:
       Data1: 831788631

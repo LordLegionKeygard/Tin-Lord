@@ -329,72 +329,95 @@ public class EventNodePanel : MonoBehaviour
                 _mainResources.ChangeResource(ResourceEnum.MemoryFragment, amount);
                 break;
             case RewardType.Wood:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Wood, amount);
                 break;
             case RewardType.Stone:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Stone, amount);
                 break;
             case RewardType.IronOre:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.IronOre, amount);
                 break;
             case RewardType.CopperOre:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.CopperOre, amount);
                 break;
             case RewardType.Coal:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Coal, amount);
                 break;
             case RewardType.Oil:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Oil, amount);
                 break;
             case RewardType.Water:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Water, amount);
                 break;
             case RewardType.Sand:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Sand, amount);
                 break;
             case RewardType.Electricity:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Electricity, amount);
                 break;
             case RewardType.StoneBlock:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.StoneBlock, amount);
                 break;
             case RewardType.IronIngot:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.IronIngot, amount);
                 break;
             case RewardType.SteelIngot:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.SteelIngot, amount);
                 break;
             case RewardType.CopperPlate:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.CopperPlate, amount);
                 break;
             case RewardType.Concrete:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Concrete, amount);
                 break;
             case RewardType.Steam:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Steam, amount);
                 break;
             case RewardType.Glass:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Glass, amount);
                 break;
             case RewardType.CopperWire:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.CopperWire, amount);
                 break;
             case RewardType.GearWheel:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.GearWheel, amount);
                 break;
             case RewardType.ElectronicCircuit:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.ElectronicCircuit, amount);
                 break;
             case RewardType.Processor:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Processor, amount);
                 break;
             case RewardType.Engine:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.Engine, amount);
                 break;
             case RewardType.ElectricEngine:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.ElectricEngine, amount);
                 break;
             case RewardType.BeamEnergy:
+                AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.BeamEnergy, amount);
                 break;
         }

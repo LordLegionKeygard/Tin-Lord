@@ -9,8 +9,6 @@ public class UIPanelsWorld : MonoBehaviour
     [SerializeField] private GameObject[] _selectTilePanels;
     [SerializeField] private GameObject[] _mainPanels;
     [SerializeField] private GameObject _settingsPanelObject;
-    [SerializeField] private GameObject _tutorialPanelObject;
-
 
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;

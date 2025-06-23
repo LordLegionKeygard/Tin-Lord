@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043b2baa39c66b3458497ac75327445a, type: 3}
+  m_Name: 0_FilthCultFaction_Dialogue
+  m_EditorClassIdentifier: 
+  Steps:
+  - TextNumber: 392
+    Choices:
+    - ChoiseTextNumber: 393
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 394
+        FailureTextNumber: 395
+        SuccessRewards:
+        - Type: 3
+          MinAmount: 10
+          MaxAmount: 50
+        FailureRewards:
+        - Type: 1
+          MinAmount: -1
+          MaxAmount: -1
+    - ChoiseTextNumber: 396
+      Kind: 0
+      Standard:
+        NextStepIndex: 1
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+    - ChoiseTextNumber: 400
+      Kind: 0
+      Standard:
+        NextStepIndex: 2
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+  - TextNumber: 397
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 398
+        FailureTextNumber: 399
+        SuccessRewards: []
+        FailureRewards:
+        - Type: 1
+          MinAmount: -1
+          MaxAmount: -1
+  - TextNumber: 401
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 402
+        FailureTextNumber: 403
+        SuccessRewards:
+        - Type: 2
+          MinAmount: 50
+          MaxAmount: 100
+        FailureRewards:
+        - Type: 1
+          MinAmount: -1
+          MaxAmount: -1

@@ -13,11 +13,13 @@ public class FMODEvents : MonoBehaviour
     [Header("DialogueReward")]
 
     public EventReference ReceivedAiCore;
-    public EventReference ReceivedMemory;
     public EventReference ReceivedQuants;
+    public EventReference ReceivedMemory;
+    public EventReference ReceivedResource;
     public EventReference LostAiCore;
-    public EventReference LostMemory;
     public EventReference LostQuants;
+    public EventReference LostMemory;
+    public EventReference LostResource;
 
     
     [Header("Environment")]
