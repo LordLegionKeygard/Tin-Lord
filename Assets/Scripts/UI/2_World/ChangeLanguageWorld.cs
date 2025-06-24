@@ -30,7 +30,6 @@ public class ChangeLanguageWorld : MonoBehaviour
         _escapeTexts[1].text = Language.TextStatic[44];
         _escapeTexts[2].text = Language.TextStatic[28];
         _escapeTexts[3].text = Language.TextStatic[46];
-        _escapeTexts[4].text = Language.TextStatic[237];
 
         SetTerminalTexts();
     }

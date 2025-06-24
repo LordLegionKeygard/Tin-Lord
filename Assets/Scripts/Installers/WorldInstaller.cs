@@ -13,6 +13,8 @@ public class WorldInstaller : MonoInstaller
     [SerializeField] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
     [SerializeField] private EndMissionSystem _endMissionSystem;
     [SerializeField] private AllSkills _allSkills;
+    [SerializeField] private WorldQuantSystem _quantSystem;
+    [SerializeField] private QuantPickupPool _quantPickupPool;
 
     public override void InstallBindings()
     {
@@ -26,5 +28,8 @@ public class WorldInstaller : MonoInstaller
         Container.Bind<EndMissionSystem>().FromInstance(_endMissionSystem).AsSingle();
         Container.Bind<AllSkills>().FromInstance(_allSkills).AsSingle();
         Container.Bind<EnemyDefenceSystem>().FromInstance(_enemyDefenceSystem).AsSingle();
+        Container.Bind<WorldQuantSystem>().FromInstance(_quantSystem).AsSingle();
+        Container.Bind<QuantPickupPool>().FromComponentInHierarchy().AsSingle();
+
     }
 }

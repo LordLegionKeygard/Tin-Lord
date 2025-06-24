@@ -14,16 +14,16 @@ public class EndMissionSystem : MonoBehaviour
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private UIPanelsWorld _uIPanelsWorld;
     [SerializeField] private TerminalSystem _terminalSystem;
+    [SerializeField] private WorldQuantSystem _worldQuantSystem;
 
     [Header("View")]
     [SerializeField] private GameObject _panel;
     [SerializeField] private TextMeshProUGUI _headerText;
-
     [SerializeField] private TextMeshProUGUI _memoryRestoredText;
     [SerializeField] private TextMeshProUGUI _ecologyBonusText;
     [SerializeField] private TextMeshProUGUI _receivedFragmentsText;
-
     [SerializeField] private TextMeshProUGUI _maxFragmentsText;
+    [SerializeField] private TextMeshProUGUI _quantsText;
     [SerializeField] private Slider _slider;
     private bool _isMissionEnd = false;
     private int _receivedFragments;
@@ -87,6 +87,8 @@ public class EndMissionSystem : MonoBehaviour
         _ecologyBonusText.text = $"{Language.TextStatic[148]} {ecologyBonus}x";
 
         _maxFragmentsText.text = totalFragmentsAmount.ToString();
+
+        _quantsText.text = _missionEndEnum is MissionEndEnum.Victory ? $"{Language.TextStatic[187]} {_worldQuantSystem.GetQuants()}" : $"{Language.TextStatic[187]} 0";
     }
 
     private float GetEcologyBonus()
@@ -104,14 +106,14 @@ public class EndMissionSystem : MonoBehaviour
         return 2f;
     }
 
-
     private void PrepareData(MissionEndEnum missionEndEnum)
     {
         var aiCores = missionEndEnum == MissionEndEnum.Victory ? 0 : -2;
+        var quants = missionEndEnum == MissionEndEnum.Victory ? _worldQuantSystem.GetQuants() : 0;
         if (missionEndEnum == MissionEndEnum.Victory)
         {
-            var ccSave = _commandCenterSaveGame.CommandCenterSaveData;
-            var map = ccSave.Map;
+            var saveData = _commandCenterSaveGame.CommandCenterSaveData;
+            var map = saveData.Map;
 
             int curIdx = map.CurrentNodeIndex;
             if (curIdx >= 0 && curIdx < map.Nodes.Count)
@@ -119,12 +121,11 @@ public class EndMissionSystem : MonoBehaviour
                 map.Nodes[curIdx].IsCompleted = true;
             }
 
-            // сразу сохраняем изменения карты
-            _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(ccSave);
+            _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(saveData);
         }
 
         _worldSaveGame.DeleteMissionGameData();
-        _commandCenterSaveGame.SaveCommandCenterFragmentsAiCoresData(_receivedFragments, aiCores);
+        _commandCenterSaveGame.SaveEndMissionData(_receivedFragments, aiCores, quants);
     }
 
     private IEnumerator UpdateFragmentsAndSlider(int targetFragments, float targetPercent)

@@ -45,6 +45,10 @@ public class WorldSaveData
     [Header("Skills")]
     public int[] SkillsCooldown;
     public int[] SkillsDuration;
+
+    [Header("Quants")]
+    public float QuantsAmount;
+    public QuantPickupData[] QuantPickups;
 }
 
 [System.Serializable]
@@ -141,6 +145,15 @@ public class WaterData
 public class TileWorldEventData
 {
     public int ToxicGasTicksNumber;
+}
+
+[System.Serializable]
+public class QuantPickupData
+{
+    public float PosX;
+    public float PosY;
+    public float PosZ;
+    public float TimeLeft;
 }
 
 

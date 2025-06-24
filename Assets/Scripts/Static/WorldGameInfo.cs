@@ -5,6 +5,9 @@ public class WorldGameInfo
     public static int LanguageLength = 500;
     public static bool StaticBlood = true;
 
+    [Header("Quants")]
+    public static float QuantDropChance = 0.3f;
+
     [Header("Skills")]
     public const int SkillsCount = 10;
 
@@ -54,7 +57,7 @@ public class WorldGameInfo
     public const float TurretPatrolRotateSpeedFactor = 0.5f;
 
     [Header("Buildings")]
-    public const float ConstructionSpeed = 5;
+    public const float ConstructionSpeed = 1.5f;
     public const float FirstBaseConstructionSpeed = 40;
 
     [Header("Load")]

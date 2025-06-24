@@ -65,9 +65,8 @@ public class MapSystem : MonoBehaviour
         RefreshCompletedMarks();
         ApplyCosmos();
 
-        var currentSave = data.Map.Nodes[_currentNodeIndex];
-
-        if (data.Map.Nodes[_currentNodeIndex].NodeType == NodeType.Mission && !currentSave.IsCompleted)
+        var node = data.Map.Nodes[_currentNodeIndex];
+        if ((node.NodeType == NodeType.Mission || node.NodeType == NodeType.Boss) && !node.IsCompleted)
         {
             var missionNode = _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData as MissionNode;
 

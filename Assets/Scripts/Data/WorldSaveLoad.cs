@@ -45,6 +45,10 @@ public class WorldSaveLoad : MonoBehaviour
     [Header("Skill")]
     [SerializeField] private AllSkills _allSkills;
 
+    [Header("Quants")]
+    [SerializeField] private QuantPickupPool _quantPool;
+    [SerializeField] private WorldQuantSystem _worldQuantSystem;
+
     private void Awake()
     {
         _worldSaveGame.WorldSaveLoad = this;
@@ -107,6 +111,10 @@ public class WorldSaveLoad : MonoBehaviour
         //Skills
         currentSaveData.SkillsCooldown = _allSkills.GetAllSkillsCooldown();
         currentSaveData.SkillsDuration = _allSkills.GetAllSkillsDuration();
+
+        //Quants
+        currentSaveData.QuantsAmount = _worldQuantSystem.GetQuants();
+        currentSaveData.QuantPickups = _quantPool.GetActiveQuants();
     }
 
     public void LoadMissionData(ref WorldSaveData currentSaveData)
@@ -151,6 +159,10 @@ public class WorldSaveLoad : MonoBehaviour
 
         //Skills
         _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _commandCenterSaveGame.CommandCenterSaveData.OpenedSkills);
+
+        //Quants
+        _worldQuantSystem.SetQuants(currentSaveData.QuantsAmount);
+        _quantPool.LoadQuantPickup(currentSaveData.QuantPickups);
 
         //Tutorial
         // if (!_commandCenterSaveGame.CommandCenterSaveData.TutorialCompleted) _tutorialSystem.OpenTutorial(true);

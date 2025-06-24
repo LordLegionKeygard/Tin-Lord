@@ -588,8 +588,8 @@ public class Language : MonoBehaviour
         _text[186, 0] = "Quants";
         _text[186, 1] = "Кванты";
 
-        _text[187, 0] = "";
-        _text[187, 1] = "";
+        _text[187, 0] = "Quants received:";
+        _text[187, 1] = "Получено квантов";
 
         _text[188, 0] = "";
         _text[188, 1] = "";
