@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BossHealth : BaseHealth
 {
-    [SerializeField] private float _bossHealth;
     private EnemyAnimator _enemyAnimator;
     private EnemyKnockBack _creatureKnockBackController;
     private AIPath _aiPath;
@@ -41,7 +40,7 @@ public class BossHealth : BaseHealth
     public void SetStartStats()
     {
         _isDeath = false;
-        _maxHealth = _bossHealth;
+        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
         _currentHealth = _maxHealth;
         BossHealthSlider.Instance.SetMaxHealth(_maxHealth);
         BossHealthSlider.Instance.UpdateSliders(_currentHealth);
@@ -50,7 +49,7 @@ public class BossHealth : BaseHealth
     public override void LoadStartStats(float newHealth)
     {
         _isDeath = false;
-        _maxHealth = _bossHealth;
+        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
         _currentHealth = newHealth;
         BossHealthSlider.Instance.SetMaxHealth(_maxHealth);
         BossHealthSlider.Instance.UpdateSliders(_currentHealth);

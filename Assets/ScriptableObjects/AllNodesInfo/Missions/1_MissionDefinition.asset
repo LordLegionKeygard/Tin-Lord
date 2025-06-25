@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f53b5ee25211d489fa8bca8b7416ba, type: 3}
   m_Name: 1_MissionDefinition
   m_EditorClassIdentifier: 
-  BiomeSpawners:
-  - Biome: 0
-    Spawner: {fileID: 11400000, guid: 74fcce83908ba2040b51b4edc3b58c8c, type: 2}
-  - Biome: 1
-    Spawner: {fileID: 11400000, guid: e5cd6598a6ae5ab4f8edf5be21e16918, type: 2}
+  Spawner: {fileID: 11400000, guid: 74fcce83908ba2040b51b4edc3b58c8c, type: 2}
   ObjectiveSets:
   - Objectives:
     - ObjectiveEnum: 3

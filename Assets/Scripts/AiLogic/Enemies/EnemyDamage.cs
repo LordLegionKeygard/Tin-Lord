@@ -3,10 +3,10 @@ using Zenject;
 
 public class EnemyDamage : BaseDamage
 {
-    private EnemyLevel _enemyLevel;
     [Inject] readonly BulletsPool _bulletsPool;
     [SerializeField] private BulletEnum _bulletType;
     [SerializeField] private Transform[] _firePoints;
+    private EnemyLevel _enemyLevel;
 
     public override void Awake()
     {
