@@ -348,37 +348,34 @@ public class MapSystem : MonoBehaviour
     // Восстанавливает MissionNode для «текущей миссии» при загрузке мира.
     private MissionNode RebuildMissionFromSave()
     {
-        var cur = _save.CommandCenterSaveData.CurrentMission;
-        if (cur == null) return null;
+        var currentMission = _save.CommandCenterSaveData.CurrentMission;
+        if (currentMission == null) return null;
 
         var info = _allMissionsInfo;
-        int deckIdx = cur.MissionDeckIndex;
-        int landscapeIdx = cur.LandscapeId;
+        int deckIndex = currentMission.MissionDeckIndex;
+        int landscapeIndex = currentMission.LandscapeId;
 
-        if (deckIdx < 0 || deckIdx >= info.MissionDeck.Length) return null;
-        if (landscapeIdx < 0 || landscapeIdx >= info.Landscapes.Length) return null;
-        if (cur.SavedObjectives == null || cur.SavedObjectives.Length == 0) return null;
+        if (deckIndex < 0 || deckIndex >= info.MissionDeck.Length) return null;
+        if (landscapeIndex < 0 || landscapeIndex >= info.Landscapes.Length) return null;
+        if (currentMission.SavedObjectives == null || currentMission.SavedObjectives.Length == 0) return null;
 
-        var def = info.MissionDeck[deckIdx];
-        var landscape = info.Landscapes[landscapeIdx];
+        var definition = info.MissionDeck[deckIndex];
+        var landscape = info.Landscapes[landscapeIndex];
 
-        MonsterBiome biome = landscape.MonsterBiome;
-
-        var biomeEntry = def.BiomeSpawners.FirstOrDefault(b => b.Biome == biome);
-        var spawnerSO = biomeEntry != null ? biomeEntry.Spawner : null;
-        var objectiveSO = BuildObjectiveFromSave(cur.SavedObjectives);
-        var tpl = info.MissionNodeTemplate;
+        var spawnerSO = definition.Spawner;
+        var objectiveSO = BuildObjectiveFromSave(currentMission.SavedObjectives);
+        var template = info.MissionNodeTemplate;
         var node = ScriptableObject.CreateInstance<MissionNode>();
 
         node.Landscape = landscape;
         node.EnemiesSpawner = spawnerSO;
         node.Objective = objectiveSO;
 
-        node.Icon = tpl.Icon;
-        node.IconColor = tpl.IconColor;
-        node.IconWidth = tpl.IconWidth;
-        node.IconHeight = tpl.IconHeight;
-        node.DescriptionTextNumber = tpl.DescriptionTextNumber;
+        node.Icon = template.Icon;
+        node.IconColor = template.IconColor;
+        node.IconWidth = template.IconWidth;
+        node.IconHeight = template.IconHeight;
+        node.DescriptionTextNumber = template.DescriptionTextNumber;
         node.CosmosVariations = landscape.CosmosVariations;
 
         return node;
@@ -405,14 +402,13 @@ public class MapSystem : MonoBehaviour
     {
         var pickedSet = def.ObjectiveSets[Random.Range(0, def.ObjectiveSets.Length)];
 
-        int n = pickedSet.Objectives.Length;
-        var wrappers = new ObjectiveWrapper[n];
-        saved = new ObjectiveSave[n];
+        int objectivesLength = pickedSet.Objectives.Length;
+        var wrappers = new ObjectiveWrapper[objectivesLength];
+        saved = new ObjectiveSave[objectivesLength];
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < objectivesLength; i++)
         {
             var range = pickedSet.Objectives[i];
-
             int amount;
 
             amount = range.Values[Random.Range(0, range.Values.Length)];
@@ -456,14 +452,13 @@ public class MapSystem : MonoBehaviour
     // Строит Mission-/Boss-Node для случайной планеты
     private MissionNode BuildMissionRandom(int deckIdx, bool isBossNode, out int landscapeIdx, out ObjectiveSave[] savedObj)
     {
-        var def = _allMissionsInfo.MissionDeck[deckIdx];
+        var definition = _allMissionsInfo.MissionDeck[deckIdx];
         var tplMission = _allMissionsInfo.MissionNodeTemplate;
         var tplBoss = _allMissionsInfo.BossNode;
 
         landscapeIdx = PickUniqueLandscape();
         var landscape = _allMissionsInfo.Landscapes[landscapeIdx];
-        var biome = landscape.MonsterBiome;
-        var spawnerSO = def.BiomeSpawners.First(b => b.Biome == biome).Spawner;
+        var spawnerSO = definition.Spawner;
 
         Objective objectiveSO;
         if (isBossNode)
@@ -474,7 +469,7 @@ public class MapSystem : MonoBehaviour
         }
         else
         {
-            objectiveSO = BuildObjectiveFromRandomSet(def, out savedObj);
+            objectiveSO = BuildObjectiveFromRandomSet(definition, out savedObj);
         }
 
         var node = isBossNode ? ScriptableObject.CreateInstance<BossNode>() : ScriptableObject.CreateInstance<MissionNode>();
@@ -496,19 +491,16 @@ public class MapSystem : MonoBehaviour
 
 
     // Восстанавливает Mission-/Boss-Node из сейва (без RNG)
-    private MissionNode BuildMissionFixed(int deckIdx, int landscapeIdx, ObjectiveSave[] savedObj, bool isBossNode)
+    private MissionNode BuildMissionFixed(int deckIndex, int landscapeIdx, ObjectiveSave[] savedObj, bool isBossNode)
     {
-        var def = _allMissionsInfo.MissionDeck[deckIdx];
+        var definition = _allMissionsInfo.MissionDeck[deckIndex];
         var tplMission = _allMissionsInfo.MissionNodeTemplate;
         var tplBoss = _allMissionsInfo.BossNode;
 
         landscapeIdx = Mathf.Clamp(landscapeIdx, 0, _allMissionsInfo.Landscapes.Length - 1);
         var landscape = _allMissionsInfo.Landscapes[landscapeIdx];
-        var biome = landscape.MonsterBiome;
-        var spawnerSO = def.BiomeSpawners.FirstOrDefault(b => b.Biome == biome)?.Spawner;
-
+        var spawnerSO = definition.Spawner;
         var objectiveSO = BuildObjectiveFromSave(savedObj);
-
         var node = isBossNode ? ScriptableObject.CreateInstance<BossNode>() : ScriptableObject.CreateInstance<MissionNode>();
 
         node.Landscape = landscape;

@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e025a72d5c3a743add5457e9f1553f, type: 3}
+  m_Name: 3_Spawner
+  m_EditorClassIdentifier: 
+  Spawners:
+  - StartDaySpawn: 2
+    SpawnPeriod: 2
+    Count: 10
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 1
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 1
+  - StartDaySpawn: 14
+    SpawnPeriod: 2
+    Count: 20
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 1
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 1
+  - StartDaySpawn: 24
+    SpawnPeriod: 2
+    Count: 30
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 1
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 2
+  - StartDaySpawn: 30
+    SpawnPeriod: 2
+    Count: 40
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 2
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 3
+  - StartDaySpawn: 40
+    SpawnPeriod: 2
+    Count: 50
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 2
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 3
+  - StartDaySpawn: 50
+    SpawnPeriod: 2
+    Count: 60
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 3
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 4
+  - StartDaySpawn: 60
+    SpawnPeriod: 1
+    Count: 65
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 3
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 4
+  - StartDaySpawn: 70
+    SpawnPeriod: 1
+    Count: 70
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 3
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 4
+  - StartDaySpawn: 80
+    SpawnPeriod: 1
+    Count: 75
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 3
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 4
+  - StartDaySpawn: 90
+    SpawnPeriod: 1
+    Count: 80
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 3
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 4
+  LastDaySpawn: 0
+  Bosses:
+  - Biome: 0
+    EnemyEnum: 9
+  - Biome: 1
+    EnemyEnum: 4
+  BossLevel: 40
+  BossDaySpawn: 99

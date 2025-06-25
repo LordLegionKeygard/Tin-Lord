@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MissionDefinition", menuName = "TinLord/Missions/Definition")]
 public class MissionDefinition : ScriptableObject
 {
-    public BiomeSpawner[] BiomeSpawners;
+    public EnemiesSpawner Spawner;
     public ObjectiveSet[] ObjectiveSets;
 }
 

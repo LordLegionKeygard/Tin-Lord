@@ -177,13 +177,10 @@ public class WorldSaveLoad : MonoBehaviour
         SelectedMissionData sel = _commandCenterSaveGame.CommandCenterSaveData.CurrentMission;
         if (sel == null) return null;
 
-        var def = _allMissionsInfo.MissionDeck[sel.MissionDeckIndex];
-        var tpl = _allMissionsInfo.MissionNodeTemplate;
+        var definition = _allMissionsInfo.MissionDeck[sel.MissionDeckIndex];
+        var template = _allMissionsInfo.MissionNodeTemplate;
         var landscape = _allMissionsInfo.Landscapes[sel.LandscapeId];
-
-        MonsterBiome biome = landscape.MonsterBiome;
-        var biomeEntry = def.BiomeSpawners.FirstOrDefault(b => b.Biome == biome);
-        var spawnerSO = biomeEntry?.Spawner;
+        var spawnerSO = definition.Spawner;
 
         var wrappers = new ObjectiveWrapper[sel.SavedObjectives.Length];
         for (int i = 0; i < wrappers.Length; i++)
@@ -202,11 +199,11 @@ public class WorldSaveLoad : MonoBehaviour
         node.Objective = objectiveSO;
         node.EnemiesSpawner = spawnerSO;
 
-        node.Icon = tpl.Icon;
-        node.IconColor = tpl.IconColor;
-        node.IconWidth = tpl.IconWidth;
-        node.IconHeight = tpl.IconHeight;
-        node.DescriptionTextNumber = tpl.DescriptionTextNumber;
+        node.Icon = template.Icon;
+        node.IconColor = template.IconColor;
+        node.IconWidth = template.IconWidth;
+        node.IconHeight = template.IconHeight;
+        node.DescriptionTextNumber = template.DescriptionTextNumber;
         node.CosmosVariations = landscape.CosmosVariations;
 
         return node;

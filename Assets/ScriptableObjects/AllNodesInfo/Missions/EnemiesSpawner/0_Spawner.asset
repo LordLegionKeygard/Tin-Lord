@@ -10,53 +10,54 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5e025a72d5c3a743add5457e9f1553f, type: 3}
-  m_Name: 0_Desert_Spawner
+  m_Name: 0_Spawner
   m_EditorClassIdentifier: 
-  Biome: 0
   Spawners:
   - StartDaySpawn: 4
     SpawnPeriod: 2
     Count: 6
     EnemiesSpawnerInfo:
-    - EnemyEnum: 0
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 0
+      - Biome: 1
+        EnemyEnum: 3
       EnemyLevel: 1
   - StartDaySpawn: 10
     SpawnPeriod: 2
     Count: 10
     EnemiesSpawnerInfo:
-    - EnemyEnum: 0
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 0
+      - Biome: 1
+        EnemyEnum: 3
       EnemyLevel: 1
   - StartDaySpawn: 20
     SpawnPeriod: 2
     Count: 20
     EnemiesSpawnerInfo:
-    - EnemyEnum: 0
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 0
+      - Biome: 1
+        EnemyEnum: 3
       EnemyLevel: 1
   - StartDaySpawn: 30
     SpawnPeriod: 2
     Count: 20
     EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-  - StartDaySpawn: 40
-    SpawnPeriod: 2
-    Count: 25
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-  - StartDaySpawn: 50
-    SpawnPeriod: 2
-    Count: 30
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
-      EnemyLevel: 2
-  - StartDaySpawn: 60
-    SpawnPeriod: 2
-    Count: 35
-    EnemiesSpawnerInfo:
-    - EnemyEnum: 0
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 0
+      - Biome: 1
+        EnemyEnum: 3
       EnemyLevel: 2
   LastDaySpawn: 0
-  BossEnum: 9
+  Bosses:
+  - Biome: 0
+    EnemyEnum: 9
+  - Biome: 1
+    EnemyEnum: 4
   BossLevel: 10
-  BossDaySpawn: 60
+  BossDaySpawn: 0

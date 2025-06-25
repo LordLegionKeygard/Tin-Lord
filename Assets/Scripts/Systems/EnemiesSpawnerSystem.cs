@@ -11,6 +11,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     [SerializeField] private EnemiesBiomeSpawnTransforms[] _enemiesBiomeSpawnTransforms;
     private List<EnemiesForListData> _currentEnemiesData = new();
     private int _enemyNumber;
+    private MonsterBiome CurrentBiome => CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterBiome;
 
     public EnemyData[] GetAllCurrentEnemies()
     {
@@ -60,33 +61,44 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void SpawnBoss(EnemiesSpawner info)
     {
-        var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(info.BossEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
+        var biome = CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterBiome;
+
+        var bossEntry = info.Bosses.FirstOrDefault(b => b.Biome == biome);
+        var enemyPrefab = _allEnemies.GetEnemyForEnum(bossEntry.EnemyEnum);
+        var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
+
         enemyObject.GetComponent<EnemyLevel>().SetLevel(info.BossLevel);
         enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
         enemyObject.GetComponent<BossHealth>().SetStartStats();
         enemyObject.transform.SetParent(_enemiesParent);
 
-        AddEnemyToList((int)info.BossEnum, _enemyNumber, enemyObject);
+        AddEnemyToList((int)bossEntry.EnemyEnum, _enemyNumber, enemyObject);
         _enemyNumber++;
     }
 
 
     private void SpawnEnemies(Spawner spawner)
     {
+        var groups = spawner.EnemiesSpawnerInfo.Where(g => g.EnemyBiomeInfo.Any(e => e.Biome == CurrentBiome)).ToArray();
+
         for (int i = 0; i < spawner.Count; i++)
         {
-            var rndEnemy = Random.Range(0, spawner.EnemiesSpawnerInfo.Length);
-            var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
-            enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.EnemiesSpawnerInfo[rndEnemy].EnemyLevel);
+            var group = groups[Random.Range(0, groups.Length)];
+            var variants = group.EnemyBiomeInfo.Where(e => e.Biome == CurrentBiome).ToArray();
+
+            var entry = variants[Random.Range(0, variants.Length)];
+            var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(entry.EnemyEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
+
+            enemyObject.GetComponent<EnemyLevel>().SetLevel(group.EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
             enemyObject.GetComponent<EnemyHealth>().SetStartStats();
             enemyObject.transform.SetParent(_enemiesParent);
 
-            AddEnemyToList((int)spawner.EnemiesSpawnerInfo[rndEnemy].EnemyEnum, _enemyNumber, enemyObject);
-
+            AddEnemyToList((int)entry.EnemyEnum, _enemyNumber, enemyObject);
             _enemyNumber++;
         }
     }
+
 
     public void LoadEnemies(EnemyData[] enemyData, bool isStartMission)
     {
