@@ -7,7 +7,6 @@ public class Landscape : ScriptableObject
     public LandscapeEnum LandscapeEnum;
     public MonsterBiome MonsterBiome;
     public MissionView MissionView;
-    public Sprite MissionSprite;
     public Sprite LoadingScreenSprite;
     public int StartEcology;
     public int MapWidth;
@@ -50,4 +49,5 @@ public enum LandscapeEnum
     CityOfJunk = 1,
     Wasteland = 2,
     FrozenValley = 3,
+    IceLake = 4,
 }

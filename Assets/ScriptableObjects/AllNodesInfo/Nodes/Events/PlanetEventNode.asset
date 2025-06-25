@@ -19,14 +19,14 @@ MonoBehaviour:
   IconHeight: 70
   DescriptionTextNumber: 275
   CosmosVariations:
-  - PlanetPrefab: {fileID: 1036261144296232, guid: 0fade6951b518034c96bc8c1ef101c5c,
+  - PlanetPrefab: {fileID: 5803982699469429356, guid: 5d0019d58644e5f4abc7e763226298cd,
       type: 3}
-    PlanetPosition: {x: 0.28, y: 0.06, z: 1.02}
+    PlanetPosition: {x: -0.929, y: 0.328, z: 1.447}
     PlanetRotation: {x: 0, y: 0, z: 0}
-    CosmosSkybox: {fileID: 2100000, guid: 29f7eb4ef68545141b687e420fdb4b83, type: 2}
-    SkyboxRotation: 110
-    LightRotation: {x: 30.43, y: -30.13, z: 0}
-    Temperature: 6500
+    CosmosSkybox: {fileID: 2100000, guid: 2f830a8d4ed77994e83d5a131b7f1fd4, type: 2}
+    SkyboxRotation: 127
+    LightRotation: {x: 0, y: -506.9, z: 0}
+    Temperature: 20000
   Dialogue:
   - {fileID: 11400000, guid: 64b2c1c156e82d64d860eb19532e467b, type: 2}
   EachCosmosForEachDialogue: 1
