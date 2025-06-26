@@ -43,7 +43,12 @@ public class BaseSlider : MonoBehaviour
 
     public virtual void SetLevel(string level)
     {
-        
+
+    }
+
+    public virtual void SetEnemySliderView(bool miniBoss)
+    {
+
     }
 
     public void SetObjectTransform(Transform transform) => _objectTransform = transform;

@@ -35,7 +35,7 @@ public class BaseHealth : MonoBehaviour
 		CheckDeath();
 	}
 
-	public virtual void LoadStartStats(float newHealth)
+	public virtual void LoadHealth(float newHealth)
     {
 
     }

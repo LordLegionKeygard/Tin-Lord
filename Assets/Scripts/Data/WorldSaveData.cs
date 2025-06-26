@@ -61,6 +61,8 @@ public class EnemyData
     public float Rotation;
     public int EnemyLevel;
     public float EnemyHealth;
+    public int HealthFactor;
+    public int DamageFactor;
 }
 
 

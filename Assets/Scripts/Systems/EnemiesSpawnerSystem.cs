@@ -28,6 +28,8 @@ public class EnemiesSpawnerSystem : MonoBehaviour
                 Rotation = _currentEnemiesData[i].EnemyObject.transform.eulerAngles.y,
                 EnemyLevel = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyLevel>().GetLevel(),
                 EnemyHealth = _currentEnemiesData[i].EnemyObject.GetComponent<BaseHealth>().GetCurrentHealth(),
+                HealthFactor = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyInfo>().GetHealthFactor(),
+                DamageFactor = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyInfo>().GetDamageFactor(),
             };
         }
 
@@ -48,34 +50,21 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         var hasBossObjective = CurrentMissionInfo.Instance.GetObjective().Objectives.Any(o => o.ObjectiveEnum == ObjectiveEnum.KillBoss);
         if (hasBossObjective)
         {
-            if (enemiesSpawnerInfo.BossDaySpawn == day) SpawnBoss(enemiesSpawnerInfo);
+            if (enemiesSpawnerInfo.BossSpawner.BossDaySpawn == day) SpawnBoss(enemiesSpawnerInfo);
         }
 
-        if (allSpawners.Length == 0) return;
-        if (enemiesSpawnerInfo.LastDaySpawn != 0 && day > enemiesSpawnerInfo.LastDaySpawn) return;
+        var todayMiniBosses = enemiesSpawnerInfo.MiniBossSpawners.Where(mb => mb.DaySpawn == day).ToArray();
+
+        if (todayMiniBosses.Length > 0)
+        {
+            SpawnMiniBoss(todayMiniBosses);
+        }
+
+        if (enemiesSpawnerInfo.Spawners.Length == 0) return;
         var spawner = allSpawners.Where(s => s.StartDaySpawn <= day).OrderByDescending(s => s.StartDaySpawn).FirstOrDefault();
-        if (spawner == null) return;
-        if (day % spawner.SpawnPeriod != 0) return;
+        if (spawner == null || day % spawner.SpawnPeriod != 0) return;
         SpawnEnemies(spawner);
     }
-
-    private void SpawnBoss(EnemiesSpawner info)
-    {
-        var biome = CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterBiome;
-
-        var bossEntry = info.Bosses.FirstOrDefault(b => b.Biome == biome);
-        var enemyPrefab = _allEnemies.GetEnemyForEnum(bossEntry.EnemyEnum);
-        var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
-
-        enemyObject.GetComponent<EnemyLevel>().SetLevel(info.BossLevel);
-        enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
-        enemyObject.GetComponent<BossHealth>().SetStartStats();
-        enemyObject.transform.SetParent(_enemiesParent);
-
-        AddEnemyToList((int)bossEntry.EnemyEnum, _enemyNumber, enemyObject);
-        _enemyNumber++;
-    }
-
 
     private void SpawnEnemies(Spawner spawner)
     {
@@ -90,13 +79,62 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(entry.EnemyEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
 
             enemyObject.GetComponent<EnemyLevel>().SetLevel(group.EnemyLevel);
-            enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
-            enemyObject.GetComponent<EnemyHealth>().SetStartStats();
+            enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, 1, 1);
+            enemyObject.GetComponent<EnemyHealth>().SetHealth();
+            enemyObject.GetComponent<EnemyDamage>().SetDamage();
             enemyObject.transform.SetParent(_enemiesParent);
 
             AddEnemyToList((int)entry.EnemyEnum, _enemyNumber, enemyObject);
             _enemyNumber++;
         }
+    }
+
+    private void SpawnMiniBoss(MiniBossSpawner[] miniBossSpawners)
+    {
+        var biome = CurrentBiome;
+
+        foreach (var spawner in miniBossSpawners)
+        {
+            var variants = spawner.EnemySpawnerInfo.EnemyBiomeInfo.Where(e => e.Biome == biome).ToArray();
+
+            if (variants.Length == 0) continue;
+
+            for (int i = 0; i < spawner.Count; i++)
+            {
+                var entry = variants[Random.Range(0, variants.Length)];
+                var enemyPrefab = _allEnemies.GetEnemyForEnum(entry.EnemyEnum);
+                var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
+
+                enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.EnemySpawnerInfo.EnemyLevel);
+                enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, spawner.HealthFactor, spawner.DamageFactor);
+                enemyObject.GetComponent<EnemyHealth>().SetHealth();
+                enemyObject.GetComponent<EnemyDamage>().SetDamage();
+                enemyObject.GetComponent<EnemyScale>().SetScale(spawner.HealthFactor, spawner.DamageFactor);
+
+                enemyObject.transform.SetParent(_enemiesParent);
+
+                AddEnemyToList((int)entry.EnemyEnum, _enemyNumber, enemyObject);
+                _enemyNumber++;
+            }
+        }
+    }
+
+    private void SpawnBoss(EnemiesSpawner enemiesSpawner)
+    {
+        var biome = CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterBiome;
+
+        var bossEntry = enemiesSpawner.BossSpawner.Bosses.FirstOrDefault(b => b.Biome == biome);
+        var enemyPrefab = _allEnemies.GetEnemyForEnum(bossEntry.EnemyEnum);
+        var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
+
+        enemyObject.GetComponent<EnemyLevel>().SetLevel(enemiesSpawner.BossSpawner.BossLevel);
+        enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, 1, 1);
+        enemyObject.GetComponent<BossHealth>().SetHealth();
+        enemyObject.GetComponent<BossDamage>().SetDamage();
+        enemyObject.transform.SetParent(_enemiesParent);
+
+        AddEnemyToList((int)bossEntry.EnemyEnum, _enemyNumber, enemyObject);
+        _enemyNumber++;
     }
 
 
@@ -110,8 +148,10 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             var rotation = Quaternion.Euler(0f, enemyData[i].Rotation, 0f);
             var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForNumber(enemyData[i].EnemyEnum), position, rotation, null);
             enemyObject.GetComponent<EnemyLevel>().SetLevel(enemyData[i].EnemyLevel);
-            enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber);
-            enemyObject.GetComponent<BaseHealth>().LoadStartStats(enemyData[i].EnemyHealth);
+            enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, enemyData[i].HealthFactor, enemyData[i].DamageFactor);
+            enemyObject.GetComponent<BaseHealth>().LoadHealth(enemyData[i].EnemyHealth);
+            enemyObject.GetComponent<BaseDamage>().SetDamage();
+            enemyObject.GetComponent<EnemyScale>()?.SetScale(enemyData[i].HealthFactor, enemyData[i].DamageFactor);
             enemyObject.transform.SetParent(_enemiesParent);
 
             AddEnemyToList(enemyData[i].EnemyEnum, _enemyNumber, enemyObject);

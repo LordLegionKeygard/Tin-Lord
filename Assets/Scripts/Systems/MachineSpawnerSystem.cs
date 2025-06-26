@@ -34,7 +34,8 @@ public class MachineSpawnerSystem : MonoBehaviour
 
         _currentMachineSystem.SetNewRobot(_diContainer.InstantiatePrefab(_machinePrefabs[(int)machineType], spawnPosition, Quaternion.identity, _parent), machineType);
         _currentMachineSystem.GetMachinePatrolPath().InitializePatrolPoints(roadTiles, GetNearRoadTileObject(roadTiles));
-        _currentMachineSystem.GetMachineHealth().SetStartStats();
+        _currentMachineSystem.GetMachineHealth().SetHealth();
+        _currentMachineSystem.GetMachineDamage().SetDamage();
     }
 
     public void LoadSpawnRobot(WorldSaveData worldSaveData)
@@ -52,6 +53,6 @@ public class MachineSpawnerSystem : MonoBehaviour
         _currentMachineSystem.SetNewRobot(_diContainer.InstantiatePrefab(_machinePrefabs[worldSaveData.MachineData.MachineType], spawnPosition, rotation, _parent), robotTypeEnum);
         _currentMachineSystem.GetMachinePatrolPath().InitializePatrolPoints(roadTiles, worldSaveData.MachineData.NextPatrolIndex);
 
-        _currentMachineSystem.GetMachineHealth().LoadStartStats(worldSaveData.MachineData.MachineHealth);
+        _currentMachineSystem.GetMachineHealth().LoadHealth(worldSaveData.MachineData.MachineHealth);
     }
 }

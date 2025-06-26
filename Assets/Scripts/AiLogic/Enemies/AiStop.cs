@@ -29,7 +29,7 @@ public class AiStop : MonoBehaviour
     private void DisableAllLogic(MissionEndEnum _)
     {
         _aiPath.enabled = false;
-        _rVOController.enabled = false;
+        if (_rVOController != null) _rVOController.enabled = false;
         _aiDestinationSetter.enabled = false;
         _stateChanger.enabled = false;
         _health.enabled = false;

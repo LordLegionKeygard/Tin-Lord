@@ -37,7 +37,7 @@ public class BossHealth : BaseHealth
         _takeDamageVFX.SpawnTakeDamageVFX();
     }
 
-    public void SetStartStats()
+    public void SetHealth()
     {
         _isDeath = false;
         _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
@@ -46,13 +46,14 @@ public class BossHealth : BaseHealth
         BossHealthSlider.Instance.UpdateSliders(_currentHealth);
     }
 
-    public override void LoadStartStats(float newHealth)
+    public override void LoadHealth(float newHealth)
     {
         _isDeath = false;
         _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
         _currentHealth = newHealth;
         BossHealthSlider.Instance.SetMaxHealth(_maxHealth);
         BossHealthSlider.Instance.UpdateSliders(_currentHealth);
+        if (!BossHealthSlider.Instance.SliderIsActive() && !_isDeath) BossHealthSlider.Instance.ActivateSlider(true);
     }
 
     public override void TakeDamage(float damage, float knockBackPoints)

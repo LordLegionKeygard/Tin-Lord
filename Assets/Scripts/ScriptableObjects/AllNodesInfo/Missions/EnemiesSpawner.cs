@@ -4,12 +4,9 @@ using UnityEngine;
 public class EnemiesSpawner : ScriptableObject
 {
     public Spawner[] Spawners;
-    public int LastDaySpawn;
+    public MiniBossSpawner[] MiniBossSpawners;
+    public BossSpawner BossSpawner;
 
-    [Header("Boss")]
-    public EnemyBiomeInfo[] Bosses;
-    public int BossLevel;
-    public int BossDaySpawn;
 
     private void OnValidate()
     {
@@ -32,12 +29,24 @@ public class EnemiesSpawner : ScriptableObject
             }
         }
 
-        if (Bosses != null)
+        foreach (var item in MiniBossSpawners)
         {
-            for (int i = 0; i < Bosses.Length; i++)
+            if (item?.EnemySpawnerInfo == null) continue;
+
+            var group = item.EnemySpawnerInfo;
+            for (int i = 0; i < group.EnemyBiomeInfo.Length; i++)
             {
                 int biomeIndex = i % biomeCount;
-                Bosses[i].Biome = (MonsterBiome)biomeIndex;
+                group.EnemyBiomeInfo[i].Biome = (MonsterBiome)biomeIndex;
+            }
+        }
+
+        if (BossSpawner.Bosses != null)
+        {
+            for (int i = 0; i < BossSpawner.Bosses.Length; i++)
+            {
+                int biomeIndex = i % biomeCount;
+                BossSpawner.Bosses[i].Biome = (MonsterBiome)biomeIndex;
             }
         }
     }
@@ -51,7 +60,6 @@ public class Spawner
     public int SpawnPeriod;
     public int Count;
     public EnemySpawnerInfo[] EnemiesSpawnerInfo;
-
 }
 
 [System.Serializable]
@@ -72,5 +80,23 @@ public enum MonsterBiome
 {
     Desert = 0,
     Winter = 1,
+}
+
+[System.Serializable]
+public class MiniBossSpawner
+{
+    public int DaySpawn;
+    public int Count;
+    public int HealthFactor;
+    public int DamageFactor;
+    public EnemySpawnerInfo EnemySpawnerInfo;
+}
+
+[System.Serializable]
+public class BossSpawner
+{
+    public EnemyBiomeInfo[] Bosses;
+    public int BossLevel;
+    public int BossDaySpawn;
 }
 

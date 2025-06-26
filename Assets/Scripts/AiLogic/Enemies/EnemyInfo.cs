@@ -3,12 +3,18 @@ using UnityEngine;
 public class EnemyInfo : MonoBehaviour
 {
     [SerializeField] private EnemyEnum _enemyEnum;
+    [SerializeField] private int _healthFactor;
+    [SerializeField] private int _damageFactor;
     private int _enemyNumber;
-    public int GetEnemyNumber() => _enemyNumber;
     public EnemyEnum GetEnemyEnum() => _enemyEnum;
+    public int GetEnemyNumber() => _enemyNumber;
+    public int GetHealthFactor() => _healthFactor;
+    public int GetDamageFactor() => _damageFactor;
 
-    public void SetEnemyInfo(int enemyNumber)
+    public void SetEnemyInfo(int enemyNumber, int healthFactor, int damageFactor)
     {
         _enemyNumber = enemyNumber;
+        _healthFactor = healthFactor;
+        _damageFactor = damageFactor;
     }
 }

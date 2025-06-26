@@ -11,7 +11,6 @@ public class BossHealthSlider : MonoBehaviour
     [SerializeField] private Slider _backSlider;
 
     public bool SliderIsActive() => _bossHealthView.activeInHierarchy;
-    // [SerializeField] private TextMeshProUGUI _tmp;
 
     private void Start()
     {
@@ -22,15 +21,10 @@ public class BossHealthSlider : MonoBehaviour
         Instance = this;
     }
 
-    // public void SetBossName(string name)
-    // {
-    //     _tmp.text = name;
-    // }
-
     public void UpdateSliders(float health)
     {
         _slider.value = health;
-        _backSlider.DOValue(health, 1f);
+        _backSlider.DOValue(health, 1f).SetUpdate(true);
     }
 
     public void SetMaxHealth(float maxHealth)
@@ -45,8 +39,5 @@ public class BossHealthSlider : MonoBehaviour
     public void ActivateSlider(bool state)
     {
         _bossHealthView.gameObject.SetActive(state);
-
-        // if (state) CustomEvents.FireTurnOffLevelMusic();
-        // else CustomEvents.FirePlayRandomLevelMusic();
     }
 }

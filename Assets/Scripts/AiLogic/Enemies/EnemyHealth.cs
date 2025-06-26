@@ -54,22 +54,23 @@ public class EnemyHealth : BaseHealth
             _healthSlider.SetHeightOffset(_sliderHeightOffset);
             _healthSlider.SetObjectTransform(transform);
             _healthSlider.SetLevel(_enemyLevel.GetLevel().ToString());
+            _healthSlider.SetEnemySliderView(_enemyInfo.GetHealthFactor() > 1 || _enemyInfo.GetDamageFactor() > 1);
         }
     }
 
-    public void SetStartStats()
+    public void SetHealth()
     {
         _isDeath = false;
-        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
+        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel()) * _enemyInfo.GetHealthFactor();
         _currentHealth = _maxHealth;
         CreateHealthBar();
         UpdateSlider();
     }
 
-    public override void LoadStartStats(float newHealth)
+    public override void LoadHealth(float newHealth)
     {
         _isDeath = false;
-        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
+        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel()) * _enemyInfo.GetHealthFactor();
         _currentHealth = newHealth;
         CreateHealthBar();
         UpdateSlider();

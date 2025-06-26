@@ -113,11 +113,12 @@ MonoBehaviour:
       - Biome: 1
         EnemyEnum: 6
       EnemyLevel: 4
-  LastDaySpawn: 0
-  Bosses:
-  - Biome: 0
-    EnemyEnum: 9
-  - Biome: 1
-    EnemyEnum: 4
-  BossLevel: 3
-  BossDaySpawn: 99
+  MiniBossSpawners: []
+  BossSpawner:
+    Bosses:
+    - Biome: 0
+      EnemyEnum: 9
+    - Biome: 1
+      EnemyEnum: 4
+    BossLevel: 3
+    BossDaySpawn: 99
