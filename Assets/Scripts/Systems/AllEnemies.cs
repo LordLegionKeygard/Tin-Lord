@@ -21,4 +21,5 @@ public enum EnemyEnum
     Winter_3_Onyscidus = 7,
     Winter_4_Fulgurodonte = 8,
     Desert_Boss_Kupolobrach = 9,
+    Desert_MiniBoss_Serpmare = 10
 }
