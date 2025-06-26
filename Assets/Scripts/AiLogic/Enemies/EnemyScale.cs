@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyScale : MonoBehaviour
 {
-    private int _miniBossScale = 2;
+    private float _miniBossScale = 1.5f;
     public void SetScale(int healthFactor, int damageFactor)
     {
         Vector3 originalScale = transform.localScale;

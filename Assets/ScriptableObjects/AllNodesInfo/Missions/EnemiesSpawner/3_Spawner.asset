@@ -173,7 +173,51 @@ MonoBehaviour:
       - Biome: 1
         EnemyEnum: 7
       EnemyLevel: 4
-  MiniBossSpawners: []
+  MiniBossSpawners:
+  - DaySpawn: 15
+    Count: 1
+    HealthFactor: 2
+    DamageFactor: 1
+    EnemySpawnerInfo:
+      EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 2
+  - DaySpawn: 30
+    Count: 2
+    HealthFactor: 2
+    DamageFactor: 2
+    EnemySpawnerInfo:
+      EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 3
+  - DaySpawn: 45
+    Count: 3
+    HealthFactor: 3
+    DamageFactor: 2
+    EnemySpawnerInfo:
+      EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 4
+  - DaySpawn: 60
+    Count: 4
+    HealthFactor: 3
+    DamageFactor: 3
+    EnemySpawnerInfo:
+      EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 5
   BossSpawner:
     Bosses:
     - Biome: 0

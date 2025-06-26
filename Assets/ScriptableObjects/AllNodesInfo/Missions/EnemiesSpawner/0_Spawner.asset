@@ -53,18 +53,7 @@ MonoBehaviour:
       - Biome: 1
         EnemyEnum: 3
       EnemyLevel: 2
-  MiniBossSpawners:
-  - DaySpawn: 4
-    Count: 2
-    HealthFactor: 3
-    DamageFactor: 1
-    EnemySpawnerInfo:
-      EnemyBiomeInfo:
-      - Biome: 0
-        EnemyEnum: 1
-      - Biome: 1
-        EnemyEnum: 6
-      EnemyLevel: 2
+  MiniBossSpawners: []
   BossSpawner:
     Bosses:
     - Biome: 0
