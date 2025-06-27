@@ -1625,7 +1625,7 @@ GameObject:
   - component: {fileID: 3408100144858265067}
   - component: {fileID: 1391116266321244650}
   m_Layer: 6
-  m_Name: Winter_4_Fulgurodonte
+  m_Name: Winter_4_Fulgurodonte_Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b955fdfe84640fd49ab584b839dca9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyEnum: 8
+  _enemyEnum: 9
 --- !u!114 &3408100144858265065
 MonoBehaviour:
   m_ObjectHideFlags: 0

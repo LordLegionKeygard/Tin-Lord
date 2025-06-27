@@ -1980,7 +1980,7 @@ GameObject:
   - component: {fileID: 6087144396509634951}
   - component: {fileID: 6087144396509634948}
   m_Layer: 6
-  m_Name: Desert_4_Serpmare
+  m_Name: Desert_4_Serpmare_Range_Undeground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2332,7 +2332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b955fdfe84640fd49ab584b839dca9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyEnum: 10
+  _enemyEnum: 3
 --- !u!114 &6087144396509634953
 MonoBehaviour:
   m_ObjectHideFlags: 0

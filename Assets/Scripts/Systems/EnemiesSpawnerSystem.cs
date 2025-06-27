@@ -49,7 +49,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         var allSpawners = enemiesSpawnerInfo.Spawners;
 
         var hasBossObjective = CurrentMissionInfo.Instance.GetObjective().Objectives.Any(o => o.ObjectiveEnum == ObjectiveEnum.KillBoss);
-        if (!hasBossObjective)
+        if (hasBossObjective)
         {
             if (enemiesSpawnerInfo.BossSpawner.BossDaySpawn == day) SpawnBoss(enemiesSpawnerInfo);
         }

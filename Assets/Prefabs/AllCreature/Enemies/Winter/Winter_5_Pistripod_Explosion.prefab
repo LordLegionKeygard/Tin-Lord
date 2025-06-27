@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 9117155582059852538}
   - component: {fileID: 7024231512307230716}
   m_Layer: 6
-  m_Name: Winter_1_Pistripod
+  m_Name: Winter_5_Pistripod_Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b955fdfe84640fd49ab584b839dca9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyEnum: 3
+  _enemyEnum: 10
 --- !u!114 &2960253353881765672
 MonoBehaviour:
   m_ObjectHideFlags: 0
