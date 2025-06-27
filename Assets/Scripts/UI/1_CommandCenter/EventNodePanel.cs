@@ -326,7 +326,7 @@ public class EventNodePanel : MonoBehaviour
                 break;
             case RewardType.Memory:
                 AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedMemory : FMODEvents.Instance.LostMemory, transform.position);
-                _mainResources.ChangeResource(ResourceEnum.MemoryFragment, amount);
+                _mainResources.ChangeResource(ResourceEnum.DataFragment, amount);
                 break;
             case RewardType.Wood:
                 AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
@@ -429,7 +429,7 @@ public class EventNodePanel : MonoBehaviour
         {
             RewardType.Quants => _quantsSystem.GetQuants(),
             RewardType.AiCore => _aiCoreSystem.GetAiCores(),
-            RewardType.Memory => (int)_mainResources.GetResourceAmountForEnum(ResourceEnum.MemoryFragment),
+            RewardType.Memory => (int)_mainResources.GetResourceAmountForEnum(ResourceEnum.DataFragment),
             _ => 0
         };
     }

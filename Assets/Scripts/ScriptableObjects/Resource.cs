@@ -46,6 +46,6 @@ public enum ResourceEnum
     Processor = 19,
     Engine = 20,
     ElectricEngine = 21,
-    MemoryFragment = 22,
+    DataFragment = 22,
     BeamEnergy = 23,
 }

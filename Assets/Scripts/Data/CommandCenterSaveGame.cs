@@ -65,7 +65,7 @@ public class CommandCenterSaveGame : MonoBehaviour
     public void SaveEndMissionData(int memoryFragments, int aiCores, int quants)
     {
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        CommandCenterSaveData.MainResourcesData[(int)ResourceEnum.MemoryFragment] += memoryFragments;
+        CommandCenterSaveData.MainResourcesData[(int)ResourceEnum.DataFragment] += memoryFragments;
         CommandCenterSaveData.AiCores += aiCores;
         CommandCenterSaveData.Quants += quants;
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);

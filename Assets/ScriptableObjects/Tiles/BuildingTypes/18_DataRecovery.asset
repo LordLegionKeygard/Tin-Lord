@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
-  m_Name: 18_MemoryRecovery
+  m_Name: 18_DataRecovery
   m_EditorClassIdentifier: 
   Name:
-  - Memory Recovery
+  - Data Recovery
   - "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435
-    \u041F\u0430\u043C\u044F\u0442\u0438"
+    \u0414\u0430\u043D\u043D\u044B\u0445"
   TileObject: {fileID: 5128493445474986613, guid: dabd5f1b3586a3240a23e0257debc691,
     type: 3}
   Icon: {fileID: 21300000, guid: b59f69d8711e9de4094603fd12f69f5c, type: 3}
@@ -24,6 +24,7 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
+  CanBuildMachineProduction: 0
   BuildingTypes: []
   ProductionOnGroundResources: []
   BuildingTileView: 18

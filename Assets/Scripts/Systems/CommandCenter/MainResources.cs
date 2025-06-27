@@ -48,7 +48,7 @@ public class MainResources : MonoBehaviour
             _resourcesWrapper[i].Text.text = _resourcesWrapper[i].Amount.ToString("0.0");
         }
 
-        _memoryFragmentsText.text = _resourcesWrapper[(int)ResourceEnum.MemoryFragment].Amount.ToString();
+        _memoryFragmentsText.text = $"{Language.TextStatic[175]}: {_resourcesWrapper[(int)ResourceEnum.DataFragment].Amount}";
     }
 
     public bool ResourceEnough(ResourceEnum resourceEnum, float amount)

@@ -50,7 +50,7 @@ public class LearnBuildingItem : MonoBehaviour
 
         _priceObject.SetActive(!_isLearn && canLearn);
         _button.interactable = canLearn;
-        _resourcesEnough = _mainResources.ResourceEnough(ResourceEnum.MemoryFragment, _building.Price);
+        _resourcesEnough = _mainResources.ResourceEnough(ResourceEnum.DataFragment, _building.Price);
         _priceText.color = _resourcesEnough ? Colors.GreyEight : Colors.FadedYellow;
         _icon.color = _isLearn ? Color.white : Color.black;
         _backImage.color = _isLearn ? Color.white : Colors.GreyEight;
@@ -66,7 +66,7 @@ public class LearnBuildingItem : MonoBehaviour
     public void LearnBuilding()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.LearnBuilding], transform.position);
-        _mainResources.ChangeResource(ResourceEnum.MemoryFragment, -_building.Price);
+        _mainResources.ChangeResource(ResourceEnum.DataFragment, -_building.Price);
         _isLearn = true;
         RefreshView();
 

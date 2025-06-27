@@ -68,7 +68,7 @@ public class WorldSaveLoad : MonoBehaviour
             currentSaveData.ResourcesData[i] = _commandCenterSaveGame.CommandCenterSaveData.MainResourcesData[i];
         }
 
-        currentSaveData.ResourcesData[(int)ResourceEnum.MemoryFragment] = 0;
+        currentSaveData.ResourcesData[(int)ResourceEnum.DataFragment] = 0;
     }
 
     public void SaveMissionData(ref WorldSaveData currentSaveData)
