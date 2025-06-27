@@ -22,6 +22,7 @@ public class AnimatorStrings : MonoBehaviour
     public static readonly int TakeDamage = Animator.StringToHash("TakeDamage");
     public static readonly int Attack = Animator.StringToHash("Attack");
     public static readonly int Death = Animator.StringToHash("Death");
+    public static readonly int IsCombat = Animator.StringToHash("IsCombat");
     public static readonly string Repair = "Repair";
     public static readonly int StartAnimState = Animator.StringToHash("StartMainState");
     public static readonly int ChangeMainState = Animator.StringToHash("ChangeMainState");

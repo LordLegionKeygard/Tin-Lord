@@ -11,6 +11,7 @@ public class EnemyCombatState : EnemyState
     {
         if (aiDestinationSetter.CurrentTarget != null)
         {
+            animator.IsCombat(true);
             stateChanger.CanRotateForwardToggle(true);
 
             if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))

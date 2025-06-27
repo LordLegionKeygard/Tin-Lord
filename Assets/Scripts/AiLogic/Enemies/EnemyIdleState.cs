@@ -16,6 +16,7 @@ public class EnemyIdleState : EnemyState
 
     public override EnemyState Tick(EnemyStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, EnemyAttacks attacks, AIPath aiPath)
     {
+        animator.IsCombat(false);
         stateChanger.CanRotateForwardToggle(false);
 
         BaseHealth foundTarget = FindTargetWithExtendedRadius(stateChanger);

@@ -1152,7 +1152,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 9f2ba09a457617447a89ac04cc972b95, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1362,8 +1362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca462e15c0f577f4b926e2543ec711d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxKnockbackPoints: 100
-  MinimumKnockbackPoints: 30
+  MaxKnockbackPoints: 400
+  MinimumKnockbackPoints: 200
   CurrentKnockBackPoints: 0
 --- !u!114 &6073945727764995487
 MonoBehaviour:
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resistSlow: 0
+  _resistSlow: 1
   _isHaveEmission: 1
   _emissionColor: {r: 2, g: 2, b: 2, a: 1}
   _meshRenderers:
@@ -1445,8 +1445,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyEnum: 4
-  _healthFactor: 0
-  _damageFactor: 0
 --- !u!114 &1401761618998208246
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,4 +26,19 @@ public class BaseAnimator : MonoBehaviour
     {
         Animator.SetBool(AnimatorStrings.Repair, state);
     }
+
+    public virtual void IsCombat(bool state)
+    {
+
+    }
+
+    public virtual void CanTarget()
+    {
+
+    }
+
+    public virtual void CantTarget()
+    {
+
+    }
 }

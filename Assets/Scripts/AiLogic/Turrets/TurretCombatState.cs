@@ -41,7 +41,7 @@ public class TurretCombatState : TurretState
     {
         if (target.TryGetComponent<BaseHealth>(out BaseHealth health))
         {
-            return health.IsDeath();
+            return health.IsDeath() || !health.IsCanTarget();
         }
         return false;
     }

@@ -5,6 +5,7 @@ public class BaseHealth : MonoBehaviour
 	protected float _maxHealth;
 	protected float _currentHealth;
 	protected bool _isDeath;
+	protected bool _isCanTarget = true;
 	protected BaseSlider _healthSlider;
 	protected GameObject _healthSliderObject;
 
@@ -14,6 +15,7 @@ public class BaseHealth : MonoBehaviour
 	public virtual Tile BuildingTile() => null;
 	public virtual Transform GetFoutTileTransform() => transform;
 	public virtual bool IsDeath() => _isDeath;
+	public virtual bool IsCanTarget() => _isCanTarget;
 	public virtual Transform GetTransform() => transform;
 
 	public virtual void CalculateDamage(float damage, float knockBackPoints)
@@ -49,6 +51,13 @@ public class BaseHealth : MonoBehaviour
 	{
 		DestroyHealthSlider();
 		_isDeath = true;
+	}
+
+	public void SetCanTarget(bool state) => _isCanTarget = state;
+
+	public void HideSlider()
+	{
+		_healthSlider.HideSlider();
 	}
 
 	public void DestroyHealthSlider()

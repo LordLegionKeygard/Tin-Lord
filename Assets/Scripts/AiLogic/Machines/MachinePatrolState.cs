@@ -23,7 +23,7 @@ public class MachinePatrolState : MachineState
 
     public override MachineState Tick(MachineStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, MachineAttacks attacks, MachineSpeed playerSpeed)
     {
-        if (!_isInitialized || health.IsDeath())
+        if (!_isInitialized || health.IsDeath() || !health.IsCanTarget())
         {
             return this;
         }
@@ -105,7 +105,7 @@ public class MachinePatrolState : MachineState
         {
             BaseHealth targetHealth = colliders[i].GetComponent<BaseHealth>();
 
-            if (targetHealth != null && !targetHealth.IsDeath())
+            if (targetHealth != null && !targetHealth.IsDeath() || !targetHealth.IsCanTarget())
             {
                 // Вычисляем направление до цели
                 Vector3 directionToTarget = (colliders[i].transform.position - transform.position).normalized;

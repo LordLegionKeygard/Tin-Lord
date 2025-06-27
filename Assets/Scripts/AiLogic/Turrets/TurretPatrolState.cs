@@ -54,7 +54,7 @@ public class TurretPatrolState : TurretState
         {
             BaseHealth targetHealth = colliders[i].transform.GetComponent<BaseHealth>();
 
-            if (targetHealth == null || targetHealth.IsDeath()) continue;
+            if (targetHealth == null || targetHealth.IsDeath() || !targetHealth.IsCanTarget()) continue;
 
             // Вычисляем направление до цели
             Vector3 directionToTarget = (colliders[i].transform.position - transform.position).normalized;

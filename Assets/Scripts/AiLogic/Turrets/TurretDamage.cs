@@ -27,6 +27,8 @@ public class TurretDamage : BaseDamage
 
     public override void Shoot(int attackNumber)
     {
+        if (_bulletType == BulletEnum.None) return;
+        
         if (_turretAttackState.AttackOneByOne())
         {
             _turretAttackState.ChangeAttackIndex();

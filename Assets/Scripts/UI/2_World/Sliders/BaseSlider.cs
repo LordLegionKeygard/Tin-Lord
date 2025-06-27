@@ -14,6 +14,11 @@ public class BaseSlider : MonoBehaviour
         _mainCamera = Camera.main;
     }
 
+    public void HideSlider()
+    {
+        _slider.gameObject.SetActive(false);
+    }
+
     public virtual void SetValue(float value)
     {
         _slider.value = value;

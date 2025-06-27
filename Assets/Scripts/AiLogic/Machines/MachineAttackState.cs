@@ -12,7 +12,7 @@ public class MachineAttackState : MachineState
 
         stateChanger.CanRotateForwardToggle(true);
 
-        if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))
+        if (IsCantTargetOrDeath(aiDestinationSetter.CurrentTarget.gameObject))
         {
             aiDestinationSetter.CurrentTarget = null;
             return _combatState;
@@ -55,11 +55,11 @@ public class MachineAttackState : MachineState
         return _combatState;
     }
 
-    private bool IsTargetDead(GameObject target)
+    private bool IsCantTargetOrDeath(GameObject target)
     {
         if (target.TryGetComponent<BaseHealth>(out BaseHealth health))
         {
-            return health.IsDeath();
+            return health.IsDeath() || !health.IsCanTarget();
         }
         return false;
     }

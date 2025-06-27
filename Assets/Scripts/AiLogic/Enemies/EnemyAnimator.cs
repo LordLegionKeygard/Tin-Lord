@@ -6,6 +6,7 @@ public class EnemyAnimator : BaseAnimator
 {
     private IAstarAI _ai;
     private EnemySpeed _creatureSpeed;
+    private BaseHealth _baseHealth;
     [SerializeField] private int _getHitAnimationsCount;
 
 
@@ -14,6 +15,7 @@ public class EnemyAnimator : BaseAnimator
         base.Awake();
         _ai = GetComponent<IAstarAI>();
         _creatureSpeed = GetComponent<EnemySpeed>();
+        _baseHealth = GetComponent<BaseHealth>();
     }
 
     public void Update()
@@ -63,8 +65,6 @@ public class EnemyAnimator : BaseAnimator
         Animator.SetBool(AnimatorStrings.Death, true);
     }
 
-
-
     public void RandomStartAnimState()
     {
         var rnd = Random.Range(1, 3);
@@ -75,5 +75,21 @@ public class EnemyAnimator : BaseAnimator
     {
         var rnd = Random.Range(0, 100);
         if (rnd <= 20) Animator.SetTrigger(AnimatorStrings.ChangeMainState);
+    }
+
+    public override void IsCombat(bool state)
+    {
+        Animator.SetBool(AnimatorStrings.IsCombat, state);
+    }
+
+    public override void CanTarget()
+    {
+        _baseHealth.SetCanTarget(true);
+    }
+
+    public override void CantTarget()
+    {
+        _baseHealth.SetCanTarget(false);
+        _baseHealth.HideSlider();
     }
 }

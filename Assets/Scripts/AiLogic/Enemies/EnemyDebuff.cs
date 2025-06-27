@@ -22,7 +22,9 @@ public class EnemyDebuff : MonoBehaviour
 
     private void Start()
     {
-        if (!_resistSlow) CachedEmissionTextures();
+        if (_resistSlow) return;
+
+        CachedEmissionTextures();
     }
 
     private void CachedEmissionTextures()

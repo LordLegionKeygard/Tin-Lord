@@ -3,8 +3,8 @@ using UnityEngine;
 public class EnemyInfo : MonoBehaviour
 {
     [SerializeField] private EnemyEnum _enemyEnum;
-    [SerializeField] private int _healthFactor;
-    [SerializeField] private int _damageFactor;
+    private int _healthFactor;
+    private int _damageFactor;
     private int _enemyNumber;
     public EnemyEnum GetEnemyEnum() => _enemyEnum;
     public int GetEnemyNumber() => _enemyNumber;
