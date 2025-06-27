@@ -11,7 +11,8 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     [SerializeField] private EnemiesBiomeSpawnTransforms[] _enemiesBiomeSpawnTransforms;
     private List<EnemiesForListData> _currentEnemiesData = new();
     private int _enemyNumber;
-    private MonsterBiome CurrentBiome => CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterBiome;
+    private MonsterBiome GetCurrentBiome() => CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterBiome;
+    private int GetLandscapeNumber() => (int)CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum;
 
     public EnemyData[] GetAllCurrentEnemies()
     {
@@ -68,15 +69,25 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void SpawnEnemies(Spawner spawner)
     {
-        var groups = spawner.EnemiesSpawnerInfo.Where(g => g.EnemyBiomeInfo.Any(e => e.Biome == CurrentBiome)).ToArray();
+        var groups = spawner.EnemiesSpawnerInfo.Where(g => g.EnemyBiomeInfo.Any(e => e.Biome == GetCurrentBiome())).ToArray();
 
         for (int i = 0; i < spawner.Count; i++)
         {
             var group = groups[Random.Range(0, groups.Length)];
-            var variants = group.EnemyBiomeInfo.Where(e => e.Biome == CurrentBiome).ToArray();
+            var variants = group.EnemyBiomeInfo.Where(e => e.Biome == GetCurrentBiome()).ToArray();
 
             var entry = variants[Random.Range(0, variants.Length)];
-            var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(entry.EnemyEnum), GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
+            SpawnSide spawnSideEnum = SpawnSide.RandomSide;
+
+            if (spawner.LandscapeSpawnSide != null && spawner.LandscapeSpawnSide.Length > 0)
+            {
+                var matched = spawner.LandscapeSpawnSide.FirstOrDefault(ls => (int)ls.LandscapeEnum == GetLandscapeNumber());
+
+                if (matched != null) spawnSideEnum = matched.SpawnSide;
+            }
+
+            var spawnPoint = spawnSideEnum == SpawnSide.RandomSide ? GetRandomSpawnTransform() : GetSideSpawnTransform((int)spawnSideEnum);
+            var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(entry.EnemyEnum), spawnPoint + GetRandomizePosition(), Quaternion.identity, null);
 
             enemyObject.GetComponent<EnemyLevel>().SetLevel(group.EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, 1, 1);
@@ -91,11 +102,9 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void SpawnMiniBoss(MiniBossSpawner[] miniBossSpawners)
     {
-        var biome = CurrentBiome;
-
         foreach (var spawner in miniBossSpawners)
         {
-            var variants = spawner.EnemySpawnerInfo.EnemyBiomeInfo.Where(e => e.Biome == biome).ToArray();
+            var variants = spawner.EnemySpawnerInfo.EnemyBiomeInfo.Where(e => e.Biome == GetCurrentBiome()).ToArray();
 
             if (variants.Length == 0) continue;
 
@@ -103,7 +112,18 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             {
                 var entry = variants[Random.Range(0, variants.Length)];
                 var enemyPrefab = _allEnemies.GetEnemyForEnum(entry.EnemyEnum);
-                var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
+
+                SpawnSide spawnSideEnum = SpawnSide.RandomSide;
+
+                if (spawner.LandscapeSpawnSide != null && spawner.LandscapeSpawnSide.Length > 0)
+                {
+                    var matched = spawner.LandscapeSpawnSide.FirstOrDefault(ls => (int)ls.LandscapeEnum == GetLandscapeNumber());
+
+                    if (matched != null) spawnSideEnum = matched.SpawnSide;
+                }
+
+                var spawnPoint = spawnSideEnum == SpawnSide.RandomSide ? GetRandomSpawnTransform() : GetSideSpawnTransform((int)spawnSideEnum);
+                var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, spawnPoint + GetRandomizePosition(), Quaternion.identity, null);
 
                 enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.EnemySpawnerInfo.EnemyLevel);
                 enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, spawner.HealthFactor, spawner.DamageFactor);
@@ -121,13 +141,23 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void SpawnBoss(EnemiesSpawner enemiesSpawner)
     {
-        var biome = CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterBiome;
-
-        var bossEntry = enemiesSpawner.BossSpawner.Bosses.FirstOrDefault(b => b.Biome == biome);
+        var spawner = enemiesSpawner.BossSpawner;
+        var bossEntry = spawner.Bosses.FirstOrDefault(b => b.Biome == GetCurrentBiome());
         var enemyPrefab = _allEnemies.GetEnemyForEnum(bossEntry.EnemyEnum);
-        var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, GetRandomSpawnTransform() + GetRandomizePosition(), Quaternion.identity, null);
 
-        enemyObject.GetComponent<EnemyLevel>().SetLevel(enemiesSpawner.BossSpawner.BossLevel);
+        SpawnSide spawnSideEnum = SpawnSide.RandomSide;
+
+        if (spawner.LandscapeSpawnSide != null && spawner.LandscapeSpawnSide.Length > 0)
+        {
+            var matched = spawner.LandscapeSpawnSide.FirstOrDefault(ls => (int)ls.LandscapeEnum == GetLandscapeNumber());
+
+            if (matched != null) spawnSideEnum = matched.SpawnSide;
+        }
+        var spawnPoint = spawnSideEnum == SpawnSide.RandomSide ? GetRandomSpawnTransform() : GetSideSpawnTransform((int)spawnSideEnum);
+
+        var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, spawnPoint + GetRandomizePosition(), Quaternion.identity, null);
+
+        enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.BossLevel);
         enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, 1, 1);
         enemyObject.GetComponent<BossHealth>().SetHealth();
         enemyObject.GetComponent<BossDamage>().SetDamage();
@@ -167,11 +197,26 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         return new Vector3(x, 0, z);
     }
 
+    /// <summary>
+    /// берет случайную точку в любой из сторон
+    /// </summary>
     private Vector3 GetRandomSpawnTransform()
     {
-        var landscapeNumber = (int)CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum;
-        var randomTransform = Random.Range(0, _enemiesBiomeSpawnTransforms[landscapeNumber].SpawnPoints.Length);
-        return _enemiesBiomeSpawnTransforms[landscapeNumber].SpawnPoints[randomTransform].position;
+        var randomSide = Random.Range(0, _enemiesBiomeSpawnTransforms[GetLandscapeNumber()].SpawnSides.Length);
+        var randomPoint = Random.Range(0, _enemiesBiomeSpawnTransforms[GetLandscapeNumber()].SpawnSides[randomSide].SpawnPoints.Length);
+        return _enemiesBiomeSpawnTransforms[GetLandscapeNumber()].SpawnSides[randomSide].SpawnPoints[randomPoint].position;
+    }
+
+    /// <summary>
+    /// берет случайную точку в определенной стороне спавна
+    /// </summary>
+    private Vector3 GetSideSpawnTransform(int side)
+    {
+        var spawnSides = _enemiesBiomeSpawnTransforms[GetLandscapeNumber()].SpawnSides;
+        var spawnSideIndex = side <= spawnSides.Length - 1 ? side : 0;
+
+        var randomPoint = Random.Range(0, spawnSides[spawnSideIndex].SpawnPoints.Length);
+        return spawnSides[spawnSideIndex].SpawnPoints[randomPoint].position;
     }
 
     private void AddEnemyToList(int enemyEnum, int enemyNumber, GameObject prefab)
@@ -211,5 +256,11 @@ public class EnemiesForListData
 public class EnemiesBiomeSpawnTransforms
 {
     public LandscapeEnum LandscapeEnum;
+    public SpawnSidePoints[] SpawnSides;
+}
+
+[System.Serializable]
+public class SpawnSidePoints
+{
     public Transform[] SpawnPoints;
 }

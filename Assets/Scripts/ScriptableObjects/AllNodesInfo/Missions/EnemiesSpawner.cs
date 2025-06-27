@@ -59,6 +59,7 @@ public class Spawner
     public int StartDaySpawn;
     public int SpawnPeriod;
     public int Count;
+    public LandscapeSpawnSide[] LandscapeSpawnSide;
     public EnemySpawnerInfo[] EnemiesSpawnerInfo;
 }
 
@@ -89,6 +90,7 @@ public class MiniBossSpawner
     public int Count;
     public int HealthFactor;
     public int DamageFactor;
+    public LandscapeSpawnSide[] LandscapeSpawnSide;
     public EnemySpawnerInfo EnemySpawnerInfo;
 }
 
@@ -98,5 +100,25 @@ public class BossSpawner
     public EnemyBiomeInfo[] Bosses;
     public int BossLevel;
     public int BossDaySpawn;
+    public LandscapeSpawnSide[] LandscapeSpawnSide;
 }
+
+[System.Serializable]
+public class LandscapeSpawnSide
+{
+    public LandscapeEnum LandscapeEnum;
+    public SpawnSide SpawnSide;
+}
+
+[System.Serializable]
+public enum SpawnSide
+{
+    RandomSide = -1,
+    Side_0 = 0,
+    Side_1 = 1,
+    Side_2 = 2,
+    Side_3 = 3,
+}
+
+
 
