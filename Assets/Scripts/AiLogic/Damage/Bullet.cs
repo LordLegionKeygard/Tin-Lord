@@ -46,9 +46,9 @@ public class Bullet : MonoBehaviour
         _knockbackPoints = knockback;
     }
 
-    public void SetBulletPool(BulletsPool poolManager, BulletEnum type)
+    public void SetBulletPool(BulletsPool bulletsPool, BulletEnum type)
     {
-        _bulletsPool = poolManager;
+        _bulletsPool = bulletsPool;
         _bulletEnum = type;
     }
 

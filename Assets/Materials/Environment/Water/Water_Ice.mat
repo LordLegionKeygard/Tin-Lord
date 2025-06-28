@@ -10,8 +10,7 @@ Material:
   m_Name: Water_Ice
   m_Shader: {fileID: 4800000, guid: 951f7849fc40c9a40bb647d700122bc3, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _USEBORDERNORMAL_ON
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -175,7 +174,7 @@ Material:
     - _TransDirect: 0.9
     - _TransNormal: 0.595
     - _TransScattering: 16.1
-    - _TransShadow: 0.305
+    - _TransShadow: 0.65
     - _TransStrength: 50
     - _TransmissionShadow: 0.49
     - _Transparency: 1
@@ -184,23 +183,23 @@ Material:
     - _UpMoveRange: 0
     - _UpVelocity: 0
     - _UpmoveMix: 0
-    - _UseBorderNormal: 1
+    - _UseBorderNormal: 0
     - _ZWrite: 0
     - __dirty: 0
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0.7837753, g: 0.82404447, b: 0.9716981, a: 0.84313726}
     - _ColorA: {r: 0.16131186, g: 0.20656662, b: 0.23584908, a: 0}
-    - _ColorB: {r: 0.38274297, g: 0.47169477, b: 0.5754717, a: 0}
+    - _ColorB: {r: 0.2494838, g: 0.3407289, b: 0.4528302, a: 0}
     - _ColorC: {r: 0.40169984, g: 0.4939475, b: 0.5566037, a: 0.8235294}
     - _ColorFoam: {r: 0.5754717, g: 0.56619436, b: 0.56189924, a: 0}
-    - _DepthOpacity: {r: -0.07, g: 5.1, b: 0, a: 0}
+    - _DepthOpacity: {r: -5.44, g: -9.87, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SpecXYSnsZW: {r: 0, g: 0, b: 0, a: 0}
     - _SpeedAB: {r: 0, g: 1, b: 0, a: 0.5}
-    - _UVScale: {r: 0.02, g: 0.05, b: 0, a: 0}
+    - _UVScale: {r: 0.02, g: -0.04, b: 0, a: 0}
     - _VelocityXYFoamZ: {r: 0.02, g: 0.01, b: 0, a: 0}
-    - __VelocityXYFoamZ: {r: -0.01, g: -0.02, b: 0, a: 0}
+    - __VelocityXYFoamZ: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

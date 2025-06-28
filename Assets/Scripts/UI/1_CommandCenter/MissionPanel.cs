@@ -8,6 +8,7 @@ public class MissionPanel : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private readonly WorldSaveGame _worldSaveGame;
+    [SerializeField] private RectTransform _descriptionPanel;
     [SerializeField] private AllNodesInfo _allMissionsInfo;
     [SerializeField] private TextMeshProUGUI _missionNameHeaderText;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
@@ -34,10 +35,12 @@ public class MissionPanel : MonoBehaviour
 
         UnactiveAll();
 
+        var descriptionWrapper = _currentNode.Landscape.DescriptionWrappers[Language.LanguageNumber];
         _missionNameHeaderText.text = _currentNode.Landscape.Name[Language.LanguageNumber];
         _ecologyLevelText.text = $"{Language.TextStatic[34]}: {_currentNode.Landscape.StartEcology}";
         _objectiveText.text = $"{Language.TextStatic[36]}: ";
-        _descriptionText.text = _currentNode.Landscape.Description[Language.LanguageNumber];
+        _descriptionText.text = descriptionWrapper.Description;
+        _descriptionPanel.sizeDelta = new Vector2(_descriptionPanel.sizeDelta.x, descriptionWrapper.PanelHeight);
 
         var objectives = _currentNode.Objective.Objectives;
         for (int i = 0; i < objectives.Length; i++)

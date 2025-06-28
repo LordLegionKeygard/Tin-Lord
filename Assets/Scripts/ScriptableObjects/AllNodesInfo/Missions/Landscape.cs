@@ -15,7 +15,7 @@ public class Landscape : ScriptableObject
     public int StartPosEdge = 4;
     public GameEventInfo[] MissionEvents;
     public Tile[] Cards;
-    [TextArea(1, 8)] public string[] Description;
+    public DescriptionWrapper[] DescriptionWrappers;
 
     [Header("Cosmos")]
     public CosmosVariations[] CosmosVariations;
@@ -40,6 +40,13 @@ public class MissionLight
     [ColorUsage(true, true)] public Color GroundColor;
     public int Temperature;
     public float Intencity;
+}
+
+[System.Serializable]
+public class DescriptionWrapper
+{
+    public int PanelHeight;
+    [TextArea(1, 8)] public string Description;
 }
 
 [System.Serializable]

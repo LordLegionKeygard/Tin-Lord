@@ -47,6 +47,7 @@ public class FMODEvents : MonoBehaviour
 
     [Header("Enemies")]
     public EventReference[] Death;
+    public EventReference[] DeathExplosion;
 
 
     private void Awake()

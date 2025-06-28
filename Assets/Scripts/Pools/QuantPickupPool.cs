@@ -7,7 +7,7 @@ public class QuantPickupPool : MonoBehaviour
     [Inject] private readonly DiContainer _diContainer;
     [SerializeField] private QuantPickup _prefab;
     [SerializeField] private Canvas _canvas;
-    [SerializeField] private int _batchSize = 10;
+    private int _batchSize = 10;
 
     private readonly Queue<QuantPickup> _pool = new();
     readonly List<QuantPickup> _active = new();

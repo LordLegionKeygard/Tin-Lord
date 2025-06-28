@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007735438, g: 0.000095598145, b: 0.00011476355,
+  m_IndirectSpecularColor: {r: 0.00007799332, g: 0.00009619192, b: 0.00011582454,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -5181,7 +5181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &163225550
@@ -7764,7 +7764,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 250, y: 0}
-  m_SizeDelta: {x: 500, y: 269.6}
+  m_SizeDelta: {x: 500, y: 400}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &223234108
 MonoBehaviour:
@@ -7778,6 +7778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2236add95af510146946e92064bdfbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _descriptionPanel: {fileID: 1547388440}
   _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
   _missionNameHeaderText: {fileID: 913253614}
   _ecologyLevelText: {fileID: 206720641}
@@ -19023,7 +19024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &758822814
@@ -20884,9 +20885,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Huge spaces scorched by catastrophe, where life once boiled. It's a world
-    of dead earth, littered with the wreckage of old civilizations. There is no water,
-    only cracked soil and the rusty remains of technology.
+  m_text: Deep cracks in the earth, sun-baked rocks and narrow passages where every
+    sound echoes. Once rivers flowed here and life seethed, but now it is a labyrinth
+    of stone and shadow, the perfect place for ambushes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 749d2ac91cd04c048a88633120d76de4, type: 2}
   m_sharedMaterial: {fileID: -7740022604001485521, guid: 749d2ac91cd04c048a88633120d76de4,
@@ -20979,10 +20980,10 @@ RectTransform:
   m_Father: {fileID: 1547388440}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 480, y: 210}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &857564188
 GameObject:
@@ -39799,7 +39800,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 210}
+  m_SizeDelta: {x: 490, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1548789225
 GameObject:
@@ -47597,7 +47598,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -250, y: 0}
-  m_SizeDelta: {x: 500, y: 467}
+  m_SizeDelta: {x: 500, y: 397}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1811622262
 MonoBehaviour:

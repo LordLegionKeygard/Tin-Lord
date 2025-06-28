@@ -15,6 +15,7 @@ public class WorldInstaller : MonoInstaller
     [SerializeField] private AllSkills _allSkills;
     [SerializeField] private WorldQuantSystem _quantSystem;
     [SerializeField] private QuantPickupPool _quantPickupPool;
+    [SerializeField] private DeathExplosionPool _deathExplosionPool;
 
     public override void InstallBindings()
     {
@@ -29,7 +30,7 @@ public class WorldInstaller : MonoInstaller
         Container.Bind<AllSkills>().FromInstance(_allSkills).AsSingle();
         Container.Bind<EnemyDefenceSystem>().FromInstance(_enemyDefenceSystem).AsSingle();
         Container.Bind<WorldQuantSystem>().FromInstance(_quantSystem).AsSingle();
-        Container.Bind<QuantPickupPool>().FromComponentInHierarchy().AsSingle();
-
+        Container.Bind<QuantPickupPool>().FromInstance(_quantPickupPool).AsSingle();
+        Container.Bind<DeathExplosionPool>().FromInstance(_deathExplosionPool).AsSingle();
     }
 }

@@ -69,7 +69,7 @@ public class WorldGameInfo
     public const int VictoryFragmentsPercent = 100;
 
     [Header("Sounds")]
-    public const int EnemiesDeathSoundChance = 10;
+    public const int EnemiesDeathSoundChance = 20;
 
     [Header("Terrain")]
     public const float TerrainOffset = 1.68f;
@@ -96,5 +96,7 @@ public class WorldGameInfo
     [Header("Damage")]
     public const float ConstructionExtraDamage = 3;
     public const float FortificationSkillDamage = 0.5f;
+    public const float ExplosionDamageFactor = 6;
+    public const float BossTriggetStayDamageFactor = 200;
 
 }

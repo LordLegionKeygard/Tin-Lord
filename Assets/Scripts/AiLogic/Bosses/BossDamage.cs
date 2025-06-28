@@ -43,6 +43,8 @@ public class BossDamage : BaseDamage
         var skillWrapper = _creatureSkillsWrapper[number];
         if (skillWrapper.ParticleSystems.Length != 0) ActiveParticles(skillWrapper);
         var skill = _diContainer.InstantiatePrefab(skillWrapper.SkillPrefab, skillWrapper.SkillPoint.position, Quaternion.identity, null);
+        var bossSkillTriggerStayDamage = skill.GetComponent<BossSkillTriggerStayDamage>();
+        if (bossSkillTriggerStayDamage != null) bossSkillTriggerStayDamage.SetDamage(Damage / WorldGameInfo.BossTriggetStayDamageFactor);
     }
 
     private void ActiveParticles(CreatureSkillsWrapper wrapper)

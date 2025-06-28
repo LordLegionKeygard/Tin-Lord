@@ -27,7 +27,6 @@ MonoBehaviour:
       GroundColor: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 1}
       Temperature: 20000
       Intencity: 2.5
-  MissionSprite: {fileID: 21300000, guid: 46e99776e379f924d84e30b5019912de, type: 3}
   LoadingScreenSprite: {fileID: 21300000, guid: 90bb945da69a028468edf59570c5c1a5,
     type: 3}
   StartEcology: -5
@@ -50,30 +49,33 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 834e6c1dfd5dcf74480dac385be07c7c, type: 2}
   - {fileID: 11400000, guid: 3f79d7498863a8d48b1eb22f90ae331b, type: 2}
   - {fileID: 11400000, guid: adc20fa2d0fb7a04499607598b1290d7, type: 2}
-  Description:
-  - A deadly cold has gripped this valley. Everything is covered in ice, from the
-    ridges and pines to the remains of long-destroyed buildings. Once there might
-    have been pastures or small settlements here, but now there is only the crunch
-    of snow underfoot and shadows sliding between the trees. The frost penetrates
-    not only metal, but also consciousness, erasing the line between life and oblivion.
-  - "\u041C\u0451\u0440\u0442\u0432\u044B\u0439 \u0445\u043E\u043B\u043E\u0434 \u0441\u043A\u043E\u0432\u0430\u043B
-    \u044D\u0442\u0443 \u0434\u043E\u043B\u0438\u043D\u0443. \u0412\u0441\u0451 \u043F\u043E\u043A\u0440\u044B\u0442\u043E
-    \u043B\u044C\u0434\u043E\u043C \u2014 \u043E\u0442 \u043A\u0440\u044F\u0436\u0435\u0439
-    \u0438 \u0441\u043E\u0441\u0435\u043D \u0434\u043E \u043E\u0441\u0442\u0430\u0442\u043A\u043E\u0432
-    \u0434\u0430\u0432\u043D\u043E \u0440\u0430\u0437\u0440\u0443\u0448\u0435\u043D\u043D\u044B\u0445
-    \u0441\u0442\u0440\u043E\u0435\u043D\u0438\u0439. \u041A\u043E\u0433\u0434\u0430-\u0442\u043E
-    \u0437\u0434\u0435\u0441\u044C \u043C\u043E\u0433\u043B\u0438 \u0431\u044B\u0442\u044C
-    \u043F\u0430\u0441\u0442\u0431\u0438\u0449\u0430 \u0438\u043B\u0438 \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u0438\u0435
-    \u043F\u043E\u0441\u0435\u043B\u0435\u043D\u0438\u044F, \u043D\u043E \u0442\u0435\u043F\u0435\u0440\u044C
-    \u2014 \u0442\u043E\u043B\u044C\u043A\u043E \u0445\u0440\u0443\u0441\u0442 \u0441\u043D\u0435\u0433\u0430
-    \u043F\u043E\u0434 \u043D\u043E\u0433\u0430\u043C\u0438 \u0438 \u0442\u0435\u043D\u0438,
-    \u0441\u043A\u043E\u043B\u044C\u0437\u044F\u0449\u0438\u0435 \u043C\u0435\u0436\u0434\u0443
-    \u0434\u0435\u0440\u0435\u0432\u044C\u044F\u043C\u0438. \u041C\u043E\u0440\u043E\u0437
-    \u043F\u0440\u043E\u043D\u0438\u0437\u044B\u0432\u0430\u0435\u0442 \u043D\u0435
-    \u0442\u043E\u043B\u044C\u043A\u043E \u043C\u0435\u0442\u0430\u043B\u043B, \u043D\u043E
-    \u0438 \u0441\u043E\u0437\u043D\u0430\u043D\u0438\u0435, \u0441\u0442\u0438\u0440\u0430\u044F
-    \u0433\u0440\u0430\u043D\u044C \u043C\u0435\u0436\u0434\u0443 \u0436\u0438\u0437\u043D\u044C\u044E
-    \u0438 \u0437\u0430\u0431\u0432\u0435\u043D\u0438\u0435\u043C."
+  DescriptionWrappers:
+  - PanelHeight: 240
+    Description: A deadly cold has gripped this valley. Everything is covered in
+      ice, from the ridges and pines to the remains of long-destroyed buildings.
+      Once there might have been pastures or small settlements here, but now there
+      is only the crunch of snow underfoot and shadows sliding between the trees.
+      The frost penetrates not only metal, but also consciousness, erasing the line
+      between life and oblivion.
+  - PanelHeight: 220
+    Description: "\u041C\u0451\u0440\u0442\u0432\u044B\u0439 \u0445\u043E\u043B\u043E\u0434
+      \u0441\u043A\u043E\u0432\u0430\u043B \u044D\u0442\u0443 \u0434\u043E\u043B\u0438\u043D\u0443.
+      \u0412\u0441\u0451 \u043F\u043E\u043A\u0440\u044B\u0442\u043E \u043B\u044C\u0434\u043E\u043C
+      \u2014 \u043E\u0442 \u043A\u0440\u044F\u0436\u0435\u0439 \u0438 \u0441\u043E\u0441\u0435\u043D
+      \u0434\u043E \u043E\u0441\u0442\u0430\u0442\u043A\u043E\u0432 \u0434\u0430\u0432\u043D\u043E
+      \u0440\u0430\u0437\u0440\u0443\u0448\u0435\u043D\u043D\u044B\u0445 \u0441\u0442\u0440\u043E\u0435\u043D\u0438\u0439.
+      \u041A\u043E\u0433\u0434\u0430-\u0442\u043E \u0437\u0434\u0435\u0441\u044C
+      \u043C\u043E\u0433\u043B\u0438 \u0431\u044B\u0442\u044C \u043F\u0430\u0441\u0442\u0431\u0438\u0449\u0430
+      \u0438\u043B\u0438 \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u0438\u0435 \u043F\u043E\u0441\u0435\u043B\u0435\u043D\u0438\u044F,
+      \u043D\u043E \u0442\u0435\u043F\u0435\u0440\u044C \u2014 \u0442\u043E\u043B\u044C\u043A\u043E
+      \u0445\u0440\u0443\u0441\u0442 \u0441\u043D\u0435\u0433\u0430 \u043F\u043E\u0434
+      \u043D\u043E\u0433\u0430\u043C\u0438 \u0438 \u0442\u0435\u043D\u0438, \u0441\u043A\u043E\u043B\u044C\u0437\u044F\u0449\u0438\u0435
+      \u043C\u0435\u0436\u0434\u0443 \u0434\u0435\u0440\u0435\u0432\u044C\u044F\u043C\u0438.
+      \u041C\u043E\u0440\u043E\u0437 \u043F\u0440\u043E\u043D\u0438\u0437\u044B\u0432\u0430\u0435\u0442
+      \u043D\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u043C\u0435\u0442\u0430\u043B\u043B,
+      \u043D\u043E \u0438 \u0441\u043E\u0437\u043D\u0430\u043D\u0438\u0435, \u0441\u0442\u0438\u0440\u0430\u044F
+      \u0433\u0440\u0430\u043D\u044C \u043C\u0435\u0436\u0434\u0443 \u0436\u0438\u0437\u043D\u044C\u044E
+      \u0438 \u0437\u0430\u0431\u0432\u0435\u043D\u0438\u0435\u043C."
   CosmosVariations:
   - PlanetPrefab: {fileID: 1036261144296232, guid: 0fade6951b518034c96bc8c1ef101c5c,
       type: 3}
@@ -83,5 +85,3 @@ MonoBehaviour:
     SkyboxRotation: 110
     LightRotation: {x: 30.43, y: -30.13, z: 0}
     Temperature: 6500
-  StoryTextsIndexes: 
-  ConsoleTextsIndexes: 
