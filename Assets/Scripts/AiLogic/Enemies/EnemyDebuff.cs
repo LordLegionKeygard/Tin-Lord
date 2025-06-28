@@ -7,9 +7,9 @@ public class EnemyDebuff : MonoBehaviour
     [SerializeField] private bool _isHaveEmission;
     [ColorUsage(true, true)][SerializeField] private Color _emissionColor;
     [SerializeField] private SkinnedMeshRenderer[] _meshRenderers;
-    [SerializeField] private float _radioWaveSlowAmount;
-    [SerializeField] private float _riverSlowAmount;
-    [SerializeField] private float _speedFactor = 1;
+    private float _radioWaveSlowAmount;
+    private float _riverSlowAmount;
+    private float _speedFactor = 1;
     private EnemySpeed _enemySpeed;
     private Texture[] _cachedEmissionTextures;
     public float GetSpeedFactor() => _speedFactor;

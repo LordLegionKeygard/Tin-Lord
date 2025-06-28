@@ -1451,12 +1451,7 @@ MonoBehaviour:
   _resistSlow: 1
   _isHaveEmission: 1
   _emissionColor: {r: 2, g: 2, b: 2, a: 1}
-  _meshRenderers:
-  - {fileID: 0}
-  - {fileID: 0}
-  _radioWaveSlowAmount: 0
-  _riverSlowAmount: 0
-  _speedFactor: 1
+  _meshRenderers: []
 --- !u!114 &1571049067697286925
 MonoBehaviour:
   m_ObjectHideFlags: 0
