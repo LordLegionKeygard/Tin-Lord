@@ -73,4 +73,5 @@ public enum DeathExplosionEnum
 {
     None = -1,
     Pistripod = 0,
+    Funglicane = 1,
 }
