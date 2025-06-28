@@ -71,5 +71,6 @@ public class DeathExplosion : MonoBehaviour
 [System.Serializable]
 public enum DeathExplosionEnum
 {
+    None = -1,
     Pistripod = 0,
 }
