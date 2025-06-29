@@ -108,7 +108,7 @@ public class EndMissionSystem : MonoBehaviour
 
     private void PrepareData(MissionEndEnum missionEndEnum)
     {
-        var aiCores = missionEndEnum == MissionEndEnum.Victory ? 0 : -2;
+        var aiCores = missionEndEnum == MissionEndEnum.Victory ? 0 : missionEndEnum == MissionEndEnum.Escape ? -1 : -2;
         var quants = missionEndEnum == MissionEndEnum.Victory ? _worldQuantSystem.GetQuants() : 0;
         if (missionEndEnum == MissionEndEnum.Victory)
         {
