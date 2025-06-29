@@ -99,4 +99,9 @@ public class WorldGameInfo
     public const float ExplosionDamageFactor = 6;
     public const float BossTriggetStayDamageFactor = 200;
 
+    [Header("HangarRobot")]
+    public const int PatchPassiveAbility = 15;
+    public const int TitanPassiveAbility = 15;
+    public const int AimBotPassiveAbility = 15;
+
 }

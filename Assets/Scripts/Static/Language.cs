@@ -258,23 +258,23 @@ public class Language : MonoBehaviour
         _text[76, 0] = "";
         _text[76, 1] = "";
 
-        _text[77, 0] = "";
-        _text[77, 1] = "";
+        _text[77, 0] = "Launch";
+        _text[77, 1] = "Запуск";
 
-        _text[78, 0] = "";
-        _text[78, 1] = "";
+        _text[78, 0] = "Back";
+        _text[78, 1] = "Назад";
 
-        _text[79, 0] = "";
-        _text[79, 1] = "";
+        _text[79, 0] = "to repair cost";
+        _text[79, 1] = "стоймость ремонта";
 
-        _text[80, 0] = "";
-        _text[80, 1] = "";
+        _text[80, 0] = "to building durability";
+        _text[80, 1] = "к прочности зданий";
 
-        _text[81, 0] = "";
-        _text[81, 1] = "";
+        _text[81, 0] = "to turret damage";
+        _text[81, 1] = "к урону турелей";
 
-        _text[82, 0] = "";
-        _text[82, 1] = "";
+        _text[82, 0] = "Passive ability";
+        _text[82, 1] = "Пассивная способность";
 
         _text[83, 0] = "";
         _text[83, 1] = "";
@@ -597,14 +597,14 @@ public class Language : MonoBehaviour
         _text[189, 0] = "";
         _text[189, 1] = "";
 
-        _text[190, 0] = "";
-        _text[190, 1] = "";
+        _text[190, 0] = "Aim Bot";
+        _text[190, 1] = "Аим Бот";
 
-        _text[191, 0] = "";
-        _text[191, 1] = "";
+        _text[191, 0] = "Patch-08";
+        _text[191, 1] = "Патч-08";
 
-        _text[192, 0] = "";
-        _text[192, 1] = "";
+        _text[192, 0] = "Titan";
+        _text[192, 1] = "Титан";
 
         _text[193, 0] = "";
         _text[193, 1] = "";

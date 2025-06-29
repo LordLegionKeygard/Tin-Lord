@@ -19,7 +19,7 @@ public class CommandCenterSaveGame : MonoBehaviour
         _commandCenterSaveGameDataWriter = new CommandCenterSaveGameDataWriter(Application.persistentDataPath);
     }
 
-    public void NewGame()
+    public void NewGame(CommandCenterSaveData commandCenterSaveData)
     {
         CommandCenterSaveData = new CommandCenterSaveData
         {

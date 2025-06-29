@@ -30,6 +30,10 @@ public class AnimatorStrings : MonoBehaviour
     [Header("Tiles")]
     public static readonly int GateState = Animator.StringToHash("GateState");
 
+    [Header("Other")]
+    public static readonly int CameraHangarState = Animator.StringToHash("CameraHangarState");
+
+
     public static readonly Dictionary<CharacterWorkType, int> WorkTriggers = new Dictionary<CharacterWorkType, int>
     {
         { CharacterWorkType.PickaxeMining, PickaxeMining },

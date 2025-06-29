@@ -12,36 +12,30 @@ public class ButtonsMainMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] _buttonsText;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _areYouSurePanel;
-    private bool _isContinueGame;
+    [SerializeField] private HangarSystem _hangarSystem;
 
     private bool HaveSaveData() => CommandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
 
     private void Start()
     {
-        ToggleContinueButton(HaveSaveData());
-    }
-
-    private void ToggleContinueButton(bool state)
-    {
-        _buttons[0].interactable = state;
-        _buttonsText[0].color = state == false ? Colors.GreySix : Color.white;
+        if (HaveSaveData()) _buttons[0].gameObject.SetActive(true);
     }
 
     public void NewGame()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
-        if (HaveSaveData())
-        {
-            _areYouSurePanel.SetActive(true);
-            ButtonsToggle(false);
-        }
-        else
-        {
-            CustomEvents.FireFade(FadeType.StartFade);
-            _isContinueGame = false;
-            StartCoroutine(nameof(PrepareLoad));
-        }
+        _hangarSystem.OpenHangar();
+        // if (HaveSaveData())
+        // {
+        //     _areYouSurePanel.SetActive(true);
+        //     ButtonsToggle(false);
+        // }
+        // else
+        // {
+        //     CustomEvents.FireFade(FadeType.StartFade);
+        //     StartCoroutine(nameof(PrepareLoadNewGame));
+        // }
     }
 
     public void Continue()
@@ -49,29 +43,26 @@ public class ButtonsMainMenu : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
         CustomEvents.FireFade(FadeType.StartFade);
-        _isContinueGame = true;
-        StartCoroutine(nameof(PrepareLoad));
+        StartCoroutine(nameof(PrepareLoadGame));
     }
 
-    private IEnumerator PrepareLoad()
+    private IEnumerator PrepareLoadGame()
     {
         yield return new WaitForSecondsRealtime(1);
-
-        if (_isContinueGame)
-        {
-            CommandCenterSaveGame.LoadGameData();
-        }
-        else
-        {
-            StartNewGame();
-        }
+        CommandCenterSaveGame.LoadGameData();
     }
 
-    private void StartNewGame()
-    {
-        WorldSaveGame.DeleteMissionGameData();
-        CommandCenterSaveGame.NewGame();
-    }
+    // private IEnumerator PrepareLoadNewGame()
+    // {
+    //     yield return new WaitForSecondsRealtime(1);
+    //     StartNewGame();       
+    // }
+
+    // private void StartNewGame()
+    // {
+    //     WorldSaveGame.DeleteMissionGameData();
+    //     CommandCenterSaveGame.NewGame(null);
+    // }
 
     public void SettingsButton()
     {
@@ -88,13 +79,12 @@ public class ButtonsMainMenu : MonoBehaviour
 
     public void AreYouSureYes()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        CustomEvents.FireFade(FadeType.StartFade);
-        _isContinueGame = false;
-        ToggleContinueButton(false);
-        StartCoroutine(nameof(PrepareLoad));
-        _areYouSurePanel.SetActive(false);
-        CustomEvents.FireCloseTooltips();
+        // AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        // CustomEvents.FireFade(FadeType.StartFade);
+        // ToggleContinueButton(false);
+        // StartCoroutine(nameof(PrepareLoadNewGame));
+        // _areYouSurePanel.SetActive(false);
+        // CustomEvents.FireCloseTooltips();
     }
 
     public void AreYouSureNo()
