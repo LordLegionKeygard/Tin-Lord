@@ -8,9 +8,9 @@ public class QuantsSystem : MonoBehaviour
 
     public int GetQuants() => _quants;
 
-    public void LoadQuants(int core)
+    public void LoadQuants(int value)
     {
-        _quants = core;
+        _quants = value;
         UpdateView();
     }
 

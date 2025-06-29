@@ -49,7 +49,8 @@ public class ButtonsMainMenu : MonoBehaviour
     private IEnumerator PrepareLoadGame()
     {
         yield return new WaitForSecondsRealtime(1);
-        CommandCenterSaveGame.LoadGameData();
+        CommandCenterSaveGame.LoadDataFromJson();
+        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, null);
     }
 
     // private IEnumerator PrepareLoadNewGame()

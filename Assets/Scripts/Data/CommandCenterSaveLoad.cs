@@ -27,7 +27,7 @@ public class CommandCenterSaveLoad : MonoBehaviour
         }
     }
 
-    public void LoadData(ref CommandCenterSaveData currentSaveData)
+    public void LoadGameData(ref CommandCenterSaveData currentSaveData)
     {
         _quantsSystem.LoadQuants(currentSaveData.Quants);
         _aiCoreSystem.LoadAiCore(currentSaveData.AiCores);

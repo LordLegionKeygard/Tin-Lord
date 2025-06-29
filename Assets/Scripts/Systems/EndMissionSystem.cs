@@ -124,7 +124,7 @@ public class EndMissionSystem : MonoBehaviour
             _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(saveData);
         }
 
-        _worldSaveGame.DeleteMissionGameData();
+        _worldSaveGame.DeleteMissionJson();
         _commandCenterSaveGame.SaveEndMissionData(_receivedFragments, aiCores, quants);
     }
 

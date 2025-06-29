@@ -276,8 +276,8 @@ public class Language : MonoBehaviour
         _text[82, 0] = "Passive ability";
         _text[82, 1] = "Пассивная способность";
 
-        _text[83, 0] = "";
-        _text[83, 1] = "";
+        _text[83, 0] = "Shard";
+        _text[83, 1] = "Осколок";
 
         _text[84, 0] = "";
         _text[84, 1] = "";

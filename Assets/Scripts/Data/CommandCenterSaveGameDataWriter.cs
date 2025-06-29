@@ -5,7 +5,7 @@ using UnityEngine;
 public class CommandCenterSaveGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
-    private string _mainDataSaveFileName = "CommandCenterSave.txt";
+    private string _dataSaveFileName = "CommandCenterSave.txt";
 
     public CommandCenterSaveGameDataWriter(string saveDataDirectoryPath)
     {
@@ -14,7 +14,7 @@ public class CommandCenterSaveGameDataWriter
 
     public CommandCenterSaveData LoadCommandCenterDataFromJson()
     {
-        string savePath = Path.Combine(SaveDataDirectoryPath, _mainDataSaveFileName);
+        string savePath = Path.Combine(SaveDataDirectoryPath, _dataSaveFileName);
 
         CommandCenterSaveData loadedSaveData = null;
 
@@ -43,16 +43,16 @@ public class CommandCenterSaveGameDataWriter
         return loadedSaveData;
     }
 
-    public void WriteCommandCenterDataToSaveFile(CommandCenterSaveData characterData)
+    public void WriteCommandCenterDataToSaveFile(CommandCenterSaveData commandCenterSaveData)
     {
-        string savePath = Path.Combine(SaveDataDirectoryPath, _mainDataSaveFileName);
+        string savePath = Path.Combine(SaveDataDirectoryPath, _dataSaveFileName);
 
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(savePath));
             // Debug.Log("Save Path " + savePath);
 
-            string dataToStore = JsonUtility.ToJson(characterData, true);
+            string dataToStore = JsonUtility.ToJson(commandCenterSaveData, true);
 
             using FileStream stream = new(savePath, FileMode.Create);
             using StreamWriter writer = new(stream);
@@ -66,12 +66,12 @@ public class CommandCenterSaveGameDataWriter
 
     public void DeleteSaveFile()
     {
-        File.Delete(Path.Combine(SaveDataDirectoryPath, _mainDataSaveFileName));
+        File.Delete(Path.Combine(SaveDataDirectoryPath, _dataSaveFileName));
     }
 
     public bool CheckIfSaveFileExists()
     {
-        if (File.Exists(Path.Combine(SaveDataDirectoryPath, _mainDataSaveFileName))) return true;
+        if (File.Exists(Path.Combine(SaveDataDirectoryPath, _dataSaveFileName))) return true;
 
         else return false;
     }

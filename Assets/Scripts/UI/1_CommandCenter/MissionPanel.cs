@@ -112,8 +112,15 @@ public class MissionPanel : MonoBehaviour
     private IEnumerator PrepareLoad()
     {
         yield return new WaitForSecondsRealtime(1);
-        if (_isContinueMission) _worldSaveGame.LoadMissionGameData(_currentNode.Landscape.LoadingScreenSprite);
-        else _worldSaveGame.NewMission(_currentNode.Landscape, _commandCenterSaveGame.CommandCenterSaveData.MainResourcesData);
+        if (_isContinueMission)
+        {
+            _worldSaveGame.LoadMissionFromJson();
+            CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, _currentNode.Landscape.LoadingScreenSprite);
+        }
+        else
+        {
+            _worldSaveGame.NewMissionData(_currentNode.Landscape, _commandCenterSaveGame.CommandCenterSaveData.MainResourcesData);
+        }
     }
 
     public void AreYouSureYes()

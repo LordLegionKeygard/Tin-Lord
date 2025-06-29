@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
     [Inject] private readonly WorldSaveGame _worldCenterSaveGame;
+    [Inject] private readonly HangarSaveGame _hangarSaveGame;
     [Inject] private WorldSaveSettings _worldSaveSettings;
     [SerializeField] private LoadingScreenController _loadingScreenController;
 
@@ -37,8 +38,9 @@ public class SceneLoader : MonoBehaviour
 
         if (isLoadData)
         {
-            if (sceneEnum == SceneEnum.CommandCenter) _commandCenterSaveGame.CommandCenterSaveLoad.LoadData(ref _commandCenterSaveGame.CommandCenterSaveData);
-            else if (sceneEnum == SceneEnum.World) _worldCenterSaveGame.WorldSaveLoad.LoadMissionData(ref _worldCenterSaveGame.CurrentWorldSaveData);
+            if (sceneEnum == SceneEnum.CommandCenter) _commandCenterSaveGame.CommandCenterSaveLoad.LoadGameData(ref _commandCenterSaveGame.CommandCenterSaveData);
+            else if (sceneEnum == SceneEnum.World) _worldCenterSaveGame.WorldSaveLoad.LoadGameData(ref _worldCenterSaveGame.CurrentWorldSaveData);
+            else if (sceneEnum == SceneEnum.MainMenu) _hangarSaveGame.HangarSaveLoad.LoadGameData(ref _hangarSaveGame.HangarSaveData);
             _worldSaveSettings.SaveLoadSettings.SetAllSettingsFromData();
         }
     }

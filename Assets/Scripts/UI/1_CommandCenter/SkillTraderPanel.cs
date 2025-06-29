@@ -53,7 +53,7 @@ public class SkillTraderPanel : MonoBehaviour
         _currentSkill = -1;
         _quantsSystem.ChangeQuants(-_skills[_currentSkill].Price);
         _commandCenterSaveGame.CommandCenterSaveData.OpenedSkills[_currentSkill] = true;
-        _commandCenterSaveGame.SaveGameData(false);
+        _commandCenterSaveGame.SaveDataToJson();
         UpdateView();
     }
 

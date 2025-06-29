@@ -117,7 +117,7 @@ public class WorldSaveLoad : MonoBehaviour
         currentSaveData.QuantPickups = _quantPool.GetActiveQuants();
     }
 
-    public void LoadMissionData(ref WorldSaveData currentSaveData)
+    public void LoadGameData(ref WorldSaveData currentSaveData)
     {
         // Main
         CurrentMissionInfo.Instance.LoadMission(BuildMissionFromSelected());

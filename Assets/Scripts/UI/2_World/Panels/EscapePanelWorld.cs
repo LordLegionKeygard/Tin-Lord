@@ -147,12 +147,14 @@ public class EscapePanelWorld : MonoBehaviour
     private IEnumerator PrepareRestartMission()
     {
         yield return new WaitForSecondsRealtime(1);
-        _worldSaveGame.ResetMissionGameData();
+        _worldSaveGame.ResetMissionJson();
+        CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, CurrentMissionInfo.Instance.GetCurrentLandscape().LoadingScreenSprite);
     }
 
     private IEnumerator PrepareSaveMission()
     {
         yield return new WaitForSecondsRealtime(1);
-        _worldSaveGame.SaveMissionGameData(true);
+        _worldSaveGame.SaveMissionToJson();
+        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, null);
     }
 }

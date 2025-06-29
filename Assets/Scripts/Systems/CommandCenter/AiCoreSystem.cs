@@ -43,7 +43,7 @@ public class AiCoreSystem : MonoBehaviour
 
     private void GameOver()
     {
-        _worldSaveGame.DeleteMissionGameData();
+        _worldSaveGame.DeleteMissionJson();
         _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().DeleteSaveFile();
         LoadMainMenu();
     }

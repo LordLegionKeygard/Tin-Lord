@@ -51,7 +51,8 @@ public class EscapePanelCommandCenter : MonoBehaviour
     private IEnumerator PrepareLoad()
     {
         yield return new WaitForSecondsRealtime(1);
-        _saveGame.SaveGameData(true);
+        _saveGame.SaveDataToJson();
+        CustomEvents.FireLoadScene(SceneEnum.MainMenu, WorldGameInfo.LoadSceneTime, true, null);
 
     }
 }

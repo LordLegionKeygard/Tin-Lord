@@ -19,7 +19,7 @@ public class CommandCenterSaveGame : MonoBehaviour
         _commandCenterSaveGameDataWriter = new CommandCenterSaveGameDataWriter(Application.persistentDataPath);
     }
 
-    public void NewGame(CommandCenterSaveData commandCenterSaveData)
+    public void NewCommandCenterData(CommandCenterSaveData commandCenterSaveData)
     {
         CommandCenterSaveData = new CommandCenterSaveData
         {
@@ -44,22 +44,21 @@ public class CommandCenterSaveGame : MonoBehaviour
 
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 
-        LoadGameData();
+        LoadDataFromJson();
+        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, null);
     }
 
-    public void SaveGameData(bool loadMainMenu)
+    public void SaveDataToJson()
     {
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveLoad.SaveData(ref CommandCenterSaveData);
-        _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
-        if (loadMainMenu) CustomEvents.FireLoadScene(SceneEnum.MainMenu, WorldGameInfo.LoadSceneTime, true, null);
+        _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData); 
     }
 
-    public void LoadGameData()
+    public void LoadDataFromJson()
     {
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveData = _commandCenterSaveGameDataWriter.LoadCommandCenterDataFromJson();
-        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, null);
     }
 
     public void SaveEndMissionData(int memoryFragments, int aiCores, int quants)

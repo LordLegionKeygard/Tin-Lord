@@ -9,7 +9,6 @@ public class CheckSettingsData : MonoBehaviour
     [SerializeField] private BaseResolution _baseResolution;
     [SerializeField] private UniversalRenderPipelineAsset[] _urpAsset;
     [SerializeField] private SaveLoadSettings _saveLoadSettings;
-    private UpscalingFilterSelection _upscalingFilterEnum;
 
     private void Start()
     {

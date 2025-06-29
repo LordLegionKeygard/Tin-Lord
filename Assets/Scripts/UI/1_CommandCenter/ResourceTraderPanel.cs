@@ -53,7 +53,7 @@ public class ResourceTraderPanel : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _quantsSystem.ChangeQuants(-_resources[_currentResource].Price);
         _mainResources.ChangeResource(_resources[_currentResource].ResourceEnum, 1);
-        _commandCenterSaveGame.SaveGameData(false);
+        _commandCenterSaveGame.SaveDataToJson();
         UpdateView();
     }
 }
