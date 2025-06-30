@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RobotBuildingAnimator : MonoBehaviour
 {
     [SerializeField] private CharacterWorkType _characterWorkType;
     private Animator _animator;
+    public int GetRobotWorkTypeView() => (int)_characterWorkType - 1;
 
     private void Awake()
     {

@@ -8,19 +8,20 @@ using Zenject;
 public class RobotBuildingView : MonoBehaviour
 {
     [Inject] private WorldHangarSystem _worldHangarSystem;
-
-    [Header("ModelView")]
     [SerializeField] private GameObject[] _robots;
-  
-    [Header("WorkView")]
-    [SerializeField] private CharacterWorkType _currentCharacterWorkType;
     [SerializeField] private CharacterWorkWrapper[] _characterWorkWrapper;
+    private RobotBuildingAnimator _robotBuildingAnimator;
 
     [Header("Ik")]
     [SerializeField] private ArmIK _leftArmIK;
     [SerializeField] private ArmIK _rightArmIK;
-    [SerializeField] private FullBodyBipedIK _fullBodyBipedIK;
+    private FullBodyBipedIK _fullBodyBipedIK;
 
+    private void Awake()
+    {
+        _robotBuildingAnimator = GetComponent<RobotBuildingAnimator>();
+        _fullBodyBipedIK = GetComponent<FullBodyBipedIK>();
+    }
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class RobotBuildingView : MonoBehaviour
 
     private void SetWorkView()
     {
-        var number = (int)_currentCharacterWorkType - 1;
+        var number = _robotBuildingAnimator.GetRobotWorkTypeView();
         if (_characterWorkWrapper[number].ActiveObject != null) _characterWorkWrapper[number].ActiveObject.SetActive(true);
 
         _leftArmIK.solver.arm.target = _characterWorkWrapper[number].LeftHandTarget;
