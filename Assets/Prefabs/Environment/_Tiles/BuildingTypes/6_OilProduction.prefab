@@ -6056,7 +6056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterBuildingAnimators:
-  - {fileID: 6540871257542951442}
+  - {fileID: 2420849727502774880}
   _armIk: []
   _turnOffObjects:
   - {fileID: 8269893835628169517}
@@ -6067,9 +6067,7 @@ MonoBehaviour:
   - {fileID: 3927556653952616512}
   - {fileID: 31144922322429775}
   _rotateArounds: []
-  _changeViewIfModifier: 0
-  _additionalturnOffObjects: []
-  _additionalturnOnObjects: []
+  _trees: []
   _needSetResourceView: 0
   _resourceViewMeshRenders: []
   _resourceViewActiveGameObjects: []
@@ -15619,6 +15617,16 @@ PrefabInstance:
       propertyPath: _characterWorkWrapper.Array.data[4].RightShoulderRotationWeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7534874079487673151, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _currentCharacterWorkType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534874079487673151, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _characterWorkWrapper.Array.data[4].RightHandTarget
+      value: 
+      objectReference: {fileID: 1187301002641434315}
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: m_RootOrder
@@ -15676,6 +15684,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce293a650c2d95248828f735d9af065f, type: 3}
+--- !u!114 &2420849727502774880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8001761441520664265, guid: ce293a650c2d95248828f735d9af065f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5661976509060402345}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57619e150195ea4cbe6e5d3858589fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2688465277470550099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
@@ -15688,15 +15708,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5661976509060402345}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6540871257542951442 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1465559260884618939, guid: ce293a650c2d95248828f735d9af065f,
-    type: 3}
-  m_PrefabInstance: {fileID: 5661976509060402345}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a57619e150195ea4cbe6e5d3858589fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

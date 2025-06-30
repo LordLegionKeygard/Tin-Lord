@@ -31801,8 +31801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterBuildingAnimators:
-  - {fileID: 138029405412682102}
-  - {fileID: 3639686243451222460}
+  - {fileID: 8842572417455888644}
+  - {fileID: 5323116882776508878}
   _armIk: []
   _turnOffObjects:
   - {fileID: 7654973588916170435}
@@ -31830,9 +31830,7 @@ MonoBehaviour:
   _rotateArounds:
   - {fileID: 2401826903321948010}
   - {fileID: 4409623067141077744}
-  _changeViewIfModifier: 0
-  _additionalturnOffObjects: []
-  _additionalturnOnObjects: []
+  _trees: []
   _needSetResourceView: 0
   _resourceViewMeshRenders: []
   _resourceViewActiveGameObjects: []
@@ -38220,6 +38218,11 @@ PrefabInstance:
       propertyPath: _currentCharacterWorkType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7534874079487673151, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _currentCharacterWorkType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: m_RootOrder
@@ -38277,9 +38280,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce293a650c2d95248828f735d9af065f, type: 3}
---- !u!114 &138029405412682102 stripped
+--- !u!114 &8842572417455888644 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1465559260884618939, guid: ce293a650c2d95248828f735d9af065f,
+  m_CorrespondingSourceObject: {fileID: 8001761441520664265, guid: ce293a650c2d95248828f735d9af065f,
     type: 3}
   m_PrefabInstance: {fileID: 1566363583244249037}
   m_PrefabAsset: {fileID: 0}
@@ -38572,6 +38575,11 @@ PrefabInstance:
       propertyPath: _currentCharacterWorkType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7534874079487673151, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _currentCharacterWorkType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: m_RootOrder
@@ -38644,9 +38652,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce293a650c2d95248828f735d9af065f, type: 3}
---- !u!114 &3639686243451222460 stripped
+--- !u!114 &5323116882776508878 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1465559260884618939, guid: ce293a650c2d95248828f735d9af065f,
+  m_CorrespondingSourceObject: {fileID: 8001761441520664265, guid: ce293a650c2d95248828f735d9af065f,
     type: 3}
   m_PrefabInstance: {fileID: 2797990155179718407}
   m_PrefabAsset: {fileID: 0}

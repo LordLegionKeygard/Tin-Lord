@@ -609,8 +609,8 @@ public class Language : MonoBehaviour
         _text[193, 0] = "";
         _text[193, 1] = "";
 
-        _text[194, 0] = "";
-        _text[194, 1] = "";
+        _text[194, 0] = "unavailable";
+        _text[194, 1] = "недоступно";
 
         _text[195, 0] = "";
         _text[195, 1] = "";

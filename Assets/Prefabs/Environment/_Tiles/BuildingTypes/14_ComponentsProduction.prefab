@@ -11850,7 +11850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterBuildingAnimators:
-  - {fileID: 47378849788174542}
+  - {fileID: 8932066399064674492}
   _armIk: []
   _turnOffObjects:
   - {fileID: 7959113061117640061}
@@ -20921,6 +20921,11 @@ PrefabInstance:
       propertyPath: _currentCharacterWorkType
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7534874079487673151, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _currentCharacterWorkType
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: m_RootOrder
@@ -20978,9 +20983,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce293a650c2d95248828f735d9af065f, type: 3}
---- !u!114 &47378849788174542 stripped
+--- !u!114 &8932066399064674492 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1465559260884618939, guid: ce293a650c2d95248828f735d9af065f,
+  m_CorrespondingSourceObject: {fileID: 8001761441520664265, guid: ce293a650c2d95248828f735d9af065f,
     type: 3}
   m_PrefabInstance: {fileID: 1512897978286894709}
   m_PrefabAsset: {fileID: 0}

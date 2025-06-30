@@ -29968,7 +29968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterBuildingAnimators:
-  - {fileID: 138029405412682102}
+  - {fileID: 8842572417455888644}
   _armIk: []
   _turnOffObjects:
   - {fileID: 6992594455896478535}
@@ -29984,9 +29984,7 @@ MonoBehaviour:
   - {fileID: 5062399532221040011}
   _rotateArounds:
   - {fileID: 2784898376750857055}
-  _changeViewIfModifier: 0
-  _additionalturnOffObjects: []
-  _additionalturnOnObjects: []
+  _trees: []
   _needSetResourceView: 0
   _resourceViewMeshRenders: []
   _resourceViewActiveGameObjects: []
@@ -31150,6 +31148,11 @@ PrefabInstance:
       propertyPath: _currentCharacterWorkType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7534874079487673151, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _currentCharacterWorkType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: m_RootOrder
@@ -31207,9 +31210,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce293a650c2d95248828f735d9af065f, type: 3}
---- !u!114 &138029405412682102 stripped
+--- !u!114 &8842572417455888644 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1465559260884618939, guid: ce293a650c2d95248828f735d9af065f,
+  m_CorrespondingSourceObject: {fileID: 8001761441520664265, guid: ce293a650c2d95248828f735d9af065f,
     type: 3}
   m_PrefabInstance: {fileID: 1566363583244249037}
   m_PrefabAsset: {fileID: 0}

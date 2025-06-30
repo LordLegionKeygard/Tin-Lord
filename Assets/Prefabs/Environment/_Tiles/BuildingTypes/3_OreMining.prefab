@@ -24517,7 +24517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterBuildingAnimators:
-  - {fileID: 8044960880004750864}
+  - {fileID: 1511011048836476514}
   _armIk: []
   _turnOffObjects:
   - {fileID: 7039719893725993554}
@@ -24538,9 +24538,7 @@ MonoBehaviour:
   - {fileID: 3823560647527838267}
   _rotateArounds:
   - {fileID: 6824628892597058321}
-  _changeViewIfModifier: 0
-  _additionalturnOffObjects: []
-  _additionalturnOnObjects: []
+  _trees: []
   _needSetResourceView: 1
   _resourceViewMeshRenders:
   - MeshRenderers:
@@ -27800,6 +27798,11 @@ PrefabInstance:
       propertyPath: _currentCharacterWorkType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7534874079487673151, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _currentCharacterWorkType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: m_RootOrder
@@ -27863,9 +27866,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8931701468584939691}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8044960880004750864 stripped
+--- !u!114 &1511011048836476514 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1465559260884618939, guid: ce293a650c2d95248828f735d9af065f,
+  m_CorrespondingSourceObject: {fileID: 8001761441520664265, guid: ce293a650c2d95248828f735d9af065f,
     type: 3}
   m_PrefabInstance: {fileID: 8931701468584939691}
   m_PrefabAsset: {fileID: 0}

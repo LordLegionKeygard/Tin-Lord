@@ -19,7 +19,7 @@ public class BuildingProductionView : MonoBehaviour
     private bool _lastState = true;
 
     [Header("Main")]
-    [SerializeField] private CharacterBuildingAnimator[] _characterBuildingAnimators;
+    [SerializeField] private RobotBuildingAnimator[] _characterBuildingAnimators;
     [SerializeField] private ArmIK[] _armIk;
     [SerializeField] private GameObject[] _turnOffObjects;
     [SerializeField] private GameObject[] _turnOnObjects;

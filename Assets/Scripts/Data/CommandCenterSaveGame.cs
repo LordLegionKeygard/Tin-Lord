@@ -10,9 +10,7 @@ public class CommandCenterSaveGame : MonoBehaviour
 
     [Header("CurrentCommandCenterData")]
     public CommandCenterSaveData CommandCenterSaveData;
-
-    [Header("Other")]
-    [SerializeField] private ConfigLoaderBuildings _configLoaderBuildings;
+    
 
     private void Awake()
     {
@@ -21,26 +19,7 @@ public class CommandCenterSaveGame : MonoBehaviour
 
     public void NewCommandCenterData(CommandCenterSaveData commandCenterSaveData)
     {
-        CommandCenterSaveData = new CommandCenterSaveData
-        {
-            Quants = 35,
-            AiCores = 6,
-            MainResourcesData = new float[WorldGameInfo.ResourcesCount],
-            PrologueCompleted = false,
-            TutorialCompleted = false,
-            BuildingsLearned = new bool[_configLoaderBuildings.AllBuidingsCount()],
-            OpenedSkills = new bool[WorldGameInfo.SkillsCount],
-        };
-
-        CommandCenterSaveData.BuildingsLearned[0] = true; // Shelter
-        CommandCenterSaveData.BuildingsLearned[20] = true; // WoodManualMining
-        CommandCenterSaveData.BuildingsLearned[32] = true; // StoneManualMining
-        CommandCenterSaveData.BuildingsLearned[75] = true; // Ballista
-
-        CommandCenterSaveData.MainResourcesData[(int)ResourceEnum.Wood] = 100;
-        CommandCenterSaveData.MainResourcesData[(int)ResourceEnum.Stone] = 50;
-
-        CommandCenterSaveData.OpenedSkills[0] = true;
+        CommandCenterSaveData = commandCenterSaveData;
 
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 
@@ -52,7 +31,7 @@ public class CommandCenterSaveGame : MonoBehaviour
     {
         _commandCenterSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         CommandCenterSaveLoad.SaveData(ref CommandCenterSaveData);
-        _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData); 
+        _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
     }
 
     public void LoadDataFromJson()

@@ -16,6 +16,7 @@ public class WorldInstaller : MonoInstaller
     [SerializeField] private WorldQuantSystem _quantSystem;
     [SerializeField] private QuantPickupPool _quantPickupPool;
     [SerializeField] private DeathExplosionPool _deathExplosionPool;
+    [SerializeField] private WorldHangarSystem _worldHangarSystem;
 
     public override void InstallBindings()
     {
@@ -32,5 +33,6 @@ public class WorldInstaller : MonoInstaller
         Container.Bind<WorldQuantSystem>().FromInstance(_quantSystem).AsSingle();
         Container.Bind<QuantPickupPool>().FromInstance(_quantPickupPool).AsSingle();
         Container.Bind<DeathExplosionPool>().FromInstance(_deathExplosionPool).AsSingle();
+        Container.Bind<WorldHangarSystem>().FromInstance(_worldHangarSystem).AsSingle();
     }
 }

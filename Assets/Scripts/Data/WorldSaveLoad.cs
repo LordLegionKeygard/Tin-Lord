@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -48,6 +47,9 @@ public class WorldSaveLoad : MonoBehaviour
     [Header("Quants")]
     [SerializeField] private QuantPickupPool _quantPool;
     [SerializeField] private WorldQuantSystem _worldQuantSystem;
+
+    [Header("Hangar")]
+    [SerializeField] private WorldHangarSystem _worldHangarSystem;
 
     private void Awake()
     {
@@ -166,6 +168,9 @@ public class WorldSaveLoad : MonoBehaviour
 
         //Tutorial
         // if (!_commandCenterSaveGame.CommandCenterSaveData.TutorialCompleted) _tutorialSystem.OpenTutorial(true);
+
+        //Hangar
+        _worldHangarSystem.LoadHangarData(_commandCenterSaveGame.CommandCenterSaveData.HangarCommandCenterData);
 
         CustomEvents.FirePlayRandomLevelMusic();
         CustomEvents.FireDataLoad();
