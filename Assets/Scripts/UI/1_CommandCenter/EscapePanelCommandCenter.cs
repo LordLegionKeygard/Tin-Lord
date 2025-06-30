@@ -52,7 +52,7 @@ public class EscapePanelCommandCenter : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         _saveGame.SaveDataToJson();
-        CustomEvents.FireLoadScene(SceneEnum.MainMenu, WorldGameInfo.LoadSceneTime, true, null);
+        CustomEvents.FireLoadScene(SceneEnum.MainMenu, WorldGameInfo.LoadSceneTime, null);
 
     }
 }

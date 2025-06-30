@@ -24,7 +24,7 @@ public class CommandCenterSaveGame : MonoBehaviour
         _commandCenterSaveGameDataWriter.WriteCommandCenterDataToSaveFile(CommandCenterSaveData);
 
         LoadDataFromJson();
-        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, null);
+        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, null);
     }
 
     public void SaveDataToJson()

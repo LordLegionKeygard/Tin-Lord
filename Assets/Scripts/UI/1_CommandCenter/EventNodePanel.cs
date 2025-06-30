@@ -21,6 +21,7 @@ public class EventNodePanel : MonoBehaviour
     [SerializeField] private Transform _buttonsHolder;
 
     [Header("Systems")]
+    [SerializeField] private ShardsCalculateSystem _shardsCalculateSystem;
     [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private AiCoreSystem _aiCoreSystem;
     [SerializeField] private MainResources _mainResources;
@@ -28,6 +29,11 @@ public class EventNodePanel : MonoBehaviour
 
     private readonly List<(EventReward reward, int amount)> _cachedRewards = new();
     private readonly List<(EventReward reward, int amount)> _pendingRewards = new();
+
+    private int RollAmount(RewardType type, int min, int max) =>
+        type == RewardType.Shard
+            ? _shardsCalculateSystem.GetCalculatedShards()
+            : UnityEngine.Random.Range(min, max + 1);
 
     public void Open(DialogueSequence node, Action onFinished = null)
     {
@@ -50,11 +56,11 @@ public class EventNodePanel : MonoBehaviour
             if (ch.Kind == ChoiceKind.Standard && ch.Standard.Rewards != null && ch.Standard.Rewards.Count > 0)
             {
                 sb.AppendLine();
-                foreach (var r in ch.Standard.Rewards)
+                foreach (var reward in ch.Standard.Rewards)
                 {
-                    int amt = UnityEngine.Random.Range(r.MinAmount, r.MaxAmount);
-                    _cachedRewards.Add((r, amt));
-                    sb.AppendLine(FormatRewardLine(r, amt));
+                    int amount = RollAmount(reward.Type, reward.MinAmount, reward.MaxAmount);
+                    _cachedRewards.Add((reward, amount));
+                    sb.AppendLine(FormatRewardLine(reward, amount));
                 }
                 break;
             }
@@ -63,11 +69,17 @@ public class EventNodePanel : MonoBehaviour
                 sb.AppendLine();
                 var rnd = ch.Random;
                 var type = rnd.PossibleRewards[UnityEngine.Random.Range(0, rnd.PossibleRewards.Count)];
-                int amt = UnityEngine.Random.Range(rnd.MinAmount, rnd.MaxAmount + 1);
+                int amount = RollAmount(type, rnd.MinAmount, rnd.MaxAmount);
 
-                var reward = new EventReward { Type = type };
-                _cachedRewards.Add((reward, amt));
-                sb.AppendLine(FormatRewardLine(reward, amt));
+                var reward = new EventReward
+                {
+                    Type = type,
+                    MinAmount = rnd.MinAmount,
+                    MaxAmount = rnd.MaxAmount
+                };
+
+                _cachedRewards.Add((reward, amount));
+                sb.AppendLine(FormatRewardLine(reward, amount));
                 break;
             }
         }
@@ -109,19 +121,19 @@ public class EventNodePanel : MonoBehaviour
             _pendingRewards.Clear();
             if (rewards != null)
             {
-                foreach (var r in rewards)
+                foreach (var reward in rewards)
                 {
-                    int amount = UnityEngine.Random.Range(r.MinAmount, r.MaxAmount);
-                    _pendingRewards.Add((r, amount));
+                    int amount = RollAmount(reward.Type, reward.MinAmount, reward.MaxAmount);
+                    _pendingRewards.Add((reward, amount));
 
-                    var line = FormatRewardLine(r, amount);
+                    var line = FormatRewardLine(reward, amount);
                     if (!string.IsNullOrEmpty(line)) sb.AppendLine(line);
                 }
             }
 
             _mainText.text = sb.ToString();
 
-            foreach (Transform t in _buttonsHolder) Destroy(t.gameObject);
+            foreach (Transform trans in _buttonsHolder) Destroy(trans.gameObject);
 
             _waitingForContinueAfterChance = true;
 
@@ -133,7 +145,7 @@ public class EventNodePanel : MonoBehaviour
             var toGrant = new List<(EventReward, int)>(_cachedRewards);
             _cachedRewards.Clear();
 
-            foreach (var (r, amt) in toGrant) GrantReward(r, amt);
+            foreach (var (reward, amount) in toGrant) GrantReward(reward, amount);
 
             int next = choice.Random.NextStepIndex;
             if (next < 0)
@@ -159,14 +171,14 @@ public class EventNodePanel : MonoBehaviour
             }
             else if (choice.Standard.Rewards != null)
             {
-                foreach (var r in choice.Standard.Rewards)
+                foreach (var reward in choice.Standard.Rewards)
                 {
-                    int amt = UnityEngine.Random.Range(r.MinAmount, r.MaxAmount);
-                    toGrant.Add((r, amt));
+                    int amount = RollAmount(reward.Type, reward.MinAmount, reward.MaxAmount);
+                    toGrant.Add((reward, amount));
                 }
             }
 
-            foreach (var (r, amt) in toGrant) GrantReward(r, amt);
+            foreach (var (reward, amount) in toGrant) GrantReward(reward, amount);
 
 
             int next = choice.Standard.NextStepIndex;
@@ -308,6 +320,8 @@ public class EventNodePanel : MonoBehaviour
                 amount >= 0
                     ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[176]}: {amount}</color>"
                     : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[176]}: {amount}</color>",
+            RewardType.Shard =>
+                      $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[83]}: {amount}</color>",
             _ => null
         };
     }

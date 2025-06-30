@@ -147,10 +147,10 @@ public class CustomEvents
         OnDestroyMachineProduction?.Invoke();
     }
 
-    public static Action<SceneEnum, float, bool, Sprite> OnLoadScene;
-    public static void FireLoadScene(SceneEnum sceneEnum, float timeInSec, bool isLoadData, Sprite sprite)
+    public static Action<SceneEnum, float, Sprite> OnLoadScene;
+    public static void FireLoadScene(SceneEnum sceneEnum, float timeInSec, Sprite sprite)
     {
-        OnLoadScene?.Invoke(sceneEnum, timeInSec, isLoadData, sprite);
+        OnLoadScene?.Invoke(sceneEnum, timeInSec, sprite);
     }
 
     public static Action<FadeType> OnFade;

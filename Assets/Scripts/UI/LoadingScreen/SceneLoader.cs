@@ -15,15 +15,15 @@ public class SceneLoader : MonoBehaviour
     {
         CustomEvents.OnLoadScene += LoadSceneAsynchronously;
     }
-    private void LoadSceneAsynchronously(SceneEnum sceneEnum, float timeInSec, bool isLoadData, Sprite sprite)
+    private void LoadSceneAsynchronously(SceneEnum sceneEnum, float timeInSec, Sprite sprite)
     {
         _loadingScreenController.ShowLoadingScreen(sprite);
-        if (isLoadData) CheckSaveLoad(sceneEnum);
-        StartCoroutine(LoadScene(sceneEnum, timeInSec, isLoadData));
+        CheckSaveLoad(sceneEnum);
+        StartCoroutine(LoadScene(sceneEnum, timeInSec));
     }
 
 
-    private IEnumerator LoadScene(SceneEnum sceneEnum, float timeInSec, bool isLoadData)
+    private IEnumerator LoadScene(SceneEnum sceneEnum, float timeInSec)
     {
         yield return new WaitForSecondsRealtime(timeInSec);
 
@@ -36,26 +36,25 @@ public class SceneLoader : MonoBehaviour
 
         System.Threading.Tasks.Task task = _loadingScreenController.CheckCurrentScene();
 
-        if (isLoadData)
-        {
-            if (sceneEnum == SceneEnum.CommandCenter) _commandCenterSaveGame.CommandCenterSaveLoad.LoadGameData(ref _commandCenterSaveGame.CommandCenterSaveData);
-            else if (sceneEnum == SceneEnum.World) _worldCenterSaveGame.WorldSaveLoad.LoadGameData(ref _worldCenterSaveGame.CurrentWorldSaveData);
-            else if (sceneEnum == SceneEnum.MainMenu) _hangarSaveGame.HangarSaveLoad.LoadGameData(ref _hangarSaveGame.HangarSaveData);
-            _worldSaveSettings.SaveLoadSettings.SetAllSettingsFromData();
-        }
+        if (sceneEnum == SceneEnum.CommandCenter) _commandCenterSaveGame.CommandCenterSaveLoad.LoadGameData(ref _commandCenterSaveGame.CommandCenterSaveData);
+        else if (sceneEnum == SceneEnum.World) _worldCenterSaveGame.WorldSaveLoad.LoadGameData(ref _worldCenterSaveGame.CurrentWorldSaveData);
+        else if (sceneEnum == SceneEnum.MainMenu) _hangarSaveGame.HangarSaveLoad.LoadGameData(ref _hangarSaveGame.HangarSaveData);
+        _worldSaveSettings.SaveLoadSettings.SetAllSettingsFromData();
     }
 
     private void CheckSaveLoad(SceneEnum sceneEnum)
     {
-        if (sceneEnum == SceneEnum.CommandCenter)
+        switch (sceneEnum)
         {
-            if (_commandCenterSaveGame.CommandCenterSaveLoad == null)
-                _commandCenterSaveGame.CommandCenterSaveLoad = FindObjectOfType<CommandCenterSaveLoad>();
-        }
-        else if (sceneEnum == SceneEnum.World)
-        {
-            if (_worldCenterSaveGame.WorldSaveLoad == null)
-                _worldCenterSaveGame.WorldSaveLoad = FindObjectOfType<WorldSaveLoad>();
+            case SceneEnum.MainMenu:
+                _hangarSaveGame.HangarSaveLoad ??= FindObjectOfType<HangarSaveLoad>();
+                break;
+            case SceneEnum.CommandCenter:
+                _commandCenterSaveGame.CommandCenterSaveLoad ??= FindObjectOfType<CommandCenterSaveLoad>();
+                break;
+            case SceneEnum.World:
+                _worldCenterSaveGame.WorldSaveLoad ??= FindObjectOfType<WorldSaveLoad>();
+                break;
         }
     }
 

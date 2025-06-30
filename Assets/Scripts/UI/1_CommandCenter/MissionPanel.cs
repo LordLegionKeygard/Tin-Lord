@@ -115,7 +115,7 @@ public class MissionPanel : MonoBehaviour
         if (_isContinueMission)
         {
             _worldSaveGame.LoadMissionFromJson();
-            CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, _currentNode.Landscape.LoadingScreenSprite);
+            CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, _currentNode.Landscape.LoadingScreenSprite);
         }
         else
         {

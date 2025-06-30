@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007800213, g: 0.00009621428, b: 0.00011583557,
+  m_IndirectSpecularColor: {r: 0.00007798296, g: 0.00009618195, b: 0.00011581259,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -37215,6 +37215,7 @@ MonoBehaviour:
   _buttonPrefab: {fileID: 568721058014202588, guid: 0ab6d0bad2b5c5644af1843e66320873,
     type: 3}
   _buttonsHolder: {fileID: 1103591706}
+  _shardsCalculateSystem: {fileID: 1795485595}
   _quantsSystem: {fileID: 732658678}
   _aiCoreSystem: {fileID: 1966886381}
   _mainResources: {fileID: 501146945}
@@ -46810,6 +46811,50 @@ MonoBehaviour:
   - {fileID: 1036776558}
   - {fileID: 1385255901}
   _scrollRect: {fileID: 932910977}
+--- !u!1 &1795485593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795485594}
+  - component: {fileID: 1795485595}
+  m_Layer: 0
+  m_Name: ShardsCalculateSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1795485594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795485593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1900720298}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1795485595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795485593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2ebd42d8a73264cb27e93d7a0cf31d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1801400768
 GameObject:
   m_ObjectHideFlags: 0
@@ -50078,6 +50123,7 @@ Transform:
   - {fileID: 1966886380}
   - {fileID: 732658677}
   - {fileID: 501146944}
+  - {fileID: 1795485594}
   - {fileID: 1674251681}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -51457,6 +51503,7 @@ MonoBehaviour:
   _eventPanel: {fileID: 1451985186}
   _endGameDialogue: {fileID: 11400000, guid: e64af431980a7bb44860aefe1d956cac, type: 2}
   _uiPanelsCommandCenter: {fileID: 616848379}
+  _shardsCalculateSystem: {fileID: 1795485595}
 --- !u!1 &1967881617
 GameObject:
   m_ObjectHideFlags: 0
@@ -57307,7 +57354,7 @@ PrefabInstance:
     - target: {fileID: 6126854299509546982, guid: 4da25666f93a2b740ad4e70cf1fbab76,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6126854299509546982, guid: 4da25666f93a2b740ad4e70cf1fbab76,
         type: 3}

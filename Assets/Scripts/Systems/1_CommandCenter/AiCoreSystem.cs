@@ -4,13 +4,15 @@ using Zenject;
 
 public class AiCoreSystem : MonoBehaviour
 {
-    [Inject] private WorldSaveGame _worldSaveGame;
+    [Inject] private HangarSaveGame _hangarSaveGame;
     [Inject] private CommandCenterSaveGame _commandCenterSaveGame;
+    [Inject] private WorldSaveGame _worldSaveGame;
     [SerializeField] private int _aiCore;
     [SerializeField] private CellsView _cellsView;
     [SerializeField] private EventNodePanel _eventPanel;
     [SerializeField] private DialogueSequence _endGameDialogue;
     [SerializeField] private UIPanelsCommandCenter _uiPanelsCommandCenter;
+    [SerializeField] private ShardsCalculateSystem _shardsCalculateSystem;
 
     public int GetAiCores() => _aiCore;
 
@@ -37,12 +39,14 @@ public class AiCoreSystem : MonoBehaviour
 
     private void ShowGameOverPanel()
     {
+        _shardsCalculateSystem.Calculate();
         _eventPanel.Open(_endGameDialogue, GameOver);
         _uiPanelsCommandCenter.EventPanelOpen();
     }
 
     private void GameOver()
     {
+        _hangarSaveGame.SaveEndGameDataToJson(_shardsCalculateSystem.GetCalculatedShards());
         _worldSaveGame.DeleteMissionJson();
         _commandCenterSaveGame.GetCommandCenterSaveGameDataWriter().DeleteSaveFile();
         LoadMainMenu();
@@ -57,7 +61,7 @@ public class AiCoreSystem : MonoBehaviour
     private IEnumerator PrepareLoad()
     {
         yield return new WaitForSecondsRealtime(1);
-        CustomEvents.FireLoadScene(SceneEnum.MainMenu, WorldGameInfo.LoadSceneTime, false, null);
+        CustomEvents.FireLoadScene(SceneEnum.MainMenu, WorldGameInfo.LoadSceneTime, null);
     }
 
 }

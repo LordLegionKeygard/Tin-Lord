@@ -11,6 +11,7 @@ public class CommandCenterSaveData
     public bool TutorialCompleted;
     public SelectedMissionData CurrentMission;
     public SavedMapData Map;
+    public int CompletedMissions;
 }
 
 [System.Serializable]

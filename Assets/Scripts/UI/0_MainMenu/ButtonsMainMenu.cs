@@ -37,7 +37,7 @@ public class ButtonsMainMenu : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         CommandCenterSaveGame.LoadDataFromJson();
-        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, true, null);
+        CustomEvents.FireLoadScene(SceneEnum.CommandCenter, WorldGameInfo.LoadSceneTime, null);
     }
 
     public void SettingsButton()

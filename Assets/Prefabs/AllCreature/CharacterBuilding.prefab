@@ -1245,6 +1245,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3713678819420381424, guid: d7f62e2184866824b9a7df1500df39a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bf682a5083c4a4b468f1211ff09a93b2, type: 2}
     - target: {fileID: 5866666021909216657, guid: d7f62e2184866824b9a7df1500df39a3,
         type: 3}
       propertyPath: m_Controller
@@ -1810,7 +1815,6 @@ MonoBehaviour:
   - {fileID: 1088821203090306846}
   - {fileID: 4950170401056631895}
   - {fileID: 1017984505599672608}
-  _currentCharacterWorkType: 0
   _characterWorkWrapper:
   - CharacterWorkType: 1
     ActiveObject: {fileID: 7676673907254332255}
@@ -1914,7 +1918,6 @@ MonoBehaviour:
     RightWristToPalmAxis: {x: 0, y: 0, z: 0}
   _leftArmIK: {fileID: 8409385431505209940}
   _rightArmIK: {fileID: 3482073938790112886}
-  _fullBodyBipedIK: {fileID: 912630572690412160}
 --- !u!114 &8001761441520664265
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ public class HangarSaveGame : MonoBehaviour
     {
         HangarSaveData = new HangarSaveData
         {
-            Shards = 6,
+            Shards = 0,
             OpenedRobots = new bool[WorldGameInfo.RobotsCount],
         };
 
@@ -60,5 +60,12 @@ public class HangarSaveGame : MonoBehaviour
     {
         _hangarSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         HangarSaveData = _hangarSaveGameDataWriter.LoadHangarDataFromJson();
+    }
+
+    public void SaveEndGameDataToJson(int calculateShards)
+    {
+        _hangarSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
+        HangarSaveData.Shards += calculateShards;
+        _hangarSaveGameDataWriter.WriteHangarDataToSaveFile(HangarSaveData);
     }
 }

@@ -38,7 +38,7 @@ public class WorldSaveGame : MonoBehaviour
 
         _worldGameSaveDataWriter.WriteMissionDataToSaveFile(CurrentWorldSaveData);
         LoadMissionFromJson();
-        CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, true, landscape.LoadingScreenSprite);
+        CustomEvents.FireLoadScene(SceneEnum.World, WorldGameInfo.LoadSceneTime, landscape.LoadingScreenSprite);
     }
 
     public void SaveMissionToJson()

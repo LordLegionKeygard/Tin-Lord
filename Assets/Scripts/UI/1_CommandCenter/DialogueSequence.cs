@@ -103,4 +103,5 @@ public enum RewardType
     Engine = 24,
     ElectricEngine = 25,
     BeamEnergy = 26,
+    Shard = 27, //только для EndGame_Dialogue
 }
