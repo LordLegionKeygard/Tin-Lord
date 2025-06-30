@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HangarSaveGame : MonoBehaviour
@@ -32,6 +30,7 @@ public class HangarSaveGame : MonoBehaviour
         else
         {
             LoadDataFromJson();
+            HangarSaveLoad?.LoadGameData(ref HangarSaveData);
         }
     }
 

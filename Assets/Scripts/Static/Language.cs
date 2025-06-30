@@ -279,11 +279,11 @@ public class Language : MonoBehaviour
         _text[83, 0] = "Shard";
         _text[83, 1] = "Осколок";
 
-        _text[84, 0] = "";
-        _text[84, 1] = "";
+        _text[84, 0] = "Robots";
+        _text[84, 1] = "Роботы";
 
-        _text[85, 0] = "";
-        _text[85, 1] = "";
+        _text[85, 0] = "Drones";
+        _text[85, 1] = "Дроны";
 
         _text[86, 0] = "";
         _text[86, 1] = "";

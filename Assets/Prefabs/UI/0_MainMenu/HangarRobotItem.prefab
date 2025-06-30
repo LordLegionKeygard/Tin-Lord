@@ -417,7 +417,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2140696733319149226}
         m_TargetAssemblyTypeName: HangarRobotItem, Assembly-CSharp
-        m_MethodName: SelectView
+        m_MethodName: SelectButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -442,6 +442,7 @@ MonoBehaviour:
   _hangarSystem: {fileID: 0}
   _hangarRobotInformation: {fileID: 11400000, guid: 4b0198732ca50f640a751e65eb622958,
     type: 2}
+  _shardsView: {fileID: 1940261106}
   _nameText: {fileID: 2017931915142312095}
   _priceText: {fileID: 378107031}
   _icon: {fileID: 2933529273123648842}

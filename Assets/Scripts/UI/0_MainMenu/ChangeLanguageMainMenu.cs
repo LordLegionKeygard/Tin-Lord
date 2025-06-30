@@ -6,6 +6,8 @@ public class ChangeLanguageMainMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] _mainButtonsText;
     [SerializeField] private TextMeshProUGUI _areYouSureText;
     [SerializeField] private TextMeshProUGUI[] _hangarButtonsText;
+    [SerializeField] private TextMeshProUGUI[] _buyTexts;
+    [SerializeField] private TextMeshProUGUI[] _hangarHeaderTexts;
 
     private void Start()
     {
@@ -18,6 +20,14 @@ public class ChangeLanguageMainMenu : MonoBehaviour
 
         _hangarButtonsText[0].text = Language.TextStatic[77];
         _hangarButtonsText[1].text = Language.TextStatic[78];
+
+        foreach (var item in _buyTexts)
+        {
+            item.text = Language.TextStatic[289];
+        }
+
+        _hangarHeaderTexts[0].text = Language.TextStatic[84];
+        _hangarHeaderTexts[1].text = Language.TextStatic[85];
     }
 
 }

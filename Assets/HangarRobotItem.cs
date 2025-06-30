@@ -6,49 +6,52 @@ public class HangarRobotItem : MonoBehaviour
 {
     [SerializeField] private HangarSystem _hangarSystem;
     [SerializeField] private HangarRobotInformation _hangarRobotInformation;
+    private bool _isOpen;
     private bool _isSelect;
-    private bool _isOpen = true;
+    public bool IsOpen() => _isOpen;
     public bool IsSelect() => _isSelect;
+    public HangarRobotInformation GetInfo() => _hangarRobotInformation;
 
     [Header("View")]
+    [SerializeField] private GameObject _shardsView;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _button;
     [SerializeField] private Image _backImage;
 
-    private void Start()
-    {
-        UpdateView();
-    }
-
     public void UpdateView()
     {
-        _nameText.text = Language.TextStatic[_hangarRobotInformation.Name];
+        _shardsView.SetActive(!_isOpen);
+        _icon.enabled = _isOpen;
+        _nameText.text = _isOpen ? Language.TextStatic[_hangarRobotInformation.Name] : "?";
         _icon.sprite = _hangarRobotInformation.RobotSprite;
         _priceText.text = _hangarRobotInformation.Price.ToString();
-    }
 
-    public void SetButtonAndTextColor()
-    {
-        _button.enabled = _isOpen;
         _nameText.color = _isOpen ? _isSelect ? Colors.LightGreen : Colors.GreyEight : Colors.GreyFive;
-        _icon.color = _isOpen ? _isSelect ? Color.white : Colors.GreyEight : Colors.GreyFive;
+        _icon.color = _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
+        _priceText.color = _hangarSystem.EnoughtShards(_hangarRobotInformation.Price) ? Color.white : Colors.WarningYellow;
     }
 
-    public void SelectView()
+    public void SelectButton()
     {
         if (_isSelect) return;
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        _hangarSystem.SelectRobot(_hangarRobotInformation.HangarRobotType);
         SelectToggleState(true);
+        _hangarSystem.SelectRobot(_hangarRobotInformation.HangarRobotType, _isOpen);
     }
 
     public void SelectToggleState(bool state)
     {
         _isSelect = state;
-        SetButtonAndTextColor();
+        UpdateView();
+    }
+
+    public void SetIsOpen(bool state)
+    {
+        _isOpen = state;
+        UpdateView();
     }
 }
