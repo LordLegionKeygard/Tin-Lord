@@ -13,16 +13,19 @@ public class HangarRobotItem : MonoBehaviour
     public HangarRobotInfo GetInfo() => _hangarRobotInformation;
 
     [Header("View")]
-    [SerializeField] private GameObject _shardsView;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private Image _icon;
     [SerializeField] private Button _button;
     [SerializeField] private Image _backImage;
+    [SerializeField] private GameObject _shardsIcon;
+    [SerializeField] private GameObject _openedIcon;
 
     public void UpdateView()
     {
-        _shardsView.SetActive(!_isOpen);
+        _shardsIcon.SetActive(!_isOpen);
+        _priceText.gameObject.SetActive(!_isOpen);
+        _openedIcon.gameObject.SetActive(_isOpen);
         _icon.enabled = _isOpen;
         _nameText.text = _isOpen ? Language.TextStatic[_hangarRobotInformation.Name] : "?";
         _icon.sprite = _hangarRobotInformation.RobotSprite;
