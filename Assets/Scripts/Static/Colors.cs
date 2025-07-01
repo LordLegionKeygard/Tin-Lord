@@ -15,6 +15,9 @@ public class Colors : MonoBehaviour
 
     public static string HexColorWhite = "#FFFFFF";
     public static string HexColorWarningYellow = "#FFA800";
+    public static string HexColorGreen = "#00FF00";
+    public static string HexColorLightGreen = "#40BF00";
+    public static string HexColorRed = "#FF0000";
 
     //MemoryRecovery
     public static readonly Color MemoryOn = new Color(0, 3, 12, 1);

@@ -27,6 +27,38 @@ public class EventNodePanel : MonoBehaviour
     [SerializeField] private MainResources _mainResources;
     [SerializeField] private MapSystem _mapSystem;
 
+    [Header("RewardText")]
+    private static readonly Dictionary<RewardType, int> RewardNameKey = new()
+    {
+        [RewardType.AiCore] = 185,
+        [RewardType.Quants] = 186,
+        [RewardType.Memory] = 175,
+        [RewardType.Wood] = 153,
+        [RewardType.Stone] = 154,
+        [RewardType.IronOre] = 155,
+        [RewardType.CopperOre] = 156,
+        [RewardType.Coal] = 157,
+        [RewardType.Oil] = 158,
+        [RewardType.Water] = 159,
+        [RewardType.Sand] = 160,
+        [RewardType.Electricity] = 161,
+        [RewardType.StoneBlock] = 162,
+        [RewardType.IronIngot] = 163,
+        [RewardType.SteelIngot] = 164,
+        [RewardType.CopperPlate] = 165,
+        [RewardType.Concrete] = 166,
+        [RewardType.Steam] = 167,
+        [RewardType.Glass] = 168,
+        [RewardType.CopperWire] = 169,
+        [RewardType.GearWheel] = 170,
+        [RewardType.ElectronicCircuit] = 171,
+        [RewardType.Processor] = 172,
+        [RewardType.Engine] = 173,
+        [RewardType.ElectricEngine] = 174,
+        [RewardType.BeamEnergy] = 176,
+        [RewardType.Shard] = 83
+    };
+
     private readonly List<(EventReward reward, int amount)> _cachedRewards = new();
     private readonly List<(EventReward reward, int amount)> _pendingRewards = new();
 
@@ -212,118 +244,20 @@ public class EventNodePanel : MonoBehaviour
         Close();
     }
 
+    /// <summary>
+    /// Формирует текст-строку с описанием изменения ресурса.
+    /// </summary>
     private string FormatRewardLine(EventReward reward, int amount)
     {
-        return reward.Type switch
-        {
-            RewardType.AiCore =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[185]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[185]}: {amount}</color>",
-            RewardType.Quants =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[186]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[186]}: {amount}</color>",
-            RewardType.Memory =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[175]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[175]}: {amount}</color>",
-            RewardType.Wood =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[153]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[153]}: {amount}</color>",
-            RewardType.Stone =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[154]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[154]}: {amount}</color>",
-            RewardType.IronOre =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[155]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[155]}: {amount}</color>",
-            RewardType.CopperOre =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[156]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[156]}: {amount}</color>",
-            RewardType.Coal =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[157]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[157]}: {amount}</color>",
-            RewardType.Oil =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[158]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[158]}: {amount}</color>",
-            RewardType.Water =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[159]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[159]}: {amount}</color>",
-            RewardType.Sand =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[160]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[160]}: {amount}</color>",
-            RewardType.Electricity =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[161]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[161]}: {amount}</color>",
-            RewardType.StoneBlock =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[162]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[162]}: {amount}</color>",
-            RewardType.IronIngot =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[163]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[163]}: {amount}</color>",
-            RewardType.SteelIngot =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[164]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[164]}: {amount}</color>",
-            RewardType.CopperPlate =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[165]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[165]}: {amount}</color>",
-            RewardType.Concrete =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[166]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[166]}: {amount}</color>",
-            RewardType.Steam =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[167]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[167]}: {amount}</color>",
-            RewardType.Glass =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[168]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[168]}: {amount}</color>",
-            RewardType.CopperWire =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[169]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[169]}: {amount}</color>",
-            RewardType.GearWheel =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[170]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[170]}: {amount}</color>",
-            RewardType.ElectronicCircuit =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[171]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[171]}: {amount}</color>",
-            RewardType.Processor =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[172]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[172]}: {amount}</color>",
-            RewardType.Engine =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[173]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[173]}: {amount}</color>",
-            RewardType.ElectricEngine =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[174]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[174]}: {amount}</color>",
-            RewardType.BeamEnergy =>
-                amount >= 0
-                    ? $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[176]}: {amount}</color>"
-                    : $"<color=#FF0000>{Language.TextStatic[184]} {Language.TextStatic[176]}: {amount}</color>",
-            RewardType.Shard =>
-                      $"<color=#00FF00>{Language.TextStatic[183]} {Language.TextStatic[83]}: {amount}</color>",
-            _ => null
-        };
+        if (!RewardNameKey.TryGetValue(reward.Type, out int nameKey))
+            return null; // неизвестный тип — ничего не выводим
+
+        bool isPositive = amount >= 0;
+        string color = isPositive ? Colors.HexColorGreen : Colors.HexColorRed;
+        int statusKey = isPositive ? 183 : 184;
+
+        return $"<color={color}>{Language.TextStatic[statusKey]} " +
+               $"{Language.TextStatic[nameKey]}: {amount}</color>";
     }
 
     private void GrantReward(EventReward reward, int amount)

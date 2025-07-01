@@ -108,6 +108,8 @@ public class UIPanelsWorld : MonoBehaviour
         _selectTilePanels[6].SetActive(false);
         _selectTilePanels[7].SetActive(false);
         _selectTilePanels[8].SetActive(false);
+        _selectTilePanels[12].SetActive(false);
+        _selectTilePanels[13].SetActive(false);
     }
 
     public void CloseAllPanels()
@@ -132,8 +134,8 @@ public class UIPanelsWorld : MonoBehaviour
 
     public void InputDestroyButton()
     {
-        if(_selectTilePanel.PanelActive()) _selectTilePanel.DestroyButton();
-        if (_machinePanel.PanelActive())_machinePanel.DestroyMachineButton();
+        if (_selectTilePanel.PanelActive()) _selectTilePanel.DestroyButton();
+        if (_machinePanel.PanelActive()) _machinePanel.DestroyMachineButton();
     }
 }
 
@@ -152,4 +154,6 @@ public enum UIPanelsEnum
     ButtonsPanel = 9,
     BuildingLine = 10,
     DestroyPanel = 11,
+    TurretPanel = 12,
+    TurretPanelLine = 13,
 }

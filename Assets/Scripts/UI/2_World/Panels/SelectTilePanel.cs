@@ -7,7 +7,8 @@ using System.Collections;
 
 public class SelectTilePanel : MonoBehaviour
 {
-    [Inject] private MissionResources _missionResources;
+    [Inject] private readonly WorldHangarSystem _worldHangarSystem;
+    [Inject] private readonly MissionResources _missionResources;
 
     [Header("Panels")]
     [SerializeField] private MachinePanel _machinePanel;
@@ -34,12 +35,21 @@ public class SelectTilePanel : MonoBehaviour
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI _groundTileNameText;
     [SerializeField] private TextMeshProUGUI _buildingNameText;
+    [SerializeField] private TextMeshProUGUI _buildingHealthText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
     [SerializeField] private TextMeshProUGUI _productionModifierText;
     [SerializeField] private TextMeshProUGUI _productionResourceText;
     [SerializeField] private TextMeshProUGUI _resourceForWorkText;
     [SerializeField] private TextMeshProUGUI _groundEcologyText;
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
+
+    [Header("Turret")]
+    [SerializeField] private GameObject _turretPanelObject;
+    [SerializeField] private GameObject _turretPanelLine;
+    [SerializeField] private TextMeshProUGUI _damageText;
+    [SerializeField] private TextMeshProUGUI _attackSpeedText;
+    [SerializeField] private TextMeshProUGUI _attackRadiusText;
+    [SerializeField] private TextMeshProUGUI _rotationSpeedText;
 
     [Header("Other")]
     [SerializeField] private MachineSpawnerSystem _machineSpawnerSystem;
@@ -74,7 +84,7 @@ public class SelectTilePanel : MonoBehaviour
     public void PanelViewToggle(bool state)
     {
         _isOpen = state;
-        
+
         CustomEvents.FireTooltipToggle(false, 0);
         if (state)
         {
@@ -82,7 +92,7 @@ public class SelectTilePanel : MonoBehaviour
         }
         else
         {
-            _objectTransform.DOAnchorPosY(-370, 0.3f).SetUpdate(true);
+            _objectTransform.DOAnchorPosY(-410, 0.3f).SetUpdate(true);
 
             ResetPanels();
             Clear();
@@ -102,20 +112,20 @@ public class SelectTilePanel : MonoBehaviour
 
     public void RefreshInfo()
     {
-        // CustomEvents.FireTooltipToggle(false, 0);
         if (_tileObject == null) return;
 
         var buildingTileObject = _tileObject.BuildingTileObject();
         var buildingTile = buildingTileObject.CurrentBuildingTile();
         var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingGameObject() && !buildingTileObject.IsConstructionNow();
-        var currentBuilding = haveBuildingTile ? buildingTileObject.CurrentBuilding() : null;
+        var building = haveBuildingTile ? buildingTileObject.CurrentBuilding() : null;
 
-        SetTextFields(_tileObject, buildingTile, haveBuildingTile, currentBuilding);
-        SetProductionText(_tileObject, buildingTile, haveBuildingTile, currentBuilding);
+        SetTextFields(_tileObject, buildingTile, haveBuildingTile, building);
+        SetProductionText(_tileObject, buildingTile, haveBuildingTile, building);
         SetWorkResourcesText(_tileObject, buildingTile, haveBuildingTile);
         SetEcologyTexts(_tileObject);
-        _uiPanels.SetRequiredResourcePanelVisibility(haveBuildingTile, currentBuilding);
-        _uiPanels.SetProductionResourcePanelVisibility(haveBuildingTile, currentBuilding);
+        SetTurretPanel(building);
+        _uiPanels.SetRequiredResourcePanelVisibility(haveBuildingTile, building);
+        _uiPanels.SetProductionResourcePanelVisibility(haveBuildingTile, building);
         _uiPanels.SetReceptPanelVisibility(haveBuildingTile, _tileObject.CurrentResourceRecept());
         WorkButtonIconChangeColor();
         GeneralRepairIconChangeColor();
@@ -146,18 +156,19 @@ public class SelectTilePanel : MonoBehaviour
 
     private void GeneralRepairIconChangeColor()
     {
-        _generalRepairButtonIcon.color = _tileObject.IsGeneralRepairSelect() ? Colors.GreySeven : Color.black; 
+        _generalRepairButtonIcon.color = _tileObject.IsGeneralRepairSelect() ? Colors.GreySeven : Color.black;
     }
 
     private void SetTextFields(TileObject tileObject, Tile tile, bool haveBuildingTile, Building building)
     {
+        var buildingFullHealth = haveBuildingTile ? _worldHangarSystem.GetTitanBuildingHealthBonus() > 1 ? $"<color={Colors.HexColorLightGreen}>{tileObject.BuildingHealth().GetMaxHealth()}</color>" : building.BuildingHealth.ToString() : "";
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _buildingNameText.text = haveBuildingTile ? $"{Language.TextStatic[2]}: {building.Name[Language.LanguageNumber]}" : $"{Language.TextStatic[2]}: -";
+        _buildingHealthText.text = haveBuildingTile ? $"{Language.TextStatic[97]}: {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingFullHealth}" : $"{Language.TextStatic[97]}: -";
         _buildingLevelText.text = haveBuildingTile ? $"{Language.TextStatic[3]}: {tileObject.BuildingTileObject().CurrentBuildingLevel()}" : $"{Language.TextStatic[3]}: -";
 
         _productionModifierText.text = haveBuildingTile && tile.IsHaveProductionResources()
-     ? $"{Language.TextStatic[11]}: <color={(tileObject.CurrentModifier() == 0 ? Colors.HexColorWarningYellow : Colors.HexColorWhite)}>x{tileObject.CurrentModifier()}</color>"
-     : $"{Language.TextStatic[11]}: -";
+         ? $"{Language.TextStatic[11]}: <color={(tileObject.CurrentModifier() == 0 ? Colors.HexColorWarningYellow : Colors.HexColorWhite)}>x{tileObject.CurrentModifier()}</color>" : $"{Language.TextStatic[11]}: -";
     }
 
     private void SetProductionText(TileObject tileObject, Tile tile, bool haveBuildingTile, Building buildings)
@@ -258,6 +269,27 @@ public class SelectTilePanel : MonoBehaviour
         _uiPanels.SetButtonsPanelVisibility(workButtonState || buildButtonState || destroyButtonState);
     }
 
+    private void SetTurretPanel(Building building)
+    {
+        if (building == null || building.Damage == 0)
+        {
+            _turretPanelObject.SetActive(false);
+            _turretPanelLine.SetActive(false);
+        }
+        else
+        {
+            var bonus = _worldHangarSystem.GetAimBotDamageBonus();
+            string damageText = bonus != 0 ? $"<color={Colors.HexColorLightGreen}>{building.Damage * bonus}</color>" : building.Damage.ToString();
+            _damageText.text = $"{Language.TextStatic[98]}: {damageText}";
+            _attackSpeedText.text = $"{Language.TextStatic[99]}: {building.AttackSpeed}";
+            _attackRadiusText.text = $"{Language.TextStatic[100]}: {building.AttackRadius}";
+            _rotationSpeedText.text = $"{Language.TextStatic[101]}: {building.RotationSpeed}";
+
+            _turretPanelObject.SetActive(true);
+            _turretPanelLine.SetActive(true);
+        }
+    }
+
     private void CheckBuildingFullRepairFromRobot(int tileId)
     {
         if (_tileObject == null) return;
@@ -307,7 +339,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ToggleGeneralRepairButton()
     {
-        if(!_generalRepairButton.activeInHierarchy || _tileObject == null) return;
+        if (!_generalRepairButton.activeInHierarchy || _tileObject == null) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
         _tileObject.SetGeneralRepairSelect(!_tileObject.IsGeneralRepairSelect());

@@ -6,7 +6,8 @@ using Zenject;
 
 public class MachineItem : MonoBehaviour
 {
-    [Inject] private MissionResources _missionResources;
+    [Inject] private readonly WorldHangarSystem _worldHangarSystem;
+    [Inject] private readonly MissionResources _missionResources;
     [SerializeField] private MachineInformation _macniheInformation;
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private MachineSpawnerSystem _machineSpawnerSystem;
@@ -47,7 +48,7 @@ public class MachineItem : MonoBehaviour
 
     public void UpdateView()
     {
-        _nameText.text = CanRepair() ? Language.TextStatic[4] : _macniheInformation.Name[Language.LanguageNumber];
+        _nameText.text = CanRepair() ? _worldHangarSystem.GetRepairText() : _macniheInformation.Name[Language.LanguageNumber];
         _icon.sprite = _macniheInformation.MachineSprite;
         if (_isSelect)
         {
@@ -99,7 +100,7 @@ public class MachineItem : MonoBehaviour
                 .Select(resource => new ResourceWrapper
                 {
                     ResourceEnum = resource.ResourceEnum,
-                    RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage)
+                    RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage * _worldHangarSystem.GetPatchRepairBonus())
                 })
                 .ToArray();
         }

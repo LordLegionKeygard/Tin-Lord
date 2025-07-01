@@ -6,7 +6,8 @@ using System.Linq;
 
 public class BuildingItem : MonoBehaviour
 {
-    [Inject] private MissionResources _missionResources;
+    [Inject] private readonly WorldHangarSystem _worldHangarSystem;
+    [Inject] private readonly MissionResources _missionResources;
     [SerializeField] private Tile _currentTile;
     public int GetBuildingLevel() => _currentTile.Buildings[_buildingIndex - 1].BuildingLevel;
     private TileObject _currentTileObject;
@@ -49,8 +50,7 @@ public class BuildingItem : MonoBehaviour
     private void UpdateView()
     {
         var building = _currentTile.Buildings[_buildingIndex - 1];
-
-        _nameText.text = _currentBuildingState == BuildingState.Repair ? Language.TextStatic[4] : building.Name[Language.LanguageNumber];
+        _nameText.text = _currentBuildingState == BuildingState.Repair ? _worldHangarSystem.GetRepairText() : building.Name[Language.LanguageNumber];
         _icon.sprite = building.BuildingSprite;
     }
 
@@ -122,19 +122,16 @@ public class BuildingItem : MonoBehaviour
 
         if (_currentBuildingState == BuildingState.Repair)
         {
-            // Получаем здоровье здания
             var buildingHealth = _currentTileObject.BuildingHealth();
             float healthPercentage = (float)(buildingHealth.GetMaxHealth() - buildingHealth.GetCurrentHealth()) / buildingHealth.GetMaxHealth();
 
-            // Пропорционально рассчитываем ресурсы для ремонта
             return building.ResourcesForBuild.Select(resource => new ResourceWrapper
             {
                 ResourceEnum = resource.ResourceEnum,
-                RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage)
+                RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage * _worldHangarSystem.GetPatchRepairBonus())
             }).ToArray();
         }
 
-        // Возвращаем ресурсы для строительства
         return building.ResourcesForBuild;
     }
 

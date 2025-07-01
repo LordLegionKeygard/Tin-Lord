@@ -4,6 +4,7 @@ using Zenject;
 
 public class BuildingHealth : BaseHealth
 {
+    [Inject] private readonly WorldHangarSystem _worldHangarSystem;
     [Inject] private readonly DiContainer _diContainer;
     [Inject] private readonly AllSkills _allSkills;
     [Inject] private readonly TilesSystem _tilesSystem;
@@ -75,7 +76,7 @@ public class BuildingHealth : BaseHealth
     {
         _isDeath = false;
         _isConstructionNow = isConstruction;
-        _maxHealth = building.BuildingHealth;
+        _maxHealth = (int)(building.BuildingHealth * _worldHangarSystem.GetTitanBuildingHealthBonus());
         _currentHealth = _isConstructionNow ? 1 : _maxHealth;
 
         CreateHealthSlider();
@@ -86,7 +87,7 @@ public class BuildingHealth : BaseHealth
     public void SetUpgradeBuildingHealth(Building building, bool isConstruction)
     {
         _isConstructionNow = isConstruction;
-        _maxHealth = building.BuildingHealth;
+        _maxHealth = (int)(building.BuildingHealth * _worldHangarSystem.GetTitanBuildingHealthBonus());
         _healthSlider.SetupMaxHealth(_maxHealth);
         UpdateSlider();
     }
@@ -94,7 +95,7 @@ public class BuildingHealth : BaseHealth
     public void LoadBuildingHealth(Building building, float currentHealth, bool isConstruction)
     {
         _isConstructionNow = isConstruction;
-        _maxHealth = building.BuildingHealth;
+        _maxHealth = (int)(building.BuildingHealth * _worldHangarSystem.GetTitanBuildingHealthBonus());
         _currentHealth = currentHealth;
         CreateHealthSlider();
         SetBuildingSkillView();
