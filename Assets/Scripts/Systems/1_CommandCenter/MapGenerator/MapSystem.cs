@@ -149,7 +149,6 @@ public class MapSystem : MonoBehaviour
                 }
             case NodeType.ResourceTrader:
             case NodeType.SkillTrader:
-            case NodeType.ModuleTrader:
                 {
                     var trader = _generator.GetGeneratedNodes()[nodeIndex].nodeData as BaseTraderNode;
                     OpenTrader(trader, nodeIndex);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a4ec87069285c4a871e5f6ccad726c, type: 3}
   m_Name: ResourceTraderNode
   m_EditorClassIdentifier: 
-  NodeType: 7
+  NodeType: 3
   Icon: {fileID: 21300000, guid: c156b99ce93e7e44fa8d065a953769fd, type: 3}
   IconColor: {r: 1, g: 1, b: 1, a: 1}
   IconWidth: 80
@@ -27,3 +27,4 @@ MonoBehaviour:
     LightRotation: {x: 0, y: 0, z: 0}
     Temperature: 0
   Dialogue: {fileID: 11400000, guid: f26ee13992868584b9861c844cb618ac, type: 2}
+  TraderKind: 0

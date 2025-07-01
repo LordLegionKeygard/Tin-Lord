@@ -414,12 +414,10 @@ public enum NodeType
     Start = 0,
     Mission = 1,
     Event = 2,
-    ModuleTrader = 3,
+    ResourceTrader = 3,
     SkillTrader = 4,
     Boss = 5,
     RewardEvent = 6,
-    ResourceTrader = 7,
-
 }
 
 public class NodeInstance
