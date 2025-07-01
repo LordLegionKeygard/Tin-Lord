@@ -24,6 +24,9 @@ public class LearnBuildingItem : MonoBehaviour
     [SerializeField] private Button _button;
     [SerializeField] private MainResources _mainResources;
     private bool _isLearn;
+
+
+    [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
     public bool IsLearn() => _isLearn;
     public Building GetBuilding() => _building;
     private bool _resourcesEnough;
@@ -38,9 +41,11 @@ public class LearnBuildingItem : MonoBehaviour
     {
         _isLearn = state;
         RefreshView();
+
+        if (_isLearn) _buildingsLearnPanel.RegisterBuilding(_building);
     }
 
-    private void RefreshView()
+    public void RefreshView()
     {
         var canLearn = _previousLearnBuildingItem == null || _previousLearnBuildingItem.IsLearn();
 
@@ -70,6 +75,7 @@ public class LearnBuildingItem : MonoBehaviour
         _isLearn = true;
         RefreshView();
 
+        _buildingsLearnPanel.RegisterBuilding(_building);
         CommandCenterSaveGame.SaveDataToJson();
         CustomEvents.FireLearnBuilding();
     }

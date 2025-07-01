@@ -39,6 +39,8 @@ public class MainResources : MonoBehaviour
         var resources = _resourcesWrapper[(int)resourceEnum];
         resources.Amount = (float)Math.Round(resources.Amount + amount, 1, MidpointRounding.AwayFromZero);
         resources.Text.text = resources.Amount.ToString("0.0");
+
+        if (resourceEnum == ResourceEnum.DataFragment) UpdateDataFragmentText();
     }
 
     private void UpdateAllTexts()
@@ -48,6 +50,11 @@ public class MainResources : MonoBehaviour
             _resourcesWrapper[i].Text.text = _resourcesWrapper[i].Amount.ToString("0.0");
         }
 
+        UpdateDataFragmentText();
+    }
+
+    public void UpdateDataFragmentText()
+    {
         _memoryFragmentsText.text = $"{Language.TextStatic[175]}: {_resourcesWrapper[(int)ResourceEnum.DataFragment].Amount}";
     }
 

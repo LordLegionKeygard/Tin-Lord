@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class LearnBuildingInfoPanel : MonoBehaviour
 {
+    [SerializeField] private Tile[] _allBuildingTypes;
+    [SerializeField] private BuildingsLearnPanel _learnPanel;
     [SerializeField] private PanelDoMoveY _panelDoMoveY;
     private LearnBuildingItem _currentLearnBuildingItem;
 
@@ -47,6 +49,9 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _attackRadiusText;
     [SerializeField] private TextMeshProUGUI _rotationSpeedText;
 
+    [Header("BlockReason")]
+    [SerializeField] private GameObject _blockReasonPanelObject;
+    [SerializeField] private TextMeshProUGUI _blockReasonText;
 
     [Header("Buttons")]
     [SerializeField] private Button _learnButton;
@@ -169,10 +174,28 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     private void SetButtonPanel()
     {
-        _buttonsPanelObject.SetActive(!_currentLearnBuildingItem.IsLearn());
+        ResourceEnum missing;
+        bool depsOk = _learnPanel.TryGetBlockingResource(_currentLearnBuildingItem.GetBuilding(), out missing);
 
+        _buttonsPanelObject.SetActive(!_currentLearnBuildingItem.IsLearn() && depsOk);
         _learnButton.interactable = _currentLearnBuildingItem.IsResourcesEnough();
+
+        if (depsOk)
+        {
+            BlockReasonToggle(false);
+        }
+        else
+        {
+            BlockReasonToggle(true);
+            _blockReasonText.text = GetBlockReasonText(missing);
+        }
     }
+
+    private void BlockReasonToggle(bool state)
+    {
+        _blockReasonPanelObject.SetActive(state);
+    }
+
 
     public void ChangeResourceProduction(int resourceNumber)
     {
@@ -216,7 +239,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
         for (int i = 0; i < building.ResourcesForWork.Length; i++)
         {
-            if(building.ResourcesForWork[i].ResourceForWork == resource)
+            if (building.ResourcesForWork[i].ResourceForWork == resource)
             {
                 _resourceForWorkAmount = building.ResourcesForWork[i].ResourcesForWorkAmount;
             }
@@ -224,5 +247,41 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
         _resourceForWorkPanel.UpdateButtonsView(building, resource.ResourceEnum);
         _resourceForWorkText.text = $"{Language.TextStatic[14]}: {Language.TextStatic[resource.NameNumber]} {_resourceForWorkAmount}";
+    }
+
+    private string GetBlockReasonText(ResourceEnum res)
+    {
+        // Проходим по всем типам зданий по порядку (порядок открытия)
+        for (int i = 0; i < _allBuildingTypes.Length; i++)
+        {
+            var tile = _allBuildingTypes[i];
+            if (tile == null || tile.Buildings == null) continue;
+
+            // Внутри типа — по всем зданиям
+            for (int j = 0; j < tile.Buildings.Length; j++)
+            {
+                var b = tile.Buildings[j];
+                if (b == null || b.ResourcesProduction == null) continue;
+
+                // Проверяем, какие ресурсы здание производит
+                foreach (var prod in b.ResourcesProduction)
+                {
+                    if (prod == null || prod.ProductionResource == null) continue;
+
+                    if (prod.ProductionResource.ResourceEnum == res)
+                    {
+                        // Нашли первое здание-производитель ↴ формируем текст
+                        string needOpen = Language.TextStatic[43]; // "Вам нужно открыть"
+                        string inText = Language.TextStatic[75]; // "в"
+                        string buildingName = b.Name[Language.LanguageNumber];
+                        string tileName = tile.Name[Language.LanguageNumber];
+
+                        return $"{needOpen} \"{buildingName}\" {inText} \"{tileName}\"";
+                    }
+                }
+            }
+        }
+
+        return "Необходимо неизвестное здание";   // это явная ошибка
     }
 }

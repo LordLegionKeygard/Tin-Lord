@@ -8,7 +8,7 @@ public class Resource : ScriptableObject
     public ResourceEnum ResourceEnum;
     public ResourceType ResourceType;
     public int Price;
-    
+
     [Header("TextInfo")]
     public int NameNumber;
 }

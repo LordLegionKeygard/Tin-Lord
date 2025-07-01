@@ -156,8 +156,8 @@ public class Language : MonoBehaviour
         _text[42, 0] = "Survive {0} days";
         _text[42, 1] = "Выжить {0} дней";
 
-        _text[43, 0] = "";
-        _text[43, 1] = "";
+        _text[43, 0] = "You need to open";
+        _text[43, 1] = "Вам нужно открыть";
 
         _text[44, 0] = "Escape";
         _text[44, 1] = "Сбежать";
@@ -252,8 +252,8 @@ public class Language : MonoBehaviour
         _text[74, 0] = "But the goal remains the same: to find a habitable planet.";
         _text[74, 1] = "Но цель осталась прежней: найти пригодную для жизни планету.";
 
-        _text[75, 0] = "";
-        _text[75, 1] = "";
+        _text[75, 0] = "in";
+        _text[75, 1] = "в";
 
         _text[76, 0] = "";
         _text[76, 1] = "";
