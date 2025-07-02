@@ -5,12 +5,12 @@ using UnityEngine.UI;
 public class HangarRobotItem : MonoBehaviour
 {
     [SerializeField] private HangarSystem _hangarSystem;
-    [SerializeField] private HangarRobotInfo _hangarRobotInformation;
+    [SerializeField] private HangarRobotInfo _hangarRobotInfo;
     private bool _isOpen;
     private bool _isSelect;
     public bool IsOpen() => _isOpen;
     public bool IsSelect() => _isSelect;
-    public HangarRobotInfo GetInfo() => _hangarRobotInformation;
+    public HangarRobotInfo GetInfo() => _hangarRobotInfo;
 
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _nameText;
@@ -27,14 +27,14 @@ public class HangarRobotItem : MonoBehaviour
         _priceText.gameObject.SetActive(!_isOpen);
         _openedIcon.gameObject.SetActive(_isOpen);
         _icon.enabled = _isOpen;
-        _nameText.text = _isOpen ? Language.TextStatic[_hangarRobotInformation.Name] : "?";
-        _icon.sprite = _hangarRobotInformation.RobotSprite;
-        _priceText.text = _hangarRobotInformation.Price.ToString();
+        _nameText.text = _isOpen ? Language.TextStatic[_hangarRobotInfo.Name] : "?";
+        _icon.sprite = _hangarRobotInfo.RobotSprite;
+        _priceText.text = _hangarRobotInfo.Price.ToString();
 
         _nameText.color = _isOpen ? _isSelect ? Colors.LightGreen : Colors.GreyEight : Colors.GreyFive;
         _icon.color = _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
-        _priceText.color = _hangarSystem.EnoughtShards(_hangarRobotInformation.Price) ? Color.white : Colors.WarningYellow;
+        _priceText.color = _hangarSystem.EnoughtShards(_hangarRobotInfo.Price) ? Color.white : Colors.WarningYellow;
     }
 
     public void SelectButton()
@@ -43,7 +43,7 @@ public class HangarRobotItem : MonoBehaviour
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         SelectToggleState(true);
-        _hangarSystem.SelectRobot(_hangarRobotInformation.HangarRobotType, _isOpen);
+        _hangarSystem.SelectRobot(_hangarRobotInfo.HangarRobotType, _isOpen);
     }
 
     public void SelectToggleState(bool state)

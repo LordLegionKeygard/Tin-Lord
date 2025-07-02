@@ -591,11 +591,11 @@ public class Language : MonoBehaviour
         _text[187, 0] = "Quants received:";
         _text[187, 1] = "Получено квантов";
 
-        _text[188, 0] = "";
-        _text[188, 1] = "";
+        _text[188, 0] = "Scout";
+        _text[188, 1] = "Разведчик";
 
-        _text[189, 0] = "";
-        _text[189, 1] = "";
+        _text[189, 0] = "Engineer";
+        _text[189, 1] = "Инжинер";
 
         _text[190, 0] = "Aim Bot";
         _text[190, 1] = "Аим Бот";
@@ -606,23 +606,23 @@ public class Language : MonoBehaviour
         _text[192, 0] = "Titan";
         _text[192, 1] = "Титан";
 
-        _text[193, 0] = "";
-        _text[193, 1] = "";
+        _text[193, 0] = "Functional";
+        _text[193, 1] = "Функционал";
 
         _text[194, 0] = "unavailable";
         _text[194, 1] = "недоступно";
 
-        _text[195, 0] = "";
-        _text[195, 1] = "";
+        _text[195, 0] = "explores the surrounding area in search of resources";
+        _text[195, 1] = "исследует окрестности в поисках ресурсов";
 
-        _text[196, 0] = "";
-        _text[196, 1] = "";
+        _text[196, 0] = "repairs the specified buildings";
+        _text[196, 1] = "ремонтирует указанные здания";
 
-        _text[197, 0] = "";
-        _text[197, 1] = "";
+        _text[197, 0] = "attacks enemy creatures";
+        _text[197, 1] = "атакует вражеских существ";
 
-        _text[198, 0] = "";
-        _text[198, 1] = "";
+        _text[198, 0] = "Combat";
+        _text[198, 1] = "Боевой";
 
         _text[199, 0] = "";
         _text[199, 1] = "";

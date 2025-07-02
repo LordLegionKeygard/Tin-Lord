@@ -101,6 +101,7 @@ public class WorldGameInfo
 
     [Header("Hangar")]
     public const int RobotsCount = 3;
+    public const int DronesCount = 3;
     public const int PatchPassiveAbility = 20;
     public const int TitanPassiveAbility = 15;
     public const int AimBotPassiveAbility = 20;

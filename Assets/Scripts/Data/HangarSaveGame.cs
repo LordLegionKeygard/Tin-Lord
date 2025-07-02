@@ -40,6 +40,7 @@ public class HangarSaveGame : MonoBehaviour
         {
             Shards = 0,
             OpenedRobots = new bool[WorldGameInfo.RobotsCount],
+            OpenedDrones = new bool[WorldGameInfo.DronesCount],
         };
 
         HangarSaveData.OpenedRobots[0] = true; // Patch

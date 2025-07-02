@@ -27,4 +27,5 @@ public class SelectedMissionData
 public class HangarCommandCenterData
 {
     public int Robot;
+    public int Drone;
 }
