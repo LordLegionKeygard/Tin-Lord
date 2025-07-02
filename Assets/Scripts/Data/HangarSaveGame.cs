@@ -41,9 +41,11 @@ public class HangarSaveGame : MonoBehaviour
             Shards = 0,
             OpenedRobots = new bool[WorldGameInfo.RobotsCount],
             OpenedDrones = new bool[WorldGameInfo.DronesCount],
+            OpenedCrates = new bool[WorldGameInfo.CratesCount],
         };
 
         HangarSaveData.OpenedRobots[0] = true; // Patch
+        HangarSaveData.OpenedCrates[0] = true; // Base Create
 
         _hangarSaveGameDataWriter.WriteHangarDataToSaveFile(HangarSaveData);
 

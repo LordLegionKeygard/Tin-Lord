@@ -16,10 +16,14 @@ public class HangarRobotItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private Image _icon;
-    [SerializeField] private Button _button;
-    [SerializeField] private Image _backImage;
     [SerializeField] private GameObject _shardsIcon;
     [SerializeField] private GameObject _openedIcon;
+    private Image _backImage;
+
+    private void Awake()
+    {
+        _backImage = GetComponent<Image>();
+    }
 
     public void UpdateView()
     {

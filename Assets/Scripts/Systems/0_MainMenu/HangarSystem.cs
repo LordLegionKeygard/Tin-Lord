@@ -41,6 +41,14 @@ public class HangarSystem : MonoBehaviour
     [SerializeField] private int _currentDrone = -1;
     [SerializeField] private int _currentSelectDrone = -1;
 
+    [Header("Drone")]
+    [SerializeField] private GameObject _buyCrateButtonObject;
+    [SerializeField] HangarCrateItem[] _hangarCrateItems;
+    [SerializeField] private GameObject[] _crateModels;
+    [SerializeField] private ResourcesViewCommandCenter _resourcesViewCommandCenterview;
+    [SerializeField] private int _currentCrate = -1;
+    [SerializeField] private int _currentSelectCrate = -1;
+
 
     public bool EnoughtShards(int price) => _shardsSystem.GetShards() >= price;
     private bool HaveSaveData() => CommandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
@@ -56,6 +64,11 @@ public class HangarSystem : MonoBehaviour
         for (int i = 0; i < _hangarDroneItems.Length; i++)
         {
             _hangarDroneItems[i].SetIsOpen(hangarSaveData.OpenedDrones[i]);
+        }
+
+        for (int i = 0; i < _hangarCrateItems.Length; i++)
+        {
+            _hangarCrateItems[i].SetIsOpen(hangarSaveData.OpenedCrates[i]);
         }
     }
 
@@ -83,9 +96,22 @@ public class HangarSystem : MonoBehaviour
         return openedDrones;
     }
 
+    public bool[] GetOpenedCrates()
+    {
+        var openedCrates = new bool[_hangarCrateItems.Length];
+
+        for (int i = 0; i < _hangarCrateItems.Length; i++)
+        {
+            openedCrates[i] = _hangarCrateItems[i].IsOpen();
+        }
+
+        return openedCrates;
+    }
+
     public void OpenHangar()
     {
         if (_currentRobot == -1) SelectRobot(HangarRobotType.Patch, true);
+        if (_currentCrate == -1) SelectCrate(HangarCrateType.BaseCrate, true);
 
         _cameraAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
         _manipulatorAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
@@ -208,6 +234,31 @@ public class HangarSystem : MonoBehaviour
         }
     }
 
+    public void SelectCrate(HangarCrateType crateType, bool isOpen)
+    {
+        for (int i = 0; i < _hangarCrateItems.Length; i++)
+        {
+            _hangarCrateItems[i].SelectToggleState(false);
+        }
+
+        _hangarCrateItems[(int)crateType].SelectToggleState(true);
+        _buyCrateButtonObject.SetActive(!isOpen);
+
+        _resourcesViewCommandCenterview.SetResourcesView(_hangarCrateItems[(int)crateType].GetInfo().ResourceWrapper);
+
+        _currentSelectCrate = (int)crateType;
+        _currentCrate = (int)crateType;
+
+        if (isOpen)
+        {
+            // foreach (var item in _crateModels)
+            // {
+            //     item.SetActive(false);
+            // }
+            // _crateModels[(int)crateType].SetActive(true);
+        }
+    }
+
     public void BuyRobot()
     {
         var robotInfo = _hangarRobotItems[_currentSelectRobot].GetInfo();
@@ -242,11 +293,31 @@ public class HangarSystem : MonoBehaviour
         }
     }
 
+    public void BuyCrate()
+    {
+        var crateInfo = _hangarCrateItems[_currentSelectCrate].GetInfo();
+        if (EnoughtShards(crateInfo.Price))
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.LearnBuilding], transform.position);
+            _shardsSystem.ChangeShards(-crateInfo.Price);
+            _hangarCrateItems[_currentSelectCrate].SetIsOpen(true);
+            SelectCrate(crateInfo.HangarCrateType, true);
+            _hangarSaveGame.SaveDataToJson();
+        }
+        else
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+        }
+    }
+
     public void UpdateLaunchButtonActive()
     {
-        var robotOpened = _hangarRobotItems[_currentRobot].IsOpen();
+        if (_currentCrate == -1 || _currentRobot == -1) return;
 
-        _launchButton.SetActive(robotOpened);
+        var robotOpened = _hangarRobotItems[_currentRobot].IsOpen();
+        var crateOpened = _hangarCrateItems[_currentCrate].IsOpen();
+
+        _launchButton.SetActive(robotOpened && crateOpened);
     }
 
     public void LaunchButton()
@@ -265,7 +336,6 @@ public class HangarSystem : MonoBehaviour
             CustomEvents.FireFade(FadeType.StartFade);
             StartCoroutine(nameof(StartNewGameCoroutine));
         }
-
     }
 
     public void AreYouSureYes()
@@ -310,6 +380,12 @@ public class HangarSystem : MonoBehaviour
         data.HangarCommandCenterData.Robot = _currentRobot;
         data.HangarCommandCenterData.Drone = _currentDrone;
 
+        foreach (var wrapper in _hangarCrateItems[_currentCrate].GetInfo().ResourceWrapper)
+        {
+            int index = (int)wrapper.ResourceEnum;
+            data.MainResourcesData[index] = wrapper.RecourceAmount;
+        }
+
         data.BuildingsLearned[20] = true; // WoodManualMining
         data.BuildingsLearned[32] = true; // StoneManualMining
         data.BuildingsLearned[75] = true; // Ballista
@@ -318,11 +394,7 @@ public class HangarSystem : MonoBehaviour
         data.BuildingsLearned[32] = true; // StoneManualMining
         data.BuildingsLearned[75] = true; // Ballista
 
-        data.MainResourcesData[(int)ResourceEnum.Wood] = 100;
-        data.MainResourcesData[(int)ResourceEnum.Stone] = 50;
-
         data.OpenedSkills[0] = true;
-
 
         WorldSaveGame.DeleteMissionJson();
         CommandCenterSaveGame.NewCommandCenterData(data);
