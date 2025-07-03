@@ -46,7 +46,7 @@ public class ResourceTypeTooltipListener : MonoBehaviour, IPointerEnterHandler, 
         { "19_Processor_Icon", 172 },
         { "20_Engine_Icon", 173 },
         { "21_ElectricEngine_Icon", 174 },
-        { "22_MemoryFragment", 175 },
+        { "22_DataFragment", 175 },
         { "23_BeamEnergy", 176 }
     };
 }

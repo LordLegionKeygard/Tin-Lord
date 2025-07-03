@@ -10,6 +10,7 @@ public class HangarSystem : MonoBehaviour
     [Inject] readonly CommandCenterSaveGame CommandCenterSaveGame;
     [Inject] private readonly HangarSaveGame _hangarSaveGame;
 
+    [SerializeField] private Building[] _learnedOnStartBuildings;
     [SerializeField] private Animator _cameraAnimator;
     [SerializeField] private Animator _manipulatorAnimator;
     [SerializeField] private PanelDoMoveX _hangarPanelDoMoveX;
@@ -386,9 +387,11 @@ public class HangarSystem : MonoBehaviour
             data.MainResourcesData[index] = wrapper.RecourceAmount;
         }
 
-        data.BuildingsLearned[20] = true; // WoodManualMining
-        data.BuildingsLearned[32] = true; // StoneManualMining
-        data.BuildingsLearned[75] = true; // Ballista
+        for (int i = 0; i < _learnedOnStartBuildings.Length; i++)
+        {
+            data.BuildingsLearned[_learnedOnStartBuildings[i].Id] = true;
+        }
+
         data.BuildingsLearned[0] = true;  // Shelter
         data.BuildingsLearned[20] = true; // WoodManualMining
         data.BuildingsLearned[32] = true; // StoneManualMining

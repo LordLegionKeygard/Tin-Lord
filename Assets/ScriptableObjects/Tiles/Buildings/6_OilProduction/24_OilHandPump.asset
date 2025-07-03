@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 20_ManualMining
+  m_Name: 24_OilHandPump
   m_EditorClassIdentifier: 
   Name:
-  - Manual Mining
-  - "\u0420\u0443\u0447\u043D\u0430\u044F \u0414\u043E\u0431\u044B\u0447\u0430"
-  BuildingSprite: {fileID: 21300000, guid: dcdaf1981a5213942a977854d8a79623, type: 3}
-  Id: 20
+  - Hand Pump
+  - "\u0420\u0443\u0447\u043D\u043E\u0439 \u041D\u0430\u0441\u043E\u0441"
+  BuildingSprite: {fileID: 21300000, guid: 79b68068ee7b91145a36736575d04f54, type: 3}
+  Id: 24
   BuildingLevel: 1
   RequiredBaseLevel: 1
   BuildingEcology: -2
@@ -25,18 +25,16 @@ MonoBehaviour:
   Price: 50
   CanRotateBuilding: 1
   ResourcesForBuild:
-  - ResourceEnum: 0
-    RecourceAmount: 10
-  - ResourceEnum: 1
+  - ResourceEnum: 10
     RecourceAmount: 10
   ResourcesForWork: []
   ResourcesProduction:
-  - ProductionResource: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046,
+  - ProductionResource: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7,
       type: 2}
     ResourceRecept: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
     type: 3}
-  ConstructionPrefab: {fileID: 8867441897128899051, guid: d6ab15ef3bd9c024c8a7c22c38231627,
+  ConstructionPrefab: {fileID: 3300443466728206267, guid: 7e083748747307c4db83530e15859146,
     type: 3}
   Damage: 0
   AttackSpeed: 0
@@ -44,7 +42,7 @@ MonoBehaviour:
   RotationSpeed: 0
   KnockbackPoints: 0
   BuildingEcologyPurifier: 0
-  RandomRange: 2.5
+  RandomRange: 0.4
   IsChangePosition: 1
   IsChangeRotation: 1
   IsFixed90Rotation: 0

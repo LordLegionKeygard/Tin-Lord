@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 18_SteamSawmill
+  m_Name: 14_OreSteamPoweredDrill
   m_EditorClassIdentifier: 
   Name:
-  - Steam Sawmill
-  - "\u041F\u0430\u0440\u043E\u0432\u0430\u044F \u041B\u0435\u0441\u043E\u043F\u0438\u043B\u043A\u0430"
-  BuildingSprite: {fileID: 21300000, guid: 97b6e3d4280bc5d4baca5a35c3ead666, type: 3}
-  Id: 18
+  - Steam-Powered Drill
+  - "\u041F\u0430\u0440\u043E\u0432\u043E\u0439 \u0411\u0443\u0440"
+  BuildingSprite: {fileID: 21300000, guid: b20ac9d5d8ccf7a44abd92fc4a4dfb71, type: 3}
+  Id: 14
   BuildingLevel: 3
   RequiredBaseLevel: 2
   BuildingEcology: -4
@@ -26,19 +26,24 @@ MonoBehaviour:
   CanRotateBuilding: 1
   ResourcesForBuild:
   - ResourceEnum: 10
-    RecourceAmount: 20
+    RecourceAmount: 15
   - ResourceEnum: 12
     RecourceAmount: 10
+  - ResourceEnum: 17
+    RecourceAmount: 1
   ResourcesForWork:
   - ResourceForWork: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098, type: 2}
     ResourcesForWorkAmount: 0.2
   ResourcesProduction:
-  - ProductionResource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746,
+  - ProductionResource: {fileID: 11400000, guid: bfa570f1828818e49a04733c679a441d,
+      type: 2}
+    ResourceRecept: []
+  - ProductionResource: {fileID: 11400000, guid: 2538275dafe458f46a01eee4a20d4818,
       type: 2}
     ResourceRecept: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
     type: 3}
-  ConstructionPrefab: {fileID: 4739125807833991273, guid: 7e2eac019e7b37c4badd2804e98c432c,
+  ConstructionPrefab: {fileID: 8736465415386266090, guid: cceb43aa4abc40a45a836540f07d2cf6,
     type: 3}
   Damage: 0
   AttackSpeed: 0

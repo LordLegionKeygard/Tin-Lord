@@ -10,37 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 10_SteamCoalRig
+  m_Name: 30_StoneSteamPoweredDrill
   m_EditorClassIdentifier: 
   Name:
-  - Steam Rig
-  - "\u041F\u0430\u0440\u043E\u0432\u0430\u044F \u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
-  BuildingSprite: {fileID: 21300000, guid: 2e1fa000418e0554a885d4e1bc8b823f, type: 3}
-  Id: 10
+  - Steam-Powered Drill
+  - "\u041F\u0430\u0440\u043E\u0432\u043E\u0439 \u0411\u0443\u0440"
+  BuildingSprite: {fileID: 21300000, guid: a614ffb074d3e7f45bfb8f97bc63c7b6, type: 3}
+  Id: 30
   BuildingLevel: 3
   RequiredBaseLevel: 2
   BuildingEcology: -4
   BuildingHealth: 150
-  ResourceExtractedAmount: 0.7
+  ResourceExtractedAmount: 0.4
   Price: 250
   CanRotateBuilding: 1
   ResourcesForBuild:
+  - ResourceEnum: 1
+    RecourceAmount: 15
   - ResourceEnum: 10
     RecourceAmount: 10
   - ResourceEnum: 12
-    RecourceAmount: 10
-  - ResourceEnum: 17
     RecourceAmount: 5
   ResourcesForWork:
   - ResourceForWork: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098, type: 2}
     ResourcesForWorkAmount: 0.2
   ResourcesProduction:
-  - ProductionResource: {fileID: 11400000, guid: 27b850f65039e4244ac4286f6c1c897b,
+  - ProductionResource: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216,
       type: 2}
     ResourceRecept: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
     type: 3}
-  ConstructionPrefab: {fileID: 6853608650964669539, guid: aaf8acd53f24dc64a9492f4962197405,
+  ConstructionPrefab: {fileID: 6559593174622952055, guid: 44afded75b5ca4048b758e68cdb8800b,
     type: 3}
   Damage: 0
   AttackSpeed: 0

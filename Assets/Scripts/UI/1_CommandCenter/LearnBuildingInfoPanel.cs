@@ -243,6 +243,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _turretPanelObject.SetActive(false);
         _turretPanelLine.SetActive(false);
         _buttonsPanelObject.SetActive(false);
+        _blockReasonPanelObject.SetActive(false);
 
         _currentLearnBuildingItem = null;
     }

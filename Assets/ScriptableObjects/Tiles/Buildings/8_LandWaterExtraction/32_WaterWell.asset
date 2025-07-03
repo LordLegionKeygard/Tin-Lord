@@ -10,38 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 49_Boiler
+  m_Name: 32_WaterWell
   m_EditorClassIdentifier: 
   Name:
-  - Boiler
-  - "\u041A\u043E\u0442\u0435\u043B"
-  BuildingSprite: {fileID: 21300000, guid: 105615c3a814e3446bc0a4b211d807df, type: 3}
-  Id: 49
+  - Well
+  - "\u041A\u043E\u043B\u043E\u0434\u0435\u0446"
+  BuildingSprite: {fileID: 21300000, guid: ca90f8241c4db214a90321cebac01475, type: 3}
+  Id: 32
   BuildingLevel: 1
   RequiredBaseLevel: 1
-  BuildingEcology: -2
+  BuildingEcology: -1
   BuildingHealth: 50
   ResourceExtractedAmount: 0.2
-  Price: 125
+  Price: 50
   CanRotateBuilding: 1
   ResourcesForBuild:
-  - ResourceEnum: 10
+  - ResourceEnum: 0
+    RecourceAmount: 20
+  - ResourceEnum: 1
     RecourceAmount: 10
-  - ResourceEnum: 11
-    RecourceAmount: 5
-  ResourcesForWork:
-  - ResourceForWork: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
-    ResourcesForWorkAmount: 0.1
+  ResourcesForWork: []
   ResourcesProduction:
-  - ProductionResource: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098,
+  - ProductionResource: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61,
       type: 2}
-    ResourceRecept:
-    - ResourceForRecept: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61,
-        type: 2}
-      ResourcesForReceptAmount: 2
+    ResourceRecept: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
     type: 3}
-  ConstructionPrefab: {fileID: 7952494589381593577, guid: 8b61685c381bb074ab01cc858e43f4f4,
+  ConstructionPrefab: {fileID: 3359681726668111616, guid: 0edcb83892520d24682d10272959d43f,
     type: 3}
   Damage: 0
   AttackSpeed: 0
@@ -49,7 +44,7 @@ MonoBehaviour:
   RotationSpeed: 0
   KnockbackPoints: 0
   BuildingEcologyPurifier: 0
-  RandomRange: 0
-  IsChangePosition: 0
+  RandomRange: 2.5
+  IsChangePosition: 1
   IsChangeRotation: 1
   IsFixed90Rotation: 1
