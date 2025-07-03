@@ -51,10 +51,10 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     [Header("BlockReason")]
     [SerializeField] private GameObject _blockReasonPanelObject;
+    [SerializeField] private GameObject _blockReasonPanelLine;
     [SerializeField] private TextMeshProUGUI _blockReasonText;
 
     [Header("Buttons")]
-    [SerializeField] private Button _learnButton;
     [SerializeField] private GameObject _buttonsPanelObject;
 
     private void Awake()
@@ -197,8 +197,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         ResourceEnum missing;
         bool depsOk = _learnPanel.TryGetBlockingResource(_currentLearnBuildingItem.GetBuilding(), out missing);
 
-        _buttonsPanelObject.SetActive(!_currentLearnBuildingItem.IsLearn() && depsOk);
-        _learnButton.interactable = _currentLearnBuildingItem.IsResourcesEnough();
+        _buttonsPanelObject.SetActive(!_currentLearnBuildingItem.IsLearn() && depsOk && _currentLearnBuildingItem.IsResourcesEnough());
 
         if (depsOk)
         {
@@ -214,6 +213,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     private void BlockReasonToggle(bool state)
     {
         _blockReasonPanelObject.SetActive(state);
+        _blockReasonPanelLine.SetActive(state);
     }
 
 
@@ -244,6 +244,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _turretPanelLine.SetActive(false);
         _buttonsPanelObject.SetActive(false);
         _blockReasonPanelObject.SetActive(false);
+        _blockReasonPanelLine.SetActive(false);
 
         _currentLearnBuildingItem = null;
     }
