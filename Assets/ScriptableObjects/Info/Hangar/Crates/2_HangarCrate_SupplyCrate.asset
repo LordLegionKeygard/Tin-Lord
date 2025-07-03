@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d18c9dc3a2895a4db4b164b9cec5c42, type: 3}
+  m_Name: 2_HangarCrate_SupplyCrate
+  m_EditorClassIdentifier: 
+  Name: 201
+  CrateSprite: {fileID: 21300000, guid: b40863e4e694ca541a578fbf2340a6b9, type: 3}
+  Price: 20
+  HangarCrateType: 2
+  ResourceWrapper:
+  - ResourceEnum: 0
+    RecourceAmount: 100
+  - ResourceEnum: 1
+    RecourceAmount: 90
+  - ResourceEnum: 2
+    RecourceAmount: 20
+  - ResourceEnum: 10
+    RecourceAmount: 10

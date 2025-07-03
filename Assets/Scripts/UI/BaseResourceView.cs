@@ -15,7 +15,7 @@ public class BaseResourceView : MonoBehaviour
     }
 
 
-    public void ResetCells()
+    public virtual void ResetCells()
     {
         foreach (var item in _resourceCells)
         {

@@ -16,8 +16,7 @@ public class HangarCrateItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private Image _icon;
-    [SerializeField] private GameObject _shardsIcon;
-    [SerializeField] private GameObject _openedIcon;
+    [SerializeField] private GameObject _price;
     private Image _backImage;
 
     private void Awake()
@@ -27,9 +26,7 @@ public class HangarCrateItem : MonoBehaviour
 
     public void UpdateView()
     {
-        _shardsIcon.SetActive(!_isOpen);
-        _priceText.gameObject.SetActive(!_isOpen);
-        _openedIcon.gameObject.SetActive(_isOpen);
+        _price.SetActive(!_isOpen);
         _icon.enabled = _isOpen;
         _nameText.text = _isOpen ? Language.TextStatic[_hangarCrateInfo.Name] : "?";
         _icon.sprite = _hangarCrateInfo.CrateSprite;

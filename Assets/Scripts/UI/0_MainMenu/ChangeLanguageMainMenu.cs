@@ -28,6 +28,7 @@ public class ChangeLanguageMainMenu : MonoBehaviour
 
         _hangarHeaderTexts[0].text = Language.TextStatic[84];
         _hangarHeaderTexts[1].text = Language.TextStatic[85];
+        _hangarHeaderTexts[2].text = Language.TextStatic[202];
     }
 
 }

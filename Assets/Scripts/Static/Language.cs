@@ -627,14 +627,14 @@ public class Language : MonoBehaviour
         _text[199, 0] = "Base Crate";
         _text[199, 1] = "Базовый Контейнер";
 
-        _text[200, 0] = "Rusty Crate";
-        _text[200, 1] = "Ржавый Контейнер";
+        _text[200, 0] = "Metal Crate";
+        _text[200, 1] = "Металлический Контейнер";
 
-        _text[201, 0] = "Supply Container";
+        _text[201, 0] = "Supply Crate";
         _text[201, 1] = "Контейнер Снабжения";
 
-        _text[202, 0] = "";
-        _text[202, 1] = "";
+        _text[202, 0] = "Crates";
+        _text[202, 1] = "Контейнеры";
 
         _text[203, 0] = "";
         _text[203, 1] = "";

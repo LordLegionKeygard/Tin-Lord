@@ -15,8 +15,8 @@ public enum HangarCrateType
 {
     None = -1,
     BaseCrate = 0, // базовый ящик
-    RustyCrate = 1, // ржавый контейнер
-    SupplyContainer = 2, // Контейнер снабжения
+    MetalCrate = 1, // метал контейнер
+    SupplyCrate = 2, // Контейнер снабжения
 
     // Engineering Case Инженерный кейс
     // Assembly Line Crate Ящик сборочной линии

@@ -45,7 +45,7 @@ public class HangarSystem : MonoBehaviour
     [SerializeField] private GameObject _buyCrateButtonObject;
     [SerializeField] HangarCrateItem[] _hangarCrateItems;
     [SerializeField] private GameObject[] _crateModels;
-    [SerializeField] private ResourcesViewCommandCenter _resourcesViewCommandCenterview;
+    [SerializeField] private HangarCrateResourcesView _hangarCrateResourcesView;
     [SerializeField] private int _currentCrate = -1;
     [SerializeField] private int _currentSelectCrate = -1;
 
@@ -244,18 +244,18 @@ public class HangarSystem : MonoBehaviour
         _hangarCrateItems[(int)crateType].SelectToggleState(true);
         _buyCrateButtonObject.SetActive(!isOpen);
 
-        _resourcesViewCommandCenterview.SetResourcesView(_hangarCrateItems[(int)crateType].GetInfo().ResourceWrapper);
+        _hangarCrateResourcesView.SetResources(_hangarCrateItems[(int)crateType].GetInfo().ResourceWrapper, isOpen);
 
         _currentSelectCrate = (int)crateType;
         _currentCrate = (int)crateType;
 
         if (isOpen)
         {
-            // foreach (var item in _crateModels)
-            // {
-            //     item.SetActive(false);
-            // }
-            // _crateModels[(int)crateType].SetActive(true);
+            foreach (var item in _crateModels)
+            {
+                item.SetActive(false);
+            }
+            _crateModels[(int)crateType].SetActive(true);
         }
     }
 
