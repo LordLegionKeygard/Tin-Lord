@@ -11,7 +11,7 @@ public class SkillTraderPanel : MonoBehaviour
     [SerializeField] private Image _buttonImage;
     [SerializeField] private Sprite[] _buttonSprites;
     private int _currentSkill;
-    [SerializeField] private Skill[] _skills;
+    [SerializeField] private SkillInfo[] _skills;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private Image[] _skillIcons;
     [SerializeField] private GameObject[] _selectObjects;
@@ -40,8 +40,8 @@ public class SkillTraderPanel : MonoBehaviour
             _skillIcons[i].color = skillOpen ? Colors.AlphaGreySeven : Colors.GreySeven;
         }
 
-        _priceText.text = _currentSkill == -1 ? "0" : _skills[_currentSkill].Price.ToString();
-        var enoughtQuants = _currentSkill == -1 ? false : _quantsSystem.GetQuants() >= _skills[_currentSkill].Price;
+        _priceText.text = _currentSkill == -1 ? "0" : _skills[_currentSkill].QuantPrice.ToString();
+        var enoughtQuants = _currentSkill == -1 ? false : _quantsSystem.GetQuants() >= _skills[_currentSkill].QuantPrice;
         _buttonImage.sprite = enoughtQuants ? _buttonSprites[0] : _buttonSprites[1];
         _buyButton.interactable = enoughtQuants;
         _priceText.color = enoughtQuants ? Color.white : Colors.WarningYellow;
@@ -51,7 +51,7 @@ public class SkillTraderPanel : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _currentSkill = -1;
-        _quantsSystem.ChangeQuants(-_skills[_currentSkill].Price);
+        _quantsSystem.ChangeQuants(-_skills[_currentSkill].QuantPrice);
         _commandCenterSaveGame.CommandCenterSaveData.OpenedSkills[_currentSkill] = true;
         _commandCenterSaveGame.SaveDataToJson();
         UpdateView();

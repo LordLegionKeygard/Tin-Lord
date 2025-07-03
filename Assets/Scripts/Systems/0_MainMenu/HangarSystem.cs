@@ -52,6 +52,14 @@ public class HangarSystem : MonoBehaviour
     [SerializeField] private int _currentCrate = -1;
     [SerializeField] private int _currentSelectCrate = -1;
 
+    [Header("Skills")]
+    [SerializeField] private GameObject _buySkillButtonObject;
+    [SerializeField] HangarSkillItem[] _hangarSkillItems;
+    [SerializeField] private TextMeshProUGUI _skillDescription;
+    [SerializeField] private int _currentSkill = -1;
+    [SerializeField] private int _currentSelectSkill = -1;
+
+
 
     public bool EnoughtShards(int price) => _shardsSystem.GetShards() >= price;
     private bool HaveSaveData() => CommandCenterSaveGame.GetCommandCenterSaveGameDataWriter().CheckIfSaveFileExists();
@@ -72,6 +80,10 @@ public class HangarSystem : MonoBehaviour
         for (int i = 0; i < _hangarCrateItems.Length; i++)
         {
             _hangarCrateItems[i].SetIsOpen(hangarSaveData.OpenedCrates[i]);
+        }
+        for (int i = 0; i < _hangarSkillItems.Length; i++)
+        {
+            _hangarSkillItems[i].SetIsOpen(hangarSaveData.OpenedSkills[i]);
         }
     }
 
@@ -109,6 +121,18 @@ public class HangarSystem : MonoBehaviour
         }
 
         return openedCrates;
+    }
+
+    public bool[] GetOpenedSkills()
+    {
+        var skills = new bool[_hangarSkillItems.Length];
+
+        for (int i = 0; i < _hangarSkillItems.Length; i++)
+        {
+            skills[i] = _hangarSkillItems[i].IsOpen();
+        }
+
+        return skills;
     }
 
     public void OpenHangar()
@@ -264,12 +288,28 @@ public class HangarSystem : MonoBehaviour
         UpdateLaunchButtonActive();
     }
 
+    public void SelectSkill(SkillEnum skillType, bool isOpen)
+    {
+        for (int i = 0; i < _hangarSkillItems.Length; i++)
+        {
+            _hangarSkillItems[i].SelectToggleState(false);
+        }
+
+        var info = _hangarSkillItems[(int)skillType].GetInfo();
+        _skillDescription.text = isOpen ? $"{info.Name[Language.LanguageNumber]} - {info.Info[Language.LanguageNumber]}" : $"{Language.TextStatic[236]} {Language.TextStatic[194]}";
+        _hangarSkillItems[(int)skillType].SelectToggleState(true);
+        _buySkillButtonObject.SetActive(!isOpen);
+
+        _currentSelectSkill = (int)skillType;
+        _currentSkill = (int)skillType;
+    }
+
     public void BuyRobot()
     {
         var robotInfo = _hangarRobotItems[_currentSelectRobot].GetInfo();
         if (EnoughtShards(robotInfo.Price))
         {
-            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.LearnBuilding], transform.position);
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
             _shardsSystem.ChangeShards(-robotInfo.Price);
             _hangarRobotItems[_currentSelectRobot].SetIsOpen(true);
             SelectRobot(robotInfo.HangarRobotType, true);
@@ -286,7 +326,7 @@ public class HangarSystem : MonoBehaviour
         var droneInfo = _hangarDroneItems[_currentSelectDrone].GetInfo();
         if (EnoughtShards(droneInfo.Price))
         {
-            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.LearnBuilding], transform.position);
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
             _shardsSystem.ChangeShards(-droneInfo.Price);
             _hangarDroneItems[_currentSelectDrone].SetIsOpen(true);
             SelectDrone(droneInfo.HangarDroneType, true);
@@ -303,10 +343,27 @@ public class HangarSystem : MonoBehaviour
         var crateInfo = _hangarCrateItems[_currentSelectCrate].GetInfo();
         if (EnoughtShards(crateInfo.Price))
         {
-            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.LearnBuilding], transform.position);
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
             _shardsSystem.ChangeShards(-crateInfo.Price);
             _hangarCrateItems[_currentSelectCrate].SetIsOpen(true);
             SelectCrate(crateInfo.HangarCrateType, true);
+            _hangarSaveGame.SaveDataToJson();
+        }
+        else
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+        }
+    }
+
+    public void BuySkill()
+    {
+        var skillInfo = _hangarSkillItems[_currentSelectSkill].GetInfo();
+        if (EnoughtShards(skillInfo.ShardPrice))
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
+            _shardsSystem.ChangeShards(-skillInfo.ShardPrice);
+            _hangarSkillItems[_currentSelectSkill].SetIsOpen(true);
+            SelectSkill(skillInfo.SkillEnum, true);
             _hangarSaveGame.SaveDataToJson();
         }
         else
@@ -396,7 +453,7 @@ public class HangarSystem : MonoBehaviour
             data.BuildingsLearned[_learnedOnStartBuildings[i].Id] = true;
         }
 
-        data.OpenedSkills[0] = true;
+        if (_currentSkill != -1) data.OpenedSkills[_currentSkill] = true;
 
         WorldSaveGame.DeleteMissionJson();
         CommandCenterSaveGame.NewCommandCenterData(data);

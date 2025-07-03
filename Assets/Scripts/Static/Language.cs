@@ -732,11 +732,11 @@ public class Language : MonoBehaviour
         _text[234, 0] = "";
         _text[234, 1] = "";
 
-        _text[235, 0] = "";
-        _text[235, 1] = "";
+        _text[235, 0] = "Select skill";
+        _text[235, 1] = "Выберите умение";
 
-        _text[236, 0] = "";
-        _text[236, 1] = "";
+        _text[236, 0] = "Skill";
+        _text[236, 1] = "Умение";
 
         _text[237, 0] = "Need {0} base level";
         _text[237, 1] = "Нужен {0} уровень базы";

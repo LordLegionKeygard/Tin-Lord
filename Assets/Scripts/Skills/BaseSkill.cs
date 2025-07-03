@@ -5,12 +5,12 @@ public class BaseSkill : MonoBehaviour
 {
     [Inject] protected MissionResources MissionResources;
     public SkillView SkillView;
-    [SerializeField] private Skill _skill;
+    [SerializeField] private SkillInfo _skill;
     [SerializeField] private bool _isActive;
     [SerializeField] private int _currentDurationTick;
     [SerializeField] private bool _isOpen;
     public bool IsActive() => _isActive;
-    public Skill GetSkill() => _skill;
+    public SkillInfo GetSkill() => _skill;
     public bool IsOpen() => _isOpen;
     public int GetCurrentDurationTick() => _currentDurationTick;
 

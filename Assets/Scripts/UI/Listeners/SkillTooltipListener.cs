@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class SkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Skill _skill;
+    [SerializeField] private SkillInfo _skill;
     [SerializeField] private int[] _xOfsset;
     [SerializeField] private int[] _yOfsset;
 

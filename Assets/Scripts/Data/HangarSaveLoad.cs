@@ -18,6 +18,7 @@ public class HangarSaveLoad : MonoBehaviour
         currentSaveData.OpenedRobots = _hangarSystem.GetOpenedRobots();
         currentSaveData.OpenedDrones = _hangarSystem.GetOpenedDrones();
         currentSaveData.OpenedCrates = _hangarSystem.GetOpenedCrates();
+        currentSaveData.OpenedSkills = _hangarSystem.GetOpenedSkills();
     }
 
     public void LoadGameData(ref HangarSaveData currentSaveData)

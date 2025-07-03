@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChangeLanguageMainMenu : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ChangeLanguageMainMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] _hangarButtonsText;
     [SerializeField] private TextMeshProUGUI[] _buyTexts;
     [SerializeField] private TextMeshProUGUI[] _hangarHeaderTexts;
+    [SerializeField] private TextMeshProUGUI _selectSkillText;
 
     private void Start()
     {
@@ -30,6 +32,8 @@ public class ChangeLanguageMainMenu : MonoBehaviour
         _hangarHeaderTexts[1].text = Language.TextStatic[179];
         _hangarHeaderTexts[2].text = Language.TextStatic[202];
         _hangarHeaderTexts[3].text = Language.TextStatic[85];
+
+        _selectSkillText.text = Language.TextStatic[235];
     }
 
 }

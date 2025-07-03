@@ -68,6 +68,6 @@ public enum UiClickEnum
     Rotate = 5,
     Card = 6,
     SelectTile = 7,
-    LearnBuilding = 8,
+    Buy = 8,
     Error = 9,
 }

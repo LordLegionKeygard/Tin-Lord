@@ -15,14 +15,14 @@ public class CustomEvents
         OnUpdateBindingText?.Invoke(text, inputActionReference);
     }
 
-    public static event Action<Skill> OnUseSkill;
-    public static void FireUseSkill(Skill skill)
+    public static event Action<SkillInfo> OnUseSkill;
+    public static void FireUseSkill(SkillInfo skill)
     {
         OnUseSkill?.Invoke(skill);
     }
 
-    public static event Action<Skill> OnEndSkill;
-    public static void FireEndSkill(Skill skill)
+    public static event Action<SkillInfo> OnEndSkill;
+    public static void FireEndSkill(SkillInfo skill)
     {
         OnEndSkill?.Invoke(skill);
     }
@@ -183,8 +183,8 @@ public class CustomEvents
         OnUpdateButtonToolTip.Invoke(x, y, text);
     }
 
-    public static Action<float, float, Skill, bool> OnUpdateSkillToolTip;
-    public static void FireUpdateSkillToolTipTransform(float x, float y, Skill skill, bool resourceEnough)
+    public static Action<float, float, SkillInfo, bool> OnUpdateSkillToolTip;
+    public static void FireUpdateSkillToolTipTransform(float x, float y, SkillInfo skill, bool resourceEnough)
     {
         OnUpdateSkillToolTip.Invoke(x, y, skill, resourceEnough);
     }

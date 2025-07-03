@@ -70,7 +70,7 @@ public class LearnBuildingItem : MonoBehaviour
 
     public void LearnBuilding()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.LearnBuilding], transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
         _mainResources.ChangeResource(ResourceEnum.DataFragment, -_building.Price);
         _isLearn = true;
         RefreshView();

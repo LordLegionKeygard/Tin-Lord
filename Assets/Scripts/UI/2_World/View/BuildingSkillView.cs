@@ -32,7 +32,7 @@ public class BuildingSkillView : MonoBehaviour
         }
     }
 
-    private void UseSkill(Skill skill)
+    private void UseSkill(SkillInfo skill)
     {
         switch (skill.SkillEnum)
         {
@@ -48,7 +48,7 @@ public class BuildingSkillView : MonoBehaviour
         }
     }
 
-    private void EndSkill(Skill skill)
+    private void EndSkill(SkillInfo skill)
     {
         switch (skill.SkillEnum)
         {

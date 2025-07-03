@@ -97,9 +97,11 @@ public class WorldGameInfo
     public const float BossTriggetStayDamageFactor = 200;
 
     [Header("Hangar")]
-    public const int RobotsCount = 3;
-    public const int DronesCount = 3;
-    public const int CratesCount = 3;
+    public const int HangarRobotsCount = 3;
+    public const int HangarDronesCount = 3;
+    public const int HangarCratesCount = 3;
+    public const int HangarSkillsCount = 3;
+
     public const int PatchPassiveAbility = 20;
     public const int TitanPassiveAbility = 15;
     public const int AimBotPassiveAbility = 20;

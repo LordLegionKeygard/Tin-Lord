@@ -20,7 +20,7 @@ public class SelectSkill : MonoBehaviour
         CustomEvents.OnUpdateSkillToolTip += UpdateView;
     }
 
-    private void UpdateView(float x, float y, Skill skill, bool resourceEnough)
+    private void UpdateView(float x, float y, SkillInfo skill, bool resourceEnough)
     {
         var isHaveResource = skill.RequiredResource.Resource != null;
 
