@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 39_StoneCuttingTable
+  m_EditorClassIdentifier: 
+  Name:
+  - Stone Cutting Table
+  - "\u041A\u0430\u043C\u0435\u043D\u043E\u0442\u0435\u0441\u043D\u044B\u0439 \u0421\u0442\u043E\u043B"
+  Id: 39
+  BuildingLevel: 1
+  BuildingSprite: {fileID: 21300000, guid: b46d07a2f25e1ab43bb947d884d0afc2, type: 3}
+  BuildingEcology: -2
+  BuildingHealth: 50
+  ResourceExtractedAmount: 0.4
+  Price: 125
+  CanRotateBuilding: 1
+  ResourcesForBuild:
+  - ResourceEnum: 0
+    RecourceAmount: 30
+  - ResourceEnum: 1
+    RecourceAmount: 15
+  ResourcesForWork: []
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: 0266b7657f473a04fb1837f845157c83,
+      type: 2}
+    ResourceRecept:
+    - ResourceForRecept: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216,
+        type: 2}
+      ResourcesForReceptAmount: 1
+  DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
+    type: 3}
+  ConstructionPrefab: {fileID: 2128213281935572813, guid: 5beb676f0fe6a494692d6cbcb0489cf8,
+    type: 3}
+  Damage: 0
+  AttackSpeed: 0
+  AttackRadius: 0
+  RotationSpeed: 0
+  KnockbackPoints: 0
+  BuildingEcologyPurifier: 0
+  RandomRange: 0
+  IsChangePosition: 0
+  IsChangeRotation: 1
+  IsFixed90Rotation: 1

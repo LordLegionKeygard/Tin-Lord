@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 29_StoneMine
+  m_EditorClassIdentifier: 
+  Name:
+  - Stone Mine
+  - "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u0420\u0443\u0434\u043D\u0438\u043A"
+  Id: 29
+  BuildingLevel: 2
+  BuildingSprite: {fileID: 21300000, guid: e38bb2e3413399546be8bf2d17c21e5f, type: 3}
+  BuildingEcology: -3
+  BuildingHealth: 100
+  ResourceExtractedAmount: 0.3
+  Price: 125
+  CanRotateBuilding: 1
+  ResourcesForBuild:
+  - ResourceEnum: 1
+    RecourceAmount: 10
+  - ResourceEnum: 10
+    RecourceAmount: 10
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
+    ResourcesForWorkAmount: 0.1
+  - ResourceForWork: {fileID: 11400000, guid: 27b850f65039e4244ac4286f6c1c897b, type: 2}
+    ResourcesForWorkAmount: 0.1
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216,
+      type: 2}
+    ResourceRecept: []
+  DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
+    type: 3}
+  ConstructionPrefab: {fileID: 6893809892688010018, guid: 7b1cbff441478534bb95da6ceb6a92ca,
+    type: 3}
+  Damage: 0
+  AttackSpeed: 0
+  AttackRadius: 0
+  RotationSpeed: 0
+  KnockbackPoints: 0
+  BuildingEcologyPurifier: 0
+  RandomRange: 0
+  IsChangePosition: 0
+  IsChangeRotation: 0
+  IsFixed90Rotation: 0

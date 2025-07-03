@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
+  m_Name: 34_SteamPump
+  m_EditorClassIdentifier: 
+  Name:
+  - Steam Pump
+  - "\u041F\u0430\u0440\u043E\u0432\u043E\u0439 \u041D\u0430\u0441\u043E\u0441"
+  Id: 34
+  BuildingLevel: 3
+  BuildingSprite: {fileID: 21300000, guid: bb4245ce13cd11740bd9466e9b16d706, type: 3}
+  BuildingEcology: -2
+  BuildingHealth: 150
+  ResourceExtractedAmount: 0.7
+  Price: 250
+  CanRotateBuilding: 1
+  ResourcesForBuild:
+  - ResourceEnum: 10
+    RecourceAmount: 15
+  - ResourceEnum: 12
+    RecourceAmount: 10
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098, type: 2}
+    ResourcesForWorkAmount: 0.2
+  ResourcesProduction:
+  - ProductionResource: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61,
+      type: 2}
+    ResourceRecept: []
+  DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
+    type: 3}
+  ConstructionPrefab: {fileID: 3930106508735347953, guid: 56b8fc89e6133694ebe2f744fc928f89,
+    type: 3}
+  Damage: 0
+  AttackSpeed: 0
+  AttackRadius: 0
+  RotationSpeed: 0
+  KnockbackPoints: 0
+  BuildingEcologyPurifier: 0
+  RandomRange: 1.5
+  IsChangePosition: 0
+  IsChangeRotation: 1
+  IsFixed90Rotation: 1
