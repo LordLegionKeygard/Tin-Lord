@@ -4,15 +4,15 @@ using UnityEngine;
 public class Building : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
+    public Sprite BuildingSprite;
     public int Id;
     public int BuildingLevel;
-    public Sprite BuildingSprite;
+    public int RequiredBaseLevel; // требуемый уровень базы для постройки этого здания
     public int BuildingEcology;
     public float BuildingHealth;
     public float ResourceExtractedAmount; // кол-во создаваемого ресурса за 1 тик времени
     public float Price; // цена покупки за фрагменты памяти
     public bool CanRotateBuilding;
-    public int RequiredBaseLevel; // требуемый уровень базы для постройки этого здания
 
     [Header("Requires")]
     public ResourceWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства здания

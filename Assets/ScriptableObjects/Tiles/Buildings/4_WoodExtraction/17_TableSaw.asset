@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Table Saw
   - "\u0420\u0430\u0441\u043F\u0438\u043B\u043E\u0447\u043D\u044B\u0439 \u0421\u0442\u043E\u043B"
+  BuildingSprite: {fileID: 21300000, guid: 5c3f2536b8b545542a00a6a39759b28c, type: 3}
   Id: 17
   BuildingLevel: 2
-  BuildingSprite: {fileID: 21300000, guid: 5c3f2536b8b545542a00a6a39759b28c, type: 3}
+  RequiredBaseLevel: 1
   BuildingEcology: -3
   BuildingHealth: 100
   ResourceExtractedAmount: 0.4

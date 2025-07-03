@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Battleship Tower
   - "\u0411\u0430\u0448\u043D\u044F \u041B\u0438\u043D\u043A\u043E\u0440\u0430"
+  BuildingSprite: {fileID: 21300000, guid: 1aca842a9a4c3324d862fb9a7b876e12, type: 3}
   Id: 78
   BuildingLevel: 8
-  BuildingSprite: {fileID: 21300000, guid: 1aca842a9a4c3324d862fb9a7b876e12, type: 3}
+  RequiredBaseLevel: 4
   BuildingEcology: -6
   BuildingHealth: 400
   ResourceExtractedAmount: 0

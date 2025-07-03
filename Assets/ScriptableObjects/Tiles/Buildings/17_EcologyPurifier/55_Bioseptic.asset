@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Bioseptic
   - "\u0411\u0438\u043E\u0441\u0435\u043F\u0442\u0438\u043A"
+  BuildingSprite: {fileID: 21300000, guid: 936ad4ee77f63bf49ac315fc005008ed, type: 3}
   Id: 55
   BuildingLevel: 1
-  BuildingSprite: {fileID: 21300000, guid: 936ad4ee77f63bf49ac315fc005008ed, type: 3}
+  RequiredBaseLevel: 1
   BuildingEcology: -1
   BuildingHealth: 50
   ResourceExtractedAmount: 0

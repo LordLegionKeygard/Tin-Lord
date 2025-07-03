@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Well
   - "\u041A\u043E\u043B\u043E\u0434\u0435\u0446"
+  BuildingSprite: {fileID: 21300000, guid: ca90f8241c4db214a90321cebac01475, type: 3}
   Id: 32
   BuildingLevel: 1
-  BuildingSprite: {fileID: 21300000, guid: ca90f8241c4db214a90321cebac01475, type: 3}
+  RequiredBaseLevel: 1
   BuildingEcology: -1
   BuildingHealth: 50
   ResourceExtractedAmount: 0.2

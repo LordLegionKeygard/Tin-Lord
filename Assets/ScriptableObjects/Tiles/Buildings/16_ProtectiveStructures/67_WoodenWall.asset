@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Wooden Wall
   - "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u0430\u044F \u0421\u0442\u0435\u043D\u0430"
+  BuildingSprite: {fileID: 21300000, guid: e39d23040f17e99469061d798c38b231, type: 3}
   Id: 67
   BuildingLevel: 1
-  BuildingSprite: {fileID: 21300000, guid: e39d23040f17e99469061d798c38b231, type: 3}
+  RequiredBaseLevel: 1
   BuildingEcology: -2
   BuildingHealth: 100
   ResourceExtractedAmount: 0

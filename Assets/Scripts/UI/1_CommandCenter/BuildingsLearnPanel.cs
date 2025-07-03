@@ -7,12 +7,30 @@ public class BuildingsLearnPanel : MonoBehaviour
     [SerializeField] private LearnBuildingItem[] _learnBuildingItems;
     [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private Resource[] _resources;
+    private int _baseBuildingsCount = 4;
 
     /// <summary>Список всех ресурсов, которые игрок уже может производить.</summary>
     private readonly HashSet<ResourceEnum> _unlockedResources = new();
 
     public LearnBuildingItem[] AllLearnBuildingItems() => _learnBuildingItems;
     public bool IsResourceUnlocked(ResourceEnum res) => _unlockedResources.Contains(res);
+
+    public int GetCurrentBaseLevel()
+    {
+        int level = 0;
+        for (int i = 0; i < _baseBuildingsCount && i < _learnBuildingItems.Length; i++)
+            if (_learnBuildingItems[i].IsLearn())
+                level = Mathf.Max(level, _learnBuildingItems[i].GetBuilding().BuildingLevel); // 1,2,3,4
+        return level;                 // 0 если не выучено ни одного
+    }
+
+    public LearnBuildingItem GetBaseItemByLevel(int requiredLevel)
+    {
+        for (int i = 0; i < _baseBuildingsCount; i++)
+            if (_learnBuildingItems[i].GetBuilding().BuildingLevel == requiredLevel)
+                return _learnBuildingItems[i];
+        return null;
+    }
 
 
     public void ResetScrollPosition()

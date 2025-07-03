@@ -174,6 +174,26 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     private void SetButtonPanel()
     {
+        var building = _currentLearnBuildingItem.GetBuilding();
+
+        int currentBaseLevel = _learnPanel.GetCurrentBaseLevel();
+        int requiredBase = building.RequiredBaseLevel;
+
+        if (currentBaseLevel < requiredBase)
+        {
+            var requiredBaseItem = _learnPanel.GetBaseItemByLevel(requiredBase);
+            string needOpen = Language.TextStatic[43]; // "Вам нужно открыть"
+            string buildingName = requiredBaseItem.GetBuilding().Name[Language.LanguageNumber]; // здание
+            string inText = Language.TextStatic[75]; // "в"
+            string typeName = _allBuildingTypes[(int)BuildingTileViewEnum.Base].Name[Language.LanguageNumber]; // база
+
+            _blockReasonText.text = $"{needOpen} \"{buildingName}\" {inText} \"{typeName}\"";
+            BlockReasonToggle(true);
+
+            _buttonsPanelObject.SetActive(false);   // скрываем/баним Learn
+            return;                                 // дальше ресурсы не смотрим
+        }
+
         ResourceEnum missing;
         bool depsOk = _learnPanel.TryGetBlockingResource(_currentLearnBuildingItem.GetBuilding(), out missing);
 
@@ -272,11 +292,11 @@ public class LearnBuildingInfoPanel : MonoBehaviour
                     {
                         // Нашли первое здание-производитель ↴ формируем текст
                         string needOpen = Language.TextStatic[43]; // "Вам нужно открыть"
-                        string inText = Language.TextStatic[75]; // "в"
                         string buildingName = b.Name[Language.LanguageNumber];
-                        string tileName = tile.Name[Language.LanguageNumber];
+                        string inText = Language.TextStatic[75]; // "в"
+                        string typeName = tile.Name[Language.LanguageNumber];
 
-                        return $"{needOpen} \"{buildingName}\" {inText} \"{tileName}\"";
+                        return $"{needOpen} \"{buildingName}\" {inText} \"{typeName}\"";
                     }
                 }
             }

@@ -16,9 +16,10 @@ MonoBehaviour:
   - Electric Pump
   - "\u042D\u043B\u0435\u043A\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u0438\u0439
     \u041D\u0430\u0441\u043E\u0441"
+  BuildingSprite: {fileID: 21300000, guid: cfc9b5612e0ff0f4899885a9dd44e530, type: 3}
   Id: 35
   BuildingLevel: 4
-  BuildingSprite: {fileID: 21300000, guid: cfc9b5612e0ff0f4899885a9dd44e530, type: 3}
+  RequiredBaseLevel: 3
   BuildingEcology: -2
   BuildingHealth: 200
   ResourceExtractedAmount: 1

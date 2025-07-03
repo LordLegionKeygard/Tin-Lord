@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Howitzer
   - "\u0413\u0430\u0443\u0431\u0438\u0446\u0430"
+  BuildingSprite: {fileID: 21300000, guid: 4ce3dce6ad192334faf55fd87e4a207a, type: 3}
   Id: 74
   BuildingLevel: 4
-  BuildingSprite: {fileID: 21300000, guid: 4ce3dce6ad192334faf55fd87e4a207a, type: 3}
+  RequiredBaseLevel: 2
   BuildingEcology: -4
   BuildingHealth: 200
   ResourceExtractedAmount: 0

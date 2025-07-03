@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Mechanical Workshop
   - "\u041C\u0435\u0445\u0430\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u0426\u0435\u0445"
+  BuildingSprite: {fileID: 21300000, guid: d2ceef47656e5914c8f4869c6e718fd3, type: 3}
   Id: 80
   BuildingLevel: 2
-  BuildingSprite: {fileID: 21300000, guid: d2ceef47656e5914c8f4869c6e718fd3, type: 3}
+  RequiredBaseLevel: 2
   BuildingEcology: -3
   BuildingHealth: 100
   ResourceExtractedAmount: 0

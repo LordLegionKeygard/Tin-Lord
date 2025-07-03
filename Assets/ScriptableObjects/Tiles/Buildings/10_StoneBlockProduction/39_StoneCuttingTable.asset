@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Stone Cutting Table
   - "\u041A\u0430\u043C\u0435\u043D\u043E\u0442\u0435\u0441\u043D\u044B\u0439 \u0421\u0442\u043E\u043B"
+  BuildingSprite: {fileID: 21300000, guid: b46d07a2f25e1ab43bb947d884d0afc2, type: 3}
   Id: 39
   BuildingLevel: 1
-  BuildingSprite: {fileID: 21300000, guid: b46d07a2f25e1ab43bb947d884d0afc2, type: 3}
+  RequiredBaseLevel: 1
   BuildingEcology: -2
   BuildingHealth: 50
   ResourceExtractedAmount: 0.4

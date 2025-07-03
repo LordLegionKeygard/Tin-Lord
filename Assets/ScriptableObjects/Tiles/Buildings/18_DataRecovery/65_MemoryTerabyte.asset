@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Memory Terabyte
   - "\u0422\u0435\u0440\u0430\u0431\u0430\u0439\u0442 \u041F\u0430\u043C\u044F\u0442\u0438"
+  BuildingSprite: {fileID: 21300000, guid: 4ca7c5f53bedb314abc4604a1beacef3, type: 3}
   Id: 65
   BuildingLevel: 5
-  BuildingSprite: {fileID: 21300000, guid: 4ca7c5f53bedb314abc4604a1beacef3, type: 3}
+  RequiredBaseLevel: 4
   BuildingEcology: -6
   BuildingHealth: 250
   ResourceExtractedAmount: 0.8

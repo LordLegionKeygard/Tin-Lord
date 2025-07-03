@@ -15,9 +15,10 @@ MonoBehaviour:
   Name:
   - Megapolis
   - "\u041C\u0435\u0433\u0430\u043F\u043E\u043B\u0438\u0441"
+  BuildingSprite: {fileID: 21300000, guid: dfd1db61c77a5e44fafc222481069832, type: 3}
   Id: 3
   BuildingLevel: 4
-  BuildingSprite: {fileID: 21300000, guid: dfd1db61c77a5e44fafc222481069832, type: 3}
+  RequiredBaseLevel: 3
   BuildingEcology: -4
   BuildingHealth: 1000
   ResourceExtractedAmount: 1
