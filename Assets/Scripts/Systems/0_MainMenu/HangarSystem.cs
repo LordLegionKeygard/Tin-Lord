@@ -258,6 +258,8 @@ public class HangarSystem : MonoBehaviour
             }
             _crateModels[(int)crateType].SetActive(true);
         }
+
+        UpdateLaunchButtonActive();
     }
 
     public void BuyRobot()
