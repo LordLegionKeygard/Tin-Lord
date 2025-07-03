@@ -30,7 +30,7 @@ public class WorldSaveData
 
     [Header("Tiles")]
     public bool IsHaveRiver;
-    public bool IsHaveBase;
+    public int BaseLevel;
     public bool IsHaveMachineProduction;
     public TileDataWrapper[] TilesData;
     public int[] RoadTilesId;

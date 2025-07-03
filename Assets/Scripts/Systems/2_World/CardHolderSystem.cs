@@ -194,8 +194,10 @@ public class CardHolderSystem : MonoBehaviour
         AddNewCards(randomTiles);
     }
 
-    private void AddCardAfterSetBase()
+    private void AddCardAfterSetBase(int level)
     {
+        if (level > 1) return;
+        
         AddNewCards(_startCards);
         AddNewRandomCards(2);
     }

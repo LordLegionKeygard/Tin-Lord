@@ -6,6 +6,7 @@ using System.Linq;
 
 public class BuildingItem : MonoBehaviour
 {
+    [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly WorldHangarSystem _worldHangarSystem;
     [Inject] private readonly MissionResources _missionResources;
     [SerializeField] private Tile _currentTile;
@@ -27,6 +28,7 @@ public class BuildingItem : MonoBehaviour
     private bool _isSelect;
     public bool IsSelect() => _isSelect;
     private bool _resourcesEnough;
+    private bool _haveRequiredLevel;
 
     private void Start()
     {
@@ -49,16 +51,18 @@ public class BuildingItem : MonoBehaviour
 
     private void UpdateView()
     {
+        _haveRequiredLevel = _currentTile.Buildings[_buildingIndex - 1].RequiredBaseLevel <= _tilesSystem.GetBaseLevel();
         var building = _currentTile.Buildings[_buildingIndex - 1];
-        _nameText.text = _currentBuildingState == BuildingState.Repair ? _worldHangarSystem.GetRepairText() : building.Name[Language.LanguageNumber];
+        _nameText.text = _currentBuildingState == BuildingState.Repair ? _worldHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[237], _tilesSystem.GetBaseLevel() + 1)}"; ;
         _icon.sprite = building.BuildingSprite;
     }
 
     private void RefreshView()
     {
+        _haveRequiredLevel = _currentTile.Buildings[_buildingIndex - 1].RequiredBaseLevel <= _tilesSystem.GetBaseLevel();
         _resourcesEnough = _missionResources.ResourcesEnough(GetResources());
-        _button.enabled = _resourcesEnough;
-        _nameText.color = _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
+        _button.enabled = _resourcesEnough && _haveRequiredLevel;
+        _nameText.color = _resourcesEnough && _haveRequiredLevel ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
         if (_isSelect) _buildingResourcesView.SetResourcesView(GetResources());

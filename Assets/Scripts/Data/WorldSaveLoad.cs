@@ -97,7 +97,7 @@ public class WorldSaveLoad : MonoBehaviour
         currentSaveData.EnemyData = _enemiesSpawnerSystem.GetAllCurrentEnemies();
 
         //Tiles
-        currentSaveData.IsHaveBase = _tilesSystem.IsHaveBase();
+        currentSaveData.BaseLevel = _tilesSystem.GetBaseLevel();
         currentSaveData.IsHaveRiver = _tilesSystem.IsHaveRiver();
         currentSaveData.IsHaveMachineProduction = _tilesSystem.IsHaveMachineProduction();
         currentSaveData.TilesData = _allTileObjects.GetAllTileObjects();
@@ -143,7 +143,7 @@ public class WorldSaveLoad : MonoBehaviour
         _enemiesSpawnerSystem.LoadEnemies(currentSaveData.EnemyData, currentSaveData.IsStartMission);
 
         //Tiles
-        _tilesSystem.SetIsHaveBase(currentSaveData.IsHaveBase);
+        _tilesSystem.SetBaseLevel(currentSaveData.BaseLevel);
         _tilesSystem.SetIsHaveRiver(currentSaveData.IsHaveRiver);
         _tilesSystem.SetIsHaveMachineProduction(currentSaveData.IsHaveMachineProduction);
         _allTileObjects.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);

@@ -738,8 +738,8 @@ public class Language : MonoBehaviour
         _text[236, 0] = "";
         _text[236, 1] = "";
 
-        _text[237, 0] = "";
-        _text[237, 1] = "";
+        _text[237, 0] = "Need {0} base level";
+        _text[237, 1] = "Нужен {0} уровень базы";
 
         _text[238, 0] = "Toggle resources/shop panels";
         _text[238, 1] = "Переключает панель ресурсов/магазина";

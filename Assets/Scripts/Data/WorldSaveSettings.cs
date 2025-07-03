@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldSaveSettings : MonoBehaviour
@@ -11,7 +9,7 @@ public class WorldSaveSettings : MonoBehaviour
 
     [Header("Current Settings Data")]
     public SettingsSaveData CurrentSettingsSaveData;
-    [SerializeField] private string _fileName;
+    private string _fileName = "SettingsSave.txt";
 
     private void Awake()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldSaveGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
-    private string _worldDataSaveFileName = "Mission";
+    private string _worldDataSaveFileName = "MissionSave.txt";
 
     public WorldSaveGameDataWriter(string saveDataDirectoryPath)
     {
@@ -14,7 +14,7 @@ public class WorldSaveGameDataWriter
 
     public WorldSaveData LoadMissionDataFromJson()
     {
-        string savePath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + ".txt");
+        string savePath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName);
 
         WorldSaveData loadedSaveData = null;
 
@@ -45,7 +45,7 @@ public class WorldSaveGameDataWriter
 
     public void WriteMissionDataToSaveFile(WorldSaveData worldData)
     {
-        string savePath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + ".txt");
+        string savePath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName);
 
         try
         {
@@ -66,7 +66,7 @@ public class WorldSaveGameDataWriter
 
     public void DeleteMissionSaveFile()
     {
-        var missionPath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + ".txt");
+        var missionPath = Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName);
         if (File.Exists(missionPath))
         {
             File.Delete(missionPath);
@@ -75,7 +75,7 @@ public class WorldSaveGameDataWriter
 
     public bool CheckIfSaveFileExists()
     {
-        if (File.Exists(Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName + ".txt"))) return true;
+        if (File.Exists(Path.Combine(SaveDataDirectoryPath, _worldDataSaveFileName))) return true;
 
         else return false;
     }

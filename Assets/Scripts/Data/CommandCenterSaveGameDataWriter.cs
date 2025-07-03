@@ -5,7 +5,7 @@ using UnityEngine;
 public class CommandCenterSaveGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
-    private string _dataSaveFileName = "CommandCenterSave.txt";
+    private string _dataSaveFileName = "SpaceSave.txt";
 
     public CommandCenterSaveGameDataWriter(string saveDataDirectoryPath)
     {

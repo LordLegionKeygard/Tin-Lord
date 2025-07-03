@@ -93,10 +93,10 @@ public class CustomEvents
         OnDayEnd?.Invoke(day);
     }
 
-    public static event Action OnSetBase;
-    public static void FireSetBase()
+    public static event Action<int> OnSetBase;
+    public static void FireSetBase(int baseLevel)
     {
-        OnSetBase?.Invoke();
+        OnSetBase?.Invoke(baseLevel);
     }
 
     public static event Action OnRepairMachine;

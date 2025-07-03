@@ -150,7 +150,7 @@ public class BuildingTile : MonoBehaviour
       AudioManager.Instance.PlayerOneShot(_currentLevel == 0 ? FMODEvents.Instance.CompleteConstructBuilding : FMODEvents.Instance.CompleteUpgradeBuilding, transform.position);
       _isConstructionNow = false;
 
-      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base && !_tilesSystem.IsHaveBase()) CustomEvents.FireSetBase();
+      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase(_currentLevel);
       CheckIsExtrabaseTileObject();
 
       _currentBuildingGameObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
