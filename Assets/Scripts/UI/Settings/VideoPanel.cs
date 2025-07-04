@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class VideoPanel : MonoBehaviour
 {
-    [Inject] private WorldSaveSettings _worldSaveSettings;
+    [Inject] private SettingsSaveGame _settingsSaveGame;
     [SerializeField] private UniversalRenderPipelineAsset[] _urpAsset;
     [SerializeField] private BaseResolution _baseResolution;
     [SerializeField] private TMP_Dropdown _screenModeDropDown;
@@ -35,7 +35,7 @@ public class VideoPanel : MonoBehaviour
 
     public void SetSettingsToData()
     {
-        var data = _worldSaveSettings.CurrentSettingsSaveData;
+        var data = _settingsSaveGame.CurrentSettingsSaveData;
 
         data.ScreenMode = _screenMode;
         data.Resolution = _resolution;
@@ -49,7 +49,7 @@ public class VideoPanel : MonoBehaviour
 
     public void SetSettingsFromData()
     {
-        var data = _worldSaveSettings.CurrentSettingsSaveData;
+        var data = _settingsSaveGame.CurrentSettingsSaveData;
 
         _screenMode = data.ScreenMode;
         _quality = data.Quality;

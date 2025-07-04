@@ -1,6 +1,6 @@
 public enum SceneEnum
 {
-    MainMenu = 0,
-    CommandCenter = 1,
-    World = 2,   
+    Hangar = 0,
+    Space = 1,
+    Mission = 2,   
 }

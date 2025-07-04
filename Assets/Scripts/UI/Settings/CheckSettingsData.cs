@@ -1,14 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class CheckSettingsData : MonoBehaviour
 {
-    [Inject] private WorldSaveSettings _worldSaveSettings;
+    [Inject] private SettingsSaveGame _settingsSaveGame;
     [SerializeField] private BaseResolution _baseResolution;
     [SerializeField] private UniversalRenderPipelineAsset[] _urpAsset;
-    [SerializeField] private SaveLoadSettings _saveLoadSettings;
+    [SerializeField] private SettingsSaveLoad _settingsSaveLoad;
 
     private void Start()
     {
@@ -18,16 +19,16 @@ public class CheckSettingsData : MonoBehaviour
     private void InitializeSettings()
     {
         //здесь настройки берутся из префаба WorldSaveSettings
-        if (_worldSaveSettings.GetSettingsData() == null)
+        if (_settingsSaveGame.GetSettingsData() == null)
         {
-            _worldSaveSettings.NewUserSettings();
+            _settingsSaveGame.NewUserSettings();
         }
 
         else
         {
-            _worldSaveSettings.LoadSettingsData();
+            _settingsSaveGame.LoadSettingsFromJson();
         }
 
-        _saveLoadSettings.SetAllSettingsFromData();
+        _settingsSaveLoad.SetAllSettingsFromData();
     }
 }

@@ -5,10 +5,10 @@ using Zenject;
 
 public class SceneLoader : MonoBehaviour
 {
-    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
-    [Inject] private readonly WorldSaveGame _worldCenterSaveGame;
+    [Inject] private readonly SpaceSaveGame _spaceSaveGame;
+    [Inject] private readonly MissionSaveGame _missionCenterSaveGame;
     [Inject] private readonly HangarSaveGame _hangarSaveGame;
-    [Inject] private WorldSaveSettings _worldSaveSettings;
+    [Inject] private SettingsSaveGame _settingsSaveGame;
     [SerializeField] private LoadingScreenController _loadingScreenController;
 
     private void Start()
@@ -36,24 +36,24 @@ public class SceneLoader : MonoBehaviour
 
         System.Threading.Tasks.Task task = _loadingScreenController.CheckCurrentScene();
 
-        if (sceneEnum == SceneEnum.CommandCenter) _commandCenterSaveGame.CommandCenterSaveLoad.LoadGameData(ref _commandCenterSaveGame.CommandCenterSaveData);
-        else if (sceneEnum == SceneEnum.World) _worldCenterSaveGame.WorldSaveLoad.LoadGameData(ref _worldCenterSaveGame.CurrentWorldSaveData);
-        else if (sceneEnum == SceneEnum.MainMenu) _hangarSaveGame.HangarSaveLoad.LoadGameData(ref _hangarSaveGame.HangarSaveData);
-        _worldSaveSettings.SaveLoadSettings.SetAllSettingsFromData();
+        if (sceneEnum == SceneEnum.Space) _spaceSaveGame.SpaceSaveLoad.LoadGameData(ref _spaceSaveGame.SpaceSaveData);
+        else if (sceneEnum == SceneEnum.Mission) _missionCenterSaveGame.MissionSaveLoad.LoadGameData(ref _missionCenterSaveGame.CurrentMissionSaveData);
+        else if (sceneEnum == SceneEnum.Hangar) _hangarSaveGame.HangarSaveLoad.LoadGameData(ref _hangarSaveGame.HangarSaveData);
+        _settingsSaveGame.SettingsSaveLoad.SetAllSettingsFromData();
     }
 
     private void CheckSaveLoad(SceneEnum sceneEnum)
     {
         switch (sceneEnum)
         {
-            case SceneEnum.MainMenu:
+            case SceneEnum.Hangar:
                 _hangarSaveGame.HangarSaveLoad ??= FindObjectOfType<HangarSaveLoad>();
                 break;
-            case SceneEnum.CommandCenter:
-                _commandCenterSaveGame.CommandCenterSaveLoad ??= FindObjectOfType<CommandCenterSaveLoad>();
+            case SceneEnum.Space:
+                _spaceSaveGame.SpaceSaveLoad ??= FindObjectOfType<SpaceSaveLoad>();
                 break;
-            case SceneEnum.World:
-                _worldCenterSaveGame.WorldSaveLoad ??= FindObjectOfType<WorldSaveLoad>();
+            case SceneEnum.Mission:
+                _missionCenterSaveGame.MissionSaveLoad ??= FindObjectOfType<MissionSaveLoad>();
                 break;
         }
     }

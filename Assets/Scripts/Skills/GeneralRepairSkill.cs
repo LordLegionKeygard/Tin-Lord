@@ -5,7 +5,7 @@ using Zenject;
 
 public class GeneralRepairSkill : BaseSkill
 {
-    [Inject] private readonly WorldHangarSystem _worldHangarSystem;
+    [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [SerializeField] private List<TileObject> _repairList;
 
 
@@ -69,7 +69,7 @@ public class GeneralRepairSkill : BaseSkill
         return building.ResourcesForBuild.Select(resource => new ResourceWrapper
         {
             ResourceEnum = resource.ResourceEnum,
-            RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage * _worldHangarSystem.GetPatchRepairBonus())
+            RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage * _missionHangarSystem.GetPatchRepairBonus())
         }).ToArray();
     }
 

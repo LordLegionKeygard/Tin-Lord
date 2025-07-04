@@ -7,7 +7,7 @@ using Zenject;
 /// </summary>
 public class RobotBuildingView : MonoBehaviour
 {
-    [Inject] private WorldHangarSystem _worldHangarSystem;
+    [Inject] private MissionHangarSystem _missionHangarSystem;
     [SerializeField] private GameObject[] _robots;
     [SerializeField] private CharacterWorkWrapper[] _characterWorkWrapper;
     private RobotBuildingAnimator _robotBuildingAnimator;
@@ -31,7 +31,7 @@ public class RobotBuildingView : MonoBehaviour
 
     private void SetModel()
     {
-        _robots[_worldHangarSystem.GetCurrentRobot()].SetActive(true);
+        _robots[_missionHangarSystem.GetCurrentRobot()].SetActive(true);
     }
 
     private void SetWorkView()

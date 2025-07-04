@@ -6,7 +6,7 @@ using Unity.Mathematics;
 
 public class AudioPanel : MonoBehaviour
 {
-    [Inject] private WorldSaveSettings _worldSaveSettings;
+    [Inject] private SettingsSaveGame _settingsSaveGame;
     [SerializeField] private Slider[] _sliders;
     [SerializeField] private TextMeshProUGUI[] _volumeTexts;
     private int[] _volume = new int[4];
@@ -20,7 +20,7 @@ public class AudioPanel : MonoBehaviour
 
     public void SetSettingsToData()
     {
-        var data = _worldSaveSettings.CurrentSettingsSaveData;
+        var data = _settingsSaveGame.CurrentSettingsSaveData;
 
         data.MasterVolume = _volume[0];
         data.SfxVolume = _volume[1];
@@ -30,7 +30,7 @@ public class AudioPanel : MonoBehaviour
 
     public void SetSettingsFromData()
     {
-        var data = _worldSaveSettings.CurrentSettingsSaveData;
+        var data = _settingsSaveGame.CurrentSettingsSaveData;
 
         _volume[0] = data.MasterVolume;
         _volume[1] = data.SfxVolume;

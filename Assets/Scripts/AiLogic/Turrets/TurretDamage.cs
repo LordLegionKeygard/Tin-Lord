@@ -3,7 +3,7 @@ using Zenject;
 
 public class TurretDamage : BaseDamage
 {
-    [Inject] private readonly WorldHangarSystem _worldHangarSystem;
+    [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [Inject] private readonly BulletsPool _pool;
     private TurretBuilding _turretBuilding;
     [SerializeField] private TurretAttackState _turretAttackState;
@@ -23,7 +23,7 @@ public class TurretDamage : BaseDamage
 
     public override void SetDamage()
     {
-        Damage = _turretBuilding.Building().Damage * _worldHangarSystem.GetAimBotDamageBonus();
+        Damage = _turretBuilding.Building().Damage * _missionHangarSystem.GetAimBotDamageBonus();
     }
 
     public override void Shoot(int attackNumber)

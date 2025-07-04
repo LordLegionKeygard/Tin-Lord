@@ -1,19 +1,20 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class SaveGameInstaller : MonoInstaller
 {
     [SerializeField] private HangarSaveGame _hangarSaveGame;
-    [SerializeField] private CommandCenterSaveGame _commandCenterSaveGame;
-    [SerializeField] private WorldSaveGame _worldSaveGame;
+    [SerializeField] private SpaceSaveGame _spaceSaveGame;
+    [SerializeField] private MissionSaveGame _missionSaveGame;
     [SerializeField] private SceneLoader _sceneLoader;
-    [SerializeField] private WorldSaveSettings _worldSaveSettings;
+    [SerializeField] private SettingsSaveGame _settingsSaveGame;
     public override void InstallBindings()
     {
         Container.Bind<HangarSaveGame>().FromComponentInNewPrefab(_hangarSaveGame).AsSingle();
-        Container.Bind<CommandCenterSaveGame>().FromComponentInNewPrefab(_commandCenterSaveGame).AsSingle();
-        Container.Bind<WorldSaveGame>().FromComponentInNewPrefab(_worldSaveGame).AsSingle();
+        Container.Bind<SpaceSaveGame>().FromComponentInNewPrefab(_spaceSaveGame).AsSingle();
+        Container.Bind<MissionSaveGame>().FromComponentInNewPrefab(_missionSaveGame).AsSingle();
         Container.Bind<SceneLoader>().FromComponentInNewPrefab(_sceneLoader).AsSingle().NonLazy();
-        Container.Bind<WorldSaveSettings>().FromComponentInNewPrefab(_worldSaveSettings).AsSingle();
+        Container.Bind<SettingsSaveGame>().FromComponentInNewPrefab(_settingsSaveGame).AsSingle();
     }
 }

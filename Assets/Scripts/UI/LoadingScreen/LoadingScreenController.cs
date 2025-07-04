@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LoadingScreenController : MonoBehaviour
 {
-    [Inject] private readonly CommandCenterSaveGame _commandCenterSaveGame;
+    [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [SerializeField] private TextMeshProUGUI _loading;
     [SerializeField] private Image _loadingScreen;
     [SerializeField] private GameObject _blackScreen;
@@ -36,12 +36,12 @@ public class LoadingScreenController : MonoBehaviour
         await Task.Delay(2000);
         switch (SceneManager.GetActiveScene().buildIndex)
         {
-            case (int)SceneEnum.MainMenu:
+            case (int)SceneEnum.Hangar:
                 CustomEvents.FireFade(FadeType.FadeOut);
                 ScreenToggle(false);
                 break;
-            case (int)SceneEnum.CommandCenter:
-                if (!_commandCenterSaveGame.CommandCenterSaveData.PrologueCompleted)
+            case (int)SceneEnum.Space:
+                if (!_spaceSaveGame.SpaceSaveData.PrologueCompleted)
                 {
                     CustomEvents.FireFade(FadeType.FadeOutPrologue);
                 }
@@ -51,7 +51,7 @@ public class LoadingScreenController : MonoBehaviour
                 }
                 ScreenToggle(false);
                 break;
-            case (int)SceneEnum.World:
+            case (int)SceneEnum.Mission:
                 CustomEvents.FireFade(FadeType.FadeOut);
                 ScreenToggle(false);
                 break;

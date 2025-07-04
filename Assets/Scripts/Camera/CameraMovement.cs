@@ -124,8 +124,8 @@ public class CameraMovement : MonoBehaviour
 
     private void GetKeyboardMovement()
     {
-        Vector3 inputValue = InputSystemWorld.Instance.MoveInput.x * GetCameraRight()
-                    + InputSystemWorld.Instance.MoveInput.y * GetCameraForward();
+        Vector3 inputValue = MissionInputSystem.Instance.MoveInput.x * GetCameraRight()
+                    + MissionInputSystem.Instance.MoveInput.y * GetCameraForward();
 
         inputValue = inputValue.normalized;
 

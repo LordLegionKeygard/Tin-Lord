@@ -18,7 +18,7 @@ public class GamePlayPanel : MonoBehaviour
     private float _cameraSpeed;
 
     [Header("Other")]
-    [Inject] private WorldSaveSettings _worldSaveSettings;
+    [Inject] private SettingsSaveGame _settingsSaveGame;
     private ApplySettings _applySettings;
     private bool _needSound;
 
@@ -29,7 +29,7 @@ public class GamePlayPanel : MonoBehaviour
 
     public void SetSettingsToData()
     {
-        var data = _worldSaveSettings.CurrentSettingsSaveData;
+        var data = _settingsSaveGame.CurrentSettingsSaveData;
 
         data.CameraSpeed = _cameraSpeed;
         data.Blood = _blood;
@@ -37,7 +37,7 @@ public class GamePlayPanel : MonoBehaviour
 
     public void SetSettingsFromData()
     {
-        var data = _worldSaveSettings.CurrentSettingsSaveData;
+        var data = _settingsSaveGame.CurrentSettingsSaveData;
 
         _cameraSpeed = data.CameraSpeed == 0 ? WorldGameInfo.CameraSpeed : data.CameraSpeed;
         _blood = data.Blood;

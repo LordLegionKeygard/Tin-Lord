@@ -4,7 +4,7 @@ using Zenject;
 
 public class BuildingType : MonoBehaviour
 {
-    [Inject] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
+    [Inject] private LearnedBuildingsDataMission _learnedBuildingsDataMission;
     [SerializeField] private Image _image;
     [SerializeField] private Image _icon;
     private Tile _currentBuildingTypeTile;
@@ -31,7 +31,7 @@ public class BuildingType : MonoBehaviour
 
     private void CheckButton(Tile buildingTypeTile)
     {
-        _canSelect = _learnedBuildingsDataWorld.IsHaveOneLearnedBuildingInBuildingType(buildingTypeTile);
+        _canSelect = _learnedBuildingsDataMission.IsHaveOneLearnedBuildingInBuildingType(buildingTypeTile);
 
         _button.interactable = _canSelect;
         _icon.color = _canSelect ? Colors.GreySeven : Colors.AlphaGreyFive;

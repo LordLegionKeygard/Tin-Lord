@@ -52,7 +52,7 @@ public class MachineHealth : BaseHealth
     public void SetHealth()
     {
         _isDeath = false;
-        _maxHealth = MachinesDataWorld.Instance.GetCurrentDurability();
+        _maxHealth = MachinesDataMission.Instance.GetCurrentDurability();
         _currentHealth = _maxHealth;
         CreateHealthBar();
         UpdateSlider();
@@ -61,7 +61,7 @@ public class MachineHealth : BaseHealth
     public override void LoadHealth(float newHealth)
     {
         _isDeath = false;
-        _maxHealth = MachinesDataWorld.Instance.GetCurrentDurability();
+        _maxHealth = MachinesDataMission.Instance.GetCurrentDurability();
         _currentHealth = newHealth;
         CreateHealthBar();
         UpdateSlider();

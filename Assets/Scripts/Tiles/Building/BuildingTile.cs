@@ -8,7 +8,7 @@ public class BuildingTile : MonoBehaviour
    [Inject] private DiContainer _diContainer;
    [Inject] private MissionResources _missionResources;
    [Inject] private TilesSystem _tilesSystem;
-   [Inject] private LearnedBuildingsDataWorld _learnedBuildingsDataWorld;
+   [Inject] private LearnedBuildingsDataMission _learnedBuildingsDataMission;
 
    [SerializeField] private Transform _buildingParent;
    [SerializeField] private TileObject _tileObject;
@@ -55,7 +55,7 @@ public class BuildingTile : MonoBehaviour
    {
       if (_currentBuildingTile != null)
       {
-         return CurrentBuildingLevel() < _currentBuildingTile.Buildings.Length && _learnedBuildingsDataWorld.IsHaveLearnedBuildingUpgradeInBuildingType(_currentBuildingTile, _currentLevel);
+         return CurrentBuildingLevel() < _currentBuildingTile.Buildings.Length && _learnedBuildingsDataMission.IsHaveLearnedBuildingUpgradeInBuildingType(_currentBuildingTile, _currentLevel);
       }
 
       return false;

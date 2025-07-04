@@ -1,0 +1,218 @@
+using System;
+using UnityEngine;
+using UnityEngine.Serialization;
+using Zenject;
+
+public class MissionSaveLoad : MonoBehaviour
+{
+    [Inject] private readonly SpaceSaveGame _spaceSaveGame;
+    [Inject] private MissionSaveGame _missionSaveGame;
+    [Inject] private MissionResources _missionResources;
+
+    [Header("Main")]
+    [SerializeField] private AllNodesInfo _allMissionsInfo;
+    [SerializeField] private TileMapBuilder _tileMapBuilder;
+
+    [Header("UpPanel")]
+    [SerializeField] private EcologySystem _ecologySystem;
+    [SerializeField] private TimeTickSystem _timeTickSystem;
+    [SerializeField] private GameSpeedSystem _gameSpeedSystem;
+
+
+    [Header("Cards")]
+    [SerializeField] private CardHolderSystem _cardHolderSystem;
+    
+    [Header("WorldEvents")]
+    [SerializeField] private MissionEventSystem _missionEventSystem;
+
+    [Header("Enemies")]
+    [SerializeField] private EnemiesSpawnerSystem _enemiesSpawnerSystem;
+
+    [Header("Tiles")]
+    [Inject] private readonly TilesSystem _tilesSystem;
+    [SerializeField] private AllTileObjects _allTileObjects;
+
+    [Header("Robot")]
+    [SerializeField] private CurrentMachineSystem _currentMachineSystem;
+    [SerializeField] private MachineSpawnerSystem _machineSpawnerSystem;
+    
+    [Header("LearnedBuildings")]
+    [SerializeField] private LearnedBuildingsDataMission _learnedBuildingsDataMission;
+
+    [Header("Objectives")]
+    [SerializeField] private ObjectivesPanel _objectivesPanel;
+
+    [Header("Skill")]
+    [SerializeField] private AllSkills _allSkills;
+
+    [Header("Quants")]
+    [SerializeField] private QuantPickupPool _quantPool;
+    [SerializeField] private MissionQuantSystem _missionQuantSystem;
+    
+    [Header("Hangar")]
+    [SerializeField] private MissionHangarSystem _missionHangarSystem;
+
+    private void Awake()
+    {
+        _missionSaveGame.MissionSaveLoad = this;
+    }
+
+    public void ResetMissionData(ref MissionSaveData currentSaveData)
+    {
+        currentSaveData = new MissionSaveData
+        {
+            IsStartMission = true,
+            GameSpeed = (int)GameSpeedEnum.Default,
+            ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
+        };
+
+        for (int i = 0; i < _spaceSaveGame.SpaceSaveData.MainResourcesData.Length; i++)
+        {
+            currentSaveData.ResourcesData[i] = _spaceSaveGame.SpaceSaveData.MainResourcesData[i];
+        }
+
+        currentSaveData.ResourcesData[(int)ResourceEnum.DataFragment] = 0;
+    }
+
+    public void SaveMissionData(ref MissionSaveData currentSaveData)
+    {
+        //Main
+        currentSaveData.IsStartMission = false;
+
+        //UpPanel
+        currentSaveData.Day = _timeTickSystem.GetCurrentDay();
+        currentSaveData.Tick = _timeTickSystem.GetCurrentTick();
+        currentSaveData.Radiation = _ecologySystem.GetRadiation();
+        currentSaveData.GameSpeed = (int)GameSpeedEnum.Pause;
+
+        //Resources
+        currentSaveData.ResourcesData = _missionResources.GetAllResourcesAmount();
+
+        //Cards
+        currentSaveData.Cards = _cardHolderSystem.GetAllCards();
+
+        //DayEvents
+        currentSaveData.DayEventsData = _missionEventSystem.GetAllCurrentEvents();
+
+        //Enemies
+        currentSaveData.EnemyData = _enemiesSpawnerSystem.GetAllCurrentEnemies();
+
+        //Tiles
+        currentSaveData.BaseLevel = _tilesSystem.GetBaseLevel();
+        currentSaveData.IsHaveRiver = _tilesSystem.IsHaveRiver();
+        currentSaveData.IsHaveMachineProduction = _tilesSystem.IsHaveMachineProduction();
+        currentSaveData.TilesData = _allTileObjects.GetAllTileObjects();
+        currentSaveData.RoadTilesId = _tileMapBuilder.GetRoadTilesId();
+
+        //Robot
+        currentSaveData.MachinesExperienceData = MachinesDataMission.Instance.GetAllMachinesExperience();
+        currentSaveData.MachineData = _currentMachineSystem.GetMachineData();
+
+        //Objectives
+        currentSaveData.ObjectiveAmount = _objectivesPanel.GetAllObjectivesAmount();
+
+        //Skills
+        currentSaveData.SkillsCooldown = _allSkills.GetAllSkillsCooldown();
+        currentSaveData.SkillsDuration = _allSkills.GetAllSkillsDuration();
+
+        //Quants
+        currentSaveData.QuantsAmount = _missionQuantSystem.GetQuants();
+        currentSaveData.QuantPickups = _quantPool.GetActiveQuants();
+    }
+
+    public void LoadGameData(ref MissionSaveData currentSaveData)
+    {
+        // Main
+        CurrentMissionInfo.Instance.LoadMission(BuildMissionFromSelected());
+        _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
+
+        //UpPanel
+        _timeTickSystem.LoadTime(currentSaveData.Day, currentSaveData.Tick);
+        _ecologySystem.LoadEcology(currentSaveData.Radiation);
+        _gameSpeedSystem.ChangeGameSpeed(currentSaveData.GameSpeed);
+
+        //Resources
+        _missionResources.LoadResources(currentSaveData.ResourcesData);
+
+        //Cards
+        _cardHolderSystem.LoadCards(currentSaveData.IsStartMission, currentSaveData.Cards);
+
+        //DayEvents
+        _missionEventSystem.LoadEvents(currentSaveData.DayEventsData, currentSaveData.IsStartMission);
+
+        //Enemies
+        _enemiesSpawnerSystem.LoadEnemies(currentSaveData.EnemyData, currentSaveData.IsStartMission);
+
+        //Tiles
+        _tilesSystem.SetBaseLevel(currentSaveData.BaseLevel);
+        _tilesSystem.SetIsHaveRiver(currentSaveData.IsHaveRiver);
+        _tilesSystem.SetIsHaveMachineProduction(currentSaveData.IsHaveMachineProduction);
+        _allTileObjects.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
+        _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId, currentSaveData.IsStartMission);
+
+        //Machine
+        MachinesDataMission.Instance.LoadMachinesExperience(currentSaveData.MachinesExperienceData, currentSaveData.IsStartMission);
+        _machineSpawnerSystem.LoadSpawnRobot(currentSaveData);
+
+        //Buildings
+        _learnedBuildingsDataMission.LoadLearnedBuildings(_spaceSaveGame.SpaceSaveData.BuildingsLearned);
+
+        //Objectives
+        _objectivesPanel.LoadObjectiveItems(currentSaveData.ObjectiveAmount, currentSaveData.IsStartMission);
+
+        //Skills
+        _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _spaceSaveGame.SpaceSaveData.OpenedSkills);
+
+        //Quants
+        _missionQuantSystem.SetQuants(currentSaveData.QuantsAmount);
+        _quantPool.LoadQuantPickup(currentSaveData.QuantPickups);
+
+        //Tutorial
+        // if (!_commandCenterSaveGame.CommandCenterSaveData.TutorialCompleted) _tutorialSystem.OpenTutorial(true);
+
+        //Hangar
+        _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData);
+
+        CustomEvents.FirePlayRandomLevelMusic();
+        CustomEvents.FireDataLoad();
+    }
+
+    //  Собирает MissionNode из SelectedMissionData
+    private MissionNode BuildMissionFromSelected()
+    {
+        SelectedMissionData sel = _spaceSaveGame.SpaceSaveData.CurrentMission;
+        if (sel == null) return null;
+
+        var definition = _allMissionsInfo.MissionDeck[sel.MissionDeckIndex];
+        var template = _allMissionsInfo.MissionNodeTemplate;
+        var landscape = _allMissionsInfo.Landscapes[sel.LandscapeId];
+        var spawnerSO = definition.Spawner;
+
+        var wrappers = new ObjectiveWrapper[sel.SavedObjectives.Length];
+        for (int i = 0; i < wrappers.Length; i++)
+        {
+            wrappers[i] = new ObjectiveWrapper
+            {
+                ObjectiveEnum = sel.SavedObjectives[i].Objective,
+                ObjectiveAmount = sel.SavedObjectives[i].Amount
+            };
+        }
+        var objectiveSO = ScriptableObject.CreateInstance<Objective>();
+        objectiveSO.Objectives = wrappers;
+
+        var node = ScriptableObject.CreateInstance<MissionNode>();
+        node.Landscape = landscape;
+        node.Objective = objectiveSO;
+        node.EnemiesSpawner = spawnerSO;
+
+        node.Icon = template.Icon;
+        node.IconColor = template.IconColor;
+        node.IconWidth = template.IconWidth;
+        node.IconHeight = template.IconHeight;
+        node.DescriptionTextNumber = template.DescriptionTextNumber;
+        node.CosmosVariations = landscape.CosmosVariations;
+
+        return node;
+    }
+
+}

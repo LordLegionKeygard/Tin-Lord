@@ -16,7 +16,7 @@ public class MachineSniperExplosionSpawner : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.RobotSniperExplosion, transform.position);
         var prefab = Instantiate(_explosionPrefab, _spawnPoint.position, Quaternion.identity);
-        prefab.GetComponent<Explosion>().SetDamage(MachinesDataWorld.Instance.GetCurrentRangeDamage() * 5, 100);
+        prefab.GetComponent<Explosion>().SetDamage(MachinesDataMission.Instance.GetCurrentRangeDamage() * 5, 100);
     }
 
     private void OnDestroy()

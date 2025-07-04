@@ -1,22 +1,23 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SettingsPanels : MonoBehaviour
 {
-    [SerializeField] private EscapePanelWorld _escapePanelWorld;
+    [SerializeField] private EscapePanelMission _escapePanelMission;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject[] _panels;
     [SerializeField] private Image[] _panelsBtnImages;
     [SerializeField] private TextMeshProUGUI[] _buttonsText;
     [SerializeField] private Sprite[] _sprites;
-    private SaveLoadSettings _saveLoadSettings;
+    private SettingsSaveLoad _settingsSaveLoad;
     private ApplySettings _applySettings;
 
     private void Awake()
     {
         _applySettings = GetComponent<ApplySettings>();
-        _saveLoadSettings = GetComponent<SaveLoadSettings>();
+        _settingsSaveLoad = GetComponent<SettingsSaveLoad>();
     }
 
     public void ChangePanel(int number)
@@ -37,10 +38,10 @@ public class SettingsPanels : MonoBehaviour
 
     public void CloseButton()
     {
-        _saveLoadSettings.SetAllSettingsFromData();
+        _settingsSaveLoad.SetAllSettingsFromData();
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _applySettings.ApplyToggle(false);
         _settingsPanel.SetActive(false);
-        if (_escapePanelWorld != null) _escapePanelWorld.PanelViewToggle(false);
+        if (_escapePanelMission != null) _escapePanelMission.PanelViewToggle(false);
     }
 }
