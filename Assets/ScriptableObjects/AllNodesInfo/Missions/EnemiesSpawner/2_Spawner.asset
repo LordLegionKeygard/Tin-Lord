@@ -22,7 +22,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 7
       EnemyLevel: 1
   - StartDaySpawn: 15
     SpawnPeriod: 3
@@ -33,7 +33,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 7
       EnemyLevel: 1
   - StartDaySpawn: 25
     SpawnPeriod: 2
@@ -44,7 +44,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 7
       EnemyLevel: 2
   - StartDaySpawn: 35
     SpawnPeriod: 2
@@ -55,7 +55,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 7
       EnemyLevel: 3
   - StartDaySpawn: 45
     SpawnPeriod: 2
@@ -66,7 +66,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 7
       EnemyLevel: 3
   - StartDaySpawn: 55
     SpawnPeriod: 2
@@ -77,7 +77,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 7
       EnemyLevel: 4
   - StartDaySpawn: 65
     SpawnPeriod: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 7
       EnemyLevel: 4
   - StartDaySpawn: 75
     SpawnPeriod: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 7
       EnemyLevel: 4
   - StartDaySpawn: 85
     SpawnPeriod: 1
@@ -110,7 +110,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 1
+        EnemyEnum: 7
       EnemyLevel: 4
   - StartDaySpawn: 95
     SpawnPeriod: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 7
       EnemyLevel: 4
   MiniBossSpawners:
   - DaySpawn: 15
@@ -175,9 +175,9 @@ MonoBehaviour:
   BossSpawner:
     Bosses:
     - Biome: 0
-      EnemyEnum: 2
+      EnemyEnum: 5
     - Biome: 1
-      EnemyEnum: 7
+      EnemyEnum: 11
     BossLevel: 3
     BossDaySpawn: 99
     LandscapeSpawnSide: []

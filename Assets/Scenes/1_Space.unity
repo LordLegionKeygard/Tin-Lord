@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007799688, g: 0.00009620373, b: 0.00011582905,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.00007799058, g: 0.00009618961, b: 0.000115816, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5181,7 +5180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &163225550
@@ -11378,7 +11377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -17214,7 +17213,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 698942899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88ae99f90a479c43b0b9722f3183c46, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cae8dfc63d333a47a98432a254f1c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _objectTransform: {fileID: 698942900}
@@ -18863,7 +18862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &758822814
@@ -50916,7 +50915,7 @@ MonoBehaviour:
   _cellsView: {fileID: 392172266}
   _eventPanel: {fileID: 1451985186}
   _endGameDialogue: {fileID: 11400000, guid: e64af431980a7bb44860aefe1d956cac, type: 2}
-  _uiPanelsCommandCenter: {fileID: 616848379}
+  uiPanelsSpace: {fileID: 616848379}
   _shardsCalculateSystem: {fileID: 1795485595}
 --- !u!1 &1967619306
 GameObject:

@@ -453,7 +453,7 @@ public class HangarSystem : MonoBehaviour
             data.BuildingsLearned[_learnedOnStartBuildings[i].Id] = true;
         }
 
-        if (_currentSkill != -1) data.OpenedSkills[_currentSkill] = true;
+        if (_currentSkill != -1 && _hangarSkillItems[_currentSkill].IsOpen()) data.OpenedSkills[_currentSkill] = true;
 
         _missionSaveGame.DeleteMissionJson();
         _spaceSaveGame.NewCommandCenterData(data);
