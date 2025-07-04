@@ -279,7 +279,7 @@ public class SelectTilePanel : MonoBehaviour
         else
         {
             var bonus = _missionHangarSystem.GetAimBotDamageBonus();
-            string damageText = bonus != 0 ? $"<color={Colors.HexColorLightGreen}>{building.Damage * bonus}</color>" : building.Damage.ToString();
+            string damageText = bonus != 1 ? $"<color={Colors.HexColorLightGreen}>{building.Damage * bonus}</color>" : building.Damage.ToString();
             _damageText.text = $"{Language.TextStatic[98]}: {damageText}";
             _attackSpeedText.text = $"{Language.TextStatic[99]}: {building.AttackSpeed}";
             _attackRadiusText.text = $"{Language.TextStatic[100]}: {building.AttackRadius}";

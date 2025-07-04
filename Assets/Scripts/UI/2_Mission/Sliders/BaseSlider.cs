@@ -65,4 +65,9 @@ public class BaseSlider : MonoBehaviour
         Vector3 screenPosition = _mainCamera.WorldToScreenPoint(_objectTransform.position + Vector3.up * _heightOffset);
         _sliderTransform.position = screenPosition;
     }
+
+    public virtual void ChangeColor(Color newColor)
+    {
+
+    }
 }

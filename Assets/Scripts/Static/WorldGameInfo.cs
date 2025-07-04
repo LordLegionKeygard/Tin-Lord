@@ -61,8 +61,8 @@ public class WorldGameInfo
     public const int LoadSceneTime = 2;
 
     [Header("EndMissionFragmentsPercent")]
-    public const int DefeatFragmentsPercent = 25;
-    public const int EscapeFragmentsPercent = 50;
+    public const int DefeatFragmentsPercent = 5;
+    public const int EscapeFragmentsPercent = 20;
     public const int VictoryFragmentsPercent = 100;
 
     [Header("Sounds")]

@@ -53,7 +53,7 @@ public class BuildingHealth : BaseHealth
         }
     }
 
-    private void CreateHealthSlider()
+    private void CreateHealthSlider(bool isConstruction)
     {
         if (_healthSliderObject == null)
         {
@@ -61,6 +61,7 @@ public class BuildingHealth : BaseHealth
             _healthSlider = _healthSliderObject.GetComponent<BaseSlider>();
             _healthSlider.SetHeightOffset(-3.5f);
             _healthSlider.SetObjectTransform(transform);
+            if (isConstruction) _healthSlider.ChangeColor(Colors.ConstructionBlue);
         }
 
         _healthSlider.SetupAllHealthValue(_maxHealth);
@@ -79,7 +80,7 @@ public class BuildingHealth : BaseHealth
         _maxHealth = (int)(building.BuildingHealth * _missionHangarSystem.GetTitanBuildingHealthBonus());
         _currentHealth = _isConstructionNow ? 1 : _maxHealth;
 
-        CreateHealthSlider();
+        CreateHealthSlider(isConstruction);
         SetBuildingSkillView();
         UpdateSlider();
     }
@@ -97,7 +98,7 @@ public class BuildingHealth : BaseHealth
         _isConstructionNow = isConstruction;
         _maxHealth = (int)(building.BuildingHealth * _missionHangarSystem.GetTitanBuildingHealthBonus());
         _currentHealth = currentHealth;
-        CreateHealthSlider();
+        CreateHealthSlider(isConstruction);
         SetBuildingSkillView();
         UpdateSlider();
     }
