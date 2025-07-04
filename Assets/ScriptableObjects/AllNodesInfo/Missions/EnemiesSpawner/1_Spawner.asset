@@ -118,9 +118,9 @@ MonoBehaviour:
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0
-        EnemyEnum: 1
+        EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 8
       EnemyLevel: 2
   - DaySpawn: 30
     Count: 2
@@ -130,9 +130,9 @@ MonoBehaviour:
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0
-        EnemyEnum: 1
+        EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 8
       EnemyLevel: 3
   - DaySpawn: 45
     Count: 3
@@ -142,22 +142,10 @@ MonoBehaviour:
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0
-        EnemyEnum: 1
+        EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 6
+        EnemyEnum: 8
       EnemyLevel: 4
-  - DaySpawn: 60
-    Count: 4
-    HealthFactor: 3
-    DamageFactor: 3
-    LandscapeSpawnSide: []
-    EnemySpawnerInfo:
-      EnemyBiomeInfo:
-      - Biome: 0
-        EnemyEnum: 1
-      - Biome: 1
-        EnemyEnum: 6
-      EnemyLevel: 5
   BossSpawner:
     Bosses: []
     BossLevel: 0

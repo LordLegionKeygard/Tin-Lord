@@ -22,7 +22,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 2
       EnemyLevel: 1
   - StartDaySpawn: 14
     SpawnPeriod: 2
@@ -33,7 +33,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 8
       EnemyLevel: 1
   - StartDaySpawn: 24
     SpawnPeriod: 2
@@ -44,7 +44,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 8
       EnemyLevel: 2
   - StartDaySpawn: 30
     SpawnPeriod: 2
@@ -55,7 +55,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 8
       EnemyLevel: 3
   - StartDaySpawn: 40
     SpawnPeriod: 2
@@ -66,7 +66,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 8
       EnemyLevel: 3
   - StartDaySpawn: 50
     SpawnPeriod: 2
@@ -77,7 +77,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 8
       EnemyLevel: 4
   - StartDaySpawn: 60
     SpawnPeriod: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 8
       EnemyLevel: 4
   - StartDaySpawn: 70
     SpawnPeriod: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 8
       EnemyLevel: 4
   - StartDaySpawn: 80
     SpawnPeriod: 1
@@ -110,7 +110,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 8
       EnemyLevel: 4
   - StartDaySpawn: 90
     SpawnPeriod: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
-        EnemyEnum: 7
+        EnemyEnum: 8
       EnemyLevel: 4
   MiniBossSpawners:
   - DaySpawn: 15
@@ -132,9 +132,9 @@ MonoBehaviour:
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0
-        EnemyEnum: 2
+        EnemyEnum: 3
       - Biome: 1
-        EnemyEnum: 8
+        EnemyEnum: 9
       EnemyLevel: 2
   - DaySpawn: 30
     Count: 2
@@ -144,9 +144,9 @@ MonoBehaviour:
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0
-        EnemyEnum: 2
+        EnemyEnum: 3
       - Biome: 1
-        EnemyEnum: 8
+        EnemyEnum: 9
       EnemyLevel: 3
   - DaySpawn: 45
     Count: 3
@@ -156,9 +156,9 @@ MonoBehaviour:
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0
-        EnemyEnum: 2
+        EnemyEnum: 3
       - Biome: 1
-        EnemyEnum: 8
+        EnemyEnum: 9
       EnemyLevel: 4
   - DaySpawn: 60
     Count: 4
@@ -168,9 +168,9 @@ MonoBehaviour:
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0
-        EnemyEnum: 2
+        EnemyEnum: 3
       - Biome: 1
-        EnemyEnum: 8
+        EnemyEnum: 9
       EnemyLevel: 5
   BossSpawner:
     Bosses:
