@@ -120,23 +120,21 @@ public class MapSystem : MonoBehaviour
 
     public void TrySelectNode(int nodeIndex)
     {
+        // ---------- валидация ----------
         var map = _save.SpaceSaveData.Map;
-        if (map == null || map.Nodes == null || nodeIndex < 0 || nodeIndex >= map.Nodes.Count) return;
+        if (map == null || map.Nodes == null ||
+            nodeIndex < 0 || nodeIndex >= map.Nodes.Count) return;
 
         bool isCurrent = nodeIndex == _currentNodeIndex;
         var nodeType = map.Nodes[nodeIndex].NodeType;
 
-        if (nodeType != NodeType.Mission)
-        {
-            // 50 % шанс увеличить паттерн индекс не миссии в два раза, после посещения известного на карте нода 
-            if (Random.value < 0.5f)
-                map.PatternIndex++;
-        }
+        if (!isCurrent && (!IsReachable(nodeIndex) ||          // недоступен
+                           !map.Nodes[_currentNodeIndex].IsCompleted)) return;
 
-        if (!isCurrent && (!IsReachable(nodeIndex) || !map.Nodes[_currentNodeIndex].IsCompleted)) return;
+        if (nodeType == NodeType.Mission &&                    // повторно открывать
+            map.Nodes[nodeIndex].IsCompleted) return;          // завершённую миссию нельзя
 
-        if (nodeType == NodeType.Mission && map.Nodes[nodeIndex].IsCompleted) return;
-
+        // ---------- переход курсора / выделение ----------
         if (!isCurrent)
         {
             _currentNodeIndex = nodeIndex;
@@ -146,12 +144,31 @@ public class MapSystem : MonoBehaviour
             RefreshHighlights();
         }
 
-        if (nodeType == NodeType.None)          // плейсхолдер?
+        // ---------- «раскрываем» плейсхолдер ----------
+        if (nodeType == NodeType.None)
         {
-            ResolveUnknownNode(nodeIndex);      // превращаем по паттерну
-            nodeType = map.Nodes[nodeIndex].NodeType;   // тип уже обновился
+            ResolveUnknownNode(nodeIndex);                     // превращаем по паттерну
+            nodeType = map.Nodes[nodeIndex].NodeType;          // тип уже обновился
         }
 
+        // ---------- шаг по паттерну для ВИДИМОГО non-mission ----------
+        bool isVisibleNonMission =
+               nodeType == NodeType.ResourceTrader ||
+               nodeType == NodeType.SkillTrader ||
+               nodeType == NodeType.RewardEvent;
+
+        if (isVisibleNonMission)
+        {
+            // основной NON-шаг
+            map.PatternIndex++;
+
+            // 50 % «штраф» — съесть ещё один NON
+            if (Random.value < 0.5f)
+                map.PatternIndex++;
+        }
+        // --------------------------------------------------------------
+
+        // ---------- обработка типа узла ----------
         switch (nodeType)
         {
             case NodeType.Boss:
@@ -159,12 +176,17 @@ public class MapSystem : MonoBehaviour
                 {
                     var save = map.Nodes[nodeIndex];
 
+                    // генерируем миссию, если ещё не сгенерирована
                     if (save.MissionDeckIndex < 0)
                     {
                         int completed = GetCompletedMissionsCount();
-                        int deckIdx = Mathf.Clamp(completed, 0, _allMissionsInfo.MissionDeck.Length - 1);
+                        int deckIdx = Mathf.Clamp(completed, 0,
+                                                     _allMissionsInfo.MissionDeck.Length - 1);
 
-                        var mission = BuildMissionRandom(deckIdx, isBossNode: nodeType == NodeType.Boss, out int landscapeIdx, out ObjectiveSave[] chosenObj);
+                        var mission = BuildMissionRandom(deckIdx,
+                                         isBossNode: nodeType == NodeType.Boss,
+                                         out int landscapeIdx,
+                                         out ObjectiveSave[] chosenObj);
 
                         save.MissionDeckIndex = deckIdx;
                         save.SavedLandscapeIndex = landscapeIdx;
@@ -174,11 +196,11 @@ public class MapSystem : MonoBehaviour
                     }
 
                     var mNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as MissionNode;
-
                     _missionPanel.RefreshInfo(mNode, nodeIndex);
                     _panels.MissionPanelOpen(true);
                     break;
                 }
+
             case NodeType.Event:
                 {
                     var evNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as EventNode;
@@ -188,15 +210,15 @@ public class MapSystem : MonoBehaviour
                     _panels.EventPanelOpen();
                     break;
                 }
+
             case NodeType.RewardEvent:
                 {
-                    var rNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData
-                                as RewardEventNode;
-
+                    var rNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as RewardEventNode;
                     _eventPanel.Open(rNode.Dialogue);
                     _panels.EventPanelOpen();
                     break;
                 }
+
             case NodeType.ResourceTrader:
             case NodeType.SkillTrader:
                 {
@@ -206,10 +228,16 @@ public class MapSystem : MonoBehaviour
                 }
         }
 
-        if (!isCurrent) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp, transform.position);
+        // ---------- финал ----------
+        if (!isCurrent)
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp,
+                                                transform.position);
+
         ApplyCosmos();
-        _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.SpaceSaveData);
+        _save.GetCommandCenterSaveGameDataWriter()
+             .WriteCommandCenterDataToSaveFile(_save.SpaceSaveData);
     }
+
 
     private void ResolveUnknownNode(int nodeIndex)
     {
