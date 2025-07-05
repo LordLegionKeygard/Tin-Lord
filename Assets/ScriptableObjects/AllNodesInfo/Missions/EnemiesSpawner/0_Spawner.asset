@@ -65,6 +65,19 @@ MonoBehaviour:
       - Biome: 1
         EnemyEnum: 6
       EnemyLevel: 2
+  - StartDaySpawn: 40
+    SpawnPeriod: 2
+    Count: 50
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 0
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 2
   MiniBossSpawners: []
   BossSpawner:
     Bosses: []
