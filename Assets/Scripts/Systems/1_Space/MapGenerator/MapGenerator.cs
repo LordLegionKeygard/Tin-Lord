@@ -11,7 +11,7 @@ public class MapGenerator : MonoBehaviour
     [Header("Generation Settings")]
     private float _nodeXoffset = 300f;   // Шаг слоёв по X
     private float _nodeYoffset = 200;   // Шаг нод по Y
-    private float _nodeYrandomSpread = 0;    // Случайное отклонение по Y
+    private float _nodeYrandomSpread = 60;    // Случайное отклонение по Y
     private float _mainXOffset = 100;   // Смещение всей сетки по X
     private float _mainYOffset = 0;  // Смещение всей сетки по Y
 
@@ -155,13 +155,15 @@ public class MapGenerator : MonoBehaviour
         }
 
         // ────── 4.  Генерация слоя ──────
-        void GenLayer(int layer, int minN, int maxN, bool allowTraders)
+        int GenLayer(int layer, int minN, int maxN, bool allowTraders)
         {
             bool needVisible = targetLayers.Contains(layer);
             bool visiblePlaced = false;
-            int need = Mathf.Min(maxPerLayer, Random.Range(minN, maxN + 1));
 
-            for (int placed = 0; placed < need; placed++)
+            int need = Random.Range(minN, maxN + 1);   // сколько нужно поставить
+            int placed = 0;                              // сколько уже поставили
+
+            while (placed < need)
             {
                 if (needVisible && !visiblePlaced)
                 {
@@ -170,6 +172,7 @@ public class MapGenerator : MonoBehaviour
                         SpawnVisible(rev.Node, NodeType.RewardEvent,
                                      layer, rev.SequenceIndex, rev.PoolIndex);
                         visiblePlaced = true;
+                        placed++;           // ← НЕ забываем увеличивать!
                         continue;
                     }
 
@@ -177,6 +180,7 @@ public class MapGenerator : MonoBehaviour
                     {
                         SpawnVisible(rTr, NodeType.ResourceTrader, layer);
                         visiblePlaced = true;
+                        placed++;
                         continue;
                     }
 
@@ -184,14 +188,16 @@ public class MapGenerator : MonoBehaviour
                     {
                         SpawnVisible(sTr, NodeType.SkillTrader, layer);
                         visiblePlaced = true;
+                        placed++;
                         continue;
                     }
                 }
 
                 AddStub(layer);
+                placed++;
             }
 
-            // если получилось V-V по ребру – пробуем разменять
+            //  ——— проверка «видимый-видимый» и возможный свап ———
             foreach (var inst in _layers[layer])
             {
                 if (!IsVisible(inst.nodeData)) continue;
@@ -206,14 +212,74 @@ public class MapGenerator : MonoBehaviour
                     }
                 }
             }
+
+            return placed;     // сколько узлов реально поставили
         }
 
-        // ────── 5.  Контент ──────
-        GenLayer(1, 2, 3, false);          // первый слой без Trader’ов
-        for (int l = 2; l < lastContent; l++)              // середина
-            GenLayer(l, 3, 4, true);
-        GenLayer(lastContent, 2, 3, true);
+        // ────── 5-bis.  Добрасываем оставшиеся открытые узлы ──────
+        void PlaceRemainingOpenNodes()
+        {
+            NodeInstance TakeRandomStub()
+            {
+                var stubs = _generatedNodes
+                             .Where((n, idx) => SavedMap.Nodes[idx].NodeType == NodeType.None)
+                             .ToList();
+                return stubs.Count > 0 ? stubs[Random.Range(0, stubs.Count)] : null;
+            }
 
+            // ► RewardEvent
+            foreach (var rev in rewardEvents)
+            {
+                var stub = TakeRandomStub();
+                if (stub == null) break;
+
+                stub.nodeData = rev.Node;
+                var s = SavedMap.Nodes[_generatedNodes.IndexOf(stub)];
+                s.NodeType = NodeType.RewardEvent;
+                s.EventPoolIndex = rev.PoolIndex;
+                s.EventSequenceIndex = rev.SequenceIndex;
+            }
+
+            // ► Resource-traders
+            foreach (var tr in resTraders)
+            {
+                var stub = TakeRandomStub();
+                if (stub == null) break;
+
+                stub.nodeData = tr;
+                SavedMap.Nodes[_generatedNodes.IndexOf(stub)].NodeType = NodeType.ResourceTrader;
+            }
+
+            // ► Skill-traders
+            foreach (var tr in skillTraders)
+            {
+                var stub = TakeRandomStub();
+                if (stub == null) break;
+
+                stub.nodeData = tr;
+                SavedMap.Nodes[_generatedNodes.IndexOf(stub)].NodeType = NodeType.SkillTrader;
+            }
+
+            // списки опустошили — больше никто «невидимо» не появится
+            rewardEvents.Clear();
+            resTraders.Clear();
+            skillTraders.Clear();
+        }
+
+        // ───────── 5.  Контент ──────
+        GenLayer(1, 2, 3, false);               // первый слой
+
+        bool lastWasPair = false;               // ← флаг «предыдущий слой = 2 нода»
+
+        for (int l = 2; l < lastContent; l++)
+        {
+            int minThis = lastWasPair ? 3 : 2;  // если прошлый был парой → сейчас ≥3
+            int placed = GenLayer(l, minThis, 4, true);
+            lastWasPair = placed == 2;
+        }
+
+        GenLayer(lastContent, 2, 3, true);
+        PlaceRemainingOpenNodes();
         foreach (var kv in _layers) kv.Value.Shuffle();    // лёгкая рандомизация позиций
 
         // ────── 6.  Boss ──────

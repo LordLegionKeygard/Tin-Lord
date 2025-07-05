@@ -88,15 +88,46 @@ public class MapSystem : MonoBehaviour
 
     private void InitSpawnQueues()
     {
-        // --------- обычные Event’ы (без RewardEvent) ----------
-        _eventQueue = MapHelper.BuildEventEntries(_allMissionsInfo.EventPools).Where(e => !(e.Node is RewardEventNode)).ToList();
+        // ---------- обычные Event’ы (без RewardEvent) ----------
+        _eventQueue = MapHelper.BuildEventEntries(_allMissionsInfo.EventPools)
+                               .Where(e => !(e.Node is RewardEventNode))
+                               .ToList();
         _eventQueue.Shuffle();
 
-        // --------- Traders ----------
+        // ---------- Traders ----------
         _resTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
         _skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
         _resTraders.Shuffle();
         _skillTraders.Shuffle();
+
+        // ---------- НОВОЕ: убрать уже размещённых ----------
+        RemoveOpenNodeOnMap();
+    }
+
+    private void RemoveOpenNodeOnMap()
+    {
+        var map = _save.SpaceSaveData.Map;
+
+        // 1)  Resource- и Skill-trader’ы
+        _resTraders = _resTraders
+                       .Where(tr => !map.Nodes.Any(n =>
+                               n.NodeType == NodeType.ResourceTrader &&
+                               _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr))
+                       .ToList();
+
+        _skillTraders = _skillTraders
+                        .Where(tr => !map.Nodes.Any(n =>
+                                n.NodeType == NodeType.SkillTrader &&
+                                _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr))
+                        .ToList();
+
+        // 2)  RewardEvent’ы – убираем уже занятые (pool, seq)
+        _eventQueue = _eventQueue
+                      .Where(e => !map.Nodes.Any(n =>
+                              n.NodeType == NodeType.RewardEvent &&
+                              n.EventPoolIndex == e.PoolIndex &&
+                              n.EventSequenceIndex == e.SequenceIndex))
+                      .ToList();
     }
 
 
