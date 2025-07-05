@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 4_Spawner
   m_EditorClassIdentifier: 
   Spawners:
-  - StartDaySpawn: 2
+  - StartDaySpawn: 6
     SpawnPeriod: 2
-    Count: 10
+    Count: 12
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:

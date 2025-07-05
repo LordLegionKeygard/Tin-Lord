@@ -61,9 +61,9 @@ public class BuildingHealth : BaseHealth
             _healthSlider = _healthSliderObject.GetComponent<BaseSlider>();
             _healthSlider.SetHeightOffset(-3.5f);
             _healthSlider.SetObjectTransform(transform);
-            if (isConstruction) _healthSlider.ChangeColor(Colors.ConstructionBlue);
         }
 
+        _healthSlider.ChangeColor(isConstruction ? Colors.ConstructionBlue : Colors.GreySix);
         _healthSlider.SetupAllHealthValue(_maxHealth);
     }
 

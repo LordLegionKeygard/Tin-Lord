@@ -5,6 +5,8 @@ using Zenject;
 public class MeteorStrikeMissionEvent : BaseMissionEvent
 {
     [Inject] private readonly TilesSystem _tilesSystem;
+    [SerializeField] private GameObject _spawnPrefab;
+    private GameObject _currentPrefab;
     private float _delay = 1.5f;
     private int _meteorDamagePercent = 30;
     private GroundTileViewEnum _groundTileView = GroundTileViewEnum.None;
@@ -12,13 +14,14 @@ public class MeteorStrikeMissionEvent : BaseMissionEvent
     public override void StartEvent()
     {
         base.StartEvent();
+        _currentPrefab = Instantiate(_spawnPrefab, GetTileObject().transform.position, Quaternion.identity);
         StartCoroutine(nameof(MeteorCoroutine));
     }
     
     private IEnumerator MeteorCoroutine()
     {
         yield return new WaitForSeconds(_delay);
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.MeteorStrike, GetCurrentPrefab().transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.MeteorStrike, _currentPrefab.transform.position);
         
         var extraTileObject = GetTileObject().BuildingTileObject().IsExtraBaseTileObject();
 

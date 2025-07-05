@@ -22,6 +22,7 @@ public class MissionEventSystem : MonoBehaviour
     [SerializeField] private AcidRainMissionEvent _acidRainEvent;
     [SerializeField] private MeteorStrikeMissionEvent _meteorStrikeEvent;
     [SerializeField] private ToxicGasMissionEvent _toxicGasEvent;
+    [SerializeField] private OilReleaseMissionEvent _oilReleaseMissionEvent;
 
     public DayEventData[] GetAllCurrentEvents()
     {
@@ -139,6 +140,9 @@ public class MissionEventSystem : MonoBehaviour
                 break;
             case GameEventType.ToxicGas:
                 _toxicGasEvent.StartEvent();
+                break;
+            case GameEventType.OilSwamp:
+                _oilReleaseMissionEvent.StartEvent();
                 break;
         }
     }

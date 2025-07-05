@@ -6,7 +6,7 @@ public class WorldGameInfo
     public static bool StaticBlood = true;
 
     [Header("Quants")]
-    public static float QuantDropChance = 0.3f;
+    public static float QuantDropChance = 0.1f;
 
     [Header("Skills")]
     public const int SkillsCount = 10;

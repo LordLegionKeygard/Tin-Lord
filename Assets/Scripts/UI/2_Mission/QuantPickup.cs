@@ -9,8 +9,8 @@ public class QuantPickup : MonoBehaviour, IPointerClickHandler
     [Inject] private MissionQuantSystem _quantSystem;
 
     [SerializeField] private Image _ring;
-    [SerializeField] private float _amount = 0.25f;
-    [SerializeField] private float _lifeTime = 6f;
+    private float _amount = 1;
+    private float _lifeTime = 10;
 
     private Camera _camera;
     private QuantPickupPool _pool;

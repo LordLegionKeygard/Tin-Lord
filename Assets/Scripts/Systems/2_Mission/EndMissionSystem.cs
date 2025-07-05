@@ -126,7 +126,7 @@ public class EndMissionSystem : MonoBehaviour
         }
 
         _missionSaveGame.DeleteMissionJson();
-        _spaceSaveGame.SaveEndMissionData(_receivedFragments, aiCores, quants);
+        _spaceSaveGame.SaveEndMissionDataToJson(_receivedFragments, aiCores, quants);
     }
 
     private IEnumerator UpdateFragmentsAndSlider(int targetFragments, float targetPercent)

@@ -1,10 +1,13 @@
+using UnityEngine;
 
 public class AcidRainMissionEvent : BaseMissionEvent
 {
+    [SerializeField] private GameObject _spawnPrefab;
+    private GameObject _currentPrefab;
     public override void StartEvent()
     {
         base.StartEvent();
-       
-        GetCurrentPrefab().GetComponent<AcidRainDealDamage>().SetTile(GetTileObject());
+        _currentPrefab = Instantiate(_spawnPrefab, GetTileObject().transform.position, Quaternion.identity);
+        _currentPrefab.GetComponent<AcidRainDealDamage>().SetTile(GetTileObject());
     }
 }

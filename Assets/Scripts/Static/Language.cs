@@ -232,7 +232,7 @@ public class Language : MonoBehaviour
         _text[67, 1] = "Сохранить миссию и вернутся в командный центр?";
 
         _text[68, 0] = "Restart the mission? You'll lose your current progress.";
-        _text[68, 1] = "Перезапустить миссию?\nВы потеряете текущий прогресс.";
+        _text[68, 1] = "Перезапустить миссию?\nВы потеряете 1 ядро ии.";
 
         _text[69, 0] = "In 2100 the first robots were created to help humans.";
         _text[69, 1] = "В 2100 году были созданы первые роботы для помощи людям.";
@@ -256,7 +256,7 @@ public class Language : MonoBehaviour
         _text[75, 1] = "в";
 
         _text[76, 0] = "";
-        _text[76, 1] = "";
+        _text[76, 1] = "Вы не можете перезапустить миссию. У вас нет запасных ядер ии.";
 
         _text[77, 0] = "Launch";
         _text[77, 1] = "Запуск";
