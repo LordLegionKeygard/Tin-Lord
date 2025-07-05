@@ -109,25 +109,12 @@ public class MapSystem : MonoBehaviour
         var map = _save.SpaceSaveData.Map;
 
         // 1)  Resource- и Skill-trader’ы
-        _resTraders = _resTraders
-                       .Where(tr => !map.Nodes.Any(n =>
-                               n.NodeType == NodeType.ResourceTrader &&
-                               _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr))
-                       .ToList();
+        _resTraders = _resTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.ResourceTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
 
-        _skillTraders = _skillTraders
-                        .Where(tr => !map.Nodes.Any(n =>
-                                n.NodeType == NodeType.SkillTrader &&
-                                _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr))
-                        .ToList();
+        _skillTraders = _skillTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.SkillTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
 
         // 2)  RewardEvent’ы – убираем уже занятые (pool, seq)
-        _eventQueue = _eventQueue
-                      .Where(e => !map.Nodes.Any(n =>
-                              n.NodeType == NodeType.RewardEvent &&
-                              n.EventPoolIndex == e.PoolIndex &&
-                              n.EventSequenceIndex == e.SequenceIndex))
-                      .ToList();
+        _eventQueue = _eventQueue.Where(e => !map.Nodes.Any(n => n.NodeType == NodeType.RewardEvent && n.EventPoolIndex == e.PoolIndex && n.EventSequenceIndex == e.SequenceIndex)).ToList();
     }
 
 
@@ -138,6 +125,13 @@ public class MapSystem : MonoBehaviour
 
         bool isCurrent = nodeIndex == _currentNodeIndex;
         var nodeType = map.Nodes[nodeIndex].NodeType;
+
+        if (nodeType != NodeType.Mission)
+        {
+            // 50 % шанс увеличить паттерн индекс не миссии в два раза, после посещения известного на карте нода 
+            if (Random.value < 0.5f)
+                map.PatternIndex++;
+        }
 
         if (!isCurrent && (!IsReachable(nodeIndex) || !map.Nodes[_currentNodeIndex].IsCompleted)) return;
 
@@ -223,8 +217,8 @@ public class MapSystem : MonoBehaviour
         var pattern = _allMissionsInfo.MapPattern.Sequence;
 
         // берём очередной символ
-        var symbol = pattern[map.PatternCursor % pattern.Length];
-        map.PatternCursor++;
+        var symbol = pattern[map.PatternIndex % pattern.Length];
+        map.PatternIndex++;
 
         switch (symbol)
         {

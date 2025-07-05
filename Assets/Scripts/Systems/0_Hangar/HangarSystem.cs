@@ -139,6 +139,7 @@ public class HangarSystem : MonoBehaviour
     {
         if (_currentRobot == -1) SelectRobot(HangarRobotType.Patch, true);
         if (_currentCrate == -1) SelectCrate(HangarCrateType.BaseCrate, true);
+        if (_currentSkill == -1) SelectSkill(SkillEnum.GeneralRepair, true);
 
         _cameraAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
         _manipulatorAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
@@ -302,6 +303,8 @@ public class HangarSystem : MonoBehaviour
 
         _currentSelectSkill = (int)skillType;
         _currentSkill = (int)skillType;
+
+        UpdateLaunchButtonActive();
     }
 
     public void BuyRobot()
@@ -374,12 +377,13 @@ public class HangarSystem : MonoBehaviour
 
     public void UpdateLaunchButtonActive()
     {
-        if (_currentCrate == -1 || _currentRobot == -1) return;
+        if (_currentCrate == -1 || _currentRobot == -1 || _currentSkill == -1) return;
 
         var robotOpened = _hangarRobotItems[_currentRobot].IsOpen();
         var crateOpened = _hangarCrateItems[_currentCrate].IsOpen();
+        var skillOpened = _hangarSkillItems[_currentSkill].IsOpen();
 
-        _launchButton.SetActive(robotOpened && crateOpened);
+        _launchButton.SetActive(robotOpened && crateOpened && skillOpened);
     }
 
     public void LaunchButton()

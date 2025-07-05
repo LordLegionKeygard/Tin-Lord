@@ -114,11 +114,6 @@ public class MapGenerator : MonoBehaviour
             AddToSavedMap(s, NodeType.Start, 0);
         }
 
-        // ────── 3.  Локальные утилиты ──────
-        bool TryPopReward(out EventEntry rev) => rewardEvents.TryPop(out rev);
-        bool TryPopResTrader(out NodeData n) { if (resTraders.TryPop(out var t)) { n = t; return true; } n = null; return false; }
-        bool TryPopSkillTr(out NodeData n) { if (skillTraders.TryPop(out var t)) { n = t; return true; } n = null; return false; }
-
         bool IsVisible(NodeData d) =>
                d is RewardEventNode || d is ResourceTraderNode || d is SkillTraderNode;
 
@@ -154,6 +149,57 @@ public class MapGenerator : MonoBehaviour
             (SavedMap.Nodes[ib].EventSequenceIndex, SavedMap.Nodes[ia].EventSequenceIndex);
         }
 
+        bool TryPopRandomOpen(bool allowTraders,
+                      out NodeData node, out NodeType nType,
+                      out int seq, out int pool)
+        {
+            node = null; nType = NodeType.None;
+            seq = pool = -1;
+
+            // какие списки ещё не пустые?
+            var options = new List<int>();           // 0 = reward, 1 = res, 2 = skill
+            if (rewardEvents.Count > 0) options.Add(0);
+            if (allowTraders && resTraders.Count > 0) options.Add(1);
+            if (allowTraders && skillTraders.Count > 0) options.Add(2);
+            if (options.Count == 0) return false;
+
+            switch (options[Random.Range(0, options.Count)])
+            {
+                // 0 = Reward-event
+                case 0:
+                    {
+                        var rev = rewardEvents[0];          // <-- достали
+                        rewardEvents.RemoveAt(0);           // <-- убрали
+                        node = rev.Node;
+                        nType = NodeType.RewardEvent;
+                        seq = rev.SequenceIndex;
+                        pool = rev.PoolIndex;
+                        break;
+                    }
+
+                // 1 = Resource-trader
+                case 1:
+                    {
+                        var tr = resTraders[0];
+                        resTraders.RemoveAt(0);
+                        node = tr;
+                        nType = NodeType.ResourceTrader;
+                        break;
+                    }
+
+                // 2 = Skill-trader
+                case 2:
+                    {
+                        var tr = skillTraders[0];
+                        skillTraders.RemoveAt(0);
+                        node = tr;
+                        nType = NodeType.SkillTrader;
+                        break;
+                    }
+            }
+            return true;
+        }
+
         // ────── 4.  Генерация слоя ──────
         int GenLayer(int layer, int minN, int maxN, bool allowTraders)
         {
@@ -165,32 +211,17 @@ public class MapGenerator : MonoBehaviour
 
             while (placed < need)
             {
-                if (needVisible && !visiblePlaced)
+                if (needVisible && !visiblePlaced &&
+                    TryPopRandomOpen(allowTraders,
+                                     out var openNode,      // NodeData
+                                     out var openType,      // NodeType
+                                     out var seq,           // для Reward
+                                     out var pool))         // для Reward
                 {
-                    if (TryPopReward(out var rev))
-                    {
-                        SpawnVisible(rev.Node, NodeType.RewardEvent,
-                                     layer, rev.SequenceIndex, rev.PoolIndex);
-                        visiblePlaced = true;
-                        placed++;           // ← НЕ забываем увеличивать!
-                        continue;
-                    }
-
-                    if (allowTraders && TryPopResTrader(out var rTr))
-                    {
-                        SpawnVisible(rTr, NodeType.ResourceTrader, layer);
-                        visiblePlaced = true;
-                        placed++;
-                        continue;
-                    }
-
-                    if (allowTraders && TryPopSkillTr(out var sTr))
-                    {
-                        SpawnVisible(sTr, NodeType.SkillTrader, layer);
-                        visiblePlaced = true;
-                        placed++;
-                        continue;
-                    }
+                    SpawnVisible(openNode, openType, layer, seq, pool);
+                    visiblePlaced = true;
+                    placed++;
+                    continue;
                 }
 
                 AddStub(layer);
@@ -430,7 +461,7 @@ public class SavedMapData
 {
     public List<SavedNodeData> Nodes = new();
     public int CurrentNodeIndex;
-    public int PatternCursor = 0;   // сколько «символов» паттерна уже израсходовано
+    public int PatternIndex = 0;   // сколько «символов» паттерна уже израсходовано
 }
 
 [System.Serializable]
