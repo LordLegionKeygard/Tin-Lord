@@ -18,7 +18,7 @@ MonoBehaviour:
     MaxOnMap: 2
     RepeatOneEventSameTime: 1
   - Node: {fileID: 11400000, guid: 3c09af0849ff53240937ea32bd01bdcf, type: 2}
-    MaxOnMap: 3
+    MaxOnMap: 6
     RepeatOneEventSameTime: 0
   - Node: {fileID: 11400000, guid: cb022a0799d0a4743ada1348366b14eb, type: 2}
     MaxOnMap: 3
@@ -46,9 +46,7 @@ MonoBehaviour:
     RepeatOneEventSameTime: 0
   ResourceTraders:
   - {fileID: 11400000, guid: 989e931db47d8a1458374d10dbde8b7c, type: 2}
-  - {fileID: 11400000, guid: 989e931db47d8a1458374d10dbde8b7c, type: 2}
   SkillTraders:
-  - {fileID: 11400000, guid: 1675a783d6fbee94486c88ca60bfa47e, type: 2}
   - {fileID: 11400000, guid: 1675a783d6fbee94486c88ca60bfa47e, type: 2}
   BossNode: {fileID: 11400000, guid: 087bdfd10427bc94986dca955c470ad8, type: 2}
   MissionDeck:

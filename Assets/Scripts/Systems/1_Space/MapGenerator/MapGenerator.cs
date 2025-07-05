@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
@@ -59,15 +60,53 @@ public class MapGenerator : MonoBehaviour
 
         int missionPlaceholders = _allMissionsInfo.MissionDeck.Length;
 
-        // для оценки количества узлов Reward + Traders — «видимые»
-        int visibleCount = rewardEvents.Count + resTraders.Count + skillTraders.Count;
+        // «открытые» = Reward + оба Trader’а
+        int openTotal = rewardEvents.Count + resTraders.Count + skillTraders.Count;
 
-        int totalContent = missionPlaceholders + hiddenEvents.Count + visibleCount;
         const int maxPerLayer = 4;
+        int totalContent = missionPlaceholders
+                         + hiddenEvents.Count
+                         + openTotal;
         int contentLayers = Mathf.CeilToInt(totalContent / (float)maxPerLayer);
-        int totalLayers = contentLayers + 3;                 // Start + content + Boss
+        int totalLayers = contentLayers + 3;          // Start + content + Boss
+        int lastContent = totalLayers - 2;
 
-        // ───────── 2. старт ─────────
+        // ────── 1.1  выбираем СЛОИ, куда обязательно пойдут «открытые» ──────
+        const int gapLayers = 2;                        // ≥ 2 слоя между открытыми
+        List<int> candidateLayers = Enumerable
+                                    .Range(1, lastContent - 1)  // 1 … lastContent-1
+                                    .ToList();
+        candidateLayers.Shuffle();
+
+        // если Reward+Traders больше, чем слоёв-кандидатов ⇒ урезаем
+        if (openTotal > candidateLayers.Count)
+            openTotal = candidateLayers.Count;
+
+        // ----------- новый отбор с учётом «зазора» -----------
+        var targetLayers = new HashSet<int>();
+
+        foreach (int lay in candidateLayers)
+        {
+            // уже набрали всё нужное – выходим
+            if (targetLayers.Count == openTotal) break;
+
+            // хватает ли расстояния до любых ранее взятых?
+            bool ok = targetLayers.All(prev => Mathf.Abs(prev - lay) >= gapLayers);
+
+            if (ok) targetLayers.Add(lay);
+        }
+
+        // (если даже с фильтром не набрали – берём первые оставшиеся)
+        if (targetLayers.Count < openTotal)
+        {
+            foreach (var lay in candidateLayers)
+            {
+                if (targetLayers.Count == openTotal) break;
+                if (targetLayers.Add(lay)) { /* просто добрали */ }
+            }
+        }
+
+        // ────── 2.  Start ──────
         {
             var s = CreateNode(_allMissionsInfo.StartNode, 0);
             AddToLayer(0, s);
@@ -75,132 +114,126 @@ public class MapGenerator : MonoBehaviour
             AddToSavedMap(s, NodeType.Start, 0);
         }
 
-        // счётчик «сколько плейсхолдеров прошло после последнего видимого»
-        int gap = 99;          // можно сразу ставить
-        const int minGap = 1;  // хотя бы один «?» между видимыми
+        // ────── 3.  Локальные утилиты ──────
+        bool TryPopReward(out EventEntry rev) => rewardEvents.TryPop(out rev);
+        bool TryPopResTrader(out NodeData n) { if (resTraders.TryPop(out var t)) { n = t; return true; } n = null; return false; }
+        bool TryPopSkillTr(out NodeData n) { if (skillTraders.TryPop(out var t)) { n = t; return true; } n = null; return false; }
 
-        // ───────── локальное тело слоя ─────────
-        void GenLayer(int layer, int minN, int maxN, bool allowTraders, bool onlyOneVisibleHere = false)
+        bool IsVisible(NodeData d) =>
+               d is RewardEventNode || d is ResourceTraderNode || d is SkillTraderNode;
+
+        void AddStub(int layer)
         {
-            bool visibleHere = false;
-            gap = Mathf.Min(gap, 99);
+            var stub = CreateNode(_allMissionsInfo.MissionNodeTemplate, layer);
+            AddToLayer(layer, stub);
+            _generatedNodes.Add(stub);
+            AddToSavedMap(stub, NodeType.None, _generatedNodes.Count - 1);
+        }
+
+        void SpawnVisible(NodeData data, NodeType t, int layer,
+                          int seq = -1, int pool = -1)
+        {
+            var n = CreateNode(data, layer);
+            AddToLayer(layer, n);
+            _generatedNodes.Add(n);
+            AddToSavedMap(n, t, _generatedNodes.Count - 1, seq, pool);
+        }
+
+        void SwapNodes(NodeInstance a, NodeInstance b)
+        {
+            (a.nodeData, b.nodeData) = (b.nodeData, a.nodeData);
+
+            int ia = _generatedNodes.IndexOf(a);
+            int ib = _generatedNodes.IndexOf(b);
+
+            (SavedMap.Nodes[ia].NodeType, SavedMap.Nodes[ib].NodeType) =
+            (SavedMap.Nodes[ib].NodeType, SavedMap.Nodes[ia].NodeType);
+            (SavedMap.Nodes[ia].EventPoolIndex, SavedMap.Nodes[ib].EventPoolIndex) =
+            (SavedMap.Nodes[ib].EventPoolIndex, SavedMap.Nodes[ia].EventPoolIndex);
+            (SavedMap.Nodes[ia].EventSequenceIndex, SavedMap.Nodes[ib].EventSequenceIndex) =
+            (SavedMap.Nodes[ib].EventSequenceIndex, SavedMap.Nodes[ia].EventSequenceIndex);
+        }
+
+        // ────── 4.  Генерация слоя ──────
+        void GenLayer(int layer, int minN, int maxN, bool allowTraders)
+        {
+            bool needVisible = targetLayers.Contains(layer);
+            bool visiblePlaced = false;
             int need = Mathf.Min(maxPerLayer, Random.Range(minN, maxN + 1));
-            int placed = 0;
 
-            while (placed < need)
+            for (int placed = 0; placed < need; placed++)
             {
-                bool putVisible = !visibleHere && gap >= minGap;
-
-                if (putVisible)
+                if (needVisible && !visiblePlaced)
                 {
-                    // случайно решаем, кого брать первым – Reward или Trader
-                    bool rewardFirst = Random.value < .5f;
-
-                    if (rewardFirst && rewardEvents.Count > 0)
-                        SpawnVisible(rewardEvents[0].Node, NodeType.RewardEvent,
-                                     rewardEvents[0].SequenceIndex, rewardEvents[0].PoolIndex,
-                                     rewardEvents.RemoveAtReturn(0));
-                    else if (allowTraders && resTraders.Count > 0)
-                        SpawnVisible(resTraders[0], NodeType.ResourceTrader,
-                                     remove: resTraders.RemoveAtReturn(0));
-                    else if (allowTraders && skillTraders.Count > 0)
-                        SpawnVisible(skillTraders[0], NodeType.SkillTrader,
-                                     remove: skillTraders.RemoveAtReturn(0));
-                    else if (!rewardFirst && rewardEvents.Count > 0)
-                        SpawnVisible(rewardEvents[0].Node, NodeType.RewardEvent,
-                                     rewardEvents[0].SequenceIndex, rewardEvents[0].PoolIndex,
-                                     rewardEvents.RemoveAtReturn(0));
-                }
-
-                if (!putVisible || !visibleHere)              // если не смогли — плейсхолдер
-                {
-                    var stub = CreateNode(_allMissionsInfo.MissionNodeTemplate, layer);
-                    AddToLayer(layer, stub);
-                    _generatedNodes.Add(stub);
-                    AddToSavedMap(stub, NodeType.None, _generatedNodes.Count - 1);
-                    gap++;
-                }
-
-                placed++;
-                if (onlyOneVisibleHere && visibleHere) gap = 0;  // фикс, если слой ограничен
-            }
-
-            // ---------- вложенный помощник ----------
-            void SpawnVisible(NodeData d, NodeType t, int seq = -1, int pool = -1, bool remove = true)
-            {
-                var n = CreateNode(d, layer);
-                AddToLayer(layer, n);
-                _generatedNodes.Add(n);
-                AddToSavedMap(n, t, _generatedNodes.Count - 1, seq, pool);
-
-                gap = 0;
-                visibleHere = true;
-            }
-
-            void CleanAdjacentVisible()
-            {
-                foreach (var inst in _layers[layer])          // все узлы текущего слоя
-                {
-                    if (!IsVisible(inst.nodeData)) continue;  // пропускаем скрытые
-
-                    foreach (var prev in inst.connectedNodes) // смотрим связи назад
+                    if (TryPopReward(out var rev))
                     {
-                        if (prev.layer == layer - 1 && IsVisible(prev.nodeData))
-                        {
-                            // нашли V-V по ребру  → делаем этот inst плейсхолдером
-                            ToPlaceholder(inst);
-                            break;
-                        }
+                        SpawnVisible(rev.Node, NodeType.RewardEvent,
+                                     layer, rev.SequenceIndex, rev.PoolIndex);
+                        visiblePlaced = true;
+                        continue;
+                    }
+
+                    if (allowTraders && TryPopResTrader(out var rTr))
+                    {
+                        SpawnVisible(rTr, NodeType.ResourceTrader, layer);
+                        visiblePlaced = true;
+                        continue;
+                    }
+
+                    if (allowTraders && TryPopSkillTr(out var sTr))
+                    {
+                        SpawnVisible(sTr, NodeType.SkillTrader, layer);
+                        visiblePlaced = true;
+                        continue;
                     }
                 }
 
-                // ——— локальные помощники ———
-                bool IsVisible(NodeData d) => d is RewardEventNode ||
-                                              d is ResourceTraderNode ||
-                                              d is SkillTraderNode;
-
-                void ToPlaceholder(NodeInstance ins)
-                {
-                    ins.nodeData = _allMissionsInfo.MissionNodeTemplate;
-                    int idx = _generatedNodes.IndexOf(ins);
-                    var save = SavedMap.Nodes[idx];
-                    save.NodeType = NodeType.None;
-                    save.EventPoolIndex = save.EventSequenceIndex = -1;
-                }
+                AddStub(layer);
             }
 
-            CleanAdjacentVisible();
-            if (gap == 0)          // слой закончился видимым узлом
-                gap = 1;
+            // если получилось V-V по ребру – пробуем разменять
+            foreach (var inst in _layers[layer])
+            {
+                if (!IsVisible(inst.nodeData)) continue;
+
+                foreach (var prev in inst.connectedNodes)
+                {
+                    if (prev.layer == layer - 1 && IsVisible(prev.nodeData))
+                    {
+                        var swap = FindSafePlaceholder(layer);
+                        if (swap != null) SwapNodes(inst, swap);
+                        break;
+                    }
+                }
+            }
         }
 
-        // ───────── 3. контент ─────────
+        // ────── 5.  Контент ──────
+        GenLayer(1, 2, 3, false);          // первый слой без Trader’ов
+        for (int l = 2; l < lastContent; l++)              // середина
+            GenLayer(l, 3, 4, true);
+        GenLayer(lastContent, 2, 3, true);
 
-        // 1-й слой: 2-3 нода, трейдеры запрещены, видимый узел максимум один
-        GenLayer(1, minN: 2, maxN: 3, allowTraders: false, onlyOneVisibleHere: true);
+        foreach (var kv in _layers) kv.Value.Shuffle();    // лёгкая рандомизация позиций
 
-        // «Середина»: ≥3 нода (3-4), трейдеры разрешены
-        for (int l = 2; l < totalLayers - 2; l++)          //  -2   ← последний контент-слой пропускаем
-            GenLayer(l, minN: 3, maxN: 4, allowTraders: true);
-
-        // Последний контент-слой (перед боссом): 2-3 нода
-        int lastContent = totalLayers - 2;
-        GenLayer(lastContent, minN: 2, maxN: 3, allowTraders: true);
-
-        foreach (var kv in _layers)
-            kv.Value.Shuffle();
-
-        // ───────── 4. босс ─────────
-
+        // ────── 6.  Boss ──────
         var boss = CreateNode(_allMissionsInfo.BossNode, totalLayers - 1);
         AddToLayer(totalLayers - 1, boss);
         _generatedNodes.Add(boss);
         AddToSavedMap(boss, NodeType.Boss, _generatedNodes.Count - 1);
 
-
-        // ───────── 5. связи + layout ─────────
+        // ────── 7.  Connections + Layout ──────
         GenerateConnections();
         LayoutLayers();
+    }
+
+
+    private NodeInstance FindSafePlaceholder(int layerIdx)
+    {
+        return _layers[layerIdx]
+            .FirstOrDefault(n =>
+                SavedMap.Nodes[_generatedNodes.IndexOf(n)].NodeType == NodeType.None &&
+                n.connectedNodes.All(nn => !MapHelper.IsVisible(nn.nodeData)));
     }
 
 
