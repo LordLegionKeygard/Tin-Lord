@@ -1,9 +1,3 @@
-// -----------------------------------------------------------------------------
-//  MapHelper.cs  ‑  общий набор утилит, которые раньше дублировались в
-//  MapGenerator и MapSystem.  Все методы сделаны static, чтобы не требовать
-//  экземпляров: просто вызывайте MapHelper.XXX() или используйте расширения
-//  (Shuffle()) там, где это удобно.
-// -----------------------------------------------------------------------------
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,7 +34,7 @@ public static class MapHelper
 
             if (pool.RepeatOneEventSameTime)
             {
-                limit = pool.MaxOnMap;                                   // один и тот же диалог
+                limit = pool.MaxOnMap; // один и тот же диалог
             }
             else if (pool.Node is EventNode ev)
             {
@@ -49,7 +43,7 @@ public static class MapHelper
             }
             else
             {
-                limit = pool.MaxOnMap;                                   // RewardEvent / любой NodeData
+                limit = pool.MaxOnMap; // RewardEvent / любой NodeData
             }
 
             for (int i = 0; i < limit; i++)
@@ -77,7 +71,7 @@ public static class MapHelper
             return false;
         }
 
-        var entry = queue[0];      // «голова» после Shuffle определяет рандом
+        var entry = queue[0]; // «голова» после Shuffle определяет рандом
         queue.RemoveAt(0);
 
         node = entry.Node;
@@ -92,9 +86,7 @@ public static class MapHelper
     public static bool TryPickTrader(List<ResourceTraderNode> resTraders, List<SkillTraderNode> skillTraders, out NodeData node, out NodeType type)
     {
         // Случайно решаем, кого пробовать первым, если есть оба типа.
-        bool takeRes = (resTraders.Count > 0 && skillTraders.Count > 0)
-                        ? Random.value < 0.5f
-                        : resTraders.Count > 0;
+        bool takeRes = (resTraders.Count > 0 && skillTraders.Count > 0) ? Random.value < 0.5f : resTraders.Count > 0;
 
         if (takeRes && resTraders.Count > 0)
         {
@@ -129,7 +121,7 @@ public static class MapHelper
         // 1) выбираем, что пробовать первым: 0 = Event, 1 = Trader
         bool tryEventFirst = Random.value < 0.5f;
 
-        for (int pass = 0; pass < 2; pass++)          // максимум 2 попытки
+        for (int pass = 0; pass < 2; pass++) // максимум 2 попытки
         {
             if (tryEventFirst && events.Count > 0)
             {
@@ -178,7 +170,7 @@ public static class MapHelper
     public static bool IsVisible(NodeData d) =>
        d is RewardEventNode || d is ResourceTraderNode || d is SkillTraderNode;
 
-       public static bool TryPop<T>(this IList<T> list, out T value)
+    public static bool TryPop<T>(this IList<T> list, out T value)
     {
         if (list.Count > 0)
         {

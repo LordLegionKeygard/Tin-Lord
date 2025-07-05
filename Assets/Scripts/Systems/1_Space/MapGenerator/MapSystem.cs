@@ -261,16 +261,9 @@ public class MapSystem : MonoBehaviour
                 }
             default:
                 {
-                    if (MapHelper.TryPickNonMission(_eventQueue,
-                                    _resTraders,
-                                    _skillTraders,
-                                    out NodeData nd,
-                                    out NodeType nt,
-                                    out int pool,
-                                    out int seq))
+                    if (MapHelper.TryPickNonMission(_eventQueue, _resTraders, _skillTraders, out NodeData nd, out NodeType nt, out int pool, out int seq))
                     {
-                        ReplacePlaceholder(nodeIndex, nd, nt,
-                                           eventPool: pool, eventSeq: seq);
+                        ReplacePlaceholder(nodeIndex, nd, nt, eventPool: pool, eventSeq: seq);
                     }
                     else
                     {
@@ -378,17 +371,13 @@ public class MapSystem : MonoBehaviour
         var map = _save.SpaceSaveData.Map;
         var nodeSave = map.Nodes[_currentNodeIndex];
 
-        // ---------- 1. Если миссия/босс, но ещё не проставлен MissionDeckIndex
+        // 1. Если миссия/босс, но ещё не проставлен MissionDeckIndex
         if ((nodeSave.NodeType == NodeType.Mission || nodeSave.NodeType == NodeType.Boss) &&
             nodeSave.MissionDeckIndex < 0)
         {
-            int deckIdx = Mathf.Clamp(GetCompletedMissionsCount(),
-                                      0, _allMissionsInfo.MissionDeck.Length - 1);
+            int deckIdx = Mathf.Clamp(GetCompletedMissionsCount(), 0, _allMissionsInfo.MissionDeck.Length - 1);
 
-            var mission = BuildMissionRandom(deckIdx,
-                                             nodeSave.NodeType == NodeType.Boss,
-                                             out int landIdx,
-                                             out ObjectiveSave[] obj);
+            var mission = BuildMissionRandom(deckIdx, nodeSave.NodeType == NodeType.Boss, out int landIdx, out ObjectiveSave[] obj);
 
             nodeSave.MissionDeckIndex = deckIdx;
             nodeSave.SavedLandscapeIndex = landIdx;
@@ -398,7 +387,7 @@ public class MapSystem : MonoBehaviour
             _generator.GetGeneratedNodes()[_currentNodeIndex].nodeData = mission;
         }
 
-        // ---------- 2. Помечаем узел выполненным (если ещё не был)
+        // 2. Помечаем узел выполненным (если ещё не был)
         if (!nodeSave.IsCompleted)
         {
             nodeSave.IsCompleted = true;
@@ -406,7 +395,7 @@ public class MapSystem : MonoBehaviour
             RefreshHighlights();
         }
 
-        // ---------- 3. Сохраняем сейв
+        // 3. Сохраняем сейв
         _save.GetCommandCenterSaveGameDataWriter()
              .WriteCommandCenterDataToSaveFile(_save.SpaceSaveData);
     }

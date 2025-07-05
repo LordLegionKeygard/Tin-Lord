@@ -21,7 +21,7 @@ public class AllNodesInfo : ScriptableObject
     public Landscape[] Landscapes; // случайные ландшафты
 
     [Header("Map-Pattern")]
-    public MapPatternSO MapPattern;
+    public MapPattern MapPattern;
 }
 
 [System.Serializable]

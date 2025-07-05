@@ -40,12 +40,12 @@ public class MapGenerator : MonoBehaviour
 
     public void GenerateMap()
     {
-        // ───────── 0. reset ─────────
+        // 0. Reset
         _generatedNodes.Clear();
         _layers.Clear();
         SavedMap = new SavedMapData();
 
-        // ───────── 1. исходные списки ─────────
+        // 1. Исходные списки
         var rewardEvents = new List<EventEntry>();
         var hiddenEvents = new List<EventEntry>();
 
@@ -71,18 +71,16 @@ public class MapGenerator : MonoBehaviour
         int totalLayers = contentLayers + 3;          // Start + content + Boss
         int lastContent = totalLayers - 2;
 
-        // ────── 1.1  выбираем СЛОИ, куда обязательно пойдут «открытые» ──────
-        const int gapLayers = 2;                        // ≥ 2 слоя между открытыми
-        List<int> candidateLayers = Enumerable
-                                    .Range(1, lastContent - 1)  // 1 … lastContent-1
-                                    .ToList();
+        // 1.1 выбираем СЛОИ, куда обязательно пойдут «открытые»
+        const int gapLayers = 2; // ≥ 2 слоя между открытыми
+        List<int> candidateLayers = Enumerable.Range(1, lastContent - 1).ToList();
         candidateLayers.Shuffle();
 
         // если Reward+Traders больше, чем слоёв-кандидатов ⇒ урезаем
         if (openTotal > candidateLayers.Count)
             openTotal = candidateLayers.Count;
 
-        // ----------- новый отбор с учётом «зазора» -----------
+        // новый отбор с учётом «зазора»
         var targetLayers = new HashSet<int>();
 
         foreach (int lay in candidateLayers)
@@ -106,7 +104,7 @@ public class MapGenerator : MonoBehaviour
             }
         }
 
-        // ────── 2.  Start ──────
+        // 2. Start
         {
             var s = CreateNode(_allMissionsInfo.StartNode, 0);
             AddToLayer(0, s);
@@ -157,7 +155,7 @@ public class MapGenerator : MonoBehaviour
             seq = pool = -1;
 
             // какие списки ещё не пустые?
-            var options = new List<int>();           // 0 = reward, 1 = res, 2 = skill
+            var options = new List<int>(); // 0 = reward, 1 = res, 2 = skill
             if (rewardEvents.Count > 0) options.Add(0);
             if (allowTraders && resTraders.Count > 0) options.Add(1);
             if (allowTraders && skillTraders.Count > 0) options.Add(2);
@@ -165,11 +163,11 @@ public class MapGenerator : MonoBehaviour
 
             switch (options[Random.Range(0, options.Count)])
             {
-                // 0 = Reward-event
+                // 0 Reward-event
                 case 0:
                     {
-                        var rev = rewardEvents[0];          // <-- достали
-                        rewardEvents.RemoveAt(0);           // <-- убрали
+                        var rev = rewardEvents[0]; // достали
+                        rewardEvents.RemoveAt(0); // убрали
                         node = rev.Node;
                         nType = NodeType.RewardEvent;
                         seq = rev.SequenceIndex;
@@ -177,7 +175,7 @@ public class MapGenerator : MonoBehaviour
                         break;
                     }
 
-                // 1 = Resource-trader
+                // 1 Resource-trader
                 case 1:
                     {
                         var tr = resTraders[0];
@@ -187,7 +185,7 @@ public class MapGenerator : MonoBehaviour
                         break;
                     }
 
-                // 2 = Skill-trader
+                // 2 Skill-trader
                 case 2:
                     {
                         var tr = skillTraders[0];
@@ -200,23 +198,18 @@ public class MapGenerator : MonoBehaviour
             return true;
         }
 
-        // ────── 4.  Генерация слоя ──────
+        // 4. Генерация слоя
         int GenLayer(int layer, int minN, int maxN, bool allowTraders)
         {
             bool needVisible = targetLayers.Contains(layer);
             bool visiblePlaced = false;
 
-            int need = Random.Range(minN, maxN + 1);   // сколько нужно поставить
-            int placed = 0;                              // сколько уже поставили
+            int need = Random.Range(minN, maxN + 1); // сколько нужно поставить
+            int placed = 0; // сколько уже поставили
 
             while (placed < need)
             {
-                if (needVisible && !visiblePlaced &&
-                    TryPopRandomOpen(allowTraders,
-                                     out var openNode,      // NodeData
-                                     out var openType,      // NodeType
-                                     out var seq,           // для Reward
-                                     out var pool))         // для Reward
+                if (needVisible && !visiblePlaced && TryPopRandomOpen(allowTraders, out var openNode, out var openType, out var seq, out var pool))
                 {
                     SpawnVisible(openNode, openType, layer, seq, pool);
                     visiblePlaced = true;
@@ -228,7 +221,7 @@ public class MapGenerator : MonoBehaviour
                 placed++;
             }
 
-            //  ——— проверка «видимый-видимый» и возможный свап ———
+            // проверка «видимый-видимый» и возможный свап
             foreach (var inst in _layers[layer])
             {
                 if (!IsVisible(inst.nodeData)) continue;
@@ -244,10 +237,10 @@ public class MapGenerator : MonoBehaviour
                 }
             }
 
-            return placed;     // сколько узлов реально поставили
+            return placed;     //сколько узлов реально поставили
         }
 
-        // ────── 5-bis.  Добрасываем оставшиеся открытые узлы ──────
+        // 5-bis. Добрасываем оставшиеся открытые узлы
         void PlaceRemainingOpenNodes()
         {
             NodeInstance TakeRandomStub()
@@ -258,7 +251,7 @@ public class MapGenerator : MonoBehaviour
                 return stubs.Count > 0 ? stubs[Random.Range(0, stubs.Count)] : null;
             }
 
-            // ► RewardEvent
+            // RewardEvent
             foreach (var rev in rewardEvents)
             {
                 var stub = TakeRandomStub();
@@ -271,7 +264,7 @@ public class MapGenerator : MonoBehaviour
                 s.EventSequenceIndex = rev.SequenceIndex;
             }
 
-            // ► Resource-traders
+            // Resource-traders
             foreach (var tr in resTraders)
             {
                 var stub = TakeRandomStub();
@@ -281,7 +274,7 @@ public class MapGenerator : MonoBehaviour
                 SavedMap.Nodes[_generatedNodes.IndexOf(stub)].NodeType = NodeType.ResourceTrader;
             }
 
-            // ► Skill-traders
+            // Skill-traders
             foreach (var tr in skillTraders)
             {
                 var stub = TakeRandomStub();
@@ -297,29 +290,29 @@ public class MapGenerator : MonoBehaviour
             skillTraders.Clear();
         }
 
-        // ───────── 5.  Контент ──────
-        GenLayer(1, 2, 3, false);               // первый слой
+        // 5. Контент
+        GenLayer(1, 2, 3, false); // первый слой
 
-        bool lastWasPair = false;               // ← флаг «предыдущий слой = 2 нода»
+        bool lastWasPair = false; // флаг «предыдущий слой = 2 нода»
 
         for (int l = 2; l < lastContent; l++)
         {
-            int minThis = lastWasPair ? 3 : 2;  // если прошлый был парой → сейчас ≥3
+            int minThis = lastWasPair ? 3 : 2; // если прошлый был парой → сейчас ≥3
             int placed = GenLayer(l, minThis, 4, true);
             lastWasPair = placed == 2;
         }
 
         GenLayer(lastContent, 2, 3, true);
         PlaceRemainingOpenNodes();
-        foreach (var kv in _layers) kv.Value.Shuffle();    // лёгкая рандомизация позиций
+        foreach (var kv in _layers) kv.Value.Shuffle();  // лёгкая рандомизация позиций
 
-        // ────── 6.  Boss ──────
+        // 6. Boss
         var boss = CreateNode(_allMissionsInfo.BossNode, totalLayers - 1);
         AddToLayer(totalLayers - 1, boss);
         _generatedNodes.Add(boss);
         AddToSavedMap(boss, NodeType.Boss, _generatedNodes.Count - 1);
 
-        // ────── 7.  Connections + Layout ──────
+        // 7.Connections + Layout
         GenerateConnections();
         LayoutLayers();
     }
@@ -341,7 +334,7 @@ public class MapGenerator : MonoBehaviour
         {
             nodeData = data,
             layer = layer,
-            position = Vector2.zero,   // будет назначено в LayoutLayers()
+            position = Vector2.zero, // будет назначено в LayoutLayers()
             connectedNodes = new List<NodeInstance>()
         };
     }
