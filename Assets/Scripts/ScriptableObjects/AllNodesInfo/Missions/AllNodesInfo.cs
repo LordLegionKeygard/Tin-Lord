@@ -5,7 +5,7 @@ public class AllNodesInfo : ScriptableObject
 {
     [Header("Nodes")]
     public StartNode StartNode; // стартовая точка
-    public EventPool[] EventPools; // все возможные ивенты
+    public EventPool[] EventPools; // все возможные ивенты 0 элемент этого массива если что и есть RewardEventNode
     public ResourceTraderNode[] ResourceTraders; // все торговцы ресурсами
     public SkillTraderNode[] SkillTraders; // все торговцы ресурсами
     public BossNode BossNode; // финальный босс
@@ -19,6 +19,9 @@ public class AllNodesInfo : ScriptableObject
 
     [Header("Parts for MissionNode")]
     public Landscape[] Landscapes; // случайные ландшафты
+
+    [Header("Map-Pattern")]
+    public MapPatternSO MapPattern;
 }
 
 [System.Serializable]

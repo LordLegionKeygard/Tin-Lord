@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007799058, g: 0.00009618961, b: 0.000115816, a: 1}
+  m_IndirectSpecularColor: {r: 0.000077959565, g: 0.000096158, b: 0.00011577253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5180,7 +5180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &163225550
@@ -11377,7 +11377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -18862,7 +18862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &758822814
@@ -20504,6 +20504,7 @@ MonoBehaviour:
   SavedMap:
     Nodes: []
     CurrentNodeIndex: 0
+    PatternCursor: 0
 --- !u!114 &849943934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33665,7 +33666,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 849943935}
         m_TargetAssemblyTypeName: MapSystem, Assembly-CSharp
-        m_MethodName: CompleteCurrentNode
+        m_MethodName: TestCompleteCurrentNode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
