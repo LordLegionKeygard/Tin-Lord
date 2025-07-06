@@ -123,7 +123,7 @@ public class MissionSaveLoad : MonoBehaviour
     public void LoadGameData(ref MissionSaveData currentSaveData)
     {
         // Main
-        CurrentMissionInfo.Instance.LoadMission(BuildMissionFromSelected());
+        CurrentMissionInfo.Instance.LoadMission(BuildMissionFromSelected(), _spaceSaveGame.SpaceSaveData.CurrentMission.MissionDeckIndex);
         _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
 
         //UpPanel

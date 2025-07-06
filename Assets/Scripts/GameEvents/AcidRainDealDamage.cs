@@ -9,11 +9,12 @@ public class AcidRainDealDamage : MonoBehaviour
     [SerializeField] private ParticleSystem[] _ps;
     private int _repeatCount = 30;
     private float _waitSeconds = 2;
-    private float _damage = 2f;
+    private float _damage;
 
-    public void SetTile(TileObject tileObject)
+    public void SetInfo(TileObject tileObject)
     {
         _mainTileObject = tileObject;
+        _damage = 0.5f * (1 + CurrentMissionInfo.Instance.GetMissionDeckIndex());
 
         _allBuildingHealths.AddRange(_mainTileObject.GetNeighbourBulidingHealthArray());
         _allBuildingHealths.Add(_mainTileObject.BuildingHealth());

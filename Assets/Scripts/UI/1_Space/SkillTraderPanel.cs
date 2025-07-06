@@ -50,11 +50,11 @@ public class SkillTraderPanel : MonoBehaviour
     public void BuySkill()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        _currentSkill = -1;
         _quantsSystem.ChangeQuants(-_skills[_currentSkill].QuantPrice);
         _spaceSaveGame.SpaceSaveData.OpenedSkills[_currentSkill] = true;
         _spaceSaveGame.SaveDataToJson();
         UpdateView();
+        _currentSkill = -1;
     }
 
     private void SelectView()

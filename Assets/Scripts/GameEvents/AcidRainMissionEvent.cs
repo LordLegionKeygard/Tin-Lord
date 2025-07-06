@@ -8,6 +8,6 @@ public class AcidRainMissionEvent : BaseMissionEvent
     {
         base.StartEvent();
         _currentPrefab = Instantiate(_spawnPrefab, GetTileObject().transform.position, Quaternion.identity);
-        _currentPrefab.GetComponent<AcidRainDealDamage>().SetTile(GetTileObject());
+        _currentPrefab.GetComponent<AcidRainDealDamage>().SetInfo(GetTileObject());
     }
 }
