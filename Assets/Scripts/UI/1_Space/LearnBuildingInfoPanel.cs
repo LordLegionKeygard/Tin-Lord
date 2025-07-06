@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,6 +54,11 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private GameObject _blockReasonPanelObject;
     [SerializeField] private GameObject _blockReasonPanelLine;
     [SerializeField] private TextMeshProUGUI _blockReasonText;
+
+    [Header("BlockReason → Go")]
+    [SerializeField] private Button _goButton;          // сама кнопка GO
+    [SerializeField] private ScrollRect _scrollRect;    // ScrollRect, где лежат LearnBuildingItem
+    private LearnBuildingItem _targetItemForGo;         // куда прыгать
 
     [Header("Buttons")]
     [SerializeField] private GameObject _buttonsPanelObject;
@@ -175,39 +181,90 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     private void SetButtonPanel()
     {
         var building = _currentLearnBuildingItem.GetBuilding();
-
         int currentBaseLevel = _learnPanel.GetCurrentBaseLevel();
         int requiredBase = building.RequiredBaseLevel;
 
         if (currentBaseLevel < requiredBase)
         {
-            var requiredBaseItem = _learnPanel.GetBaseItemByLevel(requiredBase);
-            string needOpen = Language.TextStatic[43]; // "Вам нужно открыть"
-            string buildingName = requiredBaseItem.GetBuilding().Name[Language.LanguageNumber]; // здание
-            string inText = Language.TextStatic[75]; // "в"
-            string typeName = _allBuildingTypes[(int)BuildingTileViewEnum.Base].Name[Language.LanguageNumber]; // база
+            _targetItemForGo = _learnPanel.GetBaseItemByLevel(requiredBase);
+            _blockReasonText.text = GetNeedOpenText(_targetItemForGo);
 
-            _blockReasonText.text = $"{needOpen} \"{buildingName}\" {inText} \"{typeName}\"";
+            PrepareGoButton();
             BlockReasonToggle(true);
-
-            _buttonsPanelObject.SetActive(false);   // скрываем/баним Learn
-            return;                                 // дальше ресурсы не смотрим
+            _buttonsPanelObject.SetActive(false);
+            return;
         }
 
-        ResourceEnum missing;
-        bool depsOk = _learnPanel.TryGetBlockingResource(_currentLearnBuildingItem.GetBuilding(), out missing);
+        bool depsOk = _learnPanel.TryGetBlockingResource(building, out ResourceEnum missing);
 
-        _buttonsPanelObject.SetActive(!_currentLearnBuildingItem.IsLearn() && depsOk && _currentLearnBuildingItem.IsResourcesEnough());
+        if (!depsOk)
+        {
+            _targetItemForGo = _learnPanel.GetProducerOf(missing);
+            _blockReasonText.text = GetNeedOpenText(_targetItemForGo);
 
-        if (depsOk)
-        {
-            BlockReasonToggle(false);
-        }
-        else
-        {
+            PrepareGoButton();
             BlockReasonToggle(true);
-            _blockReasonText.text = GetBlockReasonText(missing);
+            _buttonsPanelObject.SetActive(false);
+            return;
         }
+
+        BlockReasonToggle(false);
+        _buttonsPanelObject.SetActive(!_currentLearnBuildingItem.IsLearn());
+    }
+
+    private string GetNeedOpenText(LearnBuildingItem item)
+    {
+        string needOpen = Language.TextStatic[43];  // "Вам нужно открыть"
+        string buildingNm = item.GetBuilding().Name[Language.LanguageNumber];
+        string inText = Language.TextStatic[75];  // "в"
+        string typeNm = _learnPanel.GetParentTileName(item, _allBuildingTypes);
+
+        return $"{needOpen} \"{buildingNm}\" {inText} \"{typeNm}\"";
+    }
+
+    private void PrepareGoButton()
+    {
+        _goButton.onClick.RemoveAllListeners();
+        LearnBuildingItem target = _targetItemForGo;
+
+        _goButton.onClick.AddListener(() =>
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+            CustomEvents.FireCloseTooltips();
+            target.SelectItem();
+            StartCoroutine(LateScroll(target));
+        });
+    }
+
+    private IEnumerator LateScroll(LearnBuildingItem item)
+    {
+        yield return null; // ждём, пока перестроится лэйаут
+        ScrollToItem(item); // крутимся к той же сохранённой цели
+    }
+
+
+    private IEnumerator LateScroll()
+    {
+        yield return null; // ждём перерисовку LayoutGroup
+        ScrollToItem(_targetItemForGo);
+    }
+
+    private void ScrollToItem(LearnBuildingItem item)
+    {
+        if (item == null) return;
+
+        const float block = 260f;
+        const float space = 12f;
+
+        int index = item.GetOrder();
+        float offsetDown = index * (block + space);
+
+        float scrollable = _scrollRect.content.rect.height - _scrollRect.viewport.rect.height;
+        if (scrollable <= 0) return;
+
+        float normalized = 1f - Mathf.Clamp01(offsetDown / scrollable);
+
+        _scrollRect.verticalNormalizedPosition = normalized;
     }
 
     private void BlockReasonToggle(bool state)

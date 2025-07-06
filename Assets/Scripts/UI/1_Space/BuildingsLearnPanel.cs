@@ -9,7 +9,7 @@ public class BuildingsLearnPanel : MonoBehaviour
     [SerializeField] private Resource[] _resources;
     private int _baseBuildingsCount = 4;
 
-    /// <summary>Список всех ресурсов, которые игрок уже может производить.</summary>
+    // Список всех ресурсов, которые игрок уже может производить
     private readonly HashSet<ResourceEnum> _unlockedResources = new();
 
     public LearnBuildingItem[] AllLearnBuildingItems() => _learnBuildingItems;
@@ -19,9 +19,13 @@ public class BuildingsLearnPanel : MonoBehaviour
     {
         int level = 0;
         for (int i = 0; i < _baseBuildingsCount && i < _learnBuildingItems.Length; i++)
+        {
             if (_learnBuildingItems[i].IsLearn())
+            {
                 level = Mathf.Max(level, _learnBuildingItems[i].GetBuilding().BuildingLevel); // 1,2,3,4
-        return level;                 // 0 если не выучено ни одного
+            }
+        }
+        return level;
     }
 
     public LearnBuildingItem GetBaseItemByLevel(int requiredLevel)
@@ -38,7 +42,7 @@ public class BuildingsLearnPanel : MonoBehaviour
         _scrollRect.verticalNormalizedPosition = 1f;
     }
 
-    /// <summary>Добавляем в трекер ресурсы, которые производит здание.</summary>
+    // Добавляем в трекер ресурсы, которые производит здание
     public void RegisterBuilding(Building building)
     {
         foreach (var prod in building.ResourcesProduction)
@@ -65,12 +69,14 @@ public class BuildingsLearnPanel : MonoBehaviour
     {
         missing = ResourceEnum.None;
 
-        /* ---------- 1. строительство (AND) ---------- */
         foreach (var need in b.ResourcesForBuild)
+        {
             if (!ResourceSatisfied(need.ResourceEnum))
-            { missing = need.ResourceEnum; return false; }
+            {
+                missing = need.ResourceEnum; return false;
+            }
+        }
 
-        /* ---------- 2. топливо (OR) ---------- */
         if (b.ResourcesForWork.Length > 0)
         {
             bool fuelOk = false;
@@ -81,11 +87,13 @@ public class BuildingsLearnPanel : MonoBehaviour
                 if (ResourceSatisfied(rw.ResourceForWork.ResourceEnum)) fuelOk = true;
                 else if (fail == ResourceEnum.None) fail = rw.ResourceForWork.ResourceEnum;
             }
-            if (!fuelOk) { missing = fail; return false; }
+            if (!fuelOk)
+            {
+                missing = fail; return false;
+            }
         }
 
-        /* ---------- 3. рецепты (ANY recipe) ---------- */
-        if (b.ResourcesProduction.Length == 0) return true;   // нет рецептов – всё ок
+        if (b.ResourcesProduction.Length == 0) return true;
 
         ResourceEnum firstFail = ResourceEnum.None;
 
@@ -99,16 +107,52 @@ public class BuildingsLearnPanel : MonoBehaviour
                 {
                     recipeOk = false;
                     if (firstFail == ResourceEnum.None)
-                        firstFail = rec.ResourceForRecept.ResourceEnum;  // запомним первый недостающий
+                        firstFail = rec.ResourceForRecept.ResourceEnum;
                 }
             }
 
-            if (recipeOk) return true;   // хотя бы один рецепт полностью доступен
+            if (recipeOk) return true;
         }
 
-        // ни один рецепт не прошёл
         missing = firstFail;
         return false;
+    }
+
+    // Первый (по порядку массива) элемент, который производит указанный ресурс
+    public LearnBuildingItem GetProducerOf(ResourceEnum res)
+    {
+        foreach (var item in _learnBuildingItems)
+        {
+            var b = item.GetBuilding();
+            foreach (var prod in b.ResourcesProduction)
+            {
+                if (prod.ProductionResource.ResourceEnum == res)
+                {
+                    return item;
+                }
+            }
+        }
+        return null;
+    }
+
+    // Возвращает локализованное название типа (категории) здания, которому принадлежит item.
+    public string GetParentTileName(LearnBuildingItem item, Tile[] allBuildingTypes)
+    {
+        // Сам LearnBuildingItem не знает про «тип», но вы легко проходите
+        // по тем же  _allBuildingTypes  в LearnBuildingInfoPanel.
+        // Делаем то же самое, только один раз и централизованно.
+
+        Building target = item.GetBuilding();
+
+        foreach (var tile in allBuildingTypes)
+        {
+            if (tile == null || tile.Buildings == null) continue;
+
+            foreach (var b in tile.Buildings)
+                if (b == target)
+                    return tile.Name[Language.LanguageNumber];
+        }
+        return string.Empty;
     }
 
 }

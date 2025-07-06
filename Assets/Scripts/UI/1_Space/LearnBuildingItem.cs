@@ -6,6 +6,9 @@ using Zenject;
 public class LearnBuildingItem : MonoBehaviour
 {
     [Inject] readonly SpaceSaveGame _spaceSaveGame;
+    [SerializeField] private int _order;
+    public int GetOrder() => _order;
+
 
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _nameText;

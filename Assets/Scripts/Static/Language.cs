@@ -765,8 +765,8 @@ public class Language : MonoBehaviour
         _text[245, 0] = "-Radiation: High\n-Pollution: Critical\n-Update: Active";
         _text[245, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
 
-        _text[246, 0] = "";
-        _text[246, 1] = "";
+        _text[246, 0] = "Go";
+        _text[246, 1] = "Перейти";
 
         _text[247, 0] = "";
         _text[247, 1] = "";
