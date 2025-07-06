@@ -177,16 +177,16 @@ public class CustomEvents
         OnCloseTooltips?.Invoke();
     }
 
-    public static Action<float, float, string> OnUpdateButtonToolTip;
-    public static void FireUpdateButtonToolTipTransform(float x, float y, string text)
+    public static Action<float, float, string, float, float> OnUpdateToolTip;
+    public static void FireUpdateToolTipTransform(float x, float y, string text, float xPivot, float yPivot)
     {
-        OnUpdateButtonToolTip.Invoke(x, y, text);
+        OnUpdateToolTip.Invoke(x, y, text, xPivot, yPivot);
     }
 
-    public static Action<float, float, SkillInfo, bool> OnUpdateSkillToolTip;
-    public static void FireUpdateSkillToolTipTransform(float x, float y, SkillInfo skill, bool resourceEnough)
+    public static Action<float, float, SkillInfo, bool, float, float> OnUpdateSkillToolTip;
+    public static void FireUpdateSkillToolTipTransform(float x, float y, SkillInfo skill, bool resourceEnough, float xPivot, float yPivot)
     {
-        OnUpdateSkillToolTip.Invoke(x, y, skill, resourceEnough);
+        OnUpdateSkillToolTip.Invoke(x, y, skill, resourceEnough, xPivot, yPivot);
     }
 
     public static Action<int> OnEnemyDeath;

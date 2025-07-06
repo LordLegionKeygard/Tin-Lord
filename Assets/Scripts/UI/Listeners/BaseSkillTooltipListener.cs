@@ -5,6 +5,8 @@ public class BaseSkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPo
 {
 
     [SerializeField] private BaseSkill _baseSkill;
+    private float _xOfsset = -0.1f;
+    private float _yOfsset = -0.11f;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -13,7 +15,7 @@ public class BaseSkillTooltipListener : MonoBehaviour, IPointerEnterHandler, IPo
         var skill = _baseSkill.GetSkill();
 
         CustomEvents.FireTooltipToggle(true, 1);
-        CustomEvents.FireUpdateSkillToolTipTransform(transform.position.x, transform.position.y, skill, _baseSkill.ResourceEnough());
+        CustomEvents.FireUpdateSkillToolTipTransform(transform.position.x, transform.position.y, skill, _baseSkill.ResourceEnough(), _xOfsset, _yOfsset);
     }
 
     public void OnPointerExit(PointerEventData eventData)

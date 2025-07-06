@@ -147,11 +147,9 @@ public class MapGenerator : MonoBehaviour
             (SavedMap.Nodes[ib].EventSequenceIndex, SavedMap.Nodes[ia].EventSequenceIndex);
         }
 
-        bool TryPopRandomOpen(bool allowTraders,
-                      out NodeData node, out NodeType nType,
-                      out int seq, out int pool)
+        bool TryPopRandomOpen(bool allowTraders, out NodeData node, out NodeType nodeType, out int seq, out int pool)
         {
-            node = null; nType = NodeType.None;
+            node = null; nodeType = NodeType.None;
             seq = pool = -1;
 
             // какие списки ещё не пустые?
@@ -169,7 +167,7 @@ public class MapGenerator : MonoBehaviour
                         var rev = rewardEvents[0]; // достали
                         rewardEvents.RemoveAt(0); // убрали
                         node = rev.Node;
-                        nType = NodeType.RewardEvent;
+                        nodeType = NodeType.RewardEvent;
                         seq = rev.SequenceIndex;
                         pool = rev.PoolIndex;
                         break;
@@ -181,7 +179,7 @@ public class MapGenerator : MonoBehaviour
                         var tr = resTraders[0];
                         resTraders.RemoveAt(0);
                         node = tr;
-                        nType = NodeType.ResourceTrader;
+                        nodeType = NodeType.ResourceTrader;
                         break;
                     }
 
@@ -191,7 +189,7 @@ public class MapGenerator : MonoBehaviour
                         var tr = skillTraders[0];
                         skillTraders.RemoveAt(0);
                         node = tr;
-                        nType = NodeType.SkillTrader;
+                        nodeType = NodeType.SkillTrader;
                         break;
                     }
             }
@@ -245,9 +243,7 @@ public class MapGenerator : MonoBehaviour
         {
             NodeInstance TakeRandomStub()
             {
-                var stubs = _generatedNodes
-                             .Where((n, idx) => SavedMap.Nodes[idx].NodeType == NodeType.None)
-                             .ToList();
+                var stubs = _generatedNodes.Where((n, idx) => SavedMap.Nodes[idx].NodeType == NodeType.None).ToList();
                 return stubs.Count > 0 ? stubs[Random.Range(0, stubs.Count)] : null;
             }
 
@@ -320,8 +316,7 @@ public class MapGenerator : MonoBehaviour
 
     private NodeInstance FindSafePlaceholder(int layerIdx)
     {
-        return _layers[layerIdx]
-            .FirstOrDefault(n =>
+        return _layers[layerIdx].FirstOrDefault(n =>
                 SavedMap.Nodes[_generatedNodes.IndexOf(n)].NodeType == NodeType.None &&
                 n.connectedNodes.All(nn => !MapHelper.IsVisible(nn.nodeData)));
     }

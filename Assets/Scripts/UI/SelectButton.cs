@@ -8,12 +8,13 @@ public class SelectButton : MonoBehaviour
 
     private void Awake()
     {
-        CustomEvents.OnUpdateButtonToolTip += UpdateView;
+        CustomEvents.OnUpdateToolTip += UpdateView;
     }
 
-    public void UpdateView(float x, float y, string text)
+    public void UpdateView(float x, float y, string text, float xPivot, float yPivot)
     {
-        transform.position = new Vector2(x, y);
+        _rectTransform.pivot = new Vector2(xPivot, yPivot);
+        _rectTransform.position = new Vector2(x, y);
         _text.text = text;
 
         // Получаем предпочтительную ширину текста
@@ -26,6 +27,6 @@ public class SelectButton : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnUpdateButtonToolTip -= UpdateView;
+        CustomEvents.OnUpdateToolTip -= UpdateView;
     }
 }

@@ -4,12 +4,12 @@ using UnityEngine.EventSystems;
 public class TextListener : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private int _textNumber;
-    [SerializeField] private int _xOfsset;
-    [SerializeField] private int _yOfsset;
+    [SerializeField] private float _xPivot;
+    [SerializeField] private float _yPivot;
     public void OnPointerEnter(PointerEventData eventData)
     {
         CustomEvents.FireTooltipToggle(true, 0);
-        CustomEvents.FireUpdateButtonToolTipTransform(transform.position.x + _xOfsset, transform.position.y + _yOfsset, Language.TextStatic[_textNumber]);
+        CustomEvents.FireUpdateToolTipTransform(transform.position.x, transform.position.y, Language.TextStatic[_textNumber], _xPivot, _yPivot);
     }
 
     public void OnPointerExit(PointerEventData eventData)

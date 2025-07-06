@@ -13,16 +13,16 @@ public class SelectSkill : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _inputText;
     [SerializeField] private GameObject _resourceView;
 
-    private float _offsetY = 10f;
-
     private void Awake()
     {
         CustomEvents.OnUpdateSkillToolTip += UpdateView;
     }
 
-    private void UpdateView(float x, float y, SkillInfo skill, bool resourceEnough)
+    private void UpdateView(float x, float y, SkillInfo skill, bool resourceEnough, float xPivot, float yPivot)
     {
         var isHaveResource = skill.RequiredResource.Resource != null;
+        _rectTransform.pivot = new Vector2(xPivot, yPivot);
+        _rectTransform.position = new Vector2(x, y);
 
         _skillImage.sprite = skill.Icon;
         _headerText.text = skill.Name[Language.LanguageNumber];
@@ -38,7 +38,6 @@ public class SelectSkill : MonoBehaviour
         _inputText.text = skill.Input;
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(_rectTransform);
-        transform.position = new Vector2(x, y - _offsetY);
     }
 
     private void OnDestroy()

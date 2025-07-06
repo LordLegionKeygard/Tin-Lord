@@ -34,7 +34,7 @@ public class BuildingType : MonoBehaviour
         _canSelect = _learnedBuildingsDataMission.IsHaveOneLearnedBuildingInBuildingType(buildingTypeTile);
 
         _button.interactable = _canSelect;
-        _icon.color = _canSelect ? Colors.GreySeven : Colors.AlphaGreyFive;
+        _icon.color = _canSelect ? Color.white : Colors.AlphaGreyFive;
     }
 
     public void SelectTypeButton()

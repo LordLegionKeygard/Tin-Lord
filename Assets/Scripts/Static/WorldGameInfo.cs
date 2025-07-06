@@ -105,4 +105,10 @@ public class WorldGameInfo
     public const int PatchPassiveAbility = 20;
     public const int TitanPassiveAbility = 15;
     public const int AimBotPassiveAbility = 20;
+
+    [Header("Tooltip Pivot")]
+    public const float NodePivot = 2;
+    public const float ButtonPivot = -0.9f;
+    public const float ResourcePivot = -0.45f;
+    public const float BuildinTypePivot = -0.9f;
 }

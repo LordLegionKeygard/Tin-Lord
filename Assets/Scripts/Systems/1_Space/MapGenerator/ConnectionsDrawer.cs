@@ -7,7 +7,7 @@ public class ConnectionsDrawer : MonoBehaviour
     [SerializeField] private MapGenerator _mapGenerator;
     [SerializeField] private RectTransform _contentTransform;
     [SerializeField] private GameObject _linePrefab;
-    private float _cut = 30f; //отступ от нод
+    private float _cut = 20f; //отступ от нод
 
     private readonly List<GameObject> _spawnedLines = new();
     private readonly Dictionary<(int, int), Image> _lineLookup = new();

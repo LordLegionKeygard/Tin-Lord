@@ -9,11 +9,11 @@ public class ResourceTypeTooltipListener : MonoBehaviour, IPointerEnterHandler, 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(_image.sprite == null) return;
+        if (_image.sprite == null) return;
         CustomEvents.FireTooltipToggle(true, 0);
         if (_map.TryGetValue(_image.sprite.name, out int index))
         {
-            CustomEvents.FireUpdateButtonToolTipTransform(transform.position.x, transform.position.y, Language.TextStatic[index]);
+            CustomEvents.FireUpdateToolTipTransform(transform.position.x, transform.position.y, Language.TextStatic[index], 0.5f, WorldGameInfo.ResourcePivot);
         }
     }
 

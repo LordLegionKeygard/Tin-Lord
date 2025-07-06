@@ -88,19 +88,17 @@ public class MapSystem : MonoBehaviour
 
     private void InitSpawnQueues()
     {
-        // ---------- обычные Event’ы (без RewardEvent) ----------
-        _eventQueue = MapHelper.BuildEventEntries(_allMissionsInfo.EventPools)
-                               .Where(e => !(e.Node is RewardEventNode))
-                               .ToList();
+        // обычные Event’ы (без RewardEvent)
+        _eventQueue = MapHelper.BuildEventEntries(_allMissionsInfo.EventPools).Where(e => !(e.Node is RewardEventNode)).ToList();
         _eventQueue.Shuffle();
 
-        // ---------- Traders ----------
+        // Traders
         _resTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
         _skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
         _resTraders.Shuffle();
         _skillTraders.Shuffle();
 
-        // ---------- НОВОЕ: убрать уже размещённых ----------
+        // убрать уже размещённых
         RemoveOpenNodeOnMap();
     }
 
@@ -108,19 +106,14 @@ public class MapSystem : MonoBehaviour
     {
         var map = _save.SpaceSaveData.Map;
 
-        // 1)  Resource- и Skill-trader’ы
         _resTraders = _resTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.ResourceTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
-
         _skillTraders = _skillTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.SkillTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
-
-        // 2)  RewardEvent’ы – убираем уже занятые (pool, seq)
         _eventQueue = _eventQueue.Where(e => !map.Nodes.Any(n => n.NodeType == NodeType.RewardEvent && n.EventPoolIndex == e.PoolIndex && n.EventSequenceIndex == e.SequenceIndex)).ToList();
     }
 
 
     public void TrySelectNode(int nodeIndex)
     {
-        // ---------- валидация ----------
         var map = _save.SpaceSaveData.Map;
         if (map == null || map.Nodes == null ||
             nodeIndex < 0 || nodeIndex >= map.Nodes.Count) return;
@@ -128,13 +121,27 @@ public class MapSystem : MonoBehaviour
         bool isCurrent = nodeIndex == _currentNodeIndex;
         var nodeType = map.Nodes[nodeIndex].NodeType;
 
-        if (!isCurrent && (!IsReachable(nodeIndex) ||          // недоступен
-                           !map.Nodes[_currentNodeIndex].IsCompleted)) return;
+        // ► недоступен?  ► уже пройдена миссия?  – выходим
+        if (!isCurrent && (!IsReachable(nodeIndex) || !map.Nodes[_currentNodeIndex].IsCompleted)) return;
+        if (nodeType == NodeType.Mission && map.Nodes[nodeIndex].IsCompleted) return;
 
-        if (nodeType == NodeType.Mission &&                    // повторно открывать
-            map.Nodes[nodeIndex].IsCompleted) return;          // завершённую миссию нельзя
+        bool isVisibleNonMission = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.RewardEvent;
 
-        // ---------- переход курсора / выделение ----------
+        if (isVisibleNonMission)
+        {
+            var seq = _allMissionsInfo.MapPattern.Sequence;
+            int curSymId = map.PatternIndex % seq.Length;
+
+            if (seq[curSymId] == MapPatternEnum.NonMission)
+            {
+                // съедаем ОДИН ожидаемый NON
+                map.PatternIndex++;
+
+                // необходим 50 % дополнительный «штраф» если паттерн non/non/mission
+                // if (Random.value < 0.5f)
+                // map.PatternIndex++;
+            }
+        }
         if (!isCurrent)
         {
             _currentNodeIndex = nodeIndex;
@@ -143,32 +150,11 @@ public class MapSystem : MonoBehaviour
             MoveTargetTo(nodeIndex);
             RefreshHighlights();
         }
-
-        // ---------- «раскрываем» плейсхолдер ----------
         if (nodeType == NodeType.None)
         {
-            ResolveUnknownNode(nodeIndex);                     // превращаем по паттерну
-            nodeType = map.Nodes[nodeIndex].NodeType;          // тип уже обновился
+            ResolveUnknownNode(nodeIndex);
+            nodeType = map.Nodes[nodeIndex].NodeType;
         }
-
-        // ---------- шаг по паттерну для ВИДИМОГО non-mission ----------
-        bool isVisibleNonMission =
-               nodeType == NodeType.ResourceTrader ||
-               nodeType == NodeType.SkillTrader ||
-               nodeType == NodeType.RewardEvent;
-
-        if (isVisibleNonMission)
-        {
-            // основной NON-шаг
-            map.PatternIndex++;
-
-            // 50 % «штраф» — съесть ещё один NON
-            if (Random.value < 0.5f)
-                map.PatternIndex++;
-        }
-        // --------------------------------------------------------------
-
-        // ---------- обработка типа узла ----------
         switch (nodeType)
         {
             case NodeType.Boss:
@@ -176,21 +162,16 @@ public class MapSystem : MonoBehaviour
                 {
                     var save = map.Nodes[nodeIndex];
 
-                    // генерируем миссию, если ещё не сгенерирована
                     if (save.MissionDeckIndex < 0)
                     {
                         int completed = GetCompletedMissionsCount();
-                        int deckIdx = Mathf.Clamp(completed, 0,
-                                                     _allMissionsInfo.MissionDeck.Length - 1);
+                        int deckIdx = Mathf.Clamp(completed, 0, _allMissionsInfo.MissionDeck.Length - 1);
 
-                        var mission = BuildMissionRandom(deckIdx,
-                                         isBossNode: nodeType == NodeType.Boss,
-                                         out int landscapeIdx,
-                                         out ObjectiveSave[] chosenObj);
+                        var mission = BuildMissionRandom(deckIdx, nodeType == NodeType.Boss, out int landIdx, out ObjectiveSave[] obj);
 
                         save.MissionDeckIndex = deckIdx;
-                        save.SavedLandscapeIndex = landscapeIdx;
-                        save.SavedObjectives = chosenObj;
+                        save.SavedLandscapeIndex = landIdx;
+                        save.SavedObjectives = obj;
 
                         _generator.GetGeneratedNodes()[nodeIndex].nodeData = mission;
                     }
@@ -200,7 +181,6 @@ public class MapSystem : MonoBehaviour
                     _panels.MissionPanelOpen(true);
                     break;
                 }
-
             case NodeType.Event:
                 {
                     var evNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as EventNode;
@@ -210,7 +190,6 @@ public class MapSystem : MonoBehaviour
                     _panels.EventPanelOpen();
                     break;
                 }
-
             case NodeType.RewardEvent:
                 {
                     var rNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as RewardEventNode;
@@ -218,7 +197,6 @@ public class MapSystem : MonoBehaviour
                     _panels.EventPanelOpen();
                     break;
                 }
-
             case NodeType.ResourceTrader:
             case NodeType.SkillTrader:
                 {
@@ -227,16 +205,12 @@ public class MapSystem : MonoBehaviour
                     break;
                 }
         }
-
-        // ---------- финал ----------
-        if (!isCurrent)
-            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp,
-                                                transform.position);
+        if (!isCurrent) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp, transform.position);
 
         ApplyCosmos();
-        _save.GetCommandCenterSaveGameDataWriter()
-             .WriteCommandCenterDataToSaveFile(_save.SpaceSaveData);
+        _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.SpaceSaveData);
     }
+
 
 
     private void ResolveUnknownNode(int nodeIndex)
@@ -244,7 +218,6 @@ public class MapSystem : MonoBehaviour
         var map = _save.SpaceSaveData.Map;
         var pattern = _allMissionsInfo.MapPattern.Sequence;
 
-        // берём очередной символ
         var symbol = pattern[map.PatternIndex % pattern.Length];
         map.PatternIndex++;
 
@@ -456,6 +429,10 @@ public class MapSystem : MonoBehaviour
 
             switch (n.NodeType)
             {
+                case NodeType.None:
+                    // тот же шаблон, что и во время первоначальной генерации плейсхолдера
+                    data = _allMissionsInfo.MissionNodeTemplate;
+                    break;
                 case NodeType.Boss:
                     if (n.MissionDeckIndex >= 0 && n.SavedLandscapeIndex >= 0 && n.SavedObjectives != null && n.SavedObjectives.Length > 0)
                     {
