@@ -5,6 +5,8 @@ public class GameEventInfo : ScriptableObject
 {
     public GameEventType GameEventType;
     public Sprite EventIcon;
+    public int InfoNumber;
+    public bool IsWarning;
 }
 
 public enum GameEventType

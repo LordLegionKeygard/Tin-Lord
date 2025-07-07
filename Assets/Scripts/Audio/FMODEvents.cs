@@ -9,6 +9,7 @@ public class FMODEvents : MonoBehaviour
     public EventReference[] UiClick;
     public EventReference EscapePanel;
     public EventReference Warp;
+    public EventReference InfoWarning;
 
     [Header("DialogueReward")]
 
