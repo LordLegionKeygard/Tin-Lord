@@ -63,7 +63,7 @@ public class BuildingHealth : BaseHealth
             _healthSlider.SetObjectTransform(transform);
         }
 
-        _healthSlider.ChangeColor(isConstruction ? Colors.ConstructionBlue : Colors.GreySix);
+        UpdateSliderColor(isConstruction);
         _healthSlider.SetupAllHealthValue(_maxHealth);
     }
 
@@ -89,8 +89,15 @@ public class BuildingHealth : BaseHealth
     {
         _isConstructionNow = isConstruction;
         _maxHealth = (int)(building.BuildingHealth * _missionHangarSystem.GetTitanBuildingHealthBonus());
+        UpdateSliderColor(isConstruction);
         _healthSlider.SetupMaxHealth(_maxHealth);
         UpdateSlider();
+    }
+
+    public void UpdateSliderColor(bool isConstruction)
+    {
+        if (_healthSlider == null) return;
+        _healthSlider.ChangeColor(isConstruction ? Colors.ConstructionBlue : Colors.GreySix);
     }
 
     public void LoadBuildingHealth(Building building, float currentHealth, bool isConstruction)

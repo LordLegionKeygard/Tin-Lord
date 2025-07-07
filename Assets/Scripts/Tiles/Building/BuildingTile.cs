@@ -225,7 +225,9 @@ public class BuildingTile : MonoBehaviour
       AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.CompleteUpgradeBuilding, transform.position);
       _isConstructionNow = false;
       _currentLevel = newLevel;
+      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase(_currentLevel);
 
+      _buildingHealth.UpdateSliderColor(false);
       _buildingLevels.SetBuildingLevelView(_currentLevel, _tileObject);
       PrepareSetResourceRequired();
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
