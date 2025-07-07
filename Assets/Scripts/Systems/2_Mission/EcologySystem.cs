@@ -12,6 +12,7 @@ public class EcologySystem : MonoBehaviour
     [Inject] private EnemyDefenceSystem _enemyDefenceSystem;
 
     [Header("Ecology")]
+    [SerializeField] private List<int> _everyDayEcology;
     [SerializeField] private int _tilesEcology;
     [SerializeField] private int _radiation;
     [SerializeField] private int _missionEcology;
@@ -34,16 +35,25 @@ public class EcologySystem : MonoBehaviour
 
     public int GetRadiation() => _radiation;
     public int GetTotalEcology() => _totalEcology;
+    public int[] GetEveryDayEcology() => _everyDayEcology.ToArray();
 
 
     private void Start()
     {
         CustomEvents.OnChangeEcology += ChangeEcology;
         CustomEvents.OnDataLoad += UpdateTotalEcology;
+        CustomEvents.OnDayEnd += SetDayEcology;
     }
 
-    public void LoadEcology(int radiation)
+    private void SetDayEcology(int _)
     {
+        _everyDayEcology.Add(_totalEcology);
+    }
+
+    public void LoadEcology(int radiation, int[] everyDayEcology)
+    {
+        _everyDayEcology.Clear();
+        _everyDayEcology = everyDayEcology.ToList();
         _missionEcology = CurrentMissionInfo.Instance.GetCurrentLandscape().StartEcology;
         _radiation = radiation;
         UpdateRadiationView();
@@ -171,6 +181,7 @@ public class EcologySystem : MonoBehaviour
     {
         CustomEvents.OnChangeEcology -= ChangeEcology;
         CustomEvents.OnDataLoad -= UpdateTotalEcology;
+        CustomEvents.OnDayEnd -= SetDayEcology;
     }
 }
 

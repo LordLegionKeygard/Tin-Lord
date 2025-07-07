@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -14,6 +15,7 @@ public class MissionSaveData
     public int Day;
     public int Tick;
     public int Radiation;
+    public int[] EveryDayEcology;
     public int GameSpeed; //Pause = 0, Default = 1, Double = 2, Triple = 3,
 
     [Header("Resources")]

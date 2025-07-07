@@ -83,6 +83,7 @@ public class MissionSaveLoad : MonoBehaviour
         currentSaveData.Day = _timeTickSystem.GetCurrentDay();
         currentSaveData.Tick = _timeTickSystem.GetCurrentTick();
         currentSaveData.Radiation = _ecologySystem.GetRadiation();
+        currentSaveData.EveryDayEcology = _ecologySystem.GetEveryDayEcology();
         currentSaveData.GameSpeed = (int)GameSpeedEnum.Pause;
 
         //Resources
@@ -128,7 +129,7 @@ public class MissionSaveLoad : MonoBehaviour
 
         //UpPanel
         _timeTickSystem.LoadTime(currentSaveData.Day, currentSaveData.Tick);
-        _ecologySystem.LoadEcology(currentSaveData.Radiation);
+        _ecologySystem.LoadEcology(currentSaveData.Radiation, currentSaveData.EveryDayEcology);
         _gameSpeedSystem.ChangeGameSpeed(currentSaveData.GameSpeed);
 
         //Resources

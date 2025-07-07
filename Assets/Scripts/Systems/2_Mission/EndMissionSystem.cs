@@ -13,9 +13,9 @@ public class EndMissionSystem : MonoBehaviour
 
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
-    [FormerlySerializedAs("_uIPanelsWorld")] [SerializeField] private UIPanelsMission uIPanelsMission;
+    [SerializeField] private UIPanelsMission _uiPanelsMission;
     [SerializeField] private TerminalSystem _terminalSystem;
-    [FormerlySerializedAs("_worldQuantSystem")] [SerializeField] private MissionQuantSystem missionQuantSystem;
+    [SerializeField] private MissionQuantSystem _missionQuantSystem;
 
     [Header("View")]
     [SerializeField] private GameObject _panel;
@@ -51,7 +51,7 @@ public class EndMissionSystem : MonoBehaviour
         _isMissionEnd = true;
         _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default);
         StopAllCoroutines();
-        uIPanelsMission.CloseAllPanels();
+        _uiPanelsMission.CloseAllPanels();
     }
 
     private void SetMissionEndViewInfo(MissionEndEnum missionEndEnum)
@@ -89,20 +89,31 @@ public class EndMissionSystem : MonoBehaviour
 
         _maxFragmentsText.text = totalFragmentsAmount.ToString();
 
-        _quantsText.text = _missionEndEnum is MissionEndEnum.Victory ? $"{Language.TextStatic[187]} {missionQuantSystem.GetQuants()}" : $"{Language.TextStatic[187]} 0";
+        _quantsText.text = _missionEndEnum is MissionEndEnum.Victory ? $"{Language.TextStatic[187]} {_missionQuantSystem.GetQuants()}" : $"{Language.TextStatic[187]} 0";
     }
 
     private float GetEcologyBonus()
     {
-        int ecology = _ecologySystem.GetTotalEcology();
+        var everyDayEcology = _ecologySystem.GetEveryDayEcology();
+        int totalMiddleEcology = 0;
 
-        if (ecology <= -75) return 0.25f;
-        if (ecology <= -50) return 0.5f;
-        if (ecology <= -25) return 0.75f;
-        if (ecology <= 0) return 1f;
-        if (ecology <= 25) return 1.25f;
-        if (ecology <= 50) return 1.5f;
-        if (ecology <= 75) return 1.75f;
+        if (everyDayEcology.Length > 0)
+        {
+            int sum = 0;
+            for (int i = 0; i < everyDayEcology.Length; i++)
+            {
+                sum += everyDayEcology[i];
+            }
+            totalMiddleEcology = sum / everyDayEcology.Length;
+        }
+
+        if (totalMiddleEcology <= -75) return 0.25f;
+        if (totalMiddleEcology <= -50) return 0.5f;
+        if (totalMiddleEcology <= -25) return 0.75f;
+        if (totalMiddleEcology <= 0) return 1f;
+        if (totalMiddleEcology <= 25) return 1.25f;
+        if (totalMiddleEcology <= 50) return 1.5f;
+        if (totalMiddleEcology <= 75) return 1.75f;
 
         return 2f;
     }
@@ -110,7 +121,7 @@ public class EndMissionSystem : MonoBehaviour
     private void PrepareData(MissionEndEnum missionEndEnum)
     {
         var aiCores = missionEndEnum == MissionEndEnum.Victory ? 0 : missionEndEnum == MissionEndEnum.Escape ? -1 : -2;
-        var quants = missionEndEnum == MissionEndEnum.Victory ? missionQuantSystem.GetQuants() : 0;
+        var quants = missionEndEnum == MissionEndEnum.Victory ? _missionQuantSystem.GetQuants() : 0;
         if (missionEndEnum == MissionEndEnum.Victory)
         {
             var saveData = _spaceSaveGame.SpaceSaveData;
