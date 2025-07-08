@@ -222,7 +222,7 @@ MonoBehaviour:
       EnemyLevel: 8
   - StartDaySpawn: 90
     SpawnPeriod: 2
-    Count: 70
+    Count: 80
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -355,9 +355,9 @@ MonoBehaviour:
   BossSpawner:
     Bosses:
     - Biome: 0
-      EnemyEnum: 9
+      EnemyEnum: 5
     - Biome: 1
-      EnemyEnum: 4
+      EnemyEnum: 11
     BossLevel: 4
     BossDaySpawn: 99
     LandscapeSpawnSide: []
