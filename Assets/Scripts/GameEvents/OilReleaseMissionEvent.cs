@@ -12,6 +12,10 @@ public class OilReleaseMissionEvent : BaseMissionEvent
 
     private void UseOilReleaseEvent()
     {
+        var rnd = Random.Range(0, 100);
+
+        if (rnd <= 30) return;
+
         var validTiles = new List<TileObject>();
 
         foreach (var tileObject in GetAllTileObjects().TileObjects)
