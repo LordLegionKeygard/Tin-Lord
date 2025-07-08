@@ -41,7 +41,7 @@ public class GeneralRepairSkill : BaseSkill
         }
     }
 
-    public override bool CanUseSkill()
+    public override bool CantUseSkill()
     {
         return _repairList.Count == 0 || SkillView.IsCooldownNow() && IsOpen();
     }

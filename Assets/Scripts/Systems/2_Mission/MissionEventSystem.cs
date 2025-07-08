@@ -6,11 +6,8 @@ using Zenject;
 public class MissionEventSystem : MonoBehaviour
 {
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
-
-    [Header("UI")]
     [SerializeField] private InfoMissionSystem _infoMissionSystem;
-
-    [Header("Event Settings")]
+    [SerializeField] private EndMissionSystem _endMissionSystem;
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private TimeTickSystem _timeTickSystem;
     [SerializeField] private GameObject _gameEventPrefab;
@@ -23,7 +20,7 @@ public class MissionEventSystem : MonoBehaviour
     private int _eventNumber;
     private List<DayEventForListData> _currentEventsData = new();
 
-    [Header("Other")]
+    [Header("Events")]
     [SerializeField] private EarthquakeMissionEvent _earthquakeEvent;
     [SerializeField] private AcidRainMissionEvent _acidRainEvent;
     [SerializeField] private MeteorStrikeMissionEvent _meteorStrikeEvent;
@@ -130,6 +127,8 @@ public class MissionEventSystem : MonoBehaviour
         float delay = oneDayDuration * (_dayBeforeSpawnEvent - 1) - alreadyElapsed;
 
         if (delay > 0) yield return new WaitForSeconds(delay);
+
+        if (_endMissionSystem.IsMissionEnd()) yield return null;
 
         string infoText = Language.TextStatic[gameEventInfo.InfoNumber];
         if (!string.IsNullOrEmpty(infoText)) _infoMissionSystem.ShowInfo(infoText, _missionHangarSystem.GetCurrentRobot(), gameEventInfo.IsWarning);

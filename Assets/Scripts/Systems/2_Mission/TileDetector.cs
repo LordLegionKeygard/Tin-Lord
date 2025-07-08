@@ -12,6 +12,7 @@ public class TileDetector : MonoBehaviour
     [SerializeField] private UIPanelsMission _uiPanels;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private ScrollViewInteraction _scrollViewInteraction;
+    [SerializeField] private SkillTargetSystem _skillTargetSystem;
     private Transform _lastRayCastTransform;
     private bool _canSetTile = false;
 
@@ -68,7 +69,7 @@ public class TileDetector : MonoBehaviour
 
     public void InputOnTile()
     {
-        if (_scrollViewInteraction.IsScrolling()) return;
+        if (_scrollViewInteraction.IsScrolling() || _skillTargetSystem.IsActive()) return;
 
         if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() && _currentTileObject != null)
         {

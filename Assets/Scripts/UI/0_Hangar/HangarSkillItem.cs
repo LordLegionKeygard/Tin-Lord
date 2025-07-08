@@ -16,6 +16,7 @@ public class HangarSkillItem : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private Image _selectView;
     private Image _backImage;
+    private int _selectSkillIndex = -1;
 
     private void Awake()
     {
@@ -38,15 +39,21 @@ public class HangarSkillItem : MonoBehaviour
 
     public void SelectButton()
     {
-        if (_isSelect) return;
-
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        SelectToggleState(true);
-        _hangarSystem.SelectSkill(_skillInfo.SkillEnum, _isOpen);
+
+        if (_isSelect)
+        {
+            _hangarSystem.UnselectSkill(_selectSkillIndex);
+        }
+        else
+        {
+            _hangarSystem.SelectSkill(_skillInfo.SkillEnum, _isOpen);
+        }
     }
 
-    public void SelectToggleState(bool state)
+    public void SelectToggleState(bool state, int selectSkillIndex)
     {
+        _selectSkillIndex = selectSkillIndex;
         _isSelect = state;
         UpdateView();
     }

@@ -25,8 +25,8 @@ public class SelectSkill : MonoBehaviour
         _rectTransform.position = new Vector2(x, y);
 
         _skillImage.sprite = skill.Icon;
-        _headerText.text = skill.Name[Language.LanguageNumber];
-        _infoText.text = skill.Info[Language.LanguageNumber];
+        _headerText.text = Language.TextStatic[skill.NameNumber];
+        _infoText.text = Language.TextStatic[skill.InfoNumber];
         _requiredText.text = !isHaveResource ? Language.TextStatic[181]
         : $"{Language.TextStatic[182]}: {skill.RequiredResource.RecourceAmount} {Language.TextStatic[skill.RequiredResource.Resource.NameNumber]}";
 

@@ -669,29 +669,29 @@ public class Language : MonoBehaviour
         _text[213, 0] = "";
         _text[213, 1] = "Подземное давление растёт. Возможен самопроизвольный выброс нефти на поверхность.";
 
-        _text[214, 0] = "";
-        _text[214, 1] = "";
+        _text[214, 0] = "Repairs all marked buildings.";
+        _text[214, 1] = "Ремонтирует все помеченные здания.";
 
-        _text[215, 0] = "";
-        _text[215, 1] = "";
+        _text[215, 0] = "Fortification";
+        _text[215, 1] = "Укрепление";
 
-        _text[216, 0] = "";
-        _text[216, 1] = "";
+        _text[216, 0] = "For one day, reduces damage to all buildings by 2 times.";
+        _text[216, 1] = "На один день, уменьшает урон по всем зданиям в 2 раза.";
 
-        _text[217, 0] = "";
-        _text[217, 1] = "";
+        _text[217, 0] = "Production optimization";
+        _text[217, 1] = "Оптимизация производства";
 
-        _text[218, 0] = "";
-        _text[218, 1] = "";
+        _text[218, 0] = "For one day, increases resource production by 2 times.";
+        _text[218, 1] = "На один день, увеличивает добычу ресурсов в 2 раза.";
 
-        _text[219, 0] = "";
-        _text[219, 1] = "";
+        _text[219, 0] = "Ignite";
+        _text[219, 1] = "Поджег";
 
-        _text[220, 0] = "";
-        _text[220, 1] = "";
+        _text[220, 0] = "Burns wood, creating an uncontrollable flame. The fire damages everyone in the area - both enemies and your buildings. Dangerous, but effective.";
+        _text[220, 1] = "Создает неконтролируемое пламя. Наносит урон как врагам, так и вашим постройкам.";
 
-        _text[221, 0] = "";
-        _text[221, 1] = "";
+        _text[221, 0] = "You must select at least one skill";
+        _text[221, 1] = "Необходимо выбрать хотя бы одно умение";
 
         _text[222, 0] = "";
         _text[222, 1] = "";

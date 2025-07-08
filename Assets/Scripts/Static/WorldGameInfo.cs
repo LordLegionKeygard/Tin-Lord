@@ -100,10 +100,10 @@ public class WorldGameInfo
     public const int HangarRobotsCount = 3;
     public const int HangarDronesCount = 3;
     public const int HangarCratesCount = 3;
-    public const int HangarSkillsCount = 3;
+    public const int HangarSkillsCount = 4;
 
-    public const int PatchPassiveAbility = 20;
-    public const int TitanPassiveAbility = 15;
+    public const int PatchPassiveAbility = 10;
+    public const int TitanPassiveAbility = 20;
     public const int AimBotPassiveAbility = 20;
 
     [Header("Tooltip Pivot")]

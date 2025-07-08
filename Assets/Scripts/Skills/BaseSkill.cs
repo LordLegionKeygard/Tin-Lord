@@ -28,7 +28,7 @@ public class BaseSkill : MonoBehaviour
 
     public virtual void UseSkill()
     {
-        if (CanUseSkill())
+        if (CantUseSkill())
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             return;
@@ -41,7 +41,7 @@ public class BaseSkill : MonoBehaviour
         CheckDuration(_skill.DurationTicks);
     }
 
-    public virtual bool CanUseSkill() => SkillView.IsCooldownNow() || !_isOpen || !ResourceEnough();
+    public virtual bool CantUseSkill() => SkillView.IsCooldownNow() || !_isOpen || !ResourceEnough();
 
     public virtual void UseResources()
     {

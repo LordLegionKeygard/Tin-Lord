@@ -171,6 +171,24 @@ public class CustomEvents
         OnTooltipToggle?.Invoke(state, toolTipNumer);
     }
 
+    public static Action OnActiveTargetSkill;
+    public static void FireActiveTargetSkill()
+    {
+        OnActiveTargetSkill?.Invoke();
+    }
+
+    public static Action OnCancelTargetSkill;
+    public static void FireCancelTargetSkill()
+    {
+        OnCancelTargetSkill?.Invoke();
+    }
+
+    public static Action OnUseTargetSkill;
+    public static void FireUseTargetSkill()
+    {
+        OnUseTargetSkill?.Invoke();
+    }
+
     public static Action OnCloseTooltips;
     public static void FireCloseTooltips()
     {

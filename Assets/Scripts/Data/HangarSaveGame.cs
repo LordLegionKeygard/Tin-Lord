@@ -47,7 +47,8 @@ public class HangarSaveGame : MonoBehaviour
 
         HangarSaveData.OpenedRobots[0] = true; // Patch
         HangarSaveData.OpenedCrates[0] = true; // Base Create
-        HangarSaveData.OpenedSkills[0] = true; // починка
+        HangarSaveData.OpenedSkills[0] = true; // GeneralRepair
+        HangarSaveData.OpenedSkills[1] = true; // Ignite
 
         _hangarSaveGameDataWriter.WriteHangarDataToSaveFile(HangarSaveData);
 

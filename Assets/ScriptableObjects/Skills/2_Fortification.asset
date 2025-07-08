@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bc1859fad21a7447945fa70e2a2245e, type: 3}
-  m_Name: 1_Fortification
+  m_Name: 2_Fortification
   m_EditorClassIdentifier: 
-  SkillEnum: 1
-  QuantPrice: 30
+  SkillEnum: 2
+  QuantPrice: 20
   ShardPrice: 20
   Icon: {fileID: 21300000, guid: cddab69ae86d91340b39d03f13896176, type: 3}
   CooldownTicks: 240
@@ -29,12 +29,6 @@ MonoBehaviour:
       Data3: 746936505
       Data4: 1045384843
     Path: event:/Ui/Skills/Fortification
-  Name:
-  - Fortification
-  - "\u0423\u043A\u0440\u0435\u043F\u043B\u0435\u043D\u0438\u0435"
-  Info:
-  - For one day, reduces damage to all buildings by 2 times.
-  - "\u041D\u0430 \u043E\u0434\u0438\u043D \u0434\u0435\u043D\u044C, \u0443\u043C\u0435\u043D\u044C\u0448\u0430\u0435\u0442
-    \u0443\u0440\u043E\u043D \u043F\u043E \u0432\u0441\u0435\u043C \u0437\u0434\u0430\u043D\u0438\u044F\u043C
-    \u0432 2 \u0440\u0430\u0437\u0430."
-  Input: Shift+2
+  NameNumber: 215
+  InfoNumber: 216
+  Input: Shift+3

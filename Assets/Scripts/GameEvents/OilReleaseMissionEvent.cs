@@ -20,7 +20,13 @@ public class OilReleaseMissionEvent : BaseMissionEvent
 
         foreach (var tileObject in GetAllTileObjects().TileObjects)
         {
-            if (tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Ground))
+            if (tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.CoalDeposits)
+             || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Desert)
+             || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Forest)
+             || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Ground)
+             || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Meadow)
+             || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Oasis)
+             || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Plain))
             {
                 validTiles.Add(tileObject);
             }

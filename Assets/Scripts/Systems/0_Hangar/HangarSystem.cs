@@ -56,8 +56,9 @@ public class HangarSystem : MonoBehaviour
     [SerializeField] private GameObject _buySkillButtonObject;
     [SerializeField] HangarSkillItem[] _hangarSkillItems;
     [SerializeField] private TextMeshProUGUI _skillDescription;
-    [SerializeField] private int _currentSkill = -1;
-    [SerializeField] private int _currentSelectSkill = -1;
+    [SerializeField] private int _currentFirstSkill = -1;
+    [SerializeField] private int _currentSecondSkill = -1;
+    [SerializeField] private int _currentSelectSkillForBuy = -1;
 
 
 
@@ -139,7 +140,8 @@ public class HangarSystem : MonoBehaviour
     {
         if (_currentRobot == -1) SelectRobot(HangarRobotType.Patch, true);
         if (_currentCrate == -1) SelectCrate(HangarCrateType.BaseCrate, true);
-        if (_currentSkill == -1) SelectSkill(SkillEnum.GeneralRepair, true);
+        if (_currentFirstSkill == -1) SelectSkill(SkillEnum.GeneralRepair, true);
+        if (_currentSecondSkill == -1) SelectSkill(SkillEnum.Ignite, true);
 
         _cameraAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
         _manipulatorAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
@@ -293,16 +295,58 @@ public class HangarSystem : MonoBehaviour
     {
         for (int i = 0; i < _hangarSkillItems.Length; i++)
         {
-            _hangarSkillItems[i].SelectToggleState(false);
+            _hangarSkillItems[i].SelectToggleState(false, -1);
         }
 
         var info = _hangarSkillItems[(int)skillType].GetInfo();
-        _skillDescription.text = isOpen ? $"{info.Name[Language.LanguageNumber]} - {info.Info[Language.LanguageNumber]}" : $"{Language.TextStatic[236]} {Language.TextStatic[194]}";
-        _hangarSkillItems[(int)skillType].SelectToggleState(true);
+        _skillDescription.text = isOpen ? $"{Language.TextStatic[info.NameNumber]} - {Language.TextStatic[info.InfoNumber]}" : $"{Language.TextStatic[236]} {Language.TextStatic[194]}";
         _buySkillButtonObject.SetActive(!isOpen);
 
-        _currentSelectSkill = (int)skillType;
-        _currentSkill = (int)skillType;
+        if (isOpen)
+        {
+            if (_currentFirstSkill == -1)
+            {
+                _currentFirstSkill = (int)skillType;
+            }
+            else
+            {
+                _currentSecondSkill = (int)skillType;
+            }
+            if (_currentFirstSkill != -1) _hangarSkillItems[_currentFirstSkill].SelectToggleState(true, 0);
+            if (_currentSecondSkill != -1) _hangarSkillItems[_currentSecondSkill].SelectToggleState(true, 1);
+        }
+        else
+        {
+            _currentFirstSkill = -1;
+            _currentSecondSkill = -1;
+            _currentSelectSkillForBuy = (int)skillType;
+            _hangarSkillItems[_currentSelectSkillForBuy].SelectToggleState(true, -1);
+        }
+        UpdateLaunchButtonActive();
+    }
+
+    public void UnselectSkill(int selectSkillIndex)
+    {
+        if (selectSkillIndex == -1) // не купленный
+        {
+            _hangarSkillItems[_currentSelectSkillForBuy].SelectToggleState(false, -1);
+            _currentSelectSkillForBuy = -1;
+        }
+        else if (selectSkillIndex == 0)
+        {
+            _hangarSkillItems[_currentFirstSkill].SelectToggleState(false, -1);
+            _currentFirstSkill = -1;
+        }
+        else
+        {
+            _hangarSkillItems[_currentSecondSkill].SelectToggleState(false, -1);
+            _currentSecondSkill = -1;
+        }
+
+        if (_currentFirstSkill == -1 && _currentSecondSkill == -1)
+        {
+            _skillDescription.text = Language.TextStatic[221];
+        }
 
         UpdateLaunchButtonActive();
     }
@@ -360,12 +404,12 @@ public class HangarSystem : MonoBehaviour
 
     public void BuySkill()
     {
-        var skillInfo = _hangarSkillItems[_currentSelectSkill].GetInfo();
+        var skillInfo = _hangarSkillItems[_currentSelectSkillForBuy].GetInfo();
         if (EnoughtShards(skillInfo.ShardPrice))
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
             _shardsSystem.ChangeShards(-skillInfo.ShardPrice);
-            _hangarSkillItems[_currentSelectSkill].SetIsOpen(true);
+            _hangarSkillItems[_currentSelectSkillForBuy].SetIsOpen(true);
             SelectSkill(skillInfo.SkillEnum, true);
             _hangarSaveGame.SaveDataToJson();
         }
@@ -377,13 +421,15 @@ public class HangarSystem : MonoBehaviour
 
     public void UpdateLaunchButtonActive()
     {
-        if (_currentCrate == -1 || _currentRobot == -1 || _currentSkill == -1) return;
+        if (_currentCrate == -1 || _currentRobot == -1) return;
 
         var robotOpened = _hangarRobotItems[_currentRobot].IsOpen();
         var crateOpened = _hangarCrateItems[_currentCrate].IsOpen();
-        var skillOpened = _hangarSkillItems[_currentSkill].IsOpen();
 
-        _launchButton.SetActive(robotOpened && crateOpened && skillOpened);
+        var firstSkillOpened = _currentFirstSkill != -1 ? _hangarSkillItems[_currentFirstSkill].IsOpen() : false;
+        var secondSkillOpened = _currentSecondSkill != -1 ? _hangarSkillItems[_currentSecondSkill].IsOpen() : false;
+
+        _launchButton.SetActive(robotOpened && crateOpened && (firstSkillOpened || secondSkillOpened));
     }
 
     public void LaunchButton()
@@ -457,7 +503,8 @@ public class HangarSystem : MonoBehaviour
             data.BuildingsLearned[_learnedOnStartBuildings[i].Id] = true;
         }
 
-        if (_currentSkill != -1 && _hangarSkillItems[_currentSkill].IsOpen()) data.OpenedSkills[_currentSkill] = true;
+        if (_currentFirstSkill != -1 && _hangarSkillItems[_currentFirstSkill].IsOpen()) data.OpenedSkills[_currentFirstSkill] = true;
+        if (_currentSecondSkill != -1 && _hangarSkillItems[_currentSecondSkill].IsOpen()) data.OpenedSkills[_currentSecondSkill] = true;
 
         _missionSaveGame.DeleteMissionJson();
         _spaceSaveGame.NewCommandCenterData(data);

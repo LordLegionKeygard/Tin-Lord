@@ -12,20 +12,20 @@ public class SkillInfo : ScriptableObject
     public int CooldownTicks;
     public int DurationTicks;
     public SkillResource RequiredResource;
-    public int RequiredOpenedMission;
     public EventReference Sound;
 
     [Header("Tooltip")]
-    public string[] Name;
-    public string[] Info;
+    public int NameNumber;
+    public int InfoNumber;
     public string Input;
 }
 
 public enum SkillEnum
 {
     GeneralRepair = 0,
-    Fortification = 1,
-    ProductionOptimization = 2,
+    Ignite = 1,
+    Fortification = 2,
+    ProductionOptimization = 3,
 }
 
 [System.Serializable]

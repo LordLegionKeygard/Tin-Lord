@@ -19,16 +19,16 @@ MonoBehaviour:
   Id: 68
   BuildingLevel: 2
   RequiredBaseLevel: 1
-  BuildingEcology: -1
+  BuildingEcology: 0
   BuildingHealth: 200
   ResourceExtractedAmount: 0
   Price: 50
   CanRotateBuilding: 0
   ResourcesForBuild:
   - ResourceEnum: 0
-    RecourceAmount: 15
-  - ResourceEnum: 9
     RecourceAmount: 10
+  - ResourceEnum: 9
+    RecourceAmount: 5
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
