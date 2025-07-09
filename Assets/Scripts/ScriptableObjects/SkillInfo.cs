@@ -9,6 +9,7 @@ public class SkillInfo : ScriptableObject
     public int QuantPrice;
     public int ShardPrice;
     public Sprite Icon;
+    public float TriggerStayDamageFactor;
     public int CooldownTicks;
     public int DurationTicks;
     public SkillResource RequiredResource;

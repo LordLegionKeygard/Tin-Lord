@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IgniteSkill : BaseSkill
@@ -32,8 +30,9 @@ public class IgniteSkill : BaseSkill
     {
         if (!_isPrepareUseSkill) return;
         _isPrepareUseSkill = false;
-        // AudioManager.Instance.PlayerOneShot(GetSkill().Sound, transform.position);
-        Instantiate(_skillPrefab, _skillTargetSystem.GetTargetTransform().position, Quaternion.identity);
+        AudioManager.Instance.PlayerOneShot(GetSkill().Sound, transform.position);
+        var skill = Instantiate(_skillPrefab, _skillTargetSystem.GetTargetTransform().position, Quaternion.identity);
+        skill.GetComponent<OnTriggerStayDealDamage>().SetInfo(GetSkill().DurationTicks, GetSkill().TriggerStayDamageFactor);
         UseResources();
         SkillView.StartSkillCooldown();
         CheckDuration(GetSkill().DurationTicks);

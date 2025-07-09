@@ -95,6 +95,10 @@ public class WorldGameInfo
     public const float FortificationSkillDamage = 0.5f;
     public const float ExplosionDamageFactor = 6;
     public const float BossTriggetStayDamageFactor = 200;
+    public const float AcidRainTriggetStayDamageFactor = 0.25f;
+
+    [Header("Duration")]
+    public const int AcidRainDuration = 24;
 
     [Header("Hangar")]
     public const int HangarRobotsCount = 3;

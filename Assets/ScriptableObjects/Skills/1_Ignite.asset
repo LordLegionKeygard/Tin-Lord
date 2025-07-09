@@ -16,18 +16,19 @@ MonoBehaviour:
   QuantPrice: 0
   ShardPrice: 0
   Icon: {fileID: 21300000, guid: 19ece05ea4a6c0f4991ca3da9556e1a2, type: 3}
-  CooldownTicks: 4
-  DurationTicks: 0
+  TriggerStayDamageFactor: 0.25
+  CooldownTicks: 1
+  DurationTicks: 24
   RequiredResource:
     Resource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746, type: 2}
-    RecourceAmount: 15
+    RecourceAmount: 10
   Sound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1856815973
+      Data2: 1094530330
+      Data3: 239675044
+      Data4: 685992248
+    Path: event:/Ui/Skills/Ignite
   NameNumber: 219
   InfoNumber: 220
   Input: Shift+2

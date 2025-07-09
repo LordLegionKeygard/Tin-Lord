@@ -4799,11 +4799,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2237583446777946787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f9b82242d03e42a2af372037f4ca8, type: 3}
+  m_Script: {fileID: 11500000, guid: d3f2db6a3c4c6224a8e2986dd873fb17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainTileObject: {fileID: 0}
-  _allBuildingHealths: []
   _ps:
   - {fileID: 2237583446791814081}
   - {fileID: 2237583446791814087}
@@ -9718,4 +9716,4 @@ MonoBehaviour:
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
-  OverrideMaxDistance: 10000
+  OverrideMaxDistance: 600
