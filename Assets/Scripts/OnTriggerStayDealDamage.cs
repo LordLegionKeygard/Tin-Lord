@@ -7,18 +7,19 @@ public class OnTriggerStayDealDamage : MonoBehaviour
     [SerializeField] private ParticleSystem[] _ps;
     [SerializeField] private Light[] _effectLights;
     [SerializeField] private GameObject[] _objectsToScale;
-    private int _repeatCount;
+    private int _ticksLeft;
     private readonly HashSet<BaseHealth> _targets = new();
     private float _damage;
-    private float _waitTimeToNextDamage = 1f;
     private float _destroyTime = 3;
     private float _fadeOutTime = 2;
+    private bool _isActive;
 
     public void SetInfo(int duration, float damageFactor)
     {
-        _repeatCount = duration;
+        _ticksLeft = duration;
         _damage = damageFactor * (1 + CurrentMissionInfo.Instance.GetMissionDeckIndex());
-        StartCoroutine(DealDamageCoroutine());
+        _isActive = true;
+        CustomEvents.OnTimeTick += OnTimeTick;
     }
 
     private void OnTriggerStay(Collider other)
@@ -59,24 +60,24 @@ public class OnTriggerStayDealDamage : MonoBehaviour
         }
     }
 
-    private IEnumerator DealDamageCoroutine()
+    private void OnTimeTick()
     {
-        while (_repeatCount-- > 0)
-        {
-            yield return new WaitForSeconds(_waitTimeToNextDamage);
+        if (!_isActive) return;
 
-            foreach (var health in new List<BaseHealth>(_targets))
-            {
-                if (health != null && !health.IsDeath())
-                {
-                    health.CalculateDamage(_damage, 0);
-                }
-            }
+        foreach (var health in _targets)
+        {
+            if (health != null && !health.IsDeath())
+                health.CalculateDamage(_damage, 0);
         }
 
-        StartCoroutine(FadeOutCoroutine());
-
-        Destroy(gameObject, _destroyTime);
+        _ticksLeft--;
+        if (_ticksLeft <= 0)
+        {
+            _isActive = false;
+            StartCoroutine(FadeOutCoroutine());
+            Destroy(gameObject, _destroyTime);
+            CustomEvents.OnTimeTick -= OnTimeTick;
+        }
     }
 
     private IEnumerator FadeOutCoroutine()
@@ -130,5 +131,10 @@ public class OnTriggerStayDealDamage : MonoBehaviour
         {
             obj.transform.localScale = Vector3.zero;
         }
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnTimeTick -= OnTimeTick;
     }
 }

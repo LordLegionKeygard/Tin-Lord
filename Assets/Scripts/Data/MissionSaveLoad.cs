@@ -21,7 +21,7 @@ public class MissionSaveLoad : MonoBehaviour
 
     [Header("Cards")]
     [SerializeField] private CardHolderSystem _cardHolderSystem;
-    
+
     [Header("WorldEvents")]
     [SerializeField] private MissionEventSystem _missionEventSystem;
 
@@ -35,7 +35,7 @@ public class MissionSaveLoad : MonoBehaviour
     [Header("Robot")]
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
     [SerializeField] private MachineSpawnerSystem _machineSpawnerSystem;
-    
+
     [Header("LearnedBuildings")]
     [SerializeField] private LearnedBuildingsDataMission _learnedBuildingsDataMission;
 
@@ -48,9 +48,12 @@ public class MissionSaveLoad : MonoBehaviour
     [Header("Quants")]
     [SerializeField] private QuantPickupPool _quantPool;
     [SerializeField] private MissionQuantSystem _missionQuantSystem;
-    
+
     [Header("Hangar")]
     [SerializeField] private MissionHangarSystem _missionHangarSystem;
+
+    [Header("Hazards")]
+    [SerializeField] private SpawnedHazardSystem _spawnedHazardSystem;
 
     private void Awake()
     {
@@ -119,6 +122,9 @@ public class MissionSaveLoad : MonoBehaviour
         //Quants
         currentSaveData.QuantsAmount = _missionQuantSystem.GetQuants();
         currentSaveData.QuantPickups = _quantPool.GetActiveQuants();
+
+        //Hazard
+        currentSaveData.Hazards = _spawnedHazardSystem.GetHazards();
     }
 
     public void LoadGameData(ref MissionSaveData currentSaveData)
@@ -173,6 +179,9 @@ public class MissionSaveLoad : MonoBehaviour
 
         //Hangar
         _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData);
+
+        //Hazard
+        _spawnedHazardSystem.LoadHazardData(currentSaveData.Hazards);
 
         CustomEvents.FireDataLoad();
     }

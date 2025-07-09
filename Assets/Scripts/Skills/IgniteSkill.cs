@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class IgniteSkill : BaseSkill
 {
+    [SerializeField] private SpawnedHazardSystem _spawnedHazardSystem;
     [SerializeField] private SkillTargetSystem _skillTargetSystem;
     [SerializeField] private GameObject _skillPrefab;
     private bool _isPrepareUseSkill;
@@ -31,8 +32,9 @@ public class IgniteSkill : BaseSkill
         if (!_isPrepareUseSkill) return;
         _isPrepareUseSkill = false;
         AudioManager.Instance.PlayerOneShot(GetSkill().Sound, transform.position);
-        var skill = Instantiate(_skillPrefab, _skillTargetSystem.GetTargetTransform().position, Quaternion.identity);
-        skill.GetComponent<OnTriggerStayDealDamage>().SetInfo(GetSkill().DurationTicks, GetSkill().TriggerStayDamageFactor);
+        var _currentPrefab = Instantiate(_skillPrefab, _skillTargetSystem.GetTargetTransform().position, Quaternion.identity);
+        _currentPrefab.GetComponent<OnTriggerStayDealDamage>().SetInfo(GetSkill().DurationTicks, GetSkill().TriggerStayDamageFactor);
+        _spawnedHazardSystem.RegisterHazard((int)HazardEnum.IgniteSkill, _currentPrefab, GetSkill().DurationTicks, GetSkill().TriggerStayDamageFactor);
         UseResources();
         SkillView.StartSkillCooldown();
         CheckDuration(GetSkill().DurationTicks);

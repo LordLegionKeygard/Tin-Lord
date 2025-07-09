@@ -45,6 +45,7 @@ public class TimeTickSystem : MonoBehaviour
             _currentTick++;
             UpdateResourcesAfterTick();
             _allSkills.TimeTickAllSkill();
+            CustomEvents.FireTimeTick();
 
             if (_currentTick >= _endTime)
             {
@@ -63,7 +64,6 @@ public class TimeTickSystem : MonoBehaviour
     {
         _everyTickResourcesRequired.UseEveryTickRequiredResources();
         _everyTickResourcesExtraction.AddEveryTickResources();
-        CustomEvents.FireTimeTick();
     }
 
     private void UpdateDayText()

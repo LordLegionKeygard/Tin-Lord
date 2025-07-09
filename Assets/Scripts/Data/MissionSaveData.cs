@@ -51,6 +51,9 @@ public class MissionSaveData
     [Header("Quants")]
     public float QuantsAmount;
     public QuantPickupData[] QuantPickups;
+    
+    [Header("Hazards")]
+    public HazardSaveData[] Hazards;
 }
 
 [System.Serializable]
@@ -158,6 +161,18 @@ public class QuantPickupData
     public float PosY;
     public float PosZ;
     public float TimeLeft;
+}
+
+[System.Serializable]
+public struct HazardSaveData
+{
+    public int HazardType;
+    public float PosX;
+    public float PosY;
+    public float PosZ;
+    public float RotationY;
+    public float TimeLeft;
+    public float DamageFactor;
 }
 
 
