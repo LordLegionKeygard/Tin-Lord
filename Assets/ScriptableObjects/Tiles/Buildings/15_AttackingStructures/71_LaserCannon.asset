@@ -10,42 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 78_BattleshipTower
+  m_Name: 71_LaserCannon
   m_EditorClassIdentifier: 
   Name:
-  - Battleship Tower
-  - "\u0411\u0430\u0448\u043D\u044F \u041B\u0438\u043D\u043A\u043E\u0440\u0430"
-  BuildingSprite: {fileID: 21300000, guid: 1aca842a9a4c3324d862fb9a7b876e12, type: 3}
-  Id: 78
-  BuildingLevel: 8
+  - Laser Cannon
+  - "\u041B\u0430\u0437\u0435\u0440\u043D\u0430\u044F \u041F\u0443\u0448\u043A\u0430"
+  BuildingSprite: {fileID: 21300000, guid: 8b320f6b3630ec3429dcf8b70723a46b, type: 3}
+  Id: 71
+  BuildingLevel: 7
   RequiredBaseLevel: 4
   BuildingEcology: -6
-  BuildingHealth: 400
+  BuildingHealth: 350
   ResourceExtractedAmount: 0
-  Price: 350
+  Price: 300
   CanRotateBuilding: 0
   ResourcesForBuild:
   - ResourceEnum: 11
-    RecourceAmount: 30
-  - ResourceEnum: 16
+    RecourceAmount: 20
+  - ResourceEnum: 12
     RecourceAmount: 10
-  - ResourceEnum: 17
+  - ResourceEnum: 15
+    RecourceAmount: 10
+  - ResourceEnum: 18
     RecourceAmount: 15
-  - ResourceEnum: 19
-    RecourceAmount: 10
-  - ResourceEnum: 20
-    RecourceAmount: 5
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
     type: 3}
-  ConstructionPrefab: {fileID: 3446610433273218902, guid: 1b91c322c553dca469a5b83268fae5f9,
+  ConstructionPrefab: {fileID: 3416908589346324002, guid: 5e384698eedf7f248bba50abca9f45f2,
     type: 3}
-  Damage: 6
-  AttackSpeed: 0.4
-  AttackRadius: 80
-  RotationSpeed: 0.6
-  KnockbackPoints: 20
+  Damage: 1.5
+  AttackSpeed: 2
+  AttackRadius: 70
+  RotationSpeed: 0.9
+  KnockbackPoints: 4
   BuildingEcologyPurifier: 0
   RandomRange: 0
   IsChangePosition: 0

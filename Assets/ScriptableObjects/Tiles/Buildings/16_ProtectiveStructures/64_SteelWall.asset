@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 69_ConcreteWall
+  m_Name: 64_SteelWall
   m_EditorClassIdentifier: 
   Name:
-  - Concrete Wall
-  - "\u0411\u0435\u0442\u043E\u043D\u043D\u0430\u044F \u0421\u0442\u0435\u043D\u0430"
-  BuildingSprite: {fileID: 21300000, guid: 61090e852209c924fba5b16da924149c, type: 3}
-  Id: 69
-  BuildingLevel: 3
-  RequiredBaseLevel: 2
+  - Steel Wall
+  - "\u0421\u0442\u0430\u043B\u044C\u043D\u0430\u044F \u0421\u0442\u0435\u043D\u0430"
+  BuildingSprite: {fileID: 21300000, guid: d98ac626ced410547a79a53ecbe79d0d, type: 3}
+  Id: 64
+  BuildingLevel: 4
+  RequiredBaseLevel: 3
   BuildingEcology: 0
-  BuildingHealth: 300
+  BuildingHealth: 400
   ResourceExtractedAmount: 0
-  Price: 150
+  Price: 200
   CanRotateBuilding: 0
   ResourcesForBuild:
   - ResourceEnum: 10
-    RecourceAmount: 15
-  - ResourceEnum: 13
-    RecourceAmount: 10
+    RecourceAmount: 50
+  - ResourceEnum: 11
+    RecourceAmount: 20
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
     type: 3}
-  ConstructionPrefab: {fileID: 7011335453824803426, guid: f41b61f264aa56a489740533c702e0db,
+  ConstructionPrefab: {fileID: 965771091973037171, guid: 87ca6270dfb2bb542b733eeaba0f0216,
     type: 3}
   Damage: 0
   AttackSpeed: 0

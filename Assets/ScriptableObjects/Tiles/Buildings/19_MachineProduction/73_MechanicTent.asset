@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 71_Ballista
+  m_Name: 73_MechanicTent
   m_EditorClassIdentifier: 
   Name:
-  - Ballista
-  - "\u0411\u0430\u043B\u043B\u0438\u0441\u0442\u0430"
-  BuildingSprite: {fileID: 21300000, guid: 485dabe910621364580ec254df10824b, type: 3}
-  Id: 71
+  - Mechanic's Tent
+  - "\u041F\u0430\u043B\u0430\u0442\u043A\u0430 \u041C\u0435\u0445\u0430\u043D\u0438\u043A\u0430"
+  BuildingSprite: {fileID: 21300000, guid: e10f167105dc6dd40ae3d43fc9290dca, type: 3}
+  Id: 73
   BuildingLevel: 1
   RequiredBaseLevel: 1
   BuildingEcology: -2
@@ -26,20 +26,18 @@ MonoBehaviour:
   CanRotateBuilding: 0
   ResourcesForBuild:
   - ResourceEnum: 0
-    RecourceAmount: 15
-  - ResourceEnum: 1
-    RecourceAmount: 10
+    RecourceAmount: 20
   ResourcesForWork: []
   ResourcesProduction: []
-  DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
+  DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
     type: 3}
-  ConstructionPrefab: {fileID: 4752290107729429370, guid: c3f7517abe409e844a7bd996b65b96ec,
+  ConstructionPrefab: {fileID: 5909100974166539308, guid: 262ac5b48932513448aef4382e3547c6,
     type: 3}
-  Damage: 1
-  AttackSpeed: 2
-  AttackRadius: 40
-  RotationSpeed: 0.6
-  KnockbackPoints: 5
+  Damage: 0
+  AttackSpeed: 0
+  AttackRadius: 0
+  RotationSpeed: 0
+  KnockbackPoints: 0
   BuildingEcologyPurifier: 0
   RandomRange: 0
   IsChangePosition: 0

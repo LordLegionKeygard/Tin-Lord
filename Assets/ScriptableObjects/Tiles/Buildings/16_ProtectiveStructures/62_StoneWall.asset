@@ -10,28 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 67_WoodenWall
+  m_Name: 62_StoneWall
   m_EditorClassIdentifier: 
   Name:
-  - Wooden Wall
-  - "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u0430\u044F \u0421\u0442\u0435\u043D\u0430"
-  BuildingSprite: {fileID: 21300000, guid: e39d23040f17e99469061d798c38b231, type: 3}
-  Id: 67
-  BuildingLevel: 1
+  - Stone Wall
+  - "\u041A\u0430\u043C\u0435\u043D\u043D\u0430\u044F \u0421\u0442\u0435\u043D\u0430"
+  BuildingSprite: {fileID: 21300000, guid: ccb3566da4586e94cb5fad7446d783f1, type: 3}
+  Id: 62
+  BuildingLevel: 2
   RequiredBaseLevel: 1
   BuildingEcology: 0
-  BuildingHealth: 100
+  BuildingHealth: 200
   ResourceExtractedAmount: 0
-  Price: 20
+  Price: 50
   CanRotateBuilding: 0
   ResourcesForBuild:
   - ResourceEnum: 0
-    RecourceAmount: 15
+    RecourceAmount: 10
+  - ResourceEnum: 9
+    RecourceAmount: 5
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
     type: 3}
-  ConstructionPrefab: {fileID: 4464089856222457484, guid: 52215d6c95a2e63429b5bfbb3d904582,
+  ConstructionPrefab: {fileID: 7447947038357691070, guid: 22fd60ba52561fe40a10782f777601dc,
     type: 3}
   Damage: 0
   AttackSpeed: 0

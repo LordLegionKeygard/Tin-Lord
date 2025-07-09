@@ -10,40 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 77_LaserCannon
+  m_Name: 67_TurretGun
   m_EditorClassIdentifier: 
   Name:
-  - Laser Cannon
-  - "\u041B\u0430\u0437\u0435\u0440\u043D\u0430\u044F \u041F\u0443\u0448\u043A\u0430"
-  BuildingSprite: {fileID: 21300000, guid: 8b320f6b3630ec3429dcf8b70723a46b, type: 3}
-  Id: 77
-  BuildingLevel: 7
-  RequiredBaseLevel: 4
-  BuildingEcology: -6
-  BuildingHealth: 350
+  - Turret Gun
+  - "\u0422\u0443\u0440\u0435\u043B\u044C\u043D\u0430\u044F \u041F\u0443\u0448\u043A\u0430"
+  BuildingSprite: {fileID: 21300000, guid: 31eb31e901942cb498572b7b5cbc3a30, type: 3}
+  Id: 67
+  BuildingLevel: 3
+  RequiredBaseLevel: 2
+  BuildingEcology: -4
+  BuildingHealth: 150
   ResourceExtractedAmount: 0
-  Price: 300
+  Price: 50
   CanRotateBuilding: 0
   ResourcesForBuild:
-  - ResourceEnum: 11
-    RecourceAmount: 20
-  - ResourceEnum: 12
-    RecourceAmount: 10
-  - ResourceEnum: 15
-    RecourceAmount: 10
-  - ResourceEnum: 18
+  - ResourceEnum: 10
     RecourceAmount: 15
+  - ResourceEnum: 11
+    RecourceAmount: 5
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
     type: 3}
-  ConstructionPrefab: {fileID: 3416908589346324002, guid: 5e384698eedf7f248bba50abca9f45f2,
+  ConstructionPrefab: {fileID: 414988364262512770, guid: 4457794648b5eca42baec2134c4ffc96,
     type: 3}
-  Damage: 1.5
-  AttackSpeed: 2
-  AttackRadius: 70
+  Damage: 1.4
+  AttackSpeed: 1
+  AttackRadius: 50
   RotationSpeed: 0.9
-  KnockbackPoints: 4
+  KnockbackPoints: 3
   BuildingEcologyPurifier: 0
   RandomRange: 0
   IsChangePosition: 0

@@ -10,37 +10,41 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 61_MemoryByte
+  m_Name: OLD_5_MemoryTerabyte
   m_EditorClassIdentifier: 
   Name:
-  - Memory Byte
-  - "\u0411\u0430\u0439\u0442 \u041F\u0430\u043C\u044F\u0442\u0438"
-  BuildingSprite: {fileID: 21300000, guid: cdb3f78ae3738be469da1dc3ff9babf2, type: 3}
-  Id: 61
-  BuildingLevel: 1
-  RequiredBaseLevel: 2
-  BuildingEcology: -2
-  BuildingHealth: 50
-  ResourceExtractedAmount: 0.1
-  Price: 50
+  - Memory Terabyte
+  - "\u0422\u0435\u0440\u0430\u0431\u0430\u0439\u0442 \u041F\u0430\u043C\u044F\u0442\u0438"
+  BuildingSprite: {fileID: 21300000, guid: 4ca7c5f53bedb314abc4604a1beacef3, type: 3}
+  Id: 65
+  BuildingLevel: 5
+  RequiredBaseLevel: 4
+  BuildingEcology: -6
+  BuildingHealth: 250
+  ResourceExtractedAmount: 0.8
+  Price: 250
   CanRotateBuilding: 1
   ResourcesForBuild:
-  - ResourceEnum: 10
-    RecourceAmount: 5
+  - ResourceEnum: 11
+    RecourceAmount: 15
   - ResourceEnum: 13
-    RecourceAmount: 3
+    RecourceAmount: 15
   - ResourceEnum: 16
-    RecourceAmount: 2
+    RecourceAmount: 10
+  - ResourceEnum: 18
+    RecourceAmount: 8
+  - ResourceEnum: 19
+    RecourceAmount: 5
   ResourcesForWork:
   - ResourceForWork: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f, type: 2}
-    ResourcesForWorkAmount: 0.1
+    ResourcesForWorkAmount: 0.5
   ResourcesProduction:
   - ProductionResource: {fileID: 11400000, guid: 23814b4f35f760d44b89c897c3a239b8,
       type: 2}
     ResourceRecept: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
     type: 3}
-  ConstructionPrefab: {fileID: 2456217158377881614, guid: 260ea4617bed92c4599b87086b34b923,
+  ConstructionPrefab: {fileID: 521125188338209587, guid: 36930243134784e459d45b9fa4e04f28,
     type: 3}
   Damage: 0
   AttackSpeed: 0

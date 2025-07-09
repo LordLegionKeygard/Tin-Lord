@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
-  m_Name: 19_RadioCommunication
+  m_Name: 18_RadioCommunication
   m_EditorClassIdentifier: 
   Name:
   - Radio Communication
@@ -23,9 +23,10 @@ MonoBehaviour:
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
+  CanBuildMachineProduction: 0
   BuildingTypes: []
   ProductionOnGroundResources: []
-  BuildingTileView: 19
+  BuildingTileView: 18
   Buildings:
   - {fileID: 11400000, guid: d452c4c945dd5574fafd3b5f52ac3ba2, type: 2}
   - {fileID: 11400000, guid: be0f4d0c3df44314597aad2fe4eda78e, type: 2}

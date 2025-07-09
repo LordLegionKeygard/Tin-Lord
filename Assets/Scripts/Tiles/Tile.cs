@@ -111,9 +111,8 @@ public enum BuildingTileViewEnum
     AttackingStructures = 15,
     ProtectiveStructures = 16,
     EcologyPurifier = 17,
-    MemoryRecovery = 18,
-    RadioCommunication = 19,
-    MachineProduction = 20,
+    RadioCommunication = 18,
+    MachineProduction = 19,
 
 }
 

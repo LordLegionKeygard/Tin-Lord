@@ -10,38 +10,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 75_Minigun
+  m_Name: 72_BattleshipTower
   m_EditorClassIdentifier: 
   Name:
-  - Minigun
-  - "\u041C\u0438\u043D\u0438\u0433\u0430\u043D"
-  BuildingSprite: {fileID: 21300000, guid: 109ae217d4c8931419e560481c5e7b04, type: 3}
-  Id: 75
-  BuildingLevel: 5
-  RequiredBaseLevel: 3
-  BuildingEcology: -5
-  BuildingHealth: 250
+  - Battleship Tower
+  - "\u0411\u0430\u0448\u043D\u044F \u041B\u0438\u043D\u043A\u043E\u0440\u0430"
+  BuildingSprite: {fileID: 21300000, guid: 1aca842a9a4c3324d862fb9a7b876e12, type: 3}
+  Id: 72
+  BuildingLevel: 8
+  RequiredBaseLevel: 4
+  BuildingEcology: -6
+  BuildingHealth: 400
   ResourceExtractedAmount: 0
-  Price: 200
+  Price: 350
   CanRotateBuilding: 0
   ResourcesForBuild:
-  - ResourceEnum: 10
-    RecourceAmount: 20
+  - ResourceEnum: 11
+    RecourceAmount: 30
   - ResourceEnum: 16
-    RecourceAmount: 15
-  - ResourceEnum: 17
     RecourceAmount: 10
+  - ResourceEnum: 17
+    RecourceAmount: 15
+  - ResourceEnum: 19
+    RecourceAmount: 10
+  - ResourceEnum: 20
+    RecourceAmount: 5
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
     type: 3}
-  ConstructionPrefab: {fileID: 4797518309121871739, guid: 0b10a2b91181be6469794d3bcd37873a,
+  ConstructionPrefab: {fileID: 3446610433273218902, guid: 1b91c322c553dca469a5b83268fae5f9,
     type: 3}
-  Damage: 0.3
-  AttackSpeed: 0.1
-  AttackRadius: 60
-  RotationSpeed: 1.2
-  KnockbackPoints: 2
+  Damage: 6
+  AttackSpeed: 0.4
+  AttackRadius: 80
+  RotationSpeed: 0.6
+  KnockbackPoints: 20
   BuildingEcologyPurifier: 0
   RandomRange: 0
   IsChangePosition: 0
