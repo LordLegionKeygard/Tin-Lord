@@ -30,7 +30,7 @@ public class EcologySystem : MonoBehaviour
     [SerializeField] private List<EcologyTileInfo> _ecologyTileInfoList = new List<EcologyTileInfo>();
     [SerializeField] private SetupRenderSettings _setupRenderSettings;
     private readonly float _changeTextDuration = 1;
-    private Coroutine _changeTextCoroutine;
+    private Tween _changeTextTween;
     private float _currentRotationAngle = 0f;
 
     public int GetRadiation() => _radiation;
@@ -111,12 +111,8 @@ public class EcologySystem : MonoBehaviour
 
         CheckLimitEcology();
 
-        if (_changeTextCoroutine != null)
-        {
-            StopCoroutine(_changeTextCoroutine);
-        }
 
-        _changeTextCoroutine = StartCoroutine(ChangeTextSmoothly(previousTotalEcology, _totalEcology));
+        AnimateEcologyText(previousTotalEcology, _totalEcology);
         UpdateGearRotation(previousTotalEcology, _totalEcology);
 
         _setupRenderSettings.UpdateEcologyRender(_totalEcology);
@@ -124,18 +120,11 @@ public class EcologySystem : MonoBehaviour
         _enemyDefenceSystem.ChangeDefence();
     }
 
-    private IEnumerator ChangeTextSmoothly(int oldValue, int newValue)
+    private void AnimateEcologyText(int oldValue, int newValue)
     {
-        float elapsed = 0f;
+        _changeTextTween?.Kill();
 
-        while (elapsed < _changeTextDuration)
-        {
-            elapsed += Time.deltaTime;
-            int currentValue = Mathf.RoundToInt(Mathf.Lerp(oldValue, newValue, elapsed / _changeTextDuration));
-            UpdateEcologyText(currentValue);
-            yield return null;
-        }
-        UpdateEcologyText(newValue);
+        _changeTextTween = DOTween.To(() => oldValue, val => UpdateEcologyText(val), newValue, _changeTextDuration).SetEase(Ease.Linear).SetUpdate(true);
     }
 
     private void UpdateGearRotation(int previousEcology, int newEcology)
@@ -152,8 +141,8 @@ public class EcologySystem : MonoBehaviour
 
         _currentRotationAngle += rotationAngle;
 
-        _gearRectTransform.DORotate(new Vector3(0, 0, _currentRotationAngle), _changeTextDuration)
-            .OnComplete(() => UpdateWarningSign(newEcology));
+        _gearRectTransform.DORotate(new Vector3(0, 0, _currentRotationAngle), _changeTextDuration).SetUpdate(true)
+        .OnComplete(() => UpdateWarningSign(newEcology));
     }
 
 

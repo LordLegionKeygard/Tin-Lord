@@ -87,7 +87,7 @@ public class TileMapBuilder : MonoBehaviour
             {
                 var newObject = _diContainer.InstantiatePrefab(
                     _tile,
-                    new Vector3(k * 10, WorldGameInfo.TerrainOffset, i * 10),
+                    new Vector3(k * 10, WorldGameInfo.TerrainPosition, i * 10),
                     Quaternion.identity,
                     null
                 );

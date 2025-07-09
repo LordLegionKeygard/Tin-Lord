@@ -174,7 +174,6 @@ public class MissionSaveLoad : MonoBehaviour
         //Hangar
         _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData);
 
-        CustomEvents.FirePlayRandomLevelMusic();
         CustomEvents.FireDataLoad();
     }
 

@@ -23,7 +23,7 @@ public class EarthquakeMissionEvent : BaseMissionEvent
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EarthQuake, transform.position);
         yield return new WaitForSeconds(_delay);
 
-        _environmentTransform.position = new Vector3(_environmentTransform.position.x, WorldGameInfo.TerrainOffset, _environmentTransform.position.z);
+        _environmentTransform.position = new Vector3(_environmentTransform.position.x, WorldGameInfo.EnvironmentPosition, _environmentTransform.position.z);
 
         Sequence shakeSequence = DOTween.Sequence();
 
@@ -31,8 +31,8 @@ public class EarthquakeMissionEvent : BaseMissionEvent
 
         for (int i = 0; i < shakeCount; i++)
         {
-            shakeSequence.Append(_environmentTransform.DOMoveY(WorldGameInfo.TerrainOffset + _shakeAmplitude, _shakeSpeed).SetEase(Ease.InOutSine));
-            shakeSequence.Append(_environmentTransform.DOMoveY(WorldGameInfo.TerrainOffset - _shakeAmplitude, _shakeSpeed).SetEase(Ease.InOutSine));
+            shakeSequence.Append(_environmentTransform.DOMoveY(WorldGameInfo.EnvironmentPosition + _shakeAmplitude, _shakeSpeed).SetEase(Ease.InOutSine));
+            shakeSequence.Append(_environmentTransform.DOMoveY(WorldGameInfo.EnvironmentPosition - _shakeAmplitude, _shakeSpeed).SetEase(Ease.InOutSine));
 
             if (i == shakeCount - 1)
             {
@@ -40,7 +40,7 @@ public class EarthquakeMissionEvent : BaseMissionEvent
             }
         }
 
-        shakeSequence.Append(_environmentTransform.DOMoveY(WorldGameInfo.TerrainOffset, _shakeSpeed).SetEase(Ease.OutSine));
+        shakeSequence.Append(_environmentTransform.DOMoveY(WorldGameInfo.EnvironmentPosition, _shakeSpeed).SetEase(Ease.OutSine));
         shakeSequence.Play();
     }
 

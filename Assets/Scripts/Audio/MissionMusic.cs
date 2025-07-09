@@ -1,19 +1,28 @@
 using UnityEngine;
 using FMODUnity;
+using System.Collections;
 
 public class MissionMusic : MonoBehaviour
 {
     [SerializeField] private MusicWrapper[] _musicWrapper;
     [SerializeField] private GameObject _escapeObject;
+    private float _fadeOutDelay = 2f;
 
     private void Start()
     {
-        CustomEvents.OnPlayRandomLevelMusic += PlayRandomMusic;
+        CustomEvents.OnDataLoad += PreparePlayMusic;
         CustomEvents.OnCheckPause += PauseMusicToggle;
     }
 
-    private void PlayRandomMusic()
+    private void PreparePlayMusic()
     {
+        StartCoroutine(nameof(PlayMusicCoroutine));
+    }
+
+    private IEnumerator PlayMusicCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(_fadeOutDelay);
+
         var sound = _musicWrapper[(int)CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum];
 
         sound.Music.Play();
@@ -29,7 +38,7 @@ public class MissionMusic : MonoBehaviour
 
     private void OnDestroy()
     {
-        CustomEvents.OnPlayRandomLevelMusic -= PlayRandomMusic;
+        CustomEvents.OnDataLoad -= PreparePlayMusic;
         CustomEvents.OnCheckPause -= PauseMusicToggle;
     }
 }

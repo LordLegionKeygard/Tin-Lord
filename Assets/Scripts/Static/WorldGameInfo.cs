@@ -68,8 +68,9 @@ public class WorldGameInfo
     [Header("Sounds")]
     public const int EnemiesDeathSoundChance = 20;
 
-    [Header("Terrain")]
-    public const float TerrainOffset = 1.68f;
+    [Header("Positions")]
+    public const float TerrainPosition = 1.68f;
+    public const float EnvironmentPosition = 0;
 
     [Header("VideoSettings")]
     public const int ScreenMode = 1;
