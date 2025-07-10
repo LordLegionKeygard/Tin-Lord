@@ -21,7 +21,6 @@ public class ChangeLanguageSpace : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _resourceTraderHeaderText;
     [SerializeField] private TextMeshProUGUI _resourceTraderPriceText;
     [SerializeField] private TextMeshProUGUI _resourceTradeBuyText;
-    [SerializeField] private TextMeshProUGUI _resourceTraderResourceText;
 
     [Header("SkillTraderPanel")]
     [SerializeField] private TextMeshProUGUI _skillTraderHeaderText;
@@ -34,7 +33,6 @@ public class ChangeLanguageSpace : MonoBehaviour
         _resourceTraderHeaderText.text = Language.TextStatic[287];
         _resourceTraderPriceText.text = Language.TextStatic[288];
         _resourceTradeBuyText.text = Language.TextStatic[289];
-        _resourceTraderResourceText.text = Language.TextStatic[290];
 
         _skillTraderHeaderText.text = Language.TextStatic[291];
         _skillTraderPriceText.text = Language.TextStatic[288];

@@ -9697,6 +9697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8431004925279393687}
   - component: {fileID: 5380018704654601862}
+  - component: {fileID: 3431744344403906852}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -9750,3 +9751,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 600
+--- !u!114 &3431744344403906852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180586841230426194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d48d6a929f7ea4eb47a0a63131dfe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _musicType: 0
+  _eventEmitter: {fileID: 5380018704654601862}
+  _fadeDuration: 2
+  _isWorldScene: 1

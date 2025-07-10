@@ -5,66 +5,63 @@ using Zenject;
 public class SkillTraderPanel : MonoBehaviour
 {
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
+    [SerializeField] private SkillTraderItem[] _skillTraderItems;
     [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private TextMeshProUGUI _priceText;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Image _buttonImage;
     [SerializeField] private Sprite[] _buttonSprites;
-    private int _currentSkill;
-    [SerializeField] private SkillInfo[] _skills;
-    [SerializeField] private Button[] _buttons;
-    [SerializeField] private Image[] _skillIcons;
-    [SerializeField] private GameObject[] _selectObjects;
+    private SkillInfo _currentSkill;
 
-    public void PrepareTraderPanel()
+    public void ResetTraderPanel()
     {
-        _currentSkill = -1;
-        UpdateView();
+        _currentSkill = null;
+        _priceText.text = "0";
+        _buttonImage.sprite = _buttonSprites[1];
+        _priceText.color = Colors.GreySeven;
+        ResetToggleItems();
+
+        for (int i = 0; i < _skillTraderItems.Length; i++)
+        {
+            _skillTraderItems[i].SetSkillOpen(_skillTraderItems[i].GetSkillInfo(), _spaceSaveGame.SpaceSaveData.OpenedSkills[i], _spaceSaveGame.SpaceSaveData.Act);
+        }
     }
 
-    public void ChangeSkill(int id)
+    public void ResetToggleItems()
+    {
+        foreach (var item in _skillTraderItems)
+        {
+            item.SelectToggle(false);
+        }
+    }
+
+    public void SelectSkill(SkillInfo skillInfo)
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        ResetToggleItems();
 
-        _currentSkill = id;
+        _currentSkill = skillInfo;
+        _skillTraderItems[(int)_currentSkill.SkillEnum].SelectToggle(true);
+
         UpdateView();
     }
 
     private void UpdateView()
     {
-        SelectView();
-        for (int i = 0; i < _buttons.Length; i++)
-        {
-            var skillOpen = _spaceSaveGame.SpaceSaveData.OpenedSkills[i];
-            _buttons[i].interactable = !skillOpen;
-            _skillIcons[i].color = skillOpen ? Colors.AlphaGreySeven : Colors.GreySeven;
-        }
+        _priceText.text = _currentSkill.QuantPrice.ToString();
 
-        _priceText.text = _currentSkill == -1 ? "0" : _skills[_currentSkill].QuantPrice.ToString();
-        var enoughtQuants = _currentSkill == -1 ? false : _quantsSystem.GetQuants() >= _skills[_currentSkill].QuantPrice;
+        var enoughtQuants = _quantsSystem.GetQuants() >= _currentSkill.QuantPrice;
         _buttonImage.sprite = enoughtQuants ? _buttonSprites[0] : _buttonSprites[1];
         _buyButton.interactable = enoughtQuants;
-        _priceText.color = enoughtQuants ? Color.white : Colors.WarningYellow;
+        _priceText.color = enoughtQuants ? Colors.GreySeven : Colors.WarningYellow;
     }
 
     public void BuySkill()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        _quantsSystem.ChangeQuants(-_skills[_currentSkill].QuantPrice);
-        _spaceSaveGame.SpaceSaveData.OpenedSkills[_currentSkill] = true;
+        _quantsSystem.ChangeQuants(-_currentSkill.QuantPrice);
+        _spaceSaveGame.SpaceSaveData.OpenedSkills[(int)_currentSkill.SkillEnum] = true;
         _spaceSaveGame.SaveDataToJson();
-        UpdateView();
-        _currentSkill = -1;
-    }
-
-    private void SelectView()
-    {
-        foreach (var item in _selectObjects)
-        {
-            item.SetActive(false);
-        }
-
-        if (_currentSkill == -1) return;
-        _selectObjects[_currentSkill].SetActive(true);
+        ResetTraderPanel();
     }
 }

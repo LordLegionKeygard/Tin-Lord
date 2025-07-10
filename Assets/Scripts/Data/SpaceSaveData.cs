@@ -1,6 +1,7 @@
 [System.Serializable]
 public class SpaceSaveData
 {
+    public int Act;
     public int Quants;
     public int AiCores;
     public HangarCommandCenterData HangarCommandCenterData;

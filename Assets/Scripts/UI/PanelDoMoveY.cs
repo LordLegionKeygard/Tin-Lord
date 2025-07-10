@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class PanelDoMoveY : MonoBehaviour
 {
-    [SerializeField] private int _closePositionY;
-    [SerializeField] private int _openPositionY;
+    [SerializeField] private float _closePositionY;
+    [SerializeField] private float _openPositionY;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private ScrollRect _scrollRect;

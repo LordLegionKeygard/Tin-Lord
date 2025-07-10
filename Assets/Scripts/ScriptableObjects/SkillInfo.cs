@@ -14,6 +14,7 @@ public class SkillInfo : ScriptableObject
     public int DurationTicks;
     public SkillResource RequiredResource;
     public EventReference Sound;
+    public int SkillTraderRequiredAct;
 
     [Header("Tooltip")]
     public int NameNumber;

@@ -9,7 +9,7 @@ public class WorldGameInfo
     public static float QuantDropChance = 0.1f;
 
     [Header("Skills")]
-    public const int SkillsCount = 10;
+    public const int SkillsCount = 15;
 
     [Header("Time")]
     public const float PausedTimeScale = 0.00001f;
@@ -112,7 +112,7 @@ public class WorldGameInfo
     public const int AimBotPassiveAbility = 20;
 
     [Header("Tooltip Pivot")]
-    public const float NodePivot = 2;
+    public const float NodePivot = 2.5f;
     public const float ButtonPivot = -0.9f;
     public const float ResourcePivot = -0.45f;
     public const float BuildinTypePivot = -0.9f;

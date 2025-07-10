@@ -57,14 +57,14 @@ public class UIPanelsSpace : MonoBehaviour
             case TraderKind.Resource:
                 if (!_resourceTraderPanelDoMove.IsOpen())
                 {
-                    _resourceTraderPanel.PrepareTraderPanel();
+                    _resourceTraderPanel.ResetTraderPanel();
                     _resourceTraderPanelDoMove.PanelMove();
                 }
                 break;
             case TraderKind.Skill:
                 if (!_skillTraderPanelDoMove.IsOpen())
                 {
-                    _skillTraderPanel.PrepareTraderPanel();
+                    _skillTraderPanel.ResetTraderPanel();
                     _skillTraderPanelDoMove.PanelMove();
                 }
                 break;

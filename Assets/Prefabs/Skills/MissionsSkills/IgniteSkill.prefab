@@ -19545,6 +19545,7 @@ GameObject:
   - component: {fileID: 3115854611142690231}
   - component: {fileID: 7369298392715519683}
   - component: {fileID: 5456987916687128740}
+  - component: {fileID: 3743127536183639324}
   m_Layer: 0
   m_Name: BurningSoundLight
   m_TagString: Flesh
@@ -19680,3 +19681,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 600
+--- !u!114 &3743127536183639324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6700954699203816241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d48d6a929f7ea4eb47a0a63131dfe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _musicType: 0
+  _eventEmitter: {fileID: 5456987916687128740}
+  _fadeDuration: 2
+  _isWorldScene: 1

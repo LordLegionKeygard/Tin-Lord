@@ -41,7 +41,7 @@ public class SkillTargetSystem : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, _maxDistance, _mask))
         {
-            _target.position = Vector3.Lerp(_target.position, hit.point, 10f * Time.unscaledDeltaTime);
+            _target.position = hit.point;
         }
         if (Input.GetMouseButtonDown(0))
         {

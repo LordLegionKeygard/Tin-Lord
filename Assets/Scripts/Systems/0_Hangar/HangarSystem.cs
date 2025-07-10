@@ -479,6 +479,7 @@ public class HangarSystem : MonoBehaviour
     {
         var data = new SpaceSaveData
         {
+            Act = 0,
             Quants = 35,
             AiCores = 6,
             HangarCommandCenterData = new HangarCommandCenterData(),
