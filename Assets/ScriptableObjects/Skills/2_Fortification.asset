@@ -16,12 +16,12 @@ MonoBehaviour:
   QuantPrice: 20
   ShardPrice: 20
   Icon: {fileID: 21300000, guid: cddab69ae86d91340b39d03f13896176, type: 3}
+  TriggerStayDamageFactor: 0
   CooldownTicks: 240
   DurationTicks: 24
   RequiredResource:
     Resource: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216, type: 2}
-    RecourceAmount: 20
-  RequiredOpenedMission: 1
+    RecourceAmount: 15
   Sound:
     Guid:
       Data1: 1265617758

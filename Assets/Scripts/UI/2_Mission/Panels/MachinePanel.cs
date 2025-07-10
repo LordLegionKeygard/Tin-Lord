@@ -39,15 +39,15 @@ public class MachinePanel : MonoBehaviour
 
     public void PlayerInputMachineItemButton(int number)
     {
-        var robotitem = _machineItems[number - 1];
+        var machineItem = _machineItems[number - 1];
 
-        if(robotitem.IsSelect())
+        if(machineItem.IsSelect())
         {
-            robotitem.CreateOrRepairMachine();
+            machineItem.CreateOrRepairMachine();
         }
         else
         {
-            robotitem.SelectView();
+            machineItem.SelectView();
         }
     }
 
