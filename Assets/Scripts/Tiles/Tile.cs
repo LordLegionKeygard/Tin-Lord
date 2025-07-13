@@ -109,11 +109,12 @@ public enum BuildingTileViewEnum
     SteamProduction = 13,
     ComponentsProduction = 14,
     AttackingStructures = 15,
-    ProtectiveStructures = 16,
+    Walls = 16,
     EcologyPurifier = 17,
     RadioCommunication = 18,
     MachineProduction = 19,
-    Traps = 20
+    Traps = 20,
+    Gates = 21
 }
 
 public enum TileDirectionEnum

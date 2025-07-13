@@ -30,7 +30,7 @@ public class MachinePatrolPath : MonoBehaviour
         var hasBuilding = tile.BuildingTileObject().HaveTile();
         var buildingTileView = hasBuilding ? tile.BuildingTileObject().CurrentBuildingTile().BuildingTileView : BuildingTileViewEnum.None;
 
-        return hasBuilding && buildingTileView == BuildingTileViewEnum.ProtectiveStructures;
+        return hasBuilding && buildingTileView == BuildingTileViewEnum.Gates;
     }
 
     public bool ShouldChangeDirection(int index)

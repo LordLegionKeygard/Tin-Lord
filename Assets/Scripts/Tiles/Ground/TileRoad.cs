@@ -5,7 +5,7 @@ public class TileRoad : MonoBehaviour
     private GroundTile _groundTile;
     private bool _isForwardRoad;
     public bool IsForwardRoad() => _isForwardRoad;
-    private int _roadAngle;
+    [SerializeField] private int _roadAngle;
     public int RoadAngle() => _roadAngle;
 
     private void Awake()

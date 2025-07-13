@@ -23,10 +23,11 @@ public class BuildTypesPanel : MonoBehaviour
         {
             CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel);
         }
-        // else if (tileObject.GroundTileObject().IsForwardRoad())
-        // {
-        //     CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel);
-        // }
+        else if (tileObject.GroundTileObject().IsTurnRoad())
+        {
+            CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Traps), tileObject, selectTilePanel);
+            CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Walls), tileObject, selectTilePanel);
+        }
         else
         {
             foreach (var tile in buildingTypeTiles)

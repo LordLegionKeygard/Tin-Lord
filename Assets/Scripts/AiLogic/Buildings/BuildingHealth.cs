@@ -34,6 +34,19 @@ public class BuildingHealth : BaseHealth
         _tileObject = GetComponent<TileObject>();
     }
 
+    private void Start()
+    {
+        CustomEvents.OnDayEnd += BuidingDecay;
+    }
+
+    private void BuidingDecay(int _)
+    {
+        if (_buildingTile.HaveTile() && _buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Traps)
+        {
+            CalculateDamage(CalculateHealthFromPercent(5));
+        }
+    }
+
     public void FullRepair()
     {
         _currentHealth = _maxHealth;
@@ -97,7 +110,7 @@ public class BuildingHealth : BaseHealth
     public void UpdateSliderColor(bool isConstruction)
     {
         if (_healthSlider == null) return;
-        _healthSlider.ChangeColor(isConstruction ? Colors.ConstructionBlue : Colors.GreySix);
+        _healthSlider.ChangeColor(isConstruction ? Colors.ConstructionBlue : _buildingTile.IsTrap() ? Colors.DecayYellow : Colors.GreySix);
     }
 
     public void LoadBuildingHealth(Building building, float currentHealth, bool isConstruction)
@@ -181,5 +194,10 @@ public class BuildingHealth : BaseHealth
 
         _buildingTile.DestroyBuildingTile(_currentHealth > 0);
         _tileObject.ToggleIsBuildingDestroyedNow(false);
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnDayEnd -= BuidingDecay;
     }
 }

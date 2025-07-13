@@ -51,6 +51,7 @@ public class GroundTile : MonoBehaviour
 
     //Road
     public bool IsForwardRoad() => _tileRoad.IsForwardRoad();
+    public bool IsTurnRoad() => _currentGroundTile.GroundTileView == GroundTileViewEnum.Road && !IsForwardRoad();
     public int GetRoadAngle() => _tileRoad.RoadAngle();
 
 

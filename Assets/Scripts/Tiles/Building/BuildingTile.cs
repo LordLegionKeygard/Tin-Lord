@@ -9,34 +9,26 @@ public class BuildingTile : MonoBehaviour
    [Inject] private MissionResources _missionResources;
    [Inject] private TilesSystem _tilesSystem;
    [Inject] private LearnedBuildingsDataMission _learnedBuildingsDataMission;
-
    [SerializeField] private Transform _buildingParent;
    [SerializeField] private TileObject _tileObject;
-
+   [SerializeField] private TileObject _isRealBaseTileObject; // этот тайл является экстра обьектом базы и хранит текущий тайл базы
    private BuildingHealth _buildingHealth;
-   private BuildingTileProtective _buildingTileProtective;
+   private BuildingTileWallGates _buildingTileWallGates;
    private BuildingTileTransform _buildingTileTransform;
    private BuildingLevels _buildingLevels;
-
    private GameObject _currentBuildingGameObject;
    private GameObject _constructionPrefab;
-
    private Tile _currentBuildingTile;
    private int _currentLevel;
-
    private bool _isConstructionNow;
    private bool _isUpgradeBase;
-
    private float _previousBaseBuildingHealth;
    private float _previousBuildingHealthPercent;
 
-   [SerializeField] private TileObject _isRealBaseTileObject; // этот тайл является экстра обьектом базы и хранит текущий тайл базы
-
-   #region Публичные геттеры
    public TileObject IsExtraBaseTileObject() => _isRealBaseTileObject;
    public BuildingTileTransform GetBuildingTileTransform() => _buildingTileTransform;
    public BuildingLevels GetBuildingLevels() => _buildingLevels;
-   public BuildingTileProtective CurrentBuildingTileProtective() => _buildingTileProtective;
+   public BuildingTileWallGates CurrentBuildingTileProtective() => _buildingTileWallGates;
    private ConstructionBuildingView _constructionView;
    public bool IsConstructionNow() => _isConstructionNow;
    public bool IsUpgradeBase() => _isUpgradeBase;
@@ -47,9 +39,13 @@ public class BuildingTile : MonoBehaviour
    public bool HaveBuildingGameObject() => _currentBuildingGameObject != null;
    public int CurrentBuildingLevel() => _currentLevel;
    public Building CurrentBuilding() => _currentBuildingTile.Buildings[_currentLevel - 1];
-   public bool IsProtectiveTile() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.ProtectiveStructures;
+   public bool IsWallTile() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Walls;
+   public bool IsGateTile() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Gates;
+   public bool IsTrap() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Traps;
+
+   public bool IsWallOrGate() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView is BuildingTileViewEnum.Walls or BuildingTileViewEnum.Gates;
    public bool IsEcologyBuilding() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier;
-   public bool NeightbourTileIsProtective(int number) => _tileObject.GetNeighbourBuildingTile(number) == null ? false : _tileObject.GetNeighbourBuildingTile(number).IsProtectiveTile();
+   public bool NeightbourTileIsWallOrGate(int number) => _tileObject.GetNeighbourBuildingTile(number) == null ? false : _tileObject.GetNeighbourBuildingTile(number).IsWallOrGate();
 
    public bool IsCanUpgrade()
    {
@@ -61,15 +57,13 @@ public class BuildingTile : MonoBehaviour
       return false;
    }
 
-   #endregion
-
    private void Awake()
    {
       _buildingHealth = GetComponent<BuildingHealth>();
-      _buildingTileProtective = GetComponent<BuildingTileProtective>();
+      _buildingTileWallGates = GetComponent<BuildingTileWallGates>();
       _buildingTileTransform = GetComponent<BuildingTileTransform>();
 
-      CustomEvents.OnCompleteLoadTiles += UpdateProtectiveTiles;
+      CustomEvents.OnCompleteLoadTiles += UpdateWallsAndGates;
    }
 
    /// <summary>
@@ -165,7 +159,7 @@ public class BuildingTile : MonoBehaviour
       if (CurrentBuilding().ResourcesProduction.Length != 0) _tileObject.SetNewResourceProductionAfterUpgradeBuilding(CurrentBuilding().ResourcesProduction);
       _buildingHealth.SetNewBuildingHealth(CurrentBuilding(), false);
 
-      if (IsProtectiveTile()) UpdateProtectiveTiles();
+      if (IsWallOrGate()) UpdateWallsAndGates();
 
       _tileObject.SetBuildingWork(true);
       _tileObject.CheckResourceRequired(true);
@@ -234,7 +228,7 @@ public class BuildingTile : MonoBehaviour
       _buildingLevels.SetBuildingProductionView();
       _tileObject.SetResourceProduction(_tileObject.CurrentResourceProduction(), _tileObject.CurrentResourceRecept());
 
-      if (IsProtectiveTile()) UpdateProtectiveTiles();
+      if (IsWallOrGate()) UpdateWallsAndGates();
       _tileObject.CheckResourceRequired(true);
 
       var previousBuilding = _tileObject.BuildingTileObject()._currentBuildingTile.Buildings[previousLevel - 1].ResourcesForBuild;
@@ -265,22 +259,22 @@ public class BuildingTile : MonoBehaviour
         ));
    }
 
-   private void UpdateProtectiveTiles()
+   private void UpdateWallsAndGates()
    {
-      _buildingTileProtective.PrepareProtective();
+      _buildingTileWallGates.PrepareWallsAndGates();
 
-      RefreshProtectiveNeighbourTiles();
+      RefreshNeighbourWallTiles();
    }
 
-   private void RefreshProtectiveNeighbourTiles()
+   private void RefreshNeighbourWallTiles()
    {
       for (int i = 0; i < 8; i++)
       {
          if (!IsNeedCheck(i, true)) continue;
 
-         if (_tileObject.GetNeighbourBuildingTile(i).IsProtectiveTile())
+         if (_tileObject.GetNeighbourBuildingTile(i).IsWallTile() || _tileObject.GetNeighbourBuildingTile(i).IsGateTile())
          {
-            _tileObject.GetNeighbourBuildingTile(i).CurrentBuildingTileProtective().PrepareProtective();
+            _tileObject.GetNeighbourBuildingTile(i).CurrentBuildingTileProtective().PrepareWallsAndGates();
          }
       }
    }
@@ -308,12 +302,12 @@ public class BuildingTile : MonoBehaviour
 
       if (isUpgrade) _missionResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
 
-      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.ProtectiveStructures)
+      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Walls)
       {
-         _buildingTileProtective.Reset();
+         _buildingTileWallGates.Reset();
          _currentBuildingTile = null; //иначе стена не туда повернет, так как соседа IsWall найдет в цикле
 
-         RefreshProtectiveNeighbourTiles();
+         RefreshNeighbourWallTiles();
       }
       if (!isUpgrade) _buildingHealth.DestroyHealthSlider();
       _currentBuildingTile = null;
@@ -415,6 +409,6 @@ public class BuildingTile : MonoBehaviour
 
    private void OnDestroy()
    {
-      CustomEvents.OnCompleteLoadTiles -= UpdateProtectiveTiles;
+      CustomEvents.OnCompleteLoadTiles -= UpdateWallsAndGates;
    }
 }
