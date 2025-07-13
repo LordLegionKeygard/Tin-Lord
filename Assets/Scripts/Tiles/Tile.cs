@@ -113,7 +113,7 @@ public enum BuildingTileViewEnum
     EcologyPurifier = 17,
     RadioCommunication = 18,
     MachineProduction = 19,
-
+    Traps = 20
 }
 
 public enum TileDirectionEnum

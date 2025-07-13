@@ -14,7 +14,7 @@ public class OilReleaseMissionEvent : BaseMissionEvent
     {
         var rnd = Random.Range(0, 100);
 
-        if (rnd <= 30) return;
+        if (rnd <= 80) return;
 
         var validTiles = new List<TileObject>();
 

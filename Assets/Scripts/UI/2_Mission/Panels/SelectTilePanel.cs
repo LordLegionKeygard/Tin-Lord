@@ -247,12 +247,12 @@ public class SelectTilePanel : MonoBehaviour
         var isConstructionNow = buildingTile.IsConstructionNow();
 
         bool canRepairOrUpgrade = !haveBuildingNow || canUpgrade || canRepair;
-        bool notRoadOrForwardRoad = !isRoad || isForwardRoad;
+        // bool notRoadOrForwardRoad = !isRoad || isForwardRoad;
 
         var haveRotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>() != null;
         var canRotateBuilding = buildingTile.HaveTile() && buildingTile.HaveBuildingGameObject() && buildingTile.CurrentBuilding().CanRotateBuilding;
 
-        var buildButtonState = canRepairOrUpgrade && notRoadOrForwardRoad && groundHaveBuildings && !isConstructionNow;
+        var buildButtonState = canRepairOrUpgrade && groundHaveBuildings && !isConstructionNow;
         var workButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
         var generalRepairButtonState = haveBuildingNow;
         var rotateButtonState = haveRotationViewGround || canRotateBuilding;

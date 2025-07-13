@@ -1804,6 +1804,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Winter_Bush_2
       objectReference: {fileID: 0}
+    - target: {fileID: 786544801275901887, guid: c0f84074f29c48148a39e3a8e723d81e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2160006891049013039, guid: c0f84074f29c48148a39e3a8e723d81e,
         type: 3}
       propertyPath: m_RootOrder
@@ -5599,6 +5604,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Winter_Bush_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 694425380264903562, guid: d5ecf259cb8c98d4fb7f6185912b4ad4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8837074025923926405, guid: d5ecf259cb8c98d4fb7f6185912b4ad4,
         type: 3}

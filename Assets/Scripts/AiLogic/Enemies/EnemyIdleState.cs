@@ -53,7 +53,7 @@ public class EnemyIdleState : EnemyState
         foreach (var collider in bigColliders)
         {
             var baseHealth = collider.GetComponent<BaseHealth>();
-            if (baseHealth != null && !baseHealth.IsDeath())
+            if (baseHealth != null && !baseHealth.IsDeath() && baseHealth.BuildingTile().BuildingTileView != BuildingTileViewEnum.Traps)
             {
                 allTargets.Add(baseHealth);
             }

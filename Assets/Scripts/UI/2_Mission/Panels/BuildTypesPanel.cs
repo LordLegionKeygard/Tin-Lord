@@ -14,15 +14,6 @@ public class BuildTypesPanel : MonoBehaviour
     private List<BuildingType> _buildingTypesList = new();
     [SerializeField] private BuildsPanel _buildsPanel;
 
-    private void CreateAndSetupBuildingType(Tile tile, TileObject tileObject, SelectTilePanel selectTilePanel)
-    {
-        var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
-        item.transform.SetParent(_content, false);
-        item.transform.localScale = Vector3.one;
-        item.GetComponent<BuildingType>().SetBuildingType(tile, tileObject, selectTilePanel, _buildsPanel, this);
-        _buildingTypesList.Add(item.GetComponent<BuildingType>());
-    }
-
     public void SpawnBuildingTypesInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel)
     {
         ResetText();
@@ -32,10 +23,10 @@ public class BuildTypesPanel : MonoBehaviour
         {
             CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel);
         }
-        else if (tileObject.GroundTileObject().IsForwardRoad())
-        {
-            CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel);
-        }
+        // else if (tileObject.GroundTileObject().IsForwardRoad())
+        // {
+        //     CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.ProtectiveStructures), tileObject, selectTilePanel);
+        // }
         else
         {
             foreach (var tile in buildingTypeTiles)
@@ -50,6 +41,15 @@ public class BuildTypesPanel : MonoBehaviour
         }
 
         LayoutRebuilder.ForceRebuildLayoutImmediate(_content);
+    }
+
+    private void CreateAndSetupBuildingType(Tile tile, TileObject tileObject, SelectTilePanel selectTilePanel)
+    {
+        var item = _diContainer.InstantiatePrefab(_buildingType, transform.position, Quaternion.identity, null);
+        item.transform.SetParent(_content, false);
+        item.transform.localScale = Vector3.one;
+        item.GetComponent<BuildingType>().SetBuildingType(tile, tileObject, selectTilePanel, _buildsPanel, this);
+        _buildingTypesList.Add(item.GetComponent<BuildingType>());
     }
 
     public void PlayerInputBuildTypesButton(int number)

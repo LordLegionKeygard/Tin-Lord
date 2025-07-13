@@ -20,7 +20,6 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 5e2d742c7147e87418cc8cdaf4cf7447, type: 3}
   TileTypeEnum: 0
   GroundTileView: 8
-  EnergyBeam: 6
   GroundEcology: -4
   IsWater: 0
   IsFourTile: 0
@@ -31,6 +30,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fbd9e5df08784a45993d1293bb6ab60, type: 2}
   - {fileID: 11400000, guid: 0201f24a41783a74b835b447a2b63c8c, type: 2}
   - {fileID: 11400000, guid: f75a197b363f67549bc847eb987e8084, type: 2}
+  - {fileID: 11400000, guid: 2bede6007fa81aa46841bf4bb9d9a476, type: 2}
   ProductionOnGroundResources:
   - ProductionOnGroundResource: {fileID: 11400000, guid: b2bd5babf1d9de94fa622087110c72a7,
       type: 2}
