@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 public class MachinePatrolState : MachineState
 {
-    [SerializeField] private MachineMove machineMove;
+    [SerializeField] private MachineMove _machineMove;
     [SerializeField] private MachineRepairState _repairState;
     [SerializeField] private MachineCombatState _combatState;
     [SerializeField] private BaseDamage _creatureDamage;
@@ -21,7 +21,7 @@ public class MachinePatrolState : MachineState
         _isInitialized = true;
     }
 
-    public override MachineState Tick(MachineStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, MachineAttacks attacks, MachineSpeed playerSpeed)
+    public override MachineState Tick(MachineStateChanger stateChanger, BaseHealth health, BaseAnimator animator, AIDestinationSetter aiDestinationSetter, MachineAttacks attacks, MachineSpeed machineSpeed)
     {
         if (!_isInitialized || health.IsDeath() || !health.IsCanTarget())
         {
@@ -49,8 +49,8 @@ public class MachinePatrolState : MachineState
             }
         }
 
-        playerSpeed.CanMove();
-        Patrol();
+        
+        Patrol(machineSpeed);
         return this;
     }
 
@@ -62,10 +62,21 @@ public class MachinePatrolState : MachineState
         _creatureDamage.SetTarget(targetHealth, targetTransform);
     }
 
-    private void Patrol()
+    private void Patrol(MachineSpeed machineSpeed)
     {
         int nextPointIndex = _patrolPath.GetNextPointIndex(_currentPatrolPointIndex, _nextPointNumber);
         int previousPointIndex = _patrolPath.GetPreviousPointIndex(_currentPatrolPointIndex, _nextPointNumber);
+
+        bool forwardBlocked = _patrolPath.ShouldChangeDirection(nextPointIndex);
+        bool backwardBlocked = _patrolPath.ShouldChangeDirection(previousPointIndex);
+
+        if (forwardBlocked && backwardBlocked)
+        {
+            machineSpeed.CantMove();
+            return;
+        }
+
+        machineSpeed.CanMove();
 
         if (_patrolPath.CheckTileForGate(nextPointIndex))
         {
@@ -85,10 +96,10 @@ public class MachinePatrolState : MachineState
         Vector3 nextPoint = _patrolPath.GetTile(nextPointIndex).transform.position;
 
         // Используем PlayerMove для передвижения
-        machineMove.MoveTo(nextPoint);
+        _machineMove.MoveTo(nextPoint);
 
         // Если достигли точки, обновляем индекс
-        if (Vector3.Distance(machineMove.transform.position, nextPoint) <= 0.1f)
+        if (Vector3.Distance(_machineMove.transform.position, nextPoint) <= 0.1f)
         {
             _currentPatrolPointIndex = nextPointIndex;
         }

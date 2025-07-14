@@ -664,7 +664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16320f501a9e9a439fd4ef560eeeee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  machinePatrolState: {fileID: 9066176975530882714}
+  _machinePatrolState: {fileID: 9066176975530882714}
 --- !u!114 &2326551640933414597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0dc52ad133a8ba48a0fe984a71f44c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  machineMove: {fileID: 2326551640933414597}
+  _machineMove: {fileID: 2326551640933414597}
   _repairState: {fileID: 0}
   _combatState: {fileID: 9066176976187241507}
   _creatureDamage: {fileID: 2326551640933414592}

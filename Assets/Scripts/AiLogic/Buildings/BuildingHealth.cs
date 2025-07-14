@@ -41,7 +41,7 @@ public class BuildingHealth : BaseHealth
 
     private void BuidingDecay(int _)
     {
-        if (_buildingTile.HaveTile() && _buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Traps)
+        if (_buildingTile.HaveTile() && !_buildingTile.IsConstructionNow() && _buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Traps)
         {
             CalculateDamage(CalculateHealthFromPercent(5));
         }

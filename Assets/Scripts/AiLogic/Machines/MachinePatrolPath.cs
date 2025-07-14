@@ -1,16 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class MachinePatrolPath : MonoBehaviour
 {
-    [FormerlySerializedAs("_robotPatrolState")] [SerializeField] private MachinePatrolState machinePatrolState;
+    [SerializeField] private MachinePatrolState _machinePatrolState;
     private List<TileObject> _roadTileObjects;
-    public MachinePatrolState RobotPatrolState() => machinePatrolState;
+    public MachinePatrolState MachinePatrolState() => _machinePatrolState;
 
     public void InitializePatrolPoints(List<TileObject> roadTiles, int startIndex)
     {
-        machinePatrolState.InitializePatrol(startIndex);
+        _machinePatrolState.InitializePatrol(startIndex);
         _roadTileObjects = roadTiles;
     }
 
@@ -38,9 +37,10 @@ public class MachinePatrolPath : MonoBehaviour
         var tile = _roadTileObjects[index];
         var isWaterTile = tile.GroundTileObject().IsWaterTile();
         var hasBuilding = tile.BuildingTileObject().HaveTile();
+        var isConstructionNow = tile.BuildingTileObject().IsConstructionNow();
         var buildingTileView = hasBuilding ? tile.BuildingTileObject().CurrentBuildingTile().BuildingTileView : BuildingTileViewEnum.None;
 
-        return (isWaterTile && !hasBuilding) || (isWaterTile && hasBuilding && buildingTileView != BuildingTileViewEnum.Bridge);
+        return isConstructionNow || (isWaterTile && !hasBuilding) || (isWaterTile && hasBuilding && buildingTileView != BuildingTileViewEnum.Bridge) || hasBuilding && buildingTileView is BuildingTileViewEnum.Traps or BuildingTileViewEnum.Walls;
     }
 
     public TileObject GetTile(int index)

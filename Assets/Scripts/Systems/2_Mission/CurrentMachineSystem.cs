@@ -24,17 +24,17 @@ public class CurrentMachineSystem : MonoBehaviour
             PositionY = IsHaveMachine() ? _currentMachine.transform.position.y : 0,
             PositionZ = IsHaveMachine() ? _currentMachine.transform.localPosition.z : 0,
             Rotation = IsHaveMachine() ? _currentMachine.transform.eulerAngles.y : 0,
-            NextPatrolIndex = IsHaveMachine() ? _machinePatrolPath.RobotPatrolState().GetCurrentPatrolPointIndex() : 0,
+            NextPatrolIndex = IsHaveMachine() ? _machinePatrolPath.MachinePatrolState().GetCurrentPatrolPointIndex() : 0,
             MachineHealth = IsHaveMachine() ? GetMachineHealth().GetCurrentHealth() : 0
         };
 
         return data;
     }
 
-    public void SetNewRobot(GameObject newRobot, MachineType robotType)
+    public void SetNewMachine(GameObject newMachine, MachineType machineType)
     {
-        _currentMachine = newRobot;
-        _currentMachineType = robotType;
+        _currentMachine = newMachine;
+        _currentMachineType = machineType;
         _machineHealth = _currentMachine.GetComponent<MachineHealth>();
         _machinePatrolPath = _currentMachine.GetComponent<MachinePatrolPath>();
         _machineDamage = _currentMachine.GetComponent<MachineDamage>();

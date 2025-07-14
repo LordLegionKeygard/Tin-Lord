@@ -44,6 +44,7 @@ public class MachineItem : MonoBehaviour
     {
         var time = WorldGameInfo.MachineDieDelay + WorldGameInfo.MachineDieDuration + 0.1f;
         _icon.color = Colors.GreyFive;
+        _nameText.color = Colors.GreyEight;
         Invoke(nameof(SetButtonAndTextColor), time);
     }
 
@@ -126,7 +127,7 @@ public class MachineItem : MonoBehaviour
         else
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-            _machineSpawnerSystem.SpawnRobot(_macniheInformation.MachineType);
+            _machineSpawnerSystem.SpawnMachine(_macniheInformation.MachineType);
             _machinePanel.RefreshAllMachineItemsView();
             _machinePanel.UpdateDestroyButtonState();
         }
