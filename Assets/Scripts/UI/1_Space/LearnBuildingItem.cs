@@ -73,14 +73,21 @@ public class LearnBuildingItem : MonoBehaviour
 
     public void LearnBuilding()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
-        _mainResources.ChangeResource(ResourceEnum.DataFragment, -_building.Price);
-        _isLearn = true;
-        RefreshView();
+        if (!_resourcesEnough)
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+        }
+        else
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
+            _mainResources.ChangeResource(ResourceEnum.DataFragment, -_building.Price);
+            _isLearn = true;
+            RefreshView();
 
-        _buildingsLearnPanel.RegisterBuilding(_building);
-        _spaceSaveGame.SaveDataToJson();
-        CustomEvents.FireLearnBuilding();
+            _buildingsLearnPanel.RegisterBuilding(_building);
+            _spaceSaveGame.SaveDataToJson();
+            CustomEvents.FireLearnBuilding();
+        }
     }
 
     private void OnDestroy()

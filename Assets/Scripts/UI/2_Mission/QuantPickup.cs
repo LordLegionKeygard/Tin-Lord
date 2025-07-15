@@ -99,7 +99,7 @@ public class QuantPickup : MonoBehaviour, IPointerClickHandler
         _lifeTween?.Kill();
         _spawnTween?.Kill();
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        _quantSystem.Add(_amount);
+        _quantSystem.ChangeQuants(_amount);
         Despawn();
     }
 

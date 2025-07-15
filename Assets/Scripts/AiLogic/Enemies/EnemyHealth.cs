@@ -10,6 +10,7 @@ public class EnemyHealth : BaseHealth
     [Inject] private readonly EnemyDefenceSystem _enemyDefenceSystem;
     [Inject] private readonly HealthCanvas _healthCanvas;
     [Inject] private readonly QuantPickupPool _quantPool;
+    [Inject] private MissionQuantSystem _quantSystem;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private float _sliderHeightOffset;
     private EnemyAnimator _enemyAnimator;
@@ -89,8 +90,9 @@ public class EnemyHealth : BaseHealth
     {
         if (Random.value > WorldGameInfo.QuantDropChance) return;
 
-        Vector3 pos = transform.position + Vector3.up * 0.3f;
-        _quantPool.ActiveQuantPickup(pos);
+        // Vector3 pos = transform.position + Vector3.up * 0.3f;
+        // _quantPool.ActiveQuantPickup(pos);
+        _quantSystem.ChangeQuants(1);
     }
 
     public override void Death()

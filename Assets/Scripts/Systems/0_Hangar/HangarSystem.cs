@@ -298,8 +298,6 @@ public class HangarSystem : MonoBehaviour
             _hangarSkillItems[i].SelectToggleState(false, -1);
         }
 
-        var info = _hangarSkillItems[(int)skillType].GetInfo();
-        _skillDescription.text = isOpen ? $"{Language.TextStatic[info.NameNumber]} - {Language.TextStatic[info.InfoNumber]}" : $"{Language.TextStatic[236]} {Language.TextStatic[194]}";
         _buySkillButtonObject.SetActive(!isOpen);
 
         if (isOpen)
@@ -323,6 +321,19 @@ public class HangarSystem : MonoBehaviour
             _hangarSkillItems[_currentSelectSkillForBuy].SelectToggleState(true, -1);
         }
         UpdateLaunchButtonActive();
+    }
+
+    public void SetSkillDescription(SkillEnum skillType, bool isOpen, bool isExit)
+    {
+        if (isExit && _currentFirstSkill == -1 && _currentSecondSkill == -1)
+        {
+            _skillDescription.text = Language.TextStatic[221];
+        }
+        else
+        {
+            var info = _hangarSkillItems[(int)skillType].GetInfo();
+            _skillDescription.text = isOpen ? $"{Language.TextStatic[info.NameNumber]} - {Language.TextStatic[info.InfoNumber]}" : $"{Language.TextStatic[236]} {Language.TextStatic[194]}";
+        }
     }
 
     public void UnselectSkill(int selectSkillIndex)

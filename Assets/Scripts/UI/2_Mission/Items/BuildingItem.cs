@@ -82,7 +82,7 @@ public class BuildingItem : MonoBehaviour
 
     public void BuildOrUpgrade()
     {
-        if (!_resourcesEnough)
+        if (!_resourcesEnough || !_haveRequiredLevel)
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             return;
