@@ -46,6 +46,12 @@ public class EarthquakeMissionEvent : BaseMissionEvent
 
     private void UseEarthQuake()
     {
+        var chance = Random.Range(0, 100);
+
+        if (chance >= WorldGameInfo.EatchQuakeChance) return;
+
+
+
         var rnd = Random.Range(0, 2);
         var validTiles = new List<TileObject>();
 
