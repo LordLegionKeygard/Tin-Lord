@@ -9,13 +9,17 @@ public class SpaceInputSystem : MonoBehaviour
     //UserInterface
     public delegate void Escape(bool emptyEscapeClick);
     private Escape _escape;
+    public delegate void ResourcePanel(bool state);
+    private ResourcePanel _resourcePanel;
 
+    //EventNode
     private delegate void SelectNumbers(InputAction.CallbackContext ctx);
     private SelectNumbers _selectNumbers;
 
     [Header("Links")]
     [SerializeField] private UIPanelsSpace _uiPanels;
     [SerializeField] private EventNodePanel _eventNodePanel;
+    [SerializeField] private PanelDoMoveX _resourcesPanel;
 
     private void Awake()
     {
@@ -40,6 +44,9 @@ public class SpaceInputSystem : MonoBehaviour
     {
         //UserInterface
         _playerInput.actions["Escape"].performed += _ => _escape(false);
+        _playerInput.actions["ResourcePanel"].performed += _ => _resourcePanel(true);
+
+        //EventNode
         _playerInput.actions["SelectNumbers"].performed += ctx => _selectNumbers(ctx);
     }
 
@@ -47,6 +54,9 @@ public class SpaceInputSystem : MonoBehaviour
     {
         //UserInterface
         _escape = new Escape(_uiPanels.EscapeClick);
+        _resourcePanel = new ResourcePanel(_resourcesPanel.PanelMove);
+
+        //EventNode
         _selectNumbers = new SelectNumbers(OnNumberInput);
     }
 
@@ -78,6 +88,9 @@ public class SpaceInputSystem : MonoBehaviour
 
         //UserInterface
         _escape = delegate { };
+        _resourcePanel = delegate { };
+        
+        // EventNode
         _selectNumbers = delegate { };
     }
 }

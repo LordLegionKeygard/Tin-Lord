@@ -15,6 +15,8 @@ public class MissionInputSystem : MonoBehaviour
     private LeftMouseClick _leftMouseClick;
     private delegate void RightMouseClick();
     private RightMouseClick _rightMouseClick;
+    private delegate void MiddleMouseClick();
+    private MiddleMouseClick _middleMouseClick;
 
     // GameSpeed
     private delegate void GameSpeedPause(int gameSpeed);
@@ -29,9 +31,8 @@ public class MissionInputSystem : MonoBehaviour
     //UserInterface
     public delegate void Escape();
     private Escape _escape;
-
-    public delegate void LeftPanel(bool state);
-    private LeftPanel _leftPanel;
+    public delegate void ResourcePanel(bool state);
+    private ResourcePanel _resourcePanel;
 
     //SelectTilePanel
     private delegate void SelectNumbers(InputAction.CallbackContext context);
@@ -60,6 +61,7 @@ public class MissionInputSystem : MonoBehaviour
 
 
     [Header("Links")]
+    [SerializeField] private SkillTargetSystem _skillTargetSystem;
     [SerializeField] private TileDetector _tileDetector;
     [SerializeField] private CameraMovement _cameraMovement;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
@@ -67,7 +69,7 @@ public class MissionInputSystem : MonoBehaviour
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanelsMission _uiPanels;
-    [SerializeField] private PanelDoMoveX _leftResourcesPanel;
+    [SerializeField] private PanelDoMoveX _resourcesPanel;
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private BaseSkill[] _skills;
 
@@ -110,6 +112,7 @@ public class MissionInputSystem : MonoBehaviour
         //MouseClick
         _playerInput.actions["LeftMouseClick"].performed += _ => _leftMouseClick();
         _playerInput.actions["RightMouseClick"].performed += _ => _rightMouseClick();
+        _playerInput.actions["MiddleMouseClick"].performed += _ => _middleMouseClick();
 
         //GameSpeed
         _playerInput.actions["GameSpeedPause"].performed += _ => _gameSpeedPause((int)GameSpeedEnum.Pause);
@@ -119,7 +122,7 @@ public class MissionInputSystem : MonoBehaviour
 
         //UserInterface
         _playerInput.actions["Escape"].performed += _ => _escape();
-        _playerInput.actions["LeftPanel"].performed += _ => _leftPanel(true);
+        _playerInput.actions["ResourcePanel"].performed += _ => _resourcePanel(true);
 
         //SelectTilePanel
         _playerInput.actions["SelectNumbers"].performed += ctx => _selectNumbers(ctx);
@@ -142,6 +145,7 @@ public class MissionInputSystem : MonoBehaviour
         //MouseClick
         _leftMouseClick = new LeftMouseClick(_tileDetector.InputOnTile);
         _rightMouseClick = new RightMouseClick(_uiPanels.ClearAndCancelCardHolderAndTileDetector);
+        _middleMouseClick = new MiddleMouseClick(_skillTargetSystem.CancelSkillCircle);
 
         //GameSpeed
         _gameSpeedPause = new GameSpeedPause(_gameSpeedSystem.InputChangeGameSpeed);
@@ -151,7 +155,7 @@ public class MissionInputSystem : MonoBehaviour
 
         //UserInterface
         _escape = new Escape(_uiPanels.EscapeClick);
-        _leftPanel = new LeftPanel(_leftResourcesPanel.PanelMove);
+        _resourcePanel = new ResourcePanel(_resourcesPanel.PanelMove);
 
         //SelectTilePanel
         _selectNumbers = new SelectNumbers(OnNumberInput);
@@ -210,6 +214,7 @@ public class MissionInputSystem : MonoBehaviour
         //MouseClick
         _leftMouseClick = delegate { };
         _rightMouseClick = delegate { };
+        _middleMouseClick = delegate { };
 
         //GameSpeed
         _gameSpeedPause = delegate { };
@@ -219,7 +224,7 @@ public class MissionInputSystem : MonoBehaviour
 
         //UserInterface
         _escape = delegate { };
-        _leftPanel = delegate { };
+        _resourcePanel = delegate { };
 
         //SelectTilePanel
         _selectNumbers = delegate { };

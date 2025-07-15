@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0_Spawner
   m_EditorClassIdentifier: 
   Spawners:
-  - StartDaySpawn: 8
+  - StartDaySpawn: 7
     SpawnPeriod: 2
     Count: 4
     LandscapeSpawnSide:
@@ -29,6 +29,19 @@ MonoBehaviour:
   - StartDaySpawn: 10
     SpawnPeriod: 2
     Count: 10
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 0
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 1
+  - StartDaySpawn: 14
+    SpawnPeriod: 2
+    Count: 15
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0

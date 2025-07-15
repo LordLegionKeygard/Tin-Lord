@@ -21,7 +21,7 @@ public class SkillTargetSystem : MonoBehaviour
         UpdateTargetPosition();
     }
 
-    private void CancelSkillCircle()
+    public void CancelSkillCircle()
     {
         _target.gameObject.SetActive(false);
         _isActive = false;
@@ -46,10 +46,6 @@ public class SkillTargetSystem : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             CustomEvents.FireUseTargetSkill();
-            CancelSkillCircle();
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
             CancelSkillCircle();
         }
     }

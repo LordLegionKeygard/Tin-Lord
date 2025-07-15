@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 5472746279757864257}
   - component: {fileID: 5472746279757864256}
   - component: {fileID: 5472746279757864259}
+  - component: {fileID: 6630453099271025371}
   m_Layer: 5
   m_Name: ResourceTraderItem
   m_TagString: Untagged
@@ -307,6 +308,19 @@ MonoBehaviour:
   _iconView: {fileID: 5472746279690709715}
   _selectView: {fileID: 5472746278324914292}
   _closeTextView: {fileID: 7459980915798219043}
+--- !u!114 &6630453099271025371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5472746279757864261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2731e73c9a60bf6448e7b255dd426662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 5472746279690709741}
 --- !u!1 &7459980915798219043
 GameObject:
   m_ObjectHideFlags: 0

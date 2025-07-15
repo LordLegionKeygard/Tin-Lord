@@ -729,8 +729,8 @@ public class Language : MonoBehaviour
         _text[233, 0] = "";
         _text[233, 1] = "";
 
-        _text[234, 0] = "";
-        _text[234, 1] = "";
+        _text[234, 0] = "Cancel skill targeting";
+        _text[234, 1] = "Отменить прицел умения";
 
         _text[235, 0] = "Select skill";
         _text[235, 1] = "Выберите умение";
@@ -741,8 +741,8 @@ public class Language : MonoBehaviour
         _text[237, 0] = "Need {0} base level";
         _text[237, 1] = "Нужен {0} уровень базы";
 
-        _text[238, 0] = "Toggle resources/shop panels";
-        _text[238, 1] = "Переключает панель ресурсов/магазина";
+        _text[238, 0] = "Toggle resources panel";
+        _text[238, 1] = "Переключает панель ресурсов";
 
         _text[239, 0] = "Terminal #042";
         _text[239, 1] = "Терминал #042";

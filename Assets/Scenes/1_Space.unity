@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.000077886034, g: 0.000096071104, b: 0.000115632254,
+  m_IndirectSpecularColor: {r: 0.00007798371, g: 0.00009617815, b: 0.00011580402,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -1211,6 +1211,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c2983498-3bc8-4bae-b361-52d1015fe2e8
     m_ActionName: Player/LeftPanel[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4a42d56d-fa41-45c9-9d3b-7f0f241497df
+    m_ActionName: Player/MiddleMouseClick[/Mouse/middleButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1230,6 +1234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiPanels: {fileID: 616848379}
   _eventNodePanel: {fileID: 1451985186}
+  _resourcesPanel: {fileID: 1659477424}
 --- !u!1001 &45452542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5905,7 +5910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &158255176
@@ -12576,7 +12581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -21480,7 +21485,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514

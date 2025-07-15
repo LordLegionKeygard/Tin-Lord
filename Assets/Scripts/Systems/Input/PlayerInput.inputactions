@@ -177,9 +177,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LeftPanel",
+                    "name": "ResourcePanel",
                     "type": "Button",
                     "id": "c2983498-3bc8-4bae-b361-52d1015fe2e8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MiddleMouseClick",
+                    "type": "Button",
+                    "id": "4a42d56d-fa41-45c9-9d3b-7f0f241497df",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -597,11 +606,22 @@
                 {
                     "name": "",
                     "id": "2819fe22-84ff-4f6a-8978-60e5b1e87616",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LeftPanel",
+                    "action": "ResourcePanel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b33d4c69-2cb2-466a-b648-e04d723334f6",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MiddleMouseClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
