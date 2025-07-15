@@ -11,7 +11,7 @@ public class MachineHealth : BaseHealth
     private BaseTakeDamageVFX _takeDamageVFX;
     private AnimationToRagdoll _animationToRagdoll;
     private CapsuleCollider _capsuleCollider;
-    public bool FullHealth() => _currentHealth == _maxHealth;
+    public bool IsFullHealth() => _currentHealth == _maxHealth;
 
     private void Awake()
     {

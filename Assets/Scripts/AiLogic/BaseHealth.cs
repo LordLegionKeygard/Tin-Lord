@@ -11,6 +11,7 @@ public class BaseHealth : MonoBehaviour
 
 	public float GetCurrentHealth() => _currentHealth;
 	public float GetMaxHealth() => _maxHealth;
+	public virtual float CalculateHealthFromPercent(int percent) => _maxHealth * percent / 100;
 
 	public virtual Tile BuildingTile() => null;
 	public virtual Transform GetFoutTileTransform() => transform;

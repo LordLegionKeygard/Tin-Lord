@@ -13,6 +13,11 @@ public class BossHealth : BaseHealth
     private EnemyCenterPoint _enemyCenterPoint;
     private EnemyInfo _enemyInfo;
 
+    public override float CalculateHealthFromPercent(int percent)
+    {
+        return 1;
+    }
+
     public override Transform GetTransform()
     {
         return _enemyCenterPoint.GetTransform();

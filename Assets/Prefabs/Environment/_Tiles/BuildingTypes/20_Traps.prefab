@@ -3293,7 +3293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cfe87fc456e7f46841e3d326545234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 0.5
+  _damagePercent: 10
   _knockBackPoints: 5
 --- !u!1 &1962081898525789062
 GameObject:
@@ -13903,7 +13903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cfe87fc456e7f46841e3d326545234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1.5
+  _damagePercent: 20
   _knockBackPoints: 5
 --- !u!1 &9031936741398143770
 GameObject:

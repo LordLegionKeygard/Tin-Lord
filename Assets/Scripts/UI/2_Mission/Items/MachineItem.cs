@@ -29,7 +29,7 @@ public class MachineItem : MonoBehaviour
     public int GetRequiredBuildingLevel() => _macniheInformation.RequiredBuildingLevel;
     public bool CanRepair() => _currentMachineSystem.IsHaveMachine() &&
                                 !_currentMachineSystem.IsMachineDeath() &&
-                                !_currentMachineSystem.GetMachineHealth().FullHealth() &&
+                                !_currentMachineSystem.GetMachineHealth().IsFullHealth() &&
                                 _macniheInformation.MachineType == _currentMachineSystem.GetMachineType();
 
 
@@ -85,7 +85,7 @@ public class MachineItem : MonoBehaviour
     public void SetButtonAndTextColor()
     {
         _resourcesEnough = _missionResources.ResourcesEnough(GetResources());
-        _button.enabled = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? _currentMachineSystem.GetMachineHealth().FullHealth() || _currentMachineSystem.GetMachineHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
+        _button.enabled = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? _currentMachineSystem.GetMachineHealth().IsFullHealth() || _currentMachineSystem.GetMachineHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
         _nameText.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? Colors.LightGreen : Colors.GreyEight : _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() && !_currentMachineSystem.GetMachineHealth().IsDeath() ? Color.white : Colors.GreyFive : _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
