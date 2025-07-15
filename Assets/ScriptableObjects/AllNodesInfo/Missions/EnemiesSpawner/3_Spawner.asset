@@ -15,7 +15,7 @@ MonoBehaviour:
   Spawners:
   - StartDaySpawn: 6
     SpawnPeriod: 2
-    Count: 13
+    Count: 12
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -258,8 +258,8 @@ MonoBehaviour:
       EnemyLevel: 4
   - DaySpawn: 30
     Count: 2
-    HealthFactor: 2
-    DamageFactor: 2
+    HealthFactor: 10
+    DamageFactor: 4
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
       EnemyBiomeInfo:
@@ -282,8 +282,8 @@ MonoBehaviour:
       EnemyLevel: 4
   - DaySpawn: 50
     Count: 3
-    HealthFactor: 2
-    DamageFactor: 2
+    HealthFactor: 12
+    DamageFactor: 4
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
       EnemyBiomeInfo:
@@ -294,7 +294,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - DaySpawn: 60
     Count: 3
-    HealthFactor: 10
+    HealthFactor: 12
     DamageFactor: 4
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -306,8 +306,8 @@ MonoBehaviour:
       EnemyLevel: 6
   - DaySpawn: 70
     Count: 4
-    HealthFactor: 2
-    DamageFactor: 2
+    HealthFactor: 12
+    DamageFactor: 4
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
       EnemyBiomeInfo:
@@ -318,7 +318,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - DaySpawn: 80
     Count: 4
-    HealthFactor: 10
+    HealthFactor: 12
     DamageFactor: 4
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -330,8 +330,8 @@ MonoBehaviour:
       EnemyLevel: 6
   - DaySpawn: 90
     Count: 5
-    HealthFactor: 3
-    DamageFactor: 3
+    HealthFactor: 12
+    DamageFactor: 4
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
       EnemyBiomeInfo:
@@ -342,7 +342,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - DaySpawn: 100
     Count: 8
-    HealthFactor: 10
+    HealthFactor: 12
     DamageFactor: 4
     LandscapeSpawnSide: []
     EnemySpawnerInfo:

@@ -93,7 +93,7 @@ MonoBehaviour:
   MiniBossSpawners:
   - DaySpawn: 15
     Count: 1
-    HealthFactor: 5
+    HealthFactor: 8
     DamageFactor: 1
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -118,7 +118,7 @@ MonoBehaviour:
   - DaySpawn: 45
     Count: 3
     HealthFactor: 12
-    DamageFactor: 2
+    DamageFactor: 4
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
       EnemyBiomeInfo:
@@ -129,8 +129,8 @@ MonoBehaviour:
       EnemyLevel: 4
   - DaySpawn: 60
     Count: 4
-    HealthFactor: 10
-    DamageFactor: 3
+    HealthFactor: 12
+    DamageFactor: 6
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
       EnemyBiomeInfo:
