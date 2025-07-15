@@ -52,8 +52,10 @@ public class SpawnedHazardSystem : MonoBehaviour
         return list.ToArray();
     }
 
-    public void LoadHazardData(HazardSaveData[] data)
+    public void LoadHazardData(HazardSaveData[] data, bool isStartMission)
     {
+        if (isStartMission) return;
+
         foreach (var h in data)
         {
             var prefab = _hazardPrefabs[h.HazardType];

@@ -135,7 +135,7 @@ public class MissionSaveLoad : MonoBehaviour
 
         //UpPanel
         _timeTickSystem.LoadTime(currentSaveData.Day, currentSaveData.Tick);
-        _ecologySystem.LoadEcology(currentSaveData.Radiation, currentSaveData.EveryDayEcology);
+        _ecologySystem.LoadEcology(currentSaveData.Radiation, currentSaveData.EveryDayEcology, currentSaveData.IsStartMission);
         _gameSpeedSystem.ChangeGameSpeed(currentSaveData.GameSpeed);
 
         //Resources
@@ -181,7 +181,7 @@ public class MissionSaveLoad : MonoBehaviour
         _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData);
 
         //Hazard
-        _spawnedHazardSystem.LoadHazardData(currentSaveData.Hazards);
+        _spawnedHazardSystem.LoadHazardData(currentSaveData.Hazards, currentSaveData.IsStartMission);
 
         CustomEvents.FireDataLoad();
     }
