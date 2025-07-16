@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TileEcology : MonoBehaviour
@@ -13,31 +11,35 @@ public class TileEcology : MonoBehaviour
     public int GetEcology(GetEcologyEnum getEcologyEnum)
     {
         var haveBuildingTile = _tileObject.BuildingTileObject().HaveTile();
-        var baseBuildingEcology = haveBuildingTile ? _tileObject.BuildingTileObject().CurrentBuilding().BuildingEcology : 0;
+        var isConstructionNow = haveBuildingTile && _tileObject.BuildingTileObject().IsConstructionNow();
+
+        int buildingEcology = 0;
+
 
         var groundEcology = _tileObject.GroundTileObject().CurrentGroundTile().GroundEcology;
 
-        int buildingEcology;
+        if (haveBuildingTile && !isConstructionNow)
+        {
+            var currentBuilding = _tileObject.BuildingTileObject().CurrentBuilding();
+            var baseBuildingEcology = currentBuilding.BuildingEcology;
 
-        if (_tileObject.BuildingTileObject().IsEcologyBuilding())
-        {
-            buildingEcology = haveBuildingTile ? _tileObject.IsBuildingWork() ? _tileObject.BuildingTileObject().CurrentBuilding().BuildingEcologyPurifier : baseBuildingEcology : 0;
-        }
-        else
-        {
-            buildingEcology = haveBuildingTile ? _tileObject.IsBuildingWork() ? baseBuildingEcology : baseBuildingEcology / 2 : 0;
+            if (_tileObject.BuildingTileObject().IsEcologyBuilding())
+            {
+                buildingEcology = _tileObject.IsBuildingWork() ? currentBuilding.BuildingEcologyPurifier : baseBuildingEcology;
+            }
+            else
+            {
+                buildingEcology = _tileObject.IsBuildingWork() ? baseBuildingEcology : baseBuildingEcology / 2;
+            }
         }
 
-        switch (getEcologyEnum)
+        return getEcologyEnum switch
         {
-            case GetEcologyEnum.Ground:
-                return groundEcology;
-            case GetEcologyEnum.Building:
-                return buildingEcology;
-            case GetEcologyEnum.Total:
-                return groundEcology + buildingEcology;
-            default: return 0;
-        }
+            GetEcologyEnum.Ground => groundEcology,
+            GetEcologyEnum.Building => buildingEcology,
+            GetEcologyEnum.Total => groundEcology + buildingEcology,
+            _ => 0,
+        };
     }
 }
 
