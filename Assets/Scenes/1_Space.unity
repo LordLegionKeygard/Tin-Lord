@@ -301,7 +301,6 @@ MonoBehaviour:
   - {fileID: 1031134988}
   - {fileID: 592619514}
   - {fileID: 1329329461}
-  _areYouSureText: {fileID: 1134299432}
   _selectBuildingText: {fileID: 1619825982}
   _buildingHealthText: {fileID: 1445140585}
   _buildingEcologyText: {fileID: 458157563}
@@ -8724,6 +8723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2236add95af510146946e92064bdfbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _aiCoreSystem: {fileID: 1966886381}
   _descriptionPanel: {fileID: 1547388440}
   _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
   _missionNameHeaderText: {fileID: 913253614}
@@ -8746,6 +8746,8 @@ MonoBehaviour:
   _objectivesRectTransform: {fileID: 155808012}
   _loadMissionButton: {fileID: 76081756}
   _areYouSurePanel: {fileID: 945947797}
+  _areYouSureText: {fileID: 1134299432}
+  _areYouSureYesButton: {fileID: 302436904}
   _buttons:
   - {fileID: 181930217}
   - {fileID: 76081759}
@@ -31520,11 +31522,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Are you sure you want to restart the mission? \n\nYour current save will
-    be overwritten."
+  m_text: "Are you sure you want to restart the mission? \n\nYou will lose one AI
+    core."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 749d2ac91cd04c048a88633120d76de4, type: 2}
-  m_sharedMaterial: {fileID: -3851984413669882854, guid: 786dc912ef01c044ebe1bf9b2f31b4ec,
+  m_sharedMaterial: {fileID: -7740022604001485521, guid: 749d2ac91cd04c048a88633120d76de4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -31588,7 +31590,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1134299433

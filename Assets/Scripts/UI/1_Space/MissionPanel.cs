@@ -8,6 +8,7 @@ public class MissionPanel : MonoBehaviour
 {
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [Inject] private readonly MissionSaveGame _missionSaveGame;
+    [SerializeField] private AiCoreSystem _aiCoreSystem;
     [SerializeField] private RectTransform _descriptionPanel;
     [SerializeField] private AllNodesInfo _allMissionsInfo;
     [SerializeField] private TextMeshProUGUI _missionNameHeaderText;
@@ -19,6 +20,8 @@ public class MissionPanel : MonoBehaviour
     [SerializeField] private RectTransform _objectivesRectTransform;
     [SerializeField] private GameObject _loadMissionButton;
     [SerializeField] private GameObject _areYouSurePanel;
+    [SerializeField] private TextMeshProUGUI _areYouSureText;
+    [SerializeField] private Button _areYouSureYesButton;
     private bool _isContinueMission;
     [SerializeField] private Button[] _buttons;
     [SerializeField] private Image[] _buttonsIcon;
@@ -86,7 +89,12 @@ public class MissionPanel : MonoBehaviour
     {
         if (HaveSaveData())
         {
+            var haveMoreThenOneAicore = _aiCoreSystem.GetAiCores() > 1;
+
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+
+            _areYouSureYesButton.interactable = haveMoreThenOneAicore;
+            _areYouSureText.text = haveMoreThenOneAicore ? Language.TextStatic[48] : Language.TextStatic[86];
             _areYouSurePanel.SetActive(true);
             ButtonsToggle(false);
         }
@@ -126,6 +134,10 @@ public class MissionPanel : MonoBehaviour
     public void AreYouSureYes()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.StartMission, transform.position);
+
+        _aiCoreSystem.ChangeAiCores(-1);
+        _spaceSaveGame.SaveDataToJson();
+
         CustomEvents.FireFade(FadeType.StartFade);
         _isContinueMission = false;
         _loadMissionButton.SetActive(false);
@@ -197,10 +209,7 @@ public class MissionPanel : MonoBehaviour
             SavedObjectives = savedObj
         };
 
-        /* ---------- сохраняем ---------- */
         ccSave.CurrentMission = sel;
-        _spaceSaveGame
-            .GetCommandCenterSaveGameDataWriter()
-            .WriteCommandCenterDataToSaveFile(ccSave);
+        _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(ccSave);
     }
 }

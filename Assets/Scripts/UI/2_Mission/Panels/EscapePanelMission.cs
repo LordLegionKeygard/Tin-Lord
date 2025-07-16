@@ -134,7 +134,7 @@ public class EscapePanelMission : MonoBehaviour
         if (_restartButton.interactable == false) // restart
         {
             CustomEvents.FireFade(FadeType.StartFade);
-            _spaceSaveGame.RestartMissionDataToJson();
+            _spaceSaveGame.RemoveOneAiCoreDataToJson();
             StartCoroutine(nameof(PrepareRestartMission));
         }
         else if (_escapeButton.interactable == false) //escape

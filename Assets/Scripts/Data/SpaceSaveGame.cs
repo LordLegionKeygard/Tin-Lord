@@ -50,7 +50,7 @@ public class SpaceSaveGame : MonoBehaviour
         _spaceSaveGameDataWriter.WriteCommandCenterDataToSaveFile(SpaceSaveData);
     }
 
-    public void RestartMissionDataToJson()
+    public void RemoveOneAiCoreDataToJson()
     {
         _spaceSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         SpaceSaveData.AiCores -= 1;

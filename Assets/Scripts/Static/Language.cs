@@ -171,8 +171,8 @@ public class Language : MonoBehaviour
         _text[47, 0] = "Main menu";
         _text[47, 1] = "Меню";
 
-        _text[48, 0] = "Are you sure you want to restart the mission?\n\nYour current save will be overwritten.";
-        _text[48, 1] = "Вы уверены, что хотите перезапустить миссию?\n\nВаше текущее сохранение будет перезаписано.";
+        _text[48, 0] = "Are you sure you want to restart the mission?\n\nYou will lose one AI core.";
+        _text[48, 1] = "Вы уверены, что хотите перезапустить миссию?\n\nВы потеряете одно ядро ИИ.";
 
         _text[49, 0] = "Yes";
         _text[49, 1] = "Да";
@@ -225,14 +225,14 @@ public class Language : MonoBehaviour
         _text[65, 0] = "Escape";
         _text[65, 1] = "Сбежал";
 
-        _text[66, 0] = "Escaping the mission will give you {0}% of the data fragments\n\nYou must complete half of the objectives.";
-        _text[66, 1] = "Сбежав с миссии, вы получите {0}% от фрагментов данных\n\nНеобходимо выполнить половину поставленных целей.";
+        _text[66, 0] = "Escaping the mission will give you {0}% of the data fragments and losing one AI core.\n\nYou must complete half of the objectives.";
+        _text[66, 1] = "Сбежав с миссии, вы получите {0}% от фрагментов данных и потеряете одно ядро ии.\n\nНеобходимо выполнить половину поставленных целей.";
 
         _text[67, 0] = "Save the mission and return to command center?";
         _text[67, 1] = "Сохранить миссию и вернутся в командный центр?";
 
-        _text[68, 0] = "Restart the mission? You'll lose your current progress.";
-        _text[68, 1] = "Перезапустить миссию?\nВы потеряете 1 ядро ии.";
+        _text[68, 0] = "Restart mission?\nYou will lose one AI core.";
+        _text[68, 1] = "Перезапустить миссию?\nВы потеряете одно ядро ИИ.";
 
         _text[69, 0] = "In 2100 the first robots were created to help humans.";
         _text[69, 1] = "В 2100 году были созданы первые роботы для помощи людям.";
@@ -255,8 +255,8 @@ public class Language : MonoBehaviour
         _text[75, 0] = "in";
         _text[75, 1] = "в";
 
-        _text[76, 0] = "";
-        _text[76, 1] = "Вы не можете перезапустить миссию. У вас нет запасных ядер ии.";
+        _text[76, 0] = "You can't restart the mission. You don't have any spare AI cores.";
+        _text[76, 1] = "Вы не можете перезапустить миссию. У вас нет запасных ядер ИИ.";
 
         _text[77, 0] = "Launch";
         _text[77, 1] = "Запуск";
@@ -285,8 +285,8 @@ public class Language : MonoBehaviour
         _text[85, 0] = "Drones";
         _text[85, 1] = "Дроны";
 
-        _text[86, 0] = "";
-        _text[86, 1] = "";
+        _text[86, 0] = "You cannot restart the mission.\n\nYou have no spare AI cores.";
+        _text[86, 1] = "Вы не можете начать миссию с начала.\n\nУ вас нет запасных ядер ИИ.";
 
         _text[87, 0] = "";
         _text[87, 1] = "";
@@ -378,7 +378,7 @@ public class Language : MonoBehaviour
         _text[116, 0] = "Quality";
         _text[116, 1] = "Качество";
 
-        _text[117, 0] = "Anti - Aliasing";
+        _text[117, 0] = "Anti-Aliasing";
         _text[117, 1] = "Сглаживание";
 
         _text[118, 0] = "Upscaling Filter";
@@ -636,37 +636,37 @@ public class Language : MonoBehaviour
         _text[202, 0] = "Crates";
         _text[202, 1] = "Контейнеры";
 
-        _text[203, 0] = "";
+        _text[203, 0] = "The radiation level is starting to increase gradually. Be careful.";
         _text[203, 1] = "Уровень радиации начинает постепенно расти. Будьте осторожны.";
 
-        _text[204, 0] = "";
+        _text[204, 0] = "Average increase in background radiation registered. Prepare for possible consequences.";
         _text[204, 1] = "Зарегистрирован средний рост радиационного фона. Подготовьтесь к возможным последствиям.";
 
-        _text[205, 0] = "";
+        _text[205, 0] = "Warning! A sharp increase in radiation is expected. Take protective measures immediately.";
         _text[205, 1] = "Внимание! Ожидается резкий скачок радиации. Срочно примите защитные меры.";
 
-        _text[206, 0] = "";
+        _text[206, 0] = "The radiation level is gradually decreasing, making conditions safer.";
         _text[206, 1] = "Уровень радиации постепенно снижается – условия становятся безопаснее.";
 
-        _text[207, 0] = "";
+        _text[207, 0] = "Average decrease in radiation level recorded. Threat level is falling.";
         _text[207, 1] = "Среднее снижение уровня радиации зафиксировано. Уровень угрозы падает.";
 
-        _text[208, 0] = "";
+        _text[208, 0] = "A sharp drop in radiation has been recorded. The environment is being restored.";
         _text[208, 1] = "Зафиксировано резкое падение радиации. Окружающая среда восстанавливается.";
 
-        _text[209, 0] = "";
+        _text[209, 0] = "Precipitation analysis indicates high acidity. Rain is expected.";
         _text[209, 1] = "Анализ осадков указывает на высокую кислотность. Ожидается дождь.";
 
-        _text[210, 0] = "";
+        _text[210, 0] = "Orbital scanners have detected a meteor shower – prepare for strikes from the skies.";
         _text[210, 1] = "Орбитальные сканеры выявили метеорный поток – готовьтесь к ударам с небес.";
 
-        _text[211, 0] = "";
+        _text[211, 0] = "Seismic sensors are recording powerful tremors – an earthquake is approaching.";
         _text[211, 1] = "Сейсмические датчики фиксируют мощные подземные толчки – приближается землетрясение.";
 
-        _text[212, 0] = "";
+        _text[212, 0] = "Toxic compounds have been detected in the atmosphere. The wind is carrying a dangerous gas.";
         _text[212, 1] = "В атмосфере обнаружены токсичные соединения. Ветер несёт опасный газ.";
 
-        _text[213, 0] = "";
+        _text[213, 0] = "Underground pressure is increasing. A spontaneous release of oil to the surface is possible.";
         _text[213, 1] = "Подземное давление растёт. Возможен самопроизвольный выброс нефти на поверхность.";
 
         _text[214, 0] = "Repairs all marked buildings.";
