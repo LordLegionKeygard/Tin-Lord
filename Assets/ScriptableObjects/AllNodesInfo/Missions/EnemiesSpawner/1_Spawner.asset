@@ -16,7 +16,9 @@ MonoBehaviour:
   - StartDaySpawn: 6
     SpawnPeriod: 2
     Count: 8
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
       - Biome: 0
@@ -27,7 +29,9 @@ MonoBehaviour:
   - StartDaySpawn: 12
     SpawnPeriod: 2
     Count: 18
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
       - Biome: 0
@@ -38,7 +42,9 @@ MonoBehaviour:
   - StartDaySpawn: 20
     SpawnPeriod: 2
     Count: 25
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
       - Biome: 0
@@ -55,7 +61,9 @@ MonoBehaviour:
   - StartDaySpawn: 30
     SpawnPeriod: 2
     Count: 35
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
       - Biome: 0
@@ -72,7 +80,9 @@ MonoBehaviour:
   - StartDaySpawn: 40
     SpawnPeriod: 2
     Count: 45
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
       - Biome: 0
@@ -89,7 +99,9 @@ MonoBehaviour:
   - StartDaySpawn: 50
     SpawnPeriod: 2
     Count: 50
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
       - Biome: 0
@@ -108,7 +120,9 @@ MonoBehaviour:
     Count: 1
     HealthFactor: 6
     DamageFactor: 1
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0
@@ -120,7 +134,9 @@ MonoBehaviour:
     Count: 2
     HealthFactor: 8
     DamageFactor: 2
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0
@@ -132,7 +148,9 @@ MonoBehaviour:
     Count: 3
     HealthFactor: 8
     DamageFactor: 2
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - Biome: 0

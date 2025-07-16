@@ -12,7 +12,7 @@ public class AiCoreSystem : MonoBehaviour
     [SerializeField] private CellsView _cellsView;
     [SerializeField] private EventNodePanel _eventPanel;
     [SerializeField] private DialogueSequence _endGameDialogue;
-    [FormerlySerializedAs("_uiPanelsCommandCenter")] [SerializeField] private UIPanelsSpace uiPanelsSpace;
+    [SerializeField] private UIPanelsSpace _uiPanelsSpace;
     [SerializeField] private ShardsCalculateSystem _shardsCalculateSystem;
 
     public int GetAiCores() => _aiCore;
@@ -26,7 +26,7 @@ public class AiCoreSystem : MonoBehaviour
 
     public void ChangeAiCores(int value)
     {
-        _aiCore += value;
+        _aiCore += value > WorldGameInfo.MaxAiCores ? WorldGameInfo.MaxAiCores : value;
         _cellsView.UpdateCellSlotsView(_aiCore);
         CheckAiDeath();
     }
@@ -42,7 +42,7 @@ public class AiCoreSystem : MonoBehaviour
     {
         _shardsCalculateSystem.Calculate();
         _eventPanel.Open(_endGameDialogue, GameOver);
-        uiPanelsSpace.EventPanelOpen();
+        _uiPanelsSpace.EventPanelOpen();
     }
 
     private void GameOver()

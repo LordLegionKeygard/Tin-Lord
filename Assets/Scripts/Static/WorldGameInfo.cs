@@ -5,8 +5,9 @@ public class WorldGameInfo
     public static int LanguageLength = 500;
     public static bool StaticBlood = true;
 
-    [Header("Quants")]
+    [Header("Currency")]
     public static float QuantDropChance = 0.1f;
+    public static int MaxAiCores = 12;
 
     [Header("Skills")]
     public const int SkillsCount = 15;
