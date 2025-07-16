@@ -167,9 +167,16 @@ public class SelectTilePanel : MonoBehaviour
         _buildingHealthText.text = haveBuildingTile ? $"{Language.TextStatic[97]}: {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingFullHealth}" : $"{Language.TextStatic[97]}: -";
         _buildingLevelText.text = haveBuildingTile ? $"{Language.TextStatic[3]}: {tileObject.BuildingTileObject().CurrentBuildingLevel()}" : $"{Language.TextStatic[3]}: -";
 
-        _productionModifierText.text = haveBuildingTile && tile.IsHaveProductionResources()
-         ? $"{Language.TextStatic[11]}: <color={(tileObject.CurrentModifier() == 0 ? Colors.HexColorWarningYellow : Colors.HexColorWhite)}>x{tileObject.CurrentModifier()}</color>" : $"{Language.TextStatic[11]}: -";
+
+
+        var color = Colors.GetSelectTilePanelProductionModifierColor(tileObject.CurrentModifier());
+        var haveProduction = haveBuildingTile && tile.IsHaveProductionResources();
+
+
+        _productionModifierText.text = haveProduction ? $"{Language.TextStatic[11]}: <color={color}>x{tileObject.CurrentModifier()}</color>" : $"{Language.TextStatic[11]}: -";
     }
+
+
 
     private void SetProductionText(TileObject tileObject, Tile tile, bool haveBuildingTile, Building buildings)
     {
@@ -224,8 +231,14 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetEcologyTexts(TileObject tileObject)
     {
-        _groundEcologyText.text = $"{Language.TextStatic[15]}: {tileObject.TileEcology().GetEcology(GetEcologyEnum.Ground)}";
-        _buildingEcologyText.text = $"{Language.TextStatic[16]}: {tileObject.TileEcology().GetEcology(GetEcologyEnum.Building)}";
+        var groundEcology = tileObject.TileEcology().GetEcology(GetEcologyEnum.Ground);
+        var buildingEcology = tileObject.TileEcology().GetEcology(GetEcologyEnum.Building);
+
+        var groundColor = Colors.GetSelectTilePanelEcologyColor(groundEcology);
+        var buildingColor = Colors.GetSelectTilePanelEcologyColor(buildingEcology);
+
+        _groundEcologyText.text = $"{Language.TextStatic[15]}: <color={groundColor}>{groundEcology}</color>";
+        _buildingEcologyText.text = $"{Language.TextStatic[16]}: <color={buildingColor}>{buildingEcology}</color>";
     }
 
     private void SetButtonStates(bool haveBuildingNow)

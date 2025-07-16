@@ -51,10 +51,12 @@ public class EcologySystem : MonoBehaviour
 
     public void LoadEcology(int radiation, int[] everyDayEcology, bool isStartMission)
     {
-        if (isStartMission) return;
+        if (!isStartMission)
+        {
+            _everyDayEcology.Clear();
+            _everyDayEcology = everyDayEcology.ToList();
+        }
 
-        _everyDayEcology.Clear();
-        _everyDayEcology = everyDayEcology.ToList();
         _missionEcology = CurrentMissionInfo.Instance.GetCurrentLandscape().StartEcology;
         _radiation = radiation;
         UpdateRadiationView();

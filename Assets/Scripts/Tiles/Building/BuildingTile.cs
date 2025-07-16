@@ -182,7 +182,7 @@ public class BuildingTile : MonoBehaviour
             onComplete: () =>
             {
                Destroy(_constructionPrefab);
-               FinalizeBaseUpgrade(newLevel, _currentLevel);
+               FinalizeBaseUpgrade(_currentLevel, _currentLevel - 1);
             },
             onFail: () =>
             {

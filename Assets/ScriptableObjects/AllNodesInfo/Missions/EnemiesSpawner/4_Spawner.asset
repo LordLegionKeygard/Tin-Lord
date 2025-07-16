@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 4_Spawner
   m_EditorClassIdentifier: 
   Spawners:
-  - StartDaySpawn: 8
-    SpawnPeriod: 4
+  - StartDaySpawn: 10
+    SpawnPeriod: 5
     Count: 20
     LandscapeSpawnSide:
     - LandscapeEnum: 0
@@ -31,16 +31,16 @@ MonoBehaviour:
         EnemyEnum: 1
       - Biome: 1
         EnemyEnum: 7
-      EnemyLevel: 1
+      EnemyLevel: 2
     - EnemyBiomeInfo:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
         EnemyEnum: 8
       EnemyLevel: 1
-  - StartDaySpawn: 14
-    SpawnPeriod: 4
-    Count: 30
+  - StartDaySpawn: 20
+    SpawnPeriod: 5
+    Count: 25
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -64,8 +64,8 @@ MonoBehaviour:
         EnemyEnum: 8
       EnemyLevel: 2
   - StartDaySpawn: 24
-    SpawnPeriod: 4
-    Count: 50
+    SpawnPeriod: 5
+    Count: 30
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -89,8 +89,8 @@ MonoBehaviour:
         EnemyEnum: 8
       EnemyLevel: 3
   - StartDaySpawn: 30
-    SpawnPeriod: 4
-    Count: 50
+    SpawnPeriod: 5
+    Count: 40
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -114,8 +114,8 @@ MonoBehaviour:
         EnemyEnum: 8
       EnemyLevel: 3
   - StartDaySpawn: 40
-    SpawnPeriod: 4
-    Count: 60
+    SpawnPeriod: 5
+    Count: 40
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
         EnemyEnum: 8
       EnemyLevel: 4
   - StartDaySpawn: 50
-    SpawnPeriod: 4
-    Count: 80
+    SpawnPeriod: 5
+    Count: 50
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -164,8 +164,8 @@ MonoBehaviour:
         EnemyEnum: 8
       EnemyLevel: 5
   - StartDaySpawn: 60
-    SpawnPeriod: 4
-    Count: 70
+    SpawnPeriod: 5
+    Count: 60
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -189,8 +189,8 @@ MonoBehaviour:
         EnemyEnum: 8
       EnemyLevel: 6
   - StartDaySpawn: 72
-    SpawnPeriod: 4
-    Count: 80
+    SpawnPeriod: 5
+    Count: 70
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -214,8 +214,8 @@ MonoBehaviour:
         EnemyEnum: 8
       EnemyLevel: 7
   - StartDaySpawn: 80
-    SpawnPeriod: 4
-    Count: 90
+    SpawnPeriod: 5
+    Count: 80
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -239,8 +239,8 @@ MonoBehaviour:
         EnemyEnum: 8
       EnemyLevel: 7
   - StartDaySpawn: 90
-    SpawnPeriod: 4
-    Count: 100
+    SpawnPeriod: 5
+    Count: 90
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: -1
@@ -266,7 +266,7 @@ MonoBehaviour:
   MiniBossSpawners:
   - DaySpawn: 20
     Count: 1
-    HealthFactor: 10
+    HealthFactor: 8
     DamageFactor: 4
     LandscapeSpawnSide:
     - LandscapeEnum: 0

@@ -34,6 +34,36 @@ public class Colors : MonoBehaviour
         if (Instance != null) Debug.Log("Two, or more Clors Instances");
         else Instance = this;
     }
+
+    public static string GetSelectTilePanelProductionModifierColor(float modifier)
+    {
+        switch (modifier)
+        {
+            case 0:
+                return HexColorRed;
+            case 0.5f:
+                return HexColorWarningYellow;
+        }
+        return HexColorWhite;
+    }
+
+    public static string GetSelectTilePanelEcologyColor(float ecology)
+    {
+        switch (ecology)
+        {
+            case > 0:
+                return HexColorLightGreen;
+            case 0:
+                return HexColorWhite;
+            case -1:
+                return HexColorWarningYellow;
+            case -2:
+                return HexColorWarningYellow;
+            case -3:
+                return HexColorWarningYellow;
+        }
+        return HexColorRed;
+    }
 }
 
 public enum SelectTileEnum

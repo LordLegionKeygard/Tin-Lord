@@ -64,12 +64,11 @@ public class EscapePanelMission : MonoBehaviour
 
     public void RestartButton()
     {
-        //
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         ToggleAllEscapePanelButtons(true);
         _restartButton.interactable = false;
         _extraPanel.SetActive(true);
-        ChangePanelPosition(-71.6f);
+        ChangePanelPosition(-93f);
 
         var haveAiCore = _spaceSaveGame.SpaceSaveData.AiCores > 1;
 
@@ -83,9 +82,9 @@ public class EscapePanelMission : MonoBehaviour
         ToggleAllEscapePanelButtons(true);
         _escapeButton.interactable = false;
         _extraPanel.SetActive(true);
-        ChangePanelPosition(-138);
+        ChangePanelPosition(-155);
 
-        _extra.text = $"{string.Format(Language.TextStatic[66], WorldGameInfo.EscapeFragmentsPercent)}";
+        _extra.text = Language.TextStatic[66];
         ToggleYesButton(_objectivesPanel.CanEscape());
     }
 

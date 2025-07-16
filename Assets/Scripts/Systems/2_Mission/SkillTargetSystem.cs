@@ -43,7 +43,7 @@ public class SkillTargetSystem : MonoBehaviour
         {
             _target.position = hit.point;
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !IsPointerOverUISystem.IsPointerOverUI)
         {
             CustomEvents.FireUseTargetSkill();
             CancelSkillCircle();

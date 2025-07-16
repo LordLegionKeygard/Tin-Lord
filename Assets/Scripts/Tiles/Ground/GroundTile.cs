@@ -326,7 +326,7 @@ public class GroundTile : MonoBehaviour
                     if (neighbour.CheckTileView(GroundTileViewEnum.Mountain))
                     {
                         var rnd = Random.Range(0, 100);
-                        ChangeTile(rnd <= 80 ? GroundTileViewEnum.IronDeposits : GroundTileViewEnum.CopperDeposits);
+                        ChangeTile(rnd <= 90 ? GroundTileViewEnum.IronDeposits : GroundTileViewEnum.CopperDeposits);
                         return;
                     }
                 }
