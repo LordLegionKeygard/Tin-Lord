@@ -10,6 +10,7 @@ public class EnemyInfo : MonoBehaviour
     public int GetEnemyNumber() => _enemyNumber;
     public int GetHealthFactor() => _healthFactor;
     public int GetDamageFactor() => _damageFactor;
+    public bool IsMiniBoss() => _healthFactor != 1 || _damageFactor != 1;
 
     public void SetEnemyInfo(int enemyNumber, int healthFactor, int damageFactor)
     {

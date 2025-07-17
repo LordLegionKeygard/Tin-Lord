@@ -6,6 +6,7 @@ public class AllSkills : MonoBehaviour
     [SerializeField] private SkillView[] _allSkillView;
     public BaseSkill GetSkill(int skillNumber) => _baseSkills[skillNumber];
     public BaseSkill[] GetAllSkills() => _baseSkills;
+    public bool IsSkillOpen(SkillEnum skillEnum) => _baseSkills[(int)skillEnum].IsOpen();
 
     public void TimeTickAllSkill()
     {

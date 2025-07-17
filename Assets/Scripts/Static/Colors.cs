@@ -43,6 +43,10 @@ public class Colors : MonoBehaviour
                 return HexColorRed;
             case 0.5f:
                 return HexColorWarningYellow;
+            case 1:
+                return HexColorWhite;
+            case > 1:
+                return HexColorLightGreen;
         }
         return HexColorWhite;
     }
@@ -63,6 +67,11 @@ public class Colors : MonoBehaviour
                 return HexColorWarningYellow;
         }
         return HexColorRed;
+    }
+
+    public static string GetSelectTilePanelProductionColor(float production)
+    {
+        return production == 0 ? HexColorRed : HexColorWhite;
     }
 }
 

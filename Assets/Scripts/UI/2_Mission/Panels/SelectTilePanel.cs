@@ -53,6 +53,7 @@ public class SelectTilePanel : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private MachineSpawnerSystem _machineSpawnerSystem;
+    [SerializeField] private AllSkills _allSkills;
     private TileObject _tileObject;
     private ResourceForWorkPanel _resourceForWorkPanel;
     private BaseProductionResourcePanel _productionResourcePanel;
@@ -184,22 +185,22 @@ public class SelectTilePanel : MonoBehaviour
         {
             var isUseRources = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork.Length != 0;
             var productionName = $"{Language.TextStatic[tileObject.CurrentResourceProduction().NameNumber]}";
-            string productionAmount;
+            float productionAmount;
 
             if (isUseRources)
             {
                 productionAmount = tileObject.IsHaveRequiredResource() && tileObject.IsBuildingWork()
-                    ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString()
-                    : "0";
+                    ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier())
+                    : 0;
             }
             else
             {
                 productionAmount = tileObject.IsBuildingWork()
-                    ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier()).ToString()
-                    : "0";
+                    ? (buildings.ResourceExtractedAmount * tileObject.CurrentModifier())
+                    : 0;
             }
 
-            var productionColor = (productionAmount == "0") ? Colors.HexColorWarningYellow : Colors.HexColorWhite;
+            var productionColor = Colors.GetSelectTilePanelProductionColor(productionAmount);
 
             var productionText = $"{Language.TextStatic[6]}: <color={productionColor}>{productionName} {productionAmount}</color>";
 
@@ -266,7 +267,7 @@ public class SelectTilePanel : MonoBehaviour
 
         var buildButtonState = canRepairOrUpgrade && groundHaveBuildings && !isConstructionNow;
         var workButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
-        var generalRepairButtonState = haveBuildingNow;
+        var generalRepairButtonState = haveBuildingNow && _allSkills.IsSkillOpen(SkillEnum.GeneralRepair);
         var rotateButtonState = haveRotationViewGround || canRotateBuilding;
         var machineButtonState = haveBuildingNow && isMachineProduction;
         var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase && !isConstructionNow;
