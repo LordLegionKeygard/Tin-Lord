@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 public class EnemyDebuff : MonoBehaviour
 {
     [Header("Slow")]
-    [SerializeField] private bool _resistSlow;
+    [SerializeField] private SlowType[] _resistTypes;
     [SerializeField] private bool _isHaveEmission;
     [ColorUsage(true, true)][SerializeField] private Color _emissionColor;
     [SerializeField] private SkinnedMeshRenderer[] _meshRenderers;
@@ -22,8 +23,6 @@ public class EnemyDebuff : MonoBehaviour
 
     private void Start()
     {
-        if (_resistSlow) return;
-
         CachedEmissionTextures();
     }
 
@@ -42,7 +41,7 @@ public class EnemyDebuff : MonoBehaviour
 
     public void ChangeSlowDebuff(float slowAmount, SlowType slowType)
     {
-        if (_resistSlow) return;
+        if (Array.Exists(_resistTypes, t => t == slowType)) return;
 
         switch (slowType)
         {

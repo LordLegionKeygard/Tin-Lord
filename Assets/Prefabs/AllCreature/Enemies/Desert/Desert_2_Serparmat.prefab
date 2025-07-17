@@ -2268,6 +2268,7 @@ MonoBehaviour:
   _attacks:
   - {fileID: 11400000, guid: a76103f594b3a1f498ef5ccb893d688c, type: 2}
   - {fileID: 11400000, guid: 1bc0edf0aecef5d4096e2b59bdb2e4f8, type: 2}
+  _reachDistanceOffset: -2
 --- !u!114 &8633156420727041161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,9 +2286,6 @@ MonoBehaviour:
   _emissionColor: {r: 0, g: 0, b: 0, a: 1}
   _meshRenderers:
   - {fileID: 7661720444125391495}
-  _radioWaveSlowAmount: 0
-  _riverSlowAmount: 0
-  _speedFactor: 1
 --- !u!114 &8633156420727041160
 MonoBehaviour:
   m_ObjectHideFlags: 0

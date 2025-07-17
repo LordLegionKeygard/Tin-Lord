@@ -90,7 +90,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 30
     SpawnPeriod: 5
-    Count: 30
+    Count: 35
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 40
     SpawnPeriod: 5
-    Count: 40
+    Count: 45
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 50
     SpawnPeriod: 5
-    Count: 50
+    Count: 55
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 60
     SpawnPeriod: 5
-    Count: 60
+    Count: 65
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -188,7 +188,7 @@ MonoBehaviour:
       - Biome: 1
         EnemyEnum: 8
       EnemyLevel: 3
-  - StartDaySpawn: 72
+  - StartDaySpawn: 70
     SpawnPeriod: 5
     Count: 70
     LandscapeSpawnSide:
@@ -200,19 +200,19 @@ MonoBehaviour:
         EnemyEnum: 0
       - Biome: 1
         EnemyEnum: 6
-      EnemyLevel: 3
+      EnemyLevel: 4
     - EnemyBiomeInfo:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
         EnemyEnum: 7
-      EnemyLevel: 3
+      EnemyLevel: 4
     - EnemyBiomeInfo:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
         EnemyEnum: 8
-      EnemyLevel: 3
+      EnemyLevel: 4
   - StartDaySpawn: 80
     SpawnPeriod: 5
     Count: 80
@@ -225,19 +225,44 @@ MonoBehaviour:
         EnemyEnum: 0
       - Biome: 1
         EnemyEnum: 6
-      EnemyLevel: 3
+      EnemyLevel: 4
     - EnemyBiomeInfo:
       - Biome: 0
         EnemyEnum: 1
       - Biome: 1
         EnemyEnum: 7
-      EnemyLevel: 3
+      EnemyLevel: 4
     - EnemyBiomeInfo:
       - Biome: 0
         EnemyEnum: 2
       - Biome: 1
         EnemyEnum: 8
-      EnemyLevel: 3
+      EnemyLevel: 4
+  - StartDaySpawn: 90
+    SpawnPeriod: 5
+    Count: 100
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 0
+      - Biome: 1
+        EnemyEnum: 6
+      EnemyLevel: 5
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 1
+      - Biome: 1
+        EnemyEnum: 7
+      EnemyLevel: 5
+    - EnemyBiomeInfo:
+      - Biome: 0
+        EnemyEnum: 2
+      - Biome: 1
+        EnemyEnum: 8
+      EnemyLevel: 5
   MiniBossSpawners:
   - DaySpawn: 20
     Count: 1
@@ -371,6 +396,6 @@ MonoBehaviour:
       EnemyEnum: 5
     - Biome: 1
       EnemyEnum: 11
-    BossLevel: 5
-    BossDaySpawn: 99
+    BossLevel: 8
+    BossDaySpawn: 100
     LandscapeSpawnSide: []

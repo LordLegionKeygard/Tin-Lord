@@ -25,8 +25,8 @@ public class BuildTypesPanel : MonoBehaviour
         }
         else if (tileObject.GroundTileObject().IsTurnRoad())
         {
-            CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Traps), tileObject, selectTilePanel);
             CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Walls), tileObject, selectTilePanel);
+            CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Traps), tileObject, selectTilePanel);
         }
         else
         {

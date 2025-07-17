@@ -1052,6 +1052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attacks:
   - {fileID: 11400000, guid: 1b2549af03084524fab4c8fe3b9907b3, type: 2}
+  _reachDistanceOffset: -2
 --- !u!114 &2870603011000521209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,7 +1065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resistSlow: 0
+  _resistTypes: 01000000
   _isHaveEmission: 1
   _emissionColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 1}
   _meshRenderers:

@@ -1436,6 +1436,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d40e73521b3b5674fa0c27e6a7278523, type: 2}
   - {fileID: 11400000, guid: b8cafb10982825448bca2c928edef2c9, type: 2}
   - {fileID: 11400000, guid: 92d80aaacc1f67244b1ea58ab5174734, type: 2}
+  _reachDistanceOffset: -2
 --- !u!114 &1571049067697286926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1448,10 +1449,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resistSlow: 1
+  _resistTypes: 0000000001000000
   _isHaveEmission: 1
-  _emissionColor: {r: 2, g: 2, b: 2, a: 1}
-  _meshRenderers: []
+  _emissionColor: {r: 0.9882353, g: 0.9882353, b: 0.9882353, a: 1}
+  _meshRenderers:
+  - {fileID: 1571049068430754178}
+  - {fileID: 1571049067866927539}
+  - {fileID: 1571049067382219430}
+  - {fileID: 1571049069088531668}
+  - {fileID: 1571049067140954408}
+  - {fileID: 1571049068077743205}
 --- !u!114 &1571049067697286925
 MonoBehaviour:
   m_ObjectHideFlags: 0

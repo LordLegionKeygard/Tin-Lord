@@ -1399,6 +1399,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e081cc0202f7f794aa4df6322c071ef4, type: 2}
   - {fileID: 11400000, guid: 8212fe54691cf9d41ac3538a0fa1ebe1, type: 2}
   - {fileID: 11400000, guid: c13d544cad70a944c884e7390c783de2, type: 2}
+  _reachDistanceOffset: -2
 --- !u!114 &6073945727764995485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1411,15 +1412,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resistSlow: 1
+  _resistTypes: 0000000001000000
   _isHaveEmission: 1
   _emissionColor: {r: 2, g: 2, b: 2, a: 1}
   _meshRenderers:
   - {fileID: 3986751028734495574}
   - {fileID: 8276390655639465372}
-  _radioWaveSlowAmount: 0
-  _riverSlowAmount: 0
-  _speedFactor: 1
 --- !u!114 &6073945727764995474
 MonoBehaviour:
   m_ObjectHideFlags: 0
