@@ -8,12 +8,12 @@ public class TileEcology : MonoBehaviour
     {
         _tileObject = GetComponent<TileObject>();
     }
-    public int GetEcology(GetEcologyEnum getEcologyEnum)
+    public float GetEcology(GetEcologyEnum getEcologyEnum)
     {
         var haveBuildingTile = _tileObject.BuildingTileObject().HaveTile();
         var isConstructionNow = haveBuildingTile && _tileObject.BuildingTileObject().IsConstructionNow();
 
-        int buildingEcology = 0;
+        float buildingEcology = 0;
 
 
         var groundEcology = _tileObject.GroundTileObject().CurrentGroundTile().GroundEcology;

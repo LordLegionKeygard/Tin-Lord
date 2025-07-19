@@ -50,9 +50,10 @@ public class BuildingItem : MonoBehaviour
 
     private void UpdateView()
     {
-        _haveRequiredLevel = _currentTile.Buildings[_buildingIndex - 1].RequiredBaseLevel <= _tilesSystem.GetBaseLevel();
+        var requiredLevel = _currentTile.Buildings[_buildingIndex - 1].RequiredBaseLevel;
+        _haveRequiredLevel = requiredLevel  <= _tilesSystem.GetBaseLevel();
         var building = _currentTile.Buildings[_buildingIndex - 1];
-        _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[237], _tilesSystem.GetBaseLevel() + 1)}"; ;
+        _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[237], requiredLevel)}"; ;
         _icon.sprite = building.BuildingSprite;
     }
 

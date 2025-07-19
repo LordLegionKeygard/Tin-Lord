@@ -27,6 +27,8 @@ public class BaseHealth : MonoBehaviour
 
 	public virtual void TakeDamage(float damage, float knockBackPoints)
 	{
+		if (!_isCanTarget) return;
+		
 		_currentHealth -= damage;
 		UpdateSlider();
 	}

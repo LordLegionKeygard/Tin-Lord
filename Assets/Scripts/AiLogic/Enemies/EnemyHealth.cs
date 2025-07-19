@@ -79,6 +79,8 @@ public class EnemyHealth : BaseHealth
 
     public override void TakeDamage(float damage, float knockBackPoints)
     {
+        if (!_isCanTarget) return;
+
         var totalDamage = _enemyDefenceSystem.GetDefencePercent() * damage;
         _currentHealth -= totalDamage;
         UpdateSlider();

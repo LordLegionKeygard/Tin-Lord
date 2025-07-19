@@ -63,7 +63,7 @@ public class EcologySystem : MonoBehaviour
         UpdateTotalEcology();
     }
 
-    public void ChangeEcology(int amount, int tileId, bool remove)
+    public void ChangeEcology(float amount, int tileId, bool remove)
     {
         for (int i = 0; i < _ecologyTileInfoList.Count; i++)
         {
@@ -108,7 +108,7 @@ public class EcologySystem : MonoBehaviour
     private void UpdateTotalEcology()
     {
         int previousTotalEcology = _totalEcology;
-        _tilesEcology = _ecologyTileInfoList.Sum(tile => tile.Amount);
+        _tilesEcology = (int)_ecologyTileInfoList.Sum(tile => tile.Amount);
 
         _totalEcology = _tilesEcology - _radiation + _missionEcology;
 
@@ -181,5 +181,5 @@ public class EcologySystem : MonoBehaviour
 public class EcologyTileInfo
 {
     public int Id;
-    public int Amount;
+    public float Amount;
 }

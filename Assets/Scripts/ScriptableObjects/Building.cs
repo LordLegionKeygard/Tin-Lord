@@ -8,7 +8,7 @@ public class Building : ScriptableObject
     public int Id;
     public int BuildingLevel;
     public int RequiredBaseLevel; // требуемый уровень базы для постройки этого здания
-    public int BuildingEcology;
+    public float BuildingEcology;
     public float BuildingHealth;
     public float ResourceExtractedAmount; // кол-во создаваемого ресурса за 1 тик времени
     public float Price; // цена покупки за фрагменты памяти

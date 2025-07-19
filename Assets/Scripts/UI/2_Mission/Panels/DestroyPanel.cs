@@ -26,7 +26,7 @@ public class DestroyPanel : MonoBehaviour
                 new ResourceWrapper
                 {
                     ResourceEnum = ResourceEnum.BeamEnergy,
-                    RecourceAmount = tileObject.GroundTileObject().CurrentGroundTile().GetEnergyBeam(),
+                    RecourceAmount = (int)tileObject.GroundTileObject().CurrentGroundTile().GetEnergyBeam(),
                 }
             });
         }

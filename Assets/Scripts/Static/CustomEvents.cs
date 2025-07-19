@@ -69,8 +69,8 @@ public class CustomEvents
         OnChangeResourceForWork?.Invoke(tileObject, resource, amount, resourceRecepts);
     }
 
-    public static event Action<int, int, bool> OnChangeEcology;
-    public static void FireChangeEcology(int amount, int tileId, bool remove)
+    public static event Action<float, int, bool> OnChangeEcology;
+    public static void FireChangeEcology(float amount, int tileId, bool remove)
     {
         OnChangeEcology?.Invoke(amount, tileId, remove);
     }
