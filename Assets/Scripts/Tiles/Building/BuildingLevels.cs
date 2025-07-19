@@ -9,7 +9,7 @@ public class BuildingLevels : MonoBehaviour
 {
     [SerializeField] private GameObject[] _buildingLevels;
     [SerializeField] private BuildingTargetPoints[] _buildingTargetPoints;
-    [SerializeField] private int _currentBuildingLevel;
+    private int _currentBuildingLevel;
     private BuildingProductionView _buildingProductionView;
     private TileObject _tileObject;
     public TileObject CurrentTileObject() => _tileObject;
