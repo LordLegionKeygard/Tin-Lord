@@ -106,7 +106,6 @@ public class EnemyHealth : BaseHealth
         DeathSound();
         DropQuant();
 
-        CustomEvents.FireChangeExperience(_enemyLevel.GetExperience());
         CustomEvents.FireEnemyDeath(_enemyInfo.GetEnemyNumber());
         CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.KillEnemies, 1);
 

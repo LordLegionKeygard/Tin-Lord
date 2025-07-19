@@ -34,14 +34,14 @@ public class MachinePanel : MonoBehaviour
 
     private void ClosePanelAfterDestroyMachineProductionBuilding()
     {
-        if(_active) PanelViewToggle(false);
+        if (_active) PanelViewToggle(false);
     }
 
     public void PlayerInputMachineItemButton(int number)
     {
         var machineItem = _machineItems[number - 1];
 
-        if(machineItem.IsSelect())
+        if (machineItem.IsSelect())
         {
             machineItem.CreateOrRepairMachine();
         }
@@ -61,6 +61,9 @@ public class MachinePanel : MonoBehaviour
             _objectTransform.DOAnchorPosX(-250, 0.3f).SetUpdate(true);
             RefreshAllMachineItemsView();
             UpdateDestroyButtonState();
+
+            var currentMachineType = _currentMachineSystem.GetMachineType();
+            if (currentMachineType != MachineType.None) _machineItems[(int)currentMachineType].SelectView();
         }
         else
         {
@@ -88,13 +91,15 @@ public class MachinePanel : MonoBehaviour
     {
         for (int i = 0; i < _machineItems.Length; i++)
         {
-            _machineItems[i].gameObject.SetActive(_machineItems[i].GetRequiredBuildingLevel() <= buildingLevel);       
+            _machineItems[i].gameObject.SetActive(_machineItems[i].GetRequiredBuildingLevel() <= buildingLevel);
         }
     }
 
-    public void UpdateMachineInfo(MachineInformation selectMachineInfo)
+    public void UpdateMachineInfo(MachineInformation machineInfo)
     {
-        _currentSelectMachineInfo = selectMachineInfo;
+        if (machineInfo == null) return;
+
+        _currentSelectMachineInfo = machineInfo;
 
         UpdateLevelAndExperience();
         UpdateStatTexts();
@@ -104,9 +109,10 @@ public class MachinePanel : MonoBehaviour
     {
         if (_currentSelectMachineInfo == null) return;
 
-        var level = MachinesDataMission.Instance.GetSelectMachineDataLevel(_currentSelectMachineInfo.MachineType);
+        var level = MachinesDataMission.Instance.GetCurrentLevel();
 
-        _durabilityText.text = $"{Language.TextStatic[18]}: {_currentSelectMachineInfo.GetDurability(level)}";
+        var currentMachineHealth = _currentMachineSystem.GetMachineHealth() != null ? _currentMachineSystem.GetMachineHealth().GetCurrentHealth() : 0;
+        _durabilityText.text = $"{Language.TextStatic[18]}: {currentMachineHealth} / {_currentSelectMachineInfo.GetDurability(level)}";
         _meleeDamageText.text = $"{Language.TextStatic[19]}: {_currentSelectMachineInfo.GetMeleeDamage(level)}";
         _rangeDamageText.text = $"{Language.TextStatic[20]}: {_currentSelectMachineInfo.GetRangeDamage(level)}";
     }
@@ -115,10 +121,9 @@ public class MachinePanel : MonoBehaviour
     {
         if (_currentSelectMachineInfo == null) return;
 
-        var type = _currentSelectMachineInfo.MachineType;
-        var level = MachinesDataMission.Instance.GetSelectMachineDataLevel(type);
-        var maxExp = MachinesDataMission.Instance.GetSelectMachineMaxExpForLevel(type);
-        var currentExp = MachinesDataMission.Instance.GetSelectMachineExperience(type);
+        var level = MachinesDataMission.Instance.GetCurrentLevel();
+        var maxExp = MachinesDataMission.Instance.GetMachineMaxExpForLevel();
+        var currentExp = MachinesDataMission.Instance.GetMachineExperience();
 
         _levelText.text = $"{level}";
         _expSlider.maxValue = maxExp;

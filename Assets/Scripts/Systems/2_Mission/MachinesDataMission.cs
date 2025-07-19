@@ -3,53 +3,25 @@ using UnityEngine;
 public class MachinesDataMission : MonoBehaviour
 {
     public static MachinesDataMission Instance;
-    [SerializeField] private int[] _machinesLevel;
-    [SerializeField] private int[] _machinesExperience;
+    [SerializeField] private int _machineLevel;
+    [SerializeField] private int _machineExperience;
     [SerializeField] private MachineInformation[] _machineInformation;
     [SerializeField] private MachineExperienceInfo _experienceInfo;
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
     [SerializeField] private MachinePanel _robotPanel;
+    [SerializeField] private TimeTickSystem _timeTickSystem;
 
     //Current
-    public int CurrentLevel() => _machinesLevel[(int)_currentMachineSystem.GetMachineType()];
-    public int GetCurrentMeleeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetMeleeDamage(CurrentLevel());
-    public int GetCurrentRangeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetRangeDamage(CurrentLevel());
-    public float GetCurrentDurability() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetDurability(CurrentLevel());
+    public int GetCurrentLevel() => _machineLevel;
+    public int GetCurrentMeleeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetMeleeDamage(GetCurrentLevel());
+    public int GetCurrentRangeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetRangeDamage(GetCurrentLevel());
+    public float GetCurrentDurability() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetDurability(GetCurrentLevel());
     public float GetDetectionRadius() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].DetectionRadius;
 
 
     //Select
-    public int GetSelectMachineDataLevel(MachineType selectMachineType) => _machinesLevel[(int)selectMachineType];
-    public int GetSelectMachineMaxExpForLevel(MachineType selectMachineType) => _experienceInfo.NeedExperienceForNextLevel[_machinesLevel[(int)selectMachineType]];
-    public int GetSelectMachineExperience(MachineType selectMachineType) => _machinesExperience[(int)selectMachineType];
-
-    //Save
-    public MachinesExperienceData[] GetAllMachinesExperience()
-    {
-        var data = new MachinesExperienceData[_machineInformation.Length];
-
-        for (int i = 0; i < _machineInformation.Length; i++)
-        {
-            data[i] = new MachinesExperienceData
-            {
-                Level = _machinesLevel[i],
-                Experience = _machinesExperience[i]
-            };
-        }
-
-        return data;
-    }
-
-    public void LoadMachinesExperience(MachinesExperienceData[] data, bool isStartMission)
-    {
-        if(isStartMission) return;
-
-        for (int i = 0; i < _machineInformation.Length; i++)
-        {
-            _machinesLevel[i] = data[i].Level;
-            _machinesExperience[i] = data[i].Experience;
-        }    
-    }
+    public int GetMachineMaxExpForLevel() => _experienceInfo.NeedExperienceForNextLevel[_machineLevel];
+    public int GetMachineExperience() => _machineExperience;
 
     private void Awake()
     {
@@ -59,54 +31,52 @@ public class MachinesDataMission : MonoBehaviour
 
     private void Start()
     {
-        CustomEvents.OnChangeExperience += ChangeExperience;
+        CustomEvents.OnTimeTick += ChangeExperience;
     }
 
-    public void ChangeExperience(int experience)
+    public void LoadMachineExperience()
     {
-        if (!_currentMachineSystem.IsHaveMachine() || _currentMachineSystem.IsMachineDeath()) return;
+        int totalExp = _timeTickSystem.GetCurrentDay() * WorldGameInfo.OneDayTicksCount + _timeTickSystem.GetCurrentTick();
 
-        var maxExp = _experienceInfo.NeedExperienceForNextLevel[CurrentLevel()];
-        var currentExp = _machinesExperience[(int)_currentMachineSystem.GetMachineType()];
+        AddExperience(totalExp);
+    }
 
-        if (experience >= maxExp - currentExp)
+
+    private void AddExperience(int amount)
+    {
+        while (amount > 0 && _machineLevel < _experienceInfo.NeedExperienceForNextLevel.Length)
         {
-            var surplus = experience - (maxExp - currentExp);
-            NewLevel();
-            currentExp = surplus;
+            int need = _experienceInfo.NeedExperienceForNextLevel[_machineLevel] - _machineExperience;
 
-            if (surplus >= maxExp)
+            if (amount >= need)
             {
+                amount -= need;
                 NewLevel();
-                currentExp = surplus - maxExp;
+            }
+            else
+            {
+                _machineExperience += amount;
+                amount = 0;
             }
         }
-        else
-        {
-            currentExp += experience;
-        }
+        _robotPanel.UpdateLevelAndExperience();
+    }
 
-        _machinesExperience[(int)_currentMachineSystem.GetMachineType()] = currentExp;
-
-        if (_currentMachineSystem.GetMachineType() == _robotPanel.GetCurrentMachineType())
-        {
-            _robotPanel.UpdateLevelAndExperience();
-        }
+    public void ChangeExperience()
+    {
+        AddExperience(WorldGameInfo.MachineExperienceFromTick);
     }
 
     private void NewLevel()
     {
-        _machinesLevel[(int)_currentMachineSystem.GetMachineType()]++;
-
-        if (_currentMachineSystem.GetMachineType() == _robotPanel.GetCurrentMachineType())
-        {
-            _robotPanel.UpdateStatTexts();
-        }
+        _machineLevel++;
+        _machineExperience = 0;
+        _robotPanel.UpdateStatTexts();
     }
 
     private void OnDestroy()
     {
-        CustomEvents.OnChangeExperience -= ChangeExperience;
+        CustomEvents.OnTimeTick -= ChangeExperience;
     }
 }
 

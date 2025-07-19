@@ -13,6 +13,7 @@ public class WorldGameInfo
     public const int SkillsCount = 15;
 
     [Header("Time")]
+    public const int OneDayTicksCount = 24;
     public const float PausedTimeScale = 0.00001f;
     public const float DefaultTimeScale = 1.5f;
     public const float DoubleTimeScale = 2.2f;
@@ -43,6 +44,7 @@ public class WorldGameInfo
 
 
     [Header("Machine")]
+    public const int MachineExperienceFromTick = 1;
     public const int MachinesCount = 1;
     public const float MachineEngineerRepairBuildingsDistance = 5.5f;
     public const float MachineDieDelay = 10;

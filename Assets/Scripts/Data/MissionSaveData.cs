@@ -38,7 +38,6 @@ public class MissionSaveData
     public int[] RoadTilesId;
 
     [Header("Machines")]
-    public MachinesExperienceData[] MachinesExperienceData;
     public MachineData MachineData;
 
     [Header("Objectives")]
@@ -89,13 +88,6 @@ public class MachineData
     public float Rotation;
     public int NextPatrolIndex;
     public float MachineHealth;
-}
-
-[System.Serializable]
-public class MachinesExperienceData
-{
-    public int Level;
-    public int Experience;
 }
 
 [System.Serializable]

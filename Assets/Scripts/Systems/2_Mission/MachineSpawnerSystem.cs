@@ -53,8 +53,10 @@ public class MachineSpawnerSystem : MonoBehaviour
         _currentMachineSystem.GetMachineDamage().SetDamage();
     }
 
-    public void LoadSpawnRobot(MissionSaveData missionSaveData)
+    public void LoadSpawnMachine(MissionSaveData missionSaveData)
     {
+        MachinesDataMission.Instance.LoadMachineExperience();
+        
         if (missionSaveData.IsStartMission || !missionSaveData.MachineData.IsHaveMachineNow) return;
 
         var roadTiles = _mapBuilder.GetRoadTiles();

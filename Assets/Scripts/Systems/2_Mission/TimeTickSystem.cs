@@ -14,9 +14,8 @@ public class TimeTickSystem : MonoBehaviour
     [SerializeField] private EveryTickResourcesRequired _everyTickResourcesRequired;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private float _currentTime = 0f;
-    private readonly float _endTime = 25;
     private int _currentDay = 0;
-    public float GetEndTime() => _endTime;
+    public float GetEndTime() => WorldGameInfo.OneDayTicksCount + 1;
     public int GetCurrentTick() => _currentTick;
     public int GetCurrentDay() => _currentDay;
 
@@ -47,7 +46,7 @@ public class TimeTickSystem : MonoBehaviour
             _allSkills.TimeTickAllSkill();
             CustomEvents.FireTimeTick();
 
-            if (_currentTick >= _endTime)
+            if (_currentTick >= GetEndTime())
             {
                 _currentDay++;
                 _currentTick = 0;

@@ -109,7 +109,6 @@ public class MissionSaveLoad : MonoBehaviour
         currentSaveData.RoadTilesId = _tileMapBuilder.GetRoadTilesId();
 
         //Robot
-        currentSaveData.MachinesExperienceData = MachinesDataMission.Instance.GetAllMachinesExperience();
         currentSaveData.MachineData = _currentMachineSystem.GetMachineData();
 
         //Objectives
@@ -158,8 +157,7 @@ public class MissionSaveLoad : MonoBehaviour
         _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId, currentSaveData.IsStartMission);
 
         //Machine
-        MachinesDataMission.Instance.LoadMachinesExperience(currentSaveData.MachinesExperienceData, currentSaveData.IsStartMission);
-        _machineSpawnerSystem.LoadSpawnRobot(currentSaveData);
+        _machineSpawnerSystem.LoadSpawnMachine(currentSaveData);
 
         //Buildings
         _learnedBuildingsDataMission.LoadLearnedBuildings(_spaceSaveGame.SpaceSaveData.BuildingsLearned);

@@ -108,7 +108,7 @@ public class EcologySystem : MonoBehaviour
     private void UpdateTotalEcology()
     {
         int previousTotalEcology = _totalEcology;
-        _tilesEcology = (int)_ecologyTileInfoList.Sum(tile => tile.Amount);
+        _tilesEcology = _ecologyTileInfoList.Sum(tile => (int)tile.Amount);
 
         _totalEcology = _tilesEcology - _radiation + _missionEcology;
 

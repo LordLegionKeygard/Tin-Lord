@@ -111,12 +111,6 @@ public class CustomEvents
         OnMachineTakeDamage?.Invoke();
     }
 
-    public static Action<int> OnChangeExperience;
-    public static void FireChangeExperience(int value)
-    {
-        OnChangeExperience?.Invoke(value);
-    }
-
     public static Action<int> OnBuildingTakeDamage;
     public static void FireBuildingTakeDamage(int id)
     {
