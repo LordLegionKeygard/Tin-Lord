@@ -29,7 +29,8 @@ public class MachinePanel : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnMachineDie += UpdateDestroyButtonState;
-        CustomEvents.OnDestroyMachineProduction += ClosePanelAfterDestroyMachineProductionBuilding;
+        CustomEvents.OnDestroyMachineProductionBuilding += ClosePanelAfterDestroyMachineProductionBuilding;
+        CustomEvents.OnMachineTakeDamage += UpdateStatTexts;
     }
 
     private void ClosePanelAfterDestroyMachineProductionBuilding()
@@ -61,6 +62,11 @@ public class MachinePanel : MonoBehaviour
             _objectTransform.DOAnchorPosX(-250, 0.3f).SetUpdate(true);
             RefreshAllMachineItemsView();
             UpdateDestroyButtonState();
+
+            foreach (var item in _machineItems)
+            {
+                item.UpdateView();
+            }
 
             var currentMachineType = _currentMachineSystem.GetMachineType();
             if (currentMachineType != MachineType.None) _machineItems[(int)currentMachineType].SelectView();
@@ -110,11 +116,17 @@ public class MachinePanel : MonoBehaviour
         if (_currentSelectMachineInfo == null) return;
 
         var level = MachinesDataMission.Instance.GetCurrentLevel();
-
+        var haveAliveMachine = _currentMachineSystem.IsHaveMachine() && !_currentMachineSystem.IsMachineDeath();
         var currentMachineHealth = _currentMachineSystem.GetMachineHealth() != null ? _currentMachineSystem.GetMachineHealth().GetCurrentHealth() : 0;
-        _durabilityText.text = $"{Language.TextStatic[18]}: {currentMachineHealth} / {_currentSelectMachineInfo.GetDurability(level)}";
-        _meleeDamageText.text = $"{Language.TextStatic[19]}: {_currentSelectMachineInfo.GetMeleeDamage(level)}";
-        _rangeDamageText.text = $"{Language.TextStatic[20]}: {_currentSelectMachineInfo.GetRangeDamage(level)}";
+
+        var durability = haveAliveMachine ? $"{currentMachineHealth} / {_currentSelectMachineInfo.GetDurability(level)}" : "-";
+
+        var _meleeDamage = haveAliveMachine ? $"{_currentSelectMachineInfo.GetMeleeDamage(level)}" : "-";
+        var rangeDamage = haveAliveMachine ? $"{_currentSelectMachineInfo.GetRangeDamage(level)}" : "-";
+
+        _durabilityText.text = $"{Language.TextStatic[18]}: {durability}";
+        _meleeDamageText.text = $"{Language.TextStatic[19]}: {_meleeDamage}";
+        _rangeDamageText.text = $"{Language.TextStatic[20]}: {rangeDamage}";
     }
 
     public void UpdateLevelAndExperience()
@@ -136,7 +148,8 @@ public class MachinePanel : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         var robotHealth = _currentMachineSystem.GetMachineHealth();
         robotHealth.CalculateDamage(robotHealth.GetMaxHealth());
-        UpdateDestroyButtonState();
+        DeselectAllMachineItems();
+        UpdateStatTexts();
     }
 
     public void UpdateDestroyButtonState()
@@ -149,6 +162,7 @@ public class MachinePanel : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnMachineDie -= UpdateDestroyButtonState;
-        CustomEvents.OnDestroyMachineProduction -= ClosePanelAfterDestroyMachineProductionBuilding;
+        CustomEvents.OnDestroyMachineProductionBuilding -= ClosePanelAfterDestroyMachineProductionBuilding;
+        CustomEvents.OnMachineTakeDamage -= UpdateStatTexts;
     }
 }

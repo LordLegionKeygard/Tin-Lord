@@ -13,10 +13,11 @@ public class MachinesDataMission : MonoBehaviour
 
     //Current
     public int GetCurrentLevel() => _machineLevel;
-    public int GetCurrentMeleeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetMeleeDamage(GetCurrentLevel());
-    public int GetCurrentRangeDamage() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetRangeDamage(GetCurrentLevel());
-    public float GetCurrentDurability() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].GetDurability(GetCurrentLevel());
-    public float GetDetectionRadius() => _machineInformation[(int)_currentMachineSystem.GetMachineType()].DetectionRadius;
+    public MachineInformation GetMachineInformation() => _machineInformation[(int)_currentMachineSystem.GetMachineType()];
+    public int GetCurrentMeleeDamage() => GetMachineInformation().GetMeleeDamage(GetCurrentLevel());
+    public int GetCurrentRangeDamage() => GetMachineInformation().GetRangeDamage(GetCurrentLevel());
+    public float GetCurrentDurability() => GetMachineInformation().GetDurability(GetCurrentLevel());
+    public float GetDetectionRadius() => GetMachineInformation().DetectionRadius;
 
 
     //Select
@@ -71,6 +72,7 @@ public class MachinesDataMission : MonoBehaviour
     {
         _machineLevel++;
         _machineExperience = 0;
+        if(_currentMachineSystem.IsHaveMachine()) _currentMachineSystem.GetMachineHealth().SetNewLevelHealth();
         _robotPanel.UpdateStatTexts();
     }
 

@@ -31,6 +31,13 @@ public class MachineHealth : BaseHealth
         UpdateSlider();
     }
 
+    public void SetNewLevelHealth()
+    {
+        _maxHealth = MachinesDataMission.Instance.GetCurrentDurability();
+        _currentHealth += MachinesDataMission.Instance.GetMachineInformation().MachineLevelInfo.FactorDurability;
+        UpdateSlider();
+    }
+
     public override void CalculateDamage(float damage, float knockBackPoints = 0)
     {
         base.CalculateDamage(damage, knockBackPoints);

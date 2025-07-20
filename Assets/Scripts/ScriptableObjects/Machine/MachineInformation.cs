@@ -8,7 +8,7 @@ public class MachineInformation : ScriptableObject
     public MachineType MachineType;
     public float DetectionRadius;
     public int RequiredBuildingLevel;
-    [SerializeField] private MachineLevelInfo MachineLevelInfo;
+    public MachineLevelInfo MachineLevelInfo;
     public ResourceWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства
 
     public float GetDurability(int level) => MachineLevelInfo.StartDurability + MachineLevelInfo.FactorDurability * level;

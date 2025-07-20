@@ -9,7 +9,7 @@ public class MachineItem : MonoBehaviour
 {
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [Inject] private readonly MissionResources _missionResources;
-    [SerializeField] private MachineInformation _macniheInformation;
+    [SerializeField] private MachineInformation _machineInformation;
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private MachineSpawnerSystem _machineSpawnerSystem;
     private bool _isSelect;
@@ -18,19 +18,18 @@ public class MachineItem : MonoBehaviour
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Image _icon;
-    [SerializeField] private Button _button;
     [SerializeField] private Image _backImage;
 
     [Header("Other")]
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
-    [FormerlySerializedAs("_worldResourcesView")] [SerializeField] private ResourcesViewMission resourcesViewMission;
+    [FormerlySerializedAs("_worldResourcesView")][SerializeField] private ResourcesViewMission resourcesViewMission;
     private bool _resourcesEnough;
 
-    public int GetRequiredBuildingLevel() => _macniheInformation.RequiredBuildingLevel;
+    public int GetRequiredBuildingLevel() => _machineInformation.RequiredBuildingLevel;
     public bool CanRepair() => _currentMachineSystem.IsHaveMachine() &&
                                 !_currentMachineSystem.IsMachineDeath() &&
                                 !_currentMachineSystem.GetMachineHealth().IsFullHealth() &&
-                                _macniheInformation.MachineType == _currentMachineSystem.GetMachineType();
+                                _machineInformation.MachineType == _currentMachineSystem.GetMachineType();
 
 
     private void Start()
@@ -50,8 +49,8 @@ public class MachineItem : MonoBehaviour
 
     public void UpdateView()
     {
-        _nameText.text = CanRepair() ? _missionHangarSystem.GetRepairText() : _macniheInformation.Name[Language.LanguageNumber];
-        _icon.sprite = _macniheInformation.MachineSprite;
+        _nameText.text = CanRepair() ? _missionHangarSystem.GetRepairText() : _machineInformation.Name[Language.LanguageNumber];
+        _icon.sprite = _machineInformation.MachineSprite;
         if (_isSelect)
         {
             SetButtonAndTextColor();
@@ -61,6 +60,8 @@ public class MachineItem : MonoBehaviour
 
     public void SelectView()
     {
+        if (_currentMachineSystem.IsHaveMachine() && _machineInformation.MachineType != _currentMachineSystem.GetMachineType()) return;
+
         _machinePanel.DeselectAllMachineItems();
         SelectToggleState(true);
         UpdateResourceCells();
@@ -78,17 +79,21 @@ public class MachineItem : MonoBehaviour
     public void SelectToggleState(bool state)
     {
         _isSelect = state;
-        _machinePanel.UpdateMachineInfo(_macniheInformation);
+        _machinePanel.UpdateMachineInfo(_machineInformation);
         SetButtonAndTextColor();
     }
 
     public void SetButtonAndTextColor()
     {
+        var isDeath = _currentMachineSystem.IsMachineDeath();
+        var haveAliveMachine = _currentMachineSystem.IsHaveMachine() && !isDeath;
+        var currentMachineDeath = _currentMachineSystem.IsHaveMachine() && isDeath;
+        var isCurrentMachineType = _machineInformation.MachineType == _currentMachineSystem.GetMachineType();
+
         _resourcesEnough = _missionResources.ResourcesEnough(GetResources());
-        _button.enabled = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? _currentMachineSystem.GetMachineHealth().IsFullHealth() || _currentMachineSystem.GetMachineHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
-        _nameText.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() ? Colors.LightGreen : Colors.GreyEight : _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
-        _icon.color = _currentMachineSystem.IsHaveMachine() ? _macniheInformation.MachineType == _currentMachineSystem.GetMachineType() && !_currentMachineSystem.GetMachineHealth().IsDeath() ? Color.white : Colors.GreyFive : _isSelect ? Color.white : Colors.GreyEight;
-        _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
+        _nameText.color = haveAliveMachine ? isCurrentMachineType ? Colors.LightGreen : Colors.GreyEight : currentMachineDeath && isCurrentMachineType ? Color.red : _resourcesEnough ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
+        _icon.color = haveAliveMachine ? isCurrentMachineType && !isDeath ? Color.white : Colors.GreyFive : _isSelect && !currentMachineDeath ? Color.white : Colors.GreyFive;
+        _backImage.color = _isSelect && !currentMachineDeath ? Color.white : Colors.GreyEight;
     }
 
     public ResourceWrapper[] GetResources()
@@ -98,7 +103,7 @@ public class MachineItem : MonoBehaviour
             var robotHealth = _currentMachineSystem.GetMachineHealth();
             float healthPercentage = (float)(robotHealth.GetMaxHealth() - robotHealth.GetCurrentHealth()) / robotHealth.GetMaxHealth();
 
-            return _macniheInformation.ResourcesForBuild
+            return _machineInformation.ResourcesForBuild
                 .Select(resource => new ResourceWrapper
                 {
                     ResourceEnum = resource.ResourceEnum,
@@ -107,12 +112,18 @@ public class MachineItem : MonoBehaviour
                 .ToArray();
         }
 
-        return _macniheInformation.ResourcesForBuild;
+        return _machineInformation.ResourcesForBuild;
     }
 
     public void CreateOrRepairMachine()
     {
-        if (!_button.enabled) return;
+        var canCreateOrRepair = _currentMachineSystem.IsHaveMachine() ? _machineInformation.MachineType == _currentMachineSystem.GetMachineType() ? _currentMachineSystem.GetMachineHealth().IsFullHealth() || _currentMachineSystem.GetMachineHealth().IsDeath() ? false : _resourcesEnough : false : _resourcesEnough;
+
+        if (!canCreateOrRepair)
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+            return;
+        }
 
         resourcesViewMission.ResetCells();
         _missionResources.UseResourcesForBuilding(GetResources());
@@ -123,13 +134,15 @@ public class MachineItem : MonoBehaviour
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Repair], transform.position);
             CustomEvents.FireRepairMachine();
             UpdateView();
+            _machinePanel.UpdateStatTexts();
         }
         else
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-            _machineSpawnerSystem.SpawnMachine(_macniheInformation.MachineType);
+            _machineSpawnerSystem.SpawnMachine(_machineInformation.MachineType);
             _machinePanel.RefreshAllMachineItemsView();
             _machinePanel.UpdateDestroyButtonState();
+            _machinePanel.UpdateStatTexts();
         }
     }
 

@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 1407918202575798087}
   - component: {fileID: 9020130809318818085}
   - component: {fileID: 7610382905754283967}
-  - component: {fileID: 518699528786811372}
+  - component: {fileID: 645218132170262859}
   m_Layer: 5
   m_Name: MachineItem
   m_TagString: Untagged
@@ -361,17 +361,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137be82c16f26e34da7eebf44dc400fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _macniheInformation: {fileID: 11400000, guid: 54887ecd7095ab348ab7432e1861a6d7,
-    type: 2}
+  _machineInformation: {fileID: 0}
   _machinePanel: {fileID: 0}
   _machineSpawnerSystem: {fileID: 0}
   _nameText: {fileID: 7396971351300841583}
   _icon: {fileID: 5914226276301972922}
-  _button: {fileID: 9020130809318818085}
   _backImage: {fileID: 1407918202575798087}
   _currentMachineSystem: {fileID: 0}
-  _worldResourcesView: {fileID: 0}
---- !u!114 &518699528786811372
+  resourcesViewMission: {fileID: 0}
+--- !u!114 &645218132170262859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

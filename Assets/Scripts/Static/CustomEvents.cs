@@ -129,10 +129,10 @@ public class CustomEvents
         OnDataLoad?.Invoke();
     }
 
-    public static Action OnDestroyMachineProduction;
-    public static void FireDestroyMachineProduction()
+    public static Action OnDestroyMachineProductionBuilding;
+    public static void FireDestroyMachineProductionBuilding()
     {
-        OnDestroyMachineProduction?.Invoke();
+        OnDestroyMachineProductionBuilding?.Invoke();
     }
 
     public static Action<SceneEnum, float, Sprite> OnLoadScene;
