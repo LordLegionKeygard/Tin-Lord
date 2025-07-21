@@ -68,7 +68,7 @@ public class WorldGameInfo
 
     [Header("EndMissionFragmentsPercent")]
     public const int DefeatFragmentsPercent = 5;
-    public const int EscapeFragmentsPercent = 20;
+    public const int EscapeFragmentsPercent = 60;
     public const int VictoryFragmentsPercent = 100;
 
     [Header("Sounds")]

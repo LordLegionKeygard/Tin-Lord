@@ -122,7 +122,7 @@ public class EndMissionSystem : MonoBehaviour
     {
         var aiCores = missionEndEnum == MissionEndEnum.Victory ? 0 : -1;
         var quants = missionEndEnum == MissionEndEnum.Victory ? _missionQuantSystem.GetQuants() : 0;
-        if (missionEndEnum == MissionEndEnum.Victory)
+        if (missionEndEnum is MissionEndEnum.Victory or MissionEndEnum.Escape)
         {
             var saveData = _spaceSaveGame.SpaceSaveData;
             var map = saveData.Map;
