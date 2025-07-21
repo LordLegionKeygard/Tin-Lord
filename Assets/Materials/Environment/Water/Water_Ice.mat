@@ -14,7 +14,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -119,11 +119,11 @@ Material:
     - _ColorMix: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth: -4.1
+    - _Depth: 0
     - _DiffuseRim: 3
     - _DifuseIntensityIBL: 2
     - _Displacement: 1
-    - _Distorsion: -0.2
+    - _Distorsion: 0
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 1
     - _DistortionStrength: 11.16
@@ -131,7 +131,7 @@ Material:
     - _DstBlend: 10
     - _EmissionEnabled: 0
     - _EnvironmentReflections: 1
-    - _Falloff: -0.64
+    - _Falloff: 0
     - _FlipbookMode: 0
     - _FoamDepth: 0.25
     - _FoamFalloff: 2.16
@@ -144,14 +144,14 @@ Material:
     - _Metallic: 0.681
     - _Metalness: 0.5
     - _Mode: 3
-    - _NormalBorderScale: 10
+    - _NormalBorderScale: 4.51
     - _NormalRefraction: 1.22
-    - _NormalScale: 0.47
+    - _NormalScale: 4
     - _Offset: 1
     - _Opacity: 0.444
     - _OpacityClip: 0
     - _OpacityPower: 1.7
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Refraction: -0.23
@@ -170,7 +170,7 @@ Material:
     - _TessPhongStrength: 0.5
     - _TessValue: 16
     - _TopDownMask: 0.8214286
-    - _TransAmbient: 0.188
+    - _TransAmbient: 0.13
     - _TransDirect: 0.9
     - _TransNormal: 0.595
     - _TransScattering: 16.1
@@ -199,7 +199,7 @@ Material:
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SpecXYSnsZW: {r: 0, g: 0, b: 0, a: 0}
     - _SpeedAB: {r: 0, g: 1, b: 0, a: 0.5}
-    - _UVScale: {r: 0.02, g: -0.04, b: 0, a: 0}
+    - _UVScale: {r: 0.05, g: 0.05, b: 0, a: 0}
     - _VelocityXYFoamZ: {r: 0.02, g: 0.01, b: 0, a: 0}
     - __VelocityXYFoamZ: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
