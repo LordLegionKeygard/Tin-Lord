@@ -58,7 +58,7 @@ public class SkillTraderPanel : MonoBehaviour
 
     public void BuySkill()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
         _quantsSystem.ChangeQuants(-_currentSkill.QuantPrice);
         _spaceSaveGame.SpaceSaveData.OpenedSkills[(int)_currentSkill.SkillEnum] = true;
         _spaceSaveGame.SaveDataToJson();

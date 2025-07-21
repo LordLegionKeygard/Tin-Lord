@@ -35,8 +35,20 @@ public class MachineItem : MonoBehaviour
     private void Start()
     {
         UpdateView();
+        CustomEvents.OnTimeTick += TimeTickUpdateMachineItem;
         CustomEvents.OnMachineDie += UpdateViewAfterMachineDie;
         CustomEvents.OnMachineTakeDamage += UpdateView;
+    }
+
+    private void TimeTickUpdateMachineItem()
+    {
+        if (_machinePanel.PanelActive())
+        {
+            if (_currentMachineSystem.IsHaveMachine() && _machineInformation.MachineType != _currentMachineSystem.GetMachineType()) return;
+
+            SetButtonAndTextColor();
+            UpdateResourceCells();
+        }
     }
 
     private void UpdateViewAfterMachineDie()
@@ -85,7 +97,7 @@ public class MachineItem : MonoBehaviour
 
     public void SetButtonAndTextColor()
     {
-        var isDeath = _currentMachineSystem.IsMachineDeath();
+        var isDeath = _currentMachineSystem.IsHaveMachine() ? _currentMachineSystem.IsMachineDeath() : false;
         var haveAliveMachine = _currentMachineSystem.IsHaveMachine() && !isDeath;
         var currentMachineDeath = _currentMachineSystem.IsHaveMachine() && isDeath;
         var isCurrentMachineType = _machineInformation.MachineType == _currentMachineSystem.GetMachineType();
@@ -148,6 +160,7 @@ public class MachineItem : MonoBehaviour
 
     private void OnDestroy()
     {
+        CustomEvents.OnTimeTick -= TimeTickUpdateMachineItem;
         CustomEvents.OnMachineDie -= UpdateViewAfterMachineDie;
         CustomEvents.OnMachineTakeDamage -= UpdateView;
     }

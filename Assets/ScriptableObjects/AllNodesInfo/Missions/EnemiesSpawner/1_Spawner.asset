@@ -60,7 +60,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 30
     SpawnPeriod: 3
-    Count: 35
+    Count: 30
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
   - DaySpawn: 15
     Count: 1
     HealthFactor: 6
-    DamageFactor: 1
+    DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - DaySpawn: 30
     Count: 2
-    HealthFactor: 8
+    HealthFactor: 6
     DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - DaySpawn: 40
     Count: 3
-    HealthFactor: 8
+    HealthFactor: 6
     DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
