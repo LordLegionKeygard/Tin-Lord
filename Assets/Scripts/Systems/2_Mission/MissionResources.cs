@@ -12,7 +12,7 @@ public class MissionResources : MonoBehaviour
     {
         for (int i = 0; i < _resourcesWrapper.Length; i++)
         {
-            if(resource == _resourcesWrapper[i].Resource)
+            if (resource == _resourcesWrapper[i].Resource)
             {
                 return i;
             }
@@ -64,8 +64,8 @@ public class MissionResources : MonoBehaviour
 
     public void UseResourcesForBuilding(ResourceWrapper[] resourcesForBuildWrapper)
     {
-        if(_test) return;
-        
+        if (_test) return;
+
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
             _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount -= resourcesForBuildWrapper[i].RecourceAmount;
@@ -78,7 +78,7 @@ public class MissionResources : MonoBehaviour
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
             float healthFactor = Mathf.Clamp01(buildingHealthPercent); // Убеждаемся, что значение в пределах [0, 1]
-            float returnedAmount = resourcesForBuildWrapper[i].RecourceAmount / 2 * healthFactor;
+            float returnedAmount = resourcesForBuildWrapper[i].RecourceAmount * WorldGameInfo.DestroyConstructionBuildingResourcePercent * healthFactor;
             _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount += returnedAmount;
         }
 
@@ -87,7 +87,7 @@ public class MissionResources : MonoBehaviour
 
     public bool ResourcesEnough(ResourceWrapper[] resourcesForBuildWrapper)
     {
-        if(_test) return true;
+        if (_test) return true;
 
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {

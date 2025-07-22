@@ -1,10 +1,9 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class DestroyPanel : MonoBehaviour
 {
-    [FormerlySerializedAs("_resourcesView")] [SerializeField] private ResourcesViewMission resourcesViewMission;
+    [SerializeField] private ResourcesViewMission _resourcesViewMission;
     [SerializeField] private TextMeshProUGUI _headerText;
     [SerializeField] private TextMeshProUGUI _descriptionText;
 
@@ -15,13 +14,20 @@ public class DestroyPanel : MonoBehaviour
 
         if (isBuilding)
         {
-            resourcesViewMission.SetReturnedResources(
-                tileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild,
-                tileObject.BuildingHealth().GetCurrentHealthPercent());
+            if (tileObject.BuildingTileObject().IsConstructionNow()) // если мы уничтожили строящееся нами здание, то возвращаем половину ресурсов, передаем 100 хп
+            {
+                Debug.Log("Info IsConstructionNow");
+                _resourcesViewMission.SetReturnedResources(tileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild, 100);
+            }
+            else // если мы уничтожаем обычное, не строящееся здание, то показываем процент ресурсы от % текущего здоровья здания
+            {
+                Debug.Log("Info Just building");
+                _resourcesViewMission.SetReturnedResources(tileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild, tileObject.BuildingHealth().GetCurrentHealthPercent());
+            }
         }
         else
         {
-            resourcesViewMission.SetResourcesView(new ResourceWrapper[]
+            _resourcesViewMission.SetResourcesView(new ResourceWrapper[]
             {
                 new ResourceWrapper
                 {

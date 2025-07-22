@@ -292,15 +292,30 @@ public class BuildingTile : MonoBehaviour
       return true;
    }
 
+   public void AddResourcesAfterDestroyBuilding()
+   {
+      if (_buildingHealth.GetCurrentHealth() > 0)
+      {
+         if (_isConstructionNow) // если мы уничтожили строящееся нами здание, то возвращаем половину ресурсов
+         {
+            Debug.Log("DestroyBuildingTile _isConstructionNow");
+            _missionResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, 100);
+         }
+         else // если мы апгрейдим здание или уничтожаем обычное здание, то получаем только % ресурсов от прошлого здоровья здания
+         {
+            Debug.Log("DestroyBuildingTile JustBuilding or Upgrade");
+            _missionResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
+         }
+      }
+   }
+
    /// <summary>
    /// Можно вызывать только при строительстве нового здания или после вызова смерти здания
    /// </summary>
-   public void DestroyBuildingTile(bool isUpgrade)
+   public void DestroyBuildingTile()
    {
       if (_currentBuildingTile == null) return;
       StopConstruction();
-
-      if (isUpgrade) _missionResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
 
       if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Walls)
       {
@@ -309,7 +324,7 @@ public class BuildingTile : MonoBehaviour
 
          RefreshNeighbourWallTiles();
       }
-      if (!isUpgrade) _buildingHealth.DestroyHealthSlider();
+      _buildingHealth.DestroyHealthSlider(); // вызываем еще раз, так как есть ситуации, когда не вызывается уничтожение слайдера, например уничтожаем сами, а не через реальную смерть
       _currentBuildingTile = null;
       _currentLevel = 0;
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);

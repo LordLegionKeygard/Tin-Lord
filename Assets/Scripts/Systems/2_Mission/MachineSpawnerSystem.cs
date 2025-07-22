@@ -26,7 +26,8 @@ public class MachineSpawnerSystem : MonoBehaviour
                 {
                     if (buildingTileObject.IsConstructionNow())
                     {
-                        buildingTileObject.DestroyBuildingTile(false);
+                        buildingTileObject.AddResourcesAfterDestroyBuilding();
+                        buildingTileObject.DestroyBuildingTile();
                     }
                     else
                     {

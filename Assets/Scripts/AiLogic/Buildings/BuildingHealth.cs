@@ -163,6 +163,7 @@ public class BuildingHealth : BaseHealth
         }
 
         base.Death();
+        _buildingTile.AddResourcesAfterDestroyBuilding(); // вызываем здесь, чтобы вызвать до StopConstruction
         _buildingTile.StopConstruction();
         _tileObject.ToggleIsBuildingDestroyedNow(true);
         CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.ConstructBuilding, -1);
@@ -191,7 +192,7 @@ public class BuildingHealth : BaseHealth
             }
         }
 
-        _buildingTile.DestroyBuildingTile(_currentHealth > 0);
+        _buildingTile.DestroyBuildingTile();
         _tileObject.ToggleIsBuildingDestroyedNow(false);
     }
 

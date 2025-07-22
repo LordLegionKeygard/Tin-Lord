@@ -249,7 +249,6 @@ public class SelectTilePanel : MonoBehaviour
         var currentBuildingTile = haveBuildingNow ? buildingTile.CurrentBuildingTile() : null;
 
         var isRoad = currentGroundTile.GroundTileView == GroundTileViewEnum.Road;
-        var isForwardRoad = _tileObject.GroundTileObject().IsForwardRoad();
         var isBase = currentGroundTile.GroundTileView == GroundTileViewEnum.BaseFoundation;
         var isMachineProduction = buildingTile.HaveTile() && buildingTile.HaveBuildingGameObject() && buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.MachineProduction;
         var isWater = currentGroundTile.IsWater;
@@ -268,9 +267,9 @@ public class SelectTilePanel : MonoBehaviour
         var buildButtonState = canRepairOrUpgrade && groundHaveBuildings && !isConstructionNow;
         var workButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
         var generalRepairButtonState = haveBuildingNow && _allSkills.IsSkillOpen(SkillEnum.GeneralRepair);
-        var rotateButtonState = haveRotationViewGround || canRotateBuilding;
+        var rotateButtonState = haveRotationViewGround && canRotateBuilding;
         var machineButtonState = haveBuildingNow && isMachineProduction;
-        var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase && !isConstructionNow;
+        var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase;
 
         _buildButton.SetActive(buildButtonState);
         _workButton.SetActive(workButtonState);

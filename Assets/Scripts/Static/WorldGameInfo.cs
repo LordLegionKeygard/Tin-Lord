@@ -60,6 +60,7 @@ public class WorldGameInfo
     public const float TurretPatrolRotateSpeedFactor = 0.5f;
 
     [Header("Buildings")]
+    public const float DestroyConstructionBuildingResourcePercent = 0.5f;
     public const float ConstructionSpeed = 1.5f;
     public const float FirstBaseConstructionSpeed = 40;
 

@@ -93,22 +93,25 @@ public class BuildingItem : MonoBehaviour
         _buildingResourcesViewMission.ResetCells();
         _missionResources.UseResourcesForBuilding(GetResources());
 
+        var buildingTile = _currentTileObject.BuildingTileObject();
+
         switch (_currentBuildingState)
         {
             case BuildingState.FirstBuild:
                 AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
-                _currentTileObject.BuildingTileObject().BeginConstruction(_currentTile, _buildingIndex, false);
+                buildingTile.BeginConstruction(_currentTile, _buildingIndex, false);
                 break;
             case BuildingState.UpgradeBuilding:
                 AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
                 if (_currentTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.BaseFoundation))
                 {
-                    _currentTileObject.BuildingTileObject().UpgradeBaseBuilding(_buildingIndex, _currentTileObject);
+                    buildingTile.UpgradeBaseBuilding(_buildingIndex, _currentTileObject);
                 }
                 else
                 {
-                    _currentTileObject.BuildingTileObject().DestroyBuildingTile(true);
-                    _currentTileObject.BuildingTileObject().BeginConstruction(_currentTile, _buildingIndex, false);
+                    buildingTile.AddResourcesAfterDestroyBuilding();
+                    buildingTile.DestroyBuildingTile(); // получается при апгрейде здания, мы сначала уничтожаем прошлое здание и получаем такое кол-во ресурсов, какой процент хп у него остался
+                    buildingTile.BeginConstruction(_currentTile, _buildingIndex, false);
                 }
                 break;
             case BuildingState.Repair:

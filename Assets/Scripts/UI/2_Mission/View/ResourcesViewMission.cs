@@ -35,7 +35,7 @@ public class ResourcesViewMission : BaseResourceView
         for (int i = 0; i < resources.Length; i++)
         {
             float healthFactor = Mathf.Clamp01(buildingHealthPercent); // Убеждаемся, что значение в пределах [0, 1]
-            float returnedAmount = resources[i].RecourceAmount / 2 * healthFactor;
+            float returnedAmount = resources[i].RecourceAmount * WorldGameInfo.DestroyConstructionBuildingResourcePercent * healthFactor;
 
             // Преобразуем в целое число
             int roundedAmount = (int)Math.Floor(returnedAmount);
