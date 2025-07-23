@@ -282,8 +282,8 @@ public class Language : MonoBehaviour
         _text[84, 0] = "Robots";
         _text[84, 1] = "Роботы";
 
-        _text[85, 0] = "Drones";
-        _text[85, 1] = "Дроны";
+        _text[85, 0] = "";
+        _text[85, 1] = "";
 
         _text[86, 0] = "You cannot restart the mission.\n\nYou have no spare AI cores.";
         _text[86, 1] = "Вы не можете начать миссию с начала.\n\nУ вас нет запасных ядер ИИ.";
@@ -732,8 +732,8 @@ public class Language : MonoBehaviour
         _text[234, 0] = "Cancel skill targeting";
         _text[234, 1] = "Отменить прицел умения";
 
-        _text[235, 0] = "Select skill";
-        _text[235, 1] = "Выберите умение";
+        _text[235, 0] = "";
+        _text[235, 1] = "";
 
         _text[236, 0] = "Skill";
         _text[236, 1] = "Умение";

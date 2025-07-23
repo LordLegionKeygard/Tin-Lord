@@ -110,7 +110,6 @@ public class WorldGameInfo
 
     [Header("Hangar")]
     public const int HangarRobotsCount = 3;
-    public const int HangarDronesCount = 3;
     public const int HangarCratesCount = 3;
     public const int HangarSkillsCount = 4;
 

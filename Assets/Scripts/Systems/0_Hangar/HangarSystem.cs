@@ -36,15 +36,7 @@ public class HangarSystem : MonoBehaviour
     [SerializeField] private int _currentSelectRobot = -1;
     private Coroutine _robotEyeCoroutine;
 
-    [Header("Drone")]
-    [SerializeField] private GameObject _buyDroneButtonObject;
-    [SerializeField] HangarDroneItem[] _hangarDroneItems;
-    [SerializeField] private GameObject[] _droneModels;
-    [SerializeField] private TextMeshProUGUI _droneDescription;
-    [SerializeField] private int _currentDrone = -1;
-    [SerializeField] private int _currentSelectDrone = -1;
-
-    [Header("Drone")]
+    [Header("Crates")]
     [SerializeField] private GameObject _buyCrateButtonObject;
     [SerializeField] HangarCrateItem[] _hangarCrateItems;
     [SerializeField] private GameObject[] _crateModels;
@@ -73,11 +65,6 @@ public class HangarSystem : MonoBehaviour
             _hangarRobotItems[i].SetIsOpen(hangarSaveData.OpenedRobots[i]);
         }
 
-        for (int i = 0; i < _hangarDroneItems.Length; i++)
-        {
-            _hangarDroneItems[i].SetIsOpen(hangarSaveData.OpenedDrones[i]);
-        }
-
         for (int i = 0; i < _hangarCrateItems.Length; i++)
         {
             _hangarCrateItems[i].SetIsOpen(hangarSaveData.OpenedCrates[i]);
@@ -98,18 +85,6 @@ public class HangarSystem : MonoBehaviour
         }
 
         return openedRobots;
-    }
-
-    public bool[] GetOpenedDrones()
-    {
-        var openedDrones = new bool[_hangarDroneItems.Length];
-
-        for (int i = 0; i < _hangarDroneItems.Length; i++)
-        {
-            openedDrones[i] = _hangarDroneItems[i].IsOpen();
-        }
-
-        return openedDrones;
     }
 
     public bool[] GetOpenedCrates()
@@ -228,42 +203,6 @@ public class HangarSystem : MonoBehaviour
         UpdateLaunchButtonActive();
     }
 
-    public void SelectDrone(HangarDroneType droneType, bool isOpen)
-    {
-        for (int i = 0; i < _hangarDroneItems.Length; i++)
-        {
-            _hangarDroneItems[i].SelectToggleState(false);
-        }
-
-        _hangarDroneItems[(int)droneType].SelectToggleState(true);
-        _buyDroneButtonObject.SetActive(!isOpen);
-
-        switch (droneType)
-        {
-            case HangarDroneType.Scout:
-                _droneDescription.text = isOpen ? $"{Language.TextStatic[193]}:\n{Language.TextStatic[195]}" : $"{Language.TextStatic[193]}:\n{Language.TextStatic[194]}";
-                break;
-            case HangarDroneType.Engineer:
-                _droneDescription.text = isOpen ? $"{Language.TextStatic[193]}:\n{Language.TextStatic[196]}" : $"{Language.TextStatic[193]}:\n{Language.TextStatic[194]}";
-                break;
-            case HangarDroneType.Combat:
-                _droneDescription.text = isOpen ? $"{Language.TextStatic[193]}:\n{Language.TextStatic[197]}" : $"{Language.TextStatic[193]}:\n{Language.TextStatic[194]}";
-                break;
-        }
-
-        _currentSelectDrone = (int)droneType;
-        _currentDrone = (int)droneType;
-
-        if (isOpen)
-        {
-            foreach (var item in _droneModels)
-            {
-                item.SetActive(false);
-            }
-            _droneModels[(int)droneType].SetActive(true);
-        }
-    }
-
     public void SelectCrate(HangarCrateType crateType, bool isOpen)
     {
         for (int i = 0; i < _hangarCrateItems.Length; i++)
@@ -329,6 +268,10 @@ public class HangarSystem : MonoBehaviour
         {
             _skillDescription.text = Language.TextStatic[221];
         }
+        else if (isExit)
+        {
+            _skillDescription.text = "-";
+        }
         else
         {
             var info = _hangarSkillItems[(int)skillType].GetInfo();
@@ -371,23 +314,6 @@ public class HangarSystem : MonoBehaviour
             _shardsSystem.ChangeShards(-robotInfo.Price);
             _hangarRobotItems[_currentSelectRobot].SetIsOpen(true);
             SelectRobot(robotInfo.HangarRobotType, true);
-            _hangarSaveGame.SaveDataToJson();
-        }
-        else
-        {
-            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
-        }
-    }
-
-    public void BuyDrone()
-    {
-        var droneInfo = _hangarDroneItems[_currentSelectDrone].GetInfo();
-        if (EnoughtShards(droneInfo.Price))
-        {
-            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
-            _shardsSystem.ChangeShards(-droneInfo.Price);
-            _hangarDroneItems[_currentSelectDrone].SetIsOpen(true);
-            SelectDrone(droneInfo.HangarDroneType, true);
             _hangarSaveGame.SaveDataToJson();
         }
         else
@@ -502,7 +428,6 @@ public class HangarSystem : MonoBehaviour
         };
 
         data.HangarCommandCenterData.Robot = _currentRobot;
-        data.HangarCommandCenterData.Drone = _currentDrone;
 
         foreach (var wrapper in _hangarCrateItems[_currentCrate].GetInfo().ResourceWrapper)
         {

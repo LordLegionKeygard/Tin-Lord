@@ -8,7 +8,6 @@ public class ChangeLanguageHangar : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] _hangarButtonsText;
     [SerializeField] private TextMeshProUGUI[] _buyTexts;
     [SerializeField] private TextMeshProUGUI[] _hangarHeaderTexts;
-    [SerializeField] private TextMeshProUGUI _selectSkillText;
 
     private void Start()
     {
@@ -30,9 +29,6 @@ public class ChangeLanguageHangar : MonoBehaviour
         _hangarHeaderTexts[0].text = Language.TextStatic[84];
         _hangarHeaderTexts[1].text = Language.TextStatic[179];
         _hangarHeaderTexts[2].text = Language.TextStatic[202];
-        _hangarHeaderTexts[3].text = Language.TextStatic[85];
-
-        _selectSkillText.text = Language.TextStatic[235];
     }
 
 }
