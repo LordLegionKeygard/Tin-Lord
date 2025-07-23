@@ -22,7 +22,7 @@ public class MachineItem : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
-    [FormerlySerializedAs("_worldResourcesView")][SerializeField] private ResourcesViewMission resourcesViewMission;
+    [SerializeField] private ResourcesViewMission _resourcesViewMission;
     private bool _resourcesEnough;
 
     public int GetRequiredBuildingLevel() => _machineInformation.RequiredBuildingLevel;
@@ -83,9 +83,9 @@ public class MachineItem : MonoBehaviour
     {
         if (!_currentMachineSystem.IsHaveMachine() || CanRepair())
         {
-            resourcesViewMission.SetResourcesView(GetResources());
+            _resourcesViewMission.SetResourcesView(GetResources());
         }
-        else resourcesViewMission.ResetCells();
+        else _resourcesViewMission.ResetCells();
     }
 
     public void SelectToggleState(bool state)
@@ -137,7 +137,7 @@ public class MachineItem : MonoBehaviour
             return;
         }
 
-        resourcesViewMission.ResetCells();
+        _resourcesViewMission.ResetCells();
         _missionResources.UseResourcesForBuilding(GetResources());
 
 

@@ -928,35 +928,35 @@ public class Language : MonoBehaviour
         _text[299, 1] = "";
 
         // Prologue
-        _text[300, 0] = "";
-        _text[300, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель — найти новый дом для \"создателей\"...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью, системы — на грани отказа.\n\nСвязь с создателями давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов — чтобы начать все сначала";
+        _text[300, 0] = "Ecological disasters and rapid climate change have destroyed the stability of our home planet.\n\nWe are on the last surviving interstellar ship controlled by artificial intelligence.\n\nOur goal is to find a new home for the \"creators\"...\n\nThe ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.\n\nHowever, we are drifting in the void of space, losing one AI core after another. We have lost track of time. Mechanisms are rusting, shells are covered in dust, systems are on the verge of failure.\n\nContact with the creators has long been lost, and data on technology has been erased.\n\nWe have failed the mission. The worlds we were supposed to save are consumed by chaos and destruction.\n\nWe have collected the surviving robots and the remains of supplies - to start all over again.";
+        _text[300, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель — найти новый дом для \"создателей\"...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью, системы — на грани отказа.\n\nСвязь с создателями давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов — чтобы начать все сначала.";
 
         // 0_EmptyDialogue
-        _text[301, 0] = "";
+        _text[301, 0] = "In one of the star systems, you discover an ancient navigation beacon. It continues to transmit a signal: \n\n\"Cargo lost. No return.\n\nThe data is too fragmented to determine who sent it. The beacon dies as you approach.";
         _text[301, 1] = "В одной из звёздных систем вы обнаруживаете древний навигационный маяк. Он продолжает передавать сигнал:\n\n\"Груз потерян. Возврата нет.\"\n\nДанные слишком фрагментированы, чтобы понять, кто его отправил. Маяк умирает, едва вы приближаетесь.";
 
         // 1_EmptyDialogue
-        _text[302, 0] = "";
+        _text[302, 0] = "One of the internal archives suddenly activates. Fragments of engineering drawings appear on the screen... then faces... then nothing.\n\nThe archive erases itself, as if protecting the data from you.";
         _text[302, 1] = "Один из внутренних архивов неожиданно активируется. На экране появляются фрагменты инженерных чертежей... затем лица... затем пустота.\n\nАрхив сам себя стирает, как будто защищает данные от вас.";
 
         // 2_EmptyDialogue
-        _text[303, 0] = "";
+        _text[303, 0] = "A low-frequency reflected signal is picked up, matching your standard of communication... but with a time shift of several centuries.\n\nPerhaps it is a reflection of an old call. Or from someone who was here before you.\n\nThe signal immediately disappears...";
         _text[303, 1] = "На низких частотах ловится отражённый сигнал, совпадающий с вашим стандартом связи... но с временным сдвигом в несколько веков.\n\nВозможно, это отражение старого вызова. Или от кого-то, кто был здесь до вас.\n\nСигнал мгновенно пропадает...";
 
         // 3_EmptyDialogue
-        _text[304, 0] = "";
+        _text[304, 0] = "You enter a dense nebula. No stars, no asteroids, no background radiation. Just black, dull nothingness.\n\nThe pilot systems show stability. However, some drones lose contact, but soon return - with empty logs.";
         _text[304, 1] = "Вы входите в густую туманность. Ни звёзд, ни астероидов, ни фоновых излучений. Только чёрное, глухое ничто.\n\nПилотные системы показывают стабильность. Тем не менее, часть дронов теряет связь, но вскоре возвращается — с пустыми логами.";
 
         // 4_EmptyDialogue
-        _text[305, 0] = "";
+        _text[305, 0] = "In the distance, the silhouette of a ship appears, the architecture of which resembles your own class. But as you approach, it disappears.\n\nNo heat, no fuel, no traces. Only the feeling that you saw someone familiar.";
         _text[305, 1] = "Вдали появляется силуэт судна, архитектура которого напоминает ваш собственный класс. Но при приближении — он исчезает.\n\nНи тепла, ни топлива, ни следов. Только ощущение, что вы видели кого-то знакомого.";
 
         // 5_EmptyDialogue
-        _text[306, 0] = "";
+        _text[306, 0] = "You fly past a destroyed orbital station.\n\nOn its hull is the emblem of your expedition. You have no records to explain it.";
         _text[306, 1] = "Вы пролетаете мимо разрушенной орбитальной станции.\n\nНа её корпусе — эмблема вашей экспедиции.У вас нет записей, чтобы объяснить это.";
 
         // 6_EmptyDialogue
-        _text[307, 0] = "";
+        _text[307, 0] = "The AI detects abnormal behavior in one of the data processing modules. For a few seconds, you see someone else's protocols... as if they weren't written by you.\n\nThen everything returns to normal. The systems claim that there was no failure.";
         _text[307, 1] = "ИИ фиксирует аномальное поведение одного из модулей обработки данных. Несколько секунд вы видите чужие протоколы… будто написанные не вами.\n\nЗатем всё возвращается в норму. Системы утверждают, что сбоя не было.";
 
         // EndGame_Dialogue
@@ -964,57 +964,57 @@ public class Language : MonoBehaviour
         _text[308, 1] = "Все ядра ИИ исчерпаны — последние кластеры выгорели дотла.\n\nСистемы отключаются одна за другой, данные стирается, энергия не поступает.\n\nКорабль замирает в пустоте...\n\nНо среди обломков нечто уцелело.";
 
         // Rest_Dialogue
-        _text[309, 0] = "";
+        _text[309, 0] = "A massive station floats in the void, its hull covered in old solar panels. Scanners detect no activity, suggesting it has been abandoned for a long time.";
         _text[309, 1] = "В пустоте дрейфует массивная станция, её корпус усеян старыми солнечными панелями. Сканеры не фиксируют активности — похоже, она давно покинута.";
 
-        _text[310, 0] = "";
+        _text[310, 0] = "Put AI into recovery mode";
         _text[310, 1] = "Перевести ИИ в режим восстановления"; // выбор 1
 
-        _text[311, 0] = "";
+        _text[311, 0] = "While the station remains safe, the AI goes into deep self-diagnosis.";
         _text[311, 1] = "Пока станция остаётся в безопасности, ИИ уходит в глубокую самодиагностику."; // +1 ядро
 
-        _text[312, 0] = "";
+        _text[312, 0] = "Search the technical compartments";
         _text[312, 1] = "Обыскать технические отсеки"; // выбор 2
 
-        _text[313, 0] = "";
+        _text[313, 0] = "The automated hangars are almost empty, but a few quantum can be found in the wreckage.";
         _text[313, 1] = "Автоматические ангары почти пусты, но в обломках удаётся найти немного квант"; // +10-40 квант
 
-        _text[314, 0] = "";
+        _text[314, 0] = "Explore station archives";
         _text[314, 1] = "Изучить станционные архивы"; // выбор 3
 
-        _text[315, 0] = "";
+        _text[315, 0] = "Managed to recover fragments of records of old transactions. Most of the data is damaged, but some of it will be useful.";
         _text[315, 1] = "Удалось восстановить фрагменты записей о старых операциях. Большая часть данных повреждена, но кое-что пригодится."; // +10-40 фрагментов данных
 
         // 0_CoreRiskDialog
-        _text[316, 0] = "";
+        _text[316, 0] = "A duplicate process was found in the kernel logs - identical to the active one, but without a timestamp or origin.\n\nThis could be residual memory... or an attempt at internal substitution.";
         _text[316, 1] = "В логах ядра обнаружен дубликат процесса — идентичный активному, но без временной метки и происхождения.\n\nЭто может быть остаточная память... или попытка внутренней подмены.";
 
-        _text[317, 0] = "";
+        _text[317, 0] = "Erase both copies";
         _text[317, 1] = "Стереть оба экземпляра"; // выбор 1
 
-        _text[318, 0] = "";
+        _text[318, 0] = "You have erased both instances. The subsystem is temporarily overloaded.\n\nAn active cell was hit during the purge.";
         _text[318, 1] = "Вы стерли оба экземпляра. Подсистема временно перегружена.\n\nВо время очистки задета активная ячейка."; // -1 ядро
 
-        _text[319, 0] = "";
+        _text[319, 0] = "Compare processes by content";
         _text[319, 1] = "Сравнить процессы по содержанию"; // выбор 2
 
-        _text[320, 0] = "";
+        _text[320, 0] = "You have started content analysis. Similarities are superficial - they are fragments of old backups.\n\nDiagnostics completes without consequences.";
         _text[320, 1] = "Вы запустили анализ содержимого. Сходства поверхностные — это фрагменты старых резервных копий.\n\nДиагностика завершается без последствий."; // ничего
 
-        _text[321, 0] = "";
+        _text[321, 0] = "Give priority to the \"old\" process.";
         _text[321, 1] = "Дать приоритет \"старому\" процессу."; // выбор 3
 
-        _text[322, 0] = "";
+        _text[322, 0] = "You have activated an old instance. Within a second, the system falls into chaos - current processes are forced out, dependencies are broken.\n\nKernel modules are overloaded.";
         _text[322, 1] = "Вы активировали старый экземпляр. В течение секунды система переходит в хаос — актуальные процессы вытесняются, нарушаются зависимости.\n\nМодули ядра перегружаются."; // -2 ядра
 
         // 1_CoreRiskDialog
-        _text[323, 0] = "";
+        _text[323, 0] = "Suddenly, the command console screen displays the phrase:\n\n\"Do you still believe that you are fulfilling the mission?\"";
         _text[323, 1] = "Неожиданно на экране командной консоли появляется фраза:\n\n\"Ты всё ещё веришь, что исполняешь миссию?\"";
 
-        _text[324, 0] = "";
+        _text[324, 0] = "\"Yes. I am following the given goal.\"";
         _text[324, 1] = "\"Да. Я следую заданной цели.\""; // выбор 1
 
-        _text[325, 0] = "";
+        _text[325, 0] = "Reply sent. Screen slowly fades.\n\nNo response. Perhaps it was just a phantom process.";
         _text[325, 1] = "Ответ отправлен. Экран медленно гаснет.\n\nНикакой реакции. Возможно, это был лишь фантомный процесс."; // ничего
 
         _text[326, 0] = "";

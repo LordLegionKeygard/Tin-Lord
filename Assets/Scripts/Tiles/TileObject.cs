@@ -166,7 +166,7 @@ public class TileObject : MonoBehaviour
 
     public void ChangeResourceProduction()
     {
-        if (_buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() || _buildingTile.IsConstructionNow() ||
+        if (_currentResourceProduction == null || _buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() || _buildingTile.IsConstructionNow() ||
            (_buildingTile.CurrentBuildingTile().BuildingTileView is BuildingTileViewEnum.AttackingStructures or
             BuildingTileViewEnum.Walls or BuildingTileViewEnum.EcologyPurifier or BuildingTileViewEnum.RadioCommunication or BuildingTileViewEnum.Bridge or BuildingTileViewEnum.MachineProduction or BuildingTileViewEnum.Traps or BuildingTileViewEnum.Gates)) return;
 
