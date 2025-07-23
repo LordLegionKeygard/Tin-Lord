@@ -42,13 +42,10 @@ public class MachineItem : MonoBehaviour
 
     private void TimeTickUpdateMachineItem()
     {
-        if (_machinePanel.PanelActive())
-        {
-            if (_currentMachineSystem.IsHaveMachine() && _machineInformation.MachineType != _currentMachineSystem.GetMachineType()) return;
+        if (!_machinePanel.PanelActive() || _currentMachineSystem.IsHaveMachine() || !_isSelect) return;
 
-            SetButtonAndTextColor();
-            UpdateResourceCells();
-        }
+        SetButtonAndTextColor();
+        UpdateResourceCells();
     }
 
     private void UpdateViewAfterMachineDie()

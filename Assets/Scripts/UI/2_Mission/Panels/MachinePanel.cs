@@ -40,7 +40,11 @@ public class MachinePanel : MonoBehaviour
 
     public void PlayerInputMachineItemButton(int number)
     {
+        if (number > _machineItems.Length - 1) return;
+
         var machineItem = _machineItems[number - 1];
+
+        if (!machineItem.gameObject.activeInHierarchy) return;
 
         if (machineItem.IsSelect())
         {
