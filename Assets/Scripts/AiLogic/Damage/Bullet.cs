@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     private BulletsPool _bulletsPool;
     private BulletEnum _bulletEnum;
     protected BaseHealth _targetHealth;
-    private Transform _targetTransform;
+    protected Transform _targetTransform;
     private float _duration = 0.5f;
     private bool _isHitTarget;
     private Camera _mainCamera;
@@ -136,6 +136,7 @@ public enum BulletEnum
     BeetleProjectile = 8,
     IceCrystal = 9,
     WarBallistaBolt = 10,
+    TankBullet = 11,
 
 }
 

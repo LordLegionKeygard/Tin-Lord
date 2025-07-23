@@ -48833,9 +48833,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4029237704055614}
   - component: {fileID: 198249737743654730}
+  - component: {fileID: 3825307352465074390}
   - component: {fileID: 199633172310634586}
   - component: {fileID: 7247329600925086537}
-  - component: {fileID: 3825307352465074390}
+  - component: {fileID: 694436554902300888}
   m_Layer: 0
   m_Name: RobotSniper_Explosion
   m_TagString: Untagged
@@ -53643,6 +53644,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!135 &3825307352465074390
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892133220914832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.59
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!199 &199633172310634586
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -53727,16 +53741,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 814667594d525594d9a1d5614e61f02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &3825307352465074390
-SphereCollider:
+--- !u!114 &694436554902300888
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892133220914832}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.59
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc1facca7ee8d94e803dec4492bb08b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 3825307352465074390}
+  _needActivate: 0
+  _needDeactivate: 1
+  _needDestroy: 0
+  _activateTime: 0
+  _deactivateTime: 0.5
+  _destroyTime: 0

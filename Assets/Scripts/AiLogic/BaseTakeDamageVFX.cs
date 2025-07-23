@@ -11,7 +11,7 @@ public class BaseTakeDamageVFX : MonoBehaviour
     
     public virtual void SpawnTakeDamageVFX()
     {
-        var rndHeight = Random.Range(Height * 0.5f, Height);
+        var rndHeight = Random.Range(Height * 0.5f, Height) * transform.localScale.y;
 
         GameObject vfx = _pool.GetVFX(_vfxType);
 
