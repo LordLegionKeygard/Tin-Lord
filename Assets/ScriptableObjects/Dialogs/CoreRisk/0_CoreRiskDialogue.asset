@@ -19,35 +19,63 @@ MonoBehaviour:
       Kind: 0
       Standard:
         NextStepIndex: 1
-        Rewards: []
+        Rewards:
+        - Type: 0
+          RewardCount:
+            RewardAmountEnum: 0
+            PlusMinusEnum: 0
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
       Chance:
-        SuccessChance: 0.5
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
     - ChoiseTextNumber: 319
       Kind: 0
       Standard:
         NextStepIndex: 2
         Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
       Chance:
-        SuccessChance: 0.5
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
     - ChoiseTextNumber: 321
       Kind: 0
       Standard:
         NextStepIndex: 3
         Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
       Chance:
-        SuccessChance: 0.5
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
   - TextNumber: 318
     Choices:
     - ChoiseTextNumber: 33
@@ -56,14 +84,23 @@ MonoBehaviour:
         NextStepIndex: -1
         Rewards:
         - Type: 1
-          MinAmount: -1
-          MaxAmount: -1
+          RewardCount:
+            RewardAmountEnum: 0
+            PlusMinusEnum: 1
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
       Chance:
-        SuccessChance: 0.5
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
   - TextNumber: 320
     Choices:
     - ChoiseTextNumber: 33
@@ -71,12 +108,20 @@ MonoBehaviour:
       Standard:
         NextStepIndex: -1
         Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
       Chance:
-        SuccessChance: 0.5
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
   - TextNumber: 322
     Choices:
     - ChoiseTextNumber: 33
@@ -85,11 +130,20 @@ MonoBehaviour:
         NextStepIndex: -1
         Rewards:
         - Type: 1
-          MinAmount: -2
-          MaxAmount: -2
+          RewardCount:
+            RewardAmountEnum: 1
+            PlusMinusEnum: 1
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
       Chance:
-        SuccessChance: 0.5
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0

@@ -98,35 +98,42 @@ public class StepChoiceDrawer : PropertyDrawer
                 }
 
             case ChoiceKind.Random:
+                var listProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.PossibleRewards));
+                float hList = EditorGUI.GetPropertyHeight(listProp, true);
+                EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, hList),
+                                        listProp, true);
+                y += hList + PadY;
+                // ── RewardCount (фолдаут + 2 enum'а)
+                var rcProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.RewardCount));
+
+                // Фолдаут
+                rcProp.isExpanded = EditorGUI.Foldout(
+                    new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                    rcProp.isExpanded, new GUIContent("Reward Count"), true);
+                y += EditorGUIUtility.singleLineHeight + PadY;
+
+                // Дочерние поля, если открыт
+                if (rcProp.isExpanded)
                 {
-                    var nextProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.NextStepIndex));
+                    EditorGUI.indentLevel++;
+
+                    var amountProp = rcProp.FindPropertyRelative(nameof(RewardCount.RewardAmountEnum));
+                    var signProp = rcProp.FindPropertyRelative(nameof(RewardCount.PlusMinusEnum));
+
+                    EditorGUI.PropertyField(
+                         new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                         amountProp, new GUIContent("Reward Amount Enum"));
+                    y += EditorGUIUtility.singleLineHeight + PadY;
+
                     EditorGUI.PropertyField(
                         new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-                        nextProp, new GUIContent("Next Step Index"));
+                        signProp, new GUIContent("Plus / Minus"));
                     y += EditorGUIUtility.singleLineHeight + PadY;
 
-                    var listProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.PossibleRewards));
-                    float hList = EditorGUI.GetPropertyHeight(listProp, true);
-                    EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, hList),
-                                            listProp, true);
-                    y += hList + PadY;
-
-                    var minProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.MinAmount));
-                    var maxProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.MaxAmount));
-
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x, y, pos.width * 0.5f - 2, EditorGUIUtility.singleLineHeight),
-                        minProp, new GUIContent("Min"));
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x + pos.width * 0.5f + 2, y,
-                                 pos.width * 0.5f - 2, EditorGUIUtility.singleLineHeight),
-                        maxProp, new GUIContent("Max"));
-                    y += EditorGUIUtility.singleLineHeight + PadY;
-                    break;
+                    EditorGUI.indentLevel--;
                 }
+                break;
         }
-
-        EditorGUI.indentLevel--;
     }
 
     public override float GetPropertyHeight(SerializedProperty prop, GUIContent label)
@@ -169,7 +176,16 @@ public class StepChoiceDrawer : PropertyDrawer
                     h += PadY + EditorGUIUtility.singleLineHeight;  // next step
                     var listProp = rdProp.FindPropertyRelative(nameof(RandomChoiceData.PossibleRewards));
                     h += PadY + EditorGUI.GetPropertyHeight(listProp, true);
-                    h += PadY + EditorGUIUtility.singleLineHeight;  // min/max
+
+                    // RewardCount: фолдаут
+                    h += PadY + EditorGUIUtility.singleLineHeight;
+
+                    var rcProp = rdProp.FindPropertyRelative(nameof(RandomChoiceData.RewardCount));
+                    if (rcProp.isExpanded)
+                    {
+                        // две строки (AmountEnum + Sign)
+                        h += PadY + EditorGUIUtility.singleLineHeight * 2;
+                    }
                     break;
                 }
         }

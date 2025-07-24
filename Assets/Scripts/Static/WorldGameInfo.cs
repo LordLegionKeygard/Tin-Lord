@@ -122,4 +122,32 @@ public class WorldGameInfo
     public const float ButtonPivot = -0.9f;
     public const float ResourcePivot = -0.45f;
     public const float BuildinTypePivot = -0.9f;
+
+    [Header("Rewards")]
+    public const int AiCoreLow = 1;
+    public const int AiCoreMedium = 2;
+    public const int QuantsLowMin = 10;
+    public const int QuantsLowMax = 30;
+    public const int QuantsMediumMin = 30;
+    public const int QuantsMediumMax = 50;
+    public const int QuantsHightMin = 50;
+    public const int QuantsHightMax = 100;
+    public const int MemoryLowMin = 10;
+    public const int MemoryLowMax = 30;
+    public const int MemoryMediumMin = 30;
+    public const int MemoryMediumMax = 50;
+    public const int MemoryHightMin = 50;
+    public const int MemoryHightMax = 100;
+    public const int ResourceLowMin = 5;
+    public const int ResourceLowMax = 10;
+    public const int ResourceMediumMin = 10;
+    public const int ResourceMediumMax = 15;
+    public const int ResourceHightMin = 15;
+    public const int ResourceHightMax = 20;
+    public const int MaterialLowMin = 2;
+    public const int MaterialLowMax = 5;
+    public const int MaterialMediumMin = 5;
+    public const int MaterialMediumMax = 10;
+    public const int MaterialHightMin = 10;
+    public const int MaterialHightMax = 15;
 }

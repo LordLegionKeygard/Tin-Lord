@@ -31,8 +31,9 @@ MonoBehaviour:
       Random:
         NextStepIndex: 0
         PossibleRewards: 0400000005000000
-        MinAmount: 0
-        MaxAmount: 0
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
     - ChoiseTextNumber: 415
       Kind: 0
       Standard:
@@ -49,8 +50,9 @@ MonoBehaviour:
       Random:
         NextStepIndex: 0
         PossibleRewards: 0400000005000000
-        MinAmount: 0
-        MaxAmount: 0
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
   - TextNumber: 414
     Choices:
     - ChoiseTextNumber: 33
@@ -69,8 +71,9 @@ MonoBehaviour:
       Random:
         NextStepIndex: -1
         PossibleRewards: 0d0000000e0000000f000000100000001100000013000000
-        MinAmount: 5
-        MaxAmount: 10
+        RewardCount:
+          RewardAmountEnum: 12
+          PlusMinusEnum: 0
   - TextNumber: 416
     Choices:
     - ChoiseTextNumber: 33
@@ -89,5 +92,6 @@ MonoBehaviour:
       Random:
         NextStepIndex: 0
         PossibleRewards: 
-        MinAmount: 0
-        MaxAmount: 0
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0

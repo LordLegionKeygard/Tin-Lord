@@ -24,11 +24,16 @@ MonoBehaviour:
           RequiredType: 2
           Amount: 25
       Chance:
-        SuccessChance: 0
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
     - ChoiseTextNumber: 377
       Kind: 0
       Standard:
@@ -38,11 +43,16 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessChance: 0
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
   - TextNumber: 376
     Choices:
     - ChoiseTextNumber: 33
@@ -51,20 +61,27 @@ MonoBehaviour:
         NextStepIndex: -1
         Rewards:
         - Type: 2
-          MinAmount: -25
-          MaxAmount: -25
+          RewardCount:
+            RewardAmountEnum: 2
+            PlusMinusEnum: 1
         - Type: 3
-          MinAmount: 25
-          MaxAmount: 25
+          RewardCount:
+            RewardAmountEnum: 5
+            PlusMinusEnum: 0
         ChoiceRequired:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessChance: 0
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
   - TextNumber: 378
     Choices:
     - ChoiseTextNumber: 33
@@ -76,8 +93,13 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessChance: 0
         SuccessTextNumber: 0
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0

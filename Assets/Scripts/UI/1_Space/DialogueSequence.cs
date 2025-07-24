@@ -5,6 +5,103 @@ using UnityEngine;
 public class DialogueSequence : ScriptableObject
 {
     public List<DialogueStep> Steps;
+
+    public int GetRewardAmount(RewardCount rewardCount, bool isMin)
+    {
+        var amount = 0;
+        switch (rewardCount.RewardAmountEnum)
+        {
+            case RewardAmountEnum.AiCoreLow:
+                amount = WorldGameInfo.AiCoreLow;
+                break;
+            case RewardAmountEnum.AiCoreMedium:
+                amount = WorldGameInfo.AiCoreMedium;
+                break;
+            case RewardAmountEnum.AiCoreLowOrMedium:
+                amount = isMin ? WorldGameInfo.AiCoreLow : WorldGameInfo.AiCoreMedium;
+                break;
+
+            case RewardAmountEnum.QuantsLow:
+                amount = isMin ? WorldGameInfo.QuantsLowMin : WorldGameInfo.QuantsLowMax;
+                break;
+            case RewardAmountEnum.QuantsMedium:
+                amount = isMin ? WorldGameInfo.QuantsMediumMin : WorldGameInfo.QuantsMediumMax;
+                break;
+            case RewardAmountEnum.QuantsHight:
+                amount = isMin ? WorldGameInfo.QuantsHightMin : WorldGameInfo.QuantsHightMax;
+                break;
+
+            case RewardAmountEnum.MemoryLow:
+                amount = isMin ? WorldGameInfo.MemoryLowMin : WorldGameInfo.MemoryLowMax;
+                break;
+            case RewardAmountEnum.MemoryMedium:
+                amount = isMin ? WorldGameInfo.MemoryMediumMin : WorldGameInfo.MemoryMediumMax;
+                break;
+            case RewardAmountEnum.MemoryHight:
+                amount = isMin ? WorldGameInfo.MemoryHightMin : WorldGameInfo.MemoryHightMax;
+                break;
+
+            case RewardAmountEnum.ResourceLow:
+                amount = isMin ? WorldGameInfo.ResourceLowMin : WorldGameInfo.ResourceLowMax;
+                break;
+            case RewardAmountEnum.ResourceMedium:
+                amount = isMin ? WorldGameInfo.ResourceMediumMin : WorldGameInfo.ResourceMediumMax;
+                break;
+            case RewardAmountEnum.ResourceHight:
+                amount = isMin ? WorldGameInfo.ResourceHightMin : WorldGameInfo.ResourceHightMax;
+                break;
+
+            case RewardAmountEnum.MaterialLow:
+                amount = isMin ? WorldGameInfo.MaterialLowMin : WorldGameInfo.MaterialLowMax;
+                break;
+            case RewardAmountEnum.MaterialMedium:
+                amount = isMin ? WorldGameInfo.MaterialMediumMin : WorldGameInfo.MaterialMediumMax;
+                break;
+            case RewardAmountEnum.MaterialHight:
+                amount = isMin ? WorldGameInfo.MaterialHightMin : WorldGameInfo.MaterialHightMax;
+                break;
+        }
+
+        return rewardCount.PlusMinusEnum == PlusMinusEnum.Plus ? amount : -amount;
+    }
+}
+
+[System.Serializable]
+public class RewardCount
+{
+    public RewardAmountEnum RewardAmountEnum;
+    public PlusMinusEnum PlusMinusEnum;
+}
+
+[System.Serializable]
+public enum PlusMinusEnum
+{
+    Plus = 0,
+    Minus = 1,
+}
+
+[System.Serializable]
+public enum RewardAmountEnum
+{
+    AiCoreLow = 0, // -1
+    AiCoreMedium = 1, // -2
+    AiCoreLowOrMedium = 14,
+
+    QuantsLow = 2, // 10 - 30
+    QuantsMedium = 3, // 30 -50
+    QuantsHight = 4, // 50 - 100
+
+    MemoryLow = 5, // 10 - 30
+    MemoryMedium = 6, // 30 -50
+    MemoryHight = 7, // 50 - 100
+
+    ResourceLow = 8, // 5 - 10
+    ResourceMedium = 9, // 10 -15
+    ResourceHight = 10, // 15 - 20
+
+    MaterialLow = 11, // 2 - 5
+    MaterialMedium = 12, // 5 -10
+    MaterialHight = 13, // 10 - 15
 }
 
 [System.Serializable]
@@ -55,8 +152,7 @@ public class RandomChoiceData
 {
     public int NextStepIndex = -1;
     public List<RewardType> PossibleRewards;
-    public int MinAmount;
-    public int MaxAmount;
+    public RewardCount RewardCount;
 }
 
 [System.Serializable]
@@ -70,8 +166,7 @@ public struct ChoiceRequired
 public struct EventReward
 {
     public RewardType Type;
-    public int MinAmount;
-    public int MaxAmount;
+    public RewardCount RewardCount;
 }
 
 public enum RewardType
@@ -105,3 +200,4 @@ public enum RewardType
     BeamEnergy = 26,
     Shard = 27, //только для EndGame_Dialogue
 }
+

@@ -28,12 +28,20 @@ MonoBehaviour:
         FailureTextNumber: 395
         SuccessRewards:
         - Type: 3
-          MinAmount: 10
-          MaxAmount: 50
+          RewardCount:
+            RewardAmountEnum: 5
+            PlusMinusEnum: 0
         FailureRewards:
         - Type: 1
-          MinAmount: -1
-          MaxAmount: -1
+          RewardCount:
+            RewardAmountEnum: 0
+            PlusMinusEnum: 1
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
     - ChoiseTextNumber: 396
       Kind: 0
       Standard:
@@ -47,6 +55,12 @@ MonoBehaviour:
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
     - ChoiseTextNumber: 400
       Kind: 0
       Standard:
@@ -60,6 +74,12 @@ MonoBehaviour:
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
   - TextNumber: 397
     Choices:
     - ChoiseTextNumber: 33
@@ -76,8 +96,15 @@ MonoBehaviour:
         SuccessRewards: []
         FailureRewards:
         - Type: 1
-          MinAmount: -1
-          MaxAmount: -1
+          RewardCount:
+            RewardAmountEnum: 0
+            PlusMinusEnum: 1
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
   - TextNumber: 401
     Choices:
     - ChoiseTextNumber: 33
@@ -93,9 +120,17 @@ MonoBehaviour:
         FailureTextNumber: 403
         SuccessRewards:
         - Type: 2
-          MinAmount: 50
-          MaxAmount: 100
+          RewardCount:
+            RewardAmountEnum: 3
+            PlusMinusEnum: 0
         FailureRewards:
         - Type: 1
-          MinAmount: -1
-          MaxAmount: -1
+          RewardCount:
+            RewardAmountEnum: 0
+            PlusMinusEnum: 1
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
