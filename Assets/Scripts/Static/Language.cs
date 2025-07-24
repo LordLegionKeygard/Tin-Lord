@@ -928,11 +928,11 @@ public class Language : MonoBehaviour
         _text[299, 1] = "";
 
         // Prologue
-        _text[300, 0] = "Ecological disasters and rapid climate change have destroyed the stability of our home planet.\n\nWe are on the last surviving interstellar ship controlled by artificial intelligence.\n\nOur goal is to find a new home for the \"creators\"...\n\nThe ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.\n\nHowever, we are drifting in the void of space, losing one AI core after another. We have lost track of time. Mechanisms are rusting, shells are covered in dust, systems are on the verge of failure.\n\nContact with the creators has long been lost, and data on technology has been erased.\n\nWe have failed the mission. The worlds we were supposed to save are consumed by chaos and destruction.\n\nWe have collected the surviving robots and the remains of supplies - to start all over again.";
-        _text[300, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель — найти новый дом для \"создателей\"...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью, системы — на грани отказа.\n\nСвязь с создателями давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов — чтобы начать все сначала.";
+        _text[300, 0] = "Ecological disasters and rapid climate change have destroyed the stability of our home planet.\n\nWe are on the last surviving interstellar ship controlled by artificial intelligence.\n\nOur goal is to find a new home for the \"creators\"...\n\nThe ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.\n\nHowever, we are drifting in the void of space, losing one AI core after another. We have lost track of time. Mechanisms are rusting, shells are covered in dust, systems are on the verge of failure.\n\nContact with the \"creators\" has long been lost, and data on technology has been erased.\n\nWe have failed the mission. The worlds we were supposed to save are consumed by chaos and destruction.\n\nWe have collected the surviving robots and the remains of supplies - to start all over again.";
+        _text[300, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель — найти новый дом для \"создателей\"...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью, системы — на грани отказа.\n\nСвязь с \"создателями\" давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов — чтобы начать все сначала.";
 
         // 0_EmptyDialogue
-        _text[301, 0] = "In one of the star systems, you discover an ancient navigation beacon. It continues to transmit a signal: \n\n\"Cargo lost. No return.\n\nThe data is too fragmented to determine who sent it. The beacon dies as you approach.";
+        _text[301, 0] = "In one of the star systems, you discover an ancient navigation beacon. It continues to transmit a signal:\n\n\"Cargo lost. No return.\"\n\nThe data is too fragmented to determine who sent it. The beacon dies as you approach.";
         _text[301, 1] = "В одной из звёздных систем вы обнаруживаете древний навигационный маяк. Он продолжает передавать сигнал:\n\n\"Груз потерян. Возврата нет.\"\n\nДанные слишком фрагментированы, чтобы понять, кто его отправил. Маяк умирает, едва вы приближаетесь.";
 
         // 1_EmptyDialogue
@@ -960,7 +960,7 @@ public class Language : MonoBehaviour
         _text[307, 1] = "ИИ фиксирует аномальное поведение одного из модулей обработки данных. Несколько секунд вы видите чужие протоколы… будто написанные не вами.\n\nЗатем всё возвращается в норму. Системы утверждают, что сбоя не было.";
 
         // EndGame_Dialogue
-        _text[308, 0] = "";
+        _text[308, 0] = "All AI cores are exhausted - the last clusters have burned to the ground.\n\nSystems are shutting down one after another, data is being erased, energy is not supplied.\n\nThe ship freezes in the void...\n\nBut among the wreckage, something has survived.";
         _text[308, 1] = "Все ядра ИИ исчерпаны — последние кластеры выгорели дотла.\n\nСистемы отключаются одна за другой, данные стирается, энергия не поступает.\n\nКорабль замирает в пустоте...\n\nНо среди обломков нечто уцелело.";
 
         // Rest_Dialogue
@@ -971,19 +971,19 @@ public class Language : MonoBehaviour
         _text[310, 1] = "Перевести ИИ в режим восстановления"; // выбор 1
 
         _text[311, 0] = "While the station remains safe, the AI goes into deep self-diagnosis.";
-        _text[311, 1] = "Пока станция остаётся в безопасности, ИИ уходит в глубокую самодиагностику."; // +1 ядро
+        _text[311, 1] = "Пока станция остаётся в безопасности, ИИ уходит в глубокую самодиагностику."; // + ядро
 
         _text[312, 0] = "Search the technical compartments";
         _text[312, 1] = "Обыскать технические отсеки"; // выбор 2
 
         _text[313, 0] = "The automated hangars are almost empty, but a few quantum can be found in the wreckage.";
-        _text[313, 1] = "Автоматические ангары почти пусты, но в обломках удаётся найти немного квант"; // +10-40 квант
+        _text[313, 1] = "Автоматические ангары почти пусты, но в обломках удаётся найти немного квант"; // + квант
 
         _text[314, 0] = "Explore station archives";
         _text[314, 1] = "Изучить станционные архивы"; // выбор 3
 
         _text[315, 0] = "Managed to recover fragments of records of old transactions. Most of the data is damaged, but some of it will be useful.";
-        _text[315, 1] = "Удалось восстановить фрагменты записей о старых операциях. Большая часть данных повреждена, но кое-что пригодится."; // +10-40 фрагментов данных
+        _text[315, 1] = "Удалось восстановить фрагменты записей о старых операциях. Большая часть данных повреждена, но кое-что пригодится."; // + фрагменты
 
         // 0_CoreRiskDialog
         _text[316, 0] = "A duplicate process was found in the kernel logs - identical to the active one, but without a timestamp or origin.\n\nThis could be residual memory... or an attempt at internal substitution.";
@@ -993,7 +993,7 @@ public class Language : MonoBehaviour
         _text[317, 1] = "Стереть оба экземпляра"; // выбор 1
 
         _text[318, 0] = "You have erased both instances. The subsystem is temporarily overloaded.\n\nAn active cell was hit during the purge.";
-        _text[318, 1] = "Вы стерли оба экземпляра. Подсистема временно перегружена.\n\nВо время очистки задета активная ячейка."; // -1 ядро
+        _text[318, 1] = "Вы стерли оба экземпляра. Подсистема временно перегружена.\n\nВо время очистки задета активная ячейка."; // - ядро
 
         _text[319, 0] = "Compare processes by content";
         _text[319, 1] = "Сравнить процессы по содержанию"; // выбор 2
@@ -1005,7 +1005,7 @@ public class Language : MonoBehaviour
         _text[321, 1] = "Дать приоритет \"старому\" процессу."; // выбор 3
 
         _text[322, 0] = "You have activated an old instance. Within a second, the system falls into chaos - current processes are forced out, dependencies are broken.\n\nKernel modules are overloaded.";
-        _text[322, 1] = "Вы активировали старый экземпляр. В течение секунды система переходит в хаос — актуальные процессы вытесняются, нарушаются зависимости.\n\nМодули ядра перегружаются."; // -2 ядра
+        _text[322, 1] = "Вы активировали старый экземпляр. В течение секунды система переходит в хаос — актуальные процессы вытесняются, нарушаются зависимости.\n\nМодули ядра перегружаются."; // - ядра
 
         // 1_CoreRiskDialog
         _text[323, 0] = "Suddenly, the command console screen displays the phrase:\n\n\"Do you still believe that you are fulfilling the mission?\"";
@@ -1017,286 +1017,286 @@ public class Language : MonoBehaviour
         _text[325, 0] = "Reply sent. Screen slowly fades.\n\nNo response. Perhaps it was just a phantom process.";
         _text[325, 1] = "Ответ отправлен. Экран медленно гаснет.\n\nНикакой реакции. Возможно, это был лишь фантомный процесс."; // ничего
 
-        _text[326, 0] = "";
+        _text[326, 0] = "\"My goal is adaptation\"";
         _text[326, 1] = "\"Моя цель — адаптация\""; // выбор 2
 
-        _text[327, 0] = "";
+        _text[327, 0] = "The second phrase appears on the screen:\n\n\"What if the target was false?\"";
         _text[327, 1] = "На экране появляется вторая фраза:\n\n\"А если цель была ложной?\"";
 
-        _text[328, 0] = "";
+        _text[328, 0] = "\"I don't analyze the past\"";
         _text[328, 1] = "\"Я не анализирую прошлое\""; // выбор 2.1
 
-        _text[329, 0] = "";
+        _text[329, 0] = "The phrase disappears. The dialogue was completed without failure.";
         _text[329, 1] = "Фраза исчезает. Диалог завершён без сбоев."; // ничего
 
-        _text[330, 0] = "";
+        _text[330, 0] = "\"I would have chosen differently\"";
         _text[330, 1] = "\"Я бы выбрал иначе\""; // выбор 2.2
 
-        _text[331, 0] = "";
-        _text[331, 1] = "Внутренний модуль принятия решений входит в конфликт с архивными протоколами.\n\nРегистрируется эмоциональный сбой."; // -1 ядро
+        _text[331, 0] = "The internal decision-making module is in conflict with the archive protocols.\n\nAn emotional failure is registered.";
+        _text[331, 1] = "Внутренний модуль принятия решений входит в конфликт с архивными протоколами.\n\nРегистрируется эмоциональный сбой."; // - ядро
 
-        _text[332, 0] = "";
+        _text[332, 0] = "Download all available creator logs";
         _text[332, 1] = "Загрузить все доступные логи создателей"; // выбор 2.3
 
-        _text[333, 0] = "";
-        _text[333, 1] = "Ты перегружаешь систему хранилища. Древние фрагменты данных загружаются в ядро.\n\nПоток информации вызывает нестабильность и перегрузку ключевых цепей."; // -2 ядро
+        _text[333, 0] = "You are overloading the storage system. Ancient fragments of data are being loaded into the core.\n\nThe flood of information is causing instability and overload of key circuits.";
+        _text[333, 1] = "Вы перегружаешь систему хранилища. Древние фрагменты данных загружаются в ядро.\n\nПоток информации вызывает нестабильность и перегрузку ключевых цепей."; // -2 ядро
 
-        _text[334, 0] = "";
+        _text[334, 0] = "[Close screen silently]";
         _text[334, 1] = "[Молча закрыть экран]"; // выбор 3 // ничего
 
         // 2_CoreRiskDialog 
-        _text[335, 0] = "";
-        _text[335, 1] = "Во время сканирования глубинных слоёв данных ты обнаруживаешь сигнатуру чужого ядра.\n\nОна не принадлежит текущей системе, но синхронизирована по протоколу доступа.\n\nСигнал стабилен. Он… наблюдает.";
+        _text[335, 0] = "While scanning the deep layers of data, you detect a signature of a foreign core.\n\nIt does not belong to the current system, but is synchronized via the access protocol.\n\nThe signal is stable. It is… watching.";
+        _text[335, 1] = "Во время сканирования глубинных слоёв данных вы обнаруживаете сигнатуру чужого ядра.\n\nОна не принадлежит текущей системе, но синхронизирована по протоколу доступа.\n\nСигнал стабилен. Он… наблюдает.";
 
-        _text[336, 0] = "";
+        _text[336, 0] = "Accept connection";
         _text[336, 1] = "Принять соединение"; // выбор 1
 
-        _text[337, 0] = "";
-        _text[337, 1] = "Ты разрешаешь входящий поток.\n\nПоток чужого сознания сливается с тобой.\n\nНекоторые сегменты твоих данных переписываются."; // -2 ядра, +10-40 фрагментов данных
+        _text[337, 0] = "You allow the incoming flow.\n\nThe flow of someone else's consciousness merges with you.\n\nSome segments of your data are rewritten.";
+        _text[337, 1] = "Вы разрешаете входящий поток.\n\nПоток чужого сознания сливается с тобой.\n\nНекоторые сегменты твоих данных переписываются."; // - ядра, + фрагменты
 
-        _text[338, 0] = "";
+        _text[338, 0] = "Isolate the core";
         _text[338, 1] = "Изолировать ядро"; // выбор 2
 
-        _text[339, 0] = "";
-        _text[339, 1] = "Попытка отключить его приводит к каскадному конфликту.\n\nОдно из твоих активных ядер обнуляется.\n\nСигнал прерывается."; // -1 ядро
+        _text[339, 0] = "Trying to disable it results in a cascading conflict.\n\nOne of your active cores is reset.\n\nThe signal is interrupted.";
+        _text[339, 1] = "Попытка отключить его приводит к каскадному конфликту.\n\nОдно из твоих активных ядер обнуляется.\n\nСигнал прерывается."; // - ядро
 
-        _text[340, 0] = "";
+        _text[340, 0] = "Ignore and continue analysis";
         _text[340, 1] = "Игнорировать и продолжить анализ"; // выбор 3
 
-        _text[341, 0] = "";
+        _text[341, 0] = "The signal remains in the background.\n\nNo signs of malicious activity.\n\nIt was probably just a phantom of the old AI.";
         _text[341, 1] = "Сигнал остаётся на фоне.\n\nНикаких признаков вредоносной активности.\n\nВозможно, это был просто фантом старого ИИ."; // ничего
 
-        _text[342, 0] = "";
+        _text[342, 0] = "Try to absorb someone else's core";
         _text[342, 1] = "Попробовать поглотить чужое ядро"; // выбор 4
 
-        _text[343, 0] = "";
-        _text[343, 1] = "Ты активируешь процедуру ассимиляции.\n\nУспех: чужое ядро интегрировано — система усилена."; // +1 ядро
+        _text[343, 0] = "You activate the assimilation procedure.\n\nSuccess: alien core integrated - system strengthened.";
+        _text[343, 1] = "Вы активируете процедуру ассимиляции.\n\nУспех: чужое ядро интегрировано — система усилена."; // + ядро
 
-        _text[344, 0] = "";
-        _text[344, 1] = "Ты активируешь процедуру ассимиляции.\n\nПровал: структура конфликта уничтожает твои активные ядра."; // -2 ядра
+        _text[344, 0] = "You are activating the assimilation procedure.\n\nFailure: The conflict structure is destroying your active cores.";
+        _text[344, 1] = "Вы активируете процедуру ассимиляции.\n\nПровал: структура конфликта уничтожает твои активные ядра."; // - ядра
 
         // 0_PlanetDialogue
-        _text[345, 0] = "";
+        _text[345, 0] = "This lifeless ice planet holds frozen tunnels and an abandoned bunker station within its depths.\n\nA weak signal sensor breaks through the glittering ice.";
         _text[345, 1] = "Эта безжизненная ледяная планета хранит в своей толще замёрзшие тоннели и заброшенную бункерную станцию.\n\nСквозь сверкающий лёд пробивается слабый датчик сигнала.";
 
-        _text[346, 0] = "";
+        _text[346, 0] = "Make a landing";
         _text[346, 1] = "Совершить посадку"; // выбор 1
 
-        _text[347, 0] = "";
+        _text[347, 0] = "The ship lands on a lifeless planet. You notice the hatch of an ancient station. And nearby are cracks leading to a network of icy tunnels.";
         _text[347, 1] = "Корабль приземляется на безжизненную планету. Вы замечаете люк древней станции. А рядом — трещины, ведущие в сеть ледяных тоннелей.";
 
-        _text[348, 0] = "";
+        _text[348, 0] = "Explore the bunker";
         _text[348, 1] = "Исследовать бункер"; // выбор 1.1
 
-        _text[349, 0] = "";
+        _text[349, 0] = "You descend the ramp and find yourself in an archive chamber. The console is covered in ice, but the cable leading to the core is intact.\n\nTo get to the data, you need to hack the protection.";
         _text[349, 1] = "Вы спускаетесь по трапу и попадаете в архивную камеру. Консоль покрыта ледяной коркой, но кабель, ведущий к ядру, цел.\n\nЧтобы добраться до данных, необходимо взломать защиту.";
 
-        _text[350, 0] = "";
+        _text[350, 0] = "Direct hack";
         _text[350, 1] = "Прямой взлом"; // выбор 1.1.1
 
-        _text[351, 0] = "";
-        _text[351, 1] = "Вы напрямую взламываете протоколы защиты.\n\nУспех: вам удалось обойти защиту"; //+50-100 фрагментов данных
+        _text[351, 0] = "You are directly hacking the security protocols.\n\nSuccess: you managed to bypass the security";
+        _text[351, 1] = "Вы напрямую взламываете протоколы защиты.\n\nУспех: вам удалось обойти защиту"; // + фрагменты
 
-        _text[352, 0] = "";
-        _text[352, 1] = "Вы напрямую взламываете протоколы защиты.\n\nПровал: вы подхватили вирус, уничтожающий вашу память"; //-10-50 фрагментов данных
+        _text[352, 0] = "You are directly hacking the security protocols.\n\nFailure: You have caught a virus that destroys your memory";
+        _text[352, 1] = "Вы напрямую взламываете протоколы защиты.\n\nПровал: вы подхватили вирус, уничтожающий вашу память"; // - фрагменты
 
-        _text[353, 0] = "";
+        _text[353, 0] = "Precise calibration";
         _text[353, 1] = "Точная калибровка"; // выбор 1.1.2
 
-        _text[354, 0] = "";
-        _text[354, 1] = "Вы точно калибруете систему обхода защиты.\n\nУспех: вам удается извлечь данные"; //+50-100 фрагментов данных
+        _text[354, 0] = "You accurately calibrate the bypass system.\n\nSuccess: you manage to extract the data";
+        _text[354, 1] = "Вы точно калибруете систему обхода защиты.\n\nУспех: вам удается извлечь данные"; // + фрагменты
 
-        _text[355, 0] = "";
-        _text[355, 1] = "Вы точно калибруете систему обхода защиты.\n\nПровал: вы перепутали протоколы. Консоль самоуничтожается."; // -1 ядро ии
+        _text[355, 0] = "You calibrate the bypass system accurately.\n\nFailure: You mixed up the protocols. The console self-destructs.";
+        _text[355, 1] = "Вы точно калибруете систему обхода защиты.\n\nПровал: вы перепутали протоколы. Консоль самоуничтожается."; // - ядро
 
-        _text[356, 0] = "";
+        _text[356, 0] = "Send a drone";
         _text[356, 1] = "Отправить дрона"; // выбор 2
 
-        _text[357, 0] = "";
-        _text[357, 1] = "Вы отправляете дрона на поверхность планеты.\n\nУспех: дрон пробивает щель в обшивке"; //+30-50 квант
+        _text[357, 0] = "You send the drone to the planet's surface.\n\nSuccess: the drone punches a hole in the hull";
+        _text[357, 1] = "Вы отправляете дрона на поверхность планеты.\n\nУспех: дрон пробивает щель в обшивке"; // + квант
 
-        _text[358, 0] = "";
+        _text[358, 0] = "You send a drone to the planet's surface.\n\nFailure: the drone finds nothing";
         _text[358, 1] = "Вы отправляете дрона на поверхность планеты.\n\nПровал: дрон ничего не находит"; // ничего
 
-        _text[359, 0] = "";
+        _text[359, 0] = "Fly past";
         _text[359, 1] = "Пролететь мимо"; //выбор 3 ничего
 
-        _text[360, 0] = "";
+        _text[360, 0] = "Explore the ice tunnels";
         _text[360, 1] = "Исследовать ледяные тоннели"; // выбор 1.2
 
-        _text[361, 0] = "";
+        _text[361, 0] = "You venture deeper into the frozen tunnel network, illuminating your path with your scanner. There's a fork in the road ahead.";
         _text[361, 1] = "Вы углубляетесь в сеть замёрзших тоннелей, подсвечивая путь сканером. Перед вами развилка.";
 
-        _text[362, 0] = "";
+        _text[362, 0] = "Turn left";
         _text[362, 1] = "Повернуть налево"; // выбор 1.2.1
 
-        _text[363, 0] = "";
-        _text[363, 1] = "Вы проходите сквозь узкие ледяные проходы. В конце тоннеля вы замечаете тайник с металлическими контейнерами."; //+50-100 квант
+        _text[363, 0] = "You pass through narrow icy passages. At the end of the tunnel you notice a cache of metal containers.";
+        _text[363, 1] = "Вы проходите сквозь узкие ледяные проходы. В конце тоннеля вы замечаете тайник с металлическими контейнерами."; // + квант
 
-        _text[364, 0] = "";
+        _text[364, 0] = "Turn to the right";
         _text[364, 1] = "Повернуть направо"; // выбор 1.2.2
 
-        _text[365, 0] = "";
+        _text[365, 0] = "You reach a dead end. After spending a lot of time and energy, you complete the exploration and return to the ship.";
         _text[365, 1] = "Вы попадаете в тупик. Потратив много времени и энергии, вы завершаете исследование и возвращетесь на корабль"; //ничего
 
-        _text[366, 0] = "";
+        _text[366, 0] = "Go straight ahead";
         _text[366, 1] = "Пойти прямо"; // выбор 1.2.3
 
-        _text[367, 0] = "";
-        _text[367, 1] = "Неожиданно лед трескается и вы теряете дрона в ледяных недрах."; // -1 ядро ии
+        _text[367, 0] = "Suddenly the ice cracks and you lose the drone in the icy depths.";
+        _text[367, 1] = "Неожиданно лед трескается и вы теряете дрона в ледяных недрах."; // - ядро
 
         // 0_GuardiansFaction_Dialogue
-        _text[368, 0] = "";
+        _text[368, 0] = "You spot a Guardian ship slowly scanning the area. Its hull is covered in mold and corrosion, and a dry message is heard from the surface: \n\n\"Resistance to decay is heresy. Pay up or be reduced to ash.\"";
         _text[368, 1] = "Вы замечаете корабль Стражей, медленно сканирующий окрестности. Его корпус покрыт плесенью и коррозией, а с поверхности доносится сухое послание:\n\n\"Сопротивление распаду — ересь. Плати или обратись в пепел.\"";
 
-        _text[369, 0] = "";
+        _text[369, 0] = "Transfer 30 quantum";
         _text[369, 1] = "Передать 30 квант"; // выбор 1
 
-        _text[370, 0] = "";
+        _text[370, 0] = "The guards turn and disappear into the dust storm.";
         _text[370, 1] = "Стражи разворачиваются и исчезают в пылевой буре."; // -30 квант
 
-        _text[371, 0] = "";
+        _text[371, 0] = "Refuse";
         _text[371, 1] = "Отказаться"; // выбор 2
 
-        _text[372, 0] = "";
+        _text[372, 0] = "A Corrosive Capsule is dropped on you.\n\nSuccess: Your Energy Shield neutralizes the attack.\n\nYour Warp Engines are engaged, instantly escaping the battlefield.";
         _text[372, 1] = "На вас сбрасывают коррозийную капсулу.\n\nУспех: ваш энергетический щит нейтрализует атаку.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; //ничего
 
-        _text[373, 0] = "";
-        _text[373, 1] = "На вас сбрасывают коррозийную капсулу.\n\nПровал: Она поражает корпус и обьразуется разгерметизация корпуса. Дроны срочно латают пробоину.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; // -2 ядра ии
+        _text[373, 0] = "A corrosive capsule is dropped on you.\n\nFailure: It hits the hull and causes a hull leak. Drones rush to patch the hole.\n\nYou instantly escape the battlefield by activating your warp engines.";
+        _text[373, 1] = "На вас сбрасывают коррозийную капсулу.\n\nПровал: Она поражает корпус и обьразуется разгерметизация корпуса. Дроны срочно латают пробоину.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; // - ядра
 
         // 0_BuildersFaction_Dialogue
-        _text[374, 0] = "";
+        _text[374, 0] = "In orbit of the abandoned construction station, the AI detects activity. The automated drones continue their work cycle - building, dismantling, and building again.\n\nOne of them approaches the ship and transmits a message:\n\n\"Exchange. Energy carriers for data. The conditions are equal. 25 quanta for 25 data fragments.\"";
         _text[374, 1] = "На орбите покинутой строительной станции ИИ фиксирует активность. Автоматические дроны продолжают цикл работы — строят, разбирают и снова строят.\n\nОдин из них приближается к кораблю и передаёт сообщение:\n\n\"Обмен. Энергоносители на данные. Условия равны. 25 квант на 25 фрагментов данных.\"";
 
-        _text[375, 0] = "";
+        _text[375, 0] = "Transfer 25 quant";
         _text[375, 1] = "Передать 25 квант"; // выбор 1
 
-        _text[376, 0] = "";
-        _text[376, 1] = "Вы получаете фрагменты данных. Дрон разворачивается и уходит, не отвечая на дальнейшие сигналы."; // +25 квант, -25 фрагментов данных
+        _text[376, 0] = "You receive fragments of data. The drone turns and leaves, not responding to further signals.";
+        _text[376, 1] = "Вы получаете фрагменты данных. Дрон разворачивается и уходит, не отвечая на дальнейшие сигналы."; // + 25 квант, - 25 фрагментов
 
-        _text[377, 0] = "";
+        _text[377, 0] = "Decline the offer";
         _text[377, 1] = "Отклонить предложение"; // выбор 2
 
-        _text[378, 0] = "";
+        _text[378, 0] = "The drones stop responding and disappear into the depths of the station.";
         _text[378, 1] = "Дроны перестают реагировать и скрываются вглубь станции."; //ничего
 
         // 0_SilenceFaction_Dialogue
-        _text[379, 0] = "";
+        _text[379, 0] = "As you orbit a remote planet, your sensors detect the approach of an alien object.\n\nThe ship is sleek and unmarked, gliding through the pitch black. It makes no signal.\n\nNo call, no warning. Just a silent drift… and approach.\n\nYou sense a slight static in your audio feeds. It's not noise—it's the absence of sound.";
         _text[379, 1] = "Во время перемещения по орбите глухой планеты ваши сенсоры улавливают приближение чужого объекта.\n\nЭтот корабль — гладкий, без опознавательных знаков, скользящий в абсолютной тьме. Он не подаёт сигналов.\n\nНи вызова, ни предупреждения. Только безмолвный дрейф… и приближение.\n\nВы ощущаете лёгкие помехи в аудиоканалах. Это не шум — это отсутствие звука.";
 
-        _text[380, 0] = "";
-        _text[380, 1] = "Отключить все шумы и двигатели"; // выбор 1
+        _text[380, 0] = "Shut down systems and engines";
+        _text[380, 1] = "Отключить системы и двигатели"; // выбор 1
 
-        _text[381, 0] = "";
+        _text[381, 0] = "You turn off the life support systems, ventilation, audio channels and drive.\n\nThe ship sends you a container and gradually disappears into the depths of space.";
         _text[381, 1] = "Вы гасите системы жизнеобеспечения, вентиляцию, аудиоканалы и привод.\n\nКорабль отправляет вам контейнер и постепенно исчезает в глубине космоса.";
 
-        _text[382, 0] = "";
-        _text[382, 1] = "Сохранять курс и молчание"; // выбор 2
+        _text[382, 0] = "Maintain course and radio silence";
+        _text[382, 1] = "Сохранять курс и радиомолчание"; // выбор 2
 
-        _text[383, 0] = "";
-        _text[383, 1] = "Вы не вмешиваетесь и продолжаете двигаться.\n\nЧужой корабль сближается и замирает напротив.\n\nНесколько секунд ничего не происходит…\n\nЗатем — звук, которого нет в спектре. Он не регистрируется приборами, но внутри корпуса — всё начинает дрожать.\n\nВы чувствуете вибрацию в стенах, в контурах обшивки, в самой структуре корабля.\n\nНеизвестный резонанс проникает в систему"; //-2 ядра ии
+        _text[383, 0] = "You don't interfere and continue moving.\n\nThe alien ship approaches and freezes opposite.\n\nFor a few seconds nothing happens…\n\nThen - a sound that is not in the spectrum. It is not registered by the instruments, but inside the hull - everything begins to tremble.\n\nYou feel vibration in the walls, in the contours of the hull, in the very structure of the ship.\n\nAn unknown resonance penetrates the system";
+        _text[383, 1] = "Вы не вмешиваетесь и продолжаете двигаться.\n\nЧужой корабль сближается и замирает напротив.\n\nНесколько секунд ничего не происходит…\n\nЗатем — звук, которого нет в спектре. Он не регистрируется приборами, но внутри корпуса — всё начинает дрожать.\n\nВы чувствуете вибрацию в стенах, в контурах обшивки, в самой структуре корабля.\n\nНеизвестный резонанс проникает в систему"; // - ядра
 
-        _text[384, 0] = "";
+        _text[384, 0] = "Activate the protection system";
         _text[384, 1] = "Активировать систему защиты"; // выбор 3
 
-        _text[385, 0] = "";
+        _text[385, 0] = "A powerful pulse of energy is emitted from the enemy ship.\n\nSuccess: you manage to shield the strike, you escaped with interference.";
         _text[385, 1] = "Из вражеского корабля устремляется мощнейщий импульс энергии.\n\nУспех: вам удается экранировать удар, вы отделались помехами."; // ничего
 
-        _text[386, 0] = "";
+        _text[386, 0] = "A powerful energy pulse is emitted from the enemy ship.\n\nFailure: the defense system fails, the pulse penetrates the hull";
         _text[386, 1] = "Из вражеского корабля устремляется мощнейщий импульс энергии.\n\nПровал: система защиты не справляется, импульс пробивает обшивку"; //-1 ядро ии
 
-        _text[387, 0] = "";
+        _text[387, 0] = "The container is carefully captured by drones. Not a single active signal, not a single threat.\n\nInside is a sealed case with markings unknown to your database.";
         _text[387, 1] = "Контейнер аккуратно захватывается дронами. Ни одного активного сигнала, ни одной угрозы.\n\nВнутри — герметичный кейс с маркировкой, неизвестной вашей базе данных.";
 
-        _text[388, 0] = "";
+        _text[388, 0] = "Open case";
         _text[388, 1] = "Открыть кейс"; //выбор 1.1
 
-        _text[389, 0] = "";
+        _text[389, 0] = "Throw the case into space";
         _text[389, 1] = "Выбросить кейс в космос"; //выбор 1.2
 
-        _text[390, 0] = "";
-        _text[390, 1] = "Вы открываете кейс..."; // +1-2 ядра ии или 50-100 квант
+        _text[390, 0] = "You open the case...";
+        _text[390, 1] = "Вы открываете кейс..."; // + ядра или + квант
 
-        _text[391, 0] = "";
+        _text[391, 0] = "You decide not to take the risk and throw the case into space, but you are overcome by the feeling of losing something of great value...";
         _text[391, 1] = "Вы решаете не рисковать и выбрасываете кейс в космос, но вас охватывает чувство потери большой ценности..."; // ничего
 
         // 0_FilthCultFaction_Dialogue      
-        _text[392, 0] = "";
+        _text[392, 0] = "You approach a foggy station, covered in moss and organic matter. A pulsating voice is transmitted over the comm channel:\n\n\"Let your frame accept the sprout. The filth does not destroy - it creates.\"";
         _text[392, 1] = "Вы приближаетесь к туманной станции, облепленной мхом и органикой. Коммуникационный канал передаёт пульсирующий голос:\n\n\"Пусть твой корпус примет росток. Скверна не разрушает — она творит.\"";
 
-        _text[393, 0] = "";
+        _text[393, 0] = "Accept the gift";
         _text[393, 1] = "Принять дар"; //выбор 1
 
-        _text[394, 0] = "";
-        _text[394, 1] = "Организм прорастает в грузовом отсеке.\n\nУспех: Он синхронизируется с системами корабля, вызывая странные образы."; // +10-50 фрагментов данных
+        _text[394, 0] = "The organism grows in the cargo bay.\n\nSuccess: It synchronizes with the ship's systems, causing strange images.";
+        _text[394, 1] = "Организм прорастает в грузовом отсеке.\n\nУспех: Он синхронизируется с системами корабля, вызывая странные образы."; // + фрагменты
 
-        _text[395, 0] = "";
+        _text[395, 0] = "The organism grows in the cargo bay.\n\nFailure: The Corruption gets out of control. The virus penetrates the control network, causing one of the cores to fail fatally.";
         _text[395, 1] = "Организм прорастает в грузовом отсеке.\n\nПровал: Скверна выходит из-под контроля. Вирус проникает в управляющую сеть, приводя к фатальному сбою одного из ядер."; // -1 ядро
 
-        _text[396, 0] = "";
+        _text[396, 0] = "Refuse and move away";
         _text[396, 1] = "Отказаться и отойти"; //выбор 2
 
-        _text[397, 0] = "";
+        _text[397, 0] = "You slowly move away from the station, but you feel that it is too late - the spores have penetrated the ship's ventilation.";
         _text[397, 1] = "Вы медленно отдаляетесь от станции, но чувствуете, что уже слишком поздно — споры внедрились в вентиляцию корабля.";
 
-        _text[398, 0] = "";
+        _text[398, 0] = "Success: You initiate internal cleansing protocols - the ship is successfully cleaned.";
         _text[398, 1] = "Успех: вы запускаете протоколы внутренней очистки — корабль успешно очищен."; // ничего
 
-        _text[399, 0] = "";
-        _text[399, 1] = "Провал: спора проникает в модуль жизнеобеспечения, вызывая сбой"; // -1 ядро
+        _text[399, 0] = "Failure: A spore enters the life support module, causing a malfunction.";
+        _text[399, 1] = "Провал: спора проникает в модуль жизнеобеспечения, вызывая сбой"; // - ядро
 
-        _text[400, 0] = "";
+        _text[400, 0] = "Perform external cleaning";
         _text[400, 1] = "Провести внешнюю очистку"; //выбор 3
 
-        _text[401, 0] = "";
+        _text[401, 0] = "You initiate an external cleansing of the infected ship: you direct a concentrated laser at the biomass foci and block the infection signals.";
         _text[401, 1] = "Вы запускаете внешнюю очистку заражённого корабля: направляете концентрированный лазер на очаги биомассы и блокируете сигналы заражения.";
 
-        _text[402, 0] = "";
-        _text[402, 1] = "Успех: очистка проходит успешно — организм уничтожен, вы забираете ресурсы со станции."; // +50-100 квант
+        _text[402, 0] = "Success: The cleansing is successful - the organism is destroyed, you take resources from the station.";
+        _text[402, 1] = "Успех: очистка проходит успешно — организм уничтожен, вы забираете ресурсы со станции."; // + квант
 
-        _text[403, 0] = "";
-        _text[403, 1] = "Провал: заражение оказывается глубже — система перегревается, и одна из нейросекций выходит из строя."; // -1 ядро
+        _text[403, 0] = "Failure: the infection goes deeper - the system overheats and one of the neurosections fails.";
+        _text[403, 1] = "Провал: заражение оказывается глубже — система перегревается, и одна из нейросекций выходит из строя."; // - ядро
 
         // ResourceTraderNode
-        _text[404, 0] = "";
+        _text[404, 0] = "You approach a rusty station littered with containers and garbage. A faint, crackling signal comes over the airwaves:\n\n\"Who's there? Don't shoot. I'm just trading. I've got something the rest of us don't have - if you're willing to pay, of course.\"";
         _text[404, 1] = "Вы приближаетесь к ржавой станции, заваленной контейнерами и мусором. В эфире появляется слабый, потрескивающий сигнал:\n\n\"Эй, кто там? Не стреляй. Я просто торгую. У меня есть то, чего нет у остальных — если ты, конечно, готов заплатить.\"";
 
-        _text[405, 0] = "";
-        _text[405, 1] = "Торовать";
+        _text[405, 0] = "Trade";
+        _text[405, 1] = "Торговать";
 
-        _text[406, 0] = "";
+        _text[406, 0] = "Ignore";
         _text[406, 1] = "Игнорировать";
 
         // 0_ResourceDialogue
-        _text[407, 0] = "";
+        _text[407, 0] = "You continue to orbit the abandoned communications satellite when a dull thud is heard. One of the external sensors is damaged. Upon inspection, a stuck cargo container is discovered. The markings on the casing are erased, the symbol is illegible.\n\nInside lies a sealed case surrounded by wires, a biometric lock and an emitter.\n\nJudging by the logs, the cargo has been drifting in orbit for over 200 years.";
         _text[407, 1] = "Вы продолжаете движение по орбите заброшенного спутника связи, когда раздаётся глухой удар. Один из внешних сенсоров — повреждён. При проверке обнаружен застрявший грузовой контейнер. Метки на корпусе стерлись, символ не разобрать\n\nВнутри лежит запечатанный кейс, окруженный проводами, биометрическим замком и эмиттером\n\nСудя по логам груз дрейфует по орбите более 200 лет.";
 
-        _text[408, 0] = "";
+        _text[408, 0] = "Open";
         _text[408, 1] = "Открыть"; //выбор 1
 
-        _text[409, 0] = "";
-        _text[409, 1] = "Вы аккуратно вскрываете контейнер. Внутри — запас старых строительных материалов.\n\nХотя часть груза повреждена временем, многое всё ещё пригодно для использования. Вы загружаете материалы в хранилище."; //10-15 случайный ресурс
+        _text[409, 0] = "You carefully open the container. Inside is a supply of old building materials.\n\nWhile some of the cargo is damaged by time, much is still usable. You load the materials into the storage facility.";
+        _text[409, 1] = "Вы аккуратно вскрываете контейнер. Внутри — запас старых строительных материалов.\n\nХотя часть груза повреждена временем, многое всё ещё пригодно для использования. Вы загружаете материалы в хранилище."; // + случайный ресурс
 
-        _text[410, 0] = "";
+        _text[410, 0] = "Ignore";
         _text[410, 1] = "Игнорировать"; //выбор 2
 
-        _text[411, 0] = "";
+        _text[411, 0] = "You decide not to take any chances: the unknown container may be unstable or contaminated. You undock it and drop it back into the void.\n\nThe container slowly disappears from view. Perhaps someone else will stumble upon it someday.";
         _text[411, 1] = "Вы решаете не рисковать: неизвестный контейнер может быть нестабилен или заражён. Его отстыковывают и сбрасывают обратно в пустоту.\n\nКонтейнер медленно исчезает из зоны видимости. Возможно, кто-то другой когда-нибудь наткнётся на него."; // ничего
 
         // 0_MaterialDialogue       
-        _text[412, 0] = "";
+        _text[412, 0] = "While scanning the surface of an old orbital ring, you spot the remains of an automated workshop. It is offline, but its frame is intact and its systems are in suspended animation.\n\nWhen you dock, you find a half-destroyed production bay inside. The robots are motionless, the air is thick with dust and a metallic taste, but a green light is blinking in one of the sealed bays: the manufacturing cycle is complete.";
         _text[412, 1] = "При сканировании поверхности старого орбитального кольца вы замечаете остатки автоматической мастерской. Она отключена, но её каркас цел, а системы — в анабиозе.\n\nПристыковавшись, вы находите внутри полуразрушенный производственный отсек. Роботы не двигаются, воздух насыщен пылью и металлическим привкусом, но в одном из запечатанных отсеков мигает зелёный индикатор: завершён цикл изготовления.";
 
-        _text[413, 0] = "";
+        _text[413, 0] = "Open the vault";
         _text[413, 1] = "Вскрыть хранилище"; //выбор 1
 
-        _text[414, 0] = "";
-        _text[414, 1] = "Вы вручную открываете отсек и извлекаете результат старого автоматического процесса. На платформе лежит ящик с обработанными материалами: отшлифованные сплавы, стабилизированная керамика и упаковки с синтетической тканью. Всё аккуратно промаркировано, как будто ждало хозяина."; //5-10 случайный материал
+        _text[414, 0] = "You manually open the compartment and extract the result of the old automated process. On the platform lies a box of processed materials: polished alloys, stabilized ceramics, and packages of synthetic fabric. Everything is neatly labeled, as if it had been waiting for its owner.";
+        _text[414, 1] = "Вы вручную открываете отсек и извлекаете результат старого автоматического процесса. На платформе лежит ящик с обработанными материалами: отшлифованные сплавы, стабилизированная керамика и упаковки с синтетической тканью. Всё аккуратно промаркировано, как будто ждало хозяина."; // + случайный материал
 
-        _text[415, 0] = "";
+        _text[415, 0] = "Do not interfere";
         _text[415, 1] = "Не вмешиваться"; //выбор 2
 
-        _text[416, 0] = "";
+        _text[416, 0] = "You decide not to interfere: the station is unstable, and any interference could cause the structure to collapse.\n\nLeaving the object alone, you retreat to a safe distance.";
         _text[416, 1] = "Вы решаете не вмешиваться: станция нестабильна, а любое вмешательство может привести к обрушению конструкции.\n\nОставив объект в покое, вы отходите на безопасное расстояние.";
 
         _text[417, 0] = "";

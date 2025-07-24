@@ -298,12 +298,10 @@ public class BuildingTile : MonoBehaviour
       {
          if (_isConstructionNow) // если мы уничтожили строящееся нами здание, то возвращаем половину ресурсов
          {
-            Debug.Log("DestroyBuildingTile _isConstructionNow");
             _missionResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, 100);
          }
          else // если мы апгрейдим здание или уничтожаем обычное здание, то получаем только % ресурсов от прошлого здоровья здания
          {
-            Debug.Log("DestroyBuildingTile JustBuilding or Upgrade");
             _missionResources.AddResourcesAfterDestroyBuilding(CurrentBuilding().ResourcesForBuild, _buildingHealth.GetCurrentHealthPercent());
          }
       }

@@ -267,9 +267,9 @@ public class SelectTilePanel : MonoBehaviour
         var buildButtonState = canRepairOrUpgrade && groundHaveBuildings && !isConstructionNow;
         var workButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
         var generalRepairButtonState = haveBuildingNow && _allSkills.IsSkillOpen(SkillEnum.GeneralRepair);
-        var rotateButtonState = haveRotationViewGround && canRotateBuilding;
+        var rotateButtonState = haveRotationViewGround || canRotateBuilding;
         var machineButtonState = haveBuildingNow && isMachineProduction;
-        var destroyButtonState = (haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase;
+        var destroyButtonState = (isConstructionNow || haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase;
 
         _buildButton.SetActive(buildButtonState);
         _workButton.SetActive(workButtonState);

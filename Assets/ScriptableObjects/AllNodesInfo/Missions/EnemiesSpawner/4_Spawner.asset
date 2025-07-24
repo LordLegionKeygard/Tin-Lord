@@ -266,7 +266,7 @@ MonoBehaviour:
   MiniBossSpawners:
   - DaySpawn: 20
     Count: 1
-    HealthFactor: 8
+    HealthFactor: 6
     DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
@@ -280,7 +280,7 @@ MonoBehaviour:
       EnemyLevel: 4
   - DaySpawn: 30
     Count: 2
-    HealthFactor: 8
+    HealthFactor: 6
     DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
@@ -308,7 +308,7 @@ MonoBehaviour:
       EnemyLevel: 4
   - DaySpawn: 50
     Count: 3
-    HealthFactor: 8
+    HealthFactor: 6
     DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
@@ -322,7 +322,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - DaySpawn: 60
     Count: 3
-    HealthFactor: 10
+    HealthFactor: 8
     DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - DaySpawn: 70
     Count: 4
-    HealthFactor: 10
+    HealthFactor: 8
     DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
@@ -350,7 +350,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - DaySpawn: 80
     Count: 4
-    HealthFactor: 10
+    HealthFactor: 8
     DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - DaySpawn: 90
     Count: 5
-    HealthFactor: 10
+    HealthFactor: 8
     DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
@@ -378,7 +378,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - DaySpawn: 100
     Count: 8
-    HealthFactor: 10
+    HealthFactor: 8
     DamageFactor: 3
     LandscapeSpawnSide:
     - LandscapeEnum: 0
