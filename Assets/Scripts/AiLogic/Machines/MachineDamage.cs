@@ -4,7 +4,7 @@ using Zenject;
 public class MachineDamage : BaseDamage
 {
     [Inject] readonly BulletsPool _bulletsPool;
-    [SerializeField] private BulletEnum _bulletType;
+    [SerializeField] private BulletEnum[] _bulletTypes;
     [SerializeField] private Transform[] _firePoints;
 
     public override void Attack(int attackNumber)
@@ -13,20 +13,20 @@ public class MachineDamage : BaseDamage
         CurrentTargetBaseHealth.CalculateDamage(MachinesDataMission.Instance.GetCurrentMeleeDamage(), 0); 
     }
 
-    public override void Shoot(int firePointNumber)
+    public override void Shoot(int fireNumber)
     {
-        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(firePointNumber);
+        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(fireNumber);
 
-        var currentPoint = _firePoints[firePointNumber];
+        var currentPoint = _firePoints[fireNumber];
 
-        GameObject bullet = _bulletsPool.GetBullet(_bulletType);
+        GameObject bullet = _bulletsPool.GetBullet(_bulletTypes[fireNumber]);
         bullet.transform.SetPositionAndRotation(currentPoint.position, currentPoint.rotation);
 
         if (bullet.TryGetComponent<Bullet>(out var bulletScript))
         {
             bulletScript.SetTarget(CurrentTargetBaseHealth, CurrentTargetTransform);
-            bulletScript.SetDamage(MachinesDataMission.Instance.GetCurrentRangeDamage(), 0);
-            bulletScript.SetBulletPool(_bulletsPool, _bulletType);
+            bulletScript.SetDamage(MachinesDataMission.Instance.GetCurrentRangeDamage(), 5);
+            bulletScript.SetBulletPool(_bulletsPool, _bulletTypes[fireNumber]);
         }
     }
 }

@@ -88,5 +88,5 @@ public enum MachineType
     None = -1,
     WarBallista = 0,
     Tank = 1,
-    Unknown = 2,
+    Mecha = 2,
 }

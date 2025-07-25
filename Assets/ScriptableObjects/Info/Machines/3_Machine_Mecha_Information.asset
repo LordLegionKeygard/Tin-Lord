@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f211c95cc4a774ca46a9742e405740, type: 3}
+  m_Name: 3_Machine_Mecha_Information
+  m_EditorClassIdentifier: 
+  Name:
+  - Mecha
+  - "\u041C\u0435\u0445\u0430"
+  MachineSprite: {fileID: 21300000, guid: 4dfd71f0d28bc8042a9e28f05b59d5b1, type: 3}
+  MachineType: 2
+  DetectionRadius: 120
+  RequiredBuildingLevel: 3
+  MachineLevelInfo:
+    StartDurability: 370
+    StartMeleeDamage: 0
+    StartRangeDamage: 14
+    FactorDurability: 30
+    FactorMeleeDamage: 0
+    FactorRangeDamage: 2
+  ResourcesForBuild:
+  - ResourceEnum: 11
+    RecourceAmount: 30
+  - ResourceEnum: 18
+    RecourceAmount: 10
+  - ResourceEnum: 19
+    RecourceAmount: 5
+  - ResourceEnum: 21
+    RecourceAmount: 1
