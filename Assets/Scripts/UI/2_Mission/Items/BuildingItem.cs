@@ -15,7 +15,6 @@ public class BuildingItem : MonoBehaviour
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Image _icon;
-    [SerializeField] private Button _button;
     [SerializeField] private Image _backImage;
 
     [Header("Other")]
@@ -61,7 +60,6 @@ public class BuildingItem : MonoBehaviour
     {
         _haveRequiredLevel = _currentTile.Buildings[_buildingIndex - 1].RequiredBaseLevel <= _tilesSystem.GetBaseLevel();
         _resourcesEnough = _missionResources.ResourcesEnough(GetResources());
-        _button.enabled = _resourcesEnough && _haveRequiredLevel;
         _nameText.color = _resourcesEnough && _haveRequiredLevel ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
