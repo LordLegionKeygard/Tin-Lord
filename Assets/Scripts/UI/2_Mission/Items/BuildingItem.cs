@@ -110,7 +110,7 @@ public class BuildingItem : MonoBehaviour
                 else
                 {
                     buildingTile.AddResourcesAfterDestroyBuilding();
-                    buildingTile.DestroyBuildingTile(); // получается при апгрейде здания, мы сначала уничтожаем прошлое здание и получаем такое кол-во ресурсов, какой процент хп у него остался
+                    buildingTile.DestroyBuildingTile(true); // получается при апгрейде здания, мы сначала уничтожаем прошлое здание и получаем такое кол-во ресурсов, какой процент хп у него остался
                     buildingTile.BeginConstruction(_currentTile, _buildingIndex, false);
                 }
                 break;

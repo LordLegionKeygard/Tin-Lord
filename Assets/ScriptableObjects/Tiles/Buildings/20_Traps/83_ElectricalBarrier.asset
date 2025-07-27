@@ -10,30 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 82_SteelSaws
+  m_Name: 83_ElectricalBarrier
   m_EditorClassIdentifier: 
   Name:
-  - Steel Saws
-  - "\u0421\u0442\u0430\u043B\u044C\u043D\u044B\u0435 \u041F\u0438\u043B\u044B"
-  BuildingSprite: {fileID: 21300000, guid: 995bc68cbd607ab47b46a1e1541fe9a0, type: 3}
-  Id: 82
-  BuildingLevel: 3
-  RequiredBaseLevel: 3
+  - Electrical Barrier
+  - "\u042D\u043B\u0435\u043A\u0442\u0440\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+    \u0431\u0430\u0440\u044C\u0435\u0440"
+  BuildingSprite: {fileID: 21300000, guid: 72b1a1dd1221d6e4fafd878a355144dd, type: 3}
+  Id: 83
+  BuildingLevel: 4
+  RequiredBaseLevel: 4
   BuildingEcology: -0.5
   BuildingHealth: 100
   ResourceExtractedAmount: 0
-  Price: 100
+  Price: 150
   CanRotateBuilding: 1
   ResourcesForBuild:
-  - ResourceEnum: 11
+  - ResourceEnum: 16
     RecourceAmount: 2
-  - ResourceEnum: 17
-    RecourceAmount: 2
+  - ResourceEnum: 18
+    RecourceAmount: 1
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
     type: 3}
-  ConstructionPrefab: {fileID: 5909100974166539308, guid: 9f6942ad41bccb94bb66356369b7fce9,
+  ConstructionPrefab: {fileID: 5909100974166539308, guid: b0176288b93771e4d9c46cf7578004b0,
     type: 3}
   Damage: 0
   AttackSpeed: 0

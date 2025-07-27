@@ -192,7 +192,7 @@ public class BuildingHealth : BaseHealth
             }
         }
 
-        _buildingTile.DestroyBuildingTile();
+        _buildingTile.DestroyBuildingTile(false);
         _tileObject.ToggleIsBuildingDestroyedNow(false);
     }
 

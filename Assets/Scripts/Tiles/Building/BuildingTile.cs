@@ -310,7 +310,7 @@ public class BuildingTile : MonoBehaviour
    /// <summary>
    /// Можно вызывать только при строительстве нового здания или после вызова смерти здания
    /// </summary>
-   public void DestroyBuildingTile()
+   public void DestroyBuildingTile(bool isUpgrade)
    {
       if (_currentBuildingTile == null) return;
       StopConstruction();
@@ -322,7 +322,7 @@ public class BuildingTile : MonoBehaviour
 
          RefreshNeighbourWallTiles();
       }
-      _buildingHealth.DestroyHealthSlider(); // вызываем еще раз, так как есть ситуации, когда не вызывается уничтожение слайдера, например уничтожаем сами, а не через реальную смерть
+      if(!isUpgrade) _buildingHealth.DestroyHealthSlider(); // вызываем еще раз, так как есть ситуации, когда не вызывается уничтожение слайдера, например уничтожаем сами, а не через реальную смерть
       _currentBuildingTile = null;
       _currentLevel = 0;
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
