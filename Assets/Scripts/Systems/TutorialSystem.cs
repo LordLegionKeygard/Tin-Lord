@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -9,33 +10,40 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private List<TutorialStep> _steps;
     [SerializeField] private GameObject _tutorialPanel;
     [SerializeField] private TextMeshProUGUI _tutorialPanelText;
-    [SerializeField] private GameObject _justContinueButon;
+    [SerializeField] private GameObject _justContinueButton;
     private int _currentStepIndex;
     private TutorialStep _currentStep;
 
-    private void Start()
-    {
-        CustomEvents.OnCompleteTutorialStep += CompleteStep;
-    }
-
-    public void LoadTutorial(int stepIndex, bool prologueCompleted)
-    {
-        if (stepIndex == (int)TutorialStepEnum.Complete || !prologueCompleted) return;
-
-        for (int i = 0; i < _steps.Count; i++)
+    private static readonly Dictionary<TutorialTextPanelPos, (Vector2 anchor, Vector2 offset)> PanelLayout =
+        new()
         {
-            if ((int)_steps[i].TutorialStepEnum == stepIndex)
-            {
-                _currentStepIndex = i;
-                RunStep();
-                return;
-            }
-        }
-    }
+            {TutorialTextPanelPos.Center,       (new Vector2(0.5f, 0.5f), Vector2.zero)},
+            {TutorialTextPanelPos.Bottom,       (new Vector2(0.5f, 0f),   new Vector2(0,  186.5f))},
+            {TutorialTextPanelPos.Top,          (new Vector2(0.5f, 1f),   new Vector2(0, -186.5f))},
+            {TutorialTextPanelPos.Left,         (new Vector2(0f,   0.5f), new Vector2( 186.5f, 0))},
+            {TutorialTextPanelPos.Right,        (new Vector2(1f,   0.5f), new Vector2(-186.5f, 0))},
+            {TutorialTextPanelPos.TopLeft,      (new Vector2(0f,   1f),   new Vector2( 186.5f,-186.5f))},
+            {TutorialTextPanelPos.TopRight,     (new Vector2(1f,   1f),   new Vector2(-186.5f,-186.5f))},
+            {TutorialTextPanelPos.BottomLeft,   (new Vector2(0f,   0f),   new Vector2( 186.5f, 186.5f))},
+            {TutorialTextPanelPos.BottomRight,  (new Vector2(1f,   0f),   new Vector2(-186.5f, 186.5f))}
+        };
 
-    private void SaveTutorial(TutorialStepEnum stepEnum)
+    private void Start() => CustomEvents.OnCompleteTutorialStep += CompleteStep;
+
+    public void LoadTutorial(int savedEnum, bool prologueCompleted)
     {
-        _hangarSaveGame.SaveTutorialStep((int)stepEnum);
+        if (!prologueCompleted || savedEnum == (int)TutorialStepEnum.Complete) return;
+
+        // ищем нужный шаг и при необходимости «откатываемся» по цепочке
+        _currentStepIndex = _steps.FindIndex(s => (int)s.TutorialStepEnum == savedEnum);
+        if (_currentStepIndex < 0) return;
+
+        while (_currentStepIndex > 0 && _steps[_currentStepIndex].RequirePreviousStep)
+        {
+            _currentStepIndex--;
+        }
+
+        RunStep();
     }
 
     private void RunStep()
@@ -45,59 +53,39 @@ public class TutorialSystem : MonoBehaviour
         if (_currentStep.ClickView != null) _currentStep.ClickView.SetActive(true);
         _tutorialPanelText.text = Language.TextStatic[_currentStep.TextNumber];
 
-        var rectTrans = _tutorialPanel.GetComponent<RectTransform>();
-        var targetPos = GetTutorialPanelPos(_currentStep.TutorialTextPanelPos);
-        var currentPos = rectTrans.anchoredPosition;
-        currentPos.x = targetPos.x;
-        currentPos.y = targetPos.y;
-        rectTrans.anchoredPosition = currentPos;
+        // поставить якорь и позицию
+        var (anchor, offset) = PanelLayout[_currentStep.TutorialTextPanelPos];
+        var rect = _tutorialPanel.GetComponent<RectTransform>();
+        rect.anchorMin = rect.anchorMax = anchor;
+        rect.anchoredPosition = offset;
 
+        // включаем‑выключаем UI‑элементы
         _tutorialPanel.SetActive(true);
-        _justContinueButon.SetActive(_currentStep.JustContinue);
+        _justContinueButton.SetActive(_currentStep.JustContinue);
     }
 
-    private void CompleteStep(TutorialStepEnum tutorialStepEnum)
+    private void CompleteStep(TutorialStepEnum stepEnum)
     {
-        if (_currentStep.TutorialStepEnum != tutorialStepEnum) return;
+        if (_currentStep.TutorialStepEnum != stepEnum) return;
 
         if (_currentStep.ClickView != null) _currentStep.ClickView.SetActive(false);
-        _justContinueButon.SetActive(false);
         _tutorialPanel.SetActive(false);
+        _justContinueButton.SetActive(false);
 
-        var nextEnum = (TutorialStepEnum)((int)tutorialStepEnum + 1);
-        for (int i = 0; i < _steps.Count; i++)
-        {
-            if (_steps[i].TutorialStepEnum == nextEnum)
-            {
-                _currentStepIndex = i;
-                _currentStep = _steps[i];
-
-                SaveTutorial(nextEnum);
-                RunStep();
-                return;
-            }
-        }
+        var nextEnum = (TutorialStepEnum)((int)stepEnum + 1);
+        _currentStepIndex = _steps.FindIndex(s => s.TutorialStepEnum == nextEnum);
 
         SaveTutorial(nextEnum);
-        _currentStep = null;
+
+        if (_currentStepIndex >= 0) RunStep();
+        else _currentStep = null; // конец туториала
     }
 
+    public void JustContinue() => CompleteStep(_currentStep.TutorialStepEnum);
 
-    public void JustContinue()
+    private void SaveTutorial(TutorialStepEnum stepEnum)
     {
-        CompleteStep(_currentStep.TutorialStepEnum);
-    }
-
-
-    private Vector2 GetTutorialPanelPos(TutorialTextPanelPos pos)
-    {
-        switch (pos)
-        {
-            case TutorialTextPanelPos.Center: return new Vector2(0, 0);
-            case TutorialTextPanelPos.Bottom: return new Vector2(0, -353);
-            case TutorialTextPanelPos.Top: return new Vector2(0, 353);
-        }
-        return Vector2.zero;
+        _hangarSaveGame.SaveTutorialStep((int)stepEnum);
     }
 
     private void OnDestroy()
@@ -114,24 +102,29 @@ public class TutorialStep
     public int TextNumber;
     public TutorialTextPanelPos TutorialTextPanelPos;
     public bool JustContinue;
+    public bool RequirePreviousStep;
 }
 
-[System.Serializable]
 public enum TutorialStepEnum
 {
-    HangarWelcome = 0,
-    AiCorePanel = 1,
-    QuantPanel = 2,
-    HangarOpenMap = 3,
-    HangarSelectNode = 4,
-    HangarStartMission = 5,
-    Complete = 6,
+    SpaceHangarWelcome,
+    SpaceAiCorePanel,
+    SpaceQuantPanel,
+    SpaceOpenMap,
+    SpaceSelectNode,
+    SpaceStartMission,
+    Complete
 }
 
-[System.Serializable]
 public enum TutorialTextPanelPos
 {
-    Center = 0,
-    Bottom = 1,
-    Top = 2,
+    Center,
+    Bottom,
+    Top,
+    Left,
+    Right,
+    TopLeft,
+    TopRight,
+    BottomLeft,
+    BottomRight
 }

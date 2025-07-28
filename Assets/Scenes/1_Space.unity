@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007796123, g: 0.000096158496, b: 0.00011578078,
+  m_IndirectSpecularColor: {r: 0.00007730019, g: 0.00009564409, b: 0.000114785595,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -18029,6 +18029,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592619512}
   m_CullTransparentMesh: 1
+--- !u!1 &599929487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599929488}
+  - component: {fileID: 599929490}
+  - component: {fileID: 599929489}
+  m_Layer: 5
+  m_Name: TutorialClickView_MapButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &599929488
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599929487}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1721133891}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &599929489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599929487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.65882355, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d90b3d89154f455489c245ce25c807db, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &599929490
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599929487}
+  m_CullTransparentMesh: 1
 --- !u!1 &609843430
 GameObject:
   m_ObjectHideFlags: 0
@@ -34946,12 +35022,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31be318e388c69d4ea69f52078e9c366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1248133993 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1003870432216858932, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 1003870431308464733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248141809
 GameObject:
   m_ObjectHideFlags: 0
@@ -47211,6 +47281,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1309732422}
+  - {fileID: 599929488}
   m_Father: {fileID: 1302081941}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58462,19 +58533,28 @@ MonoBehaviour:
     TextNumber: 222
     TutorialTextPanelPos: 1
     JustContinue: 1
+    RequirePreviousStep: 0
   - TutorialStepEnum: 1
     ClickView: {fileID: 670015644}
     TextNumber: 223
     TutorialTextPanelPos: 1
     JustContinue: 1
+    RequirePreviousStep: 0
   - TutorialStepEnum: 2
     ClickView: {fileID: 699430007}
     TextNumber: 224
     TutorialTextPanelPos: 0
     JustContinue: 1
+    RequirePreviousStep: 0
+  - TutorialStepEnum: 3
+    ClickView: {fileID: 599929487}
+    TextNumber: 225
+    TutorialTextPanelPos: 0
+    JustContinue: 0
+    RequirePreviousStep: 0
   _tutorialPanel: {fileID: 27417593}
   _tutorialPanelText: {fileID: 1624886968}
-  _justContinueButon: {fileID: 1248133993}
+  _justContinueButton: {fileID: 1003870431308464734}
 --- !u!1001 &2054667925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61775,6 +61855,12 @@ PrefabInstance:
       objectReference: {fileID: 2049178741}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca, type: 3}
+--- !u!1 &1003870431308464734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1003870432216858932, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003870431308464733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1845895293506034076 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7708900896170897184, guid: 60e78ac99e73c704fac8791abffcc3a8,

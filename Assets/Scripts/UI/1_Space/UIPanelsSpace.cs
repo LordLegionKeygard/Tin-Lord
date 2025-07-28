@@ -43,6 +43,7 @@ public class UIPanelsSpace : MonoBehaviour
         if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelMove();
         if (!_mapPanelDoMove.IsOpen())
         {
+            CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceOpenMap);
             _mapSystem.FocusOnCurrentNode();
             _mapPanelDoMove.PanelMove();
         }
