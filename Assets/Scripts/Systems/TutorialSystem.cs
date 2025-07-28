@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -11,7 +10,7 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private GameObject _tutorialPanel;
     [SerializeField] private TextMeshProUGUI _tutorialPanelText;
     [SerializeField] private GameObject _justContinueButton;
-    private int _currentStepIndex;
+    private int _currentStepIndex = -1;
     private TutorialStep _currentStep;
 
     private static readonly Dictionary<TutorialTextPanelPos, (Vector2 anchor, Vector2 offset)> PanelLayout =

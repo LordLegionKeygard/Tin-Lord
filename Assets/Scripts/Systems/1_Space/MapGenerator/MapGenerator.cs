@@ -72,8 +72,10 @@ public class MapGenerator : MonoBehaviour
         int lastContent = totalLayers - 2;
 
         // 1.1 выбираем СЛОИ, куда обязательно пойдут «открытые»
-        const int gapLayers = 2; // ≥ 2 слоя между открытыми
-        List<int> candidateLayers = Enumerable.Range(1, lastContent - 1).ToList();
+        const int firstContentLayer = 1;
+        const int gapLayers = 2;           // ≥ 2 слоя между открытыми
+        // слой 1 сразу после Start исключаем
+        List<int> candidateLayers = Enumerable.Range(firstContentLayer + 1, lastContent - firstContentLayer - 1).ToList();
         candidateLayers.Shuffle();
 
         // если Reward+Traders больше, чем слоёв-кандидатов ⇒ урезаем
@@ -243,7 +245,10 @@ public class MapGenerator : MonoBehaviour
         {
             NodeInstance TakeRandomStub()
             {
-                var stubs = _generatedNodes.Where((n, idx) => SavedMap.Nodes[idx].NodeType == NodeType.None).ToList();
+                // в слой 1 «открытые» ставить нельзя
+                var stubs = _generatedNodes.Where((n, idx) =>
+                            SavedMap.Nodes[idx].NodeType == NodeType.None &&
+                            n.layer > 1).ToList();
                 return stubs.Count > 0 ? stubs[Random.Range(0, stubs.Count)] : null;
             }
 
