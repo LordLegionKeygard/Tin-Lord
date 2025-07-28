@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -58,6 +59,11 @@ public class MissionSaveLoad : MonoBehaviour
     private void Awake()
     {
         _missionSaveGame.MissionSaveLoad = this;
+    }
+
+    private void Start()
+    {
+        CustomEvents.OnDayEnd += AutoSave;
     }
 
     public void ResetMissionData(ref MissionSaveData currentSaveData)
@@ -222,4 +228,38 @@ public class MissionSaveLoad : MonoBehaviour
         return node;
     }
 
+    public void PrepareRestartMission()
+    {
+        StartCoroutine(nameof(PrepareRestartMissionCoroutine));
+    }
+
+    public void PrepareSaveMission()
+    {
+        StartCoroutine(nameof(PrepareSaveMissionCoroutine));
+    }
+
+
+    private IEnumerator PrepareRestartMissionCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        _missionSaveGame.ResetMissionJson();
+        CustomEvents.FireLoadScene(SceneEnum.Mission, WorldGameInfo.LoadSceneTime, CurrentMissionInfo.Instance.GetCurrentLandscape().LoadingScreenSprite);
+    }
+
+    private IEnumerator PrepareSaveMissionCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        _missionSaveGame.SaveMissionToJson();
+        CustomEvents.FireLoadScene(SceneEnum.Space, WorldGameInfo.LoadSceneTime, null);
+    }
+
+    public void AutoSave(int day)
+    {
+        _missionSaveGame.SaveMissionToJson();
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnDayEnd -= AutoSave;
+    }
 }

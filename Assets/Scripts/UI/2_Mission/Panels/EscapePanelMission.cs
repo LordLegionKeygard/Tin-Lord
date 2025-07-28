@@ -8,7 +8,7 @@ using Zenject;
 public class EscapePanelMission : MonoBehaviour
 {
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
-    [Inject] private readonly MissionSaveGame _missionSaveGame;
+    [SerializeField] private MissionSaveLoad _missionSaveLoad;
     [SerializeField] private RectTransform _escapePanelTransform;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private GameObject _escapePanelBackgroundBlack;
@@ -134,7 +134,7 @@ public class EscapePanelMission : MonoBehaviour
         {
             CustomEvents.FireFade(FadeType.StartFade);
             _spaceSaveGame.RemoveOneAiCoreDataToJson();
-            StartCoroutine(nameof(PrepareRestartMission));
+            _missionSaveLoad.PrepareRestartMission();
         }
         else if (_escapeButton.interactable == false) //escape
         {
@@ -143,22 +143,8 @@ public class EscapePanelMission : MonoBehaviour
         else // exit
         {
             CustomEvents.FireFade(FadeType.StartFade);
-            StartCoroutine(nameof(PrepareSaveMission));
+            _missionSaveLoad.PrepareSaveMission();
         }
         CustomEvents.FireCloseTooltips();
-    }
-
-    private IEnumerator PrepareRestartMission()
-    {
-        yield return new WaitForSecondsRealtime(1);
-        _missionSaveGame.ResetMissionJson();
-        CustomEvents.FireLoadScene(SceneEnum.Mission, WorldGameInfo.LoadSceneTime, CurrentMissionInfo.Instance.GetCurrentLandscape().LoadingScreenSprite);
-    }
-
-    private IEnumerator PrepareSaveMission()
-    {
-        yield return new WaitForSecondsRealtime(1);
-        _missionSaveGame.SaveMissionToJson();
-        CustomEvents.FireLoadScene(SceneEnum.Space, WorldGameInfo.LoadSceneTime, null);
     }
 }
