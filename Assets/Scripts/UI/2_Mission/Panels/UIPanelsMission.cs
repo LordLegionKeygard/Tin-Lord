@@ -4,6 +4,7 @@ public class UIPanelsMission : MonoBehaviour
 {
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TileDetector _tileDetector;
+    [SerializeField] private SkillTargetSystem _skillTargetSystem;
 
     [Header("Panels")]
     [SerializeField] private GameObject[] _selectTilePanels;
@@ -26,6 +27,7 @@ public class UIPanelsMission : MonoBehaviour
 
     public void EscapeClick()
     {
+        _skillTargetSystem.CancelSkillCircle();
         if (_selectTilePanels[0].activeInHierarchy)
         {
             _selectTilePanels[0].SetActive(false);

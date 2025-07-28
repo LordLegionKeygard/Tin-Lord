@@ -120,10 +120,11 @@ public class MapSystem : MonoBehaviour
 
         bool isCurrent = nodeIndex == _currentNodeIndex;
         var nodeType = map.Nodes[nodeIndex].NodeType;
+        bool isTrader = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader;
 
-        // ► недоступен?  ► уже пройдена миссия?  – выходим
+        if (map.Nodes[nodeIndex].IsCompleted && !isTrader) return;
+
         if (!isCurrent && (!IsReachable(nodeIndex) || !map.Nodes[_currentNodeIndex].IsCompleted)) return;
-        if (nodeType == NodeType.Mission && map.Nodes[nodeIndex].IsCompleted) return;
 
         bool isVisibleNonMission = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.RewardEvent;
 

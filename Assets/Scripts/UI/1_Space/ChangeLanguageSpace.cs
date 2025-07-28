@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ChangeLanguageSpace : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _tutorialContinue;
     [SerializeField] private TextMeshProUGUI[] _resourceTypesPanel;
     [SerializeField] private TextMeshProUGUI _mapText;
     [SerializeField] private TextMeshProUGUI _learningText;
@@ -29,6 +30,7 @@ public class ChangeLanguageSpace : MonoBehaviour
 
     private void Start()
     {
+        _tutorialContinue.text = Language.TextStatic[33];
         _resourceTraderHeaderText.text = Language.TextStatic[287];
         _resourceTraderPriceText.text = Language.TextStatic[288];
         _resourceTradeBuyText.text = Language.TextStatic[289];

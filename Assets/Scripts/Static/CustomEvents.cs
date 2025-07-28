@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 
 public class CustomEvents
 {
+    public static event Action<TutorialStepEnum > OnCompleteTutorialStep;
+    public static void FireCompleteTutorialStep(TutorialStepEnum tutorialStepEnum)
+    {
+        OnCompleteTutorialStep?.Invoke(tutorialStepEnum);
+    }
+
     public static event Action<TileObject> OnChangeGeneralRepairTileObject;
     public static void FireChangeGeneralRepairTileObject(TileObject tileObject)
     {

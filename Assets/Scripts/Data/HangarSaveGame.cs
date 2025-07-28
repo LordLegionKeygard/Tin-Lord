@@ -41,7 +41,8 @@ public class HangarSaveGame : MonoBehaviour
             Shards = 0,
             OpenedRobots = new bool[WorldGameInfo.HangarRobotsCount],
             OpenedCrates = new bool[WorldGameInfo.HangarCratesCount],
-            OpenedSkills = new bool[WorldGameInfo.HangarSkillsCount]
+            OpenedSkills = new bool[WorldGameInfo.HangarSkillsCount],
+            TutorialProgress = 0,
         };
 
         HangarSaveData.OpenedRobots[0] = true; // Patch
@@ -71,6 +72,13 @@ public class HangarSaveGame : MonoBehaviour
     {
         _hangarSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         HangarSaveData.Shards += calculateShards;
+        _hangarSaveGameDataWriter.WriteHangarDataToSaveFile(HangarSaveData);
+    }
+
+    public void SaveTutorialStep(int step)
+    {
+        _hangarSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
+        HangarSaveData.TutorialProgress = step;
         _hangarSaveGameDataWriter.WriteHangarDataToSaveFile(HangarSaveData);
     }
 }

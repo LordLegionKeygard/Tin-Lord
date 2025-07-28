@@ -55,9 +55,9 @@ public class ResourceTraderPanel : MonoBehaviour
 
     public void OnAmountChange()
     {
+        if (_amountInputField.text == string.Empty) return;
         if (int.Parse(_amountInputField.text) == 0) _amountInputField.text = "1";
         if (int.Parse(_amountInputField.text) > 99) _amountInputField.text = "99";
-
 
         UpdateView();
     }

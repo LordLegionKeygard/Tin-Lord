@@ -120,7 +120,7 @@ public class WorldGameInfo
     [Header("Tooltip Pivot")]
     public const float NodePivot = 2.5f;
     public const float ButtonPivot = -0.9f;
-    public const float ResourcePivot = -0.45f;
+    public const float ResourcePivot = -0.5f;
     public const float BuildinTypePivot = -0.9f;
 
     [Header("Rewards")]
