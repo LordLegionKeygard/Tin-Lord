@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LearnBuildingInfoPanel : MonoBehaviour
 {
     [SerializeField] private Tile[] _allBuildingTypes;
-    [SerializeField] private BuildingsLearnPanel _learnPanel;
+    [SerializeField] private BuildingsLearnPanel _buildingLearnPanel;
     [SerializeField] private PanelDoMoveY _panelDoMoveY;
     private LearnBuildingItem _currentLearnBuildingItem;
 
@@ -56,9 +56,9 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _blockReasonText;
 
     [Header("BlockReason → Go")]
-    [SerializeField] private Button _goButton;          // сама кнопка GO
-    [SerializeField] private ScrollRect _scrollRect;    // ScrollRect, где лежат LearnBuildingItem
-    private LearnBuildingItem _targetItemForGo;         // куда прыгать
+    [SerializeField] private Button _goButton;
+    [SerializeField] private ScrollRect _scrollRect;
+    private LearnBuildingItem _targetItemForGo;
 
     [Header("Buttons")]
     [SerializeField] private GameObject _buttonsPanelObject;
@@ -73,6 +73,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     public void SetNewBuildingItem(LearnBuildingItem learnBuildingItem)
     {
+        _buildingLearnPanel.UnselectAllBuildingItems();
         _currentLearnBuildingItem = learnBuildingItem;
         _currentResourcesProduction = 0;
     }
@@ -181,12 +182,12 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     private void SetButtonPanel()
     {
         var building = _currentLearnBuildingItem.GetBuilding();
-        int currentBaseLevel = _learnPanel.GetCurrentBaseLevel();
+        int currentBaseLevel = _buildingLearnPanel.GetCurrentBaseLevel();
         int requiredBase = building.RequiredBaseLevel;
 
         if (currentBaseLevel < requiredBase)
         {
-            _targetItemForGo = _learnPanel.GetBaseItemByLevel(requiredBase);
+            _targetItemForGo = _buildingLearnPanel.GetBaseItemByLevel(requiredBase);
             _blockReasonText.text = GetNeedOpenText(_targetItemForGo);
 
             PrepareGoButton();
@@ -195,11 +196,11 @@ public class LearnBuildingInfoPanel : MonoBehaviour
             return;
         }
 
-        bool depsOk = _learnPanel.TryGetBlockingResource(building, out ResourceEnum missing);
+        bool depsOk = _buildingLearnPanel.TryGetBlockingResource(building, out ResourceEnum missing);
 
         if (!depsOk)
         {
-            _targetItemForGo = _learnPanel.GetProducerOf(missing);
+            _targetItemForGo = _buildingLearnPanel.GetProducerOf(missing);
             _blockReasonText.text = GetNeedOpenText(_targetItemForGo);
 
             PrepareGoButton();
@@ -217,9 +218,9 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         string needOpen = Language.TextStatic[43];  // "Вам нужно открыть"
         string buildingNm = item.GetBuilding().Name[Language.LanguageNumber];
         string inText = Language.TextStatic[75];  // "в"
-        string typeNm = _learnPanel.GetParentTileName(item, _allBuildingTypes);
+        string typeNumber = _buildingLearnPanel.GetParentTileName(item, _allBuildingTypes);
 
-        return $"{needOpen} \"{buildingNm}\" {inText} \"{typeNm}\"";
+        return $"{needOpen} \"{buildingNm}\" {inText} \"{typeNumber}\"";
     }
 
     private void PrepareGoButton()
@@ -240,13 +241,6 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     {
         yield return null; // ждём, пока перестроится лэйаут
         ScrollToItem(item); // крутимся к той же сохранённой цели
-    }
-
-
-    private IEnumerator LateScroll()
-    {
-        yield return null; // ждём перерисовку LayoutGroup
-        ScrollToItem(_targetItemForGo);
     }
 
     private void ScrollToItem(LearnBuildingItem item)
@@ -306,12 +300,6 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _currentLearnBuildingItem = null;
     }
 
-    public void ChangeResourceForWork(Resource resource)
-    {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        SetResourceForWorkAndText(resource);
-    }
-
     private void SetResourceForWorkAndText(Resource resource)
     {
         var building = _currentLearnBuildingItem.GetBuilding();
@@ -326,41 +314,5 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
         _resourceForWorkPanel.UpdateButtonsView(building, resource.ResourceEnum);
         _resourceForWorkText.text = $"{Language.TextStatic[14]}: {Language.TextStatic[resource.NameNumber]} {_resourceForWorkAmount}";
-    }
-
-    private string GetBlockReasonText(ResourceEnum res)
-    {
-        // Проходим по всем типам зданий по порядку (порядок открытия)
-        for (int i = 0; i < _allBuildingTypes.Length; i++)
-        {
-            var tile = _allBuildingTypes[i];
-            if (tile == null || tile.Buildings == null) continue;
-
-            // Внутри типа — по всем зданиям
-            for (int j = 0; j < tile.Buildings.Length; j++)
-            {
-                var b = tile.Buildings[j];
-                if (b == null || b.ResourcesProduction == null) continue;
-
-                // Проверяем, какие ресурсы здание производит
-                foreach (var prod in b.ResourcesProduction)
-                {
-                    if (prod == null || prod.ProductionResource == null) continue;
-
-                    if (prod.ProductionResource.ResourceEnum == res)
-                    {
-                        // Нашли первое здание-производитель ↴ формируем текст
-                        string needOpen = Language.TextStatic[43]; // "Вам нужно открыть"
-                        string buildingName = b.Name[Language.LanguageNumber];
-                        string inText = Language.TextStatic[75]; // "в"
-                        string typeName = tile.Name[Language.LanguageNumber];
-
-                        return $"{needOpen} \"{buildingName}\" {inText} \"{typeName}\"";
-                    }
-                }
-            }
-        }
-
-        return "Необходимо неизвестное здание";   // это явная ошибка
     }
 }

@@ -11,7 +11,7 @@ public class MapGenerator : MonoBehaviour
     [Header("Generation Settings")]
     private float _nodeXoffset = 300f;   // Шаг слоёв по X
     private float _nodeYoffset = 200;   // Шаг нод по Y
-    private float _nodeYrandomSpread = 60;    // Случайное отклонение по Y
+    private float _nodeYrandomSpread = 50;    // Случайное отклонение по Y
     private float _mainXOffset = 100;   // Смещение всей сетки по X
     private float _mainYOffset = 0;  // Смещение всей сетки по Y
 

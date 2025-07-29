@@ -30,9 +30,6 @@ public class FadeSystem : MonoBehaviour
             case FadeType.FadeOut:
                 FadeOut(1);
                 break;
-            case FadeType.FadeOutPrologue:
-                FadeOut(4);
-                break;
         }
     }
 
@@ -70,6 +67,5 @@ public enum FadeType
     StartFade = 0,
     StartFadeSlow = 1,
     FadeOut = 2,
-    FadeOutFast = 3,
-    FadeOutPrologue = 4,
+    FadeOutFast = 3
 }

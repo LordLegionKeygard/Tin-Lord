@@ -15,6 +15,14 @@ public class BuildingsLearnPanel : MonoBehaviour
     public LearnBuildingItem[] AllLearnBuildingItems() => _learnBuildingItems;
     public bool IsResourceUnlocked(ResourceEnum res) => _unlockedResources.Contains(res);
 
+    public void UnselectAllBuildingItems()
+    {
+        foreach (var item in _learnBuildingItems)
+        {
+            item.SelectViewToggle(false);
+        }
+    }
+
     public int GetCurrentBaseLevel()
     {
         int level = 0;

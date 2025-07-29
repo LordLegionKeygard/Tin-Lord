@@ -15,6 +15,7 @@ public class LearnBuildingItem : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private Image _backImage;
     [SerializeField] private TextMeshProUGUI _priceText;
+    [SerializeField] private GameObject _selectView;
 
     [Header("Objects")]
     [SerializeField] private GameObject _priceObject;
@@ -69,6 +70,12 @@ public class LearnBuildingItem : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _learnBuildingInfoPanel.SetNewBuildingItem(this);
         _learnBuildingInfoPanel.RefreshInfo();
+        SelectViewToggle(true);
+    }
+
+    public void SelectViewToggle(bool state)
+    {
+        _selectView.SetActive(state);
     }
 
     public void LearnBuilding()

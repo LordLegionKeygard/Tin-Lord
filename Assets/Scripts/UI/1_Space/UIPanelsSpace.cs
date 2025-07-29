@@ -25,6 +25,7 @@ public class UIPanelsSpace : MonoBehaviour
     {
         _buildingsPanelDoMove.PanelMove();
         _buildingInfoPanelDoMove.PanelMove(false);
+        _buildingsLearnPanel.UnselectAllBuildingItems();
 
         if (_buildingsPanelDoMove.IsOpen()) _buildingsLearnPanel.ResetScrollPosition();
         if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();

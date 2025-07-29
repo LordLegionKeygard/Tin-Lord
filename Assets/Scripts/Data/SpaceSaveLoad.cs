@@ -34,7 +34,7 @@ public class SpaceSaveLoad : MonoBehaviour
         _quantsSystem.LoadQuants(currentSaveData.Quants);
         _aiCoreSystem.LoadAiCore(currentSaveData.AiCores);
         _mainResources.LoadResources(currentSaveData.MainResourcesData);
-        _prologue.StartPrologueAndTutorial(!currentSaveData.PrologueCompleted);
+        _prologue.StartPrologueAndTutorial(currentSaveData.PrologueCompleted);
 
         for (int i = 0; i < _buildingsLearnPanel.AllLearnBuildingItems().Length; i++)
         {

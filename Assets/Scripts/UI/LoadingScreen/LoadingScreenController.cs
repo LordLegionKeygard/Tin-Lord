@@ -34,28 +34,23 @@ public class LoadingScreenController : MonoBehaviour
     public async Task CheckCurrentScene()
     {
         await Task.Delay(2000);
-        switch (SceneManager.GetActiveScene().buildIndex)
-        {
-            case (int)SceneEnum.Hangar:
-                CustomEvents.FireFade(FadeType.FadeOut);
-                ScreenToggle(false);
-                break;
-            case (int)SceneEnum.Space:
-                if (!_spaceSaveGame.SpaceSaveData.PrologueCompleted)
-                {
-                    CustomEvents.FireFade(FadeType.FadeOutPrologue);
-                }
-                else
-                {
-                    CustomEvents.FireFade(FadeType.FadeOut);
-                }
-                ScreenToggle(false);
-                break;
-            case (int)SceneEnum.Mission:
-                CustomEvents.FireFade(FadeType.FadeOut);
-                ScreenToggle(false);
-                break;
-        }
+        CustomEvents.FireFade(FadeType.FadeOut);
+        ScreenToggle(false);
+        // switch (SceneManager.GetActiveScene().buildIndex)
+        // {
+        //     case (int)SceneEnum.Hangar:
+        //         CustomEvents.FireFade(FadeType.FadeOut);
+        //         ScreenToggle(false);
+        //         break;
+        //     case (int)SceneEnum.Space:
+        //         CustomEvents.FireFade(FadeType.FadeOut);
+        //         ScreenToggle(false);
+        //         break;
+        //     case (int)SceneEnum.Mission:
+        //         CustomEvents.FireFade(FadeType.FadeOut);
+        //         ScreenToggle(false);
+        //         break;
+        // }
     }
 
     private void OnDestroy()

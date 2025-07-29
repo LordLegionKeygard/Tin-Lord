@@ -17,9 +17,9 @@ public class PrologueSystem : MonoBehaviour
     [SerializeField] private CosmosView _cosmosView;
 
 
-    public void StartPrologueAndTutorial(bool newGame)
+    public void StartPrologueAndTutorial(bool prologueCompleted)
     {
-        if (!newGame) return;
+        if (prologueCompleted) return;
 
         _eventPanel.Open(_prologueDialog, OnPrologueFinished);
         _panels.EventPanelOpen();
@@ -28,6 +28,6 @@ public class PrologueSystem : MonoBehaviour
     private void OnPrologueFinished()
     {
         _spaceSaveGame.CompletePrologue();
-        _tutorialSystem.LoadTutorial(0, true);
+        if(!_tutorialSystem.TutorialCompleted()) _tutorialSystem.LoadTutorial(0, true);
     }
 }

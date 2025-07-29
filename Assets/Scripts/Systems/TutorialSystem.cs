@@ -12,6 +12,7 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private GameObject _justContinueButton;
     private int _currentStepIndex = -1;
     private TutorialStep _currentStep;
+    public bool TutorialCompleted() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.Complete : false;
 
     private static readonly Dictionary<TutorialTextPanelPos, (Vector2 anchor, Vector2 offset)> PanelLayout =
         new()
@@ -29,12 +30,12 @@ public class TutorialSystem : MonoBehaviour
 
     private void Start() => CustomEvents.OnCompleteTutorialStep += CompleteStep;
 
-    public void LoadTutorial(int savedEnum, bool prologueCompleted)
+    public void LoadTutorial(int tutorialStepEnum, bool prologueCompleted)
     {
-        if (!prologueCompleted || savedEnum == (int)TutorialStepEnum.Complete) return;
+        if (!prologueCompleted || tutorialStepEnum == (int)TutorialStepEnum.Complete) return;
 
         // ищем нужный шаг и при необходимости «откатываемся» по цепочке
-        _currentStepIndex = _steps.FindIndex(s => (int)s.TutorialStepEnum == savedEnum);
+        _currentStepIndex = _steps.FindIndex(s => (int)s.TutorialStepEnum == tutorialStepEnum);
         if (_currentStepIndex < 0) return;
 
         while (_currentStepIndex > 0 && _steps[_currentStepIndex].RequirePreviousStep)
@@ -65,7 +66,7 @@ public class TutorialSystem : MonoBehaviour
 
     private void CompleteStep(TutorialStepEnum stepEnum)
     {
-        if (_currentStep.TutorialStepEnum != stepEnum) return;
+        if (_currentStep == null || _currentStep.TutorialStepEnum != stepEnum) return;
 
         if (_currentStep.ClickView != null) _currentStep.ClickView.SetActive(false);
         _tutorialPanel.SetActive(false);
@@ -80,7 +81,11 @@ public class TutorialSystem : MonoBehaviour
         else _currentStep = null; // конец туториала
     }
 
-    public void JustContinue() => CompleteStep(_currentStep.TutorialStepEnum);
+    public void JustContinue()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        CompleteStep(_currentStep.TutorialStepEnum);
+    }
 
     private void SaveTutorial(TutorialStepEnum stepEnum)
     {
