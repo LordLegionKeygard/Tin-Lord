@@ -31,6 +31,7 @@ public class MissionPanel : MonoBehaviour
 
     public void RefreshInfo(MissionNode node, int nodeId)
     {
+        CustomEvents.FireRunStepAfterWait(TutorialStepEnum.SpaceStartMission_8);
         _currentNode = node;
         _currentNodeId = nodeId;
 
@@ -87,6 +88,7 @@ public class MissionPanel : MonoBehaviour
 
     public void StartNewMission()
     {
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceStartMission_8);
         if (HaveSaveData())
         {
             var haveMoreThenOneAicore = _aiCoreSystem.GetAiCores() > 1;

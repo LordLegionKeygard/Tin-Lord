@@ -28,7 +28,12 @@ public class TutorialSystem : MonoBehaviour
             {TutorialTextPanelPos.BottomRight,  (new Vector2(1f,   0f),   new Vector2(-186.5f, 186.5f))}
         };
 
-    private void Start() => CustomEvents.OnCompleteTutorialStep += CompleteStep;
+    private void Start()
+    {
+        CustomEvents.OnCompleteTutorialStep += CompleteStep;
+        CustomEvents.OnRunStepAfterWait += RunStepAfterWait;
+    }
+
 
     public void LoadTutorial(int tutorialStepEnum, bool prologueCompleted)
     {
@@ -43,12 +48,14 @@ public class TutorialSystem : MonoBehaviour
             _currentStepIndex--;
         }
 
-        RunStep();
+        RunStep(false);
     }
 
-    private void RunStep()
+    private void RunStep(bool runStepAfterWait)
     {
         _currentStep = _steps[_currentStepIndex];
+
+        if (_currentStep.WaitRunStep && !runStepAfterWait) return;
 
         if (_currentStep.ClickView != null) _currentStep.ClickView.SetActive(true);
         _tutorialPanelText.text = Language.TextStatic[_currentStep.TextNumber];
@@ -62,6 +69,8 @@ public class TutorialSystem : MonoBehaviour
         // включаем‑выключаем UI‑элементы
         _tutorialPanel.SetActive(true);
         _justContinueButton.SetActive(_currentStep.JustContinue);
+
+        CustomEvents.FireStartTutorialStep(_currentStep.TutorialStepEnum);
     }
 
     private void CompleteStep(TutorialStepEnum stepEnum)
@@ -77,14 +86,29 @@ public class TutorialSystem : MonoBehaviour
 
         SaveTutorial(nextEnum);
 
-        if (_currentStepIndex >= 0) RunStep();
+        if (_currentStepIndex >= 0) RunStep(false);
         else _currentStep = null; // конец туториала
     }
 
+    // Степ без необходимости нажатия, просто инфа
     public void JustContinue()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         CompleteStep(_currentStep.TutorialStepEnum);
+    }
+
+    // Вызывается внутри самих кнопок, если не удается реализовать логику в их скриптах
+    public void ClickButtonCompleteTest(int stepNumber)
+    {
+        if (_currentStep == null || (int)_currentStep.TutorialStepEnum != stepNumber) return;
+        CompleteStep(_currentStep.TutorialStepEnum);
+    }
+
+    // Вызывается при определенных условиях и выполняется если совпадает с текущим шагом
+    public void RunStepAfterWait(TutorialStepEnum stepEnum)
+    {
+        if (_currentStep == null || _currentStep.TutorialStepEnum != stepEnum) return;
+        RunStep(true);
     }
 
     private void SaveTutorial(TutorialStepEnum stepEnum)
@@ -95,6 +119,7 @@ public class TutorialSystem : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnCompleteTutorialStep -= CompleteStep;
+        CustomEvents.OnRunStepAfterWait -= RunStepAfterWait;
     }
 }
 
@@ -107,16 +132,20 @@ public class TutorialStep
     public TutorialTextPanelPos TutorialTextPanelPos;
     public bool JustContinue;
     public bool RequirePreviousStep;
+    public bool WaitRunStep;
 }
 
 public enum TutorialStepEnum
 {
-    SpaceHangarWelcome,
-    SpaceAiCorePanel,
-    SpaceQuantPanel,
-    SpaceOpenMap,
-    SpaceSelectNode,
-    SpaceStartMission,
+    SpaceHangarWelcome_0 = 0,
+    SpaceAiCorePanel_1 = 1,
+    SpaceQuantPanel_2 = 2,
+    SpaceOpenResourcePanel_3 = 3,
+    SpaceResourcePanelDescription_4 = 4,
+    SpaceOpenMap_5 = 5,
+    SpaceMapDescription_6 = 6,
+    SpaceSelectNode_7 = 7,
+    SpaceStartMission_8 = 8,
     Complete
 }
 

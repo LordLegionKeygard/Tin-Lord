@@ -5,12 +5,42 @@ using UnityEngine.UI;
 public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Graphics")]
+    [SerializeField] private GameObject _tutorialArrow;
     [SerializeField] private Image _icon;
-    [SerializeField] private Image _availableOverlay;
+    [SerializeField] private Image _availableView;
     private NodeData _nodeData;
     private int _index;
     private MapSystem _mapSystem;
     private Color _defaultColor;
+    private bool _available;
+
+    private void Start()
+    {
+        CustomEvents.OnStartTutorialStep += ActiveTutorialArrow;
+        CustomEvents.OnCompleteTutorialStep += DisableTutorialArrow;
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnStartTutorialStep -= ActiveTutorialArrow;
+        CustomEvents.OnCompleteTutorialStep -= DisableTutorialArrow;
+    }
+
+    public void DisableTutorialArrow(TutorialStepEnum tutorialStepEnum)
+    {
+        if (tutorialStepEnum != TutorialStepEnum.SpaceSelectNode_7) return;
+
+        _tutorialArrow.SetActive(false);
+    }
+
+    public void ActiveTutorialArrow(TutorialStepEnum tutorialStepEnum)
+    {
+        if (tutorialStepEnum != TutorialStepEnum.SpaceSelectNode_7 || !_available) return;
+
+        _tutorialArrow.SetActive(true);
+    }
+
+
     public int GetDescriptionTextNumber()
     {
         if (_mapSystem.IsCurrent(_index))
@@ -37,12 +67,17 @@ public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         SetCompleted(false);
     }
 
-    public void SelectNodeButton() => _mapSystem.TrySelectNode(_index);
-
-    public void SetAvailable(bool value)
+    public void SelectNodeButton()
     {
-        _availableOverlay.enabled = value;
-        transform.localScale = value ? Vector3.one * 1.2f : Vector3.one;
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceSelectNode_7);
+        _mapSystem.TrySelectNode(_index);
+    }
+
+    public void SetAvailable(bool state)
+    {
+        _available = state;
+        _availableView.enabled = _available;
+        transform.localScale = _available ? Vector3.one * 1.2f : Vector3.one;
     }
 
     public void SetCompleted(bool value)
@@ -62,6 +97,6 @@ public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void SetOnPointerColor(bool state)
     {
-        _availableOverlay.color = state ? Color.green : Color.white;
+        _availableView.color = state ? Color.green : Color.white;
     }
 }
