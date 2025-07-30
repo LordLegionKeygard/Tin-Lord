@@ -1,7 +1,10 @@
 using UnityEngine;
+using Zenject;
 
 public class UIPanelsSpace : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
+
     [Header("DoMove")]
     [SerializeField] private PanelDoMoveX _buildingsPanelDoMove;
     [SerializeField] private PanelDoMoveY _mapPanelDoMove;
@@ -70,9 +73,6 @@ public class UIPanelsSpace : MonoBehaviour
                     _skillTraderPanelDoMove.PanelMove();
                 }
                 break;
-            case TraderKind.Module:
-
-                break;
         }
     }
 
@@ -80,9 +80,11 @@ public class UIPanelsSpace : MonoBehaviour
     {
         if (_canvasGroup.interactable == false) return;
 
+        var tutorialStep = _tutorialSystem.GetTutorialStepEnum();
+
         CustomEvents.FireTooltipToggle(false, 0);
         if (_buildingsPanelDoMove.IsOpen()) LearnBuildingPanelToggle();
-        else if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove();
+        else if (_mapPanelDoMove.IsOpen() && tutorialStep is not TutorialStepEnum.SpaceMapDescription_6 or TutorialStepEnum.SpaceSelectNode_7) _mapPanelDoMove.PanelMove();
         else if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
         else if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
         else if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelMove();

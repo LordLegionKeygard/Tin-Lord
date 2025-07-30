@@ -9,6 +9,7 @@ public class EscapePanelSpace : MonoBehaviour
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _escapePanelBackgroundBlack;
+    [SerializeField] private CanvasGroup _tutorialCanvasGroup;
     private bool _isOpen;
 
     public void PanelViewToggle()
@@ -22,10 +23,12 @@ public class EscapePanelSpace : MonoBehaviour
         if (_isOpen)
         {
             _objectTransform.DOAnchorPosY(-62f, 0.8f).SetUpdate(true);
+            _tutorialCanvasGroup.alpha = 0;
         }
         else
         {
             _objectTransform.DOAnchorPosY(100, 0.8f).SetUpdate(true);
+            _tutorialCanvasGroup.alpha = 1;
         }
     }
 

@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Zenject;
 
 public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
+
     [Header("Graphics")]
     [SerializeField] private GameObject _tutorialArrow;
     [SerializeField] private Image _icon;
@@ -69,6 +72,8 @@ public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void SelectNodeButton()
     {
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceMapDescription_6) return;
+
         CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceSelectNode_7);
         _mapSystem.TrySelectNode(_index);
     }

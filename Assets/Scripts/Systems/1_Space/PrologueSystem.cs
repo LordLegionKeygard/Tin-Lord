@@ -4,6 +4,7 @@ using Zenject;
 public class PrologueSystem : MonoBehaviour
 {
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
+    [Inject] private readonly TutorialSystem _tutorialSystem;
 
     [Header("UI")]
     [SerializeField] private EventNodePanel _eventPanel;
@@ -11,7 +12,6 @@ public class PrologueSystem : MonoBehaviour
     [SerializeField] private GameObject _prologueCanvas;
 
     [Header("Other")]
-    [SerializeField] private TutorialSystem _tutorialSystem;
     [SerializeField] private UIPanelsSpace _panels;
     [SerializeField] private DialogueSequence _prologueDialog;
     [SerializeField] private CosmosView _cosmosView;

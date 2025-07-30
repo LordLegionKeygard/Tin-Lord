@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class BuildsPanel : MonoBehaviour
 {
-    [Inject] private DiContainer _diContainer;
-    [Inject] private LearnedBuildingsDataMission _learnedBuildingsDataMission;
+    [Inject] private readonly DiContainer _diContainer;
+    [Inject] private readonly LearnedBuildingsDataMission _learnedBuildingsDataMission;
     private List<BuildingItem> _buildingsList = new();
     [SerializeField] private BuildingItem _buildingItem;
     [SerializeField] private Transform _content;

@@ -19,7 +19,7 @@ public class SpaceInputSystem : MonoBehaviour
     [Header("Links")]
     [SerializeField] private UIPanelsSpace _uiPanels;
     [SerializeField] private EventNodePanel _eventNodePanel;
-    [SerializeField] private PanelDoMoveX _resourcesPanel;
+    [SerializeField] private SpaceMainResourcePanel _resourcesPanel;
 
     private void Awake()
     {

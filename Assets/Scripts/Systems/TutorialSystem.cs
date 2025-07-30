@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class TutorialSystem : MonoBehaviour
@@ -10,9 +11,11 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private GameObject _tutorialPanel;
     [SerializeField] private TextMeshProUGUI _tutorialPanelText;
     [SerializeField] private GameObject _justContinueButton;
+    [SerializeField] private CanvasGroup _tutorialCanvasGroup;
     private int _currentStepIndex = -1;
     private TutorialStep _currentStep;
     public bool IsStartTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.SpaceHangarWelcome_0 : false;
+    public TutorialStepEnum GetTutorialStepEnum() => _currentStep != null ? _currentStep.TutorialStepEnum : TutorialStepEnum.None;
 
     private static readonly Dictionary<TutorialTextPanelPos, (Vector2 anchor, Vector2 offset)> PanelLayout =
         new()
@@ -70,6 +73,12 @@ public class TutorialSystem : MonoBehaviour
         _tutorialPanel.SetActive(true);
         _justContinueButton.SetActive(_currentStep.JustContinue);
 
+        // выключаем кнопки
+        foreach (var item in _currentStep.ButtonsDisabled)
+        {
+            item.enabled = false;
+        }
+
         CustomEvents.FireStartTutorialStep(_currentStep.TutorialStepEnum);
     }
 
@@ -80,6 +89,11 @@ public class TutorialSystem : MonoBehaviour
         if (_currentStep.ClickView != null) _currentStep.ClickView.SetActive(false);
         _tutorialPanel.SetActive(false);
         _justContinueButton.SetActive(false);
+        // включаем кнопки
+        foreach (var item in _currentStep.ButtonsDisabled)
+        {
+            item.enabled = true;
+        }
 
         var nextEnum = (TutorialStepEnum)((int)stepEnum + 1);
         _currentStepIndex = _steps.FindIndex(s => s.TutorialStepEnum == nextEnum);
@@ -93,16 +107,17 @@ public class TutorialSystem : MonoBehaviour
     // Степ без необходимости нажатия, просто инфа
     public void JustContinue()
     {
+        if (_tutorialCanvasGroup.alpha == 0) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         CompleteStep(_currentStep.TutorialStepEnum);
     }
 
-    // Вызывается внутри самих кнопок, если не удается реализовать логику в их скриптах
-    public void ClickButtonCompleteTest(int stepNumber)
-    {
-        if (_currentStep == null || (int)_currentStep.TutorialStepEnum != stepNumber) return;
-        CompleteStep(_currentStep.TutorialStepEnum);
-    }
+    // // Вызывается внутри самих кнопок, если не удается реализовать логику в их скриптах
+    // public void ClickButtonCompleteTest(int stepNumber)
+    // {
+    //     if (_currentStep == null || (int)_currentStep.TutorialStepEnum != stepNumber) return;
+    //     CompleteStep(_currentStep.TutorialStepEnum);
+    // }
 
     // Вызывается при определенных условиях и выполняется если совпадает с текущим шагом
     public void RunStepAfterWait(TutorialStepEnum stepEnum)
@@ -133,10 +148,12 @@ public class TutorialStep
     public bool JustContinue;
     public bool RequirePreviousStep;
     public bool WaitRunStep;
+    public Button[] ButtonsDisabled;
 }
 
 public enum TutorialStepEnum
 {
+    None = -1,
     SpaceHangarWelcome_0 = 0,
     SpaceAiCorePanel_1 = 1,
     SpaceQuantPanel_2 = 2,

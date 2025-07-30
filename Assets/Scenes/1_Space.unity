@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007795458, g: 0.00009615569, b: 0.00011569274,
+  m_IndirectSpecularColor: {r: 0.00007788451, g: 0.00009607068, b: 0.00011565197,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -1243,7 +1243,7 @@ GameObject:
   - component: {fileID: 39529036}
   - component: {fileID: 39529037}
   m_Layer: 0
-  m_Name: CommandCenterInputSystem
+  m_Name: SpaceInputSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiPanels: {fileID: 616848379}
   _eventNodePanel: {fileID: 1451985186}
-  _resourcesPanel: {fileID: 1659477424}
+  _resourcesPanel: {fileID: 1659477426}
 --- !u!1001 &45452542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5015,7 +5015,6 @@ MonoBehaviour:
   _eventPanel: {fileID: 1451985186}
   _canvasGroup: {fileID: 2011502892}
   _prologueCanvas: {fileID: 1808600982}
-  _tutorialSystem: {fileID: 2049178741}
   _panels: {fileID: 616848379}
   _prologueDialog: {fileID: 11400000, guid: 3aab2769bd18b344a94576766b6a9ff6, type: 2}
   _cosmosView: {fileID: 417999332}
@@ -7565,6 +7564,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194118576}
   m_CullTransparentMesh: 1
+--- !u!1 &194834680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 194834681}
+  - component: {fileID: 194834682}
+  m_Layer: 0
+  m_Name: SpaceInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &194834681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194834680}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2078036508}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194834682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194834680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a64ffd4234aec43a45c083bd251056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialSystem: {fileID: 2049178741}
 --- !u!1 &195001566
 GameObject:
   m_ObjectHideFlags: 0
@@ -21099,6 +21143,7 @@ MonoBehaviour:
   _objectTransform: {fileID: 698942900}
   _settingsPanel: {fileID: 145462419}
   _escapePanelBackgroundBlack: {fileID: 760603514}
+  _tutorialCanvasGroup: {fileID: 1003870431308464735}
 --- !u!1 &699430007
 GameObject:
   m_ObjectHideFlags: 0
@@ -25603,7 +25648,7 @@ GameObject:
   - component: {fileID: 870178582}
   - component: {fileID: 870178585}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ResourceButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25682,18 +25727,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2049178741}
-        m_TargetAssemblyTypeName: TutorialSystem, Assembly-CSharp
-        m_MethodName: ClickButtonCompleteTest
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -47834,6 +47867,7 @@ GameObject:
   - component: {fileID: 1659477423}
   - component: {fileID: 1659477425}
   - component: {fileID: 1659477424}
+  - component: {fileID: 1659477426}
   m_Layer: 5
   m_Name: MainResourcesPanel
   m_TagString: Untagged
@@ -47888,6 +47922,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659477422}
   m_CullTransparentMesh: 1
+--- !u!114 &1659477426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659477422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7111b34d88b1f3c4f8284e7d4a437084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _panelDoMoveX: {fileID: 1659477424}
+  _button: {fileID: 870178582}
 --- !u!1 &1661159169
 GameObject:
   m_ObjectHideFlags: 0
@@ -61234,6 +61282,10 @@ MonoBehaviour:
     JustContinue: 1
     RequirePreviousStep: 0
     WaitRunStep: 0
+    ButtonsDisabled:
+    - {fileID: 1271766097}
+    - {fileID: 1721133892}
+    - {fileID: 870178582}
   - TutorialStepEnum: 1
     ClickView: {fileID: 126485018}
     TextNumber: 223
@@ -61241,6 +61293,10 @@ MonoBehaviour:
     JustContinue: 1
     RequirePreviousStep: 0
     WaitRunStep: 0
+    ButtonsDisabled:
+    - {fileID: 1271766097}
+    - {fileID: 1721133892}
+    - {fileID: 870178582}
   - TutorialStepEnum: 2
     ClickView: {fileID: 699430007}
     TextNumber: 224
@@ -61248,6 +61304,10 @@ MonoBehaviour:
     JustContinue: 1
     RequirePreviousStep: 0
     WaitRunStep: 0
+    ButtonsDisabled:
+    - {fileID: 1271766097}
+    - {fileID: 1721133892}
+    - {fileID: 870178582}
   - TutorialStepEnum: 3
     ClickView: {fileID: 718196032}
     TextNumber: 225
@@ -61255,6 +61315,9 @@ MonoBehaviour:
     JustContinue: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
+    ButtonsDisabled:
+    - {fileID: 1271766097}
+    - {fileID: 1721133892}
   - TutorialStepEnum: 4
     ClickView: {fileID: 0}
     TextNumber: 226
@@ -61262,6 +61325,9 @@ MonoBehaviour:
     JustContinue: 1
     RequirePreviousStep: 0
     WaitRunStep: 0
+    ButtonsDisabled:
+    - {fileID: 1271766097}
+    - {fileID: 1721133892}
   - TutorialStepEnum: 5
     ClickView: {fileID: 599929487}
     TextNumber: 227
@@ -61269,6 +61335,8 @@ MonoBehaviour:
     JustContinue: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
+    ButtonsDisabled:
+    - {fileID: 1271766097}
   - TutorialStepEnum: 6
     ClickView: {fileID: 0}
     TextNumber: 228
@@ -61276,6 +61344,12 @@ MonoBehaviour:
     JustContinue: 1
     RequirePreviousStep: 1
     WaitRunStep: 0
+    ButtonsDisabled:
+    - {fileID: 1271766097}
+    - {fileID: 1721133892}
+    - {fileID: 870178582}
+    - {fileID: 1167372646}
+    - {fileID: 574108628}
   - TutorialStepEnum: 7
     ClickView: {fileID: 0}
     TextNumber: 229
@@ -61283,6 +61357,12 @@ MonoBehaviour:
     JustContinue: 0
     RequirePreviousStep: 1
     WaitRunStep: 0
+    ButtonsDisabled:
+    - {fileID: 1271766097}
+    - {fileID: 1721133892}
+    - {fileID: 870178582}
+    - {fileID: 1167372646}
+    - {fileID: 574108628}
   - TutorialStepEnum: 8
     ClickView: {fileID: 582753780}
     TextNumber: 230
@@ -61290,9 +61370,13 @@ MonoBehaviour:
     JustContinue: 0
     RequirePreviousStep: 0
     WaitRunStep: 1
+    ButtonsDisabled:
+    - {fileID: 1271766097}
+    - {fileID: 1721133892}
   _tutorialPanel: {fileID: 27417593}
   _tutorialPanelText: {fileID: 1624886968}
   _justContinueButton: {fileID: 1003870431308464734}
+  _tutorialCanvasGroup: {fileID: 1003870431308464735}
 --- !u!1001 &2054667925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61934,7 +62018,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 194834681}
   m_Father: {fileID: 1900720298}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -61951,7 +62036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 194834682}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -64672,6 +64758,12 @@ PrefabInstance:
 --- !u!1 &1003870431308464734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1003870432216858932, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003870431308464733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1003870431308464735 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7819711904952514531, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
     type: 3}
   m_PrefabInstance: {fileID: 1003870431308464733}
   m_PrefabAsset: {fileID: 0}

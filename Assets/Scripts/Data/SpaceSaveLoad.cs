@@ -5,12 +5,12 @@ public class SpaceSaveLoad : MonoBehaviour
 {
     [Inject] private readonly HangarSaveGame _hangarSaveGame;
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private PrologueSystem _prologue;
     [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private AiCoreSystem _aiCoreSystem;
     [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
     [SerializeField] private MainResources _mainResources;
-    [SerializeField] private TutorialSystem _tutorialSystem;
 
     private void Awake()
     {
