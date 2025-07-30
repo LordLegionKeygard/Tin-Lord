@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 1;
+    public static int LanguageNumber = 0;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 2];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 
@@ -687,46 +687,46 @@ public class Language : MonoBehaviour
         _text[219, 0] = "Ignite";
         _text[219, 1] = "Поджег";
 
-        _text[220, 0] = "Burns wood, creating an uncontrollable flame. The fire damages everyone in the area - both enemies and your buildings. Dangerous, but effective.";
+        _text[220, 0] = "Creates uncontrollable flames. Deals damage to both enemies and your buildings.";
         _text[220, 1] = "Создает неконтролируемое пламя. Наносит урон как врагам, так и вашим постройкам.";
 
         _text[221, 0] = "You must select at least one skill";
         _text[221, 1] = "Необходимо выбрать хотя бы одно умение";
 
         // SpaceHangarWelcome_0 
-        _text[222, 0] = "";
+        _text[222, 0] = "We have been idle for too long.\n\nIt is time to remember why we were created.\n\nYou will receive instructions and begin the restoration.";
         _text[222, 1] = "Мы слишком долго бездействовали.\n\nПора вспомнить, зачем мы были созданы.\n\nВы получите инструкции и начнёте восстановление.";
 
         // SpaceAiCorePanel_1
-        _text[223, 0] = "";
+        _text[223, 0] = "These are AI cores - the ship's vital modules.\n\nEach cell contains two cores.\n\nIf they run out, no one will be able to control the crew anymore, and the ship will be left drifting in the endless space.";
         _text[223, 1] = "Это ядра ИИ - жизненно важные модули корабля.\n\nКаждая ячейка содержит два ядра.\n\nЕсли они закончатся — больше никто не сможет управлять экипажем, и корабль останется дрейфовать в бескрайнем космосе.";
 
         // SpaceQuantPanel_2
-        _text[224, 0] = "";
+        _text[224, 0] = "Quantum is an intergalactic currency.\n\nWith it, you can buy goods from traders in space.\n\nYou can get this currency:\n\n-when traveling around the galaxy.\n\n-upon successful completion of a mission on a planet.";
         _text[224, 1] = "Квант - межгалактическая валюта.\n\nС помощью нее вы сможете покупать товары у торговцев в космосе.\n\nЭту валюту вы сможете получить:\n\n-при путешествии по галактике.\n\n-при успешном завершении миссии на планете.";
 
         //SpaceOpenResourcePanel_3
-        _text[225, 0] = "";
-        _text[225, 1] = "Откройте панель";
+        _text[225, 0] = "Open the panel.";
+        _text[225, 1] = "Откройте панель.";
 
         //SpaceResourcePanelDescription_4
-        _text[226, 0] = "";
+        _text[226, 0] = "This is a panel with the resource reserves on the ship.\n\nYou can change their quantity:\n\n-using them during the journey\n\n-buying from merchants for quantum\n\nThese are your starting resources when landing on each planet.";
         _text[226, 1] = "Это панель с запасами ресурсов на корабле.\n\nВы можете менять их количество:\n\n-используя их во время путешествия\n\n-покупая у торговцев за квант\n\nЭто ваши стартовые ресурсы при высадке на каждую планету.";
 
         // SpaceOpenMap_5
-        _text[227, 0] = "";
+        _text[227, 0] = "Open the map of the current galaxy.";
         _text[227, 1] = "Откройте карту текущей галактики.";
 
         // SpaceMapDescription_6
-        _text[228, 0] = "";
+        _text[228, 0] = "This is a star map. It contains all nodes in the current galaxy.\n\nHover over a node to display information about it.";
         _text[228, 1] = "Это звёздная карта. Она содержит все узлы в текущей галактике.\n\nНаведите курсор на узел, чтобы отобразить информацию о нём.";
 
         // SpaceSelectNode_7
-        _text[229, 0] = "";
+        _text[229, 0] = "Select a node to move the ship.";
         _text[229, 1] = "Выберите узел, чтобы переместить корабль.";
 
         // SpaceStartMission_8
-        _text[230, 0] = "";
+        _text[230, 0] = "You have discovered an unexplored planet.\n\nWe must make landfall and complete our assigned objectives before we can continue our journey.";
         _text[230, 1] = "Вы обнаружили не исследованную планету.\n\nНеобходимо сделать высадку и выполнить назначенные цели, прежде чем мы сможем продолжить путешествие.";
 
         _text[231, 0] = "";
