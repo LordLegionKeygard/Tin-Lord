@@ -12,7 +12,7 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private GameObject _justContinueButton;
     private int _currentStepIndex = -1;
     private TutorialStep _currentStep;
-    public bool TutorialCompleted() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.Complete : false;
+    public bool IsStartTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.SpaceHangarWelcome_0 : false;
 
     private static readonly Dictionary<TutorialTextPanelPos, (Vector2 anchor, Vector2 offset)> PanelLayout =
         new()

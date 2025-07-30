@@ -21,6 +21,8 @@ public class BuildTypesPanel : MonoBehaviour
 
         if (tileObject.GroundTileObject().IsBridge())
         {
+            CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Walls), tileObject, selectTilePanel);
+            CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Traps), tileObject, selectTilePanel);
             CreateAndSetupBuildingType(_tilesSystem.GetBuildingTileForEnum(BuildingTileViewEnum.Bridge), tileObject, selectTilePanel);
         }
         else if (tileObject.GroundTileObject().IsTurnRoad())
