@@ -19647,10 +19647,10 @@ MonoBehaviour:
   _collider: {fileID: 3825307352465074390}
   _needActivate: 0
   _needDeactivate: 1
-  _needDestroy: 0
+  _needDestroy: 1
   _activateTime: 0
   _deactivateTime: 0.5
-  _destroyTime: 0
+  _destroyTime: 5
 --- !u!1 &1529164552945424930
 GameObject:
   m_ObjectHideFlags: 0
