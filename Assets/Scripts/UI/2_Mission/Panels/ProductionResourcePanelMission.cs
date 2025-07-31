@@ -1,4 +1,3 @@
-using Zenject;
 
 public class ProductionResourcePanelMission : BaseProductionResourcePanel
 {

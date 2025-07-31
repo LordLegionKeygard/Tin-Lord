@@ -28,6 +28,6 @@ public class MissionResourcePanel : MonoBehaviour
 
     private void OnDestroy()
     {
-
+        CustomEvents.OnStartTutorialStep -= ClosePanel;
     }
 }
