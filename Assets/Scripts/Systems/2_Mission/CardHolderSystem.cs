@@ -5,6 +5,7 @@ using Zenject;
 
 public class CardHolderSystem : MonoBehaviour
 {
+    [Inject] private readonly DiContainer _diContainer;
     [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] MissionResources _missionResources;
 
@@ -111,12 +112,13 @@ public class CardHolderSystem : MonoBehaviour
     {
         foreach (var tile in tiles)
         {
-            var card = Instantiate(_cardObject, transform.position, Quaternion.identity);
-            _currentCards.Add(card);
+            var card = _diContainer.InstantiatePrefab(_cardObject, transform.position, Quaternion.identity, null);
+            var cardObject = card.GetComponent<CardObject>();
+            _currentCards.Add(cardObject);
             card.transform.SetParent(_cardsLayout.gameObject.transform, false);
-            card.SetCardInfo(tile, this);
+            cardObject.SetCardInfo(tile, this);
 
-            _cardsLayout.PositionNewCard(card, _currentCards.Count - 1);
+            _cardsLayout.PositionNewCard(cardObject, _currentCards.Count - 1);
         }
 
         _cardsLayout.RearrangeCards(_currentCards); // пересчитываем позиции

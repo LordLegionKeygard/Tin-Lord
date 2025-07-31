@@ -2,9 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using Zenject;
 
 public class CardObject : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private Tile _tile;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _text;
@@ -29,17 +31,6 @@ public class CardObject : MonoBehaviour
         }
     }
 
-    private void CompleteTutorialStepSelectCard()
-    {
-        _tutorialView.SetActive(false);
-        switch (_tile.GroundTileView)
-        {
-            case GroundTileViewEnum.BaseFoundation:
-                CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSelectBaseFoundationCard_10);
-                break;
-        }
-    }
-
     public void DisabledButton()
     {
         _button.enabled = false;
@@ -56,10 +47,12 @@ public class CardObject : MonoBehaviour
 
     public void SelectCardObject()
     {
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.MissionStartDescription_9) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
         _cardHolderSystem.SelectCardInCardHolder(this);
         CardObjectViewToggle(true);
-        CompleteTutorialStepSelectCard();
+        _tutorialView.SetActive(false);
+        _tutorialSystem.SelectCard(_tile.GroundTileView);
     }
 
     public void CardObjectViewToggle(bool state)

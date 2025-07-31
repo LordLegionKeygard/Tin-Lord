@@ -130,4 +130,19 @@ public class AllTileObjects : MonoBehaviour
 
         CustomEvents.FireCompleteLoadTiles();
     }
+
+    public TileObject FindGroundTileObject(GroundTileViewEnum GroundTileViewEnum)
+    {
+        for (int i = 0; i < TileObjects.Count; i++)
+        {
+            if (TileObjects[i].GroundTileObject().CurrentGroundTile() == null) continue;
+
+            if (TileObjects[i].GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum)
+            {
+                return TileObjects[i];
+            }
+        }
+
+        return null;
+    }
 }

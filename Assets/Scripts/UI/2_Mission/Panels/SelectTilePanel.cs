@@ -316,6 +316,7 @@ public class SelectTilePanel : MonoBehaviour
     public void BuildButton()
     {
         if (!_buildButton.activeInHierarchy || _tileObject == null) return;
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionClickBuildButton_16);
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
         _uiPanels.TogglePanel(UIPanelsEnum.DestroyPanel, false);

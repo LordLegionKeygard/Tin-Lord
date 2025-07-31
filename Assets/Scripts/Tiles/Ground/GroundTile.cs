@@ -6,6 +6,7 @@ using Zenject;
 public class GroundTile : MonoBehaviour
 {
     [Inject] private DiContainer _diContainer;
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Transform _groundParent;
     [SerializeField] private TileObject _tileObject;
@@ -148,16 +149,6 @@ public class GroundTile : MonoBehaviour
         _tileObject.GetNeighbourGroundTile(2).TurnOffTileCollider();
     }
 
-    private void CompleteTutorialSetCard()
-    {
-        switch (_currentGroundTile.GroundTileView)
-        {
-            case GroundTileViewEnum.BaseFoundation:
-                CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSetBaseFoundationCard_11);
-                break;
-        }
-    }
-
     public void SpawnGroundTile(GroundTileViewEnum previousGroundTileViewEnum = GroundTileViewEnum.None)
     {
         if (_currentGroundTile == null) return;
@@ -169,7 +160,7 @@ public class GroundTile : MonoBehaviour
             Destroy(_currentGroundTileObject);
         }
 
-        CompleteTutorialSetCard();
+        _tutorialSystem.SetCard(_currentGroundTile.GroundTileView);
 
         _currentGroundTileObject = _diContainer.InstantiatePrefab(_currentGroundTile.TileObject, _groundParent.position, Quaternion.identity, null);
 

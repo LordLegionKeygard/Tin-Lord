@@ -1,7 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class UIPanelsMission : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TileDetector _tileDetector;
     [SerializeField] private SkillTargetSystem _skillTargetSystem;
@@ -50,6 +52,7 @@ public class UIPanelsMission : MonoBehaviour
         }
         else
         {
+            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.CompleteMissionTutorial) return;
             _escapePanel.PanelViewToggle(true);
         }
     }
@@ -57,8 +60,20 @@ public class UIPanelsMission : MonoBehaviour
     public void ClearAndCancelCardHolderAndTileDetector()
     {
         CustomEvents.FireTooltipToggle(false, 0);
-        _tileDetector.ClearTileDetector();
-        _cardHolderSystem.CancelSelectCard();
+        if (_tutorialSystem.GetTutorialStepEnum() is not (
+        TutorialStepEnum.MissionSelectTilePanelDescription_13 or
+        TutorialStepEnum.MissionEcology1_14 or
+        TutorialStepEnum.MissionEcology2_15 or
+        TutorialStepEnum.MissionClickBuildButton_16 or
+        TutorialStepEnum.MissionSelectBaseTypeButton_17 or
+        TutorialStepEnum.MissionSelectSettlementBuildingItem_18))
+        {
+            _tileDetector.ClearTileDetector();
+        }
+        if (_tutorialSystem.GetTutorialStepEnum() is not TutorialStepEnum.MissionSetBaseFoundationCard_11)
+        {
+            _cardHolderSystem.CancelSelectCard();
+        }
     }
 
     public void TogglePanel(UIPanelsEnum panelEnum, bool state)

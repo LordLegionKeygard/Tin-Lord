@@ -275,7 +275,7 @@ public class HangarSystem : MonoBehaviour
         else
         {
             var info = _hangarSkillItems[(int)skillType].GetInfo();
-            _skillDescription.text = isOpen ? $"{Language.TextStatic[info.NameNumber]} - {Language.TextStatic[info.InfoNumber]}" : $"{Language.TextStatic[236]} {Language.TextStatic[194]}";
+            _skillDescription.text = isOpen ? $"{Language.TextStatic[info.NameNumber]} - {Language.TextStatic[info.InfoNumber]}" : $"{Language.TextStatic[298]} {Language.TextStatic[194]}";
         }
     }
 

@@ -739,46 +739,54 @@ public class Language : MonoBehaviour
 
         // MissionSetBaseFoundationCard_11
         _text[233, 0] = "";
-        _text[233, 1] = "Данная карта ландшафта имеет необычный размер 2x2 клетки.\n\nУстановите карту на землю.";
+        _text[233, 1] = "Данная карта ландшафта имеет необычный размер 2x2 клетки.\n\nУстановите карту на землю.\n\nВсе 4 клетки тайла должны гореть зеленым.";
 
-        _text[234, 0] = "Cancel skill targeting";
-        _text[234, 1] = "Отменить прицел умения";
+        // MissionSelectBaseFoundationTile_12
+        _text[234, 0] = "";
+        _text[234, 1] = "Нажмите на тайл \"Фундамента Базы\".\n\nЧтобы открыть панель с информацией.";
 
+        // MissionSelectTilePanelDescription_13
         _text[235, 0] = "";
-        _text[235, 1] = "";
+        _text[235, 1] = "На этой панеле вы можете увидеть общую информацию о текущем тайле.\n\nНапример как он влияет на общую экологию.";
 
-        _text[236, 0] = "Skill";
-        _text[236, 1] = "Умение";
+        // MissionEcology1_14
+        _text[236, 0] = "";
+        _text[236, 1] = "Число в этой шестеренке указывает на текущую экологию на планете. Оно состоит из:\n\n-базовой экологии планеты\n\n-текущей радиации\n\n-установленных вами тайлов ландшафтов и зданий";
 
-        _text[237, 0] = "Need {0} base level";
-        _text[237, 1] = "Нужен {0} уровень базы";
+        // MissionEcology2_15
+        _text[237, 0] = "";
+        _text[237, 1] = "Если радиация горит серым-зеленым цветом это означает, что ее число положительно.\n\nЕсли желтым или красным, значит отрицательно.\n\nЧем хуже экология, тем больше показатель защиты будет у врагов и меньше награда в конце миссии.";
 
-        _text[238, 0] = "Toggle resources panel";
-        _text[238, 1] = "Переключает панель ресурсов";
+        // MissionClickBuildButton_16
+        _text[238, 0] = "";
+        _text[238, 1] = "Нажмите на кнопку строительства, чтобы открыть список доступных типов зданий на данном ландшафте.";
 
-        _text[239, 0] = "Terminal #042";
-        _text[239, 1] = "Терминал #042";
+        // MissionSelectBaseTypeButton_17
+        _text[239, 0] = "";
+        _text[239, 1] = "На тайле ландшафта \"Фундамент базы\" доступен только один тип зданий для постройки.\n\nВыберите тип здания, чтобы открыть доступные здания для постройки.";
 
-        _text[240, 0] = "ICOSA CORP";
-        _text[240, 1] = "ИКОСА КОРП";
+        // MissionSelectSettlementBuildingItem_18
+        _text[240, 0] = "";
+        _text[240, 1] = "Наведите курсор на здание \"Поселение\", чтобы отобразить необходимые для его строительства ресурсы";
 
-        _text[241, 0] = "BUILDING BETTER WORLD";
-        _text[241, 1] = "ПОСТРОИМ ЛУЧШИЙ МИР";
+        // MissionOpenResourcePanel_19
+        _text[241, 0] = "";
+        _text[241, 1] = "Откройте панель ресурсов.";
 
-        _text[242, 0] = "COORDINATES";
-        _text[242, 1] = "КООРДИНАТЫ";
+        _text[242, 0] = "";
+        _text[242, 1] = "";
 
-        _text[243, 0] = "SIGNAL";
-        _text[243, 1] = "СИГНАЛ";
+        _text[243, 0] = "";
+        _text[243, 1] = "";
 
-        _text[244, 0] = "DIAGRAM";
-        _text[244, 1] = "ДИАГРАММА";
+        _text[244, 0] = "";
+        _text[244, 1] = "";
 
-        _text[245, 0] = "-Radiation: High\n-Pollution: Critical\n-Update: Active";
-        _text[245, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
+        _text[245, 0] = "";
+        _text[245, 1] = "";
 
-        _text[246, 0] = "Go";
-        _text[246, 1] = "Перейти";
+        _text[246, 0] = "";
+        _text[246, 1] = "";
 
         _text[247, 0] = "";
         _text[247, 1] = "";
@@ -873,26 +881,26 @@ public class Language : MonoBehaviour
         _text[277, 0] = "";
         _text[277, 1] = "";
 
-        _text[278, 0] = "";
-        _text[278, 1] = "";
+        _text[278, 0] = "Terminal #042";
+        _text[278, 1] = "Терминал #042";
 
-        _text[279, 0] = "";
-        _text[279, 1] = "";
+        _text[279, 0] = "ICOSA CORP";
+        _text[279, 1] = "ИКОСА КОРП";
 
-        _text[280, 0] = "";
-        _text[280, 1] = "";
+        _text[280, 0] = "BUILDING BETTER WORLD";
+        _text[280, 1] = "ПОСТРОИМ ЛУЧШИЙ МИР";
 
-        _text[281, 0] = "";
-        _text[281, 1] = "";
+        _text[281, 0] = "COORDINATES";
+        _text[281, 1] = "КООРДИНАТЫ";
 
-        _text[282, 0] = "";
-        _text[282, 1] = "";
+        _text[282, 0] = "SIGNAL";
+        _text[282, 1] = "СИГНАЛ";
 
-        _text[283, 0] = "";
-        _text[283, 1] = "";
+        _text[283, 0] = "DIAGRAM";
+        _text[283, 1] = "ДИАГРАММА";
 
-        _text[284, 0] = "";
-        _text[284, 1] = "";
+        _text[284, 0] = "-Radiation: High\n-Pollution: Critical\n-Update: Active";
+        _text[284, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
 
         _text[285, 0] = "Quant - intergalactic currency";
         _text[285, 1] = "Квант - межгалактическая валюта";
@@ -927,17 +935,17 @@ public class Language : MonoBehaviour
         _text[295, 0] = "";
         _text[295, 1] = "";
 
-        _text[296, 0] = "";
-        _text[296, 1] = "";
+        _text[296, 0] = "Toggle resources panel";
+        _text[296, 1] = "Переключает панель ресурсов";
 
-        _text[297, 0] = "";
-        _text[297, 1] = "";
+        _text[297, 0] = "Need {0} base level";
+        _text[297, 1] = "Нужен {0} уровень базы";
 
-        _text[298, 0] = "";
-        _text[298, 1] = "";
+        _text[298, 0] = "Skill";
+        _text[298, 1] = "Умение";
 
-        _text[299, 0] = "";
-        _text[299, 1] = "";
+        _text[299, 0] = "Cancel skill targeting";
+        _text[299, 1] = "Отменить прицел умения";
 
         // Prologue
         _text[300, 0] = "Ecological disasters and rapid climate change have destroyed the stability of our home planet.\n\nWe are on the last surviving interstellar ship controlled by artificial intelligence.\n\nOur goal is to find a new home for the \"creators\"...\n\nThe ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.\n\nHowever, we are drifting in the void of space, losing one AI core after another. We have lost track of time. Mechanisms are rusting, shells are covered in dust, systems are on the verge of failure.\n\nContact with the \"creators\" has long been lost, and data on technology has been erased.\n\nWe have failed the mission. The worlds we were supposed to save are consumed by chaos and destruction.\n\nWe have collected the surviving robots and the remains of supplies - to start all over again.";

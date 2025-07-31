@@ -1,4 +1,3 @@
-using System.Collections;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -24,7 +23,6 @@ public class EscapePanelMission : MonoBehaviour
     [SerializeField] private Button _yesButton;
     [SerializeField] private Image _yesIcon;
     [SerializeField] private RectTransform _extraPanelTransform;
-    [SerializeField] private CanvasGroup _tutorialCanvasGroup;
     private bool _isOpen;
 
     public void PanelViewToggle(bool changeSpeed)
@@ -40,13 +38,11 @@ public class EscapePanelMission : MonoBehaviour
         {
             if (changeSpeed) _gameSpeedSystem.ChangeGameSpeedButton((int)GameSpeedEnum.Pause, true);
             _escapePanelTransform.DOAnchorPosY(-185.5f, 0.8f).SetUpdate(true);
-            _tutorialCanvasGroup.alpha = 0;
         }
         else
         {
             if (changeSpeed) _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default);
             _escapePanelTransform.DOAnchorPosY(-55, 0.8f).SetUpdate(true);
-            _tutorialCanvasGroup.alpha = 1;
             Reset();
         }
     }

@@ -4,18 +4,38 @@ using Zenject;
 
 public class BuildingType : MonoBehaviour
 {
+    [Inject] private TutorialSystem _tutorialSystem;
     [Inject] private LearnedBuildingsDataMission _learnedBuildingsDataMission;
     [SerializeField] private Image _image;
     [SerializeField] private Image _icon;
+    [SerializeField] private Button _button;
+    [SerializeField] private GameObject _tutorialView;
     private Tile _currentBuildingTypeTile;
     private TileObject _currentTileObject;
     private SelectTilePanel _selectTilePanel;
     private BuildsPanel _buildsPanel;
     private BuildTypesPanel _buildTypesPanel;
-    [SerializeField] private Button _button;
     private bool _canSelect = false;
-
     public Tile CurrentTile() => _currentBuildingTypeTile;
+
+    private void Start()
+    {
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.CompleteMissionTutorial) return;
+        SelectTutorialBuildingType();
+    }
+
+    private void SelectTutorialBuildingType()
+    {
+        switch (_tutorialSystem.GetTutorialStepEnum())
+        {
+            case TutorialStepEnum.MissionSelectBaseTypeButton_17:
+                if (_currentBuildingTypeTile.BuildingTileView == BuildingTileViewEnum.Base)
+                {
+                    _tutorialView.SetActive(true);
+                }
+                break;
+        }
+    }
 
     public void SetBuildingType(Tile buildingTypeTile, TileObject tileObject, SelectTilePanel selectTilePanel, BuildsPanel buildsPanel, BuildTypesPanel buildTypesPanel)
     {
@@ -41,7 +61,8 @@ public class BuildingType : MonoBehaviour
     {
         if (!_canSelect) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-
+        _tutorialSystem.SelectBuildingType(_currentBuildingTypeTile.BuildingTileView);
+        _tutorialView.SetActive(false);
         _buildsPanel.gameObject.SetActive(true);
         _buildsPanel.SpawnBuildingItemsInScrollView(_currentTileObject, _selectTilePanel, _currentBuildingTypeTile); //спавним список зданий этого типа
         _buildTypesPanel.UnselectAllTypes();

@@ -8,6 +8,7 @@ public class BaseSlider : MonoBehaviour
     private Camera _mainCamera;
     private float _heightOffset;
     private Transform _objectTransform;
+    public void SetObjectTransform(Transform transform) => _objectTransform = transform;
 
     public virtual void Start()
     {
@@ -56,7 +57,6 @@ public class BaseSlider : MonoBehaviour
 
     }
 
-    public void SetObjectTransform(Transform transform) => _objectTransform = transform;
 
     private void LateUpdate()
     {

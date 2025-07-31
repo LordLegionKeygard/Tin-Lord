@@ -6,6 +6,7 @@ using System.Linq;
 
 public class BuildingItem : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [Inject] private readonly MissionResources _missionResources;
@@ -16,6 +17,7 @@ public class BuildingItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Image _icon;
     [SerializeField] private Image _backImage;
+    [SerializeField] private GameObject _tutorialView;
 
     [Header("Other")]
     private SelectTilePanel _selectTilePanel;
@@ -32,6 +34,23 @@ public class BuildingItem : MonoBehaviour
     {
         CustomEvents.OnTimeTick += RefreshView;
         RefreshView();
+
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.CompleteMissionTutorial) return;
+        SelectTutorialBuildingItem();
+    }
+
+    private void SelectTutorialBuildingItem()
+    {
+        var building = _currentTile.Buildings[_buildingIndex - 1];
+        switch (_tutorialSystem.GetTutorialStepEnum())
+        {
+            case TutorialStepEnum.MissionSelectSettlementBuildingItem_18:
+                if (_tutorialSystem.GetTutorialBuilding(0).Id == building.Id)
+                {
+                    _tutorialView.SetActive(true);
+                }
+                break;
+        }
     }
 
     public void SetBuildingInfo(TileObject tileObject, SelectTilePanel selectTilePanel, int index, Tile tile, BuildingState buildingState, ResourcesViewMission buildingResourcesViewMission, BuildsPanel buildsPanel)
@@ -50,9 +69,9 @@ public class BuildingItem : MonoBehaviour
     private void UpdateView()
     {
         var requiredLevel = _currentTile.Buildings[_buildingIndex - 1].RequiredBaseLevel;
-        _haveRequiredLevel = requiredLevel  <= _tilesSystem.GetBaseLevel();
+        _haveRequiredLevel = requiredLevel <= _tilesSystem.GetBaseLevel();
         var building = _currentTile.Buildings[_buildingIndex - 1];
-        _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[237], requiredLevel)}"; ;
+        _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[297], requiredLevel)}"; ;
         _icon.sprite = building.BuildingSprite;
     }
 
@@ -74,9 +93,12 @@ public class BuildingItem : MonoBehaviour
 
     public void SelectView()
     {
+        _tutorialView.SetActive(false);
+        _tutorialSystem.SelectBuildingItem(_currentTile.Buildings[_buildingIndex - 1]);
         _buildsPanel.UnselectAllBuildings();
         SelectToggleState(true);
         _buildingResourcesViewMission.SetResourcesView(GetResources());
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSelectSettlementBuildingItem_18);
     }
 
     public void BuildOrUpgrade()

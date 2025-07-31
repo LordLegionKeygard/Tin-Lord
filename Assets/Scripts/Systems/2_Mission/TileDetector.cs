@@ -3,6 +3,7 @@ using Zenject;
 
 public class TileDetector : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _layerMask;
@@ -128,7 +129,7 @@ public class TileDetector : MonoBehaviour
             {
                 if (raycastHit.transform != null)
                 {
-                    DetectTileForBuilding(raycastHit.transform.gameObject);
+                    DetectGroundTileObject(raycastHit.transform.gameObject);
                 }
             }
         }
@@ -229,7 +230,7 @@ public class TileDetector : MonoBehaviour
         }
     }
 
-    public void DetectTileForBuilding(GameObject gameObject)
+    public void DetectGroundTileObject(GameObject gameObject)
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
@@ -246,6 +247,7 @@ public class TileDetector : MonoBehaviour
             _uiPanels.MainPanelsViewToggle(true, false);
             _selectTilePanel.SetTile(_currentTileObject);
             _selectTilePanel.RefreshInfo();
+            _tutorialSystem.SelectGroundTileObject(_currentTileObject.GroundTileObject().CurrentGroundTile().GroundTileView);
         }
         else ClearTileDetector();
     }
