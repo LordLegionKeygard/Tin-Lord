@@ -729,14 +729,17 @@ public class Language : MonoBehaviour
         _text[230, 0] = "You have discovered an unexplored planet.\n\nWe must make landfall and complete our assigned objectives before we can continue our journey.";
         _text[230, 1] = "Вы обнаружили не исследованную планету.\n\nНеобходимо сделать высадку и выполнить назначенные цели, прежде чем мы сможем продолжить путешествие.";
 
+        // MissionStartDescription_9
         _text[231, 0] = "";
-        _text[231, 1] = "";
+        _text[231, 1] = "Мы высадились на неизвестную планету.\n\nНаша задача развернуть базу и выполнить поставленные цели.";
 
+        // MissionSelectBaseFoundationCard_10
         _text[232, 0] = "";
-        _text[232, 1] = "";
+        _text[232, 1] = "В начале каждой миссии вам доступна карта ландшафта - \"Фундамент Базы\".\n\nВыберите карту.";
 
+        // MissionSetBaseFoundationCard_11
         _text[233, 0] = "";
-        _text[233, 1] = "";
+        _text[233, 1] = "Данная карта ландшафта имеет необычный размер 2x2 клетки.\n\nУстановите карту на землю.";
 
         _text[234, 0] = "Cancel skill targeting";
         _text[234, 1] = "Отменить прицел умения";

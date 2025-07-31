@@ -17,6 +17,7 @@ public class MissionInstaller : MonoInstaller
     [SerializeField] private QuantPickupPool _quantPickupPool;
     [SerializeField] private DeathExplosionPool _deathExplosionPool;
     [SerializeField] private MissionHangarSystem _missionHangarSystem;
+    [SerializeField] private TutorialSystem _tutorialSystem;
 
     public override void InstallBindings()
     {
@@ -34,5 +35,6 @@ public class MissionInstaller : MonoInstaller
         Container.Bind<QuantPickupPool>().FromInstance(_quantPickupPool).AsSingle();
         Container.Bind<DeathExplosionPool>().FromInstance(_deathExplosionPool).AsSingle();
         Container.Bind<MissionHangarSystem>().FromInstance(_missionHangarSystem).AsSingle();
+        Container.Bind<TutorialSystem>().FromInstance(_tutorialSystem).AsSingle();
     }
 }

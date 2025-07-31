@@ -148,6 +148,16 @@ public class GroundTile : MonoBehaviour
         _tileObject.GetNeighbourGroundTile(2).TurnOffTileCollider();
     }
 
+    private void CompleteTutorialSetCard()
+    {
+        switch (_currentGroundTile.GroundTileView)
+        {
+            case GroundTileViewEnum.BaseFoundation:
+                CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSetBaseFoundationCard_11);
+                break;
+        }
+    }
+
     public void SpawnGroundTile(GroundTileViewEnum previousGroundTileViewEnum = GroundTileViewEnum.None)
     {
         if (_currentGroundTile == null) return;
@@ -158,6 +168,8 @@ public class GroundTile : MonoBehaviour
             _groundModelRotation = 0;
             Destroy(_currentGroundTileObject);
         }
+
+        CompleteTutorialSetCard();
 
         _currentGroundTileObject = _diContainer.InstantiatePrefab(_currentGroundTile.TileObject, _groundParent.position, Quaternion.identity, null);
 

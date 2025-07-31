@@ -1,14 +1,15 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 public class MissionSaveLoad : MonoBehaviour
 {
+    [Inject] private readonly HangarSaveGame _hangarSaveGame;
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [Inject] private MissionSaveGame _missionSaveGame;
     [Inject] private MissionResources _missionResources;
+    [Inject] private readonly TutorialSystem _tutorialSystem;
 
     [Header("Main")]
     [SerializeField] private AllNodesInfo _allMissionsInfo;
@@ -186,6 +187,9 @@ public class MissionSaveLoad : MonoBehaviour
 
         //Hazard
         _spawnedHazardSystem.LoadHazardData(currentSaveData.Hazards, currentSaveData.IsStartMission);
+
+        // Tutorial
+        _tutorialSystem.LoadTutorial(_hangarSaveGame.HangarSaveData.TutorialProgress, _spaceSaveGame.SpaceSaveData.PrologueCompleted);
 
         CustomEvents.FireDataLoad();
     }

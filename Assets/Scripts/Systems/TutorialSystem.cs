@@ -163,6 +163,9 @@ public enum TutorialStepEnum
     SpaceMapDescription_6 = 6,
     SpaceSelectNode_7 = 7,
     SpaceStartMission_8 = 8,
+    MissionStartDescription_9 = 9,
+    MissionSelectBaseFoundationCard_10 = 10,
+    MissionSetBaseFoundationCard_11 = 11,
     Complete
 }
 
