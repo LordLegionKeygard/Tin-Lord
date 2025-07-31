@@ -4,12 +4,18 @@ using UnityEngine.InputSystem;
 
 public class CustomEvents
 {
-    public static event Action<TutorialStepEnum > OnRunStepAfterWait;
+
+    public static event Action<TutorialStepEnum> OnForceRunStep;
+    public static void FireForceRunStep(TutorialStepEnum tutorialStepEnum)
+    {
+        OnForceRunStep?.Invoke(tutorialStepEnum);
+    }
+    public static event Action<TutorialStepEnum> OnRunStepAfterWait;
     public static void FireRunStepAfterWait(TutorialStepEnum tutorialStepEnum)
     {
         OnRunStepAfterWait?.Invoke(tutorialStepEnum);
     }
-    
+
     public static event Action<TutorialStepEnum> OnStartTutorialStep;
     public static void FireStartTutorialStep(TutorialStepEnum tutorialStepEnum)
     {

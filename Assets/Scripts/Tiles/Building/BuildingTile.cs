@@ -6,6 +6,7 @@ using Zenject;
 public class BuildingTile : MonoBehaviour
 {
    [Inject] private DiContainer _diContainer;
+   [Inject] private TutorialSystem _tutorialSystem;
    [Inject] private MissionResources _missionResources;
    [Inject] private TilesSystem _tilesSystem;
    [Inject] private LearnedBuildingsDataMission _learnedBuildingsDataMission;
@@ -119,7 +120,7 @@ public class BuildingTile : MonoBehaviour
             yield break;
          }
 
-         var speed = _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base ? WorldGameInfo.FirstBaseConstructionSpeed : WorldGameInfo.ConstructionSpeed;
+         var speed = _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base ? _tutorialSystem.IsCompleteMissionTutorial() ? WorldGameInfo.FirstBaseConstructionSpeed : WorldGameInfo.TutorialBaseConstructionSpeed : WorldGameInfo.ConstructionSpeed;
          _buildingHealth.ConstructionIncreaseHealth(speed * Time.deltaTime);
          _constructionView.UpdateShaderByHealth(_buildingHealth.GetCurrentHealth(), _buildingHealth.GetMaxHealth());
 
@@ -144,7 +145,11 @@ public class BuildingTile : MonoBehaviour
       AudioManager.Instance.PlayerOneShot(_currentLevel == 0 ? FMODEvents.Instance.CompleteConstructBuilding : FMODEvents.Instance.CompleteUpgradeBuilding, transform.position);
       _isConstructionNow = false;
 
-      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base) CustomEvents.FireSetBase(_currentLevel);
+      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.Base)
+      {
+         CustomEvents.FireSetBase(_currentLevel);
+         if (!_tutorialSystem.IsCompleteMissionTutorial()) CustomEvents.FireForceRunStep(TutorialStepEnum.MissionAfterBaseSetStartTimer_23);
+      }
       CheckIsExtrabaseTileObject();
 
       _currentBuildingGameObject = _diContainer.InstantiatePrefab(_currentBuildingTile.TileObject, _buildingParent.position, Quaternion.identity, null);
@@ -322,7 +327,7 @@ public class BuildingTile : MonoBehaviour
 
          RefreshNeighbourWallTiles();
       }
-      if(!isUpgrade) _buildingHealth.DestroyHealthSlider(); // вызываем еще раз, так как есть ситуации, когда не вызывается уничтожение слайдера, например уничтожаем сами, а не через реальную смерть
+      if (!isUpgrade) _buildingHealth.DestroyHealthSlider(); // вызываем еще раз, так как есть ситуации, когда не вызывается уничтожение слайдера, например уничтожаем сами, а не через реальную смерть
       _currentBuildingTile = null;
       _currentLevel = 0;
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);

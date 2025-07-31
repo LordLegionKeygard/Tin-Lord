@@ -19,6 +19,7 @@ public class CardObject : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnStartTutorialStep += TutorialHightlightCard;
+        CustomEvents.OnCompleteTutorialStep += DisableTutorialView;
     }
 
     private void TutorialHightlightCard(TutorialStepEnum tutorialStepEnum)
@@ -28,6 +29,20 @@ public class CardObject : MonoBehaviour
             case TutorialStepEnum.MissionSelectBaseFoundationCard_10:
                 _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.BaseFoundation);
                 break;
+            case TutorialStepEnum.MissionSelectForestCard_31:
+                _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.Forest);
+                break;
+            case TutorialStepEnum.MissionAddCardsDescription_29:
+                _tutorialView.SetActive(true);
+                break;
+        }
+    }
+
+    private void DisableTutorialView(TutorialStepEnum tutorialStepEnum)
+    {
+        if (tutorialStepEnum == TutorialStepEnum.MissionAddCardsDescription_29)
+        {
+            _tutorialView.SetActive(false);
         }
     }
 
@@ -47,7 +62,7 @@ public class CardObject : MonoBehaviour
 
     public void SelectCardObject()
     {
-        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.MissionStartDescription_9) return;
+        if (!_tutorialSystem.CanSelectCardObject(_tile)) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
         _cardHolderSystem.SelectCardInCardHolder(this);
         CardObjectViewToggle(true);
@@ -68,6 +83,7 @@ public class CardObject : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnStartTutorialStep -= TutorialHightlightCard;
+        CustomEvents.OnCompleteTutorialStep -= DisableTutorialView;
 
         if (_objectTransform != null)
         {

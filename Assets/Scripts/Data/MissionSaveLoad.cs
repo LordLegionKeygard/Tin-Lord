@@ -259,6 +259,7 @@ public class MissionSaveLoad : MonoBehaviour
 
     public void AutoSave(int day)
     {
+        if (!_tutorialSystem.IsCompleteMissionTutorial()) return;
         _missionSaveGame.SaveMissionToJson();
     }
 

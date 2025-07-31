@@ -6267,7 +6267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &158255176
@@ -13454,7 +13454,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -21519,7 +21519,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 718196032}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21527,11 +21527,11 @@ RectTransform:
   - {fileID: 1027884604}
   m_Father: {fileID: 870178581}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -25, y: 0}
+  m_SizeDelta: {x: 30, y: -40.000004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &718196034
 MonoBehaviour:
@@ -23249,7 +23249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514
@@ -31112,7 +31112,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027884603}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31122,10 +31122,10 @@ RectTransform:
   - {fileID: 117616010}
   m_Father: {fileID: 718196033}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 64.7, y: 0}
+  m_AnchoredPosition: {x: 72.4, y: -72.4}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1027884605
@@ -61274,11 +61274,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7319577c9b29c45a36a5c9ec65c7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _allTileObjects: {fileID: 0}
+  _tutorialPanel: {fileID: 27417593}
+  _tutorialPanelText: {fileID: 1624886968}
+  _justContinueButton: {fileID: 1003870431308464734}
+  _tutorialCanvasGroup: {fileID: 1003870431308464735}
+  _tutorialArrowWorld: {fileID: 0}
+  _tutorialBuildings: []
   _steps:
   - TutorialStepEnum: 0
     ClickView: {fileID: 0}
     TextNumber: 222
     TutorialTextPanelPos: 0
+    ArrowObject: 0
     JustContinue: 1
     RequirePreviousStep: 0
     WaitRunStep: 0
@@ -61290,6 +61298,7 @@ MonoBehaviour:
     ClickView: {fileID: 126485018}
     TextNumber: 223
     TutorialTextPanelPos: 2
+    ArrowObject: 0
     JustContinue: 1
     RequirePreviousStep: 0
     WaitRunStep: 0
@@ -61301,6 +61310,7 @@ MonoBehaviour:
     ClickView: {fileID: 699430007}
     TextNumber: 224
     TutorialTextPanelPos: 0
+    ArrowObject: 0
     JustContinue: 1
     RequirePreviousStep: 0
     WaitRunStep: 0
@@ -61312,6 +61322,7 @@ MonoBehaviour:
     ClickView: {fileID: 718196032}
     TextNumber: 225
     TutorialTextPanelPos: 0
+    ArrowObject: 0
     JustContinue: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
@@ -61322,6 +61333,7 @@ MonoBehaviour:
     ClickView: {fileID: 0}
     TextNumber: 226
     TutorialTextPanelPos: 0
+    ArrowObject: 0
     JustContinue: 1
     RequirePreviousStep: 0
     WaitRunStep: 0
@@ -61332,6 +61344,7 @@ MonoBehaviour:
     ClickView: {fileID: 599929487}
     TextNumber: 227
     TutorialTextPanelPos: 0
+    ArrowObject: 0
     JustContinue: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
@@ -61341,6 +61354,7 @@ MonoBehaviour:
     ClickView: {fileID: 0}
     TextNumber: 228
     TutorialTextPanelPos: 4
+    ArrowObject: 0
     JustContinue: 1
     RequirePreviousStep: 1
     WaitRunStep: 0
@@ -61354,6 +61368,7 @@ MonoBehaviour:
     ClickView: {fileID: 0}
     TextNumber: 229
     TutorialTextPanelPos: 4
+    ArrowObject: 0
     JustContinue: 0
     RequirePreviousStep: 1
     WaitRunStep: 0
@@ -61367,16 +61382,13 @@ MonoBehaviour:
     ClickView: {fileID: 582753780}
     TextNumber: 230
     TutorialTextPanelPos: 0
+    ArrowObject: 0
     JustContinue: 0
     RequirePreviousStep: 0
     WaitRunStep: 1
     ButtonsDisabled:
     - {fileID: 1271766097}
     - {fileID: 1721133892}
-  _tutorialPanel: {fileID: 27417593}
-  _tutorialPanelText: {fileID: 1624886968}
-  _justContinueButton: {fileID: 1003870431308464734}
-  _tutorialCanvasGroup: {fileID: 1003870431308464735}
 --- !u!1001 &2054667925
 PrefabInstance:
   m_ObjectHideFlags: 0

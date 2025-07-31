@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class GameSpeedSystem : MonoBehaviour
 {
+    [Inject] private TutorialSystem _tutorialSystem;
     [SerializeField] private Image[] _images;
     [SerializeField] private Sprite[] _spriteOn;
     [SerializeField] private Sprite[] _spriteOff;
@@ -23,6 +25,8 @@ public class GameSpeedSystem : MonoBehaviour
     {
         //нажали на ту же скорость что щас уже стоит и это не пауза, делаем возврат
         if (_currentGameSpeedEnum != GameSpeedEnum.Pause && (int)_currentGameSpeedEnum == gameSpeed) return;
+
+        if (!_tutorialSystem.IsCompleteMissionTutorial()) _tutorialSystem.ChangeGameSpeed(gameSpeed);
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.GameSpeed], transform.position);
 

@@ -1,3 +1,5 @@
+using Zenject;
+
 public class ProductionResourcePanelMission : BaseProductionResourcePanel
 {
     private SelectTilePanel _selectTilePanel;

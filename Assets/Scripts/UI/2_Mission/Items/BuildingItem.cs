@@ -33,18 +33,19 @@ public class BuildingItem : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnTimeTick += RefreshView;
+        CustomEvents.OnStartTutorialStep += SelectTutorialBuildingItem;
         RefreshView();
 
         if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.CompleteMissionTutorial) return;
-        SelectTutorialBuildingItem();
+        SelectTutorialBuildingItem(TutorialStepEnum.None);
     }
 
-    private void SelectTutorialBuildingItem()
+    private void SelectTutorialBuildingItem(TutorialStepEnum _)
     {
         var building = _currentTile.Buildings[_buildingIndex - 1];
         switch (_tutorialSystem.GetTutorialStepEnum())
         {
-            case TutorialStepEnum.MissionSelectSettlementBuildingItem_18:
+            case TutorialStepEnum.MissionSelectSettlementBuildingItem_18 or TutorialStepEnum.MissionStartConstructSettlement_20:
                 if (_tutorialSystem.GetTutorialBuilding(0).Id == building.Id)
                 {
                     _tutorialView.SetActive(true);
@@ -93,23 +94,30 @@ public class BuildingItem : MonoBehaviour
 
     public void SelectView()
     {
-        _tutorialView.SetActive(false);
         _tutorialSystem.SelectBuildingItem(_currentTile.Buildings[_buildingIndex - 1]);
         _buildsPanel.UnselectAllBuildings();
         SelectToggleState(true);
         _buildingResourcesViewMission.SetResourcesView(GetResources());
+
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.MissionOpenResourcePanel_19)
+        {
+            _tutorialView.SetActive(false);
+        }
         CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSelectSettlementBuildingItem_18);
     }
 
     public void BuildOrUpgrade()
     {
+        if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionStartConstructSettlement_20) return;
+
         if (!_resourcesEnough || !_haveRequiredLevel)
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             return;
         }
 
-
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.MissionStartConstructSettlement_20) _tutorialView.SetActive(false);
+        _tutorialSystem.StartConstructBuilding(_currentTile.Buildings[_buildingIndex - 1]);
         _buildingResourcesViewMission.ResetCells();
         _missionResources.UseResourcesForBuilding(GetResources());
 

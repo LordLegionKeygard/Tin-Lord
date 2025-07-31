@@ -7,6 +7,7 @@ using System.Collections;
 
 public class SelectTilePanel : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [Inject] private readonly MissionResources _missionResources;
 
@@ -339,6 +340,8 @@ public class SelectTilePanel : MonoBehaviour
     {
         if (!_workButton.activeInHierarchy || _tileObject == null) return;
         if (_tileObject.BuildingTileObject().IsEcologyBuilding() && !_tileObject.IsHaveRequiredResource()) return;
+
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionToggleOffSettlement_30);
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Work], transform.position);
 
         _tileObject.SetBuildingWork(!_tileObject.IsBuildingWork());
@@ -454,6 +457,10 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ChangeResourceForWork(Resource resource)
     {
+        if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionSettlementChangeResourceRequired_27) return;
+
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSettlementChangeResourceRequired_27);
+
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         var resourcesForWork = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork;
 

@@ -55,18 +55,18 @@ public class Colors : MonoBehaviour
     {
         switch (ecology)
         {
-            case > 0:
+            case > 0:                       // положительные значения
                 return HexColorLightGreen;
-            case 0:
+
+            case 0:                         // ровно ноль
                 return HexColorWhite;
-            case -1:
+
+            case < 0 and >= -3:             // -0.0001 … -3 включительно
                 return HexColorWarningYellow;
-            case -2:
-                return HexColorWarningYellow;
-            case -3:
-                return HexColorWarningYellow;
+
+            default:                        // всё, что меньше -3
+                return HexColorRed;
         }
-        return HexColorRed;
     }
 
     public static string GetSelectTilePanelProductionColor(float production)

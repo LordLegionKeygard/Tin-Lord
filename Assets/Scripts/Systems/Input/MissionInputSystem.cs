@@ -69,7 +69,7 @@ public class MissionInputSystem : MonoBehaviour
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
     [SerializeField] private BuildsPanel _buildsPanel;
     [SerializeField] private UIPanelsMission _uiPanels;
-    [SerializeField] private PanelDoMoveX _resourcesPanel;
+    [SerializeField] private MissionResourcePanel _resourcesPanel;
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private BaseSkill[] _skills;
 
