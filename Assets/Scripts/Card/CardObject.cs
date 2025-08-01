@@ -13,6 +13,7 @@ public class CardObject : MonoBehaviour
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private Button _button;
     [SerializeField] private GameObject _tutorialView;
+    [SerializeField] private Image _squareTutorialClickImage;
     private CardHolderSystem _cardHolderSystem;
     public Tile GetTile() => _tile;
 
@@ -34,13 +35,14 @@ public class CardObject : MonoBehaviour
                 break;
             case TutorialStepEnum.MissionAddCardsDescription_29:
                 _tutorialView.SetActive(true);
+                _squareTutorialClickImage.enabled = false;
                 break;
         }
     }
 
     private void DisableTutorialView(TutorialStepEnum tutorialStepEnum)
     {
-        if (tutorialStepEnum == TutorialStepEnum.MissionAddCardsDescription_29)
+        if (tutorialStepEnum == TutorialStepEnum.MissionToggleOffSettlement_30)
         {
             _tutorialView.SetActive(false);
         }
@@ -67,6 +69,7 @@ public class CardObject : MonoBehaviour
         _cardHolderSystem.SelectCardInCardHolder(this);
         CardObjectViewToggle(true);
         _tutorialView.SetActive(false);
+        _squareTutorialClickImage.enabled = true;
         _tutorialSystem.SelectCard(_tile.GroundTileView);
     }
 

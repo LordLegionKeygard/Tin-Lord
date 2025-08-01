@@ -70,7 +70,7 @@ public class TileDetector : MonoBehaviour
 
     public void InputOnTile()
     {
-        if (_scrollViewInteraction.IsScrolling() || _skillTargetSystem.IsActive()) return;
+        if (_scrollViewInteraction.IsScrolling() || _skillTargetSystem.IsActive() || !_tutorialSystem.CanInputOnTile()) return;
 
         if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() && _currentTileObject != null)
         {
@@ -241,6 +241,8 @@ public class TileDetector : MonoBehaviour
 
         if (newTileObject.GroundTileObject().HaveTile())
         {
+            if (!_tutorialSystem.CanDetectGroundTileObject(newTileObject)) return;
+
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.SelectTile], transform.position);
             _currentTileObject = newTileObject;
             _currentTileObject.GroundTileObject().SelectTile(true, checkEdge: false);

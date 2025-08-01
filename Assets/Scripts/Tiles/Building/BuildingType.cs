@@ -34,6 +34,12 @@ public class BuildingType : MonoBehaviour
                     _tutorialView.SetActive(true);
                 }
                 break;
+            case TutorialStepEnum.MissionSelectWoodExtractionTypeButton_36:
+                if (_currentBuildingTypeTile.BuildingTileView == BuildingTileViewEnum.WoodExtraction)
+                {
+                    _tutorialView.SetActive(true);
+                }
+                break;
         }
     }
 

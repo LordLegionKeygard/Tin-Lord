@@ -86,19 +86,30 @@ public class TutorialSystem : MonoBehaviour
         }
 
         // активируем TutorialArrowWorld
+        ActivateWorldArrow();
+
+        CustomEvents.FireStartTutorialStep(_currentStep.TutorialStepEnum);
+    }
+
+    private void ActivateWorldArrow()
+    {
         if (_currentStep.ArrowObject != TutorialArrowObjectEnum.None)
         {
+            Transform target;
             switch (_currentStep.ArrowObject)
             {
                 case TutorialArrowObjectEnum.BaseFoundation:
-                    var target = _allTileObjects.FindGroundTileObject(GroundTileViewEnum.BaseFoundation).transform;
+                    target = _allTileObjects.FindGroundTileObject(GroundTileViewEnum.BaseFoundation).transform;
                     _tutorialArrowWorld.SetObjectTransform(target);
-                    _tutorialArrowWorld.gameObject.SetActive(true);
                     break;
-            }
-        }
+                case TutorialArrowObjectEnum.Forest:
+                    target = _allTileObjects.FindGroundTileObject(GroundTileViewEnum.Forest).transform;
+                    _tutorialArrowWorld.SetObjectTransform(target);
+                    break;
 
-        CustomEvents.FireStartTutorialStep(_currentStep.TutorialStepEnum);
+            }
+            _tutorialArrowWorld.gameObject.SetActive(true);
+        }
     }
 
     private void CompleteStep(TutorialStepEnum stepEnum)
@@ -173,6 +184,8 @@ public class TutorialSystem : MonoBehaviour
     // Считываем нажатие на карту ландшафта
     public void SelectCard(GroundTileViewEnum groundTileView)
     {
+        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+
         switch (groundTileView)
         {
             case GroundTileViewEnum.BaseFoundation:
@@ -187,10 +200,15 @@ public class TutorialSystem : MonoBehaviour
     // Считываем установку тайла ландшафта
     public void SetCard(GroundTileViewEnum groundTileView)
     {
+        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+
         switch (groundTileView)
         {
             case GroundTileViewEnum.BaseFoundation:
                 CompleteStep(TutorialStepEnum.MissionSetBaseFoundationCard_11);
+                break;
+            case GroundTileViewEnum.Forest:
+                CompleteStep(TutorialStepEnum.MissionSetForestCard_32);
                 break;
         }
     }
@@ -198,6 +216,8 @@ public class TutorialSystem : MonoBehaviour
     // Считываем нажатие на тайл земли
     public void SelectGroundTileObject(GroundTileViewEnum groundTileViewEnum)
     {
+        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+
         switch (groundTileViewEnum)
         {
             case GroundTileViewEnum.BaseFoundation:
@@ -209,10 +229,15 @@ public class TutorialSystem : MonoBehaviour
     // Считываем нажатие на тип здания BuildingType в SelectTilePanel
     public void SelectBuildingType(BuildingTileViewEnum buildingTileView)
     {
+        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+
         switch (buildingTileView)
         {
             case BuildingTileViewEnum.Base:
                 CompleteStep(TutorialStepEnum.MissionSelectBaseTypeButton_17);
+                break;
+            case BuildingTileViewEnum.WoodExtraction:
+                CompleteStep(TutorialStepEnum.MissionSelectWoodExtractionTypeButton_36);
                 break;
         }
     }
@@ -220,23 +245,34 @@ public class TutorialSystem : MonoBehaviour
     // Считываем наведение курсора на здание BuildingItem в SelectTilePanel
     public void SelectBuildingItem(Building building)
     {
+        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+
         if (building == _tutorialBuildings[0])
         {
             CompleteStep(TutorialStepEnum.MissionSelectSettlementBuildingItem_18);
         }
     }
 
-    // Считываем наведение курсора на здание BuildingItem в SelectTilePanel
+    // Считываем нажатие на здание BuildingItem в SelectTilePanel
     public void StartConstructBuilding(Building building)
     {
+        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+
         if (building == _tutorialBuildings[0])
         {
             CompleteStep(TutorialStepEnum.MissionStartConstructSettlement_20);
+        }
+
+        if (building == _tutorialBuildings[1])
+        {
+            CompleteStep(TutorialStepEnum.MissionStartConstructionManualWoodMining_37);
         }
     }
 
     public void ChangeGameSpeed(int gameSpeed)
     {
+        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+
         GameSpeedEnum gameSpeedEnum = (GameSpeedEnum)gameSpeed;
 
         switch (gameSpeedEnum)
@@ -260,9 +296,40 @@ public class TutorialSystem : MonoBehaviour
                 return _currentStep.TutorialStepEnum == TutorialStepEnum.MissionSelectBaseFoundationCard_10;
             case GroundTileViewEnum.Forest:
                 return _currentStep.TutorialStepEnum == TutorialStepEnum.MissionSelectForestCard_31;
+
         }
 
         return IsCompleteMissionTutorial();
+    }
+
+    public bool CanBuildOrUpgrade()
+    {
+        if (_currentStep.TutorialStepEnum < TutorialStepEnum.MissionStartConstructSettlement_20) return false;
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.MissionTileForestDescription_35) return false;
+        return true;
+    }
+
+    public bool CanInputOnTile()
+    {
+        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+
+        if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectBaseFoundationTile_12 or TutorialStepEnum.MissionSetBaseFoundationCard_11) return true;
+        if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectForestTile_33 or TutorialStepEnum.MissionSetForestCard_32) return true;
+
+        return IsCompleteMissionTutorial();
+    }
+
+    public bool CanDetectGroundTileObject(TileObject tileObject)
+    {
+        switch (_currentStep.TutorialStepEnum)
+        {
+            case TutorialStepEnum.MissionSelectBaseFoundationTile_12:
+                return tileObject.GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum.BaseFoundation;
+            case TutorialStepEnum.MissionSelectForestTile_33:
+                return tileObject.GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum.Forest;
+        }
+
+        return true;
     }
 
     private void OnDestroy()
@@ -291,6 +358,7 @@ public enum TutorialArrowObjectEnum
 {
     None = 0,
     BaseFoundation = 1,
+    Forest = 2,
 }
 
 public enum TutorialStepEnum
@@ -328,8 +396,19 @@ public enum TutorialStepEnum
     MissionAddCardsDescription_29 = 29,
     MissionToggleOffSettlement_30 = 30,
     MissionSelectForestCard_31 = 31,
+    MissionSetForestCard_32 = 32,
+    MissionSelectForestTile_33 = 33,
+    MissionClickBuildButton_34 = 34,
+    MissionTileForestDescription_35 = 35,
+    MissionSelectWoodExtractionTypeButton_36 = 36,
+    MissionStartConstructionManualWoodMining_37 = 37,
 
 
+
+
+
+
+    MissionSkillsPanel,
     CompleteMissionTutorial = 998,
     Complete = 999
 }

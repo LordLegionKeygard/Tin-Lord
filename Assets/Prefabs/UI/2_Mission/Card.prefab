@@ -327,6 +327,7 @@ MonoBehaviour:
   _objectTransform: {fileID: 4131730467682958114}
   _button: {fileID: 8243764171021131408}
   _tutorialView: {fileID: 8680591486576935812}
+  _squareTutorialClickImage: {fileID: 6479446023454527436}
 --- !u!114 &8243764171021131408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,7 +888,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9e68a1179b2edc248af5f958983138e2, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

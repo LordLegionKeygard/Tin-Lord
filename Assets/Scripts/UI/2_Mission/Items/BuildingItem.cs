@@ -51,6 +51,12 @@ public class BuildingItem : MonoBehaviour
                     _tutorialView.SetActive(true);
                 }
                 break;
+            case TutorialStepEnum.MissionStartConstructionManualWoodMining_37:
+                if (_tutorialSystem.GetTutorialBuilding(1).Id == building.Id)
+                {
+                    _tutorialView.SetActive(true);
+                }
+                break;
         }
     }
 
@@ -108,7 +114,7 @@ public class BuildingItem : MonoBehaviour
 
     public void BuildOrUpgrade()
     {
-        if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionStartConstructSettlement_20) return;
+        if (!_tutorialSystem.CanBuildOrUpgrade()) return;
 
         if (!_resourcesEnough || !_haveRequiredLevel)
         {

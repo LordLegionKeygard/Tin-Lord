@@ -31,6 +31,6 @@ public class DownPanelDoMoveX : MonoBehaviour
     public void PanelClose()
     {
         _isOpen = false;
-        _objectTransform.DOAnchorPosX(-_openPositionX, _moveSpeed).SetUpdate(true);
+        _objectTransform.DOAnchorPosX(_closePositionX, _moveSpeed).SetUpdate(true);
     }
 }
