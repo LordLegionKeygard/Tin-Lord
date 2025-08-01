@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 0_GuardiansFaction_Dialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 368
+  - TextNumber: 468
     Choices:
-    - ChoiseTextNumber: 369
+    - ChoiseTextNumber: 469
       Kind: 0
       Standard:
         NextStepIndex: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 371
+    - ChoiseTextNumber: 471
       Kind: 1
       Standard:
         NextStepIndex: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 372
-        FailureTextNumber: 373
+        SuccessTextNumber: 472
+        FailureTextNumber: 473
         SuccessRewards: []
         FailureRewards:
         - Type: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 370
+  - TextNumber: 470
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0

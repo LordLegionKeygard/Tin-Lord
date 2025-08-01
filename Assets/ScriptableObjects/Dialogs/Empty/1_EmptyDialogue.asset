@@ -13,8 +13,24 @@ MonoBehaviour:
   m_Name: 1_EmptyDialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 302
+  - TextNumber: 402
     Choices:
     - ChoiseTextNumber: 33
-      Rewards: []
-      NextStepIndex: -1
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0

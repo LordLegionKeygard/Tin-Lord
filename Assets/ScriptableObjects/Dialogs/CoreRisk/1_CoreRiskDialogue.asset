@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 1_CoreRiskDialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 323
+  - TextNumber: 423
     Choices:
-    - ChoiseTextNumber: 324
+    - ChoiseTextNumber: 424
       Kind: 0
       Standard:
         NextStepIndex: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 326
+    - ChoiseTextNumber: 426
       Kind: 0
       Standard:
         NextStepIndex: 2
@@ -53,7 +53,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 334
+    - ChoiseTextNumber: 434
       Kind: 0
       Standard:
         NextStepIndex: -1
@@ -72,7 +72,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 325
+  - TextNumber: 425
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -93,9 +93,9 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 327
+  - TextNumber: 427
     Choices:
-    - ChoiseTextNumber: 328
+    - ChoiseTextNumber: 428
       Kind: 0
       Standard:
         NextStepIndex: 3
@@ -114,7 +114,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 330
+    - ChoiseTextNumber: 430
       Kind: 0
       Standard:
         NextStepIndex: 4
@@ -133,7 +133,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 332
+    - ChoiseTextNumber: 432
       Kind: 0
       Standard:
         NextStepIndex: 5
@@ -152,7 +152,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 329
+  - TextNumber: 429
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 331
+  - TextNumber: 431
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 333
+  - TextNumber: 433
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0

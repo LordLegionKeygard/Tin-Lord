@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 0_PlanetDialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 345
+  - TextNumber: 445
     Choices:
-    - ChoiseTextNumber: 346
+    - ChoiseTextNumber: 446
       Kind: 0
       Standard:
         NextStepIndex: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 356
+    - ChoiseTextNumber: 456
       Kind: 1
       Standard:
         NextStepIndex: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 357
-        FailureTextNumber: 358
+        SuccessTextNumber: 457
+        FailureTextNumber: 458
         SuccessRewards:
         - Type: 2
           RewardCount:
@@ -57,7 +57,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 359
+    - ChoiseTextNumber: 459
       Kind: 0
       Standard:
         NextStepIndex: -1
@@ -80,9 +80,9 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 347
+  - TextNumber: 447
     Choices:
-    - ChoiseTextNumber: 348
+    - ChoiseTextNumber: 448
       Kind: 0
       Standard:
         NextStepIndex: 2
@@ -101,7 +101,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 360
+    - ChoiseTextNumber: 460
       Kind: 0
       Standard:
         NextStepIndex: 3
@@ -120,9 +120,9 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 349
+  - TextNumber: 449
     Choices:
-    - ChoiseTextNumber: 350
+    - ChoiseTextNumber: 450
       Kind: 1
       Standard:
         NextStepIndex: 0
@@ -131,8 +131,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 351
-        FailureTextNumber: 352
+        SuccessTextNumber: 451
+        FailureTextNumber: 452
         SuccessRewards:
         - Type: 3
           RewardCount:
@@ -149,7 +149,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 353
+    - ChoiseTextNumber: 453
       Kind: 1
       Standard:
         NextStepIndex: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 354
-        FailureTextNumber: 355
+        SuccessTextNumber: 454
+        FailureTextNumber: 455
         SuccessRewards:
         - Type: 3
           RewardCount:
@@ -176,9 +176,9 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 361
+  - TextNumber: 461
     Choices:
-    - ChoiseTextNumber: 362
+    - ChoiseTextNumber: 462
       Kind: 0
       Standard:
         NextStepIndex: 4
@@ -197,7 +197,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 364
+    - ChoiseTextNumber: 464
       Kind: 0
       Standard:
         NextStepIndex: 5
@@ -216,7 +216,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 366
+    - ChoiseTextNumber: 466
       Kind: 0
       Standard:
         NextStepIndex: 6
@@ -235,7 +235,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 363
+  - TextNumber: 463
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 365
+  - TextNumber: 465
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 367
+  - TextNumber: 467
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0

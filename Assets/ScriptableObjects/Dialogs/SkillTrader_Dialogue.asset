@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SkillTrader_Dialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 404
+  - TextNumber: 504
     Choices:
-    - ChoiseTextNumber: 405
+    - ChoiseTextNumber: 505
       Kind: 0
       Standard:
         NextStepIndex: -1
@@ -28,7 +28,13 @@ MonoBehaviour:
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
-    - ChoiseTextNumber: 406
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
+    - ChoiseTextNumber: 506
       Kind: 0
       Standard:
         NextStepIndex: -1
@@ -41,3 +47,9 @@ MonoBehaviour:
         FailureTextNumber: 0
         SuccessRewards: []
         FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0

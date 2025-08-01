@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 0_SilenceFaction_Dialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 379
+  - TextNumber: 479
     Choices:
-    - ChoiseTextNumber: 380
+    - ChoiseTextNumber: 480
       Kind: 0
       Standard:
         NextStepIndex: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 382
+    - ChoiseTextNumber: 482
       Kind: 0
       Standard:
         NextStepIndex: 2
@@ -53,7 +53,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 384
+    - ChoiseTextNumber: 484
       Kind: 1
       Standard:
         NextStepIndex: 0
@@ -62,8 +62,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 385
-        FailureTextNumber: 386
+        SuccessTextNumber: 485
+        FailureTextNumber: 486
         SuccessRewards: []
         FailureRewards:
         - Type: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 381
+  - TextNumber: 481
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 383
+  - TextNumber: 483
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -130,9 +130,9 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 387
+  - TextNumber: 487
     Choices:
-    - ChoiseTextNumber: 388
+    - ChoiseTextNumber: 488
       Kind: 1
       Standard:
         NextStepIndex: 4
@@ -141,8 +141,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 390
-        FailureTextNumber: 390
+        SuccessTextNumber: 490
+        FailureTextNumber: 490
         SuccessRewards:
         - Type: 1
           RewardCount:
@@ -178,7 +178,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 391
+  - TextNumber: 491
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0

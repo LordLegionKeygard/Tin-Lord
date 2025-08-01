@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EndGame_Dialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 308
+  - TextNumber: 408
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -21,8 +21,9 @@ MonoBehaviour:
         NextStepIndex: -1
         Rewards:
         - Type: 27
-          MinAmount: 0
-          MaxAmount: 0
+          RewardCount:
+            RewardAmountEnum: 0
+            PlusMinusEnum: 0
         ChoiceRequired:
           RequiredType: 0
           Amount: 0
@@ -34,5 +35,6 @@ MonoBehaviour:
       Random:
         NextStepIndex: -1
         PossibleRewards: 
-        MinAmount: 0
-        MaxAmount: 0
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0

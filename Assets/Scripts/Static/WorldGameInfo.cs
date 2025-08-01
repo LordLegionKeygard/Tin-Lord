@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WorldGameInfo
 {
-    public static int LanguageLength = 500;
+    public static int LanguageLength = 600;
     public static bool StaticBlood = true;
 
     [Header("Currency")]

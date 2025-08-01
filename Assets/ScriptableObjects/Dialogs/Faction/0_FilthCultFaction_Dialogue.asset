@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 0_FilthCultFaction_Dialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 392
+  - TextNumber: 492
     Choices:
-    - ChoiseTextNumber: 393
+    - ChoiseTextNumber: 493
       Kind: 1
       Standard:
         NextStepIndex: 0
@@ -24,8 +24,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 394
-        FailureTextNumber: 395
+        SuccessTextNumber: 494
+        FailureTextNumber: 495
         SuccessRewards:
         - Type: 3
           RewardCount:
@@ -42,7 +42,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 396
+    - ChoiseTextNumber: 496
       Kind: 0
       Standard:
         NextStepIndex: 1
@@ -61,7 +61,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 400
+    - ChoiseTextNumber: 500
       Kind: 0
       Standard:
         NextStepIndex: 2
@@ -80,7 +80,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 397
+  - TextNumber: 497
     Choices:
     - ChoiseTextNumber: 33
       Kind: 1
@@ -91,8 +91,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 398
-        FailureTextNumber: 399
+        SuccessTextNumber: 498
+        FailureTextNumber: 499
         SuccessRewards: []
         FailureRewards:
         - Type: 1
@@ -105,7 +105,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 401
+  - TextNumber: 501
     Choices:
     - ChoiseTextNumber: 33
       Kind: 1
@@ -116,8 +116,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 402
-        FailureTextNumber: 403
+        SuccessTextNumber: 502
+        FailureTextNumber: 503
         SuccessRewards:
         - Type: 2
           RewardCount:

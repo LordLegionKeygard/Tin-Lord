@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 0_CoreRiskDialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 316
+  - TextNumber: 416
     Choices:
-    - ChoiseTextNumber: 317
+    - ChoiseTextNumber: 417
       Kind: 0
       Standard:
         NextStepIndex: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 319
+    - ChoiseTextNumber: 419
       Kind: 0
       Standard:
         NextStepIndex: 2
@@ -76,7 +76,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 318
+  - TextNumber: 418
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 320
+  - TextNumber: 420
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 322
+  - TextNumber: 422
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0

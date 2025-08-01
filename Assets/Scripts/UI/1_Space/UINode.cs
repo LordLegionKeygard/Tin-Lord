@@ -47,10 +47,10 @@ public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public int GetDescriptionTextNumber()
     {
         if (_mapSystem.IsCurrent(_index))
-            return 274;
+            return 292;
 
         if (_mapSystem.IsVisited(_index))
-            return 273;
+            return 293;
 
         return _nodeData.DescriptionTextNumber;
     }

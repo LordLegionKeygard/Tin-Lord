@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 0_ResourceDialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 407
+  - TextNumber: 507
     Choices:
-    - ChoiseTextNumber: 408
+    - ChoiseTextNumber: 508
       Kind: 0
       Standard:
         NextStepIndex: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 410
+    - ChoiseTextNumber: 510
       Kind: 0
       Standard:
         NextStepIndex: 2
@@ -53,7 +53,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 409
+  - TextNumber: 509
     Choices:
     - ChoiseTextNumber: 33
       Kind: 2
@@ -74,7 +74,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 9
           PlusMinusEnum: 0
-  - TextNumber: 411
+  - TextNumber: 511
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0

@@ -43,8 +43,8 @@ public class ChangeLanguageSpace : MonoBehaviour
         _resourceTypesPanel[1].text = Language.TextStatic[8];
         _resourceTypesPanel[2].text = Language.TextStatic[9];
         _resourceTypesPanel[3].text = Language.TextStatic[17];
-        _mapText.text = Language.TextStatic[271];
-        _learningText.text = Language.TextStatic[272];
+        _mapText.text = Language.TextStatic[295];
+        _learningText.text = Language.TextStatic[294];
 
         for (int i = 0; i < _buildingTypesNameTexts.Length; i++)
         {

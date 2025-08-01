@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 2_CoreRiskDialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 335
+  - TextNumber: 435
     Choices:
-    - ChoiseTextNumber: 336
+    - ChoiseTextNumber: 436
       Kind: 0
       Standard:
         NextStepIndex: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 338
+    - ChoiseTextNumber: 438
       Kind: 0
       Standard:
         NextStepIndex: 2
@@ -53,7 +53,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 340
+    - ChoiseTextNumber: 440
       Kind: 0
       Standard:
         NextStepIndex: 3
@@ -72,7 +72,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 342
+    - ChoiseTextNumber: 442
       Kind: 1
       Standard:
         NextStepIndex: -1
@@ -81,8 +81,8 @@ MonoBehaviour:
           RequiredType: 0
           Amount: 0
       Chance:
-        SuccessTextNumber: 343
-        FailureTextNumber: 344
+        SuccessTextNumber: 443
+        FailureTextNumber: 444
         SuccessRewards:
         - Type: 1
           RewardCount:
@@ -99,7 +99,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 337
+  - TextNumber: 437
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 339
+  - TextNumber: 439
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 341
+  - TextNumber: 441
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
