@@ -38,6 +38,8 @@ public class MissionLight
     [ColorUsage(true, true)] public Color EquatorColor;
 
     [ColorUsage(true, true)] public Color GroundColor;
+
+    public Color FilterColor;
     public int Temperature;
     public float Intencity;
 }

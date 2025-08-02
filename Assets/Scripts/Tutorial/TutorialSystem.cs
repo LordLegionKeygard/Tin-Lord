@@ -23,6 +23,7 @@ public class TutorialSystem : MonoBehaviour
     public TutorialStepEnum GetTutorialStepEnum() => _currentStep != null ? _currentStep.TutorialStepEnum : TutorialStepEnum.CompleteAllTutorials;
     public Building GetTutorialBuilding(int number) => _tutorialBuildings[number];
     public bool IsCompleteMissionTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial : true;
+    public bool PanelIsActive() => _tutorialPanel.activeInHierarchy;
 
     private static readonly Dictionary<TutorialTextPanelPos, (Vector2 anchor, Vector2 offset)> PanelLayout =
         new()

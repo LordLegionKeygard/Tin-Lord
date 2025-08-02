@@ -21,6 +21,11 @@ public class CardObject : MonoBehaviour
     {
         CustomEvents.OnStartTutorialStep += TutorialHightlightCard;
         CustomEvents.OnTutorialSelectCard += TurnOffTutorialView;
+
+        if (!_tutorialSystem.IsCompleteMissionTutorial())
+        {
+            TutorialHightlightCard(_tutorialSystem.GetTutorialStepEnum());
+        }
     }
 
     private void TutorialHightlightCard(TutorialStepEnum tutorialStepEnum)

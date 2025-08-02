@@ -18,10 +18,11 @@ public class DayLightTimeSystem : MonoBehaviour
         Vector2 dayLightTime = landscapeLight.LightRotation;
         _light.transform.rotation = Quaternion.Euler(dayLightTime.x, dayLightTime.y, 0f);
         _light.colorTemperature = landscapeLight.Temperature;
+        _light.color = landscapeLight.FilterColor;
+        _light.intensity = landscapeLight.Intencity;
         RenderSettings.ambientSkyColor = landscapeLight.SkyColor;
         RenderSettings.ambientEquatorColor = landscapeLight.EquatorColor;
         RenderSettings.ambientGroundColor = landscapeLight.GroundColor;
-        _light.intensity = landscapeLight.Intencity;
     }
 
     private void ResetLight()
