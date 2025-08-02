@@ -316,8 +316,8 @@ public class SelectTilePanel : MonoBehaviour
 
     public void BuildButton()
     {
-        if (!_buildButton.activeInHierarchy || _tileObject == null) return;
-        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionClickBuildButton_16);
+        if (!_buildButton.activeInHierarchy || _tileObject == null || !_tutorialSystem.CanClickBuildButton()) return;
+
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
         _uiPanels.TogglePanel(UIPanelsEnum.DestroyPanel, false);
@@ -338,10 +338,10 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ToggleBuildingWorkButton()
     {
-        if (!_workButton.activeInHierarchy || _tileObject == null) return;
+        if (!_workButton.activeInHierarchy || _tileObject == null || !_tutorialSystem.CanClickBuildingWorkButton()) return;
         if (_tileObject.BuildingTileObject().IsEcologyBuilding() && !_tileObject.IsHaveRequiredResource()) return;
 
-        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionToggleOffSettlement_30);
+        _tutorialSystem.ClickToggleBuildingWork(_tileObject.IsBuildingWork());
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Work], transform.position);
 
         _tileObject.SetBuildingWork(!_tileObject.IsBuildingWork());
@@ -355,6 +355,8 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ToggleGeneralRepairButton()
     {
+        if (!_tutorialSystem.IsCompleteMissionTutorial()) return;
+
         if (!_generalRepairButton.activeInHierarchy || _tileObject == null) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
@@ -373,7 +375,7 @@ public class SelectTilePanel : MonoBehaviour
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Rotate], transform.position);
         var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
-        var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() ? _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() : null;
+        var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() && _tileObject.BuildingTileObject().HaveBuildingGameObject() ? _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() : null;
 
         if (rotationViewGround != null) rotationViewGround.Rotate();
         if (rotationViewBuilding != null) rotationViewBuilding.Rotate();
@@ -389,7 +391,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void DestroyButton()
     {
-        if (!_destroyButton.activeInHierarchy || _tileObject == null) return;
+        if (!_destroyButton.activeInHierarchy || _tileObject == null || !_tutorialSystem.IsCompleteMissionTutorial()) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _uiPanels.CloseAllBuildsPanels();
 

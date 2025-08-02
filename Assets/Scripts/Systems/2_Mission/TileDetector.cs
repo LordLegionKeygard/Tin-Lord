@@ -249,7 +249,7 @@ public class TileDetector : MonoBehaviour
             _uiPanels.MainPanelsViewToggle(true, false);
             _selectTilePanel.SetTile(_currentTileObject);
             _selectTilePanel.RefreshInfo();
-            _tutorialSystem.SelectGroundTileObject(_currentTileObject.GroundTileObject().CurrentGroundTile().GroundTileView);
+            _tutorialSystem.SelectGroundTileObject(_currentTileObject);
         }
         else ClearTileDetector();
     }

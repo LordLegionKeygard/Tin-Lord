@@ -55,7 +55,6 @@ public class MissionInputSystem : MonoBehaviour
     private SkillZero _skillZero;
     public delegate void SkillOne();
     private SkillOne _skillOne;
-
     public delegate void SkillTwo();
     private SkillTwo _skillTwo;
 

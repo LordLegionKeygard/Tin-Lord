@@ -13,11 +13,10 @@ public class MissionHolderPanel : MonoBehaviour
     {
         if (!_tutorialSystem.IsCompleteMissionTutorial())
         {
-            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionSkillsPanel) return;
+            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionOpenSkillsPanel_51) return;
         }
-        
-        if (_button.enabled == false) return;
 
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionOpenSkillsPanel_51);
         _panelDoMoveX.PanelMove();
     }
 }

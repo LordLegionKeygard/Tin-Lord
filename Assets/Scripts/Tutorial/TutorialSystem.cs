@@ -7,18 +7,20 @@ using Zenject;
 public class TutorialSystem : MonoBehaviour
 {
     [Inject] private HangarSaveGame _hangarSaveGame;
+    [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private AllTileObjects _allTileObjects;
     [SerializeField] private GameObject _tutorialPanel;
     [SerializeField] private TextMeshProUGUI _tutorialPanelText;
     [SerializeField] private GameObject _justContinueButton;
+    [SerializeField] private GameObject _justCloseButton;
     [SerializeField] private CanvasGroup _tutorialCanvasGroup;
     [SerializeField] private TutorialArrowWorld _tutorialArrowWorld;
     [SerializeField] private Building[] _tutorialBuildings;
     [SerializeField] private List<TutorialStep> _steps;
     private int _currentStepIndex = -1;
-    private TutorialStep _currentStep;
+    [SerializeField] private TutorialStep _currentStep;
     public bool IsStartTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.SpaceHangarWelcome_0 : false;
-    public TutorialStepEnum GetTutorialStepEnum() => _currentStep != null ? _currentStep.TutorialStepEnum : TutorialStepEnum.None;
+    public TutorialStepEnum GetTutorialStepEnum() => _currentStep != null ? _currentStep.TutorialStepEnum : TutorialStepEnum.CompleteAllTutorials;
     public Building GetTutorialBuilding(int number) => _tutorialBuildings[number];
     public bool IsCompleteMissionTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial : true;
 
@@ -46,7 +48,7 @@ public class TutorialSystem : MonoBehaviour
 
     public void LoadTutorial(int tutorialStepEnum, bool prologueCompleted)
     {
-        if (!prologueCompleted || tutorialStepEnum == (int)TutorialStepEnum.Complete) return;
+        if (!prologueCompleted || tutorialStepEnum == (int)TutorialStepEnum.CompleteAllTutorials) return;
 
         // ищем нужный шаг и при необходимости «откатываемся» по цепочке
         _currentStepIndex = _steps.FindIndex(s => (int)s.TutorialStepEnum == tutorialStepEnum);
@@ -78,15 +80,13 @@ public class TutorialSystem : MonoBehaviour
         // включаем‑выключаем UI‑элементы
         _tutorialPanel.SetActive(true);
         _justContinueButton.SetActive(_currentStep.JustContinue);
-
-        // выключаем кнопки
-        foreach (var item in _currentStep.ButtonsDisabled)
-        {
-            item.enabled = false;
-        }
+        _justCloseButton.SetActive(_currentStep.JustClose);
 
         // активируем TutorialArrowWorld
         ActivateWorldArrow();
+
+        // меняем скорость игры
+        if (_currentStep.ChangeGameSpeedTutorial.IsChangeOnStart) _gameSpeedSystem.ChangeGameSpeed((int)_currentStep.ChangeGameSpeedTutorial.StartStepGameSpeedEnum);
 
         CustomEvents.FireStartTutorialStep(_currentStep.TutorialStepEnum);
     }
@@ -104,6 +104,10 @@ public class TutorialSystem : MonoBehaviour
                     break;
                 case TutorialArrowObjectEnum.Forest:
                     target = _allTileObjects.FindGroundTileObject(GroundTileViewEnum.Forest).transform;
+                    _tutorialArrowWorld.SetObjectTransform(target);
+                    break;
+                case TutorialArrowObjectEnum.ForestWithWoodExtraction:
+                    target = _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.WoodExtraction).transform;
                     _tutorialArrowWorld.SetObjectTransform(target);
                     break;
 
@@ -133,14 +137,11 @@ public class TutorialSystem : MonoBehaviour
         _tutorialPanel.SetActive(false);
         _justContinueButton.SetActive(false);
 
-        // включаем кнопки
-        foreach (var item in _currentStep.ButtonsDisabled)
-        {
-            item.enabled = true;
-        }
-
         // выключаем TutorialArrowWorld
         if (_tutorialArrowWorld != null) _tutorialArrowWorld.gameObject.SetActive(false);
+
+        // меняем скорость игры
+        if (_currentStep.ChangeGameSpeedTutorial.IsChangeOnComplete) _gameSpeedSystem.ChangeGameSpeed((int)_currentStep.ChangeGameSpeedTutorial.CompleteStepGameSpeedEnum);
     }
 
     private void SaveTutorial(TutorialStepEnum stepEnum)
@@ -149,11 +150,18 @@ public class TutorialSystem : MonoBehaviour
     }
 
     // Степ без необходимости нажатия, просто инфа
-    public void JustContinue()
+    public void JustContinueButton()
     {
         if (_tutorialCanvasGroup.alpha == 0) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         CompleteStep(_currentStep.TutorialStepEnum);
+    }
+
+    // Закрывает окно, если оно мешает
+    public void JustCloseButton()
+    {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        _tutorialPanel.SetActive(false);
     }
 
     // Вызывается после ожидания определенных условий, но требует чтобы текущий степ совпадал
@@ -195,6 +203,8 @@ public class TutorialSystem : MonoBehaviour
                 CompleteStep(TutorialStepEnum.MissionSelectForestCard_31);
                 break;
         }
+
+        CustomEvents.FireTutorialSelectCard();
     }
 
     // Считываем установку тайла ландшафта
@@ -214,14 +224,21 @@ public class TutorialSystem : MonoBehaviour
     }
 
     // Считываем нажатие на тайл земли
-    public void SelectGroundTileObject(GroundTileViewEnum groundTileViewEnum)
+    public void SelectGroundTileObject(TileObject tileObject)
     {
         if (_currentStep == null || IsCompleteMissionTutorial()) return;
 
-        switch (groundTileViewEnum)
+        switch (tileObject.GroundTileObject().CurrentGroundTile().GroundTileView)
         {
             case GroundTileViewEnum.BaseFoundation:
                 CompleteStep(TutorialStepEnum.MissionSelectBaseFoundationTile_12);
+                break;
+            case GroundTileViewEnum.Forest:
+                CompleteStep(TutorialStepEnum.MissionSelectForestTile_33);
+                if (tileObject.BuildingTileObject().HaveBuildingGameObject() && tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.WoodExtraction)
+                {
+                    CompleteStep(TutorialStepEnum.MissionSelectForestTileWithWoodExtractionBuilding_48);
+                }
                 break;
         }
     }
@@ -269,6 +286,36 @@ public class TutorialSystem : MonoBehaviour
         }
     }
 
+
+    // Считывает конец постройки здания определенного типа
+    public void CompleteConstructionBuilding(BuildingTileViewEnum buildingTileView)
+    {
+        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+
+        switch (buildingTileView)
+        {
+            case BuildingTileViewEnum.Base:
+                ForceRunStep(TutorialStepEnum.MissionAfterBaseSetStartTimer_23);
+                break;
+            case BuildingTileViewEnum.WoodExtraction:
+                ForceRunStep(TutorialStepEnum.MissionConstructionStoneExtraction_39);
+                break;
+            case BuildingTileViewEnum.StoneMining:
+                ForceRunStep(TutorialStepEnum.MissionCompleteStoneAndWoodExtractionDescription_40);
+                break;
+            case BuildingTileViewEnum.AttackingStructures:
+                ForceRunStep(TutorialStepEnum.MissionBallistaDescription_42);
+                break;
+        }
+    }
+
+    public void ClickToggleBuildingWork(bool isWorkNow)
+    {
+        if (isWorkNow) CompleteStep(TutorialStepEnum.MissionToggleOffSettlement_30);
+        if (!isWorkNow) CompleteStep(TutorialStepEnum.MissionToggleOnSettlement_43);
+    }
+
+
     public void ChangeGameSpeed(int gameSpeed)
     {
         if (_currentStep == null || IsCompleteMissionTutorial()) return;
@@ -281,7 +328,7 @@ public class TutorialSystem : MonoBehaviour
                 CompleteStep(TutorialStepEnum.MissionPauseGame_24);
                 break;
             case GameSpeedEnum.Default:
-
+                CompleteStep(TutorialStepEnum.MissionDefaultGameSpeed_38);
                 break;
         }
     }
@@ -296,10 +343,12 @@ public class TutorialSystem : MonoBehaviour
                 return _currentStep.TutorialStepEnum == TutorialStepEnum.MissionSelectBaseFoundationCard_10;
             case GroundTileViewEnum.Forest:
                 return _currentStep.TutorialStepEnum == TutorialStepEnum.MissionSelectForestCard_31;
+            case GroundTileViewEnum.Mountain:
+                return _currentStep.TutorialStepEnum == TutorialStepEnum.MissionConstructionStoneExtraction_39;
 
         }
 
-        return IsCompleteMissionTutorial();
+        return _currentStep.TutorialStepEnum > TutorialStepEnum.MissionCompleteStoneAndWoodExtractionDescription_40;
     }
 
     public bool CanBuildOrUpgrade()
@@ -315,12 +364,15 @@ public class TutorialSystem : MonoBehaviour
 
         if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectBaseFoundationTile_12 or TutorialStepEnum.MissionSetBaseFoundationCard_11) return true;
         if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectForestTile_33 or TutorialStepEnum.MissionSetForestCard_32) return true;
+        if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionConstructionStoneExtraction_39) return true;
 
-        return IsCompleteMissionTutorial();
+        return _currentStep.TutorialStepEnum > TutorialStepEnum.MissionConstructionStoneExtraction_39;
     }
 
     public bool CanDetectGroundTileObject(TileObject tileObject)
     {
+        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+
         switch (_currentStep.TutorialStepEnum)
         {
             case TutorialStepEnum.MissionSelectBaseFoundationTile_12:
@@ -330,6 +382,51 @@ public class TutorialSystem : MonoBehaviour
         }
 
         return true;
+    }
+
+    public bool CanClickBuildButton()
+    {
+        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+
+        if (_currentStep.TutorialStepEnum < TutorialStepEnum.MissionClickBuildButton_16) return false;
+
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionClickBuildButton_16);
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionClickBuildButton_34);
+
+        if (_currentStep.TutorialStepEnum > TutorialStepEnum.MissionSelectBaseTypeButton_17 &&
+            _currentStep.TutorialStepEnum < TutorialStepEnum.MissionClickBuildButton_34) return false;
+
+        return true;
+    }
+
+    public bool CanClickBuildingTypeButton(Tile tile)
+    {
+        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+
+        switch (_currentStep.TutorialStepEnum)
+        {
+            case TutorialStepEnum.MissionSelectWoodExtractionTypeButton_36:
+                return tile.BuildingTileView == BuildingTileViewEnum.WoodExtraction;
+        }
+
+        return _currentStep.TutorialStepEnum != TutorialStepEnum.MissionTileForestDescription_35;
+    }
+
+    public bool CanClickBuildingWorkButton()
+    {
+        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+
+        return _currentStep.TutorialStepEnum >= TutorialStepEnum.MissionToggleOffSettlement_30;
+    }
+
+    public bool CanClearTileDetector()
+    {
+        return _currentStep.TutorialStepEnum > TutorialStepEnum.MissionDefaultGameSpeed_38;
+    }
+
+    public bool CanCancelSeletCard()
+    {
+        return _currentStep.TutorialStepEnum is not (TutorialStepEnum.MissionSetBaseFoundationCard_11 or TutorialStepEnum.MissionSetForestCard_32);
     }
 
     private void OnDestroy()
@@ -349,9 +446,19 @@ public class TutorialStep
     public TutorialTextPanelPos TutorialTextPanelPos;
     public TutorialArrowObjectEnum ArrowObject;
     public bool JustContinue;
+    public bool JustClose;
     public bool RequirePreviousStep;
     public bool WaitRunStep;
-    public Button[] ButtonsDisabled;
+    public ChangeGameSpeedTutorial ChangeGameSpeedTutorial;
+}
+
+[System.Serializable]
+public class ChangeGameSpeedTutorial
+{
+    public bool IsChangeOnStart;
+    public GameSpeedEnum StartStepGameSpeedEnum;
+    public bool IsChangeOnComplete;
+    public GameSpeedEnum CompleteStepGameSpeedEnum;
 }
 
 public enum TutorialArrowObjectEnum
@@ -359,6 +466,7 @@ public enum TutorialArrowObjectEnum
     None = 0,
     BaseFoundation = 1,
     Forest = 2,
+    ForestWithWoodExtraction = 3,
 }
 
 public enum TutorialStepEnum
@@ -402,15 +510,31 @@ public enum TutorialStepEnum
     MissionTileForestDescription_35 = 35,
     MissionSelectWoodExtractionTypeButton_36 = 36,
     MissionStartConstructionManualWoodMining_37 = 37,
+    MissionDefaultGameSpeed_38 = 38,
+    MissionConstructionStoneExtraction_39 = 39,
+    MissionCompleteStoneAndWoodExtractionDescription_40 = 40,
+    MissionConstructionBallista_41 = 41,
+    MissionBallistaDescription_42 = 42,
+    MissionToggleOnSettlement_43 = 43,
+    MissionEnergyBeamDescription_44 = 44,
+    MissionTileCombineDescription1_45 = 45,
+    MissionTileCombineDescription2_46 = 46,
+    MissionTileCombineDescription3_47 = 47,
+    MissionSelectForestTileWithWoodExtractionBuilding_48 = 48,
+    MissionProductionModifierDescription_49 = 49,
+    MissionEventPanel_50 = 50,
+    MissionOpenSkillsPanel_51 = 51,
+    MissionSkillsPanelDescription_52 = 52,
+    MissionShardsDescription_53 = 53,
+    MissionPrepareAttack_54 = 54,
+    MissionDoubleTripleGameSpeedDescription_55 = 55,
+    MissionBuildingTakeDamage_56 = 56,
 
 
 
-
-
-
-    MissionSkillsPanel,
-    CompleteMissionTutorial = 998,
-    Complete = 999
+    CompleteMissionTutorial = 997,
+    SpaceOpenLearningPanel = 998,
+    CompleteAllTutorials = 999
 }
 
 public enum TutorialTextPanelPos

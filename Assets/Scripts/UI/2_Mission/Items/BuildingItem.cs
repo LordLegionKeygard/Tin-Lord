@@ -35,13 +35,13 @@ public class BuildingItem : MonoBehaviour
         CustomEvents.OnTimeTick += RefreshView;
         CustomEvents.OnStartTutorialStep += SelectTutorialBuildingItem;
         RefreshView();
-
-        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.CompleteMissionTutorial) return;
         SelectTutorialBuildingItem(TutorialStepEnum.None);
     }
 
     private void SelectTutorialBuildingItem(TutorialStepEnum _)
     {
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.CompleteMissionTutorial) return;
+
         var building = _currentTile.Buildings[_buildingIndex - 1];
         switch (_tutorialSystem.GetTutorialStepEnum())
         {

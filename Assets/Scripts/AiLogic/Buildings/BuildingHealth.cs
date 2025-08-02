@@ -4,6 +4,7 @@ using Zenject;
 
 public class BuildingHealth : BaseHealth
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [Inject] private readonly DiContainer _diContainer;
     [Inject] private readonly AllSkills _allSkills;
@@ -132,6 +133,11 @@ public class BuildingHealth : BaseHealth
         var resultDamage = damage * extraDamage * fortification;
         TakeDamage(resultDamage, knockBackPoints);
         CustomEvents.FireBuildingTakeDamage(_tileObject.GetId());
+
+        if (_tutorialSystem.GetTutorialStepEnum() > TutorialStepEnum.MissionDoubleTripleGameSpeedDescription_55)
+        {
+            CustomEvents.FireStartTutorialStep(TutorialStepEnum.MissionBuildingTakeDamage_56);
+        }
     }
 
     public void ConstructionIncreaseHealth(float amount)

@@ -4,6 +4,7 @@ using UnityEngine;
 public class ChangeLanguageSpace : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _tutorialContinue;
+    [SerializeField] private TextMeshProUGUI _tutorialClose;
     [SerializeField] private TextMeshProUGUI[] _resourceTypesPanel;
     [SerializeField] private TextMeshProUGUI _mapText;
     [SerializeField] private TextMeshProUGUI _learningText;
@@ -31,6 +32,8 @@ public class ChangeLanguageSpace : MonoBehaviour
     private void Start()
     {
         _tutorialContinue.text = Language.TextStatic[33];
+        _tutorialClose.text = Language.TextStatic[121];
+
         _resourceTraderHeaderText.text = Language.TextStatic[287];
         _resourceTraderPriceText.text = Language.TextStatic[288];
         _resourceTradeBuyText.text = Language.TextStatic[289];
@@ -53,7 +56,7 @@ public class ChangeLanguageSpace : MonoBehaviour
 
         _escapeTexts[0].text = Language.TextStatic[33];
         _escapeTexts[1].text = Language.TextStatic[28];
-        _escapeTexts[2].text = Language.TextStatic[47];     
+        _escapeTexts[2].text = Language.TextStatic[47];
 
         _selectBuildingText.text = Language.TextStatic[12];
         _buildingHealthText.text = $"{Language.TextStatic[97]}: -";

@@ -20,34 +20,41 @@ public class CardObject : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnStartTutorialStep += TutorialHightlightCard;
-        CustomEvents.OnCompleteTutorialStep += DisableTutorialView;
+        CustomEvents.OnTutorialSelectCard += TurnOffTutorialView;
     }
 
     private void TutorialHightlightCard(TutorialStepEnum tutorialStepEnum)
     {
+        _tutorialView.SetActive(false);
         switch (tutorialStepEnum)
         {
             case TutorialStepEnum.MissionSelectBaseFoundationCard_10:
                 _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.BaseFoundation);
+                _squareTutorialClickImage.enabled = true;
                 break;
             case TutorialStepEnum.MissionSelectForestCard_31:
                 _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.Forest);
+                _squareTutorialClickImage.enabled = true;
                 break;
             case TutorialStepEnum.MissionAddCardsDescription_29:
                 _tutorialView.SetActive(true);
                 _squareTutorialClickImage.enabled = false;
                 break;
+            case TutorialStepEnum.MissionConstructionStoneExtraction_39:
+                _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.Mountain);
+                _squareTutorialClickImage.enabled = true;
+                break;
         }
     }
 
-    private void DisableTutorialView(TutorialStepEnum tutorialStepEnum)
+    // Отключаем у всех карт tutorialView
+    public void TurnOffTutorialView()
     {
-        if (tutorialStepEnum == TutorialStepEnum.MissionToggleOffSettlement_30)
-        {
-            _tutorialView.SetActive(false);
-        }
+        _tutorialView.SetActive(false);
     }
 
+
+    // Отключаем возможность выбора тайла в момент удаления карты
     public void DisabledButton()
     {
         _button.enabled = false;
@@ -68,8 +75,6 @@ public class CardObject : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
         _cardHolderSystem.SelectCardInCardHolder(this);
         CardObjectViewToggle(true);
-        _tutorialView.SetActive(false);
-        _squareTutorialClickImage.enabled = true;
         _tutorialSystem.SelectCard(_tile.GroundTileView);
     }
 
@@ -86,7 +91,7 @@ public class CardObject : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnStartTutorialStep -= TutorialHightlightCard;
-        CustomEvents.OnCompleteTutorialStep -= DisableTutorialView;
+        CustomEvents.OnTutorialSelectCard -= TurnOffTutorialView;
 
         if (_objectTransform != null)
         {

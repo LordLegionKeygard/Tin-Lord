@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007798456, g: 0.00009617216, b: 0.000115803625,
+  m_IndirectSpecularColor: {r: 0.00007796517, g: 0.00009617259, b: 0.00011579085,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tutorialContinue: {fileID: 381385610}
+  _tutorialClose: {fileID: 1003870431308464736}
   _resourceTypesPanel:
   - {fileID: 1973594891}
   - {fileID: 982262831}
@@ -25719,8 +25720,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1659477424}
-        m_TargetAssemblyTypeName: PanelDoMoveX, Assembly-CSharp
+      - m_Target: {fileID: 1659477426}
+        m_TargetAssemblyTypeName: SpaceMainResourcePanel, Assembly-CSharp
         m_MethodName: PanelMove
         m_Mode: 6
         m_Arguments:
@@ -61274,10 +61275,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7319577c9b29c45a36a5c9ec65c7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameSpeedSystem: {fileID: 0}
   _allTileObjects: {fileID: 0}
   _tutorialPanel: {fileID: 27417593}
   _tutorialPanelText: {fileID: 1624886968}
   _justContinueButton: {fileID: 1003870431308464734}
+  _justCloseButton: {fileID: 1003870431308464737}
   _tutorialCanvasGroup: {fileID: 1003870431308464735}
   _tutorialArrowWorld: {fileID: 0}
   _tutorialBuildings: []
@@ -61287,108 +61290,142 @@ MonoBehaviour:
     TextNumber: 300
     TutorialTextPanelPos: 0
     ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
     JustContinue: 1
+    JustClose: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
-    ButtonsDisabled:
-    - {fileID: 1271766097}
-    - {fileID: 1721133892}
-    - {fileID: 870178582}
   - TutorialStepEnum: 1
     ClickView: {fileID: 126485018}
     TextNumber: 301
     TutorialTextPanelPos: 2
     ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
     JustContinue: 1
+    JustClose: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
-    ButtonsDisabled:
-    - {fileID: 1271766097}
-    - {fileID: 1721133892}
-    - {fileID: 870178582}
   - TutorialStepEnum: 2
     ClickView: {fileID: 699430007}
     TextNumber: 302
     TutorialTextPanelPos: 0
     ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
     JustContinue: 1
+    JustClose: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
-    ButtonsDisabled:
-    - {fileID: 1271766097}
-    - {fileID: 1721133892}
-    - {fileID: 870178582}
   - TutorialStepEnum: 3
     ClickView: {fileID: 718196032}
     TextNumber: 303
     TutorialTextPanelPos: 0
     ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
     JustContinue: 0
+    JustClose: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
-    ButtonsDisabled:
-    - {fileID: 1271766097}
-    - {fileID: 1721133892}
   - TutorialStepEnum: 4
     ClickView: {fileID: 0}
     TextNumber: 304
     TutorialTextPanelPos: 0
     ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
     JustContinue: 1
-    RequirePreviousStep: 0
+    JustClose: 0
+    RequirePreviousStep: 1
     WaitRunStep: 0
-    ButtonsDisabled:
-    - {fileID: 1271766097}
-    - {fileID: 1721133892}
   - TutorialStepEnum: 5
     ClickView: {fileID: 599929487}
     TextNumber: 305
     TutorialTextPanelPos: 0
     ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
     JustContinue: 0
+    JustClose: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
-    ButtonsDisabled:
-    - {fileID: 1271766097}
   - TutorialStepEnum: 6
     ClickView: {fileID: 0}
     TextNumber: 306
     TutorialTextPanelPos: 4
     ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
     JustContinue: 1
+    JustClose: 0
     RequirePreviousStep: 1
     WaitRunStep: 0
-    ButtonsDisabled:
-    - {fileID: 1271766097}
-    - {fileID: 1721133892}
-    - {fileID: 870178582}
-    - {fileID: 1167372646}
-    - {fileID: 574108628}
   - TutorialStepEnum: 7
     ClickView: {fileID: 0}
     TextNumber: 307
     TutorialTextPanelPos: 4
     ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
     JustContinue: 0
+    JustClose: 0
     RequirePreviousStep: 1
     WaitRunStep: 0
-    ButtonsDisabled:
-    - {fileID: 1271766097}
-    - {fileID: 1721133892}
-    - {fileID: 870178582}
-    - {fileID: 1167372646}
-    - {fileID: 574108628}
   - TutorialStepEnum: 8
     ClickView: {fileID: 582753780}
     TextNumber: 308
     TutorialTextPanelPos: 0
     ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
     JustContinue: 0
+    JustClose: 0
     RequirePreviousStep: 0
     WaitRunStep: 1
-    ButtonsDisabled:
-    - {fileID: 1271766097}
-    - {fileID: 1721133892}
+  _currentStep:
+    TutorialStepEnum: 0
+    ClickView: {fileID: 0}
+    TextNumber: 0
+    TutorialTextPanelPos: 0
+    ArrowObject: 0
+    ChangeGameSpeedTutorial:
+      IsChangeOnStart: 0
+      StartStepGameSpeedEnum: 0
+      IsChangeOnComplete: 0
+      CompleteStepGameSpeedEnum: 0
+    JustContinue: 0
+    JustClose: 0
+    RequirePreviousStep: 0
+    WaitRunStep: 0
 --- !u!1001 &2054667925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64765,6 +64802,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2049178741}
+    - target: {fileID: 1003870432216858934, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JustContinueButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011791941114091851, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2049178741}
+    - target: {fileID: 9011791941114091851, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: JustCloseButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca, type: 3}
 --- !u!1 &1003870431308464734 stripped
@@ -64776,6 +64828,24 @@ GameObject:
 --- !u!225 &1003870431308464735 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 7819711904952514531, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003870431308464733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1003870431308464736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3374337482370051808, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003870431308464733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1003870431308464737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000535972238879271, guid: 17e6e6f43a3a1424b9fa1ac44e37a4ca,
     type: 3}
   m_PrefabInstance: {fileID: 1003870431308464733}
   m_PrefabAsset: {fileID: 0}

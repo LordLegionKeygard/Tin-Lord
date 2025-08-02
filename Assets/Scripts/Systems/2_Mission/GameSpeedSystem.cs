@@ -23,6 +23,14 @@ public class GameSpeedSystem : MonoBehaviour
 
     public void ChangeGameSpeedButton(int gameSpeed, bool isEscapePanel)
     {
+        if (!_tutorialSystem.IsCompleteMissionTutorial())
+        {
+            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionPauseGame_24 && gameSpeed == (int)GameSpeedEnum.Pause) return;
+            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionDoubleTripleGameSpeedDescription_55 && gameSpeed is (int)GameSpeedEnum.Double or (int)GameSpeedEnum.Triple) return;
+            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionDefaultGameSpeed_38 && gameSpeed == (int)GameSpeedEnum.Default) return;
+            if (_tutorialSystem.GetTutorialStepEnum() > TutorialStepEnum.MissionToggleOnSettlement_43 && _tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionPrepareAttack_54) return;
+        }
+
         //нажали на ту же скорость что щас уже стоит и это не пауза, делаем возврат
         if (_currentGameSpeedEnum != GameSpeedEnum.Pause && (int)_currentGameSpeedEnum == gameSpeed) return;
 

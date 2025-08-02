@@ -4,6 +4,11 @@ using UnityEngine.InputSystem;
 
 public class CustomEvents
 {
+    public static event Action OnTutorialSelectCard;
+    public static void FireTutorialSelectCard()
+    {
+        OnTutorialSelectCard?.Invoke();
+    }
 
     public static event Action<TutorialStepEnum> OnForceRunStep;
     public static void FireForceRunStep(TutorialStepEnum tutorialStepEnum)

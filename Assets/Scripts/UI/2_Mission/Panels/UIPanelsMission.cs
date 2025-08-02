@@ -60,11 +60,11 @@ public class UIPanelsMission : MonoBehaviour
     public void ClearAndCancelCardHolderAndTileDetector()
     {
         CustomEvents.FireTooltipToggle(false, 0);
-        if (_tutorialSystem.GetTutorialStepEnum() > TutorialStepEnum.MissionToggleOffSettlement_30)
+        if (_tutorialSystem.CanClearTileDetector())
         {
             _tileDetector.ClearTileDetector();
         }
-        if (_tutorialSystem.GetTutorialStepEnum() is not TutorialStepEnum.MissionSetBaseFoundationCard_11)
+        if (_tutorialSystem.CanCancelSeletCard())
         {
             _cardHolderSystem.CancelSelectCard();
         }

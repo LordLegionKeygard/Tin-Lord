@@ -26,6 +26,8 @@ public class UIPanelsSpace : MonoBehaviour
 
     public void LearnBuildingPanelToggle()
     {
+        if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.SpaceOpenLearningPanel) return;
+
         _buildingsPanelDoMove.PanelMove();
         _buildingInfoPanelDoMove.PanelMove(false);
         _buildingsLearnPanel.UnselectAllBuildingItems();
@@ -40,6 +42,9 @@ public class UIPanelsSpace : MonoBehaviour
 
     public void MapPanelOpen()
     {
+        if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.SpaceOpenMap_5) return;
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceStartMission_8) return;
+
         if (_buildingsPanelDoMove.IsOpen()) LearnBuildingPanelToggle();
         if (_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove();
         if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();

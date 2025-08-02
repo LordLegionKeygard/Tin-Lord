@@ -20,12 +20,14 @@ public class BuildingType : MonoBehaviour
 
     private void Start()
     {
-        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.CompleteMissionTutorial) return;
-        SelectTutorialBuildingType();
+        CustomEvents.OnStartTutorialStep += SelectTutorialBuildingType;
+        SelectTutorialBuildingType(TutorialStepEnum.None);
     }
 
-    private void SelectTutorialBuildingType()
+    private void SelectTutorialBuildingType(TutorialStepEnum _)
     {
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.CompleteMissionTutorial) return;
+
         switch (_tutorialSystem.GetTutorialStepEnum())
         {
             case TutorialStepEnum.MissionSelectBaseTypeButton_17:
@@ -65,7 +67,7 @@ public class BuildingType : MonoBehaviour
 
     public void SelectTypeButton()
     {
-        if (!_canSelect) return;
+        if (!_canSelect || !_tutorialSystem.CanClickBuildingTypeButton(_currentBuildingTypeTile)) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _tutorialSystem.SelectBuildingType(_currentBuildingTypeTile.BuildingTileView);
         _tutorialView.SetActive(false);
@@ -79,6 +81,11 @@ public class BuildingType : MonoBehaviour
     public void ToggleSelectView(bool state)
     {
         _image.color = state ? Color.white : Colors.GreySeven;
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnStartTutorialStep -= SelectTutorialBuildingType;
     }
 }
 

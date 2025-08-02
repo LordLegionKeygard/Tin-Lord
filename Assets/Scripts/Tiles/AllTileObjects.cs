@@ -145,4 +145,21 @@ public class AllTileObjects : MonoBehaviour
 
         return null;
     }
+
+    public TileObject FindBuildingOnTileObject(BuildingTileViewEnum findBuildingTileView)
+    {
+        for (int i = 0; i < TileObjects.Count; i++)
+        {
+            if (TileObjects[i].GroundTileObject().CurrentGroundTile() == null) continue;
+
+            if (!TileObjects[i].BuildingTileObject().HaveBuildingGameObject()) continue;
+
+            if (TileObjects[i].BuildingTileObject().CurrentBuildingTile().BuildingTileView == findBuildingTileView)
+            {
+                return TileObjects[i];
+            }
+        }
+
+        return null;
+    }
 }
