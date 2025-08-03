@@ -22,6 +22,7 @@ public class QuantsSystem : MonoBehaviour
     public void ChangeQuants(int value)
     {
         _quants += value;
+        if (_quants < 0) _quants = 0;
         UpdateView();
     }
 }

@@ -38,6 +38,7 @@ public class MainResources : MonoBehaviour
     {
         var resources = _resourcesWrapper[(int)resourceEnum];
         resources.Amount = (float)Math.Round(resources.Amount + amount, 1, MidpointRounding.AwayFromZero);
+        if (resources.Amount < 0) resources.Amount = 0;
         resources.Text.text = resources.Amount.ToString("0.0");
 
         if (resourceEnum == ResourceEnum.DataFragment) UpdateDataFragmentText();
