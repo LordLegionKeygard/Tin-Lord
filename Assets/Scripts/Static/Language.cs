@@ -693,14 +693,14 @@ public class Language : MonoBehaviour
         _text[221, 0] = "You must select at least one skill";
         _text[221, 1] = "Необходимо выбрать хотя бы одно умение";
 
-        _text[222, 0] = "";
-        _text[222, 1] = "";
+        _text[222, 0] = "Toggle resources panel";
+        _text[222, 1] = "Переключает панель ресурсов";
 
-        _text[223, 0] = "";
-        _text[223, 1] = "";
+        _text[223, 0] = "Cancel skill targeting";
+        _text[223, 1] = "Отменить прицел умения";
 
-        _text[224, 0] = "";
-        _text[224, 1] = "";
+        _text[224, 0] = "Toggle skills panel";
+        _text[224, 1] = "Переключает панель умений";
 
         _text[225, 0] = "";
         _text[225, 1] = "";
@@ -915,8 +915,8 @@ public class Language : MonoBehaviour
         _text[295, 0] = "Map";
         _text[295, 1] = "Карта";
 
-        _text[296, 0] = "Toggle resources panel";
-        _text[296, 1] = "Переключает панель ресурсов";
+        _text[296, 0] = "";
+        _text[296, 1] = "";
 
         _text[297, 0] = "Need {0} base level";
         _text[297, 1] = "Нужен {0} уровень базы";
@@ -924,8 +924,8 @@ public class Language : MonoBehaviour
         _text[298, 0] = "Skill";
         _text[298, 1] = "Умение";
 
-        _text[299, 0] = "Cancel skill targeting";
-        _text[299, 1] = "Отменить прицел умения";
+        _text[299, 0] = "";
+        _text[299, 1] = "";
 
         #region Tutorial
 

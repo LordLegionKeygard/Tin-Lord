@@ -11,10 +11,7 @@ public class MissionHolderPanel : MonoBehaviour
 
     public void PanelMove()
     {
-        if (!_tutorialSystem.IsCompleteMissionTutorial())
-        {
-            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionOpenSkillsPanel_51) return;
-        }
+        if (!_tutorialSystem.IsCompleteMissionTutorial() && _tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionOpenSkillsPanel_51) return;
 
         CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionOpenSkillsPanel_51);
         _panelDoMoveX.PanelMove();

@@ -193,6 +193,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ToggleSkillPanel",
+                    "type": "Button",
+                    "id": "8de24c2c-76ab-4dd2-b147-551acb4ca37d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -622,6 +631,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MiddleMouseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82d6a0d2-ca7e-49a9-81be-64b98d57e28b",
+                    "path": "<Keyboard>/alt",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleSkillPanel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

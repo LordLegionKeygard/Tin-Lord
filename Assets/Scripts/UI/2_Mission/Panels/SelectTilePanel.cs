@@ -268,7 +268,7 @@ public class SelectTilePanel : MonoBehaviour
         var buildButtonState = canRepairOrUpgrade && groundHaveBuildings && !isConstructionNow;
         var workButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
         var generalRepairButtonState = haveBuildingNow && _allSkills.IsSkillOpen(SkillEnum.GeneralRepair);
-        var rotateButtonState = haveRotationViewGround || canRotateBuilding;
+        var rotateButtonState = (haveRotationViewGround || canRotateBuilding) && !isConstructionNow;
         var machineButtonState = haveBuildingNow && isMachineProduction;
         var destroyButtonState = (isConstructionNow || haveBuildingNow || (!isRoad && (!isWater || isLastRiverTile))) && !isBase;
 
@@ -459,7 +459,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ChangeResourceForWork(Resource resource)
     {
-        if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionSettlementChangeResourceRequired_27) return;
+        if (!_tutorialSystem.IsCompleteMissionTutorial() && _tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionSettlementChangeResourceRequired_27) return;
 
         CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSettlementChangeResourceRequired_27);
 

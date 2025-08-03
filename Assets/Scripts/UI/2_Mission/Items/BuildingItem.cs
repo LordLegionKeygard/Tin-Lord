@@ -35,7 +35,7 @@ public class BuildingItem : MonoBehaviour
         CustomEvents.OnTimeTick += RefreshView;
         CustomEvents.OnStartTutorialStep += SelectTutorialBuildingItem;
         RefreshView();
-        SelectTutorialBuildingItem(TutorialStepEnum.None);
+        if(!_tutorialSystem.IsCompleteAllTutorial()) SelectTutorialBuildingItem(TutorialStepEnum.None);
     }
 
     private void SelectTutorialBuildingItem(TutorialStepEnum _)

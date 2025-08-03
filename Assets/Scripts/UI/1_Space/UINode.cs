@@ -73,8 +73,8 @@ public class UINode : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void SelectNodeButton()
     {
         if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceMapDescription_6) return;
+        if (!_tutorialSystem.IsCompleteAllTutorial()) CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceSelectNode_7);
 
-        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceSelectNode_7);
         _mapSystem.TrySelectNode(_index);
     }
 

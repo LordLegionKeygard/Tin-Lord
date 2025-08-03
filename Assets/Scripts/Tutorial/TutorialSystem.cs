@@ -21,7 +21,7 @@ public class TutorialSystem : MonoBehaviour
     private int _currentStepIndex = -1;
     private bool _currentStepInProcess;
     public bool IsStartTutorial() => _currentStep.TutorialStepEnum == TutorialStepEnum.SpaceHangarWelcome_0;
-    public TutorialStepEnum GetTutorialStepEnum() => IsCompleteMissionTutorial() ? TutorialStepEnum.MissionGoodLuckDescription_63 : IsCompleteAllTutorial() ? TutorialStepEnum.CompleteAllTutorials_69 : _currentStep.TutorialStepEnum;
+    public TutorialStepEnum GetTutorialStepEnum() => IsCompleteAllTutorial() ? TutorialStepEnum.CompleteAllTutorials_69 : _currentStep.TutorialStepEnum;
     private bool _isCompleteAllTutorials;
     public Building GetTutorialBuilding(int number) => _tutorialBuildings[number];
     public bool IsCompleteMissionTutorial() => IsCompleteAllTutorial() || _currentStep.TutorialStepEnum >= TutorialStepEnum.MissionGoodLuckDescription_63;

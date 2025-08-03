@@ -51,6 +51,10 @@ public class MissionInputSystem : MonoBehaviour
     private ToggleGeneralRepairButton _toggleGeneralRepairButton;
 
     //Skills
+    public delegate void ToggleSkillPanel();
+    public ToggleSkillPanel _toggleSkillPanel;
+
+
     public delegate void SkillZero();
     private SkillZero _skillZero;
     public delegate void SkillOne();
@@ -70,6 +74,7 @@ public class MissionInputSystem : MonoBehaviour
     [SerializeField] private UIPanelsMission _uiPanels;
     [SerializeField] private MissionResourcePanel _resourcesPanel;
     [SerializeField] private MachinePanel _machinePanel;
+    [SerializeField] private MissionHolderPanel _missionHolderPanel;
     [SerializeField] private BaseSkill[] _skills;
 
     private void Awake()
@@ -131,6 +136,7 @@ public class MissionInputSystem : MonoBehaviour
         _playerInput.actions["WorkTileButton"].performed += _ => _workTileButton();
         _playerInput.actions["MachinePanelButton"].performed += _ => _machinePanelButton();
         _playerInput.actions["ToggleGeneralRepairButton"].performed += _ => _toggleGeneralRepairButton();
+        _playerInput.actions["ToggleSkillPanel"].performed += _ => _toggleSkillPanel();
         _playerInput.actions["Skill_0"].performed += _ => _skillZero();
         _playerInput.actions["Skill_1"].performed += _ => _skillOne();
         _playerInput.actions["Skill_2"].performed += _ => _skillTwo();
@@ -164,6 +170,7 @@ public class MissionInputSystem : MonoBehaviour
         _workTileButton = new WorkTileButton(_selectTilePanel.ToggleBuildingWorkButton);
         _machinePanelButton = new MachinePanelButton(_selectTilePanel.MachinePanelButton);
         _toggleGeneralRepairButton = new ToggleGeneralRepairButton(_selectTilePanel.ToggleGeneralRepairButton);
+        _toggleSkillPanel = new ToggleSkillPanel(_missionHolderPanel.PanelMove);
         _skillZero = new SkillZero(_skills[0].UseSkill);
         _skillOne = new SkillOne(_skills[1].UseSkill);
         _skillTwo = new SkillTwo(_skills[2].UseSkill);
@@ -233,6 +240,9 @@ public class MissionInputSystem : MonoBehaviour
         _workTileButton = delegate { };
         _machinePanelButton = delegate { };
         _toggleGeneralRepairButton = delegate { };
+
+        //Skills
+        _toggleSkillPanel = delegate { };
         _skillZero = delegate { };
         _skillOne = delegate { };
         _skillTwo = delegate { };
