@@ -17,13 +17,16 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private TutorialArrowWorld _tutorialArrowWorld;
     [SerializeField] private Building[] _tutorialBuildings;
     [SerializeField] private List<TutorialStep> _steps;
-    private int _currentStepIndex = -1;
     [SerializeField] private TutorialStep _currentStep;
+    private int _currentStepIndex = -1;
+    private bool _currentStepInProcess;
     public bool IsStartTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.SpaceHangarWelcome_0 : false;
     public TutorialStepEnum GetTutorialStepEnum() => _currentStep != null ? _currentStep.TutorialStepEnum : TutorialStepEnum.CompleteAllTutorials;
     public Building GetTutorialBuilding(int number) => _tutorialBuildings[number];
     public bool IsCompleteMissionTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial : true;
     public bool PanelIsActive() => _tutorialPanel.activeInHierarchy;
+    public AllTileObjects GetAllTileObjects() => _allTileObjects;
+    public bool IsCurrentInProcess() => _currentStepInProcess;
 
     private static readonly Dictionary<TutorialTextPanelPos, (Vector2 anchor, Vector2 offset)> PanelLayout =
         new()
@@ -44,6 +47,19 @@ public class TutorialSystem : MonoBehaviour
         CustomEvents.OnCompleteTutorialStep += CompleteStep;
         CustomEvents.OnRunStepAfterWait += RunStepAfterWait;
         CustomEvents.OnForceRunStep += ForceRunStep;
+    }
+
+    public void SetCurrentStepInProccess(BuildingTileViewEnum buildingTileViewEnum)
+    {
+        switch (buildingTileViewEnum)
+        {
+            case BuildingTileViewEnum.StoneMining:
+                _currentStepInProcess = _currentStep.TutorialStepEnum == TutorialStepEnum.MissionConstructionStoneMining_39;
+                break;
+            case BuildingTileViewEnum.AttackingStructures:
+                _currentStepInProcess = _currentStep.TutorialStepEnum == TutorialStepEnum.MissionConstructionBallista_41;
+                break;
+        }
     }
 
 
@@ -121,7 +137,7 @@ public class TutorialSystem : MonoBehaviour
     {
         if (_currentStep == null || _currentStep.TutorialStepEnum != stepEnum) return;
 
-        ResetStepObjects();
+        ResetStep();
 
         var nextEnum = (TutorialStepEnum)((int)stepEnum + 1);
         _currentStepIndex = _steps.FindIndex(s => s.TutorialStepEnum == nextEnum);
@@ -132,8 +148,9 @@ public class TutorialSystem : MonoBehaviour
         else _currentStep = null; // конец туториала
     }
 
-    private void ResetStepObjects()
+    private void ResetStep()
     {
+        _currentStepInProcess = false;
         if (_currentStep.ClickView != null) _currentStep.ClickView.SetActive(false);
         _tutorialPanel.SetActive(false);
         _justContinueButton.SetActive(false);
@@ -179,7 +196,7 @@ public class TutorialSystem : MonoBehaviour
     {
         if (_currentStep != null)
         {
-            ResetStepObjects();
+            ResetStep();
         }
 
         _currentStepIndex = _steps.FindIndex(s => s.TutorialStepEnum == stepEnum);
@@ -299,7 +316,7 @@ public class TutorialSystem : MonoBehaviour
                 ForceRunStep(TutorialStepEnum.MissionAfterBaseSetStartTimer_23);
                 break;
             case BuildingTileViewEnum.WoodExtraction:
-                ForceRunStep(TutorialStepEnum.MissionConstructionStoneExtraction_39);
+                ForceRunStep(TutorialStepEnum.MissionConstructionStoneMining_39);
                 break;
             case BuildingTileViewEnum.StoneMining:
                 ForceRunStep(TutorialStepEnum.MissionCompleteStoneAndWoodExtractionDescription_40);
@@ -327,6 +344,7 @@ public class TutorialSystem : MonoBehaviour
         {
             case GameSpeedEnum.Pause:
                 CompleteStep(TutorialStepEnum.MissionPauseGame_24);
+                CompleteStep(TutorialStepEnum.MissionDefaultGameSpeed_38);
                 break;
             case GameSpeedEnum.Default:
                 CompleteStep(TutorialStepEnum.MissionDefaultGameSpeed_38);
@@ -338,6 +356,9 @@ public class TutorialSystem : MonoBehaviour
     {
         if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
 
+
+        if (_currentStep.TutorialStepEnum >= TutorialStepEnum.MissionConstructionBallista_41) return true;
+
         switch (tile.GroundTileView)
         {
             case GroundTileViewEnum.BaseFoundation:
@@ -345,7 +366,7 @@ public class TutorialSystem : MonoBehaviour
             case GroundTileViewEnum.Forest:
                 return _currentStep.TutorialStepEnum == TutorialStepEnum.MissionSelectForestCard_31;
             case GroundTileViewEnum.Mountain:
-                return _currentStep.TutorialStepEnum == TutorialStepEnum.MissionConstructionStoneExtraction_39;
+                return _currentStep.TutorialStepEnum == TutorialStepEnum.MissionConstructionStoneMining_39;
 
         }
 
@@ -365,9 +386,9 @@ public class TutorialSystem : MonoBehaviour
 
         if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectBaseFoundationTile_12 or TutorialStepEnum.MissionSetBaseFoundationCard_11) return true;
         if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectForestTile_33 or TutorialStepEnum.MissionSetForestCard_32) return true;
-        if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionConstructionStoneExtraction_39) return true;
+        if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionConstructionStoneMining_39) return true;
 
-        return _currentStep.TutorialStepEnum > TutorialStepEnum.MissionConstructionStoneExtraction_39;
+        return _currentStep.TutorialStepEnum > TutorialStepEnum.MissionConstructionStoneMining_39;
     }
 
     public bool CanDetectGroundTileObject(TileObject tileObject)
@@ -380,6 +401,8 @@ public class TutorialSystem : MonoBehaviour
                 return tileObject.GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum.BaseFoundation;
             case TutorialStepEnum.MissionSelectForestTile_33:
                 return tileObject.GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum.Forest;
+            case TutorialStepEnum.MissionToggleOnSettlement_43:
+                return tileObject.GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum.BaseFoundation;
         }
 
         return true;
@@ -512,7 +535,7 @@ public enum TutorialStepEnum
     MissionSelectWoodExtractionTypeButton_36 = 36,
     MissionStartConstructionManualWoodMining_37 = 37,
     MissionDefaultGameSpeed_38 = 38,
-    MissionConstructionStoneExtraction_39 = 39,
+    MissionConstructionStoneMining_39 = 39,
     MissionCompleteStoneAndWoodExtractionDescription_40 = 40,
     MissionConstructionBallista_41 = 41,
     MissionBallistaDescription_42 = 42,

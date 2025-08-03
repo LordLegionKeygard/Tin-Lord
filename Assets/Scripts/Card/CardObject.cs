@@ -45,8 +45,12 @@ public class CardObject : MonoBehaviour
                 _tutorialView.SetActive(true);
                 _squareTutorialClickImage.enabled = false;
                 break;
-            case TutorialStepEnum.MissionConstructionStoneExtraction_39:
-                _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.Mountain);
+            case TutorialStepEnum.MissionConstructionStoneMining_39:
+                _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.Mountain && !_tutorialSystem.IsCurrentInProcess());
+                _squareTutorialClickImage.enabled = true;
+                break;
+            case TutorialStepEnum.MissionConstructionBallista_41:
+                _tutorialView.SetActive(_tile.GroundTileView is GroundTileViewEnum.Plain or GroundTileViewEnum.Forest or GroundTileViewEnum.Desert or GroundTileViewEnum.Ground or GroundTileViewEnum.Highland && !_tutorialSystem.IsCurrentInProcess());
                 _squareTutorialClickImage.enabled = true;
                 break;
         }

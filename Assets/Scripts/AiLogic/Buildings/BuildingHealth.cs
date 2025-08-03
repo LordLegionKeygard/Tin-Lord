@@ -134,9 +134,9 @@ public class BuildingHealth : BaseHealth
         TakeDamage(resultDamage, knockBackPoints);
         CustomEvents.FireBuildingTakeDamage(_tileObject.GetId());
 
-        if (_tutorialSystem.GetTutorialStepEnum() > TutorialStepEnum.MissionDoubleTripleGameSpeedDescription_55)
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.MissionBuildingTakeDamage_56)
         {
-            CustomEvents.FireStartTutorialStep(TutorialStepEnum.MissionBuildingTakeDamage_56);
+            CustomEvents.FireRunStepAfterWait(TutorialStepEnum.MissionBuildingTakeDamage_56);
         }
     }
 
