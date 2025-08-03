@@ -5,17 +5,16 @@ using UnityEngine;
 public class SettingsSaveDataWriter
 {
     public string SaveSettingsDataDirectoryPath = "";
-    public string SettingsDataSaveFileName = "";
+    private string _settingsDataSaveFileName => WorldGameInfo.IsDemo ? "DemoSettingsSave.txt" : "SettingsSave.txt";
 
-    public SettingsSaveDataWriter(string SaveSettingsDataDirectoryPath, string SettingsDataSaveFileName)
+    public SettingsSaveDataWriter(string SaveSettingsDataDirectoryPath)
     {
         this.SaveSettingsDataDirectoryPath = SaveSettingsDataDirectoryPath;
-        this.SettingsDataSaveFileName = SettingsDataSaveFileName;
     }
 
     public SettingsSaveData LoadSettingsDataFromJson()
     {
-        string savePath = Path.Combine(SaveSettingsDataDirectoryPath, SettingsDataSaveFileName);
+        string savePath = Path.Combine(SaveSettingsDataDirectoryPath, _settingsDataSaveFileName);
 
         SettingsSaveData settingsLoadedSaveData = null;
 
@@ -49,7 +48,7 @@ public class SettingsSaveDataWriter
 
     public void WriteSettingsDataToSaveFile(SettingsSaveData settingsSaveData)
     {
-        string savePath = Path.Combine(SaveSettingsDataDirectoryPath, SettingsDataSaveFileName);
+        string savePath = Path.Combine(SaveSettingsDataDirectoryPath, _settingsDataSaveFileName);
 
         try
         {
@@ -73,7 +72,7 @@ public class SettingsSaveDataWriter
 
     public SettingsSaveData LoadSettings()
     {
-        string fullPath = Path.Combine(SaveSettingsDataDirectoryPath, SettingsDataSaveFileName);
+        string fullPath = Path.Combine(SaveSettingsDataDirectoryPath, _settingsDataSaveFileName);
 
         if (!File.Exists(fullPath))
         {

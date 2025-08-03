@@ -34,6 +34,7 @@ public class MachineHealth : BaseHealth
     public void SetNewLevelHealth()
     {
         _maxHealth = MachinesDataMission.Instance.GetCurrentDurability();
+        _healthSlider.UpdateMaxSliderValue(_maxHealth);
         _currentHealth += MachinesDataMission.Instance.GetMachineInformation().MachineLevelInfo.FactorDurability;
         UpdateSlider();
     }

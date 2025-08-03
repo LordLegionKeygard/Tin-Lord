@@ -20,15 +20,16 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private TutorialStep _currentStep;
     private int _currentStepIndex = -1;
     private bool _currentStepInProcess;
-    public bool IsStartTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.SpaceHangarWelcome_0 : false;
-    public TutorialStepEnum GetTutorialStepEnum() => _currentStep != null ? _currentStep.TutorialStepEnum : TutorialStepEnum.CompleteAllTutorials_68;
+    public bool IsStartTutorial() => _currentStep.TutorialStepEnum == TutorialStepEnum.SpaceHangarWelcome_0;
+    public TutorialStepEnum GetTutorialStepEnum() => IsCompleteMissionTutorial() ? TutorialStepEnum.MissionGoodLuckDescription_63 : IsCompleteAllTutorial() ? TutorialStepEnum.CompleteAllTutorials_69 : _currentStep.TutorialStepEnum;
     private bool _isCompleteAllTutorials;
     public Building GetTutorialBuilding(int number) => _tutorialBuildings[number];
-    public bool IsCompleteMissionTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.MissionGoodLuckDescription_63 : true;
+    public bool IsCompleteMissionTutorial() => IsCompleteAllTutorial() || _currentStep.TutorialStepEnum >= TutorialStepEnum.MissionGoodLuckDescription_63;
     public bool IsCompleteAllTutorial() => _isCompleteAllTutorials;
     public bool PanelIsActive() => _tutorialPanel.activeInHierarchy;
     public AllTileObjects GetAllTileObjects() => _allTileObjects;
     public bool IsCurrentInProcess() => _currentStepInProcess;
+    public bool CanUseSkill() => IsCompleteMissionTutorial() || GetTutorialStepEnum() >= TutorialStepEnum.MissionOpenSkillsPanel_51;
 
     private static readonly Dictionary<TutorialTextPanelPos, (Vector2 anchor, Vector2 offset)> PanelLayout =
         new()
@@ -69,7 +70,7 @@ public class TutorialSystem : MonoBehaviour
     {
         if (!prologueCompleted) return;
 
-        if (tutorialStepIndex is (int)TutorialStepEnum.CompleteAllTutorials_68)
+        if (tutorialStepIndex == (int)TutorialStepEnum.CompleteAllTutorials_69)
         {
             _isCompleteAllTutorials = true;
             return;
@@ -147,7 +148,7 @@ public class TutorialSystem : MonoBehaviour
 
     private void CompleteStep(TutorialStepEnum stepEnum)
     {
-        if (IsCompleteAllTutorial() || _currentStep.TutorialStepEnum != stepEnum) return;
+        if (IsCompleteAllTutorial() || GetTutorialStepEnum() != stepEnum) return;
 
         ResetStep();
 
@@ -157,7 +158,6 @@ public class TutorialSystem : MonoBehaviour
         SaveTutorial(nextEnum);
 
         if (_currentStepIndex >= 0) RunStep(false);
-        else _currentStep = null; // конец туториала
     }
 
     private void ResetStep()
@@ -619,7 +619,8 @@ public enum TutorialStepEnum
     SpaceSelectNotLearnBuilding_65 = 65,
     SpaceLearnBuilding_66 = 66,
     SpaceLearnBuildingDescription_67 = 67,
-    CompleteAllTutorials_68 = 68
+    SpaceGoodLuck_68 = 68,
+    CompleteAllTutorials_69 = 69,
 }
 
 public enum TutorialTextPanelPos

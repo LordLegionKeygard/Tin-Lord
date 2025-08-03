@@ -11,6 +11,7 @@ public class SpaceSaveLoad : MonoBehaviour
     [SerializeField] private AiCoreSystem _aiCoreSystem;
     [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
     [SerializeField] private MainResources _mainResources;
+    [SerializeField] private DemoSystem _demoSystem;
 
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class SpaceSaveLoad : MonoBehaviour
         }
 
         _tutorialSystem.LoadTutorial(_hangarSaveGame.HangarSaveData.TutorialProgress, currentSaveData.PrologueCompleted);
+        _demoSystem.LoadDemo(currentSaveData);
 
         CustomEvents.FireDataLoad();
     }

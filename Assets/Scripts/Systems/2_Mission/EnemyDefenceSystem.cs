@@ -12,7 +12,7 @@ public class EnemyDefenceSystem : MonoBehaviour
 
     public void ChangeDefence()
     {
-        int total = _ecologySystem.GetTotalEcology();
+        float total = _ecologySystem.GetTotalEcology();
 
         // 0 % резиста → 0 активных ячеек
         if (total >= 0)
@@ -22,11 +22,11 @@ public class EnemyDefenceSystem : MonoBehaviour
         }
         else
         {
-            int tens = Math.Abs(total) / 10;     // 0..8
-            float damage = (tens + 1) * 0.1f;        // 0.1 … 0.9
+            float tens = Math.Abs(total) / 10; // 0..8
+            float damage = (tens + 1) * 0.1f; // 0.1 … 0.9
             _currentDefencePercent = 1f - Math.Min(damage, 0.9f);
 
-            _currentSliderValue = tens + 1;                    // 1…9 (сколько «лампочек» показать)
+            _currentSliderValue = (int)tens + 1; // 1…9 (сколько «лампочек» показать)
         }
 
         CustomEvents.FireUpdateEnemySliderDefence(_currentSliderValue);

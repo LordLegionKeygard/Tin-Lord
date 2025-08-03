@@ -9,7 +9,7 @@ public class EnemyHealth : BaseHealth
     [Inject] private readonly DiContainer _diContainer;
     [Inject] private readonly EnemyDefenceSystem _enemyDefenceSystem;
     [Inject] private readonly HealthCanvas _healthCanvas;
-    [Inject] private readonly QuantPickupPool _quantPool;
+    // [Inject] private readonly QuantPickupPool _quantPool;
     [Inject] private MissionQuantSystem _quantSystem;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private float _sliderHeightOffset;
@@ -49,13 +49,15 @@ public class EnemyHealth : BaseHealth
     {
         if (_healthSliderObject == null)
         {
+            var isMiniBoss = _enemyInfo.GetHealthFactor() > 1 || _enemyInfo.GetDamageFactor() > 1;
+            var sliderHeightOfsset = isMiniBoss ? _sliderHeightOffset * WorldGameInfo.MiniBossScale : _sliderHeightOffset;
             _healthSliderObject = _diContainer.InstantiatePrefab(_healthSliderPrefab, _healthCanvas.transform);
             _healthSlider = _healthSliderObject.GetComponent<EnemySlider>();
             _healthSlider.SetupAllHealthValue(_maxHealth);
-            _healthSlider.SetHeightOffset(_sliderHeightOffset);
+            _healthSlider.SetHeightOffset(sliderHeightOfsset);
             _healthSlider.SetObjectTransform(transform);
             _healthSlider.SetLevel(_enemyLevel.GetLevel().ToString());
-            _healthSlider.SetEnemySliderView(_enemyInfo.GetHealthFactor() > 1 || _enemyInfo.GetDamageFactor() > 1);
+            _healthSlider.SetEnemySliderView(isMiniBoss);
         }
     }
 

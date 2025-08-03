@@ -136,7 +136,11 @@ public class EndMissionSystem : MonoBehaviour
             _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(saveData);
         }
 
-        _tutorialSystem.SaveTutorial(TutorialStepEnum.SpaceOpenLearningPanel_64);
+        if (!_tutorialSystem.IsCompleteAllTutorial() || _tutorialSystem.GetTutorialStepEnum() <= TutorialStepEnum.MissionGoodLuckDescription_63)
+        {
+            _tutorialSystem.SaveTutorial(TutorialStepEnum.SpaceOpenLearningPanel_64);
+        }
+        
         _missionSaveGame.DeleteMissionJson();
         _spaceSaveGame.SaveEndMissionDataToJson(_receivedFragments, aiCores, quants);
     }

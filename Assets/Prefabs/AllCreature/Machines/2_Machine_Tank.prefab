@@ -452,6 +452,7 @@ GameObject:
   - component: {fileID: 2326551640933414597}
   - component: {fileID: 2326551640933414596}
   - component: {fileID: 2326551640933414603}
+  - component: {fileID: 1752187121469785351}
   m_Layer: 8
   m_Name: 2_Machine_Tank
   m_TagString: Untagged
@@ -621,7 +622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999c22ee45a1bf440819fe608a96f02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletType: 11
   _bulletTypes: 0b000000
   _firePoints:
   - {fileID: 2967321621371005274}
@@ -723,6 +723,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _material: {fileID: 2100000, guid: cac859bdf1d13f0439bb578c75402727, type: 2}
   _targetSpeed: {x: 1.25, y: 0}
+--- !u!114 &1752187121469785351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2326551640933402937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2967321621371005273
 GameObject:
   m_ObjectHideFlags: 0

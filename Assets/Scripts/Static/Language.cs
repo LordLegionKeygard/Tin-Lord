@@ -1203,7 +1203,7 @@ public class Language : MonoBehaviour
         _text[367, 0] = "Great, you've explored a new building.\n\nIt will now be available for construction during missions.";
         _text[367, 1] = "Отлично, вы изучили новое здание.\n\nТеперь оно станет доступно для постройки на миссиях.";
 
-        // CompleteAllTutorials_68
+        // SpaceGoodLuck_68
         _text[368, 0] = "Return to the map and explore space.\nn To find a habitable planet...";
         _text[368, 1] = "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...";
 
@@ -1296,13 +1296,13 @@ public class Language : MonoBehaviour
 
         _text[398, 0] = "";
         _text[398, 1] = "";
-
-        _text[399, 0] = "";
-        _text[399, 1] = "";
-
         #endregion
 
         #region Dialogues
+        // Demo
+        _text[399, 0] = "System error: insufficient data to continue the mission.\n\nCore damage — critical. The next sector is unavailable in the current configuration.\n\nConnection to the Command Center lost.\n\nEntering safe mode until full version activation.";
+        _text[399, 1] = "Системная ошибка: недостаточно данных для продолжения миссии.\n\nПовреждение ядра — критическое. Следующий сектор недоступен в текущей конфигурации.\n\nСвязь с командным центром прервана.\n\nОжидается переход в безопасный режим до активации полной версии.";
+
         // Prologue
         _text[400, 0] = "Ecological disasters and rapid climate change have destroyed the stability of our home planet.\n\nWe are on the last surviving interstellar ship controlled by artificial intelligence.\n\nOur goal is to find a new home for the \"creators\"...\n\nThe ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.\n\nHowever, we are drifting in the void of space, losing one AI core after another. We have lost track of time. Mechanisms are rusting, shells are covered in dust and systems are on the verge of failure.\n\nContact with the \"creators\" has long been lost, and data on technology has been erased.\n\nWe have failed the mission. The worlds we were supposed to save are consumed by chaos and destruction.\n\nWe have collected the surviving robots and the remains of supplies - to start all over again.";
         _text[400, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель — найти новый дом для \"создателей\"...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью и системы — на грани отказа.\n\nСвязь с \"создателями\" давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов — чтобы начать все сначала.";

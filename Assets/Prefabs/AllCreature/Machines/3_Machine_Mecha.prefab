@@ -3336,6 +3336,7 @@ GameObject:
   - component: {fileID: 1339698513998724572}
   - component: {fileID: 1339698513998724547}
   - component: {fileID: 1339698513998724546}
+  - component: {fileID: 6540864301190735787}
   m_Layer: 8
   m_Name: 3_Machine_Mecha
   m_TagString: Untagged
@@ -3620,6 +3621,18 @@ MonoBehaviour:
   - {fileID: 7355132563383332768}
   - {fileID: 2562795862368389574}
   - {fileID: 7662172691353236523}
+--- !u!114 &6540864301190735787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339698513998724552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1339698514026850651
 GameObject:
   m_ObjectHideFlags: 0

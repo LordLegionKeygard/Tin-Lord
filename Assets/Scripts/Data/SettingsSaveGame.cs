@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class SettingsSaveGame : MonoBehaviour
 {
@@ -10,11 +9,10 @@ public class SettingsSaveGame : MonoBehaviour
 
     [Header("Current Settings Data")]
     public SettingsSaveData CurrentSettingsSaveData;
-    private string _fileName = "SettingsSave.txt";
 
     private void Awake()
     {
-        _settingsSaveDataWritter = new SettingsSaveDataWriter(Application.persistentDataPath, _fileName);
+        _settingsSaveDataWritter = new SettingsSaveDataWriter(Application.persistentDataPath);
     }
 
     public void NewUserSettings()
@@ -25,18 +23,13 @@ public class SettingsSaveGame : MonoBehaviour
     public void SaveSettingsToJson()
     {
         _settingsSaveDataWritter.SaveSettingsDataDirectoryPath = Application.persistentDataPath;
-        _settingsSaveDataWritter.SettingsDataSaveFileName = _fileName;
-
         SettingsSaveLoad.SetAllSettingsToData();
-
         _settingsSaveDataWritter.WriteSettingsDataToSaveFile(CurrentSettingsSaveData);
     }
 
     public void LoadSettingsFromJson()
     {
         _settingsSaveDataWritter.SaveSettingsDataDirectoryPath = Application.persistentDataPath;
-        _settingsSaveDataWritter.SettingsDataSaveFileName = _fileName;
-
         CurrentSettingsSaveData = _settingsSaveDataWritter.LoadSettingsDataFromJson();
     }
 

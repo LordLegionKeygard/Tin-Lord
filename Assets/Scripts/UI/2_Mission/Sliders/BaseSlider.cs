@@ -42,6 +42,11 @@ public class BaseSlider : MonoBehaviour
         _slider.value = maxValue;
     }
 
+    public void UpdateMaxSliderValue(float maxValue)
+    {
+        _slider.maxValue = maxValue;
+    }
+
     public void SetupMaxHealth(float maxValue)
     {
         _slider.maxValue = maxValue;

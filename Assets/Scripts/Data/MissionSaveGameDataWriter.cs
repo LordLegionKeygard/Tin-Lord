@@ -5,7 +5,7 @@ using UnityEngine;
 public class MissionSaveGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
-    private string _worldDataSaveFileName = "MissionSave.txt";
+    private string _worldDataSaveFileName => WorldGameInfo.IsDemo ? "DemoMissionSave.txt" : "MissionSave.txt";
 
     public MissionSaveGameDataWriter(string saveDataDirectoryPath)
     {

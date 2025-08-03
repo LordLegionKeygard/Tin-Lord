@@ -12,10 +12,10 @@ public class EcologySystem : MonoBehaviour
 
     [Header("Ecology")]
     [SerializeField] private List<int> _everyDayEcology;
-    [SerializeField] private int _tilesEcology;
+    [SerializeField] private float _tilesEcology;
     [SerializeField] private int _radiation;
     [SerializeField] private int _missionEcology;
-    [SerializeField] private int _totalEcology;
+    [SerializeField] private float _totalEcology;
 
     [Header("View")]
     [SerializeField] private RectTransform _gearRectTransform;
@@ -33,7 +33,7 @@ public class EcologySystem : MonoBehaviour
     private float _currentRotationAngle = 0f;
 
     public int GetRadiation() => _radiation;
-    public int GetTotalEcology() => _totalEcology;
+    public float GetTotalEcology() => _totalEcology;
     public int[] GetEveryDayEcology() => _everyDayEcology.ToArray();
 
 
@@ -46,7 +46,7 @@ public class EcologySystem : MonoBehaviour
 
     private void SetDayEcology(int _)
     {
-        _everyDayEcology.Add(_totalEcology);
+        _everyDayEcology.Add((int)_totalEcology);
     }
 
     public void LoadEcology(int radiation, int[] everyDayEcology, bool isStartMission)
@@ -107,7 +107,7 @@ public class EcologySystem : MonoBehaviour
 
     private void UpdateTotalEcology()
     {
-        int previousTotalEcology = _totalEcology;
+        float previousTotalEcology = _totalEcology;
         _tilesEcology = _ecologyTileInfoList.Sum(tile => (int)tile.Amount);
 
         _totalEcology = _tilesEcology - _radiation + _missionEcology;
@@ -115,11 +115,11 @@ public class EcologySystem : MonoBehaviour
         CheckLimitEcology();
 
 
-        AnimateEcologyText(previousTotalEcology, _totalEcology);
+        AnimateEcologyText((int)previousTotalEcology, (int)_totalEcology);
         UpdateGearRotation(previousTotalEcology, _totalEcology);
 
-        _setupRenderSettings.UpdateEcologyRender(_totalEcology);
-        CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.RestoreEcology, _totalEcology);
+        _setupRenderSettings.UpdateEcologyRender((int)_totalEcology);
+        CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.RestoreEcology, (int)_totalEcology);
         _enemyDefenceSystem.ChangeDefence();
     }
 
@@ -130,9 +130,9 @@ public class EcologySystem : MonoBehaviour
         _changeTextTween = DOTween.To(() => oldValue, val => UpdateEcologyText(val), newValue, _changeTextDuration).SetEase(Ease.Linear).SetUpdate(true);
     }
 
-    private void UpdateGearRotation(int previousEcology, int newEcology)
+    private void UpdateGearRotation(float previousEcology, float newEcology)
     {
-        int changeAmount = newEcology - previousEcology;
+        float changeAmount = newEcology - previousEcology;
 
         if (changeAmount == 0) return;
 
@@ -145,7 +145,7 @@ public class EcologySystem : MonoBehaviour
         _currentRotationAngle += rotationAngle;
 
         _gearRectTransform.DORotate(new Vector3(0, 0, _currentRotationAngle), _changeTextDuration).SetUpdate(true)
-        .OnComplete(() => UpdateWarningSign(newEcology));
+        .OnComplete(() => UpdateWarningSign((int)newEcology));
     }
 
 

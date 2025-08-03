@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.000077976365, g: 0.00009617518, b: 0.000115789524,
+  m_IndirectSpecularColor: {r: 0.000077971315, g: 0.00009616381, b: 0.00011578718,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -5090,11 +5090,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventPanel: {fileID: 1451985186}
-  _canvasGroup: {fileID: 2011502892}
-  _prologueCanvas: {fileID: 1808600982}
   _panels: {fileID: 616848379}
-  _prologueDialog: {fileID: 11400000, guid: 3aab2769bd18b344a94576766b6a9ff6, type: 2}
-  _cosmosView: {fileID: 417999332}
+  _prologueDialogue: {fileID: 11400000, guid: 3aab2769bd18b344a94576766b6a9ff6, type: 2}
 --- !u!1 &142052954
 GameObject:
   m_ObjectHideFlags: 0
@@ -6344,7 +6341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &158255176
@@ -13685,7 +13682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -23696,7 +23693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514
@@ -45109,6 +45106,54 @@ MonoBehaviour:
   _buttonSprites:
   - {fileID: 21300000, guid: f72b4a9c19492784ab5443a3cb371b5e, type: 3}
   - {fileID: 21300000, guid: 5f225fd0ddf3909459e78df6d1ae036e, type: 3}
+--- !u!1 &1487753769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1487753770}
+  - component: {fileID: 1487753771}
+  m_Layer: 0
+  m_Name: DemoSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1487753770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487753769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1900720298}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1487753771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487753769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b658b947daf8746bda7f1c430edc37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventPanel: {fileID: 1451985186}
+  _panels: {fileID: 616848379}
+  _demoDialogue: {fileID: 11400000, guid: 6ce656bb4eed7844ba6a8322057443d8, type: 2}
+  _escapePanelSpace: {fileID: 698942902}
 --- !u!1 &1490927085
 GameObject:
   m_ObjectHideFlags: 0
@@ -57543,6 +57588,7 @@ Transform:
   - {fileID: 501146944}
   - {fileID: 1795485594}
   - {fileID: 2049178740}
+  - {fileID: 1487753770}
   - {fileID: 1674251681}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -66443,6 +66489,11 @@ PrefabInstance:
       objectReference: {fileID: 133807602}
     - target: {fileID: 6126854299509546981, guid: 4da25666f93a2b740ad4e70cf1fbab76,
         type: 3}
+      propertyPath: _demoSystem
+      value: 
+      objectReference: {fileID: 1487753771}
+    - target: {fileID: 6126854299509546981, guid: 4da25666f93a2b740ad4e70cf1fbab76,
+        type: 3}
       propertyPath: _aiCoreSystem
       value: 
       objectReference: {fileID: 1966886381}
@@ -66474,7 +66525,7 @@ PrefabInstance:
     - target: {fileID: 6126854299509546982, guid: 4da25666f93a2b740ad4e70cf1fbab76,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6126854299509546982, guid: 4da25666f93a2b740ad4e70cf1fbab76,
         type: 3}

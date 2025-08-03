@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class EnemyScale : MonoBehaviour
 {
-    private float _miniBossScale = 2f;
-    public void SetScale(int healthFactor, int damageFactor)
+    public void SetScale(bool isMiniBoss)
     {
         Vector3 originalScale = transform.localScale;
-        if (healthFactor > 1 || damageFactor > 1)
+
+        if (isMiniBoss)
         {
-            transform.localScale = originalScale * _miniBossScale;
+            transform.localScale = originalScale * WorldGameInfo.MiniBossScale;
         }
         else
         {

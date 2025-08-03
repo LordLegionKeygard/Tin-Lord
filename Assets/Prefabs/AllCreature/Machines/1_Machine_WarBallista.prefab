@@ -391,6 +391,7 @@ GameObject:
   - component: {fileID: 6110370218947428493}
   - component: {fileID: 3534436993381520578}
   - component: {fileID: 6495884592989898016}
+  - component: {fileID: 6192482671235514800}
   m_Layer: 8
   m_Name: 1_Machine_WarBallista
   m_TagString: Untagged
@@ -565,7 +566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999c22ee45a1bf440819fe608a96f02f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletType: 10
   _bulletTypes: 0a000000
   _firePoints:
   - {fileID: 407277793327746012}
@@ -684,6 +684,18 @@ MonoBehaviour:
   - {fileID: 7886196334629346296}
   - {fileID: 5146148967121924875}
   - {fileID: 6287580755533994784}
+--- !u!114 &6192482671235514800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677678696448999503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &905577945801430619
 GameObject:
   m_ObjectHideFlags: 0

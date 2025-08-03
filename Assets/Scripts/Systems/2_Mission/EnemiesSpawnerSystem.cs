@@ -124,12 +124,13 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
                 var spawnPoint = spawnSideEnum == SpawnSide.RandomSide ? GetRandomSpawnTransform() : GetSideSpawnTransform((int)spawnSideEnum);
                 var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, spawnPoint + GetRandomizePosition(), Quaternion.identity, null);
+                var isMiniBoss = spawner.HealthFactor > 1 || spawner.DamageFactor > 1;
 
                 enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.EnemySpawnerInfo.EnemyLevel);
                 enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, spawner.HealthFactor, spawner.DamageFactor);
                 enemyObject.GetComponent<EnemyHealth>().SetHealth();
                 enemyObject.GetComponent<EnemyDamage>().SetDamage();
-                enemyObject.GetComponent<EnemyScale>().SetScale(spawner.HealthFactor, spawner.DamageFactor);
+                enemyObject.GetComponent<EnemyScale>().SetScale(isMiniBoss);
 
                 enemyObject.transform.SetParent(_enemiesParent);
 
@@ -177,11 +178,13 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             var position = new Vector3(enemyData[i].PositionX, enemyData[i].PositionY, enemyData[i].PositionZ);
             var rotation = Quaternion.Euler(0f, enemyData[i].Rotation, 0f);
             var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForNumber(enemyData[i].EnemyEnum), position, rotation, null);
+            var isMiniBoss = enemyData[i].HealthFactor > 1 || enemyData[i].DamageFactor > 1;
+
             enemyObject.GetComponent<EnemyLevel>().SetLevel(enemyData[i].EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, enemyData[i].HealthFactor, enemyData[i].DamageFactor);
             enemyObject.GetComponent<BaseHealth>().LoadHealth(enemyData[i].EnemyHealth);
             enemyObject.GetComponent<BaseDamage>().SetDamage();
-            enemyObject.GetComponent<EnemyScale>()?.SetScale(enemyData[i].HealthFactor, enemyData[i].DamageFactor);
+            enemyObject.GetComponent<EnemyScale>()?.SetScale(isMiniBoss);
             enemyObject.transform.SetParent(_enemiesParent);
 
             AddEnemyToList(enemyData[i].EnemyEnum, _enemyNumber, enemyObject);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpaceSaveGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
-    private string _dataSaveFileName = "SpaceSave.txt";
+    private string _dataSaveFileName => WorldGameInfo.IsDemo ? "DemoSpaceSave.txt" : "SpaceSave.txt";
 
     public SpaceSaveGameDataWriter(string saveDataDirectoryPath)
     {

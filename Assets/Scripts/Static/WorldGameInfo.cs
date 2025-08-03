@@ -4,7 +4,7 @@ public class WorldGameInfo
 {
     [Header("Build")]
     public static bool IsSteam = false;
-    public static bool IsDemo = false;
+    public static bool IsDemo = true;
 
     [Header("Currency")]
     public static float QuantDropChance = 0.1f;
@@ -20,6 +20,9 @@ public class WorldGameInfo
     public const float DoubleTimeScale = 2.2f;
     public const float TripleTimeScale = 3;
     public const float TickSpeed = 2;
+
+    [Header("Enemies")]
+    public const float MiniBossScale = 2;
 
     [Header("GoogleSheet")]
     public const string GoogleSheetId = "1phPv5iEL7Iw6A6CCdU4SdSgN5LwbEprCKEzY10dwDr4";
@@ -42,7 +45,6 @@ public class WorldGameInfo
     public const int ToxicGasTicks = 72;
     public const int OilReleaseChance = 30;
     public const int EatchQuakeChance = 60;
-
 
     [Header("Machine")]
     public const int MachineExperienceFromTick = 1;
