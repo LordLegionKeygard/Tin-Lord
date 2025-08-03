@@ -20,7 +20,7 @@ public class CardObject : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnStartTutorialStep += TutorialHightlightCard;
-        CustomEvents.OnTutorialSelectCard += TurnOffTutorialView;
+        CustomEvents.OnTurnOffTutorialCardObjectView += TurnOffTutorialView;
 
         if (!_tutorialSystem.IsCompleteMissionTutorial())
         {
@@ -100,7 +100,7 @@ public class CardObject : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnStartTutorialStep -= TutorialHightlightCard;
-        CustomEvents.OnTutorialSelectCard -= TurnOffTutorialView;
+        CustomEvents.OnTurnOffTutorialCardObjectView -= TurnOffTutorialView;
 
         if (_objectTransform != null)
         {

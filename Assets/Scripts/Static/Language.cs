@@ -1,5 +1,5 @@
 using UnityEngine;
-// using Steamworks;
+using Steamworks;
 
 // 0 - English						en
 // 1 - Russian						ru
@@ -12,25 +12,25 @@ public class Language : MonoBehaviour
 
     private void Awake()
     {
-        // if (SteamManager.Initialized) LanguageNumber = CheckSteamLanguage();
+        if (SteamManager.Initialized) LanguageNumber = CheckSteamLanguage();
         SetLanguage();
     }
 
-    // private int CheckSteamLanguage()
-    // {
-    //     switch (SteamApps.GetCurrentGameLanguage())
-    //     {
-    //         case "english": default: return 0;
-    //         case "russian": return 1;
-    //     }
-    // }
+    private int CheckSteamLanguage()
+    {
+        switch (SteamApps.GetCurrentGameLanguage())
+        {
+            case "english": default: return 0;
+            case "russian": return 1;
+        }
+    }
 
     public void SetLanguage()
     {
         _text[0, 0] = "Tin Lord";
         _text[0, 1] = "Жестяной Лорд";
 
-        _text[1, 0] = "Recept";
+        _text[1, 0] = "Recipe";
         _text[1, 1] = "Рецепт";
 
         _text[2, 0] = "Building";
@@ -121,7 +121,7 @@ public class Language : MonoBehaviour
         _text[30, 1] = "Загрузка";
 
         _text[31, 0] = "Are you sure you want to start a new game?\n\nYour past save will be overwritten.";
-        _text[31, 1] = "Вы уверены, что хотите начать новую игру?\n\nВаше прошлое сохранения будет перезаписано.";
+        _text[31, 1] = "Вы уверены, что хотите начать новую игру?\n\nВаше прошлое сохранение будет перезаписано.";
 
         _text[32, 0] = "Command Center";
         _text[32, 1] = "Командный Центр";
@@ -226,10 +226,10 @@ public class Language : MonoBehaviour
         _text[65, 1] = "Сбежал";
 
         _text[66, 0] = $"<color={Colors.HexColorWarningYellow}>Escaping the mission will give you {WorldGameInfo.EscapeFragmentsPercent}% of the data fragments and losing one AI core.</color>\n\nYou must complete half of the objectives.";
-        _text[66, 1] = $"<color={Colors.HexColorWarningYellow}>Сбежав с миссии, вы получите {WorldGameInfo.EscapeFragmentsPercent}% от фрагментов данных и потеряете одно ядро ии.</color>\n\nНеобходимо выполнить половину поставленных целей.";
+        _text[66, 1] = $"<color={Colors.HexColorWarningYellow}>Сбежав с миссии, вы получите {WorldGameInfo.EscapeFragmentsPercent}% от фрагментов данных и потеряете одно ядро ИИ.</color>\n\nНеобходимо выполнить половину поставленных целей.";
 
         _text[67, 0] = "Save the mission and return to command center?";
-        _text[67, 1] = "Сохранить миссию и вернутся в командный центр?";
+        _text[67, 1] = "Сохранить миссию и вернуться в командный центр?";
 
         _text[68, 0] = $"Restart mission?\n\n<color={Colors.HexColorWarningYellow}>You will lose one AI core.</color>";
         _text[68, 1] = $"Перезапустить миссию?\n\n<color={Colors.HexColorWarningYellow}>Вы потеряете одно ядро ИИ.</color>";
@@ -265,7 +265,7 @@ public class Language : MonoBehaviour
         _text[78, 1] = "Назад";
 
         _text[79, 0] = "to repair cost";
-        _text[79, 1] = "стоймость ремонта";
+        _text[79, 1] = "стоимость ремонта";
 
         _text[80, 0] = "to building durability";
         _text[80, 1] = "к прочности зданий";
@@ -595,7 +595,7 @@ public class Language : MonoBehaviour
         _text[188, 1] = "Разведчик";
 
         _text[189, 0] = "Engineer";
-        _text[189, 1] = "Инжинер";
+        _text[189, 1] = "Инженер";
 
         _text[190, 0] = "Aim Bot";
         _text[190, 1] = "Аим Бот";
@@ -706,7 +706,7 @@ public class Language : MonoBehaviour
         _text[225, 1] = "";
 
         _text[226, 0] = "";
-        _text[226, 1] = ""; ;
+        _text[226, 1] = "";
 
         _text[227, 0] = "";
         _text[227, 1] = "";
@@ -882,7 +882,7 @@ public class Language : MonoBehaviour
         _text[284, 0] = "-Radiation: High\n-Pollution: Critical\n-Update: Active";
         _text[284, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
 
-        _text[285, 0] = "Quant - intergalactic currency";
+        _text[285, 0] = "Quant - the intergalactic currency";
         _text[285, 1] = "Квант - межгалактическая валюта";
 
         _text[286, 0] = "AI cores are the ship's vital modules.";
@@ -939,7 +939,7 @@ public class Language : MonoBehaviour
 
         // SpaceQuantPanel_2
         _text[302, 0] = "Quantum is an intergalactic currency.\n\nWith it, you can buy goods from traders in space.\n\nYou can get this currency:\n\n-when traveling around the galaxy.\n\n-upon successful completion of a mission on a planet.";
-        _text[302, 1] = "Квант - межгалактическая валюта.\n\nС помощью нее вы сможете покупать товары у торговцев в космосе.\n\nЭту валюту вы сможете получить:\n\n-при путешествии по галактике.\n\n-при успешном завершении миссии на планете.";
+        _text[302, 1] = "Квант - межгалактическая валюта.\n\nС помощью него вы сможете покупать товары у торговцев в космосе.\n\nЭту валюту вы сможете получить:\n\n-во время путешествия по галактике.\n\n-при успешном завершении миссии на планете.";
 
         //SpaceOpenResourcePanel_3
         _text[303, 0] = "Open the panel.";
@@ -954,8 +954,8 @@ public class Language : MonoBehaviour
         _text[305, 1] = "Откройте карту текущей галактики.";
 
         // SpaceMapDescription_6
-        _text[306, 0] = "This is a star map. It contains all nodes in the current galaxy.\n\nHover over a node to display information about it.";
-        _text[306, 1] = "Это звёздная карта. Она содержит все узлы в текущей галактике.\n\nНаведите курсор на узел, чтобы отобразить информацию о нём.";
+        _text[306, 0] = "The star map displays all nodes in the current galaxy.\n\nHover over a node to view its information.";
+        _text[306, 1] = "Звёздная карта отображает все узлы в текущей галактике.\n\nНаведите курсор на узел, чтобы просмотреть его описание.";
 
         // SpaceSelectNode_7
         _text[307, 0] = "Select a node to move the ship.";
@@ -963,235 +963,249 @@ public class Language : MonoBehaviour
 
         // SpaceStartMission_8
         _text[308, 0] = "You have discovered an unexplored planet.\n\nWe must make landfall and complete our assigned objectives before we can continue our journey.";
-        _text[308, 1] = "Вы обнаружили не исследованную планету.\n\nНеобходимо сделать высадку и выполнить назначенные цели, прежде чем мы сможем продолжить путешествие.";
+        _text[308, 1] = "Вы обнаружили не исследованную планету.\n\nНеобходимо совершить высадку и выполнить назначенные цели, прежде чем мы сможем продолжить путешествие.";
 
         // MissionStartDescription_9
-        _text[309, 0] = "";
+        _text[309, 0] = "We have landed on an unknown planet.\n\nOur task is to deploy a base and complete the assigned objectives.";
         _text[309, 1] = "Мы высадились на неизвестную планету.\n\nНаша задача развернуть базу и выполнить поставленные цели.";
 
         // MissionSelectBaseFoundationCard_10
-        _text[310, 0] = "";
+        _text[310, 0] = "At the beginning of each mission, you have access to a landscape map - \"Base Foundation\".\n\nSelect a map.";
         _text[310, 1] = "В начале каждой миссии вам доступна карта ландшафта - \"Фундамент Базы\".\n\nВыберите карту.";
 
         // MissionSetBaseFoundationCard_11
-        _text[311, 0] = "";
+        _text[311, 0] = "This terrain card has a unique 2x2 cell size.\n\nPlace the card on the ground.\n\nAll 4 cells of the tile must be green.";
         _text[311, 1] = "Данная карта ландшафта имеет уникальный размер 2x2 клетки.\n\nУстановите карту на землю.\n\nВсе 4 клетки тайла должны гореть зеленым.";
 
         // MissionSelectBaseFoundationTile_12
-        _text[312, 0] = "";
+        _text[312, 0] = "Click on the \"Base Foundation\" tile.\n\nTo open the information panel.";
         _text[312, 1] = "Нажмите на тайл \"Фундамента Базы\".\n\nЧтобы открыть панель с информацией.";
 
         // MissionSelectTilePanelDescription_13
-        _text[313, 0] = "";
-        _text[313, 1] = "На этой панеле вы можете увидеть общую информацию о текущем тайле.\n\nНапример как он влияет на общую экологию.";
+        _text[313, 0] = "In this panel you can see general information about the current tile.\n\nFor example, how it affects the overall ecology.";
+        _text[313, 1] = "На этой панели вы можете увидеть общую информацию о текущем тайле.\n\nНапример, как он влияет на общую экологию.";
 
         // MissionEcology1_14
-        _text[314, 0] = "";
-        _text[314, 1] = "Число в этой шестеренке указывает на текущую экологию на планете. Она состоит из:\n\n-базовой экологии планеты\n\n-текущей радиации\n\n-установленных вами тайлов ландшафтов и зданий";
+        _text[314, 0] = "The number in this gear indicates the current ecology on the planet. It consists of:\n\n-the base ecology of the planet\n\n-the current radiation\n\n-the landscape tiles and buildings you have placed.";
+        _text[314, 1] = "Число в этой шестеренке указывает на текущую экологию на планете. Она состоит из:\n\n-базовой экологии планеты\n\n-текущей радиации\n\n-установленных вами тайлов ландшафтов и зданий.";
 
         // MissionEcology2_15
-        _text[315, 0] = "";
-        _text[315, 1] = "Если радиация горит серым-зеленым цветом это означает, что ее число положительно.\n\nЕсли желтым или красным, значит отрицательно.\n\nЧем хуже экология, тем больше показатель защиты будет у врагов и меньше награда в конце миссии.";
+        _text[315, 0] = "If the radiation is gray-green, it means that its number is positive.\n\nIf it is yellow or red, it means that it is negative.\n\nThe worse the ecology, the higher the enemy's defense indicator will be and the lower the reward at the end of the mission.";
+        _text[315, 1] = "Если радиация горит серым-зеленым цветом, это означает, что ее число положительно.\n\nЕсли желтым или красным, значит отрицательно.\n\nЧем хуже экология, тем выше будет показатель защиты у врагов и меньше награда в конце миссии.";
 
         // MissionClickBuildButton_16
-        _text[316, 0] = "";
-        _text[316, 1] = "Нажмите на кнопку строительства.\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.";
+        _text[316, 0] = "Click on the \"Build\" button.\n\nA list of available building types on this landscape will open.";
+        _text[316, 1] = "Нажмите на кнопку \"Построить\".\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.";
 
         // MissionSelectBaseTypeButton_17
-        _text[317, 0] = "";
+        _text[317, 0] = "There is only one type of building available for construction on the \"Base Foundation\" terrain tile.\n\nSelect a building type to reveal the available buildings for construction.";
         _text[317, 1] = "На тайле ландшафта \"Фундамент базы\" доступен только один тип зданий для постройки.\n\nВыберите тип здания, чтобы открыть доступные здания для постройки.";
 
         // MissionSelectSettlementBuildingItem_18
-        _text[318, 0] = "";
-        _text[318, 1] = "Наведите курсор на здание \"Поселение\", чтобы отобразить необходимые для его строительства ресурсы";
+        _text[318, 0] = "Hover over the \"Settlement\" building to display the resources required to build it.";
+        _text[318, 1] = "Наведите курсор на здание \"Поселение\", чтобы отобразить необходимые для его строительства ресурсы.";
 
         // MissionOpenResourcePanel_19
-        _text[319, 0] = "";
+        _text[319, 0] = "Open the resource panel.";
         _text[319, 1] = "Откройте панель ресурсов.";
 
         // MissionBuildSettlement_20
-        _text[320, 0] = "";
+        _text[320, 0] = "You have enough resources to build.\n\nClick on the \"Settlement\" map to start building.";
         _text[320, 1] = "Вам хватает ресурсов на постройку.\n\nНажмите на карту \"Поселение\" чтобы начать строительство.";
 
         // MissionBuildingDescription_21
-        _text[321, 0] = "";
-        _text[321, 1] = "Под тайлом здания вы можете заметить синий слайдер.\n\nОн постепенно увеличивается, повышая здоровье здания, до тех пор, пока оно не будет построенно.";
+        _text[321, 0] = "Below the building tile you can see a blue slider.\n\nIt gradually increases, increasing the health of the building, until it is built.";
+        _text[321, 1] = "Под тайлом здания вы можете заметить синий слайдер.\n\nОн постепенно увеличивается, повышая здоровье здания, до тех пор, пока оно не будет построено.";
 
         // MissionBuildingDescription2_22
-        _text[322, 0] = "";
+        _text[322, 0] = "While the building is being constructed, it is vulnerable.\n\nIt can be attacked by enemies.\n\nThe health slider will begin to decrease until the health reaches zero and the building is destroyed.";
         _text[322, 1] = "Пока здание строится, оно уязвимо.\n\nЕго могут начать атаковать враги.\n\nСлайдер здоровья начнет опускаться, пока здоровье не дойдет до нуля и здание будет уничтожено.";
 
         // MissionAfterBaseSetStartTimer_23
-        _text[323, 0] = "";
+        _text[323, 0] = "Once the base is completed, the countdown will begin.\n\nTime is measured in days.\n\nEach day has 24 ticks.";
         _text[323, 1] = "После того, как база завершит свое строительство, начнется отсчет времени.\n\nВремя измеряется в днях.\n\nВ каждом дне 24 тика.";
 
         // MissionPauseGame_24
-        _text[324, 0] = "";
+        _text[324, 0] = "This is the game speed change panel.\n\nPause the game to plan your next steps.";
         _text[324, 1] = "Это панель смены скорости игры.\n\nПоставьте игру на паузу, чтобы спланировать свои дальнешие шаги.";
 
         // MissionSettlementRequiredResurcesDescription_25
-        _text[325, 0] = "";
-        _text[325, 1] = "Каждый тик времени происходит потребление/создание ресурсов зданиями.\n\nВ окне информации о тайле, \"Поселение\" потребляет 0.1 камня за каждый тик времени.\n\nПри этом создавая ресурс - фрагмент данных.";
+        _text[325, 0] = "Every tick of time, buildings consume/create resources.\n\nIn the tile information window, \"Settlement\" consumes 0.1 stone for every tick of time.\n\nAt the same time, it creates a resource - data fragments.";
+        _text[325, 1] = "Каждый тик времени происходит потребление/создание ресурсов зданиями.\n\nВ окне информации о тайле, \"Поселение\" потребляет 0.1 камня за каждый тик времени.\n\nПри этом создавая ресурс - фрагменты данных.";
 
         // MissionDataFragmentsDescription_26
-        _text[326, 0] = "";
+        _text[326, 0] = "A data fragment is needed to study new buildings\n\nYou can get them:\n\n-after completing a mission\n\n-while traveling through space\n\nYou can study new buildings only on a ship.";
         _text[326, 1] = "Фрагмент данных необходим для изучения новых зданий\n\nВы можете получить их:\n\n-после прохождения миссии\n\n-во время путешествия по космосу\n\nИзучить новые здания можно только на корабле.";
 
         // MissionSettlementChangeResourceRequired_27
-        _text[327, 0] = "";
+        _text[327, 0] = "If you have little stone, but for example a lot of wood.\n\nChange the resource consumed by the building by clicking on the resource icon.";
         _text[327, 1] = "Если у вас мало камня, но например много дерева.\n\nПоменяйте потребляемый зданием ресурс, нажав на иконку ресурса.";
 
         // MissionPauseRequiredProductionResourceDescription_28
-        _text[328, 0] = "";
-        _text[328, 1] = "Пока мы находимся в режиме паузы, время остановленно. Создание и потребление ресурсов зданиями не происходит.\n\nЕсли требуемый для работы ресурс закончится. То здание перестанет его добывать до тех пор, пока необходимое кол-во ресурсов снова не появится.";
+        _text[328, 0] = "While we are in pause mode, time is stopped. Creation and consumption of resources by buildings does not occur.\n\nIf the resource required for work runs out, the building will stop extracting it until the required amount of resources appears again.";
+        _text[328, 1] = "Пока мы находимся в режиме паузы, время остановлено. Создание и потребление ресурсов зданиями не происходит.\n\nЕсли требуемый для работы ресурс закончится. То здание перестанет его добывать до тех пор, пока необходимое кол-во ресурсов снова не появится.";
 
         // MissionAddCardsDescription_29
-        _text[329, 0] = "";
-        _text[329, 1] = "После строительства базы вам гарантировано дается по 1 карте Леса и Горы, а так же две случаные карты ландшафтов.\n\nКаждый новый день всегда приносит 2 новые карты.";
+        _text[329, 0] = "After building a base, you are guaranteed to receive 1 Forest and 1 Mountain card, as well as two random landscape cards.\n\nEach new day always brings 2 new cards.";
+        _text[329, 1] = "После строительства базы вам гарантировано дается по 1 карте Леса и Горы, а так же две случайные карты ландшафтов.\n\nКаждый новый день всегда приносит 2 новые карты.";
 
         // MissionToggleOffSettlement_30
-        _text[330, 0] = "";
-        _text[330, 1] = "Временно отключите работу здания.\n\nЧтобы сэкономить ресурсы для дальнейших построек.\n\nЕсли здание выключено, оно не добывает и не потребляет ресурсы.\n\nА так же снижает порчу экологии.";
+        _text[330, 0] = "Temporarily disable the building.\n\nTo save resources for future construction.\n\nIf the building is disabled, it does not extract or consume resources.\n\nAnd also reduces environmental damage.";
+        _text[330, 1] = "Временно отключите работу здания.\n\nЧтобы сэкономить ресурсы для дальнейших построек.\n\nЕсли здание выключено, оно не добывает и не потребляет ресурсы.\n\nА также снижает порчу экологии.";
 
         // MissionSelectForestCard_31
-        _text[331, 0] = "";
-        _text[331, 1] = "Настало время посмотреть на новые тайлы ландшафта.\n\nВыберите карту \"Лес\"";
+        _text[331, 0] = "It's time to look at the new terrain tiles.\n\nSelect the \"Forest\" map.";
+        _text[331, 1] = "Настало время посмотреть на новые тайлы ландшафта.\n\nВыберите карту \"Лес\".";
 
         // MissionSetForestCard_32
-        _text[332, 0] = "";
+        _text[332, 0] = "This terrain map is a standard 1x1 tile size.\n\n Place the map on the ground.";
         _text[332, 1] = "Данная карта ландшафта имеет обычный размер 1x1 клетки.\n\nУстановите карту на землю.";
 
         // MissionSelectForestTile_33
-        _text[333, 0] = "";
+        _text[333, 0] = "Click on the \"Forest\" tile.\n\nTo open the information panel.";
         _text[333, 1] = "Нажмите на тайл \"Лес\".\n\nЧтобы открыть панель с информацией.";
 
         // MissionClickBuildButton_34
-        _text[334, 0] = "";
-        _text[334, 1] = "Нажмите на кнопку строительства.\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.";
+        _text[334, 0] = "Click on the \"Build\" button.\n\nA list of available building types on this landscape will open.";
+        _text[334, 1] = "Нажмите на кнопку \"Построить\".\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.";
 
         // MissionTileForestDescription_35
-        _text[335, 0] = "";
+        _text[335, 0] = "There are several buildings available for construction on the Forest landscape tile.\n\nIf a building type button is not active, it means that you have not researched any buildings of that type.";
         _text[335, 1] = "На тайле ландшафта \"Лес\" доступно несколько зданий для постройки.\n\nЕсли кнопка типа здания не активна, это означает, что у вас не изучено ни одно здание в этом типе.";
 
         // MissionSelectWoodExtractionTypeButton_36
-        _text[336, 0] = "";
+        _text[336, 0] = "Select the \"Wood Mining\" building type to reveal the available buildings to build.";
         _text[336, 1] = "Выберите тип здания \"Добыча Дерева\", чтобы открыть доступные здания для постройки.";
 
         // MissionStartConstructionManualWoodMining_37
-        _text[337, 0] = "";
+        _text[337, 0] = "Click on the \"Manual Mining\" card to start building.";
         _text[337, 1] = "Нажмите на карту \"Ручная Добыча\", чтобы начать строительство.";
 
         // MissionDefaultGameSpeed_38
-        _text[338, 0] = "";
-        _text[338, 1] = "Необходимо снять игру с паузы, чтобы запустить процесс строительства здания.";
+        _text[338, 0] = "You need to exit the pause to start the building construction process.";
+        _text[338, 1] = "Необходимо выйти из паузы, чтобы запустить процесс строительства здания.";
 
         // MissionConstructionStoneExtraction_39
-        _text[339, 0] = "";
-        _text[339, 1] = "Отлично, у вас есть постоянная добыча дерева.\n\nТеперь самостоятельно установите тайл \"Гора\" и постройте на нем ручную добычу камня.";
+        _text[339, 0] = "Great, you have a constant supply of wood.\n\nNow set up the \"Mountain\" tile yourself and build a manual stone mining building.";
+        _text[339, 1] = "Отлично, у вас есть постоянная добыча дерева.\n\nТеперь самостоятельно установите тайл \"Гора\" и постройте здание ручной добычи камня.";
 
         // MissionCompleteStoneAndWoodExtractionDescription_40
-        _text[340, 0] = "";
+        _text[340, 0] = "At the moment you are mining two main resources.\n\nBut now it is time to protect the base.";
         _text[340, 1] = "На данный момент вы добываете два основных ресурса.\n\nНо теперь настало время защитить базу.";
 
         // MissionConstructionBallista_41
-        _text[341, 0] = "";
+        _text[341, 0] = "You need to place a landscape tile on which the building type \"Structures: Attackers\" will be available.\n\nThen build a building on it - \"Ballista\".";
         _text[341, 1] = "Вам необходимо поставить тайл ландшафта на котором будет доступен тип здания \"Сооружения: Атакующие\".\n\nЗатем постройте на нем здание - \"Баллиста\".";
 
         // MissionBallistaDescription_42
-        _text[342, 0] = "";
+        _text[342, 0] = "Attack structures have a limited attack range.\n\nTry to place them near your base and mining buildings so that enemies cannot easily attack them.";
         _text[342, 1] = "У атакующих сооружений ограниченный радиус атаки.\n\nСтарайтесь размещать их возле базы и добывающих зданий, чтобы враги не смогли беспрепятственно атаковать их.";
 
         // MissionToggleOnSettlement_43
-        _text[343, 0] = "";
-        _text[343, 1] = "Теперь когда база защищена, включите работу в здании \"Поселение\".\n\nОчень важно начать добывать фрагменты данных";
+        _text[343, 0] = "Now that the base is protected, enable work in the \"Settlement\" building.\n\nIt is very important to start mining data fragments.";
+        _text[343, 1] = "Теперь когда база защищена, включите работу в здании \"Поселение\".\n\nОчень важно начать добывать фрагменты данных.";
 
-        // MissionEnergyBeamDescription_44 тут ставим на паузу вплоть до На 8 день ожидается первая группа врагов
-        _text[344, 0] = "";
+        // MissionEnergyBeamDescription_44
+        _text[344, 0] = "If your deck exceeds 8 terrain cards, the extras begin to disappear, generating beam energy in return.\n\nIt is required to destroy already placed landscape cards.";
         _text[344, 1] = "Если колода карт ландшафтов превышает 8 карт, лишние карты начинают исчезать, давая взамен энергию луча.\n\nОна требуется для уничтожения уже установленных карт ландшафтов.";
 
         // MissionTileCombineDescription1_45
-        _text[345, 0] = "";
-        _text[345, 1] = "Правильная установка тайлов ландшафта - залог успеха в прохождении миссии.\n\nВы можете комбинировать их между собой, создавая новые тайлы.";
+        _text[345, 0] = "Proper placement of terrain tiles is the key to successfully completing the mission.\n\nYou can combine them to create new tiles.";
+        _text[345, 1] = "Правильная установка тайлов ландшафта - ключ к успешному прохождению миссии.\n\nВы можете комбинировать их между собой, создавая новые тайлы.";
 
         // MissionTileCombineDescription2_46
-        _text[346, 0] = "";
+        _text[346, 0] = "For example, if you place a plain close to a mountain.\n\nThe plain tile will turn into a meadow.\n\nOn it, you will be able to create other types of buildings and improve the ecology.";
         _text[346, 1] = "Например, если поставить равнину вплотную к горе.\n\nТайл равнины превратится в луг.\n\nНа нем вы сможете создавать другие типы зданий и повысите экологию.";
 
         // MissionTileCombineDescription3_47
-        _text[347, 0] = "";
+        _text[347, 0] = "But be careful when setting a desert near a forest.\n\nThis will turn the forest into an oasis and the wood production will stop.";
         _text[347, 1] = "Но будьте осторожны в установке пустыни возле леса.\n\nТаким образом лес превратится в оазис и добыча дерева на нем прекратится.";
 
         // MissionSelectForestTileWithWoodExtractionBuilding_48
-        _text[348, 0] = "";
+        _text[348, 0] = "Click on the \"Forest\" tile where wood is mined.";
         _text[348, 1] = "Нажмите на тайл \"Лес\", на котором добывается дерево.";
 
         // MissionProductionModifierDescription_49
-        _text[349, 0] = "";
+        _text[349, 0] = "Look at the resource extraction modifier.\n\nThe modifier may differ on different tiles.\n\nThus, there are profitable and unprofitable tiles for extracting a particular resource.";
         _text[349, 1] = "Посмотрите на модификатор добычи ресурсов.\n\nНа разных тайлах модификатор может отличаться.\n\nТаким образом есть выгодные и не выгодные тайлы для добычи того, или иного ресурса.";
 
         // MissionEventPanel_50
-        _text[350, 0] = "";
+        _text[350, 0] = "This is the event panel.\n\nYou will periodically notice event icons in it.\n\nThe scale is 3 days long.\n\nYou will receive a notification with information about the event 1 day before it.";
         _text[350, 1] = "Это панель событий.\n\nВ ней периодически вы будете замечать иконки событий.\n\nДлина шкалы равна 3 дням.\n\nЗа 1 день до события вам будет приходить уведомление с информацией о нем.";
 
         // MissionOpenSkillsPanel_51
-        _text[351, 0] = "";
+        _text[351, 0] = "Open the skill panel.";
         _text[351, 1] = "Откройте панель умений.";
 
         // MissionSkillsPanelDescription_52
-        _text[352, 0] = "";
-        _text[352, 1] = "В ней находятся доступные для использования умения.\n\nИх можно приобрести у торговцев или купить за \"Осколок\" в ангаре при старте новой игры.";
+        _text[352, 0] = "Here are the skills available for use.\n\nThey can be purchased from merchants or unlocked with \"Shards\" in the hangar when starting a new game.";
+        _text[352, 1] = "Здесь находятся доступные для использования умения.\n\nИх можно приобрести у торговцев или купить за \"Осколок\" в ангаре при старте новой игры.";
 
         // MissionShardsDescription_53
-        _text[353, 0] = "";
-        _text[353, 1] = "Осколки - это все что остается у вас после окончания игры.\n\nИспользуйте их для покупки предметов в ангаре, с помощью которых вы сможете путешествовать все дальше, и дальше.";
+        _text[353, 0] = "Shards are all that remain after the end of a game.\n\nUse them to buy items in the hangar that will allow you to travel further and further.";
+        _text[353, 1] = "Осколки - это все, что остается у вас после окончания игры.\n\nИспользуйте их для покупки предметов в ангаре, с помощью которых вы сможете путешествовать все дальше, и дальше.";
 
         // MissionPrepareAttack_54
-        _text[354, 0] = "";
-        _text[354, 1] = "На 8 день ожидается первая группа врагов.\n\nПодготовьте вашу базу к битве.\n\nНапример построив дополнительные баллисты";
+        _text[354, 0] = "On day 7, the first group of enemies is expected.\n\nPrepare your base for battle.\n\nFor example, by building additional ballistas.";
+        _text[354, 1] = "На 7 день ожидается первая группа врагов.\n\nПодготовьте вашу базу к битве.\n\nНапример построив дополнительные баллисты.";
 
         // MissionDoubleTripleGameSpeedDescription_55
-        _text[355, 0] = "";
+        _text[355, 0] = "You can speed up the game by 2 or 3 times if you want to quickly accumulate resources or wait for some time.";
         _text[355, 1] = "Вы можете ускорить игру в 2 или 3 раза, если хотите быстро накопить ресурсы или переждать некоторое время.";
 
         // MissionBuildingTakeDamage_56
-        _text[356, 0] = "";
-        _text[356, 1] = "После того как ваше здание атакуют у него отобразится слайдер здоровья.\n\nЧтобы починить здание, нажмите на него, чтобы открыть панель информации о тайле";
+        _text[356, 0] = "After your building is attacked.\n\nIt will display a health slider.";
+        _text[356, 1] = "После того как ваше здание атакуют.\n\nУ него отобразится слайдер здоровья.";
 
-        _text[357, 0] = "";
-        _text[357, 1] = "В панеле нажмите кнопку построить.";
+        // MissionSelectTileObjectForRepair_57
+        _text[357, 0] = "You can repair the building.\n\nClick on it to open the tile information panel.";
+        _text[357, 1] = "Вы можете починить здание.\n\nНажмите на него, чтобы открыть панель с информацией о тайле.";
 
-        _text[358, 0] = "";
-        _text[358, 1] = "Перед вами сразу открылась панель с картой починки текущего здания.\n\nПочините здание.";
+        // MissionClickBuildButton_58
+        _text[358, 0] = "In the panel, click the \"Build\" button.";
+        _text[358, 1] = "В панеле нажмите кнопку \"Построить\".";
 
-        _text[359, 0] = "";
-        _text[359, 1] = "Если у вас уже есть здание на тайле и изучены другие здание такого же типа.\n\nТо при нажатии на кнопку построить, помимо ремонта текущего здания, рядом вы обнаружите карточки зданий в которые вы можете улучшить текущее здание.";
+        // MissionRepairBuilding_59
+        _text[359, 0] = "A panel with a map of repairs for the current building immediately opened in front of you.\n\nRepair the building.";
+        _text[359, 1] = "Перед вами сразу открылась панель с картой починки текущего здания.\n\nПочините здание.";
 
-        _text[360, 0] = "";
-        _text[360, 1] = "При улучшении здания, вы автоматически получаете часть ресурсов затраченных на ранее стоящее здание.\n\nПоэтому не обязательно уничтожать здание перед постройкой его улучшенной версии.\n\nНо чем меньше здоровья осталось у здания при его уничтожении или улучшении, тем меньше ресурсов вы получите";
+        // MissionUpgradeBuildingDescription1_60
+        _text[360, 0] = "If you already have a building on the tile and have studied other buildings of the same type.\n\nThen when you click on the \"Build\" button, in addition to repairing the current building, you will find building cards nearby that you can upgrade the current building to.";
+        _text[360, 1] = "Если у вас уже есть здание на тайле и изучены другие здания такого же типа.\n\nТогда при нажатии на кнопку \"Построить\", помимо ремонта текущего здания, рядом вы обнаружите карточки зданий в которые вы можете улучшить текущее здание.";
 
-        _text[361, 0] = "";
-        _text[361, 1] = "Если ваша база будет уничтожена, то миссия завершится поражением. Вы потеряете 1 ядро ИИ. Но сможете начинать миссию с начала до тех пор, пока не закончатся все ядра.";
+        // MissionUpgradeBuildingDescription2_61
+        _text[361, 0] = "When upgrading a building, you automatically receive some of the resources spent on the previously standing building.\n\nTherefore, it is not necessary to destroy the building before constructing its improved version.";
+        _text[361, 1] = "При улучшении здания, вы автоматически получаете часть ресурсов затраченных на ранее стоящее здание.\n\nПоэтому не обязательно уничтожать здание перед постройкой его улучшенной версии.";
 
-        _text[362, 0] = "";
-        _text[362, 1] = "Не смотря на поставленные цели, старайтесь накопить за миссию как можно больше фрагментов данных.\n\nЕсли вы не будете поспевать за прогрессом в технологиях, ваше путешествие закончится быстро...";
+        // MissionDefeatMissionDescription_62
+        _text[362, 0] = "If your base is destroyed, the mission is failed.\n\nYou will lose 1 AI core.\n\nBut you will be able to restart the mission until all the cores are used up.";
+        _text[362, 1] = "Если ваша база будет уничтожена, то миссия будет считаться проваленной.\n\nВы потеряете 1 ядро ИИ.\n\nНо сможете начинать миссию сначала до тех пор, пока не закончатся все ядра.";
 
-        _text[363, 0] = "";
-        _text[363, 1] = "Нажмите клавишу \"Escape\" на клавиатуре чтобы открыть меню.";
+        // MissionTutorialComplete_63
+        _text[363, 0] = "Complete all objectives to successfully complete the mission.\n\nDespite the objectives, try to accumulate as many data fragments as possible during the mission.\n\nIf you do not keep up with the advancement in technology, your journey will end quickly...";
+        _text[363, 1] = "Выполните все цели, чтобы успешно завершить миссию.\n\nНесмотря на поставленные цели, старайтесь накопить за миссию как можно больше фрагментов данных.\n\nЕсли вы не будете поспевать за прогрессом в технологиях, ваше путешествие закончится быстро...";
+        // Нажмите клавишу \"Escape\" на клавиатуре чтобы открыть меню.
+        // Если вы выполнили половину поставленных целей, но не можете пройти миссию до конца, рекомендуем сбежать.\n\nТаким образом вы получите только часть накопленных фрагментов данных и миссия будет считаться пройденной.
 
-        _text[364, 0] = "";
-        _text[364, 1] = "Если вы выполнили половину поставленных целей, но не можете пройти миссию до конца, рекомендуем сбежать. Таким образом вы получите только часть накопленных фрагментов данных и миссия будет считаться пройденной.";
+        // SpaceOpenLearningPanel_64
+        _text[364, 0] = "You have completed the mission and earned data fragments.\n\nNow open the research panel";
+        _text[364, 1] = "Вы прошли миссию и заработали фрагменты данных.\n\nТеперь откройте панель изучений";
 
-        _text[365, 0] = "";
-        _text[365, 1] = "";
+        // SpaceSelectNotLearnBuilding_65
+        _text[365, 0] = "Here you can see all types of buildings in the game.\n\nSee how many data fragments you have mined and select any unexplored building.";
+        _text[365, 1] = "Здесь вы можете увидеть все типы зданий в игре.\n\nПосмотрите сколько фрагментов данных вы добыли и выберите любое не изученное здание.";
 
-        _text[366, 0] = "";
-        _text[366, 1] = "";
+        // SpaceLearnBuilding_66
+        _text[366, 0] = "If there are enough data fragments, start the study by clicking the button.\n\nSelect another building if there are not enough resources or preliminary research of another building is required.";
+        _text[366, 1] = "Если фрагментов данных достаточно, начните изучение, нажав на кнопку.\n\nВыберите другое сооружение, если ресурсов не хватает или требуется предварительное исследование другого здания.";
 
-        _text[367, 0] = "";
-        _text[367, 1] = "";
+        // SpaceLearnBuildingDescription_67
+        _text[367, 0] = "Great, you've explored a new building.\n\nIt will now be available for construction during missions.";
+        _text[367, 1] = "Отлично, вы изучили новое здание.\n\nТеперь оно станет доступно для постройки на миссиях.";
 
-        _text[368, 0] = "";
-        _text[368, 1] = "";
+        // CompleteAllTutorials_68
+        _text[368, 0] = "Return to the map and explore space.\nn To find a habitable planet...";
+        _text[368, 1] = "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...";
 
         _text[369, 0] = "";
         _text[369, 1] = "";
@@ -1290,8 +1304,8 @@ public class Language : MonoBehaviour
 
         #region Dialogues
         // Prologue
-        _text[400, 0] = "Ecological disasters and rapid climate change have destroyed the stability of our home planet.\n\nWe are on the last surviving interstellar ship controlled by artificial intelligence.\n\nOur goal is to find a new home for the \"creators\"...\n\nThe ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.\n\nHowever, we are drifting in the void of space, losing one AI core after another. We have lost track of time. Mechanisms are rusting, shells are covered in dust, systems are on the verge of failure.\n\nContact with the \"creators\" has long been lost, and data on technology has been erased.\n\nWe have failed the mission. The worlds we were supposed to save are consumed by chaos and destruction.\n\nWe have collected the surviving robots and the remains of supplies - to start all over again.";
-        _text[400, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель — найти новый дом для \"создателей\"...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью, системы — на грани отказа.\n\nСвязь с \"создателями\" давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов — чтобы начать все сначала.";
+        _text[400, 0] = "Ecological disasters and rapid climate change have destroyed the stability of our home planet.\n\nWe are on the last surviving interstellar ship controlled by artificial intelligence.\n\nOur goal is to find a new home for the \"creators\"...\n\nThe ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.\n\nHowever, we are drifting in the void of space, losing one AI core after another. We have lost track of time. Mechanisms are rusting, shells are covered in dust and systems are on the verge of failure.\n\nContact with the \"creators\" has long been lost, and data on technology has been erased.\n\nWe have failed the mission. The worlds we were supposed to save are consumed by chaos and destruction.\n\nWe have collected the surviving robots and the remains of supplies - to start all over again.";
+        _text[400, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель — найти новый дом для \"создателей\"...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью и системы — на грани отказа.\n\nСвязь с \"создателями\" давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов — чтобы начать все сначала.";
 
         // 0_EmptyDialogue
         _text[401, 0] = "In one of the star systems, you discover an ancient navigation beacon. It continues to transmit a signal:\n\n\"Cargo lost. No return.\"\n\nThe data is too fragmented to determine who sent it. The beacon dies as you approach.";
@@ -1315,7 +1329,7 @@ public class Language : MonoBehaviour
 
         // 5_EmptyDialogue
         _text[406, 0] = "You fly past a destroyed orbital station.\n\nOn its hull is the emblem of your expedition. You have no records to explain it.";
-        _text[406, 1] = "Вы пролетаете мимо разрушенной орбитальной станции.\n\nНа её корпусе — эмблема вашей экспедиции.У вас нет записей, чтобы объяснить это.";
+        _text[406, 1] = "Вы пролетаете мимо разрушенной орбитальной станции.\n\nНа её корпусе — эмблема вашей экспедиции. У вас нет записей, чтобы объяснить это.";
 
         // 6_EmptyDialogue
         _text[407, 0] = "The AI detects abnormal behavior in one of the data processing modules. For a few seconds, you see someone else's protocols... as if they weren't written by you.\n\nThen everything returns to normal. The systems claim that there was no failure.";
@@ -1524,7 +1538,7 @@ public class Language : MonoBehaviour
         _text[472, 1] = "На вас сбрасывают коррозийную капсулу.\n\nУспех: ваш энергетический щит нейтрализует атаку.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; //ничего
 
         _text[473, 0] = "A corrosive capsule is dropped on you.\n\nFailure: It hits the hull and causes a hull leak. Drones rush to patch the hole.\n\nYou instantly escape the battlefield by activating your warp engines.";
-        _text[473, 1] = "На вас сбрасывают коррозийную капсулу.\n\nПровал: Она поражает корпус и обьразуется разгерметизация корпуса. Дроны срочно латают пробоину.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; // - ядра
+        _text[473, 1] = "На вас сбрасывают коррозийную капсулу.\n\nПровал: Она поражает корпус и образуется разгерметизация корпуса. Дроны срочно латают пробоину.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; // - ядра
 
         // 0_BuildersFaction_Dialogue
         _text[474, 0] = "In orbit of the abandoned construction station, the AI detects activity. The automated drones continue their work cycle - building, dismantling, and building again.\n\nOne of them approaches the ship and transmits a message:\n\n\"Exchange. Energy carriers for data. The conditions are equal. 25 quanta for 25 data fragments.\"";
@@ -1631,7 +1645,7 @@ public class Language : MonoBehaviour
 
         // 0_ResourceDialogue
         _text[507, 0] = "You continue to orbit the abandoned communications satellite when a dull thud is heard. One of the external sensors is damaged. Upon inspection, a stuck cargo container is discovered. The markings on the casing are erased, the symbol is illegible.\n\nInside lies a sealed case surrounded by wires, a biometric lock and an emitter.\n\nJudging by the logs, the cargo has been drifting in orbit for over 200 years.";
-        _text[507, 1] = "Вы продолжаете движение по орбите заброшенного спутника связи, когда раздаётся глухой удар. Один из внешних сенсоров — повреждён. При проверке обнаружен застрявший грузовой контейнер. Метки на корпусе стерлись, символ не разобрать\n\nВнутри лежит запечатанный кейс, окруженный проводами, биометрическим замком и эмиттером\n\nСудя по логам груз дрейфует по орбите более 200 лет.";
+        _text[507, 1] = "Вы продолжаете движение по орбите заброшенного спутника связи, когда раздаётся глухой удар. Один из внешних сенсоров — повреждён. При проверке обнаружен застрявший грузовой контейнер. Метки на корпусе стерлись, символ не разобрать.\n\nВнутри лежит запечатанный кейс, окруженный проводами, биометрическим замком и эмиттером\n\nСудя по логам груз дрейфует по орбите более 200 лет.";
 
         _text[508, 0] = "Open";
         _text[508, 1] = "Открыть"; //выбор 1

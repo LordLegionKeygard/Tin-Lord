@@ -20,7 +20,7 @@ public class BuildingSlider : BaseSlider
 
     private void ActiveTutorialArrow(TutorialStepEnum tutorialStepEnum)
     {
-        _tutorialArrow.SetActive(tutorialStepEnum == TutorialStepEnum.MissionBuildingTakeDamage_56);
+        _tutorialArrow.SetActive(tutorialStepEnum == TutorialStepEnum.MissionBuildingTakeDamage_56 && _fill.color == Colors.GreySix);
     }
 
     private void OnDestroy()

@@ -52,7 +52,7 @@ public class UIPanelsMission : MonoBehaviour
         }
         else
         {
-            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.CompleteMissionTutorial) return;
+            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionGoodLuckDescription_63) return;
             _escapePanel.PanelViewToggle(true);
         }
     }

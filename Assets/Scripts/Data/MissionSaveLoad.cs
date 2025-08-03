@@ -259,7 +259,7 @@ public class MissionSaveLoad : MonoBehaviour
 
     public void AutoSave(int day)
     {
-        if (!_tutorialSystem.IsCompleteMissionTutorial()) return;
+        if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionGoodLuckDescription_63) return;
         _missionSaveGame.SaveMissionToJson();
     }
 

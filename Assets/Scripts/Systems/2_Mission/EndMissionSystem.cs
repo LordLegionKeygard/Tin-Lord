@@ -1,12 +1,12 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
 public class EndMissionSystem : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly MissionSaveGame _missionSaveGame;
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [Inject] private MissionResources _missionResources;
@@ -136,6 +136,7 @@ public class EndMissionSystem : MonoBehaviour
             _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(saveData);
         }
 
+        _tutorialSystem.SaveTutorial(TutorialStepEnum.SpaceOpenLearningPanel_64);
         _missionSaveGame.DeleteMissionJson();
         _spaceSaveGame.SaveEndMissionDataToJson(_receivedFragments, aiCores, quants);
     }

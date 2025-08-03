@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class WorldGameInfo
 {
-    public static int LanguageLength = 600;
-    public static bool StaticBlood = true;
+    [Header("Build")]
+    public static bool IsSteam = false;
+    public static bool IsDemo = false;
 
     [Header("Currency")]
     public static float QuantDropChance = 0.1f;
@@ -79,6 +80,10 @@ public class WorldGameInfo
     [Header("Positions")]
     public const float TerrainPosition = 1.68f;
     public const float EnvironmentPosition = 0;
+
+    [Header("Settings")]
+    public static bool StaticBlood = true;
+    public static int LanguageLength = 600;
 
     [Header("VideoSettings")]
     public const int ScreenMode = 1;

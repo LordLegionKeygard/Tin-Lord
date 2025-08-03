@@ -4,10 +4,10 @@ using UnityEngine.InputSystem;
 
 public class CustomEvents
 {
-    public static event Action OnTutorialSelectCard;
-    public static void FireTutorialSelectCard()
+    public static event Action OnTurnOffTutorialCardObjectView;
+    public static void FireTurnOffTutorialCardObjectView()
     {
-        OnTutorialSelectCard?.Invoke();
+        OnTurnOffTutorialCardObjectView?.Invoke();
     }
 
     public static event Action<TutorialStepEnum> OnForceRunStep;

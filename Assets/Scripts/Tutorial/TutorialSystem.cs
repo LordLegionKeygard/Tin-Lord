@@ -21,9 +21,11 @@ public class TutorialSystem : MonoBehaviour
     private int _currentStepIndex = -1;
     private bool _currentStepInProcess;
     public bool IsStartTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.SpaceHangarWelcome_0 : false;
-    public TutorialStepEnum GetTutorialStepEnum() => _currentStep != null ? _currentStep.TutorialStepEnum : TutorialStepEnum.CompleteAllTutorials;
+    public TutorialStepEnum GetTutorialStepEnum() => _currentStep != null ? _currentStep.TutorialStepEnum : TutorialStepEnum.CompleteAllTutorials_68;
+    private bool _isCompleteAllTutorials;
     public Building GetTutorialBuilding(int number) => _tutorialBuildings[number];
-    public bool IsCompleteMissionTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial : true;
+    public bool IsCompleteMissionTutorial() => _currentStep != null ? _currentStep.TutorialStepEnum == TutorialStepEnum.MissionGoodLuckDescription_63 : true;
+    public bool IsCompleteAllTutorial() => _isCompleteAllTutorials;
     public bool PanelIsActive() => _tutorialPanel.activeInHierarchy;
     public AllTileObjects GetAllTileObjects() => _allTileObjects;
     public bool IsCurrentInProcess() => _currentStepInProcess;
@@ -63,12 +65,18 @@ public class TutorialSystem : MonoBehaviour
     }
 
 
-    public void LoadTutorial(int tutorialStepEnum, bool prologueCompleted)
+    public void LoadTutorial(int tutorialStepIndex, bool prologueCompleted)
     {
-        if (!prologueCompleted || tutorialStepEnum == (int)TutorialStepEnum.CompleteAllTutorials) return;
+        if (!prologueCompleted) return;
+
+        if (tutorialStepIndex is (int)TutorialStepEnum.CompleteAllTutorials_68)
+        {
+            _isCompleteAllTutorials = true;
+            return;
+        }
 
         // ищем нужный шаг и при необходимости «откатываемся» по цепочке
-        _currentStepIndex = _steps.FindIndex(s => (int)s.TutorialStepEnum == tutorialStepEnum);
+        _currentStepIndex = _steps.FindIndex(s => (int)s.TutorialStepEnum == tutorialStepIndex);
         if (_currentStepIndex < 0) return;
 
         while (_currentStepIndex > 0 && _steps[_currentStepIndex].RequirePreviousStep)
@@ -127,6 +135,10 @@ public class TutorialSystem : MonoBehaviour
                     target = _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.WoodExtraction).transform;
                     _tutorialArrowWorld.SetObjectTransform(target);
                     break;
+                case TutorialArrowObjectEnum.DamagedBuilding:
+                    target = _allTileObjects.FindDamagedBuildingOnTileObject().transform;
+                    _tutorialArrowWorld.SetObjectTransform(target);
+                    break;
 
             }
             _tutorialArrowWorld.gameObject.SetActive(true);
@@ -135,7 +147,7 @@ public class TutorialSystem : MonoBehaviour
 
     private void CompleteStep(TutorialStepEnum stepEnum)
     {
-        if (_currentStep == null || _currentStep.TutorialStepEnum != stepEnum) return;
+        if (IsCompleteAllTutorial() || _currentStep.TutorialStepEnum != stepEnum) return;
 
         ResetStep();
 
@@ -162,7 +174,7 @@ public class TutorialSystem : MonoBehaviour
         if (_currentStep.ChangeGameSpeedTutorial.IsChangeOnComplete) _gameSpeedSystem.ChangeGameSpeed((int)_currentStep.ChangeGameSpeedTutorial.CompleteStepGameSpeedEnum);
     }
 
-    private void SaveTutorial(TutorialStepEnum stepEnum)
+    public void SaveTutorial(TutorialStepEnum stepEnum)
     {
         _hangarSaveGame.SaveTutorialStep((int)stepEnum);
     }
@@ -185,7 +197,7 @@ public class TutorialSystem : MonoBehaviour
     // Вызывается после ожидания определенных условий, но требует чтобы текущий степ совпадал
     public void RunStepAfterWait(TutorialStepEnum stepEnum)
     {
-        if (_currentStep == null || _currentStep.TutorialStepEnum != stepEnum) return;
+        if (IsCompleteAllTutorial() || _currentStep.TutorialStepEnum != stepEnum) return;
         RunStep(true);
     }
 
@@ -194,14 +206,10 @@ public class TutorialSystem : MonoBehaviour
     /// </summary>
     public void ForceRunStep(TutorialStepEnum stepEnum)
     {
-        if (_currentStep != null)
-        {
-            ResetStep();
-        }
+        if (IsCompleteAllTutorial()) return;
 
+        ResetStep();
         _currentStepIndex = _steps.FindIndex(s => s.TutorialStepEnum == stepEnum);
-        if (_currentStepIndex < 0) return; // нет такого шага – выходим
-
         SaveTutorial(stepEnum);
         RunStep(true);
     }
@@ -210,7 +218,7 @@ public class TutorialSystem : MonoBehaviour
     // Считываем нажатие на карту ландшафта
     public void SelectCard(GroundTileViewEnum groundTileView)
     {
-        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+        if (IsCompleteMissionTutorial()) return;
 
         switch (groundTileView)
         {
@@ -222,13 +230,13 @@ public class TutorialSystem : MonoBehaviour
                 break;
         }
 
-        CustomEvents.FireTutorialSelectCard();
+        CustomEvents.FireTurnOffTutorialCardObjectView();
     }
 
     // Считываем установку тайла ландшафта
     public void SetCard(GroundTileViewEnum groundTileView)
     {
-        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+        if (IsCompleteMissionTutorial()) return;
 
         switch (groundTileView)
         {
@@ -244,7 +252,24 @@ public class TutorialSystem : MonoBehaviour
     // Считываем нажатие на тайл земли
     public void SelectGroundTileObject(TileObject tileObject)
     {
-        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+        if (IsCompleteMissionTutorial()) return;
+
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.MissionSelectTileObjectForRepair_57)
+        {
+            if (tileObject.GroundTileObject().CurrentGroundTile() == null) return;
+
+            if (!tileObject.BuildingTileObject().HaveBuildingGameObject()) return;
+
+            if (!tileObject.BuildingHealth().IsFullHealth())
+            {
+                CompleteStep(TutorialStepEnum.MissionSelectTileObjectForRepair_57);
+            }
+        }
+
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.MissionToggleOnSettlement_43)
+        {
+            _tutorialArrowWorld.gameObject.SetActive(false);
+        }
 
         switch (tileObject.GroundTileObject().CurrentGroundTile().GroundTileView)
         {
@@ -264,7 +289,7 @@ public class TutorialSystem : MonoBehaviour
     // Считываем нажатие на тип здания BuildingType в SelectTilePanel
     public void SelectBuildingType(BuildingTileViewEnum buildingTileView)
     {
-        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+        if (IsCompleteMissionTutorial()) return;
 
         switch (buildingTileView)
         {
@@ -280,7 +305,7 @@ public class TutorialSystem : MonoBehaviour
     // Считываем наведение курсора на здание BuildingItem в SelectTilePanel
     public void SelectBuildingItem(Building building)
     {
-        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+        if (IsCompleteMissionTutorial()) return;
 
         if (building == _tutorialBuildings[0])
         {
@@ -289,26 +314,33 @@ public class TutorialSystem : MonoBehaviour
     }
 
     // Считываем нажатие на здание BuildingItem в SelectTilePanel
-    public void StartConstructBuilding(Building building)
+    public void ClickBuildingItem(Building building, BuildingState buildingState)
     {
-        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+        if (IsCompleteMissionTutorial()) return;
 
-        if (building == _tutorialBuildings[0])
+        if (building == _tutorialBuildings[0] && _currentStep.TutorialStepEnum == TutorialStepEnum.MissionStartConstructSettlement_20)
         {
             CompleteStep(TutorialStepEnum.MissionStartConstructSettlement_20);
         }
 
-        if (building == _tutorialBuildings[1])
+        if (building == _tutorialBuildings[1] && _currentStep.TutorialStepEnum == TutorialStepEnum.MissionStartConstructionManualWoodMining_37)
         {
             CompleteStep(TutorialStepEnum.MissionStartConstructionManualWoodMining_37);
         }
+
+        if (buildingState == BuildingState.Repair && _currentStep.TutorialStepEnum == TutorialStepEnum.MissionRepairBuilding_59)
+        {
+            CompleteStep(TutorialStepEnum.MissionRepairBuilding_59);
+        }
+
+        CustomEvents.FireTurnOffTutorialCardObjectView();
     }
 
 
-    // Считывает конец постройки здания определенного типа
+    // Считываем конец постройки здания определенного типа
     public void CompleteConstructionBuilding(BuildingTileViewEnum buildingTileView)
     {
-        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+        if (IsCompleteMissionTutorial()) return;
 
         switch (buildingTileView)
         {
@@ -316,27 +348,30 @@ public class TutorialSystem : MonoBehaviour
                 ForceRunStep(TutorialStepEnum.MissionAfterBaseSetStartTimer_23);
                 break;
             case BuildingTileViewEnum.WoodExtraction:
-                ForceRunStep(TutorialStepEnum.MissionConstructionStoneMining_39);
+                if (_currentStep.TutorialStepEnum <= TutorialStepEnum.MissionConstructionStoneMining_39) ForceRunStep(TutorialStepEnum.MissionConstructionStoneMining_39);
                 break;
             case BuildingTileViewEnum.StoneMining:
-                ForceRunStep(TutorialStepEnum.MissionCompleteStoneAndWoodExtractionDescription_40);
+                if (_currentStep.TutorialStepEnum <= TutorialStepEnum.MissionCompleteStoneAndWoodExtractionDescription_40) ForceRunStep(TutorialStepEnum.MissionCompleteStoneAndWoodExtractionDescription_40);
                 break;
             case BuildingTileViewEnum.AttackingStructures:
-                ForceRunStep(TutorialStepEnum.MissionBallistaDescription_42);
+                if (_currentStep.TutorialStepEnum <= TutorialStepEnum.MissionBallistaDescription_42) ForceRunStep(TutorialStepEnum.MissionBallistaDescription_42);
                 break;
         }
     }
 
+    // Считываем нажатие на вкл/выкл работы здания
     public void ClickToggleBuildingWork(bool isWorkNow)
     {
+        if (IsCompleteMissionTutorial()) return;
+
         if (isWorkNow) CompleteStep(TutorialStepEnum.MissionToggleOffSettlement_30);
         if (!isWorkNow) CompleteStep(TutorialStepEnum.MissionToggleOnSettlement_43);
     }
 
-
+    // Считываем изменение скорости игры
     public void ChangeGameSpeed(int gameSpeed)
     {
-        if (_currentStep == null || IsCompleteMissionTutorial()) return;
+        if (IsCompleteMissionTutorial()) return;
 
         GameSpeedEnum gameSpeedEnum = (GameSpeedEnum)gameSpeed;
 
@@ -354,7 +389,9 @@ public class TutorialSystem : MonoBehaviour
 
     public bool CanSelectCardObject(Tile tile)
     {
-        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+        if (IsCompleteMissionTutorial()) return true;
+
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
 
 
         if (_currentStep.TutorialStepEnum >= TutorialStepEnum.MissionConstructionBallista_41) return true;
@@ -375,6 +412,8 @@ public class TutorialSystem : MonoBehaviour
 
     public bool CanBuildOrUpgrade()
     {
+        if (IsCompleteMissionTutorial()) return true;
+
         if (_currentStep.TutorialStepEnum < TutorialStepEnum.MissionStartConstructSettlement_20) return false;
         if (_currentStep.TutorialStepEnum == TutorialStepEnum.MissionTileForestDescription_35) return false;
         return true;
@@ -382,7 +421,9 @@ public class TutorialSystem : MonoBehaviour
 
     public bool CanInputOnTile()
     {
-        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+        if (IsCompleteMissionTutorial()) return true;
+
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
 
         if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectBaseFoundationTile_12 or TutorialStepEnum.MissionSetBaseFoundationCard_11) return true;
         if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectForestTile_33 or TutorialStepEnum.MissionSetForestCard_32) return true;
@@ -393,7 +434,9 @@ public class TutorialSystem : MonoBehaviour
 
     public bool CanDetectGroundTileObject(TileObject tileObject)
     {
-        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+        if (IsCompleteMissionTutorial()) return true;
+
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
 
         switch (_currentStep.TutorialStepEnum)
         {
@@ -410,12 +453,15 @@ public class TutorialSystem : MonoBehaviour
 
     public bool CanClickBuildButton()
     {
-        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+        if (IsCompleteMissionTutorial()) return true;
+
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
 
         if (_currentStep.TutorialStepEnum < TutorialStepEnum.MissionClickBuildButton_16) return false;
 
         CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionClickBuildButton_16);
         CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionClickBuildButton_34);
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionClickBuildButton_58);
 
         if (_currentStep.TutorialStepEnum > TutorialStepEnum.MissionSelectBaseTypeButton_17 &&
             _currentStep.TutorialStepEnum < TutorialStepEnum.MissionClickBuildButton_34) return false;
@@ -425,7 +471,9 @@ public class TutorialSystem : MonoBehaviour
 
     public bool CanClickBuildingTypeButton(Tile tile)
     {
-        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+        if (IsCompleteMissionTutorial()) return true;
+
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
 
         switch (_currentStep.TutorialStepEnum)
         {
@@ -438,18 +486,24 @@ public class TutorialSystem : MonoBehaviour
 
     public bool CanClickBuildingWorkButton()
     {
-        if (_currentStep == null || _currentStep.TutorialStepEnum == TutorialStepEnum.CompleteMissionTutorial) return true;
+        if (IsCompleteMissionTutorial()) return true;
+
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
 
         return _currentStep.TutorialStepEnum >= TutorialStepEnum.MissionToggleOffSettlement_30;
     }
 
     public bool CanClearTileDetector()
     {
+        if (IsCompleteMissionTutorial()) return true;
+
         return _currentStep.TutorialStepEnum > TutorialStepEnum.MissionDefaultGameSpeed_38;
     }
 
     public bool CanCancelSeletCard()
     {
+        if (IsCompleteMissionTutorial()) return true;
+
         return _currentStep.TutorialStepEnum is not (TutorialStepEnum.MissionSetBaseFoundationCard_11 or TutorialStepEnum.MissionSetForestCard_32);
     }
 
@@ -491,6 +545,7 @@ public enum TutorialArrowObjectEnum
     BaseFoundation = 1,
     Forest = 2,
     ForestWithWoodExtraction = 3,
+    DamagedBuilding = 4,
 }
 
 public enum TutorialStepEnum
@@ -553,12 +608,18 @@ public enum TutorialStepEnum
     MissionPrepareAttack_54 = 54,
     MissionDoubleTripleGameSpeedDescription_55 = 55,
     MissionBuildingTakeDamage_56 = 56,
-
-
-
-    CompleteMissionTutorial = 997,
-    SpaceOpenLearningPanel = 998,
-    CompleteAllTutorials = 999
+    MissionSelectTileObjectForRepair_57 = 57,
+    MissionClickBuildButton_58 = 58,
+    MissionRepairBuilding_59 = 59,
+    MissionUpgradeBuildingDescription1_60 = 60,
+    MissionUpgradeBuildingDescription2_61 = 61,
+    MissionDefeatMissionDescription_62 = 62,
+    MissionGoodLuckDescription_63 = 63,
+    SpaceOpenLearningPanel_64 = 64,
+    SpaceSelectNotLearnBuilding_65 = 65,
+    SpaceLearnBuilding_66 = 66,
+    SpaceLearnBuildingDescription_67 = 67,
+    CompleteAllTutorials_68 = 68
 }
 
 public enum TutorialTextPanelPos

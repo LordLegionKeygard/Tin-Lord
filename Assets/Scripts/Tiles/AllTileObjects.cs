@@ -162,4 +162,21 @@ public class AllTileObjects : MonoBehaviour
 
         return null;
     }
+
+    public TileObject FindDamagedBuildingOnTileObject()
+    {
+        for (int i = 0; i < TileObjects.Count; i++)
+        {
+            if (TileObjects[i].GroundTileObject().CurrentGroundTile() == null) continue;
+
+            if (!TileObjects[i].BuildingTileObject().HaveBuildingGameObject()) continue;
+
+            if (!TileObjects[i].BuildingHealth().IsFullHealth())
+            {
+                return TileObjects[i];
+            }
+        }
+
+        return null;
+    }
 }

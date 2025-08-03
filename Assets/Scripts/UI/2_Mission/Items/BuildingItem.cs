@@ -40,7 +40,7 @@ public class BuildingItem : MonoBehaviour
 
     private void SelectTutorialBuildingItem(TutorialStepEnum _)
     {
-        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.CompleteMissionTutorial) return;
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceOpenLearningPanel_64) return;
 
         var building = _currentTile.Buildings[_buildingIndex - 1];
         switch (_tutorialSystem.GetTutorialStepEnum())
@@ -53,6 +53,12 @@ public class BuildingItem : MonoBehaviour
                 break;
             case TutorialStepEnum.MissionStartConstructionManualWoodMining_37:
                 if (_tutorialSystem.GetTutorialBuilding(1).Id == building.Id)
+                {
+                    _tutorialView.SetActive(true);
+                }
+                break;
+            case TutorialStepEnum.MissionRepairBuilding_59:
+                if (_currentBuildingState == BuildingState.Repair)
                 {
                     _tutorialView.SetActive(true);
                 }
@@ -123,7 +129,7 @@ public class BuildingItem : MonoBehaviour
         }
 
         if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.MissionStartConstructSettlement_20) _tutorialView.SetActive(false);
-        _tutorialSystem.StartConstructBuilding(_currentTile.Buildings[_buildingIndex - 1]);
+        _tutorialSystem.ClickBuildingItem(_currentTile.Buildings[_buildingIndex - 1], _currentBuildingState);
         _buildingResourcesViewMission.ResetCells();
         _missionResources.UseResourcesForBuilding(GetResources());
 
