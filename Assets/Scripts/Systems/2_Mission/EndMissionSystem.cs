@@ -49,7 +49,7 @@ public class EndMissionSystem : MonoBehaviour
     private void PrepareEndMission()
     {
         _isMissionEnd = true;
-        _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default);
+        _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default, false);
         StopAllCoroutines();
         _uiPanelsMission.CloseAllPanels();
     }

@@ -702,8 +702,8 @@ public class Language : MonoBehaviour
         _text[224, 0] = "Toggle skills panel";
         _text[224, 1] = "Переключает панель умений";
 
-        _text[225, 0] = "";
-        _text[225, 1] = "";
+        _text[225, 0] = "Go";
+        _text[225, 1] = "Перейти";
 
         _text[226, 0] = "";
         _text[226, 1] = "";
@@ -987,11 +987,11 @@ public class Language : MonoBehaviour
 
         // MissionEcology1_14
         _text[314, 0] = "The number in this gear indicates the current ecology on the planet. It consists of:\n\n-the base ecology of the planet\n\n-the current radiation\n\n-the landscape tiles and buildings you have placed.";
-        _text[314, 1] = "Число в этой шестеренке указывает на текущую экологию на планете. Она состоит из:\n\n-базовой экологии планеты\n\n-текущей радиации\n\n-установленных вами тайлов ландшафтов и зданий.";
+        _text[314, 1] = "Число в этой шестеренке указывает на текущую экологию на планете. Она состоит из:\n\n-базовой экологии планеты\n\n-текущей радиации\n\n-установленных вами тайлов ландшафтов и зданий";
 
         // MissionEcology2_15
-        _text[315, 0] = "If the radiation is gray-green, it means that its number is positive.\n\nIf it is yellow or red, it means that it is negative.\n\nThe worse the ecology, the higher the enemy's defense indicator will be and the lower the reward at the end of the mission.";
-        _text[315, 1] = "Если радиация горит серым-зеленым цветом, это означает, что ее число положительно.\n\nЕсли желтым или красным, значит отрицательно.\n\nЧем хуже экология, тем выше будет показатель защиты у врагов и меньше награда в конце миссии.";
+        _text[315, 0] = "If the radiation is gray or green, it means that its number is positive.\n\nIf it is yellow or red, it means that it is negative.\n\nThe worse the ecology, the higher the enemy's defense indicator will be and the lower the reward at the end of the mission.";
+        _text[315, 1] = "Если радиация горит серым или зеленым цветом, это означает, что ее число положительно.\n\nЕсли желтым или красным, значит отрицательно.\n\nЧем хуже экология, тем выше будет показатель защиты у врагов и меньше награда в конце миссии.";
 
         // MissionClickBuildButton_16
         _text[316, 0] = "Click on the \"Build\" button.\n\nA list of available building types on this landscape will open.";

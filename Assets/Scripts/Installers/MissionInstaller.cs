@@ -18,6 +18,7 @@ public class MissionInstaller : MonoInstaller
     [SerializeField] private DeathExplosionPool _deathExplosionPool;
     [SerializeField] private MissionHangarSystem _missionHangarSystem;
     [SerializeField] private TutorialSystem _tutorialSystem;
+    [SerializeField] private TileViewSystem _tileViewSystem;
 
     public override void InstallBindings()
     {
@@ -36,5 +37,6 @@ public class MissionInstaller : MonoInstaller
         Container.Bind<DeathExplosionPool>().FromInstance(_deathExplosionPool).AsSingle();
         Container.Bind<MissionHangarSystem>().FromInstance(_missionHangarSystem).AsSingle();
         Container.Bind<TutorialSystem>().FromInstance(_tutorialSystem).AsSingle();
+        Container.Bind<TileViewSystem>().FromInstance(_tileViewSystem).AsSingle();
     }
 }

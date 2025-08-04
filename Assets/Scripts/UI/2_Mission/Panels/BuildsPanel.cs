@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class BuildsPanel : MonoBehaviour
 {
+    [Inject] private readonly TileViewSystem _tileViewSystem;
     [Inject] private readonly DiContainer _diContainer;
     [Inject] private readonly LearnedBuildingsDataMission _learnedBuildingsDataMission;
     private List<BuildingItem> _buildingsList = new();
@@ -13,15 +14,13 @@ public class BuildsPanel : MonoBehaviour
     [SerializeField] private Transform _content;
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private ScrollRect _scrollRect;
-    [FormerlySerializedAs("_buildingResourcesView")] [SerializeField] private ResourcesViewMission buildingResourcesViewMission;
+    [FormerlySerializedAs("_buildingResourcesView")][SerializeField] private ResourcesViewMission buildingResourcesViewMission;
     [SerializeField] private ScrollToCard _scrollToCard;
     [SerializeField] private BuildTypesPanel _buildTypesPanel;
 
     public void SpawnBuildingItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel, Tile tile) //все здания в типе
     {
-        ClearListObjects();
-        buildingResourcesViewMission.ResetCells();
-
+        Reset();
         var length = tile.Buildings;
         _scrollRect.horizontal = length.Length > 3;
         _scrollRect.horizontalNormalizedPosition = 0f;
@@ -46,9 +45,7 @@ public class BuildsPanel : MonoBehaviour
 
     public void SpawnUpgradeItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //оставшиеся здания в типе
     {
-        ClearListObjects();
-        buildingResourcesViewMission.ResetCells();
-
+        Reset();
         var tile = tileObject.BuildingTileObject().CurrentBuildingTile();
         var length = tile.Buildings;
         _scrollRect.horizontal = length.Length > 3;
@@ -106,8 +103,16 @@ public class BuildsPanel : MonoBehaviour
         _buildingsList.Clear();
     }
 
+    private void Reset()
+    {
+        _tileViewSystem.UnactiveRadius();
+        ClearListObjects();
+        buildingResourcesViewMission.ResetCells();
+    }
+
     private void OnDisable()
     {
+        _tileViewSystem.UnactiveRadius();
         ClearListObjects();
         _buildTypesPanel.UnselectAllTypes();
     }

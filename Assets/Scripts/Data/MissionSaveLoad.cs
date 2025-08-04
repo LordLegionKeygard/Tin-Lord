@@ -142,7 +142,7 @@ public class MissionSaveLoad : MonoBehaviour
         //UpPanel
         _timeTickSystem.LoadTime(currentSaveData.Day, currentSaveData.Tick);
         _ecologySystem.LoadEcology(currentSaveData.Radiation, currentSaveData.EveryDayEcology, currentSaveData.IsStartMission);
-        _gameSpeedSystem.ChangeGameSpeed(currentSaveData.GameSpeed);
+        _gameSpeedSystem.ChangeGameSpeed(currentSaveData.GameSpeed, false);
 
         //Resources
         _missionResources.LoadResources(currentSaveData.ResourcesData);

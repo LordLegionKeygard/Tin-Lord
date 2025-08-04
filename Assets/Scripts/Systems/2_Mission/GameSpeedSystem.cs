@@ -23,13 +23,7 @@ public class GameSpeedSystem : MonoBehaviour
 
     public void ChangeGameSpeedButton(int gameSpeed, bool isEscapePanel)
     {
-        if (!_tutorialSystem.IsCompleteMissionTutorial())
-        {
-            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionPauseGame_24 && gameSpeed == (int)GameSpeedEnum.Pause) return;
-            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionDoubleTripleGameSpeedDescription_55 && gameSpeed is (int)GameSpeedEnum.Double or (int)GameSpeedEnum.Triple) return;
-            if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionDefaultGameSpeed_38 && gameSpeed == (int)GameSpeedEnum.Default) return;
-            if (_tutorialSystem.GetTutorialStepEnum() > TutorialStepEnum.MissionToggleOnSettlement_43 && _tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionPrepareAttack_54) return;
-        }
+        if (!_tutorialSystem.CanChangeGameSpeed(gameSpeed)) return;
 
         //нажали на ту же скорость что щас уже стоит и это не пауза, делаем возврат
         if (_currentGameSpeedEnum != GameSpeedEnum.Pause && (int)_currentGameSpeedEnum == gameSpeed) return;
@@ -45,19 +39,28 @@ public class GameSpeedSystem : MonoBehaviour
             return;
         }
 
-        ChangeGameSpeed(gameSpeed);
+        ChangeGameSpeed(gameSpeed, false);
     }
 
-    public void ChangeGameSpeed(int gameSpeed)
+    public void ChangeGameSpeed(int gameSpeed, bool isTutorial)
     {
         GameSpeedEnum gameSpeedEnum = (GameSpeedEnum)gameSpeed;
 
         switch (gameSpeedEnum)
         {
             case GameSpeedEnum.Pause:
-                _isPause = !_isPause;
-                Time.timeScale = _isPause ? WorldGameInfo.PausedTimeScale : WorldGameInfo.DefaultTimeScale;
-                _currentGameSpeedEnum = _isPause ? GameSpeedEnum.Pause : GameSpeedEnum.Default;
+                if (isTutorial)
+                {
+                    _isPause = true;
+                    Time.timeScale = WorldGameInfo.PausedTimeScale;
+                    _currentGameSpeedEnum = GameSpeedEnum.Pause;
+                }
+                else
+                {
+                    _isPause = !_isPause;
+                    Time.timeScale = _isPause ? WorldGameInfo.PausedTimeScale : WorldGameInfo.DefaultTimeScale;
+                    _currentGameSpeedEnum = _isPause ? GameSpeedEnum.Pause : GameSpeedEnum.Default;
+                }
                 break;
             case GameSpeedEnum.Default:
                 _isPause = false;

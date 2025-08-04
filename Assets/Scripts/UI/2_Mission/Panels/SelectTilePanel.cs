@@ -7,6 +7,7 @@ using System.Collections;
 
 public class SelectTilePanel : MonoBehaviour
 {
+    [Inject] private readonly TileViewSystem _tileViewSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [Inject] private readonly MissionResources _missionResources;
@@ -85,6 +86,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void PanelViewToggle(bool state)
     {
+        _tileViewSystem.UnactiveRadius();
         _isOpen = state;
 
         CustomEvents.FireTooltipToggle(false, 0);
@@ -145,11 +147,15 @@ public class SelectTilePanel : MonoBehaviour
                 _productionResourcePanel.SetButtonView(buildingTileObject.CurrentBuilding(), _tileObject.CurrentResourceProduction());
                 _receptPanel.UpdateReceptView(_tileObject.CurrentResourceRecept());
             }
+
+            if (buildingTile.BuildingTileView == BuildingTileViewEnum.AttackingStructures)
+            {
+                _tileViewSystem.ActivateRadius(_tileObject.transform, building.AttackRadius);
+            }
         }
 
         SetButtonStates(haveBuildingTile);
     }
-
 
     private void WorkButtonIconChangeColor()
     {

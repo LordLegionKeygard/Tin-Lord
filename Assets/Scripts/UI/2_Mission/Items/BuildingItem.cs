@@ -6,6 +6,7 @@ using System.Linq;
 
 public class BuildingItem : MonoBehaviour
 {
+    [Inject] private readonly TileViewSystem _tileViewSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
@@ -110,12 +111,18 @@ public class BuildingItem : MonoBehaviour
         _buildsPanel.UnselectAllBuildings();
         SelectToggleState(true);
         _buildingResourcesViewMission.SetResourcesView(GetResources());
+        _tutorialView.SetActive(_tutorialSystem.BuildingItemSelectView());
 
-        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.MissionOpenResourcePanel_19)
+        if (_currentTile.BuildingTileView == BuildingTileViewEnum.AttackingStructures)
         {
-            _tutorialView.SetActive(false);
+            var building = _currentTile.Buildings[_buildingIndex - 1];
+            _tileViewSystem.ActivateRadius(_currentTileObject.transform, building.AttackRadius);
         }
-        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSelectSettlementBuildingItem_18);
+    }
+
+    public void DeselectView()
+    {
+        _tileViewSystem.UnactiveRadius();
     }
 
     public void BuildOrUpgrade()

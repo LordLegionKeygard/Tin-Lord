@@ -41,7 +41,7 @@ public class EscapePanelMission : MonoBehaviour
         }
         else
         {
-            if (changeSpeed) _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default);
+            if (changeSpeed) _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default, false);
             _escapePanelTransform.DOAnchorPosY(-55, 0.8f).SetUpdate(true);
             Reset();
         }

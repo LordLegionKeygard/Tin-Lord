@@ -112,7 +112,10 @@ public class TutorialSystem : MonoBehaviour
         ActivateWorldArrow();
 
         // меняем скорость игры
-        if (_currentStep.ChangeGameSpeedTutorial.IsChangeOnStart) _gameSpeedSystem.ChangeGameSpeed((int)_currentStep.ChangeGameSpeedTutorial.StartStepGameSpeedEnum);
+        if (GetTutorialStepEnum() is TutorialStepEnum.MissionBallistaDescription_42 or TutorialStepEnum.MissionBuildingTakeDamage_56)
+        {
+            _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Pause, true);
+        }
 
         CustomEvents.FireStartTutorialStep(_currentStep.TutorialStepEnum);
     }
@@ -171,7 +174,10 @@ public class TutorialSystem : MonoBehaviour
         if (_tutorialArrowWorld != null) _tutorialArrowWorld.gameObject.SetActive(false);
 
         // меняем скорость игры
-        if (_currentStep.ChangeGameSpeedTutorial.IsChangeOnComplete) _gameSpeedSystem.ChangeGameSpeed((int)_currentStep.ChangeGameSpeedTutorial.CompleteStepGameSpeedEnum);
+        if (GetTutorialStepEnum() is TutorialStepEnum.MissionDefeatMissionDescription_62)
+        {
+            _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default, true);
+        }
     }
 
     public void SaveTutorial(TutorialStepEnum stepEnum)
@@ -368,6 +374,20 @@ public class TutorialSystem : MonoBehaviour
         if (!isWorkNow) CompleteStep(TutorialStepEnum.MissionToggleOnSettlement_43);
     }
 
+    public bool CanChangeGameSpeed(int gameSpeed)
+    {
+        if (!IsCompleteMissionTutorial())
+        {
+            if (GetTutorialStepEnum() > TutorialStepEnum.MissionBallistaDescription_42 && GetTutorialStepEnum() < TutorialStepEnum.MissionDoubleTripleGameSpeedDescription_55 && gameSpeed == (int)GameSpeedEnum.Default) return false;
+            if (GetTutorialStepEnum() < TutorialStepEnum.MissionPauseGame_24 && gameSpeed == (int)GameSpeedEnum.Pause) return false;
+            if (GetTutorialStepEnum() < TutorialStepEnum.MissionDoubleTripleGameSpeedDescription_55 && gameSpeed is (int)GameSpeedEnum.Double or (int)GameSpeedEnum.Triple) return false;
+            if (GetTutorialStepEnum() < TutorialStepEnum.MissionDefaultGameSpeed_38 && gameSpeed == (int)GameSpeedEnum.Default) return false;
+            if (GetTutorialStepEnum() > TutorialStepEnum.MissionToggleOnSettlement_43 && GetTutorialStepEnum() < TutorialStepEnum.MissionPrepareAttack_54) return false;
+        }
+
+        return true;
+    }
+
     // Считываем изменение скорости игры
     public void ChangeGameSpeed(int gameSpeed)
     {
@@ -507,6 +527,12 @@ public class TutorialSystem : MonoBehaviour
         return _currentStep.TutorialStepEnum is not (TutorialStepEnum.MissionSetBaseFoundationCard_11 or TutorialStepEnum.MissionSetForestCard_32);
     }
 
+    public bool BuildingItemSelectView()
+    {
+        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSelectSettlementBuildingItem_18);
+        return GetTutorialStepEnum() == TutorialStepEnum.MissionOpenResourcePanel_19;
+    }
+
     private void OnDestroy()
     {
         CustomEvents.OnCompleteTutorialStep -= CompleteStep;
@@ -527,16 +553,6 @@ public class TutorialStep
     public bool JustClose;
     public bool RequirePreviousStep;
     public bool WaitRunStep;
-    public ChangeGameSpeedTutorial ChangeGameSpeedTutorial;
-}
-
-[System.Serializable]
-public class ChangeGameSpeedTutorial
-{
-    public bool IsChangeOnStart;
-    public GameSpeedEnum StartStepGameSpeedEnum;
-    public bool IsChangeOnComplete;
-    public GameSpeedEnum CompleteStepGameSpeedEnum;
 }
 
 public enum TutorialArrowObjectEnum
