@@ -68,13 +68,13 @@ public class TutorialSystem : MonoBehaviour
 
     public void LoadTutorial(int tutorialStepIndex, bool prologueCompleted)
     {
-        if (!prologueCompleted) return;
-
         if (tutorialStepIndex == (int)TutorialStepEnum.CompleteAllTutorials_69)
         {
             _isCompleteAllTutorials = true;
             return;
         }
+
+        if (!prologueCompleted) return;
 
         // ищем нужный шаг и при необходимости «откатываемся» по цепочке
         _currentStepIndex = _steps.FindIndex(s => (int)s.TutorialStepEnum == tutorialStepIndex);

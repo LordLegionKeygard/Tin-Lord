@@ -21,6 +21,9 @@ public class PrologueSystem : MonoBehaviour
     private void OnPrologueFinished()
     {
         _spaceSaveGame.CompletePrologue();
-        if(_tutorialSystem.IsStartTutorial()) _tutorialSystem.LoadTutorial(0, true);
+        if (_tutorialSystem.IsStartTutorial() && !_tutorialSystem.IsCompleteAllTutorial())
+        {
+            _tutorialSystem.LoadTutorial(0, true);
+        }
     }
 }
