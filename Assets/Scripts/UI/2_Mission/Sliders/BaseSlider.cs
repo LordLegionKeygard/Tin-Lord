@@ -17,6 +17,7 @@ public class BaseSlider : MonoBehaviour
 
     public void HideSlider()
     {
+        if (_slider == null) return;
         _slider.gameObject.SetActive(false);
     }
 
