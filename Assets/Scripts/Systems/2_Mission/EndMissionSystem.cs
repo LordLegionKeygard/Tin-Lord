@@ -40,6 +40,7 @@ public class EndMissionSystem : MonoBehaviour
     private void MissionEnd(MissionEndEnum missionEndEnum)
     {
         if (_isMissionEnd) return;
+        _isMissionEnd = true;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EndMission[(int)missionEndEnum], transform.position);
         PrepareEndMission();
         SetMissionEndViewInfo(missionEndEnum);
@@ -47,8 +48,7 @@ public class EndMissionSystem : MonoBehaviour
     }
 
     private void PrepareEndMission()
-    {
-        _isMissionEnd = true;
+    {       
         _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default, false);
         StopAllCoroutines();
         _uiPanelsMission.CloseAllPanels();

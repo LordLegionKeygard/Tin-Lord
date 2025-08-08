@@ -51,8 +51,8 @@ public class TimeTickSystem : MonoBehaviour
                 _currentDay++;
                 _currentTick = 0;
                 UpdateDayText();
-                CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.SurviveDays, _currentDay);
                 CustomEvents.FireDayEnd(_currentDay);
+                CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.SurviveDays, _currentDay);
             }
 
             _timeView.UpdateCellSlotsView(_currentTick);

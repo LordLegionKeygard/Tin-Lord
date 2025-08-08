@@ -57,6 +57,9 @@ public class MissionSaveLoad : MonoBehaviour
     [Header("Hazards")]
     [SerializeField] private SpawnedHazardSystem _spawnedHazardSystem;
 
+    [Header("EndMissionSystem")]
+    [SerializeField] private EndMissionSystem _endMissionSystem;
+
     private void Awake()
     {
         _missionSaveGame.MissionSaveLoad = this;
@@ -259,7 +262,7 @@ public class MissionSaveLoad : MonoBehaviour
 
     public void AutoSave(int day)
     {
-        if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionGoodLuckDescription_63) return;
+        if (_endMissionSystem.IsMissionEnd() || _tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionGoodLuckDescription_63) return;
         _missionSaveGame.SaveMissionToJson();
     }
 
