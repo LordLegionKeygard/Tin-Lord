@@ -25,6 +25,7 @@ MonoBehaviour:
   IsFourTile: 0
   CanBuildMachineProduction: 1
   BuildingTypes:
+  - {fileID: 11400000, guid: af5bae1ce98b11748b6ce75629ca4056, type: 2}
   - {fileID: 11400000, guid: 147750dcd60d8704bbf754bd005c7a82, type: 2}
   - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
   - {fileID: 11400000, guid: 2a6e5ea87cd8f04448bcf8887c8981e0, type: 2}
@@ -33,6 +34,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f75a197b363f67549bc847eb987e8084, type: 2}
   - {fileID: 11400000, guid: 2bede6007fa81aa46841bf4bb9d9a476, type: 2}
   ProductionOnGroundResources:
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1.5
   - ProductionOnGroundResource: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046,
       type: 2}
     ProductionOnGroundResourceModifier: 0.5

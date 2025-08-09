@@ -28,7 +28,6 @@ public class BuildingProductionView : MonoBehaviour
 
     [Header("TreeViewModifier")]
     [SerializeField] private GameObject[] _trees;
-    private float _changeTreeIfModifier = 0.5f;
 
     [Header("Resource")]
     [SerializeField] private bool _needSetResourceView;
@@ -47,28 +46,31 @@ public class BuildingProductionView : MonoBehaviour
 
     public void RefreshModifierView()
     {
-        if (_trees.Length != 0)
-        {
-            SetTreeModifierView(_changeTreeIfModifier != _tileObject.CurrentModifier());
-        }
+        SetTreeView();
         CheckMainBuildingView();
     }
 
-    private void SetTreeModifierView(bool state)
+    private void SetTreeView()
     {
-        if (_tileObject.CurrentModifier() == 0)
+        if (_trees.Length == 0) return;
+
+        foreach (var item in _trees)
         {
-            foreach (var item in _trees)
-            {
-                item.SetActive(false);
-            }
+            item.SetActive(false);
         }
-        else
+
+        var biomEnum = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.BiomEnum;
+        switch (_tileObject.GroundTileObject().CurrentGroundTile().GroundTileView)
         {
-            var biomEnum = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.BiomEnum;
-            var treeNumber = biomEnum == BiomEnum.Winter ? 2 : 1;
-            _trees[treeNumber].SetActive(state);
-            _trees[0].SetActive(!state); // мертвое дерево
+            case GroundTileViewEnum.Forest:
+                _trees[biomEnum == BiomEnum.Winter ? 4 : 0].SetActive(true);
+                break;
+            case GroundTileViewEnum.Oasis:
+                _trees[1].SetActive(true);
+                break;
+            case GroundTileViewEnum.DeadForest:
+                _trees[2].SetActive(true);
+                break;
         }
     }
 

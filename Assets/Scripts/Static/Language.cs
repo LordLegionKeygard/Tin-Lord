@@ -1118,8 +1118,8 @@ public class Language : MonoBehaviour
         _text[346, 1] = "Например, если поставить равнину вплотную к горе.\n\nТайл равнины превратится в луг.\n\nНа нем вы сможете создавать другие типы зданий и повысите экологию.";
 
         // MissionTileCombineDescription3_47
-        _text[347, 0] = "But be careful when setting a desert near a forest.\n\nThis will turn the forest into an oasis and the wood production will stop.";
-        _text[347, 1] = "Но будьте осторожны в установке пустыни возле леса.\n\nТаким образом лес превратится в оазис и добыча дерева на нем прекратится.";
+        _text[347, 0] = "But be careful when setting a desert near a forest.\n\nThis will turn the forest into an oasis.\n\nThe wood production modifier will increase, but the ecology will be less.";
+        _text[347, 1] = "Но будьте осторожны в установке пустыни возле леса.\n\nТаким образом лес превратится в оазис.\n\nМодификатор добычи дерева повысится, но экология станет меньше.";
 
         // MissionSelectForestTileWithWoodExtractionBuilding_48
         _text[348, 0] = "Click on the \"Forest\" tile where wood is mined.";
