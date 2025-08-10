@@ -789,6 +789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1334274509591656996}
   - component: {fileID: 166625312}
+  - component: {fileID: 5687727897059251377}
   m_Layer: 0
   m_Name: ErrorReport
   m_TagString: Untagged
@@ -827,6 +828,18 @@ MonoBehaviour:
   _errorDetecingUI: {fileID: 1334274509590607896}
   _errorText: {fileID: 1334274508220706642}
   _copyButton: {fileID: 1334274508986980078}
+--- !u!114 &5687727897059251377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334274509591656999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5987c4dc352682c46be857ad9f298a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1334274509674275744
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,4 +71,5 @@ public enum UiClickEnum
     SelectTile = 7,
     Buy = 8,
     Error = 9,
+    ChangeCard = 10,
 }

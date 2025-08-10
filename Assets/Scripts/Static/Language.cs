@@ -1106,8 +1106,8 @@ public class Language : MonoBehaviour
         _text[343, 1] = "Теперь когда база защищена, включите работу в здании \"Поселение\".\n\nОчень важно начать добывать фрагменты данных.";
 
         // MissionEnergyBeamDescription_44
-        _text[344, 0] = "If your deck exceeds 8 terrain cards, the extras begin to disappear, generating beam energy in return.\n\nIt is required to destroy already placed landscape cards.";
-        _text[344, 1] = "Если колода карт ландшафтов превышает 8 карт, лишние карты начинают исчезать, давая взамен энергию луча.\n\nОна требуется для уничтожения уже установленных карт ландшафтов.";
+        _text[344, 0] = "If your deck exceeds 8 terrain cards, the extras begin to disappear, generating beam energy in return.\n\nIt is required to replace a card in your hand with a random one and to destroy already placed landscape cards.";
+        _text[344, 1] = "Если колода карт ландшафтов превышает 8 карт, лишние карты начинают исчезать, давая взамен энергию луча.\n\nОна требуется для замены карты в руке на случайную и для уничтожения уже установленных карт ландшафтов";
 
         // MissionTileCombineDescription1_45
         _text[345, 0] = "Proper placement of terrain tiles is the key to successfully completing the mission.\n\nYou can combine them to create new tiles.";
@@ -1122,8 +1122,8 @@ public class Language : MonoBehaviour
         _text[347, 1] = "Но будьте осторожны в установке пустыни возле леса.\n\nТаким образом лес превратится в оазис.\n\nМодификатор добычи дерева повысится, но экология станет меньше.";
 
         // MissionSelectForestTileWithWoodExtractionBuilding_48
-        _text[348, 0] = "Click on the \"Forest\" tile where wood is mined.";
-        _text[348, 1] = "Нажмите на тайл \"Лес\", на котором добывается дерево.";
+        _text[348, 0] = "Click on the tile where wood is mined.";
+        _text[348, 1] = "Нажмите на тайл, где добывается дерево.";
 
         // MissionProductionModifierDescription_49
         _text[349, 0] = "Look at the resource extraction modifier.\n\nThe modifier may differ on different tiles.\n\nThus, there are profitable and unprofitable tiles for extracting a particular resource.";

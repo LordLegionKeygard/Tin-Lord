@@ -39,6 +39,7 @@ public class EndMissionSystem : MonoBehaviour
 
     private void MissionEnd(MissionEndEnum missionEndEnum)
     {
+        CustomEvents.FireCloseTooltips();
         if (_isMissionEnd) return;
         _isMissionEnd = true;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EndMission[(int)missionEndEnum], transform.position);

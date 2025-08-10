@@ -86,7 +86,7 @@ public class CardHolderSystem : MonoBehaviour
     {
         if (_currentSelectCardObject == null) return;
 
-        _currentSelectCardObject.CardObjectViewToggle(false);
+        _currentSelectCardObject.SelectViewToggle(false);
         ClearCardHolderSystem();
     }
 
@@ -179,7 +179,7 @@ public class CardHolderSystem : MonoBehaviour
     public void SelectCardInCardHolder(CardObject newCardObject)
     {
         _tileDetector.ClearTileDetector();
-        if (_currentSelectCardObject != null) _currentSelectCardObject.CardObjectViewToggle(false);
+        if (_currentSelectCardObject != null) _currentSelectCardObject.SelectViewToggle(false);
         _currentSelectCardObject = newCardObject;
     }
 
@@ -199,7 +199,7 @@ public class CardHolderSystem : MonoBehaviour
     private void AddCardAfterSetBase(int level)
     {
         if (level > 1) return;
-        
+
         AddNewCards(_startCards);
         AddNewRandomCards(2);
     }
@@ -213,6 +213,22 @@ public class CardHolderSystem : MonoBehaviour
     {
         _currentSelectCardObject = null;
     }
+
+    public Tile GetRandomAvailableCardExcept(Tile except)
+    {
+        List<Tile> pool = new();
+        for (int i = 0; i < _availableCards.Length; i++)
+        {
+            var t = _availableCards[i];
+            if (t != null && t.GroundTileView != except.GroundTileView)
+            {
+                pool.Add(t);
+            }
+        }
+
+        return pool[Random.Range(0, pool.Count)];
+    }
+
 
     private void OnDestroy()
     {
