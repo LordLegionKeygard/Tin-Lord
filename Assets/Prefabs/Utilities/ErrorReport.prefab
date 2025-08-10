@@ -789,7 +789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1334274509591656996}
   - component: {fileID: 166625312}
-  - component: {fileID: 5687727897059251377}
+  - component: {fileID: 1297189205689683293}
   m_Layer: 0
   m_Name: ErrorReport
   m_TagString: Untagged
@@ -828,7 +828,7 @@ MonoBehaviour:
   _errorDetecingUI: {fileID: 1334274509590607896}
   _errorText: {fileID: 1334274508220706642}
   _copyButton: {fileID: 1334274508986980078}
---- !u!114 &5687727897059251377
+--- !u!114 &1297189205689683293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

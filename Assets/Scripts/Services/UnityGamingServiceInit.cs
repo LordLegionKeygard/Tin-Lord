@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.Services.Core;
 using Unity.Services.Core.Environments;
 
-public class UgsInit : MonoBehaviour
+public class UnityGamingServiceInit : MonoBehaviour
 {
     async void Awake()
     {

@@ -67,7 +67,7 @@ public class TutorialSystem : MonoBehaviour
 
     public void LoadTutorial(int tutorialStepIndex, bool prologueCompleted)
     {
-        if (tutorialStepIndex == (int)TutorialStepEnum.CompleteAllTutorials_69)
+        if (tutorialStepIndex >= (int)TutorialStepEnum.CompleteAllTutorials_69)
         {
             _isCompleteAllTutorials = true;
             return;
