@@ -18,6 +18,7 @@ public class SkillTraderPanel : MonoBehaviour
         _currentSkill = null;
         _priceText.text = "0";
         _buttonImage.sprite = _buttonSprites[1];
+        _buyButton.interactable = false;
         _priceText.color = Colors.GreySeven;
         ResetToggleItems();
 
