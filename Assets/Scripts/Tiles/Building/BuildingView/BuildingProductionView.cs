@@ -63,7 +63,7 @@ public class BuildingProductionView : MonoBehaviour
         switch (_tileObject.GroundTileObject().CurrentGroundTile().GroundTileView)
         {
             case GroundTileViewEnum.Forest:
-                _trees[biomEnum == BiomEnum.Winter ? 4 : 0].SetActive(true);
+                _trees[biomEnum == BiomEnum.Winter ? 3 : 0].SetActive(true);
                 break;
             case GroundTileViewEnum.Oasis:
                 _trees[1].SetActive(true);

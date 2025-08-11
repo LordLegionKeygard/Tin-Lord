@@ -38,4 +38,5 @@ public enum Tags
     Tree = 1,
     Coal = 2,
     Plant = 3,
+    Rock = 4,
 }

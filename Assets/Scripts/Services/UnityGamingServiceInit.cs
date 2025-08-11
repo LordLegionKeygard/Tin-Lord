@@ -8,8 +8,7 @@ public class UnityGamingServiceInit : MonoBehaviour
     {
         try
         {
-            var opts = new InitializationOptions()
-                .SetEnvironmentName("production"); // или свой env, если используешь
+            var opts = new InitializationOptions().SetEnvironmentName("production");
             await UnityServices.InitializeAsync(opts);
         }
         catch (System.Exception e)
