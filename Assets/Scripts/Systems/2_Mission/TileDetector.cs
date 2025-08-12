@@ -5,6 +5,7 @@ public class TileDetector : MonoBehaviour
 {
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly TilesSystem _tilesSystem;
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private TileObject _currentTileObject;
@@ -70,7 +71,7 @@ public class TileDetector : MonoBehaviour
 
     public void InputOnTile()
     {
-        if (_scrollViewInteraction.IsScrolling() || _skillTargetSystem.IsActive() || !_tutorialSystem.CanInputOnTile()) return;
+        if (_scrollViewInteraction.IsScrolling() || _skillTargetSystem.IsActive() || !_tutorialSystem.CanInputOnTile() || !_missionModeSystem.IsPlanetMode()) return;
 
         if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() && _currentTileObject != null)
         {

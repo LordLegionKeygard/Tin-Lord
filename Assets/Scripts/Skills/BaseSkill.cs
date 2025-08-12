@@ -3,6 +3,7 @@ using Zenject;
 
 public class BaseSkill : MonoBehaviour
 {
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [Inject] protected TutorialSystem TutorialSystem;
     [Inject] protected MissionResources MissionResources;
     public SkillView SkillView;
@@ -42,7 +43,7 @@ public class BaseSkill : MonoBehaviour
         CheckDuration(_skill.DurationTicks);
     }
 
-    public virtual bool CantUseSkill() => SkillView.IsCooldownNow() || !_isOpen || !ResourceEnough() || !TutorialSystem.CanUseSkill();
+    public virtual bool CantUseSkill() => SkillView.IsCooldownNow() || !_isOpen || !ResourceEnough() || !TutorialSystem.CanUseSkill() || !_missionModeSystem.IsPlanetMode();
 
     public virtual void UseResources()
     {

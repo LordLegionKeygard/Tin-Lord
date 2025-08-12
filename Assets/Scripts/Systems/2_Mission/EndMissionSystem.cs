@@ -52,7 +52,7 @@ public class EndMissionSystem : MonoBehaviour
     {       
         _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default, false);
         StopAllCoroutines();
-        _uiPanelsMission.CloseAllPanels();
+        _uiPanelsMission.UnactiveAllPanelsAfterEndMission();
     }
 
     private void SetMissionEndViewInfo(MissionEndEnum missionEndEnum)

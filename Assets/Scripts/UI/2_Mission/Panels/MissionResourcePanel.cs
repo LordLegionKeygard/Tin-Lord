@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 public class MissionResourcePanel : MonoBehaviour
 {
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private PanelDoMoveX _panelDoMoveX;
     [SerializeField] private Button _button;
@@ -15,6 +17,8 @@ public class MissionResourcePanel : MonoBehaviour
 
     public void PanelMove(bool needSound = true)
     {
+        if (!_missionModeSystem.IsPlanetMode()) return;
+
         if (!_tutorialSystem.IsCompleteMissionTutorial())
         {
             CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionOpenResourcePanel_19);
@@ -24,6 +28,11 @@ public class MissionResourcePanel : MonoBehaviour
 
         _panelDoMoveX.PanelMove(needSound);
 
+    }
+
+    public void PanelClose()
+    {
+        _panelDoMoveX.PanelClose();
     }
 
     private void OpenOrClosePanel(TutorialStepEnum tutorialStepEnum)

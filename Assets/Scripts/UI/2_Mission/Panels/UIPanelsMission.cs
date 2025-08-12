@@ -3,6 +3,7 @@ using Zenject;
 
 public class UIPanelsMission : MonoBehaviour
 {
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TileDetector _tileDetector;
@@ -18,6 +19,8 @@ public class UIPanelsMission : MonoBehaviour
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private EscapePanelMission _escapePanel;
     [SerializeField] private SettingsPanels _settingsPanel;
+    [SerializeField] private MissionResourcePanel _missionResourcePanel;
+    [SerializeField] private MissionHolderPanel _missionHolderPanel;
 
     public void MainPanelsViewToggle(bool selectTilePanel, bool machinePanel)
     {
@@ -57,8 +60,18 @@ public class UIPanelsMission : MonoBehaviour
         }
     }
 
+    public void PreparePanelsToShipMode()
+    {
+        _skillTargetSystem.CancelSkillCircle();
+        _selectTilePanel.PanelViewToggle(false);
+        _missionResourcePanel.PanelClose();
+        _missionHolderPanel.PanelClose();
+        ClearAndCancelCardHolderAndTileDetector();
+    }
+
     public void ClearAndCancelCardHolderAndTileDetector()
     {
+        if (!_missionModeSystem.IsPlanetMode()) return;
         CustomEvents.FireTooltipToggle(false, 0);
         if (_tutorialSystem.CanClearTileDetector())
         {
@@ -123,7 +136,7 @@ public class UIPanelsMission : MonoBehaviour
         _selectTilePanels[13].SetActive(false);
     }
 
-    public void CloseAllPanels()
+    public void UnactiveAllPanelsAfterEndMission()
     {
         foreach (var item in _mainPanels)
         {

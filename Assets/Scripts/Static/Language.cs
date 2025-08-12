@@ -705,11 +705,11 @@ public class Language : MonoBehaviour
         _text[225, 0] = "Go";
         _text[225, 1] = "Перейти";
 
-        _text[226, 0] = "";
-        _text[226, 1] = "";
+        _text[226, 0] = "PLANET";
+        _text[226, 1] = "ПЛАНЕТА";
 
-        _text[227, 0] = "";
-        _text[227, 1] = "";
+        _text[227, 0] = "SHIP";
+        _text[227, 1] = "КОРАБЛЬ";
 
         _text[228, 0] = "";
         _text[228, 1] = "";

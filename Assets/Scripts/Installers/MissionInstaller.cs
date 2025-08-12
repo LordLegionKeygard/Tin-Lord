@@ -19,6 +19,7 @@ public class MissionInstaller : MonoInstaller
     [SerializeField] private MissionHangarSystem _missionHangarSystem;
     [SerializeField] private TutorialSystem _tutorialSystem;
     [SerializeField] private TileViewSystem _tileViewSystem;
+    [SerializeField] private MissionModeSystem _missionModeSystem;
 
     public override void InstallBindings()
     {
@@ -38,5 +39,6 @@ public class MissionInstaller : MonoInstaller
         Container.Bind<MissionHangarSystem>().FromInstance(_missionHangarSystem).AsSingle();
         Container.Bind<TutorialSystem>().FromInstance(_tutorialSystem).AsSingle();
         Container.Bind<TileViewSystem>().FromInstance(_tileViewSystem).AsSingle();
+        Container.Bind<MissionModeSystem>().FromInstance(_missionModeSystem).AsSingle();
     }
 }

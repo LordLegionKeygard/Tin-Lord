@@ -1,7 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class SkillTargetSystem : MonoBehaviour
 {
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [SerializeField] private float _maxDistance;
     [SerializeField] private LayerMask _mask;
     [SerializeField] private Transform _target;
@@ -23,6 +25,7 @@ public class SkillTargetSystem : MonoBehaviour
 
     public void CancelSkillCircle()
     {
+        if (!_missionModeSystem.IsPlanetMode()) return;
         _target.gameObject.SetActive(false);
         _isActive = false;
     }
