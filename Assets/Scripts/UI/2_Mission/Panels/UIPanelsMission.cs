@@ -32,6 +32,8 @@ public class UIPanelsMission : MonoBehaviour
 
     public void EscapeClick()
     {
+        if (!_tutorialSystem.IsCompleteMissionTutorial()) return;
+        
         _skillTargetSystem.CancelSkillCircle();
         if (_selectTilePanels[0].activeInHierarchy)
         {
@@ -55,7 +57,6 @@ public class UIPanelsMission : MonoBehaviour
         }
         else
         {
-            if (!_tutorialSystem.IsCompleteAllTutorial() && _tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionGoodLuckDescription_63) return;
             _escapePanel.PanelViewToggle(true);
         }
     }

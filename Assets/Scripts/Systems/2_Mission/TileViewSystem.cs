@@ -21,6 +21,7 @@ public class TileViewSystem : MonoBehaviour
 
     public void UnactiveRadius()
     {
+        if (_attackStructureRadiusView == null) return;
         _attackStructureRadiusView.SetActive(false);
     }
 }
