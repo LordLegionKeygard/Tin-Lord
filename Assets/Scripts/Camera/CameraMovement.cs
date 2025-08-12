@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class CameraMovement : MonoBehaviour
 {
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [SerializeField] private float _cameraSpeedCoeff;
     [SerializeField] private Camera _camera;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
+    [SerializeField] private MissionInputSystem _missionInputSystem;
 
     [Header("Horizontal Translation")]
     [SerializeField] private float _currentMaxSpeed;
@@ -76,8 +79,10 @@ public class CameraMovement : MonoBehaviour
         UpdateBasePosition();
         UpdateCameraPosition();
         ChangeMaxSpeed();
-        HandleMouseDrag();
         UpdateLimits();
+        if (!_missionModeSystem.IsPlanetMode()) return;
+
+        HandleMouseDrag();
     }
 
     private void HandleMouseDrag()
@@ -124,8 +129,8 @@ public class CameraMovement : MonoBehaviour
 
     private void GetKeyboardMovement()
     {
-        Vector3 inputValue = MissionInputSystem.Instance.MoveInput.x * GetCameraRight()
-                    + MissionInputSystem.Instance.MoveInput.y * GetCameraForward();
+        Vector3 inputValue = _missionInputSystem.MoveInput.x * GetCameraRight()
+                    + _missionInputSystem.MoveInput.y * GetCameraForward();
 
         inputValue = inputValue.normalized;
 

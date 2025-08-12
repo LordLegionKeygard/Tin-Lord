@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 public class MissionInputSystem : MonoBehaviour
 {
-    public static MissionInputSystem Instance;
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     private PlayerInput _playerInput;
 
     //CameraControl
@@ -76,16 +77,11 @@ public class MissionInputSystem : MonoBehaviour
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private MissionHolderPanel _missionHolderPanel;
     [SerializeField] private BaseSkill[] _skills;
+    [SerializeField] private ShipCannonAimer _leftShipCannon;
+    [SerializeField] private ShipCannonAimer _rightShipCannon;
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Debug.LogWarning("More than one instance of PlayerInputSystem found!");
-            return;
-        }
-        Instance = this;
-
         _playerInput = GetComponent<PlayerInput>();
     }
 
@@ -201,6 +197,17 @@ public class MissionInputSystem : MonoBehaviour
     private void UpdateInputs()
     {
         MoveInput = _playerInput.actions["CameraMovement"].ReadValue<Vector2>();
+
+        if (!_missionModeSystem.IsPlanetMode() && _playerInput.actions["LeftMouseClick"].IsPressed() && !IsPointerOverUISystem.IsPointerOverUI)
+        {
+            _leftShipCannon.TryFireHold();
+        }
+
+        if (!_missionModeSystem.IsPlanetMode() && _playerInput.actions["RightMouseClick"].IsPressed() && !IsPointerOverUISystem.IsPointerOverUI)
+        {
+            _rightShipCannon.TryFireHold();
+        }
+
     }
 
     public void InputToggle(bool state)

@@ -7,7 +7,7 @@ public class CardHolderSystem : MonoBehaviour
 {
     [Inject] private readonly DiContainer _diContainer;
     [Inject] private readonly TilesSystem _tilesSystem;
-    [Inject] MissionResources _missionResources;
+    [Inject] private readonly MissionResources _missionResources;
 
     [Header("Test")]
     [SerializeField] private bool _addAllCards;
