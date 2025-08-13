@@ -94,16 +94,4 @@ public class ShipCannonAimer : MonoBehaviour
             _shipCannonInfo.ImpactYOffset
         );
     }
-
-
-    private static Vector3 RandomSpread(float spreadDeg)
-    {
-        if (spreadDeg <= 0f) return Vector3.zero;
-        // небольшой конус вокруг forward
-        return new Vector3(
-            Random.Range(-spreadDeg, spreadDeg),
-            Random.Range(-spreadDeg, spreadDeg),
-            0f
-        );
-    }
 }
