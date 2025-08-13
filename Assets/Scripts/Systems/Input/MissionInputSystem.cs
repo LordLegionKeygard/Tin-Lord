@@ -34,6 +34,8 @@ public class MissionInputSystem : MonoBehaviour
     private Escape _escape;
     public delegate void ResourcePanel(bool state);
     private ResourcePanel _resourcePanel;
+    public delegate void ChangeMode();
+    private ChangeMode _changeMode;
 
     //SelectTilePanel
     private delegate void SelectNumbers(InputAction.CallbackContext context);
@@ -123,6 +125,7 @@ public class MissionInputSystem : MonoBehaviour
         //UserInterface
         _playerInput.actions["Escape"].performed += _ => _escape();
         _playerInput.actions["ResourcePanel"].performed += _ => _resourcePanel(true);
+        _playerInput.actions["ChangeMode"].performed += _ => _changeMode();
 
         //SelectTilePanel
         _playerInput.actions["SelectNumbers"].performed += ctx => _selectNumbers(ctx);
@@ -157,6 +160,7 @@ public class MissionInputSystem : MonoBehaviour
         //UserInterface
         _escape = new Escape(_uiPanels.EscapeClick);
         _resourcePanel = new ResourcePanel(_resourcesPanel.PanelMove);
+        _changeMode = new ChangeMode(_missionModeSystem.ChangeMode);
 
         //SelectTilePanel
         _selectNumbers = new SelectNumbers(OnNumberInput);

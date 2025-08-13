@@ -51,6 +51,10 @@ public class FMODEvents : MonoBehaviour
     public EventReference[] DeathExplosion;
 
 
+    [Header("ShipMode")] 
+    public EventReference TurnOnShipMode;
+    public EventReference TurnOffShipMode;
+
     private void Awake()
     {
         if (Instance != null) Debug.LogError("Two FMODEvents");

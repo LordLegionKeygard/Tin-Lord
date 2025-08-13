@@ -16,13 +16,13 @@ public class MissionModeSystem : MonoBehaviour
     [SerializeField] private CanvasGroup[] _canvasGroups;
 
     [Header("Ship Mode")]
-    [SerializeField] private Transform _shipWeaponParentObjects;    // корень 3D пушек (тут твиним localPosition.y)
-
-    [SerializeField] private float _hiddenY = -40f;
-    [SerializeField] private float _shownY = 0f;
-    [SerializeField] private float _showDuration = 0.45f;
-    [SerializeField] private float _hideDuration = 0.35f;
+    [SerializeField] private Transform _shipWeaponParentObjects;
     [SerializeField] private ScreenCornerAnchor3D[] _screenCornerAnchor3D;
+
+    private float _hiddenY = -50f;
+    private float _shownY = 0f;
+    private float _showDuration = 0.45f;
+    private float _hideDuration = 0.35f;
 
     private Tween _shipTween;
 
@@ -59,10 +59,12 @@ public class MissionModeSystem : MonoBehaviour
 
         if (_isPlanetMode)
         {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TurnOffShipMode, transform.position);
             PlayHideShipMode();
         }
         else
         {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TurnOnShipMode, transform.position);
             _uiPanelsMission.PreparePanelsToShipMode();
             PlayShowShipMode();
         }

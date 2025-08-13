@@ -12,14 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5854075feb471c440a1370bbaaac600c, type: 3}
   m_Name: TestRightShipCannonInfo
   m_EditorClassIdentifier: 
-  BulletType: 13
-  FireRate: 1
-  BulletSpeed: 120
+  BulletType: 14
+  FireRate: 0.3
+  BulletSpeed: 150
   SpreadDeg: 0
   LifeTime: 3
-  Damage: 4
-  Knockback: 0
-  ExplosionDamage: 2
+  ExplosionDamage: 10
   ExplosionPrefab: {fileID: 1892133220914832, guid: d0425cdc5a3b1054ea3074c0ac89bff0,
     type: 3}
   ImpactYOffset: 0
