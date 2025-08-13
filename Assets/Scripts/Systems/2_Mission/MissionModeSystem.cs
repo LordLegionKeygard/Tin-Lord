@@ -16,11 +16,10 @@ public class MissionModeSystem : MonoBehaviour
     [SerializeField] private CanvasGroup[] _canvasGroups;
 
     [Header("Ship Mode")]
-    [SerializeField] private GameObject _shipWeaponCamera;          // объект камеры оружия (или её корневой GO)
     [SerializeField] private Transform _shipWeaponParentObjects;    // корень 3D пушек (тут твиним localPosition.y)
 
-    [SerializeField] private float _hiddenY = -30f;                 // спрятано
-    [SerializeField] private float _shownY = 0f;                    // показано
+    [SerializeField] private float _hiddenY = -40f;
+    [SerializeField] private float _shownY = 0f;
     [SerializeField] private float _showDuration = 0.45f;
     [SerializeField] private float _hideDuration = 0.35f;
     [SerializeField] private ScreenCornerAnchor3D[] _screenCornerAnchor3D;
@@ -33,14 +32,12 @@ public class MissionModeSystem : MonoBehaviour
         // выставляем стейт без анимации
         if (_isPlanetMode)
         {
-            _shipWeaponCamera.SetActive(false);
             var pos = _shipWeaponParentObjects.localPosition;
             pos.y = _hiddenY;
             _shipWeaponParentObjects.localPosition = pos;
         }
         else
         {
-            _shipWeaponCamera.SetActive(true);
             var pos = _shipWeaponParentObjects.localPosition;
             pos.y = _shownY;
             _shipWeaponParentObjects.localPosition = pos;
@@ -75,12 +72,6 @@ public class MissionModeSystem : MonoBehaviour
         SetAnchorsActive(false);
         SetCanvasGroupsAlpha(0);
 
-        // активируем камеру перед показом
-        if (_shipWeaponCamera && !_shipWeaponCamera.activeSelf)
-        {
-            _shipWeaponCamera.SetActive(true);
-        }
-
         // убьём прошлую анимацию, если была
         _shipTween?.Kill();
 
@@ -101,15 +92,7 @@ public class MissionModeSystem : MonoBehaviour
 
         _shipTween?.Kill();
 
-        _shipTween = _shipWeaponParentObjects.DOLocalMoveY(_hiddenY, _hideDuration).SetEase(Ease.InCubic).SetUpdate(true)
-            .OnComplete(() =>
-            {
-                // после ухода выключаем камеру
-                if (_shipWeaponCamera && _shipWeaponCamera.activeSelf)
-                {
-                    _shipWeaponCamera.SetActive(false);
-                }
-            });
+        _shipTween = _shipWeaponParentObjects.DOLocalMoveY(_hiddenY, _hideDuration).SetEase(Ease.InCubic).SetUpdate(true);
     }
 
     private void SetAnchorsActive(bool state)
@@ -120,9 +103,10 @@ public class MissionModeSystem : MonoBehaviour
 
     private void SetCanvasGroupsAlpha(int alpha)
     {
-        foreach (var cg in _canvasGroups)
+        foreach (var item in _canvasGroups)
         {
-            cg.DOFade(alpha, _showDuration * 0.8f).SetEase(Ease.OutQuad).SetUpdate(true);
+            item.DOFade(alpha, _showDuration * 0.8f).SetEase(Ease.OutQuad).SetUpdate(true);
+            item.interactable = alpha == 1;
         }
     }
 

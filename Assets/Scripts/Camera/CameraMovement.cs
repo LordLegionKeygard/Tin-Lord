@@ -7,7 +7,6 @@ public class CameraMovement : MonoBehaviour
     [Inject] private readonly MissionModeSystem _missionModeSystem;
     [SerializeField] private float _cameraSpeedCoeff;
     [SerializeField] private Camera _camera;
-    [SerializeField] private Camera _shipCamera;
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private MissionInputSystem _missionInputSystem;
@@ -181,17 +180,14 @@ public class CameraMovement : MonoBehaviour
         if (Mathf.Abs(inputValue) > 0.1f)
         {
             _camera.orthographicSize += inputValue * _stepSize;
-            _shipCamera.orthographicSize += inputValue * _stepSize;
 
             if (_camera.orthographicSize < _minHeight)
             {
                 _camera.orthographicSize = _minHeight;
-                _shipCamera.orthographicSize = _minHeight;
             }
             else if (_camera.orthographicSize > _maxHeight)
             {
                 _camera.orthographicSize = _maxHeight;
-                _shipCamera.orthographicSize = _maxHeight;
             }
         }
     }
