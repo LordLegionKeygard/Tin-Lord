@@ -31,6 +31,6 @@ public class PanelDoMoveY : MonoBehaviour
     public void PanelClose()
     {
         _isOpen = false;
-        _objectTransform.DOAnchorPosX(-_openPositionY, _moveSpeed).SetUpdate(true);
+        _objectTransform.DOAnchorPosY(_closePositionY, _moveSpeed).SetUpdate(true);
     }
 }

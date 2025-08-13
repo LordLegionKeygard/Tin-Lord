@@ -17,26 +17,26 @@ public class ShipCannonAimer : MonoBehaviour
     [SerializeField] private float _fallbackGroundY = 0f;
 
     [Header("Other")]
-    [SerializeField] private float _rotationSpeedDeg = 540f;
+    [SerializeField] private GameSpeedSystem _gameSpeedSystem;
+    [SerializeField] private ShipCannonsPanel _shipCannonsPanel;
+    [SerializeField] private bool _isLeftCannon;
     [SerializeField] private ParticleSystem _muzzlePs;
-    [SerializeField] private ShipCannonInfo _shipCannonInfo;
     [SerializeField] private Camera _camera;
+    private readonly float _rotationSpeedDeg = 540f;
     private float _cooldown;
 
     private void Update()
     {
         if (_cooldown > 0f)
+        {
             _cooldown -= Time.deltaTime;
+        }
     }
 
     private void LateUpdate()
     {
-        // игнор, если мышь над UI
         if (IsPointerOverUISystem.IsPointerOverUI) return;
 
-        if (_camera == null || _cannonPivot == null) return;
-
-        // Луч из камеры в курсор
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         // Целевая точка на земле
@@ -61,22 +61,23 @@ public class ShipCannonAimer : MonoBehaviour
         Quaternion targetRot = Quaternion.LookRotation(dir.normalized, Vector3.up);
 
         // Плавный доворот
-        _cannonPivot.rotation = Quaternion.RotateTowards(
-            _cannonPivot.rotation, targetRot, _rotationSpeedDeg * Time.deltaTime);
+        _cannonPivot.rotation = Quaternion.RotateTowards(_cannonPivot.rotation, targetRot, _rotationSpeedDeg * Time.unscaledDeltaTime);
     }
 
     public void TryFireHold()
     {
-        if (_cooldown > 0f) return;
-        Fire();
-        _cooldown = (_shipCannonInfo.FireRate > 0f) ? 1f / _shipCannonInfo.FireRate : 0f;
+        if (_cooldown > 0f || !_shipCannonsPanel.IsHaveShipCannonBulletsCount(_isLeftCannon) || _gameSpeedSystem.IsPause()) return;
+        var shipCannonInfo = _shipCannonsPanel.GetShipCannonInfo(_isLeftCannon);
+        Fire(shipCannonInfo);
+        _cooldown = (shipCannonInfo.FireRate > 0f) ? 1f / shipCannonInfo.FireRate : 0f;
     }
 
-    public void Fire()
+    public void Fire(ShipCannonInfo shipCannonInfo)
     {
+        _shipCannonsPanel.UseBullet(_isLeftCannon);
         RecoilAnim();
         _muzzlePs.Play();
-        var go = _bulletsPool.GetBullet(_shipCannonInfo.BulletType);
+        var go = _bulletsPool.GetBullet(shipCannonInfo.BulletType);
 
         go.transform.SetPositionAndRotation(_firePoint.position, _firePoint.rotation);
 
@@ -85,12 +86,12 @@ public class ShipCannonAimer : MonoBehaviour
 
         bullet.Setup(
             _bulletsPool,
-            _shipCannonInfo.BulletType,
-            _shipCannonInfo.BulletSpeed,
-            _shipCannonInfo.ExplosionDamage,
-            _shipCannonInfo.LifeTime,
-            _shipCannonInfo.ExplosionPrefab,
-            _shipCannonInfo.ImpactYOffset
+            shipCannonInfo.BulletType,
+            shipCannonInfo.BulletSpeed,
+            shipCannonInfo.ExplosionDamage,
+            shipCannonInfo.LifeTime,
+            shipCannonInfo.ExplosionPrefab,
+            shipCannonInfo.ImpactYOffset
         );
     }
 
@@ -100,9 +101,7 @@ public class ShipCannonAimer : MonoBehaviour
         float recoilTime = 0.1f;    // время отката
         float returnTime = 0.2f;     // время возврата
 
-        _modelTransform.DOLocalMoveZ(-recoilDistance, recoilTime)
-            .SetRelative(true)
-            .SetEase(Ease.Linear)
+        _modelTransform.DOLocalMoveZ(-recoilDistance, recoilTime).SetRelative(true).SetEase(Ease.Linear)
             .OnComplete(() =>
             {
                 _modelTransform.DOLocalMoveZ(recoilDistance, returnTime)

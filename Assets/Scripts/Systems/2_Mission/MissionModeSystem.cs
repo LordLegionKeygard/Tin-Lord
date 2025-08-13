@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class MissionModeSystem : MonoBehaviour
 {
     private bool _isPlanetMode = true;
-    public bool IsPlanetMode() => _isPlanetMode;
-    [SerializeField] private UIPanelsMission _uiPanelsMission;
+    [SerializeField] private ShipCannonsPanel _shipCannonsPanel;
 
     [Header("View")]
     [SerializeField] private Image _modeImage;
@@ -19,53 +18,44 @@ public class MissionModeSystem : MonoBehaviour
     [SerializeField] private Transform _shipWeaponParentObjects;
     [SerializeField] private ScreenCornerAnchor3D[] _screenCornerAnchor3D;
 
-    private float _hiddenY = -50f;
-    private float _shownY = 0f;
-    private float _showDuration = 0.45f;
-    private float _hideDuration = 0.35f;
-
+    private readonly float _hiddenY = -70f;
+    private readonly float _shownY = 0f;
+    private readonly float _showDuration = 0.45f;
+    private readonly float _hideDuration = 0.35f;
     private Tween _shipTween;
 
-    public void LoadMode(bool isPlanetMode)
+    public bool IsPlanetMode() => _isPlanetMode;
+
+    public void LoadMode(bool isCannonMode)
     {
-        _isPlanetMode = isPlanetMode;
-        // выставляем стейт без анимации
-        if (_isPlanetMode)
+        if (isCannonMode)
         {
-            var pos = _shipWeaponParentObjects.localPosition;
-            pos.y = _hiddenY;
-            _shipWeaponParentObjects.localPosition = pos;
+            ChangeMode(false);
         }
-        else
-        {
-            var pos = _shipWeaponParentObjects.localPosition;
-            pos.y = _shownY;
-            _shipWeaponParentObjects.localPosition = pos;
-        }
-        ChangeView();
     }
 
-    public void ChangeMode()
+    public void ChangeMode(bool needSound)
     {
         _isPlanetMode = !_isPlanetMode;
-        ChangeView();
+        ChangeView(needSound);
     }
 
-    private void ChangeView()
+    private void ChangeView(bool needSound)
     {
         _modeImage.sprite = _modeSprites[_isPlanetMode ? 0 : 1];
         _modeText.text = Language.TextStatic[_isPlanetMode ? 226 : 227];
         _modeText.color = _isPlanetMode ? Colors.GreySeven : Colors.WarningRed;
 
+        _shipCannonsPanel.SetupPanelsActive(_isPlanetMode);
+
         if (_isPlanetMode)
         {
-            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TurnOffShipMode, transform.position);
+            if (needSound) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TurnOffShipMode, transform.position);
             PlayHideShipMode();
         }
         else
         {
-            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TurnOnShipMode, transform.position);
-            _uiPanelsMission.PreparePanelsToShipMode();
+            if (needSound) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TurnOnShipMode, transform.position);
             PlayShowShipMode();
         }
     }

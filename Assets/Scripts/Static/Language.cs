@@ -711,11 +711,11 @@ public class Language : MonoBehaviour
         _text[227, 0] = "SHIP";
         _text[227, 1] = "КОРАБЛЬ";
 
-        _text[228, 0] = "";
-        _text[228, 1] = "";
+        _text[228, 0] = "Steel Riffle";
+        _text[228, 1] = "Стальная Винтовка";
 
-        _text[229, 0] = "";
-        _text[229, 1] = "";
+        _text[229, 0] = "Titanium Rocket Launcher";
+        _text[229, 1] = "Титановая Ракетная Установка";
 
         _text[230, 0] = "";
         _text[230, 1] = "";

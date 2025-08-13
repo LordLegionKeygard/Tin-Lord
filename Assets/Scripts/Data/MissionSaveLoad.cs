@@ -44,6 +44,10 @@ public class MissionSaveLoad : MonoBehaviour
     [Header("Objectives")]
     [SerializeField] private ObjectivesPanel _objectivesPanel;
 
+    [Header("ShipCannons")]
+    [SerializeField] private MissionModeSystem _missionModeSystem;
+    [SerializeField] private ShipCannonsPanel _shipCannonsPanel;
+
     [Header("Skill")]
     [SerializeField] private AllSkills _allSkills;
 
@@ -124,6 +128,11 @@ public class MissionSaveLoad : MonoBehaviour
         //Objectives
         currentSaveData.ObjectiveAmount = _objectivesPanel.GetAllObjectivesAmount();
 
+        //ShipCannons
+        currentSaveData.ShipCannonsData.IsCannonMode = !_missionModeSystem.IsPlanetMode();
+        currentSaveData.ShipCannonsData.LeftShipCannonBulletsCount = _shipCannonsPanel.IsHaveShipCannonBulletsCount();
+        currentSaveData.ShipCannonsData.RightShipCannonBulletsCount = _shipCannonsPanel.IsHaveRightShipCannonBulletsCount();
+
         //Skills
         currentSaveData.SkillsCooldown = _allSkills.GetAllSkillsCooldown();
         currentSaveData.SkillsDuration = _allSkills.GetAllSkillsDuration();
@@ -174,6 +183,10 @@ public class MissionSaveLoad : MonoBehaviour
 
         //Objectives
         _objectivesPanel.LoadObjectiveItems(currentSaveData.ObjectiveAmount, currentSaveData.IsStartMission);
+
+        //ShipCannons
+        _missionModeSystem.LoadMode(currentSaveData.ShipCannonsData.IsCannonMode);
+        _shipCannonsPanel.LoadCannons(currentSaveData.ShipCannonsData, currentSaveData.IsStartMission);
 
         //Skills
         _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _spaceSaveGame.SpaceSaveData.OpenedSkills);
