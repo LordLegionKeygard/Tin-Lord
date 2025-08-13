@@ -72,7 +72,6 @@ public class UIPanelsMission : MonoBehaviour
 
     public void ClearAndCancelCardHolderAndTileDetector()
     {
-        if (!_missionModeSystem.IsPlanetMode()) return;
         CustomEvents.FireTooltipToggle(false, 0);
         if (_tutorialSystem.CanClearTileDetector())
         {

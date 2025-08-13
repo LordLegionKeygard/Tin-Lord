@@ -87,7 +87,7 @@ public class ShipCannonsPanel : MonoBehaviour
         }
         else
         {
-            _panelDoMoveY.PanelMove();
+            _panelDoMoveY.PanelMove(false);
             _uiPanelsMission.PreparePanelsToShipMode();
         }
     }

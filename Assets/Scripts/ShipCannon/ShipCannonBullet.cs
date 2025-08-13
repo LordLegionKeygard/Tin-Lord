@@ -53,7 +53,7 @@ public class ShipCannonBullet : MonoBehaviour
         {
             Vector3 pos = hit.point + Vector3.up * _impactYOffset;
             var go = Instantiate(_explosionPrefab, pos, Quaternion.identity);
-            go.GetComponent<Explosion>().SetDamage(_explosionDamage, 0);
+            go.GetComponent<ShipCannonExplosion>().SetDamage(_explosionDamage, 0);
 
             TryReturnBullet();
             return;
