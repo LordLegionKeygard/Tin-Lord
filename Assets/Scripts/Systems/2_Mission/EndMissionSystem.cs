@@ -6,6 +6,7 @@ using Zenject;
 
 public class EndMissionSystem : MonoBehaviour
 {
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly MissionSaveGame _missionSaveGame;
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
@@ -49,10 +50,11 @@ public class EndMissionSystem : MonoBehaviour
     }
 
     private void PrepareEndMission()
-    {       
+    {
         _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default, false);
         StopAllCoroutines();
         _uiPanelsMission.UnactiveAllPanelsAfterEndMission();
+        _missionModeSystem.ChangeModeAfterMissionEnd();
     }
 
     private void SetMissionEndViewInfo(MissionEndEnum missionEndEnum)
@@ -141,7 +143,7 @@ public class EndMissionSystem : MonoBehaviour
         {
             _tutorialSystem.SaveTutorial(TutorialStepEnum.SpaceOpenLearningPanel_64);
         }
-        
+
         _missionSaveGame.DeleteMissionJson();
         _spaceSaveGame.SaveEndMissionDataToJson(_receivedFragments, aiCores, quants);
     }

@@ -3,7 +3,6 @@ using Zenject;
 
 public class UIPanelsMission : MonoBehaviour
 {
-    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TileDetector _tileDetector;

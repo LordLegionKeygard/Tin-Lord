@@ -5,6 +5,7 @@ using Zenject;
 
 public class MissionSaveLoad : MonoBehaviour
 {
+    [Inject] private readonly EndMissionSystem _endMissionSystem;
     [Inject] private readonly HangarSaveGame _hangarSaveGame;
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [Inject] private MissionSaveGame _missionSaveGame;
@@ -60,9 +61,6 @@ public class MissionSaveLoad : MonoBehaviour
 
     [Header("Hazards")]
     [SerializeField] private SpawnedHazardSystem _spawnedHazardSystem;
-
-    [Header("EndMissionSystem")]
-    [SerializeField] private EndMissionSystem _endMissionSystem;
 
     private void Awake()
     {

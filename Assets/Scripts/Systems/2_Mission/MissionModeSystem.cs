@@ -2,9 +2,11 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class MissionModeSystem : MonoBehaviour
 {
+    [Inject] private readonly EndMissionSystem _endMissionSystem;
     private bool _isPlanetMode = true;
     [SerializeField] private ShipCannonsPanel _shipCannonsPanel;
 
@@ -34,8 +36,16 @@ public class MissionModeSystem : MonoBehaviour
         }
     }
 
+    public void ChangeModeAfterMissionEnd()
+    {
+        _isPlanetMode = true;
+        ChangeView(false);
+    }
+
     public void ChangeMode(bool needSound)
     {
+        if (_endMissionSystem.IsMissionEnd()) return;
+
         _isPlanetMode = !_isPlanetMode;
         ChangeView(needSound);
     }
