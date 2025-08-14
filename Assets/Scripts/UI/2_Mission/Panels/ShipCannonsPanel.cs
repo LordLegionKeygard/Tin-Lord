@@ -1,10 +1,11 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class ShipCannonsPanel : MonoBehaviour
 {
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [SerializeField] private PanelDoMoveY _panelDoMoveY;
     [SerializeField] private UIPanelsMission _uiPanelsMission;
 
@@ -29,6 +30,8 @@ public class ShipCannonsPanel : MonoBehaviour
     [Header("View")]
     [SerializeField] private Slider _leftAmmunitionSlider;
     [SerializeField] private Slider _rightAmmunitionSlider;
+    [SerializeField] private Slider _leftCooldownSlider;
+    [SerializeField] private Slider _rightCooldownSlider;
 
     public void LoadCannons(ShipCannonsData shipCannonsData, bool isStartMission)
     {
@@ -45,6 +48,14 @@ public class ShipCannonsPanel : MonoBehaviour
 
         SetupSliders();
         SetTexts();
+    }
+
+    private void Update()
+    {
+        if (_missionModeSystem.IsPlanetMode()) return;
+
+        _leftCooldownSlider.value = 1f - _leftShipCannonAimer.GetSliderCooldown();
+        _rightCooldownSlider.value = 1f - _rightShipCannonAimer.GetSliderCooldown();
     }
 
     private void SetTexts()

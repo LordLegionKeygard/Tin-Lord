@@ -51,7 +51,8 @@ public class FMODEvents : MonoBehaviour
     public EventReference[] DeathExplosion;
 
 
-    [Header("ShipMode")] 
+    [Header("ShipMode")]
+    public EventReference NotEnoughtAmmo;
     public EventReference TurnOnShipMode;
     public EventReference TurnOffShipMode;
 

@@ -4,6 +4,7 @@ using Zenject;
 
 public class ShipCannonAimer : MonoBehaviour
 {
+    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [Inject] readonly BulletsPool _bulletsPool;
 
     [Header("Refs")]
@@ -23,13 +24,17 @@ public class ShipCannonAimer : MonoBehaviour
     [SerializeField] private ParticleSystem _muzzlePs;
     [SerializeField] private Camera _camera;
     private readonly float _rotationSpeedDeg = 540f;
-    private float _cooldown;
+    private float _currentCooldown;
+    private float _cooldownMax;
+    public float GetSliderCooldown() => (_cooldownMax <= 0f) ? 0f : Mathf.Clamp01(_currentCooldown / _cooldownMax);
 
     private void Update()
     {
-        if (_cooldown > 0f)
+        if (_missionModeSystem.IsPlanetMode()) return;
+
+        if (_currentCooldown > 0f)
         {
-            _cooldown -= Time.deltaTime;
+            _currentCooldown -= Time.deltaTime;
         }
     }
 
@@ -66,10 +71,20 @@ public class ShipCannonAimer : MonoBehaviour
 
     public void TryFireHold()
     {
-        if (_cooldown > 0f || !_shipCannonsPanel.IsHaveShipCannonBulletsCount(_isLeftCannon) || _gameSpeedSystem.IsPause()) return;
+
+        if (_currentCooldown > 0f || _gameSpeedSystem.IsPause()) return;
+
         var shipCannonInfo = _shipCannonsPanel.GetShipCannonInfo(_isLeftCannon);
+        _cooldownMax = (shipCannonInfo.FireRate > 0f) ? 1f / shipCannonInfo.FireRate : 0f;
+        _currentCooldown = _cooldownMax;
+
+        if (!_shipCannonsPanel.IsHaveShipCannonBulletsCount(_isLeftCannon))
+        {
+            RecoilAnim();
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.NotEnoughtAmmo, transform.position);
+            return;
+        }
         Fire(shipCannonInfo);
-        _cooldown = (shipCannonInfo.FireRate > 0f) ? 1f / shipCannonInfo.FireRate : 0f;
     }
 
     public void Fire(ShipCannonInfo shipCannonInfo)
