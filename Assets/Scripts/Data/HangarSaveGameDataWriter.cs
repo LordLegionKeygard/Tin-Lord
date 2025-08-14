@@ -5,7 +5,7 @@ using UnityEngine;
 public class HangarSaveGameDataWriter
 {
     public string SaveDataDirectoryPath = "";
-    private string _dataSaveFileName => WorldGameInfo.IsDemo ? "DemoHangarSave.txt" : "HangarSave.txt";
+    private string _dataSaveFileName => WorldGameInfo.IsDemo ? "IsDemoHangarSave.txt" : "HangarSave.txt";
 
     public HangarSaveGameDataWriter(string saveDataDirectoryPath)
     {

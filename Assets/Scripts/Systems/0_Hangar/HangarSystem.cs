@@ -10,7 +10,6 @@ public class HangarSystem : MonoBehaviour
     [Inject] readonly SpaceSaveGame _spaceSaveGame;
     [Inject] private readonly HangarSaveGame _hangarSaveGame;
 
-
     [SerializeField] private Resource[] _allResources;
     [SerializeField] private Building[] _learnedOnStartBuildings;
     [SerializeField] private Animator _cameraAnimator;
@@ -52,6 +51,21 @@ public class HangarSystem : MonoBehaviour
     [SerializeField] private int _currentSecondSkill = -1;
     [SerializeField] private int _currentSelectSkillForBuy = -1;
 
+    [Header("ShipWeapons")]
+    [SerializeField] private GameObject _buyShipWeaponButtonObject;
+    [SerializeField] private HangarShipWeaponItem[] _hangarShipWeaponItems;
+    [SerializeField] private TextMeshProUGUI _shipWeaponsDescription;
+    [SerializeField] private int _currentLeftShipWeapon = -1;
+    [SerializeField] private int _currentRightShipWeapon = -1;
+    [SerializeField] private int _currentSelectShipWeaponForBuy = -1;
+
+    [SerializeField] private TextMeshProUGUI _leftShipWeaponNameText;
+    [SerializeField] private TextMeshProUGUI _leftShipWeaponDamageText;
+    [SerializeField] private TextMeshProUGUI _leftShipWeaponAmmoText;
+
+    [SerializeField] private TextMeshProUGUI _rightShipWeaponNameText;
+    [SerializeField] private TextMeshProUGUI _rightShipWeaponDamageText;
+    [SerializeField] private TextMeshProUGUI _rightShipWeaponAmmoText;
 
 
     public bool EnoughtShards(int price) => _shardsSystem.GetShards() >= price;
@@ -72,6 +86,12 @@ public class HangarSystem : MonoBehaviour
         for (int i = 0; i < _hangarSkillItems.Length; i++)
         {
             _hangarSkillItems[i].SetIsOpen(hangarSaveData.OpenedSkills[i]);
+        }
+
+        for (int i = 0; i < _hangarShipWeaponItems.Length; i++)
+        {
+            if (_hangarShipWeaponItems[i] == null) continue;
+            _hangarShipWeaponItems[i].SetIsOpen(hangarSaveData.OpenedShipWeapons[i]);
         }
     }
 
@@ -101,14 +121,30 @@ public class HangarSystem : MonoBehaviour
 
     public bool[] GetOpenedSkills()
     {
-        var skills = new bool[_hangarSkillItems.Length];
+        var openedSkills = new bool[_hangarSkillItems.Length];
 
         for (int i = 0; i < _hangarSkillItems.Length; i++)
         {
-            skills[i] = _hangarSkillItems[i].IsOpen();
+            openedSkills[i] = _hangarSkillItems[i].IsOpen();
         }
 
-        return skills;
+        return openedSkills;
+    }
+
+    public bool[] GetOpenedShipWeapons()
+    {
+        var openedWeapons = new bool[_hangarShipWeaponItems.Length];
+
+        for (int i = 0; i < _hangarShipWeaponItems.Length; i++)
+        {
+            if (_hangarShipWeaponItems[i] == null) openedWeapons[i] = false;
+            else
+            {
+                openedWeapons[i] = _hangarShipWeaponItems[i].IsOpen();
+            }
+        }
+
+        return openedWeapons;
     }
 
     public void OpenHangar()
@@ -117,6 +153,8 @@ public class HangarSystem : MonoBehaviour
         if (_currentCrate == -1) SelectCrate(HangarCrateType.BaseCrate, true);
         if (_currentFirstSkill == -1) SelectSkill(SkillEnum.GeneralRepair, true);
         if (_currentSecondSkill == -1) SelectSkill(SkillEnum.Ignite, true);
+        if (_currentLeftShipWeapon == -1) SelectShipWeapon(ShipWeaponEnum.Left_SteelRiffle_0, true, true);
+        if (_currentRightShipWeapon == -1) SelectShipWeapon(ShipWeaponEnum.Right_TitatiumRocketLauncher_0, true, false);
 
         _cameraAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
         _manipulatorAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
@@ -307,6 +345,87 @@ public class HangarSystem : MonoBehaviour
         UpdateLaunchButtonActive();
     }
 
+    private void SetShipWeaponTexts()
+    {
+        if (_currentLeftShipWeapon == -1 || _currentRightShipWeapon == -1)
+        {
+            _shipWeaponsDescription.text = Language.TextStatic[87];
+        }
+        else
+        {
+            _shipWeaponsDescription.text = "-";
+        }
+
+
+        _leftShipWeaponNameText.text = _currentLeftShipWeapon == -1 ? $"{Language.TextStatic[88]}: -" : $"{Language.TextStatic[88]}: {Language.TextStatic[_hangarShipWeaponItems[_currentLeftShipWeapon].GetInfo().NameNumber]}";
+        _rightShipWeaponNameText.text = _currentRightShipWeapon == -1 ? $"{Language.TextStatic[89]}: -" : $"{Language.TextStatic[89]}: {Language.TextStatic[_hangarShipWeaponItems[_currentRightShipWeapon].GetInfo().NameNumber]}";
+
+        _leftShipWeaponDamageText.text = _currentLeftShipWeapon == -1 ? $"{Language.TextStatic[98]}: -" : $"{Language.TextStatic[98]}: {_hangarShipWeaponItems[_currentLeftShipWeapon].GetInfo().ExplosionDamage}";
+        _rightShipWeaponDamageText.text = _currentRightShipWeapon == -1 ? $"{Language.TextStatic[98]}: -" : $"{Language.TextStatic[98]}: {_hangarShipWeaponItems[_currentRightShipWeapon].GetInfo().ExplosionDamage}";
+
+        _leftShipWeaponAmmoText.text = _currentLeftShipWeapon == -1 ? $"{Language.TextStatic[230]}: -" : $"{Language.TextStatic[230]}: {_hangarShipWeaponItems[_currentLeftShipWeapon].GetInfo().BulletsCount}";
+        _rightShipWeaponAmmoText.text = _currentRightShipWeapon == -1 ? $"{Language.TextStatic[230]}: -" : $"{Language.TextStatic[230]}: {_hangarShipWeaponItems[_currentRightShipWeapon].GetInfo().BulletsCount}";
+    }
+
+    public void UnselectShipWeapon(int selectShipWeaponIndex)
+    {
+        if (selectShipWeaponIndex == -1) // не купленный
+        {
+            _hangarShipWeaponItems[_currentSelectShipWeaponForBuy].SelectToggleState(false, -1);
+            _currentSelectShipWeaponForBuy = -1;
+        }
+        else if (selectShipWeaponIndex == 0)
+        {
+            _hangarShipWeaponItems[_currentLeftShipWeapon].SelectToggleState(false, -1);
+            _currentLeftShipWeapon = -1;
+        }
+        else
+        {
+            _hangarShipWeaponItems[_currentRightShipWeapon].SelectToggleState(false, -1);
+            _currentRightShipWeapon = -1;
+        }
+
+        _buyShipWeaponButtonObject.SetActive(false);
+        SetShipWeaponTexts();
+        UpdateLaunchButtonActive();
+    }
+
+    public void SelectShipWeapon(ShipWeaponEnum shipWeaponEnum, bool isOpen, bool isLeft)
+    {
+        for (int i = 0; i < _hangarShipWeaponItems.Length; i++)
+        {
+            if (_hangarShipWeaponItems[i] == null) continue;
+            _hangarShipWeaponItems[i].SelectToggleState(false, -1);
+        }
+
+        _buyShipWeaponButtonObject.SetActive(!isOpen);
+
+        if (isOpen)
+        {
+            if (isLeft)
+            {
+                _currentLeftShipWeapon = (int)shipWeaponEnum;
+            }
+            else
+            {
+                _currentRightShipWeapon = (int)shipWeaponEnum;
+            }
+
+            if (_currentLeftShipWeapon != -1) _hangarShipWeaponItems[_currentLeftShipWeapon].SelectToggleState(true, 0);
+            if (_currentRightShipWeapon != -1) _hangarShipWeaponItems[_currentRightShipWeapon].SelectToggleState(true, 1);
+        }
+        else
+        {
+            _currentLeftShipWeapon = -1;
+            _currentRightShipWeapon = -1;
+            _currentSelectShipWeaponForBuy = (int)shipWeaponEnum;
+            _hangarShipWeaponItems[_currentSelectShipWeaponForBuy].SelectToggleState(true, -1);
+        }
+
+        SetShipWeaponTexts();
+        UpdateLaunchButtonActive();
+    }
+
     public void BuyRobot()
     {
         var robotInfo = _hangarRobotItems[_currentSelectRobot].GetInfo();
@@ -358,6 +477,23 @@ public class HangarSystem : MonoBehaviour
         }
     }
 
+    public void BuyShipWeapon()
+    {
+        var shipWeaponInfo = _hangarShipWeaponItems[_currentSelectShipWeaponForBuy].GetInfo();
+        if (EnoughtShards(shipWeaponInfo.ShardPrice))
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
+            _shardsSystem.ChangeShards(-shipWeaponInfo.ShardPrice);
+            _hangarShipWeaponItems[_currentSelectShipWeaponForBuy].SetIsOpen(true);
+            SelectShipWeapon(shipWeaponInfo.ShipWeaponEnum, true, shipWeaponInfo.IsLeft);
+            _hangarSaveGame.SaveDataToJson();
+        }
+        else
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+        }
+    }
+
     public void UpdateLaunchButtonActive()
     {
         if (_currentCrate == -1 || _currentRobot == -1) return;
@@ -368,7 +504,12 @@ public class HangarSystem : MonoBehaviour
         var firstSkillOpened = _currentFirstSkill != -1 ? _hangarSkillItems[_currentFirstSkill].IsOpen() : false;
         var secondSkillOpened = _currentSecondSkill != -1 ? _hangarSkillItems[_currentSecondSkill].IsOpen() : false;
 
-        _launchButton.SetActive(robotOpened && crateOpened && (firstSkillOpened || secondSkillOpened));
+        var leftShipWeaponOpened = _currentLeftShipWeapon != -1 ? _hangarShipWeaponItems[_currentLeftShipWeapon].IsOpen() : false;
+        var rightShipWeaponOpened = _currentRightShipWeapon != -1 ? _hangarShipWeaponItems[_currentRightShipWeapon].IsOpen() : false;
+
+        var shipWeaponsOpened = leftShipWeaponOpened && rightShipWeaponOpened;
+
+        _launchButton.SetActive(robotOpened && crateOpened && (firstSkillOpened || secondSkillOpened) && shipWeaponsOpened);
     }
 
     public void LaunchButton()

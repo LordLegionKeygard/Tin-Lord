@@ -8,7 +8,7 @@ public class MissionModeSystem : MonoBehaviour
 {
     [Inject] private readonly EndMissionSystem _endMissionSystem;
     private bool _isPlanetMode = true;
-    [SerializeField] private ShipCannonsPanel _shipCannonsPanel;
+    [SerializeField] private ShipWeaponsPanel _shipWeaponsPanel;
 
     [Header("View")]
     [SerializeField] private Image _modeImage;
@@ -56,7 +56,7 @@ public class MissionModeSystem : MonoBehaviour
         _modeText.text = Language.TextStatic[_isPlanetMode ? 226 : 227];
         _modeText.color = _isPlanetMode ? Colors.GreySeven : Colors.WarningRed;
 
-        _shipCannonsPanel.SetupPanelsActive(_isPlanetMode);
+        _shipWeaponsPanel.SetupPanelsActive(_isPlanetMode);
 
         if (_isPlanetMode)
         {

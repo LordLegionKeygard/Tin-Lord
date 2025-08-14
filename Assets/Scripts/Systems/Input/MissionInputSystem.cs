@@ -79,8 +79,8 @@ public class MissionInputSystem : MonoBehaviour
     [SerializeField] private MachinePanel _machinePanel;
     [SerializeField] private MissionHolderPanel _missionHolderPanel;
     [SerializeField] private BaseSkill[] _skills;
-    [SerializeField] private ShipCannonAimer _leftShipCannon;
-    [SerializeField] private ShipCannonAimer _rightShipCannon;
+    [SerializeField] private ShipWeaponAimer _leftShipWeapon;
+    [SerializeField] private ShipWeaponAimer _rightShipWeapon;
 
     private void Awake()
     {
@@ -204,12 +204,12 @@ public class MissionInputSystem : MonoBehaviour
 
         if (!_missionModeSystem.IsPlanetMode() && _playerInput.actions["LeftMouseClick"].IsPressed() && !IsPointerOverUISystem.IsPointerOverUI)
         {
-            _leftShipCannon.TryFireHold();
+            _leftShipWeapon.TryFireHold();
         }
 
         if (!_missionModeSystem.IsPlanetMode() && _playerInput.actions["RightMouseClick"].IsPressed() && !IsPointerOverUISystem.IsPointerOverUI)
         {
-            _rightShipCannon.TryFireHold();
+            _rightShipWeapon.TryFireHold();
         }
 
     }

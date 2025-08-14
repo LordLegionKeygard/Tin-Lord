@@ -7,17 +7,17 @@ public class HangarSkillItem : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     [SerializeField] private HangarSystem _hangarSystem;
     [SerializeField] private SkillInfo _skillInfo;
+    [SerializeField] private TextMeshProUGUI _priceText;
+    [SerializeField] private Image _icon;
+    [SerializeField] private Image _selectView;
+    private Image _backImage;
+    private int _selectSkillIndex = -1;
     private bool _isOpen;
     private bool _isSelect;
     public bool IsOpen() => _isOpen;
     public bool IsSelect() => _isSelect;
     public SkillInfo GetInfo() => _skillInfo;
 
-    [SerializeField] private TextMeshProUGUI _priceText;
-    [SerializeField] private Image _icon;
-    [SerializeField] private Image _selectView;
-    private Image _backImage;
-    private int _selectSkillIndex = -1;
 
     private void Awake()
     {
@@ -74,5 +74,4 @@ public class HangarSkillItem : MonoBehaviour, IPointerEnterHandler, IPointerExit
         _isOpen = state;
         UpdateView();
     }
-
 }

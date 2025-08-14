@@ -282,20 +282,20 @@ public class Language : MonoBehaviour
         _text[84, 0] = "Robots";
         _text[84, 1] = "Роботы";
 
-        _text[85, 0] = "";
-        _text[85, 1] = "";
+        _text[85, 0] = "Starship Weapons";
+        _text[85, 1] = "Орудия Корабля";
 
         _text[86, 0] = "You cannot restart the mission.\n\nYou have no spare AI cores.";
         _text[86, 1] = "Вы не можете начать миссию с начала.\n\nУ вас нет запасных ядер ИИ.";
 
-        _text[87, 0] = "";
-        _text[87, 1] = "";
+        _text[87, 0] = "You must select both weapons for the ship";
+        _text[87, 1] = "Необходимо выбрать оба оружия для корабля";
 
-        _text[88, 0] = "";
-        _text[88, 1] = "";
+        _text[88, 0] = "Left";
+        _text[88, 1] = "Левое";
 
-        _text[89, 0] = "";
-        _text[89, 1] = "";
+        _text[89, 0] = "Right";
+        _text[89, 1] = "Правое";
 
         _text[90, 0] = "ICOSA CORP";
         _text[90, 1] = "ИКОСА КОРП";
@@ -717,8 +717,8 @@ public class Language : MonoBehaviour
         _text[229, 0] = "Titanium Rocket Launcher";
         _text[229, 1] = "Титановая Ракетная Установка";
 
-        _text[230, 0] = "";
-        _text[230, 1] = "";
+        _text[230, 0] = "Ammo";
+        _text[230, 1] = "Боеприпасы";
 
         _text[231, 0] = "";
         _text[231, 1] = "";

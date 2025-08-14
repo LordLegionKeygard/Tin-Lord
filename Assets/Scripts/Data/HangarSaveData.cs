@@ -5,5 +5,6 @@ public class HangarSaveData
     public bool[] OpenedRobots;
     public bool[] OpenedCrates;
     public bool[] OpenedSkills;
+    public bool[] OpenedShipWeapons;
     public int TutorialProgress;
 }

@@ -42,13 +42,16 @@ public class HangarSaveGame : MonoBehaviour
             OpenedRobots = new bool[WorldGameInfo.HangarRobotsCount],
             OpenedCrates = new bool[WorldGameInfo.HangarCratesCount],
             OpenedSkills = new bool[WorldGameInfo.HangarSkillsCount],
+            OpenedShipWeapons = new bool[WorldGameInfo.HangarShipWeaponsCount],
             TutorialProgress = 0,
         };
 
-        HangarSaveData.OpenedRobots[0] = true; // Patch
-        HangarSaveData.OpenedCrates[0] = true; // Base Create
-        HangarSaveData.OpenedSkills[0] = true; // GeneralRepair
-        HangarSaveData.OpenedSkills[1] = true; // Ignite
+        HangarSaveData.OpenedRobots[(int)HangarRobotType.Patch] = true;
+        HangarSaveData.OpenedCrates[(int)HangarCrateType.BaseCrate] = true;
+        HangarSaveData.OpenedSkills[(int)SkillEnum.GeneralRepair] = true;
+        HangarSaveData.OpenedSkills[(int)SkillEnum.Ignite] = true;
+        HangarSaveData.OpenedShipWeapons[(int)ShipWeaponEnum.Left_SteelRiffle_0] = true;
+        HangarSaveData.OpenedShipWeapons[(int)ShipWeaponEnum.Right_TitatiumRocketLauncher_0] = true;
 
         _hangarSaveGameDataWriter.WriteHangarDataToSaveFile(HangarSaveData);
 
