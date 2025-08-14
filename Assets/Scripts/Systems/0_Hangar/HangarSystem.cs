@@ -302,6 +302,8 @@ public class HangarSystem : MonoBehaviour
             _skillDescription.text = Language.TextStatic[221];
         }
 
+
+        _buySkillButtonObject.SetActive(false);
         UpdateLaunchButtonActive();
     }
 
