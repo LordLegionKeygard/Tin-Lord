@@ -8,9 +8,10 @@ public class ShipWeaponAimer : MonoBehaviour
     [Inject] readonly BulletsPool _bulletsPool;
 
     [Header("Refs")]
-    [SerializeField] private Transform _modelTransform;
     [SerializeField] private Transform _cannonPivot;
-    [SerializeField] private Transform _firePoint;
+    private Transform _modelTransform;
+    private Transform _firePoint;
+    private ParticleSystem _muzzlePs;
 
     [Header("Raycast")]
     [SerializeField] private LayerMask _groundMask;
@@ -21,7 +22,6 @@ public class ShipWeaponAimer : MonoBehaviour
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private ShipWeaponsPanel _shipWeaponsPanel;
     [SerializeField] private bool _isLeftCannon;
-    [SerializeField] private ParticleSystem _muzzlePs;
     [SerializeField] private Camera _camera;
     private readonly float _rotationSpeedDeg = 540f;
     private float _currentCooldown;
@@ -38,9 +38,16 @@ public class ShipWeaponAimer : MonoBehaviour
         }
     }
 
+    public void SetupWeapon(WeaponSetter weaponSetter)
+    {
+        _modelTransform = weaponSetter.WeaponModel;
+        _firePoint = weaponSetter.FirePoint;
+        _muzzlePs = weaponSetter.Muzzle;
+    }
+
     private void LateUpdate()
     {
-        if (IsPointerOverUISystem.IsPointerOverUI) return;
+        if (IsPointerOverUISystem.IsPointerOverUI || _modelTransform == null) return;
 
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 

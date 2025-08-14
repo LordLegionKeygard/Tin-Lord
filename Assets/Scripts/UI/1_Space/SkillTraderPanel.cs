@@ -24,7 +24,7 @@ public class SkillTraderPanel : MonoBehaviour
 
         for (int i = 0; i < _skillTraderItems.Length; i++)
         {
-            _skillTraderItems[i].SetSkillOpen(_skillTraderItems[i].GetSkillInfo(), _spaceSaveGame.SpaceSaveData.OpenedSkills[i], _spaceSaveGame.SpaceSaveData.Act);
+            _skillTraderItems[i].SetSkillOpen(_skillTraderItems[i].GetSkillInfo(), _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.OpenedSkills[i], _spaceSaveGame.SpaceSaveData.Act);
         }
     }
 
@@ -61,7 +61,7 @@ public class SkillTraderPanel : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
         _quantsSystem.ChangeQuants(-_currentSkill.QuantPrice);
-        _spaceSaveGame.SpaceSaveData.OpenedSkills[(int)_currentSkill.SkillEnum] = true;
+        _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.OpenedSkills[(int)_currentSkill.SkillEnum] = true;
         _spaceSaveGame.SaveDataToJson();
         ResetTraderPanel();
     }

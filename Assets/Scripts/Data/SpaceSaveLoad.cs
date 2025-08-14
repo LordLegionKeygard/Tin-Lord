@@ -22,7 +22,7 @@ public class SpaceSaveLoad : MonoBehaviour
     {
         currentSaveData.Quants = _quantsSystem.GetQuants();
         currentSaveData.AiCores = _aiCoreSystem.GetAiCores();
-        currentSaveData.MainResourcesData = _mainResources.GetAllResourcesAmount();
+        currentSaveData.HangarCommandCenterData.MainResourcesData = _mainResources.GetAllResourcesAmount();
 
         for (int i = 0; i < _buildingsLearnPanel.AllLearnBuildingItems().Length; i++)
         {
@@ -34,7 +34,7 @@ public class SpaceSaveLoad : MonoBehaviour
     {
         _quantsSystem.LoadQuants(currentSaveData.Quants);
         _aiCoreSystem.LoadAiCore(currentSaveData.AiCores);
-        _mainResources.LoadResources(currentSaveData.MainResourcesData);
+        _mainResources.LoadResources(currentSaveData.HangarCommandCenterData.MainResourcesData);
         _tutorialSystem.LoadTutorial(_hangarSaveGame.HangarSaveData.TutorialProgress, currentSaveData.PrologueCompleted);
         _prologue.StartPrologueAndTutorial(currentSaveData.PrologueCompleted);
 

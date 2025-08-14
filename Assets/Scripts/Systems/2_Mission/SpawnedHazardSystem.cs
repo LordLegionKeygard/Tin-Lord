@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,12 +24,6 @@ public class SpawnedHazardSystem : MonoBehaviour
             DamageFactor = damageFactor
         });
     }
-
-    // вызывается, когда хазард досрочно умер
-    // public void UnregisterHazard(GameObject obj)
-    // {
-    //     _activeHazards.RemoveAll(h => h.Instance == obj);
-    // }
 
     public HazardSaveData[] GetHazards()
     {

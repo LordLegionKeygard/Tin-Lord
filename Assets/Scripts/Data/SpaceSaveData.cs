@@ -4,12 +4,9 @@ public class SpaceSaveData
     public int Act;
     public int Quants;
     public int AiCores;
-    public HangarCommandCenterData HangarCommandCenterData;
-    public float[] MainResourcesData;
-    public bool[] BuildingsLearned;
-    public bool[] OpenedSkills;
     public bool PrologueCompleted;
-    public bool TutorialCompleted;
+    public HangarCommandCenterData HangarCommandCenterData;
+    public bool[] BuildingsLearned;
     public SelectedMissionData CurrentMission;
     public SavedMapData Map;
 }
@@ -27,5 +24,17 @@ public class SelectedMissionData
 public class HangarCommandCenterData
 {
     public int Robot;
-    public int Drone;
+    public WeaponData WeaponData;
+    public bool[] OpenedSkills;
+    public float[] MainResourcesData;
+}
+
+[System.Serializable]
+public class WeaponData
+{
+    public int LeftWeapon;
+    public int LeftWeaponLevel;
+    public int RightWeapon;
+    public int RightWeaponLevel;
+
 }

@@ -33,7 +33,7 @@ public class ShipWeaponsPanel : MonoBehaviour
     [SerializeField] private Slider _leftCooldownSlider;
     [SerializeField] private Slider _rightCooldownSlider;
 
-    public void LoadCannons(ShipCannonsData shipCannonsData, bool isStartMission)
+    public void LoadWeaponsBullet(ShipCannonsData shipCannonsData, bool isStartMission)
     {
         if (isStartMission)
         {

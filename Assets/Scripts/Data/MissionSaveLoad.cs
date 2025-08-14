@@ -48,6 +48,7 @@ public class MissionSaveLoad : MonoBehaviour
     [Header("ShipCannons")]
     [SerializeField] private MissionModeSystem _missionModeSystem;
     [SerializeField] private ShipWeaponsPanel _shipWeaponsPanel;
+    [SerializeField] private MissionWeaponSetterSystem _missionWeaponSetterSystem;
 
     [Header("Skill")]
     [SerializeField] private AllSkills _allSkills;
@@ -81,9 +82,9 @@ public class MissionSaveLoad : MonoBehaviour
             ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
         };
 
-        for (int i = 0; i < _spaceSaveGame.SpaceSaveData.MainResourcesData.Length; i++)
+        for (int i = 0; i < _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.MainResourcesData.Length; i++)
         {
-            currentSaveData.ResourcesData[i] = _spaceSaveGame.SpaceSaveData.MainResourcesData[i];
+            currentSaveData.ResourcesData[i] = _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.MainResourcesData[i];
         }
 
         currentSaveData.ResourcesData[(int)ResourceEnum.DataFragment] = 0;
@@ -184,17 +185,15 @@ public class MissionSaveLoad : MonoBehaviour
 
         //ShipCannons
         _missionModeSystem.LoadMode(currentSaveData.ShipCannonsData.IsCannonMode);
-        _shipWeaponsPanel.LoadCannons(currentSaveData.ShipCannonsData, currentSaveData.IsStartMission);
+        _shipWeaponsPanel.LoadWeaponsBullet(currentSaveData.ShipCannonsData, currentSaveData.IsStartMission);
+        _missionWeaponSetterSystem.LoadWeapons(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData.WeaponData);
 
         //Skills
-        _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _spaceSaveGame.SpaceSaveData.OpenedSkills);
+        _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.OpenedSkills);
 
         //Quants
         _missionQuantSystem.SetQuants(currentSaveData.QuantsAmount);
         _quantPool.LoadQuantPickup(currentSaveData.QuantPickups);
-
-        //Tutorial
-        // if (!_commandCenterSaveGame.CommandCenterSaveData.TutorialCompleted) _tutorialSystem.OpenTutorial(true);
 
         //Hangar
         _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData);

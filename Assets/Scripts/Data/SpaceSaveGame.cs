@@ -43,7 +43,7 @@ public class SpaceSaveGame : MonoBehaviour
     public void SaveEndMissionDataToJson(int memoryFragments, int aiCores, int quants)
     {
         _spaceSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        SpaceSaveData.MainResourcesData[(int)ResourceEnum.DataFragment] += memoryFragments;
+        SpaceSaveData.HangarCommandCenterData.MainResourcesData[(int)ResourceEnum.DataFragment] += memoryFragments;
         SpaceSaveData.AiCores += aiCores;
         SpaceSaveData.Quants += quants;
         _spaceSaveGameDataWriter.WriteCommandCenterDataToSaveFile(SpaceSaveData);
@@ -62,15 +62,6 @@ public class SpaceSaveGame : MonoBehaviour
 
         _spaceSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         SpaceSaveData.PrologueCompleted = true;
-        _spaceSaveGameDataWriter.WriteCommandCenterDataToSaveFile(SpaceSaveData);
-    }
-
-    public void CompleteTutorial()
-    {
-        if (SpaceSaveData.TutorialCompleted == true) return;
-
-        _spaceSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        SpaceSaveData.TutorialCompleted = true;
         _spaceSaveGameDataWriter.WriteCommandCenterDataToSaveFile(SpaceSaveData);
     }
 }

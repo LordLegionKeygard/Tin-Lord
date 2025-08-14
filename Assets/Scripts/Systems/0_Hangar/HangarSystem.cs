@@ -563,19 +563,24 @@ public class HangarSystem : MonoBehaviour
             Quants = 35,
             AiCores = 6,
             HangarCommandCenterData = new HangarCommandCenterData(),
-            MainResourcesData = new float[_allResources.Length],
+
             PrologueCompleted = false,
-            TutorialCompleted = false,
             BuildingsLearned = new bool[_configLoaderBuildings.AllBuidingsCount()],
-            OpenedSkills = new bool[WorldGameInfo.SkillsCount],
         };
 
         data.HangarCommandCenterData.Robot = _currentRobot;
+        data.HangarCommandCenterData.MainResourcesData = new float[_allResources.Length];
+        data.HangarCommandCenterData.OpenedSkills = new bool[WorldGameInfo.SkillsCount];
+        data.HangarCommandCenterData.WeaponData = new WeaponData()
+        {
+            LeftWeapon = _currentLeftShipWeapon,
+            RightWeapon = _currentRightShipWeapon,
+        };
 
         foreach (var wrapper in _hangarCrateItems[_currentCrate].GetInfo().ResourceWrapper)
         {
             int index = (int)wrapper.ResourceEnum;
-            data.MainResourcesData[index] = wrapper.RecourceAmount;
+            data.HangarCommandCenterData.MainResourcesData[index] = wrapper.RecourceAmount;
         }
 
         for (int i = 0; i < _learnedOnStartBuildings.Length; i++)
@@ -583,8 +588,10 @@ public class HangarSystem : MonoBehaviour
             data.BuildingsLearned[_learnedOnStartBuildings[i].Id] = true;
         }
 
-        if (_currentFirstSkill != -1 && _hangarSkillItems[_currentFirstSkill].IsOpen()) data.OpenedSkills[_currentFirstSkill] = true;
-        if (_currentSecondSkill != -1 && _hangarSkillItems[_currentSecondSkill].IsOpen()) data.OpenedSkills[_currentSecondSkill] = true;
+        if (_currentFirstSkill != -1 && _hangarSkillItems[_currentFirstSkill].IsOpen()) data.HangarCommandCenterData.OpenedSkills[_currentFirstSkill] = true;
+        if (_currentSecondSkill != -1 && _hangarSkillItems[_currentSecondSkill].IsOpen()) data.HangarCommandCenterData.OpenedSkills[_currentSecondSkill] = true;
+
+
 
         _missionSaveGame.DeleteMissionJson();
         _spaceSaveGame.NewCommandCenterData(data);

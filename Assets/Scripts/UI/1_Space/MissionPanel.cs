@@ -129,7 +129,7 @@ public class MissionPanel : MonoBehaviour
         }
         else
         {
-            _missionSaveGame.NewMissionData(_currentNode.Landscape, _spaceSaveGame.SpaceSaveData.MainResourcesData);
+            _missionSaveGame.NewMissionData(_currentNode.Landscape, _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.MainResourcesData);
         }
     }
 
