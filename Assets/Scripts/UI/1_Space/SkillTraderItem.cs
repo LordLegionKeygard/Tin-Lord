@@ -22,7 +22,7 @@ public class SkillTraderItem : MonoBehaviour
         _selectView.SetActive(state);
     }
 
-    public void SetSkillOpen(SkillInfo skillInfo, bool skillOpenedNow, int currentAct)
+    public void UpdateView(SkillInfo skillInfo, bool skillOpenedNow, int currentAct)
     {
         var haveRequiredAct = skillInfo != null ? _skillInfo.SkillTraderRequiredAct <= currentAct : false;
 

@@ -32,6 +32,7 @@ public class MapGenerator : MonoBehaviour
             NodeType.RewardEvent => _allMissionsInfo.EventPools[1].Node,
             NodeType.ResourceTrader => _allMissionsInfo.ResourceTraders[0],
             NodeType.SkillTrader => _allMissionsInfo.SkillTraders[0],
+            NodeType.WeaponEngineer => _allMissionsInfo.WeaponEngineers[0],
             NodeType.Mission => _allMissionsInfo.MissionNodeTemplate,
             _ => null
         };
@@ -52,16 +53,20 @@ public class MapGenerator : MonoBehaviour
         foreach (var e in MapHelper.BuildEventEntries(_allMissionsInfo.EventPools))
             (e.Node is RewardEventNode ? rewardEvents : hiddenEvents).Add(e);
 
-        var resTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
+        var resourceTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
         var skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
+        var weponEngineers = new List<WeaponEngineerNode>(_allMissionsInfo.WeaponEngineers);
 
-        rewardEvents.Shuffle(); resTraders.Shuffle();
-        skillTraders.Shuffle(); hiddenEvents.Shuffle();
+        rewardEvents.Shuffle();
+        hiddenEvents.Shuffle();
+        resourceTraders.Shuffle();
+        skillTraders.Shuffle();
+        weponEngineers.Shuffle();
 
         int missionPlaceholders = _allMissionsInfo.MissionDeck.Length;
 
-        // «открытые» = Reward + оба Trader’а
-        int openTotal = rewardEvents.Count + resTraders.Count + skillTraders.Count;
+        // «открытые» = Reward + торговцы
+        int openTotal = rewardEvents.Count + resourceTraders.Count + skillTraders.Count + weponEngineers.Count;
 
         const int maxPerLayer = 4;
         int totalContent = missionPlaceholders
@@ -155,10 +160,11 @@ public class MapGenerator : MonoBehaviour
             seq = pool = -1;
 
             // какие списки ещё не пустые?
-            var options = new List<int>(); // 0 = reward, 1 = res, 2 = skill
+            var options = new List<int>(); // 0 = reward, 1 = res, 2 = skill, 3 = weapon
             if (rewardEvents.Count > 0) options.Add(0);
-            if (allowTraders && resTraders.Count > 0) options.Add(1);
+            if (allowTraders && resourceTraders.Count > 0) options.Add(1);
             if (allowTraders && skillTraders.Count > 0) options.Add(2);
+            if (allowTraders && weponEngineers.Count > 0) options.Add(3);
             if (options.Count == 0) return false;
 
             switch (options[Random.Range(0, options.Count)])
@@ -175,23 +181,32 @@ public class MapGenerator : MonoBehaviour
                         break;
                     }
 
-                // 1 Resource-trader
+                // 1 ResourceTrader
                 case 1:
                     {
-                        var tr = resTraders[0];
-                        resTraders.RemoveAt(0);
+                        var tr = resourceTraders[0];
+                        resourceTraders.RemoveAt(0);
                         node = tr;
                         nodeType = NodeType.ResourceTrader;
                         break;
                     }
 
-                // 2 Skill-trader
+                // 2 SkillTrader
                 case 2:
                     {
                         var tr = skillTraders[0];
                         skillTraders.RemoveAt(0);
                         node = tr;
                         nodeType = NodeType.SkillTrader;
+                        break;
+                    }
+                // 3 WeaponEngineer
+                case 3:
+                    {
+                        var tr = weponEngineers[0];
+                        weponEngineers.RemoveAt(0);
+                        node = tr;
+                        nodeType = NodeType.WeaponEngineer;
                         break;
                     }
             }
@@ -265,8 +280,8 @@ public class MapGenerator : MonoBehaviour
                 s.EventSequenceIndex = rev.SequenceIndex;
             }
 
-            // Resource-traders
-            foreach (var tr in resTraders)
+            // ResourceTraders
+            foreach (var tr in resourceTraders)
             {
                 var stub = TakeRandomStub();
                 if (stub == null) break;
@@ -275,7 +290,7 @@ public class MapGenerator : MonoBehaviour
                 SavedMap.Nodes[_generatedNodes.IndexOf(stub)].NodeType = NodeType.ResourceTrader;
             }
 
-            // Skill-traders
+            // SkillTraders
             foreach (var tr in skillTraders)
             {
                 var stub = TakeRandomStub();
@@ -285,10 +300,21 @@ public class MapGenerator : MonoBehaviour
                 SavedMap.Nodes[_generatedNodes.IndexOf(stub)].NodeType = NodeType.SkillTrader;
             }
 
+            // WeaponEnineers
+            foreach (var tr in weponEngineers)
+            {
+                var stub = TakeRandomStub();
+                if (stub == null) break;
+
+                stub.nodeData = tr;
+                SavedMap.Nodes[_generatedNodes.IndexOf(stub)].NodeType = NodeType.WeaponEngineer;
+            }
+
             // списки опустошили — больше никто «невидимо» не появится
             rewardEvents.Clear();
-            resTraders.Clear();
+            resourceTraders.Clear();
             skillTraders.Clear();
+            weponEngineers.Clear();
         }
 
         // 5. Контент
@@ -491,6 +517,7 @@ public enum NodeType
     SkillTrader = 4,
     Boss = 5,
     RewardEvent = 6,
+    WeaponEngineer = 7,
 }
 
 public class NodeInstance

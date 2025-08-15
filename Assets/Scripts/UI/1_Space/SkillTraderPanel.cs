@@ -7,7 +7,7 @@ public class SkillTraderPanel : MonoBehaviour
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [SerializeField] private SkillTraderItem[] _skillTraderItems;
     [SerializeField] private QuantsSystem _quantsSystem;
-    [SerializeField] private TextMeshProUGUI _priceText;
+    [SerializeField] private TextMeshProUGUI _quantsText;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Image _buttonImage;
     [SerializeField] private Sprite[] _buttonSprites;
@@ -16,15 +16,15 @@ public class SkillTraderPanel : MonoBehaviour
     public void ResetTraderPanel()
     {
         _currentSkill = null;
-        _priceText.text = "0";
+        _quantsText.text = "0";
         _buttonImage.sprite = _buttonSprites[1];
         _buyButton.interactable = false;
-        _priceText.color = Colors.GreySeven;
+        _quantsText.color = Colors.GreySeven;
         ResetToggleItems();
 
         for (int i = 0; i < _skillTraderItems.Length; i++)
         {
-            _skillTraderItems[i].SetSkillOpen(_skillTraderItems[i].GetSkillInfo(), _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.OpenedSkills[i], _spaceSaveGame.SpaceSaveData.Act);
+            _skillTraderItems[i].UpdateView(_skillTraderItems[i].GetSkillInfo(), _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.OpenedSkills[i], _spaceSaveGame.SpaceSaveData.Act);
         }
     }
 
@@ -49,12 +49,12 @@ public class SkillTraderPanel : MonoBehaviour
 
     private void UpdateView()
     {
-        _priceText.text = _currentSkill.QuantPrice.ToString();
+        _quantsText.text = _currentSkill.QuantPrice.ToString();
 
         var enoughtQuants = _quantsSystem.GetQuants() >= _currentSkill.QuantPrice;
         _buttonImage.sprite = enoughtQuants ? _buttonSprites[0] : _buttonSprites[1];
         _buyButton.interactable = enoughtQuants;
-        _priceText.color = enoughtQuants ? Colors.GreySeven : Colors.WarningYellow;
+        _quantsText.color = enoughtQuants ? Colors.GreySeven : Colors.WarningYellow;
     }
 
     public void BuySkill()

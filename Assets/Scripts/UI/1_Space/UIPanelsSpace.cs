@@ -13,10 +13,12 @@ public class UIPanelsSpace : MonoBehaviour
     [SerializeField] private PanelDoMoveX _mainResourcesPanelDoMove;
     [SerializeField] private PanelDoMoveY _resourceTraderPanelDoMove;
     [SerializeField] private PanelDoMoveY _skillTraderPanelDoMove;
+    [SerializeField] private PanelDoMoveY _weaponEngineerPanelDoMove;
 
     [Header("Other")]
     [SerializeField] private ResourceTraderPanel _resourceTraderPanel;
     [SerializeField] private SkillTraderPanel _skillTraderPanel;
+    [SerializeField] private WeaponsEngineerPanel _weaponsEngineerPanel;
     [SerializeField] private MapSystem _mapSystem;
     [SerializeField] private GameObject _eventPanel;
     [SerializeField] private EscapePanelSpace _escapePanel;
@@ -35,11 +37,12 @@ public class UIPanelsSpace : MonoBehaviour
         _buildingsLearnPanel.UnselectAllBuildingItems();
 
         if (_buildingsPanelDoMove.IsOpen()) _buildingsLearnPanel.ResetScrollPosition();
-        if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
-        if (_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove();
-        if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
-        if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelMove();
         if (!_buildingInfoPanelDoMove.IsOpen()) _learnBuildingInfoPanel.Reset();
+        _mainResourcesPanelDoMove.PanelClose();
+        _missionPanelDoMove.PanelClose();
+        _resourceTraderPanelDoMove.PanelClose();
+        _skillTraderPanelDoMove.PanelClose();
+        _weaponEngineerPanelDoMove.PanelClose();
     }
 
     public void MapPanelOpen()
@@ -49,10 +52,11 @@ public class UIPanelsSpace : MonoBehaviour
         if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceOpenLearningPanel_64) return;
 
         if (_buildingsPanelDoMove.IsOpen()) LearnBuildingPanelToggle();
-        if (_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove();
-        if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
-        if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
-        if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelMove();
+        _missionPanelDoMove.PanelClose();
+        _mainResourcesPanelDoMove.PanelClose();
+        _resourceTraderPanelDoMove.PanelClose();
+        _skillTraderPanelDoMove.PanelClose();
+        _weaponEngineerPanelDoMove.PanelClose();
         if (!_mapPanelDoMove.IsOpen())
         {
             CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceOpenMap_5);
@@ -81,6 +85,13 @@ public class UIPanelsSpace : MonoBehaviour
                     _skillTraderPanelDoMove.PanelMove();
                 }
                 break;
+            case TraderKind.WeaponEngineer:
+                if (!_weaponEngineerPanelDoMove.IsOpen())
+                {
+                    _weaponsEngineerPanel.ResetTraderPanel();
+                    _weaponEngineerPanelDoMove.PanelMove();
+                }
+                break;
         }
     }
 
@@ -92,10 +103,10 @@ public class UIPanelsSpace : MonoBehaviour
 
         CustomEvents.FireTooltipToggle(false, 0);
         if (_buildingsPanelDoMove.IsOpen()) LearnBuildingPanelToggle();
-        else if (_mapPanelDoMove.IsOpen() && tutorialStep is not TutorialStepEnum.SpaceMapDescription_6 or TutorialStepEnum.SpaceSelectNode_7) _mapPanelDoMove.PanelMove();
-        else if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelMove();
-        else if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelMove();
-        else if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelMove();
+        else if (_mapPanelDoMove.IsOpen() && tutorialStep is not TutorialStepEnum.SpaceMapDescription_6 or TutorialStepEnum.SpaceSelectNode_7) _mapPanelDoMove.PanelClose();
+        else if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelClose();
+        else if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelClose();
+        else if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelClose();
         else
         {
             if (emptyEscapeClick) return;
@@ -105,13 +116,13 @@ public class UIPanelsSpace : MonoBehaviour
 
     public void EventPanelOpen()
     {
-        if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove(false);
+        _mapPanelDoMove.PanelClose();
         _eventPanel.SetActive(true);
     }
 
     public void MissionPanelOpen(bool needSound)
     {
-        if (_mapPanelDoMove.IsOpen()) _mapPanelDoMove.PanelMove(needSound);
+        _mapPanelDoMove.PanelClose();
         if (!_missionPanelDoMove.IsOpen()) _missionPanelDoMove.PanelMove(needSound);
     }
 }

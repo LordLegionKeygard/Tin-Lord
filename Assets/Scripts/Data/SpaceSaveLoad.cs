@@ -12,6 +12,7 @@ public class SpaceSaveLoad : MonoBehaviour
     [SerializeField] private BuildingsLearnPanel _buildingsLearnPanel;
     [SerializeField] private MainResources _mainResources;
     [SerializeField] private DemoSystem _demoSystem;
+    [SerializeField] private WeaponsEngineerPanel _weaponsEngineerPanel;
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class SpaceSaveLoad : MonoBehaviour
         }
 
         _demoSystem.LoadDemo(currentSaveData);
+        _weaponsEngineerPanel.LoadWeapons(currentSaveData.HangarCommandCenterData.WeaponData);
 
         CustomEvents.FireDataLoad();
     }

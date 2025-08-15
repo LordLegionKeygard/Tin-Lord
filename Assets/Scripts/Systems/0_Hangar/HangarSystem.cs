@@ -575,6 +575,8 @@ public class HangarSystem : MonoBehaviour
         {
             LeftWeapon = _currentLeftShipWeapon,
             RightWeapon = _currentRightShipWeapon,
+            LeftWeaponLevel = 1,
+            RightWeaponLevel = 1
         };
 
         foreach (var wrapper in _hangarCrateItems[_currentCrate].GetInfo().ResourceWrapper)

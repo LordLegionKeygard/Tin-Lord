@@ -28,6 +28,11 @@ public class ChangeLanguageSpace : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _skillTraderPriceText;
     [SerializeField] private TextMeshProUGUI _skillTraderBuyText;
 
+    [Header("WeaponEngineerPanel")]
+    [SerializeField] private TextMeshProUGUI _weaponEngineerHeaderText;
+    [SerializeField] private TextMeshProUGUI _weaponEngineerPriceText;
+    [SerializeField] private TextMeshProUGUI _weaponEngineerUpgradeText;
+
 
     private void Start()
     {
@@ -41,6 +46,10 @@ public class ChangeLanguageSpace : MonoBehaviour
         _skillTraderHeaderText.text = Language.TextStatic[291];
         _skillTraderPriceText.text = Language.TextStatic[288];
         _skillTraderBuyText.text = Language.TextStatic[289];
+
+        _weaponEngineerHeaderText.text = Language.TextStatic[296];
+        _weaponEngineerPriceText.text = Language.TextStatic[288];
+        _weaponEngineerUpgradeText.text = Language.TextStatic[232];
 
         _resourceTypesPanel[0].text = Language.TextStatic[7];
         _resourceTypesPanel[1].text = Language.TextStatic[8];

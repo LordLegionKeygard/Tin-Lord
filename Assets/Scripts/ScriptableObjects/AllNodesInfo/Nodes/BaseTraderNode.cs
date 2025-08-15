@@ -10,4 +10,5 @@ public enum TraderKind
 {
     Resource = 0,
     Skill = 1,
+    WeaponEngineer = 2,
 }

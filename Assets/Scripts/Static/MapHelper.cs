@@ -81,48 +81,70 @@ public static class MapHelper
     }
 
     // ════════════════════════════════════════════════════════════════════════
-    // 4. Вытягиваем Trader (Resource или Skill) из двух очередей
+    // 4. Вытягиваем Trader (Resource / Skill / WeaponEngineer) из трёх очередей
     // ════════════════════════════════════════════════════════════════════════
-    public static bool TryPickTrader(List<ResourceTraderNode> resTraders, List<SkillTraderNode> skillTraders, out NodeData node, out NodeType type)
-    {
-        // Случайно решаем, кого пробовать первым, если есть оба типа.
-        bool takeRes = (resTraders.Count > 0 && skillTraders.Count > 0) ? Random.value < 0.5f : resTraders.Count > 0;
-
-        if (takeRes && resTraders.Count > 0)
-        {
-            node = resTraders[0];
-            resTraders.RemoveAt(0);
-            type = NodeType.ResourceTrader;
-            return true;
-        }
-        else if (skillTraders.Count > 0)
-        {
-            node = skillTraders[0];
-            skillTraders.RemoveAt(0);
-            type = NodeType.SkillTrader;
-            return true;
-        }
-
-        node = null;
-        type = NodeType.None;
-        return false;
-    }
-
-    // добавьте в MapHelper.cs
-    public static bool TryPickNonMission(
-        List<EventEntry> events,
+    public static bool TryPickTrader(
         List<ResourceTraderNode> resTraders,
         List<SkillTraderNode> skillTraders,
+        List<WeaponEngineerNode> weaponEngineers,
+        out NodeData node,
+        out NodeType type)
+    {
+        // Собираем доступные варианты
+        var options = new List<int>(3);
+        if (resTraders.Count > 0) options.Add(0);
+        if (skillTraders.Count > 0) options.Add(1);
+        if (weaponEngineers.Count > 0) options.Add(2);
+
+        if (options.Count == 0)
+        {
+            node = null;
+            type = NodeType.None;
+            return false;
+        }
+
+        // Равновероятно выбираем среди непустых
+        int pick = options[Mathf.FloorToInt(Random.value * options.Count)];
+        switch (pick)
+        {
+            case 0:
+                node = resTraders[0];
+                resTraders.RemoveAt(0);
+                type = NodeType.ResourceTrader;
+                break;
+
+            case 1:
+                node = skillTraders[0];
+                skillTraders.RemoveAt(0);
+                type = NodeType.SkillTrader;
+                break;
+
+            default: // 2 — WeaponEngineer
+                node = weaponEngineers[0];
+                weaponEngineers.RemoveAt(0);
+                type = NodeType.WeaponEngineer;
+                break;
+        }
+
+        return true;
+    }
+
+
+    public static bool TryPickNonMission(
+        List<EventEntry> events,
+        List<ResourceTraderNode> resourceTraders,
+        List<SkillTraderNode> skillTraders,
+        List<WeaponEngineerNode> weaponEngineers,
         out NodeData node,
         out NodeType type,
         out int poolId,
         out int seqId)
     {
-        // 1) выбираем, что пробовать первым: 0 = Event, 1 = Trader
         bool tryEventFirst = Random.value < 0.5f;
 
-        for (int pass = 0; pass < 2; pass++) // максимум 2 попытки
+        for (int pass = 0; pass < 2; pass++)
         {
+            // Сначала Event
             if (tryEventFirst && events.Count > 0)
             {
                 var e = events[0]; events.RemoveAt(0);
@@ -133,23 +155,36 @@ public static class MapHelper
                 return true;
             }
 
-            // иначе Trader
-            if (resTraders.Count + skillTraders.Count > 0)
-            {
-                bool takeRes = (resTraders.Count > 0 && skillTraders.Count > 0) ?
-                               Random.value < 0.5f : resTraders.Count > 0;
+            // Иначе Trader (любой из трёх)
+            var options = new List<int>(3);
+            if (resourceTraders.Count > 0) options.Add(0);
+            if (skillTraders.Count > 0) options.Add(1);
+            if (weaponEngineers.Count > 0) options.Add(2);
 
-                if (takeRes && resTraders.Count > 0)
+            if (options.Count > 0)
+            {
+                int pick = options[Mathf.FloorToInt(Random.value * options.Count)];
+                switch (pick)
                 {
-                    node = resTraders[0]; resTraders.RemoveAt(0);
-                    type = NodeType.ResourceTrader;
+                    case 0:
+                        node = resourceTraders[0];
+                        resourceTraders.RemoveAt(0);
+                        type = NodeType.ResourceTrader;
+                        break;
+                    case 1:
+                        node = skillTraders[0];
+                        skillTraders.RemoveAt(0);
+                        type = NodeType.SkillTrader;
+                        break;
+                    default: // 2 — WeaponEngineer
+                        node = weaponEngineers[0];
+                        weaponEngineers.RemoveAt(0);
+                        type = NodeType.WeaponEngineer;
+                        break;
                 }
-                else
-                {
-                    node = skillTraders[0]; skillTraders.RemoveAt(0);
-                    type = NodeType.SkillTrader;
-                }
-                poolId = seqId = -1;
+
+                poolId = -1;
+                seqId = -1;
                 return true;
             }
 
@@ -157,9 +192,13 @@ public static class MapHelper
             tryEventFirst = !tryEventFirst;
         }
 
-        node = null; type = NodeType.None; poolId = seqId = -1;
+        node = null;
+        type = NodeType.None;
+        poolId = -1;
+        seqId = -1;
         return false;
     }
+
 
     public static bool RemoveAtReturn<T>(this List<T> list, int index)
     {

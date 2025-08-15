@@ -18,8 +18,9 @@ public class MapSystem : MonoBehaviour
     [SerializeField] private MissionPanel _missionPanel;
     private TraderKind _activeTraderKind;
     private List<EventEntry> _eventQueue = new();
-    private List<ResourceTraderNode> _resTraders = new();
+    private List<ResourceTraderNode> _resourceTraders = new();
     private List<SkillTraderNode> _skillTraders = new();
+    private List<WeaponEngineerNode> _weaponEngineers = new();
 
 
     [Header("UI")]
@@ -90,13 +91,16 @@ public class MapSystem : MonoBehaviour
     {
         // обычные Event’ы (без RewardEvent)
         _eventQueue = MapHelper.BuildEventEntries(_allMissionsInfo.EventPools).Where(e => !(e.Node is RewardEventNode)).ToList();
-        _eventQueue.Shuffle();
 
         // Traders
-        _resTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
+        _resourceTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
         _skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
-        _resTraders.Shuffle();
+        _weaponEngineers = new List<WeaponEngineerNode>(_allMissionsInfo.WeaponEngineers);
+
+        _eventQueue.Shuffle();
+        _resourceTraders.Shuffle();
         _skillTraders.Shuffle();
+        _weaponEngineers.Shuffle();
 
         // убрать уже размещённых
         RemoveOpenNodeOnMap();
@@ -106,9 +110,10 @@ public class MapSystem : MonoBehaviour
     {
         var map = _save.SpaceSaveData.Map;
 
-        _resTraders = _resTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.ResourceTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
-        _skillTraders = _skillTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.SkillTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
         _eventQueue = _eventQueue.Where(e => !map.Nodes.Any(n => n.NodeType == NodeType.RewardEvent && n.EventPoolIndex == e.PoolIndex && n.EventSequenceIndex == e.SequenceIndex)).ToList();
+        _resourceTraders = _resourceTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.ResourceTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
+        _skillTraders = _skillTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.SkillTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
+        _weaponEngineers = _weaponEngineers.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.WeaponEngineer && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
     }
 
 
@@ -120,13 +125,13 @@ public class MapSystem : MonoBehaviour
 
         bool isCurrent = nodeIndex == _currentNodeIndex;
         var nodeType = map.Nodes[nodeIndex].NodeType;
-        bool isTrader = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader;
+        bool isTrader = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.WeaponEngineer;
 
         if (map.Nodes[nodeIndex].IsCompleted && !isTrader) return;
 
         if (!isCurrent && (!IsReachable(nodeIndex) || !map.Nodes[_currentNodeIndex].IsCompleted)) return;
 
-        bool isVisibleNonMission = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.RewardEvent;
+        bool isVisibleNonMission = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.RewardEvent or NodeType.WeaponEngineer;;
 
         if (isVisibleNonMission)
         {
@@ -200,6 +205,7 @@ public class MapSystem : MonoBehaviour
                 }
             case NodeType.ResourceTrader:
             case NodeType.SkillTrader:
+            case NodeType.WeaponEngineer:
                 {
                     var trader = _generator.GetGeneratedNodes()[nodeIndex].nodeData as BaseTraderNode;
                     OpenTrader(trader, nodeIndex);
@@ -235,7 +241,7 @@ public class MapSystem : MonoBehaviour
                 }
             default:
                 {
-                    if (MapHelper.TryPickNonMission(_eventQueue, _resTraders, _skillTraders, out NodeData nd, out NodeType nt, out int pool, out int seq))
+                    if (MapHelper.TryPickNonMission(_eventQueue, _resourceTraders, _skillTraders, _weaponEngineers, out NodeData nd, out NodeType nt, out int pool, out int seq))
                     {
                         ReplacePlaceholder(nodeIndex, nd, nt, eventPool: pool, eventSeq: seq);
                     }

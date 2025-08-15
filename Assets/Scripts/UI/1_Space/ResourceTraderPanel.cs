@@ -10,7 +10,7 @@ public class ResourceTraderPanel : MonoBehaviour
     [SerializeField] private ResourceTraderItem[] _resourceTraderItems;
     [SerializeField] private QuantsSystem _quantsSystem;
     [SerializeField] private MainResources _mainResources;
-    [SerializeField] private TextMeshProUGUI _priceText;
+    [SerializeField] private TextMeshProUGUI _quantsText;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Image _buttonImage;
     [SerializeField] private Sprite[] _buttonSprites;
@@ -21,10 +21,10 @@ public class ResourceTraderPanel : MonoBehaviour
     public void ResetTraderPanel()
     {
         _currentResource = null;
-        _priceText.text = "0";
+        _quantsText.text = "0";
         _amountInputField.text = "1";
         _buttonImage.sprite = _buttonSprites[1];
-        _priceText.color = Colors.GreySeven;
+        _quantsText.color = Colors.GreySeven;
         _amountInputField.gameObject.SetActive(false);
         ResetToggleItems();
 
@@ -68,12 +68,12 @@ public class ResourceTraderPanel : MonoBehaviour
 
         _amountInputField.gameObject.SetActive(true);
         var totalPrice = _currentResource.Price * int.Parse(_amountInputField.text);
-        _priceText.text = totalPrice.ToString();
+        _quantsText.text = totalPrice.ToString();
 
         var enoughtQuants = _quantsSystem.GetQuants() >= totalPrice;
         _buttonImage.sprite = enoughtQuants ? _buttonSprites[0] : _buttonSprites[1];
         _buyButton.interactable = enoughtQuants;
-        _priceText.color = enoughtQuants ? Colors.GreySeven : Colors.WarningYellow;
+        _quantsText.color = enoughtQuants ? Colors.GreySeven : Colors.WarningYellow;
     }
 
     public void BuyResource()

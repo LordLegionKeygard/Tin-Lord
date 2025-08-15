@@ -720,11 +720,11 @@ public class Language : MonoBehaviour
         _text[230, 0] = "Ammo";
         _text[230, 1] = "Боеприпасы";
 
-        _text[231, 0] = "";
-        _text[231, 1] = "";
+        _text[231, 0] = "Level";
+        _text[231, 1] = "Уровень";
 
-        _text[232, 0] = "";
-        _text[232, 1] = "";
+        _text[232, 0] = "Upgrade";
+        _text[232, 1] = "Улучшить";
 
         _text[233, 0] = "";
         _text[233, 1] = "";
@@ -915,8 +915,8 @@ public class Language : MonoBehaviour
         _text[295, 0] = "Map";
         _text[295, 1] = "Карта";
 
-        _text[296, 0] = "";
-        _text[296, 1] = "";
+        _text[296, 0] = "Weapons Engineer";
+        _text[296, 1] = "Инженер Оружия";
 
         _text[297, 0] = "Need {0} base level";
         _text[297, 1] = "Нужен {0} уровень базы";
@@ -924,8 +924,8 @@ public class Language : MonoBehaviour
         _text[298, 0] = "Skill";
         _text[298, 1] = "Умение";
 
-        _text[299, 0] = "";
-        _text[299, 1] = "";
+        _text[299, 0] = "Weapon";
+        _text[299, 1] = "Оружие";
 
         #region Tutorial
 
@@ -1675,14 +1675,15 @@ public class Language : MonoBehaviour
         _text[516, 0] = "You decide not to interfere: the station is unstable, and any interference could cause the structure to collapse.\n\nLeaving the object alone, you retreat to a safe distance.";
         _text[516, 1] = "Вы решаете не вмешиваться: станция нестабильна, а любое вмешательство может привести к обрушению конструкции.\n\nОставив объект в покое, вы отходите на безопасное расстояние.";
 
-        _text[517, 0] = "";
-        _text[517, 1] = "";
+        // ResourceTraderNode
+        _text[517, 0] = "You approach a heavily armed ship, bristling with turrets, cannons, and missile launchers.\n\nThe metal of the hull is blackened from old battles, but the weapons are fully operational.\n\nA distorted voice breaks into the airwaves:\n\n\"Hey...can you hear me? I repair and upgrade weapons...for a small fee, that is.\n\nIf you want, I can turn your gun into a work of art...or at least into something that shoots a little better than it does now.\"";
+        _text[517, 1] = "Вы приближаетесь к тяжело вооружённому кораблю, утыканному турелями, пушками и ракетными установками.\n\nМеталл корпуса почернел от старых боёв, но оружие в полной боевой готовности.\n\nВ эфир прорывается искажённый помехами голос:\n\n\"Эй… слышите меня? Я чиню и улучшаю оружие… ну, за скромную плату.\n\nЕсли хотите, могу превратить вашу пушку в произведение искусства… или хотя бы в то, что стреляет чуть лучше, чем сейчас.\"";
 
-        _text[518, 0] = "";
-        _text[518, 1] = "";
+        _text[518, 0] = "Trade";
+        _text[518, 1] = "Торговать";
 
-        _text[519, 0] = "";
-        _text[519, 1] = "";
+        _text[519, 0] = "Ignore";
+        _text[519, 1] = "Игнорировать";
 
         #endregion
 
