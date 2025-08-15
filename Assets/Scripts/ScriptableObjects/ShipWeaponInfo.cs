@@ -18,8 +18,9 @@ public class ShipWeaponInfo : ScriptableObject
     public float LifeTime; // страховка жизни
 
     [Header("Damage")]
+    public float Damage;
+    public float DamageFactor;
     public int BulletsCount;
-    public float ExplosionDamage;
     public GameObject ExplosionPrefab;
     public float ImpactYOffset = 0f;    // смещение вверх точки взрыва
 }

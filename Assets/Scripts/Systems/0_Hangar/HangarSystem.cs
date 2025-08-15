@@ -360,8 +360,8 @@ public class HangarSystem : MonoBehaviour
         _leftShipWeaponNameText.text = _currentLeftShipWeapon == -1 ? $"{Language.TextStatic[88]}: -" : $"{Language.TextStatic[88]}: {Language.TextStatic[_hangarShipWeaponItems[_currentLeftShipWeapon].GetInfo().NameNumber]}";
         _rightShipWeaponNameText.text = _currentRightShipWeapon == -1 ? $"{Language.TextStatic[89]}: -" : $"{Language.TextStatic[89]}: {Language.TextStatic[_hangarShipWeaponItems[_currentRightShipWeapon].GetInfo().NameNumber]}";
 
-        _leftShipWeaponDamageText.text = _currentLeftShipWeapon == -1 ? $"{Language.TextStatic[98]}: -" : $"{Language.TextStatic[98]}: {_hangarShipWeaponItems[_currentLeftShipWeapon].GetInfo().ExplosionDamage}";
-        _rightShipWeaponDamageText.text = _currentRightShipWeapon == -1 ? $"{Language.TextStatic[98]}: -" : $"{Language.TextStatic[98]}: {_hangarShipWeaponItems[_currentRightShipWeapon].GetInfo().ExplosionDamage}";
+        _leftShipWeaponDamageText.text = _currentLeftShipWeapon == -1 ? $"{Language.TextStatic[98]}: -" : $"{Language.TextStatic[98]}: {_hangarShipWeaponItems[_currentLeftShipWeapon].GetInfo().Damage}";
+        _rightShipWeaponDamageText.text = _currentRightShipWeapon == -1 ? $"{Language.TextStatic[98]}: -" : $"{Language.TextStatic[98]}: {_hangarShipWeaponItems[_currentRightShipWeapon].GetInfo().Damage}";
 
         _leftShipWeaponAmmoText.text = _currentLeftShipWeapon == -1 ? $"{Language.TextStatic[230]}: -" : $"{Language.TextStatic[230]}: {_hangarShipWeaponItems[_currentLeftShipWeapon].GetInfo().BulletsCount}";
         _rightShipWeaponAmmoText.text = _currentRightShipWeapon == -1 ? $"{Language.TextStatic[230]}: -" : $"{Language.TextStatic[230]}: {_hangarShipWeaponItems[_currentRightShipWeapon].GetInfo().BulletsCount}";

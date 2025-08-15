@@ -20,8 +20,8 @@ public class ShipWeaponAimer : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
-    [SerializeField] private ShipWeaponsPanel _shipWeaponsPanel;
-    [SerializeField] private bool _isLeftCannon;
+    [SerializeField] private MissionShipWeaponSystem _missionShipWeaponSystem;
+    [SerializeField] private bool _isLeftWeapon;
     [SerializeField] private Camera _camera;
     private readonly float _rotationSpeedDeg = 540f;
     private float _currentCooldown;
@@ -81,11 +81,11 @@ public class ShipWeaponAimer : MonoBehaviour
 
         if (_currentCooldown > 0f || _gameSpeedSystem.IsPause()) return;
 
-        var shipCannonInfo = _shipWeaponsPanel.GetShipCannonInfo(_isLeftCannon);
+        var shipCannonInfo = _missionShipWeaponSystem.GetShipCannonInfo(_isLeftWeapon);
         _cooldownMax = (shipCannonInfo.FireRate > 0f) ? 1f / shipCannonInfo.FireRate : 0f;
         _currentCooldown = _cooldownMax;
 
-        if (!_shipWeaponsPanel.IsHaveShipCannonBulletsCount(_isLeftCannon))
+        if (!_missionShipWeaponSystem.IsHaveShipCannonBulletsCount(_isLeftWeapon))
         {
             RecoilAnim();
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.NotEnoughtAmmo, transform.position);
@@ -96,7 +96,7 @@ public class ShipWeaponAimer : MonoBehaviour
 
     public void Fire(ShipWeaponInfo shipCannonInfo)
     {
-        _shipWeaponsPanel.UseBullet(_isLeftCannon);
+        _missionShipWeaponSystem.UseBullet(_isLeftWeapon);
         RecoilAnim();
         _muzzlePs.Play();
         var go = _bulletsPool.GetBullet(shipCannonInfo.BulletType);
@@ -110,7 +110,7 @@ public class ShipWeaponAimer : MonoBehaviour
             _bulletsPool,
             shipCannonInfo.BulletType,
             shipCannonInfo.BulletSpeed,
-            shipCannonInfo.ExplosionDamage,
+            _missionShipWeaponSystem.GetWeaponDamage(_isLeftWeapon),
             shipCannonInfo.LifeTime,
             shipCannonInfo.ExplosionPrefab,
             shipCannonInfo.ImpactYOffset

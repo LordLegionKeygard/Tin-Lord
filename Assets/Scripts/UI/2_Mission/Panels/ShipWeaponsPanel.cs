@@ -6,26 +6,17 @@ using Zenject;
 public class ShipWeaponsPanel : MonoBehaviour
 {
     [Inject] private readonly MissionModeSystem _missionModeSystem;
+    [SerializeField] private MissionShipWeaponSystem _shipWeaponSystem;
     [SerializeField] private PanelDoMoveY _panelDoMoveY;
     [SerializeField] private UIPanelsMission _uiPanelsMission;
 
     [Header("Left")]
-    [SerializeField] private ShipWeaponInfo _leftShipWeaponInfo;
     [SerializeField] private ShipWeaponAimer _leftShipWeaponAimer;
     [SerializeField] private TextMeshProUGUI _leftWeaponNameText;
-    private int _leftCannonBulletsCount;
 
     [Header("Right")]
-    [SerializeField] private ShipWeaponInfo _rightShipWeaponInfo;
     [SerializeField] private ShipWeaponAimer _rightShipWeaponAimer;
     [SerializeField] private TextMeshProUGUI _rightWeaponNameText;
-    private int _rightCannonBulletsCount;
-
-
-    public int IsHaveShipCannonBulletsCount() => _leftCannonBulletsCount;
-    public int IsHaveRightShipCannonBulletsCount() => _rightCannonBulletsCount;
-    public bool IsHaveShipCannonBulletsCount(bool isLeft) => isLeft ? _leftCannonBulletsCount > 0 : _rightCannonBulletsCount > 0;
-    public ShipWeaponInfo GetShipCannonInfo(bool isLeft) => isLeft ? _leftShipWeaponInfo : _rightShipWeaponInfo;
 
     [Header("View")]
     [SerializeField] private Slider _leftAmmunitionSlider;
@@ -33,19 +24,13 @@ public class ShipWeaponsPanel : MonoBehaviour
     [SerializeField] private Slider _leftCooldownSlider;
     [SerializeField] private Slider _rightCooldownSlider;
 
-    public void LoadWeaponsBullet(ShipCannonsData shipCannonsData, bool isStartMission)
+    private void Awake()
     {
-        if (isStartMission)
-        {
-            _leftCannonBulletsCount = _leftShipWeaponInfo.BulletsCount;
-            _rightCannonBulletsCount = _rightShipWeaponInfo.BulletsCount;
-        }
-        else
-        {
-            _leftCannonBulletsCount = shipCannonsData.LeftShipCannonBulletsCount;
-            _rightCannonBulletsCount = shipCannonsData.RightShipCannonBulletsCount;
-        }
+        CustomEvents.OnDataLoad += SetupSlidersAndText;
+    }
 
+    public void SetupSlidersAndText()
+    {
         SetupSliders();
         SetTexts();
     }
@@ -60,34 +45,21 @@ public class ShipWeaponsPanel : MonoBehaviour
 
     private void SetTexts()
     {
-        _leftWeaponNameText.text = Language.TextStatic[_leftShipWeaponInfo.NameNumber];
-        _rightWeaponNameText.text = Language.TextStatic[_rightShipWeaponInfo.NameNumber];
+        _leftWeaponNameText.text = Language.TextStatic[_shipWeaponSystem.GetShipCannonInfo(true).NameNumber];
+        _rightWeaponNameText.text = Language.TextStatic[_shipWeaponSystem.GetShipCannonInfo(false).NameNumber];
     }
 
     private void SetupSliders()
     {
-        _leftAmmunitionSlider.maxValue = _leftShipWeaponInfo.BulletsCount;
-        _rightAmmunitionSlider.maxValue = _rightShipWeaponInfo.BulletsCount;
+        _leftAmmunitionSlider.maxValue = _shipWeaponSystem.GetShipCannonInfo(true).BulletsCount;
+        _rightAmmunitionSlider.maxValue = _shipWeaponSystem.GetShipCannonInfo(false).BulletsCount;
         UpdateSliders();
     }
 
-    private void UpdateSliders()
+    public void UpdateSliders()
     {
-        _leftAmmunitionSlider.value = _leftCannonBulletsCount;
-        _rightAmmunitionSlider.value = _rightCannonBulletsCount;
-    }
-
-    public void UseBullet(bool isLeft)
-    {
-        if (isLeft)
-        {
-            _leftCannonBulletsCount--;
-        }
-        else
-        {
-            _rightCannonBulletsCount--;
-        }
-        UpdateSliders();
+        _leftAmmunitionSlider.value = _shipWeaponSystem.GetCurrentLeftShipWeaponBulletsCount();
+        _rightAmmunitionSlider.value = _shipWeaponSystem.GetCurrentRightShipWeaponBulletsCount();
     }
 
     public void SetupPanelsActive(bool isPlanetMode)
@@ -106,5 +78,10 @@ public class ShipWeaponsPanel : MonoBehaviour
     public void PanelToggle()
     {
         _panelDoMoveY.PanelMove();
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnDataLoad -= SetupSlidersAndText;
     }
 }

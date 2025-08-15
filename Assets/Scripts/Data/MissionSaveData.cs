@@ -44,7 +44,7 @@ public class MissionSaveData
     public int[] ObjectiveAmount;
 
     [Header("ShipCannons")]
-    public ShipCannonsData ShipCannonsData;
+    public MissionShipWeaponsData ShipCannonsData;
 
     [Header("Skills")]
     public int[] SkillsCooldown;
@@ -59,11 +59,11 @@ public class MissionSaveData
 }
 
 [System.Serializable]
-public class ShipCannonsData
+public class MissionShipWeaponsData
 {
-    public bool IsCannonMode;
-    public int LeftShipCannonBulletsCount;
-    public int RightShipCannonBulletsCount;
+    public bool IsWeaponMode;
+    public int LeftWeaponBulletsCount;
+    public int RightWeaponBulletsCount;
 }
 
 [System.Serializable]

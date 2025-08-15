@@ -47,8 +47,8 @@ public class MissionSaveLoad : MonoBehaviour
 
     [Header("ShipCannons")]
     [SerializeField] private MissionModeSystem _missionModeSystem;
-    [SerializeField] private ShipWeaponsPanel _shipWeaponsPanel;
-    [SerializeField] private MissionWeaponSetterSystem _missionWeaponSetterSystem;
+    [SerializeField] private MissionShipWeaponSystem _missionShipWeaponSystem;
+    [SerializeField] private MissionShipWeaponSystem _missionWeaponSetterSystem;
 
     [Header("Skill")]
     [SerializeField] private AllSkills _allSkills;
@@ -128,9 +128,9 @@ public class MissionSaveLoad : MonoBehaviour
         currentSaveData.ObjectiveAmount = _objectivesPanel.GetAllObjectivesAmount();
 
         //ShipCannons
-        currentSaveData.ShipCannonsData.IsCannonMode = !_missionModeSystem.IsPlanetMode();
-        currentSaveData.ShipCannonsData.LeftShipCannonBulletsCount = _shipWeaponsPanel.IsHaveShipCannonBulletsCount();
-        currentSaveData.ShipCannonsData.RightShipCannonBulletsCount = _shipWeaponsPanel.IsHaveRightShipCannonBulletsCount();
+        currentSaveData.ShipCannonsData.IsWeaponMode = !_missionModeSystem.IsPlanetMode();
+        currentSaveData.ShipCannonsData.LeftWeaponBulletsCount = _missionShipWeaponSystem.IsHaveShipCannonBulletsCount();
+        currentSaveData.ShipCannonsData.RightWeaponBulletsCount = _missionShipWeaponSystem.IsHaveRightShipCannonBulletsCount();
 
         //Skills
         currentSaveData.SkillsCooldown = _allSkills.GetAllSkillsCooldown();
@@ -184,9 +184,8 @@ public class MissionSaveLoad : MonoBehaviour
         _objectivesPanel.LoadObjectiveItems(currentSaveData.ObjectiveAmount, currentSaveData.IsStartMission);
 
         //ShipCannons
-        _missionModeSystem.LoadMode(currentSaveData.ShipCannonsData.IsCannonMode);
-        _shipWeaponsPanel.LoadWeaponsBullet(currentSaveData.ShipCannonsData, currentSaveData.IsStartMission);
-        _missionWeaponSetterSystem.LoadWeapons(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData.WeaponData);
+        _missionModeSystem.LoadMode(currentSaveData.ShipCannonsData.IsWeaponMode);
+        _missionWeaponSetterSystem.LoadWeapons(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData.WeaponData, currentSaveData.ShipCannonsData, currentSaveData.IsStartMission);
 
         //Skills
         _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.OpenedSkills);

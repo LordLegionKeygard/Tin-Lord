@@ -22,8 +22,9 @@ MonoBehaviour:
   BulletSpeed: 150
   SpreadDeg: 0
   LifeTime: 3
+  Damage: 10
+  DamageFactor: 2
   BulletsCount: 10
-  ExplosionDamage: 10
   ExplosionPrefab: {fileID: 1892133220914832, guid: d0425cdc5a3b1054ea3074c0ac89bff0,
     type: 3}
   ImpactYOffset: 0
