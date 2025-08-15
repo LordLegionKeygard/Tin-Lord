@@ -705,11 +705,11 @@ public class Language : MonoBehaviour
         _text[225, 0] = "Go";
         _text[225, 1] = "Перейти";
 
-        _text[226, 0] = "PLANET";
-        _text[226, 1] = "ПЛАНЕТА";
+        _text[226, 0] = "";
+        _text[226, 1] = "";
 
-        _text[227, 0] = "SHIP";
-        _text[227, 1] = "КОРАБЛЬ";
+        _text[227, 0] = "";
+        _text[227, 1] = "";
 
         _text[228, 0] = "Steel Riffle";
         _text[228, 1] = "Стальная Винтовка";
@@ -726,8 +726,8 @@ public class Language : MonoBehaviour
         _text[232, 0] = "Upgrade";
         _text[232, 1] = "Улучшить";
 
-        _text[233, 0] = "";
-        _text[233, 1] = "";
+        _text[233, 0] = "Change Mode";
+        _text[233, 1] = "Сменить Режим";
 
         _text[234, 0] = "";
         _text[234, 1] = "";
@@ -1177,44 +1177,45 @@ public class Language : MonoBehaviour
         _text[361, 0] = "When upgrading a building, you automatically receive some of the resources spent on the previously standing building.\n\nTherefore, it is not necessary to destroy the building before constructing its improved version.";
         _text[361, 1] = "При улучшении здания, вы автоматически получаете часть ресурсов затраченных на ранее стоящее здание.\n\nПоэтому не обязательно уничтожать здание перед постройкой его улучшенной версии.";
 
-        // MissionDefeatMissionDescription_62
-        _text[362, 0] = "If your base is destroyed, the mission is failed.\n\nYou will lose 1 AI core.\n\nBut you will be able to restart the mission until all the cores are used up.";
-        _text[362, 1] = "Если ваша база будет уничтожена, то миссия будет считаться проваленной.\n\nВы потеряете 1 ядро ИИ.\n\nНо сможете начинать миссию сначала до тех пор, пока не закончатся все ядра.";
+        // MissionShipWeaponModeActive_62
+        _text[362, 0] = "If you are having trouble dealing with enemies, simply turn on ship mode to activate your weapons."; 
+        _text[362, 1] = "Если вы не справляетесь с врагами, просто включите режим корабля, чтобы активировать оружие.";
 
-        // MissionTutorialComplete_63
-        _text[363, 0] = "Complete all objectives to successfully complete the mission.\n\nDespite the objectives, try to accumulate as many data fragments as possible during the mission.\n\nIf you do not keep up with the advancement in technology, your journey will end quickly...";
-        _text[363, 1] = "Выполните все цели, чтобы успешно завершить миссию.\n\nНесмотря на поставленные цели, старайтесь накопить за миссию как можно больше фрагментов данных.\n\nЕсли вы не будете поспевать за прогрессом в технологиях, ваше путешествие закончится быстро...";
-        // Нажмите клавишу \"Escape\" на клавиатуре чтобы открыть меню.
-        // Если вы выполнили половину поставленных целей, но не можете пройти миссию до конца, рекомендуем сбежать.\n\nТаким образом вы получите только часть накопленных фрагментов данных и миссия будет считаться пройденной.
+        // MissionShipWeaponModeDescription_63
+        _text[363, 0] = "Weapon ammo is given out at the start of each mission and has a limited supply.\n\nUse it only in emergency situations.\n\nTo improve weapon damage, you need to visit the engineer on the star map."; 
+        _text[363, 1] = "Боеприпасы оружия выдаются в начале каждой миссии и имею ограниченный запас.\n\nИспользуйте их только в экстренных ситуациях.\n\nЧтобы улучшить урон оружия, вам необходимо посетить инженера на звездной карте.";
 
-        // SpaceOpenLearningPanel_64
-        _text[364, 0] = "You have completed the mission and earned data fragments.\n\nNow open the research panel";
-        _text[364, 1] = "Вы прошли миссию и заработали фрагменты данных.\n\nТеперь откройте панель изучений";
+        // MissionPlanetModeActive_64
+        _text[364, 0] = "The left mouse button is responsible for shooting the left weapon, the right mouse button is responsible for the right.\n\nWeapons cannot shoot while the game is paused.\n\nIt is better to save ammo at this point.\n\nExit ship mode, back to planet mode."; 
+        _text[364, 1] = "Левая кнопка мыши отвечает за выстрелы левым оружие, правая кнопка мыши за правым.\n\nОружие не может стрелять, пока игра находится на паузе.\n\nНа данный момент лучше сэкономить патроны.\n\nВыйдите из режима корабля, обратно в режим планеты.";
 
-        // SpaceSelectNotLearnBuilding_65
-        _text[365, 0] = "Here you can see all types of buildings in the game.\n\nSee how many data fragments you have mined and select any unexplored building.";
-        _text[365, 1] = "Здесь вы можете увидеть все типы зданий в игре.\n\nПосмотрите сколько фрагментов данных вы добыли и выберите любое не изученное здание.";
+        // MissionDefeatMissionDescription_65
+        _text[365, 0] = "If your base is destroyed, the mission is failed.\n\nYou will lose 1 AI core.\n\nBut you will be able to restart the mission until all the cores are used up.";
+        _text[365, 1] = "Если ваша база будет уничтожена, то миссия будет считаться проваленной.\n\nВы потеряете 1 ядро ИИ.\n\nНо сможете начинать миссию сначала до тех пор, пока не закончатся все ядра.";
 
-        // SpaceLearnBuilding_66
-        _text[366, 0] = "If there are enough data fragments, start the study by clicking the button.\n\nSelect another building if there are not enough resources or preliminary research of another building is required.";
-        _text[366, 1] = "Если фрагментов данных достаточно, начните изучение, нажав на кнопку.\n\nВыберите другое сооружение, если ресурсов не хватает или требуется предварительное исследование другого здания.";
+        // MissionGoodLuckDescription_66
+        _text[366, 0] = "Complete all objectives to successfully complete the mission.\n\nDespite the objectives, try to accumulate as many data fragments as possible during the mission.\n\nIf you do not keep up with the advancement in technology, your journey will end quickly...";
+        _text[366, 1] = "Выполните все цели, чтобы успешно завершить миссию.\n\nНесмотря на поставленные цели, старайтесь накопить за миссию как можно больше фрагментов данных.\n\nЕсли вы не будете поспевать за прогрессом в технологиях, ваше путешествие закончится быстро...";
 
-        // SpaceLearnBuildingDescription_67
-        _text[367, 0] = "Great, you've explored a new building.\n\nIt will now be available for construction during missions.";
-        _text[367, 1] = "Отлично, вы изучили новое здание.\n\nТеперь оно станет доступно для постройки на миссиях.";
+        // SpaceOpenLearningPanel_67
+        _text[367, 0] = "You have completed the mission and earned data fragments.\n\nNow open the research panel";
+        _text[367, 1] = "Вы прошли миссию и заработали фрагменты данных.\n\nТеперь откройте панель изучений";
 
-        // SpaceGoodLuck_68
-        _text[368, 0] = "Return to the map and explore space.\nn To find a habitable planet...";
-        _text[368, 1] = "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...";
+        // SpaceSelectNotLearnBuilding_68
+        _text[368, 0] = "Here you can see all types of buildings in the game.\n\nSee how many data fragments you have mined and select any unexplored building.";
+        _text[368, 1] = "Здесь вы можете увидеть все типы зданий в игре.\n\nПосмотрите сколько фрагментов данных вы добыли и выберите любое не изученное здание.";
 
-        _text[369, 0] = "";
-        _text[369, 1] = "";
+        // SpaceLearnBuilding_69
+        _text[369, 0] = "If there are enough data fragments, start the study by clicking the button.\n\nSelect another building if there are not enough resources or preliminary research of another building is required.";
+        _text[369, 1] = "Если фрагментов данных достаточно, начните изучение, нажав на кнопку.\n\nВыберите другое сооружение, если ресурсов не хватает или требуется предварительное исследование другого здания.";
 
-        _text[370, 0] = "";
-        _text[370, 1] = "";
+        // SpaceLearnBuildingDescription_70
+        _text[370, 0] = "Great, you've explored a new building.\n\nIt will now be available for construction during missions.";
+        _text[370, 1] = "Отлично, вы изучили новое здание.\n\nТеперь оно станет доступно для постройки на миссиях.";
 
-        _text[371, 0] = "";
-        _text[371, 1] = "";
+        // SpaceGoodLuck_71
+        _text[371, 0] = "Return to the map and explore space.\nn To find a habitable planet...";
+        _text[371, 1] = "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...";
 
         _text[372, 0] = "";
         _text[372, 1] = "";

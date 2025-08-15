@@ -129,8 +129,8 @@ public class MissionSaveLoad : MonoBehaviour
 
         //ShipCannons
         currentSaveData.ShipCannonsData.IsWeaponMode = !_missionModeSystem.IsPlanetMode();
-        currentSaveData.ShipCannonsData.LeftWeaponBulletsCount = _missionShipWeaponSystem.IsHaveShipCannonBulletsCount();
-        currentSaveData.ShipCannonsData.RightWeaponBulletsCount = _missionShipWeaponSystem.IsHaveRightShipCannonBulletsCount();
+        currentSaveData.ShipCannonsData.LeftWeaponBulletsCount = _missionShipWeaponSystem.GetCurrentLeftShipWeaponBulletsCount();
+        currentSaveData.ShipCannonsData.RightWeaponBulletsCount = _missionShipWeaponSystem.GetCurrentRightShipWeaponBulletsCount();
 
         //Skills
         currentSaveData.SkillsCooldown = _allSkills.GetAllSkillsCooldown();
@@ -271,7 +271,7 @@ public class MissionSaveLoad : MonoBehaviour
 
     public void AutoSave(int day)
     {
-        if (_endMissionSystem.IsMissionEnd() || _tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionGoodLuckDescription_63) return;
+        if (_endMissionSystem.IsMissionEnd() || _tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionGoodLuckDescription_66) return;
         _missionSaveGame.SaveMissionToJson();
     }
 

@@ -41,7 +41,7 @@ public class BuildingItem : MonoBehaviour
 
     private void SelectTutorialBuildingItem(TutorialStepEnum _)
     {
-        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceOpenLearningPanel_64) return;
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceOpenLearningPanel_67) return;
 
         var building = _currentTile.Buildings[_buildingIndex - 1];
         switch (_tutorialSystem.GetTutorialStepEnum())

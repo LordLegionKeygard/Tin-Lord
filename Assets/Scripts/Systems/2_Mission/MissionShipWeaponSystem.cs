@@ -15,8 +15,6 @@ public class MissionShipWeaponSystem : MonoBehaviour
 
     public int GetCurrentLeftShipWeaponBulletsCount() => _leftWeaponBulletsCount;
     public int GetCurrentRightShipWeaponBulletsCount() => _rightWeaponBulletsCount;
-    public int IsHaveShipCannonBulletsCount() => _leftWeaponBulletsCount;
-    public int IsHaveRightShipCannonBulletsCount() => _rightWeaponBulletsCount;
     public bool IsHaveShipCannonBulletsCount(bool isLeft) => isLeft ? _leftWeaponBulletsCount > 0 : _rightWeaponBulletsCount > 0;
     public ShipWeaponInfo GetShipCannonInfo(bool isLeft) => isLeft ? _leftShipWeaponInfo : _rightShipWeaponInfo;
     public float GetWeaponDamage(bool isLeft) => isLeft ? _leftShipWeaponInfo.Damage + _leftWeaponLevel * _leftShipWeaponInfo.DamageFactor : _rightShipWeaponInfo.Damage + _rightWeaponLevel * _rightShipWeaponInfo.DamageFactor;

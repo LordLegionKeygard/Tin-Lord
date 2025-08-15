@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007759003, g: 0.0000957794, b: 0.000115085124,
+  m_IndirectSpecularColor: {r: 0.000077684956, g: 0.00009585539, b: 0.00011521748,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -6352,7 +6352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &158255176
@@ -13731,7 +13731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -24093,7 +24093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514
@@ -64293,46 +64293,46 @@ MonoBehaviour:
     JustClose: 0
     RequirePreviousStep: 0
     WaitRunStep: 1
-  - TutorialStepEnum: 64
+  - TutorialStepEnum: 67
     ClickView: {fileID: 1551924889}
-    TextNumber: 364
+    TextNumber: 367
     TutorialTextPanelPos: 0
     ArrowObject: 0
     JustContinue: 0
-    JustClose: 0
-    RequirePreviousStep: 0
-    WaitRunStep: 0
-  - TutorialStepEnum: 65
-    ClickView: {fileID: 0}
-    TextNumber: 365
-    TutorialTextPanelPos: 6
-    ArrowObject: 0
-    JustContinue: 0
-    JustClose: 1
-    RequirePreviousStep: 1
-    WaitRunStep: 0
-  - TutorialStepEnum: 66
-    ClickView: {fileID: 1319380895}
-    TextNumber: 366
-    TutorialTextPanelPos: 6
-    ArrowObject: 0
-    JustContinue: 0
-    JustClose: 0
-    RequirePreviousStep: 1
-    WaitRunStep: 0
-  - TutorialStepEnum: 67
-    ClickView: {fileID: 0}
-    TextNumber: 367
-    TutorialTextPanelPos: 6
-    ArrowObject: 0
-    JustContinue: 1
     JustClose: 0
     RequirePreviousStep: 0
     WaitRunStep: 0
   - TutorialStepEnum: 68
     ClickView: {fileID: 0}
     TextNumber: 368
-    TutorialTextPanelPos: 0
+    TutorialTextPanelPos: 6
+    ArrowObject: 0
+    JustContinue: 0
+    JustClose: 1
+    RequirePreviousStep: 1
+    WaitRunStep: 0
+  - TutorialStepEnum: 69
+    ClickView: {fileID: 1319380895}
+    TextNumber: 369
+    TutorialTextPanelPos: 6
+    ArrowObject: 0
+    JustContinue: 0
+    JustClose: 0
+    RequirePreviousStep: 1
+    WaitRunStep: 0
+  - TutorialStepEnum: 70
+    ClickView: {fileID: 0}
+    TextNumber: 370
+    TutorialTextPanelPos: 6
+    ArrowObject: 0
+    JustContinue: 1
+    JustClose: 0
+    RequirePreviousStep: 0
+    WaitRunStep: 0
+  - TutorialStepEnum: 71
+    ClickView: {fileID: 0}
+    TextNumber: 371
+    TutorialTextPanelPos: 6
     ArrowObject: 0
     JustContinue: 1
     JustClose: 0

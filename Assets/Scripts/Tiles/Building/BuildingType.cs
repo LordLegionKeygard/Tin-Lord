@@ -26,7 +26,7 @@ public class BuildingType : MonoBehaviour
 
     private void SelectTutorialBuildingType(TutorialStepEnum _)
     {
-        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceOpenLearningPanel_64) return;
+        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceOpenLearningPanel_67) return;
 
         switch (_tutorialSystem.GetTutorialStepEnum())
         {

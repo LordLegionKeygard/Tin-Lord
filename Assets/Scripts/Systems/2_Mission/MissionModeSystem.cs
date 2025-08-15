@@ -6,6 +6,7 @@ using Zenject;
 
 public class MissionModeSystem : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly EndMissionSystem _endMissionSystem;
     private bool _isPlanetMode = true;
     [SerializeField] private ShipWeaponsPanel _shipWeaponsPanel;
@@ -13,7 +14,6 @@ public class MissionModeSystem : MonoBehaviour
     [Header("View")]
     [SerializeField] private Image _modeImage;
     [SerializeField] private Sprite[] _modeSprites;
-    [SerializeField] private TextMeshProUGUI _modeText;
     [SerializeField] private CanvasGroup[] _canvasGroups;
 
     [Header("Ship Mode")]
@@ -42,19 +42,29 @@ public class MissionModeSystem : MonoBehaviour
         ChangeView(false);
     }
 
+    public void ChangeModeButton()
+    {
+        ChangeMode(true);
+    }
+
     public void ChangeMode(bool needSound)
     {
-        if (_endMissionSystem.IsMissionEnd()) return;
+        if (_endMissionSystem.IsMissionEnd() || !_tutorialSystem.CanClickChangeModeButton()) return;
 
         _isPlanetMode = !_isPlanetMode;
         ChangeView(needSound);
+
+        if (!_tutorialSystem.IsCompleteMissionTutorial())
+        {
+            if (_isPlanetMode) CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionPlanetModeActive_64);
+            else CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionShipWeaponModeActive_62);
+        }
     }
 
     private void ChangeView(bool needSound)
     {
         _modeImage.sprite = _modeSprites[_isPlanetMode ? 0 : 1];
-        _modeText.text = Language.TextStatic[_isPlanetMode ? 226 : 227];
-        _modeText.color = _isPlanetMode ? Colors.GreySeven : Colors.WarningRed;
+        _modeImage.color = _isPlanetMode ? Color.black : Colors.WarningYellow;
 
         _shipWeaponsPanel.SetupPanelsActive(_isPlanetMode);
 

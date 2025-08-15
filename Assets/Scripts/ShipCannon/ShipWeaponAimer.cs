@@ -81,8 +81,10 @@ public class ShipWeaponAimer : MonoBehaviour
 
         if (_currentCooldown > 0f || _gameSpeedSystem.IsPause()) return;
 
-        var shipCannonInfo = _missionShipWeaponSystem.GetShipCannonInfo(_isLeftWeapon);
-        _cooldownMax = (shipCannonInfo.FireRate > 0f) ? 1f / shipCannonInfo.FireRate : 0f;
+
+
+        var info = _missionShipWeaponSystem.GetShipCannonInfo(_isLeftWeapon);
+        _cooldownMax = (info.FireRate > 0f) ? 1f / info.FireRate : 0f;
         _currentCooldown = _cooldownMax;
 
         if (!_missionShipWeaponSystem.IsHaveShipCannonBulletsCount(_isLeftWeapon))
@@ -91,7 +93,7 @@ public class ShipWeaponAimer : MonoBehaviour
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.NotEnoughtAmmo, transform.position);
             return;
         }
-        Fire(shipCannonInfo);
+        Fire(info);
     }
 
     public void Fire(ShipWeaponInfo shipCannonInfo)

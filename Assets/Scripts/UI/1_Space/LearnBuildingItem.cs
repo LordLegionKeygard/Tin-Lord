@@ -72,7 +72,7 @@ public class LearnBuildingItem : MonoBehaviour
         _learnBuildingInfoPanel.RefreshInfo();
         SelectViewToggle(true);
 
-        if (!_isLearn) CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceSelectNotLearnBuilding_65);
+        if (!_isLearn) CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceSelectNotLearnBuilding_68);
     }
 
     public void SelectViewToggle(bool state)
@@ -88,7 +88,7 @@ public class LearnBuildingItem : MonoBehaviour
         }
         else
         {
-            CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceLearnBuilding_66);
+            CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.SpaceLearnBuilding_69);
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
             _mainResources.ChangeResource(ResourceEnum.DataFragment, -_building.Price);
             _isLearn = true;

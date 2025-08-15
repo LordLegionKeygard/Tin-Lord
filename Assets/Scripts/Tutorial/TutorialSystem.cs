@@ -20,10 +20,10 @@ public class TutorialSystem : MonoBehaviour
     private int _currentStepIndex = -1;
     private bool _currentStepInProcess;
     public bool IsStartTutorial() => _currentStep.TutorialStepEnum == TutorialStepEnum.SpaceHangarWelcome_0;
-    public TutorialStepEnum GetTutorialStepEnum() => IsCompleteAllTutorial() ? TutorialStepEnum.CompleteAllTutorials_69 : _currentStep.TutorialStepEnum;
+    public TutorialStepEnum GetTutorialStepEnum() => IsCompleteAllTutorial() ? TutorialStepEnum.CompleteAllTutorials_72 : _currentStep.TutorialStepEnum;
     private bool _isCompleteAllTutorials;
     public Building GetTutorialBuilding(int number) => _tutorialBuildings[number];
-    public bool IsCompleteMissionTutorial() => IsCompleteAllTutorial() || _currentStep.TutorialStepEnum >= TutorialStepEnum.MissionGoodLuckDescription_63;
+    public bool IsCompleteMissionTutorial() => IsCompleteAllTutorial() || _currentStep.TutorialStepEnum >= TutorialStepEnum.MissionGoodLuckDescription_66;
     public bool IsCompleteAllTutorial() => _isCompleteAllTutorials;
     public bool PanelIsActive() => _tutorialPanel.activeInHierarchy;
     public AllTileObjects GetAllTileObjects() => _allTileObjects;
@@ -67,7 +67,7 @@ public class TutorialSystem : MonoBehaviour
 
     public void LoadTutorial(int tutorialStepIndex, bool prologueCompleted)
     {
-        if (tutorialStepIndex >= (int)TutorialStepEnum.CompleteAllTutorials_69)
+        if (tutorialStepIndex >= (int)TutorialStepEnum.CompleteAllTutorials_72)
         {
             _isCompleteAllTutorials = true;
             return;
@@ -173,7 +173,7 @@ public class TutorialSystem : MonoBehaviour
         if (_tutorialArrowWorld != null) _tutorialArrowWorld.gameObject.SetActive(false);
 
         // меняем скорость игры
-        if (GetTutorialStepEnum() is TutorialStepEnum.MissionDefeatMissionDescription_62)
+        if (GetTutorialStepEnum() is TutorialStepEnum.MissionDefeatMissionDescription_65)
         {
             _gameSpeedSystem.ChangeGameSpeed((int)GameSpeedEnum.Default, true);
         }
@@ -410,7 +410,7 @@ public class TutorialSystem : MonoBehaviour
     {
         if (IsCompleteMissionTutorial()) return true;
 
-        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_67) return true;
 
 
         if (_currentStep.TutorialStepEnum >= TutorialStepEnum.MissionConstructionBallista_41) return true;
@@ -442,7 +442,7 @@ public class TutorialSystem : MonoBehaviour
     {
         if (IsCompleteMissionTutorial()) return true;
 
-        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_67) return true;
 
         if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectBaseFoundationTile_12 or TutorialStepEnum.MissionSetBaseFoundationCard_11) return true;
         if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionSelectForestTile_33 or TutorialStepEnum.MissionSetForestCard_32) return true;
@@ -455,7 +455,7 @@ public class TutorialSystem : MonoBehaviour
     {
         if (IsCompleteMissionTutorial()) return true;
 
-        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_67) return true;
 
         switch (_currentStep.TutorialStepEnum)
         {
@@ -474,7 +474,7 @@ public class TutorialSystem : MonoBehaviour
     {
         if (IsCompleteMissionTutorial()) return true;
 
-        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_67) return true;
 
         if (_currentStep.TutorialStepEnum < TutorialStepEnum.MissionClickBuildButton_16) return false;
 
@@ -492,7 +492,7 @@ public class TutorialSystem : MonoBehaviour
     {
         if (IsCompleteMissionTutorial()) return true;
 
-        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_67) return true;
 
         switch (_currentStep.TutorialStepEnum)
         {
@@ -507,9 +507,18 @@ public class TutorialSystem : MonoBehaviour
     {
         if (IsCompleteMissionTutorial()) return true;
 
-        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_64) return true;
+        if (_currentStep.TutorialStepEnum == TutorialStepEnum.SpaceOpenLearningPanel_67) return true;
 
         return _currentStep.TutorialStepEnum >= TutorialStepEnum.MissionToggleOffSettlement_30;
+    }
+
+    public bool CanClickChangeModeButton()
+    {
+        if (IsCompleteMissionTutorial()) return true;
+
+        if (_currentStep.TutorialStepEnum is TutorialStepEnum.MissionShipWeaponModeActive_62 or TutorialStepEnum.MissionPlanetModeActive_64) return true;
+
+        return false;
     }
 
     public bool CanClearTileDetector()
@@ -628,14 +637,17 @@ public enum TutorialStepEnum
     MissionRepairBuilding_59 = 59,
     MissionUpgradeBuildingDescription1_60 = 60,
     MissionUpgradeBuildingDescription2_61 = 61,
-    MissionDefeatMissionDescription_62 = 62,
-    MissionGoodLuckDescription_63 = 63,
-    SpaceOpenLearningPanel_64 = 64,
-    SpaceSelectNotLearnBuilding_65 = 65,
-    SpaceLearnBuilding_66 = 66,
-    SpaceLearnBuildingDescription_67 = 67,
-    SpaceGoodLuck_68 = 68,
-    CompleteAllTutorials_69 = 69,
+    MissionShipWeaponModeActive_62 = 62,
+    MissionShipWeaponModeDescription_63 = 63,
+    MissionPlanetModeActive_64 = 64,
+    MissionDefeatMissionDescription_65 = 65,
+    MissionGoodLuckDescription_66 = 66,
+    SpaceOpenLearningPanel_67 = 67,
+    SpaceSelectNotLearnBuilding_68 = 68,
+    SpaceLearnBuilding_69 = 69,
+    SpaceLearnBuildingDescription_70 = 70,
+    SpaceGoodLuck_71 = 71,
+    CompleteAllTutorials_72 = 72,
 }
 
 public enum TutorialTextPanelPos
