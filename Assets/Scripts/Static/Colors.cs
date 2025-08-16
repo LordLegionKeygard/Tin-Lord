@@ -13,6 +13,7 @@ public class Colors : MonoBehaviour
     public static readonly Color WarningRed = new Color(0.75f, 0, 0, 1);
     public static readonly Color FadedYellow = new Color(0.8f, 0.55f, 0, 1);
     public static readonly Color LightGreen = new Color(0.25f, 0.75f, 0, 1);
+    public static readonly Color Green = new Color(0, 0.85f, 0, 1);
     public static readonly Color ConstructionBlue = new Color(0.2f, 0.44f, 0.8f, 1);
     public static readonly Color DecayYellow = new Color(0.8f, 0.56f, 0, 1);
 

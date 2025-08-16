@@ -72,7 +72,7 @@ public class WeaponsEngineerPanel : MonoBehaviour
     private void UpdateView()
     {
         var currentWeaponLevel = _currentWeaponInfo.IsLeft ? _leftWeaponLevel : _rightWeaponLevel;
-        var price = 5 + currentWeaponLevel * 5;
+        var price = WorldGameInfo.StartWeaponEnigneerUpgradePrice + currentWeaponLevel * WorldGameInfo.FactorWeaponEnigneerUpgradePrice;
         _quantsText.text = price.ToString();
 
         var enoughtQuants = _quantsSystem.GetQuants() >= price;
@@ -90,7 +90,7 @@ public class WeaponsEngineerPanel : MonoBehaviour
     public void UpgradeWeapon()
     {
         var currentWeaponLevel = _currentWeaponInfo.IsLeft ? _leftWeaponLevel : _rightWeaponLevel;
-        var price = 20 + currentWeaponLevel * 4;
+        var price = WorldGameInfo.StartWeaponEnigneerUpgradePrice + currentWeaponLevel * WorldGameInfo.FactorWeaponEnigneerUpgradePrice;
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
         _quantsSystem.ChangeQuants(-price);

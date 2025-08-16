@@ -356,7 +356,7 @@ public class GroundTile : MonoBehaviour
                         return;
                     }
 
-                    if (neighbour.IsWaterTile()) _riverNumber++;               
+                    if (neighbour.IsWaterTile()) _riverNumber++;
                 }
                 _tileRiver.PrepareRiver(_riverNumber, IsForwardRoad(), false);
                 break;
@@ -369,7 +369,7 @@ public class GroundTile : MonoBehaviour
                     var neighbour = neighbours[i];
                     if (neighbour == null) continue;
 
-                    if (neighbour.IsWaterTile()) _riverNumber++;                
+                    if (neighbour.IsWaterTile()) _riverNumber++;
                 }
                 _tileRiver.PrepareRiver(_riverNumber, IsForwardRoad(), false);
                 break;
@@ -572,12 +572,35 @@ public class GroundTile : MonoBehaviour
                 break;
 
             case GroundTileViewEnum.Mountain:
-                if (IsCheckAllCross(GroundTileViewEnum.Meadow))
+                if (IsTwoFromCheckCross(GroundTileViewEnum.Meadow))
                 {
                     ChangeTile(GroundTileViewEnum.OvergrownMountain);
                 }
                 break;
         }
+    }
+
+    public bool IsTwoFromCheckCross(GroundTileViewEnum tileView)
+    {
+        var number = 0;
+        var directions = new[]
+         {
+        TileDirectionEnum.North,
+        TileDirectionEnum.East,
+        TileDirectionEnum.West,
+        TileDirectionEnum.South
+        };
+
+        for (int i = 0; i < directions.Length; i++)
+        {
+            var neighbor = _tileObject.GetNeighbourGroundTile((int)directions[i]);
+            if (neighbor != null && neighbor.CheckTileView(tileView))
+            {
+                number++;
+            }
+        }
+
+        return number >= 2;
     }
 
     public bool IsCheckAllCross(GroundTileViewEnum tileView)

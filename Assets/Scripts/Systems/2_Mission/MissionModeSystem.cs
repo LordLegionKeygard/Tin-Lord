@@ -12,6 +12,8 @@ public class MissionModeSystem : MonoBehaviour
     [SerializeField] private ShipWeaponsPanel _shipWeaponsPanel;
 
     [Header("View")]
+    [SerializeField] private GameObject _leftShipWeapon;
+    [SerializeField] private GameObject _rightShipWeapon;
     [SerializeField] private Image _modeImage;
     [SerializeField] private Sprite[] _modeSprites;
     [SerializeField] private CanvasGroup[] _canvasGroups;
@@ -20,7 +22,7 @@ public class MissionModeSystem : MonoBehaviour
     [SerializeField] private Transform _shipWeaponParentObjects;
     [SerializeField] private ScreenCornerAnchor3D[] _screenCornerAnchor3D;
 
-    private readonly float _hiddenY = -70f;
+    private readonly float _hiddenY = -50f;
     private readonly float _shownY = 0f;
     private readonly float _showDuration = 0.45f;
     private readonly float _hideDuration = 0.35f;
@@ -34,6 +36,12 @@ public class MissionModeSystem : MonoBehaviour
         {
             ChangeMode(false);
         }
+    }
+
+    private void ToggleShipWeapons(bool state)
+    {
+        _leftShipWeapon.SetActive(state);
+        _rightShipWeapon.SetActive(state);
     }
 
     public void ChangeModeAfterMissionEnd()
@@ -81,6 +89,7 @@ public class MissionModeSystem : MonoBehaviour
     }
     private void PlayShowShipMode()
     {
+        ToggleShipWeapons(true);
         SetAnchorsActive(false);
         SetCanvasGroupsAlpha(0);
 
@@ -104,7 +113,11 @@ public class MissionModeSystem : MonoBehaviour
 
         _shipTween?.Kill();
 
-        _shipTween = _shipWeaponParentObjects.DOLocalMoveY(_hiddenY, _hideDuration).SetEase(Ease.InCubic).SetUpdate(true);
+        _shipTween = _shipWeaponParentObjects.DOLocalMoveY(_hiddenY, _hideDuration).SetEase(Ease.InCubic).SetUpdate(true)
+        .OnComplete(() =>
+        {
+            ToggleShipWeapons(false);
+        });
     }
 
     private void SetAnchorsActive(bool state)

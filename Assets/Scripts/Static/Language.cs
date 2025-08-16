@@ -938,7 +938,7 @@ public class Language : MonoBehaviour
         _text[301, 1] = "Это ядра ИИ - жизненно важные модули корабля.\n\nКаждая ячейка содержит два ядра.\n\nЕсли они закончатся — больше никто не сможет управлять экипажем, и корабль останется дрейфовать в бескрайнем космосе.";
 
         // SpaceQuantPanel_2
-        _text[302, 0] = "Quantum is an intergalactic currency.\n\nWith it, you can buy goods from traders in space.\n\nYou can get this currency:\n\n-when traveling around the galaxy.\n\n-upon successful completion of a mission on a planet.";
+        _text[302, 0] = "Quant is an intergalactic currency.\n\nWith it, you can buy goods from traders in space.\n\nYou can get this currency:\n\n-when traveling around the galaxy.\n\n-upon successful completion of a mission on a planet.";
         _text[302, 1] = "Квант - межгалактическая валюта.\n\nС помощью него вы сможете покупать товары у торговцев в космосе.\n\nЭту валюту вы сможете получить:\n\n-во время путешествия по галактике.\n\n-при успешном завершении миссии на планете.";
 
         //SpaceOpenResourcePanel_3
@@ -946,7 +946,7 @@ public class Language : MonoBehaviour
         _text[303, 1] = "Откройте панель.";
 
         //SpaceResourcePanelDescription_4
-        _text[304, 0] = "This is a panel with the resource reserves on the ship.\n\nYou can change their quantity:\n\n-using them during the journey\n\n-buying from merchants for quantum\n\nThese are your starting resources when landing on each planet.";
+        _text[304, 0] = "This is a panel with the resource reserves on the ship.\n\nYou can change their quantity:\n\n-using them during the journey\n\n-buying from merchants for quant\n\nThese are your starting resources when landing on each planet.";
         _text[304, 1] = "Это панель с запасами ресурсов на корабле.\n\nВы можете менять их количество:\n\n-используя их во время путешествия\n\n-покупая у торговцев за квант\n\nЭто ваши стартовые ресурсы при высадке на каждую планету.";
 
         // SpaceOpenMap_5
@@ -1353,7 +1353,7 @@ public class Language : MonoBehaviour
         _text[412, 0] = "Search the technical compartments";
         _text[412, 1] = "Обыскать технические отсеки"; // выбор 2
 
-        _text[413, 0] = "The automated hangars are almost empty, but a few quantum can be found in the wreckage.";
+        _text[413, 0] = "The automated hangars are almost empty, but a few quant can be found in the wreckage.";
         _text[413, 1] = "Автоматические ангары почти пусты, но в обломках удаётся найти немного квант"; // + квант
 
         _text[414, 0] = "Explore station archives";
@@ -1526,11 +1526,11 @@ public class Language : MonoBehaviour
         _text[468, 0] = "You spot a Guardian ship slowly scanning the area. Its hull is covered in mold and corrosion, and a dry message is heard from the surface:\n\n\"Resistance to decay is heresy. Pay up or be reduced to ash.\"";
         _text[468, 1] = "Вы замечаете корабль Стражей, медленно сканирующий окрестности. Его корпус покрыт плесенью и коррозией, а с поверхности доносится сухое послание:\n\n\"Сопротивление распаду — ересь. Плати или обратись в пепел.\"";
 
-        _text[469, 0] = "Transfer 30 quantum";
-        _text[469, 1] = "Передать 30 квант"; // выбор 1
+        _text[469, 0] = "Transfer quant";
+        _text[469, 1] = "Передать квант"; // выбор 1
 
         _text[470, 0] = "The guards turn and disappear into the dust storm.";
-        _text[470, 1] = "Стражи разворачиваются и исчезают в пылевой буре."; // -30 квант
+        _text[470, 1] = "Стражи разворачиваются и исчезают в пылевой буре."; // - квант
 
         _text[471, 0] = "Refuse";
         _text[471, 1] = "Отказаться"; // выбор 2
