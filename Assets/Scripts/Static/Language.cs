@@ -705,8 +705,8 @@ public class Language : MonoBehaviour
         _text[225, 0] = "Go";
         _text[225, 1] = "Перейти";
 
-        _text[226, 0] = "";
-        _text[226, 1] = "";
+        _text[226, 0] = "Collect";
+        _text[226, 1] = "Соберите";
 
         _text[227, 0] = "";
         _text[227, 1] = "";

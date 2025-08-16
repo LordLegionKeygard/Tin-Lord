@@ -23,4 +23,5 @@ public enum ObjectiveEnum
     ConstructBuilding = 2,
     SurviveDays = 3,
     KillBoss = 4,
+    CollectDataFragments = 5,
 }

@@ -70,7 +70,7 @@ public class ObjectivesPanel : MonoBehaviour
 
         if (objective != null)
         {
-            if (objectiveEnum is ObjectiveEnum.RestoreEcology or ObjectiveEnum.SurviveDays) objective.CurrentAmount = value;
+            if (objectiveEnum is ObjectiveEnum.RestoreEcology or ObjectiveEnum.SurviveDays or ObjectiveEnum.CollectDataFragments) objective.CurrentAmount = value;
             else objective.CurrentAmount += value;
             objective.Complete = objective.CurrentAmount >= objective.NeedAmount;
             objective.ObjectiveItem.UpdateText(objective.CurrentAmount, objective.Complete);

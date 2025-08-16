@@ -67,6 +67,9 @@ public class MissionPanel : MonoBehaviour
                 case ObjectiveEnum.KillBoss:
                     _objectiveTexts[i].text = $"{i + 1}. {Language.TextStatic[151]}";
                     break;
+                case ObjectiveEnum.CollectDataFragments:
+                    _objectiveTexts[i].text = $"{i + 1}. {Language.TextStatic[226]} {objectives[i].ObjectiveAmount} {Language.TextStatic[175]}";
+                    break;
             }
         }
 

@@ -52,6 +52,18 @@ public class MissionResources : MonoBehaviour
         var resources = _resourcesWrapper[(int)resourceEnum];
         resources.Amount = (float)Math.Round(resources.Amount + amount, 1, MidpointRounding.AwayFromZero);
         resources.Text.text = resources.Amount.ToString("0.0");
+
+        UpdateResourceObjectives(resourceEnum);
+    }
+
+    private void UpdateResourceObjectives(ResourceEnum resourceEnum)
+    {
+        switch (resourceEnum)
+        {
+            case ResourceEnum.DataFragment:
+                CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.CollectDataFragments, (int)_resourcesWrapper[(int)resourceEnum].Amount);
+                break;
+        }
     }
 
     private void UpdateAllTexts()
