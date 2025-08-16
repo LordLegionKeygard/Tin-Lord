@@ -162,7 +162,7 @@ public class EcologySystem : MonoBehaviour
             case <= -50:
                 _totalEcologyText.color = Colors.WarningRed;
                 break;
-            case <= -25:
+            case < 0:
                 _totalEcologyText.color = Colors.WarningYellow;
                 break;
             case >= 50:
