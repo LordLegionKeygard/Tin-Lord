@@ -281,7 +281,7 @@ public class TutorialSystem : MonoBehaviour
             case GroundTileViewEnum.BaseFoundation:
                 CompleteStep(TutorialStepEnum.MissionSelectBaseFoundationTile_12);
                 break;
-            case GroundTileViewEnum.Forest:
+            case GroundTileViewEnum.Forest or GroundTileViewEnum.Oasis:
                 CompleteStep(TutorialStepEnum.MissionSelectForestTile_33);
                 if (tileObject.BuildingTileObject().HaveBuildingGameObject() && tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.WoodExtraction)
                 {
@@ -533,12 +533,6 @@ public class TutorialSystem : MonoBehaviour
         if (IsCompleteMissionTutorial()) return true;
 
         return _currentStep.TutorialStepEnum is not (TutorialStepEnum.MissionSetBaseFoundationCard_11 or TutorialStepEnum.MissionSetForestCard_32);
-    }
-
-    public bool BuildingItemSelectView()
-    {
-        CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSelectSettlementBuildingItem_18);
-        return GetTutorialStepEnum() == TutorialStepEnum.MissionOpenResourcePanel_19;
     }
 
     private void OnDestroy()

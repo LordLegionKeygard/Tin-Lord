@@ -41,7 +41,7 @@ MonoBehaviour:
       EnemyLevel: 1
   - StartDaySpawn: 20
     SpawnPeriod: 2
-    Count: 20
+    Count: 25
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 40
     SpawnPeriod: 3
-    Count: 35
+    Count: 40
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1

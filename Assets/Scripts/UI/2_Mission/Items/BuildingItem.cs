@@ -36,7 +36,7 @@ public class BuildingItem : MonoBehaviour
         CustomEvents.OnTimeTick += RefreshView;
         CustomEvents.OnStartTutorialStep += SelectTutorialBuildingItem;
         RefreshView();
-        if(!_tutorialSystem.IsCompleteAllTutorial()) SelectTutorialBuildingItem(TutorialStepEnum.None);
+        if (!_tutorialSystem.IsCompleteAllTutorial()) SelectTutorialBuildingItem(TutorialStepEnum.None);
     }
 
     private void SelectTutorialBuildingItem(TutorialStepEnum _)
@@ -97,7 +97,7 @@ public class BuildingItem : MonoBehaviour
         _haveRequiredLevel = building.RequiredBaseLevel <= _tilesSystem.GetBaseLevel();
         
         _resourcesEnough = _missionResources.ResourcesEnough(GetResources());
-         _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[297], requiredLevel)}"; ;
+        _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[297], requiredLevel)}"; ;
         _nameText.color = _resourcesEnough && _haveRequiredLevel ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;
@@ -112,11 +112,11 @@ public class BuildingItem : MonoBehaviour
 
     public void SelectView()
     {
+        _tutorialView.SetActive(false);
         _tutorialSystem.SelectBuildingItem(_currentTile.Buildings[_buildingIndex - 1]);
         _buildsPanel.UnselectAllBuildings();
         SelectToggleState(true);
         _buildingResourcesViewMission.SetResourcesView(GetResources());
-        _tutorialView.SetActive(_tutorialSystem.BuildingItemSelectView());
 
         if (_currentTile.BuildingTileView == BuildingTileViewEnum.AttackingStructures)
         {
@@ -198,6 +198,7 @@ public class BuildingItem : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnTimeTick -= RefreshView;
+        CustomEvents.OnStartTutorialStep -= SelectTutorialBuildingItem;
     }
 }
 
