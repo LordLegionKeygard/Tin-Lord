@@ -50,6 +50,7 @@ public class ResourceTraderPanel : MonoBehaviour
         _currentResource = resource;
         _resourceTraderItems[(int)_currentResource.ResourceEnum].SelectToggle(true);
 
+        if (_amountInputField.text == string.Empty) return;
         UpdateView();
     }
 
@@ -79,7 +80,7 @@ public class ResourceTraderPanel : MonoBehaviour
     public void BuyResource()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        _quantsSystem.ChangeQuants(-_currentResource.Price);
+        _quantsSystem.ChangeQuants(-_currentResource.Price * int.Parse(_amountInputField.text));
         _mainResources.ChangeResource(_currentResource.ResourceEnum, int.Parse(_amountInputField.text));
         _spaceSaveGame.SaveDataToJson();
         UpdateView();
