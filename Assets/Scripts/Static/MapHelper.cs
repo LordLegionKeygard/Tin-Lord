@@ -8,9 +8,8 @@ using UnityEngine;
 /// </summary>
 public static class MapHelper
 {
-    // ════════════════════════════════════════════════════════════════════════
-    // 1. Универсальный Fisher‑Yates Shuffle  (расширение для List<T>)
-    // ════════════════════════════════════════════════════════════════════════
+
+    // Универсальный Fisher‑Yates Shuffle  (расширение для List<T>)
     public static void Shuffle<T>(this List<T> list)
     {
         for (int i = 0; i < list.Count; i++)
@@ -20,9 +19,7 @@ public static class MapHelper
         }
     }
 
-    // ════════════════════════════════════════════════════════════════════════
-    // 2. Построение единой очереди Event / RewardEvent из нескольких пулов
-    // ════════════════════════════════════════════════════════════════════════
+    // Построение единой очереди Event / RewardEvent из нескольких пулов
     public static List<EventEntry> BuildEventEntries(EventPool[] pools)
     {
         var list = new List<EventEntry>();
@@ -60,9 +57,7 @@ public static class MapHelper
         return list;
     }
 
-    // ════════════════════════════════════════════════════════════════════════
-    // 3. Вытягиваем Event / RewardEvent из очереди
-    // ════════════════════════════════════════════════════════════════════════
+    // Вытягиваем Event / RewardEvent из очереди
     public static bool TryPickEvent(List<EventEntry> queue, out NodeData node, out int poolId, out int seq)
     {
         if (queue.Count == 0)
@@ -80,9 +75,7 @@ public static class MapHelper
         return true;
     }
 
-    // ════════════════════════════════════════════════════════════════════════
-    // 4. Вытягиваем Trader (Resource / Skill / WeaponEngineer) из трёх очередей
-    // ════════════════════════════════════════════════════════════════════════
+    // Вытягиваем Trader (Resource / Skill / WeaponEngineer) из трёх очередей
     public static bool TryPickTrader(
         List<ResourceTraderNode> resTraders,
         List<SkillTraderNode> skillTraders,
@@ -130,15 +123,7 @@ public static class MapHelper
     }
 
 
-    public static bool TryPickNonMission(
-        List<EventEntry> events,
-        List<ResourceTraderNode> resourceTraders,
-        List<SkillTraderNode> skillTraders,
-        List<WeaponEngineerNode> weaponEngineers,
-        out NodeData node,
-        out NodeType type,
-        out int poolId,
-        out int seqId)
+    public static bool TryPickNonMission(List<EventEntry> events, List<ResourceTraderNode> resourceTraders, List<SkillTraderNode> skillTraders, List<WeaponEngineerNode> weaponEngineers, out NodeData node, out NodeType type, out int poolId, out int seqId)
     {
         bool tryEventFirst = Random.value < 0.5f;
 
@@ -206,8 +191,7 @@ public static class MapHelper
         return true;
     }
 
-    public static bool IsVisible(NodeData d) =>
-       d is RewardEventNode || d is ResourceTraderNode || d is SkillTraderNode;
+    public static bool IsVisible(NodeData data) => data is RewardEventNode or ResourceTraderNode or SkillTraderNode or WeaponEngineerNode;
 
     public static bool TryPop<T>(this IList<T> list, out T value)
     {
@@ -219,6 +203,121 @@ public static class MapHelper
         }
         value = default;
         return false;
+    }
+
+    // Индекс «видимого» в слое, либо -1
+    public static int GetVisibleIndexInLayer(Dictionary<int, List<NodeInstance>> layers, int layer)
+    {
+        if (layers == null || !layers.ContainsKey(layer)) return -1;
+        var list = layers[layer];
+        for (int i = 0; i < list.Count; i++)
+            if (IsVisible(list[i].nodeData)) return i;
+        return -1;
+    }
+
+    // Выбор слота для «видимого»: сначала разнос ≥2, иначе хотя бы ≠ prev
+    public static int PickVisibleSlot(int slotsCount, int prevVisibleIdx)
+    {
+        var candidates = new List<int>();
+
+        for (int i = 0; i < slotsCount; i++)
+        {
+            if (prevVisibleIdx >= 0 && Mathf.Abs(i - prevVisibleIdx) <= 1) continue;
+            candidates.Add(i);
+        }
+
+        if (candidates.Count == 0 && prevVisibleIdx >= 0)
+        {
+            for (int i = 0; i < slotsCount; i++)
+                if (i != prevVisibleIdx) candidates.Add(i);
+        }
+
+        if (candidates.Count == 0)
+            for (int i = 0; i < slotsCount; i++) candidates.Add(i);
+
+        return candidates[Mathf.FloorToInt(Random.value * candidates.Count)];
+    }
+
+    public static bool LayerHasVisible(Dictionary<int, List<NodeInstance>> layers, int layer)
+    {
+        return layers.ContainsKey(layer) && layers[layer].Exists(n => IsVisible(n.nodeData));
+    }
+
+    // шумим только НЕвидимые, видимые — «прибиты» к своим индексам
+    public static void ShuffleNonVisible(Dictionary<int, List<NodeInstance>> layers)
+    {
+        foreach (var kv in layers)
+        {
+            var list = kv.Value;
+            // соберём невидимые
+            var pinned = new List<(int idx, NodeInstance n)>();
+            var free = new List<NodeInstance>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (IsVisible(list[i].nodeData)) pinned.Add((i, list[i]));
+                else free.Add(list[i]);
+            }
+            // перетасуем «free»
+            free.Shuffle();
+            // вернём обратно, не трогая «pinned»
+            int f = 0;
+            for (int i = 0; i < list.Count; i++)
+                if (!IsVisible(list[i].nodeData))
+                    list[i] = free[f++];
+        }
+    }
+
+    /// Подбор плейсхолдера под «открытый» узел:
+    /// 1) слой ещё без открытого; 2) по возможности нет открытого в соседних слоях;
+    /// 3) по вертикали «через один» от видимого сверху, иначе хотя бы ≠ индекса сверху.
+    public static NodeInstance PickSafeStubForVisible(
+        List<NodeInstance> generatedNodes,
+        Dictionary<int, List<NodeInstance>> layers,
+        SavedMapData savedMap)
+    {
+        // все плейсхолдеры, где в слое ещё нет «видимого»
+        var stubs = new List<NodeInstance>();
+        for (int i = 0; i < generatedNodes.Count; i++)
+        {
+            var n = generatedNodes[i];
+            if (savedMap.Nodes[i].NodeType == NodeType.None &&
+                n.layer > 1 &&
+                !LayerHasVisible(layers, n.layer))
+                stubs.Add(n);
+        }
+        if (stubs.Count == 0) return null;
+
+        int BestScore(NodeInstance stub)
+        {
+            int layer = stub.layer;
+            int idxInLayer = layers[layer].IndexOf(stub);
+            int prevIdx = GetVisibleIndexInLayer(layers, layer - 1);
+
+            bool neighborsFree =
+                !LayerHasVisible(layers, layer - 1) &&
+                !LayerHasVisible(layers, layer + 1);
+
+            bool farFromPrev = (prevIdx >= 0) ? Mathf.Abs(idxInLayer - prevIdx) >= 2 : true;
+            bool notEqualPrev = (prevIdx < 0) || idxInLayer != prevIdx;
+
+            // 0 — идеально; ниже — хуже
+            if (neighborsFree && farFromPrev) return 0;
+            if (neighborsFree && notEqualPrev) return 1;
+            if (farFromPrev) return 2;
+            if (notEqualPrev) return 3;
+            return 4;
+        }
+
+        // минимальный «штраф»
+        int best = int.MaxValue;
+        var bucket = new List<NodeInstance>();
+        foreach (var s in stubs)
+        {
+            int sc = BestScore(s);
+            if (sc < best) { best = sc; bucket.Clear(); bucket.Add(s); }
+            else if (sc == best) bucket.Add(s);
+        }
+        return bucket[Random.Range(0, bucket.Count)];
     }
 
 }

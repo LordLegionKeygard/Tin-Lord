@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     [SerializeField] private EnemiesBiomeSpawnTransforms[] _enemiesBiomeSpawnTransforms;
     private List<EnemiesForListData> _currentEnemiesData = new();
     private int _enemyNumber;
+    private int _maxSpawnedEnemiesPerFrame = 8;           // сколько врагов максимум за кадр
+    private Coroutine _spawnRoutine;
     private MonsterBiome GetCurrentBiome() => CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterBiome;
     private int GetLandscapeNumber() => (int)CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum;
 
@@ -69,36 +72,80 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void SpawnEnemies(Spawner spawner)
     {
-        var groups = spawner.EnemiesSpawnerInfo.Where(g => g.EnemyBiomeInfo.Any(e => e.Biome == GetCurrentBiome())).ToArray();
+        // если нужно, можно не останавливать предыдущую корутину — тогда пачки смешаются
+        if (_spawnRoutine != null) StopCoroutine(_spawnRoutine);
+        _spawnRoutine = StartCoroutine(SpawnEnemiesCoroutine(spawner));
+    }
+
+    private IEnumerator SpawnEnemiesCoroutine(Spawner spawner)
+    {
+        var biome = GetCurrentBiome();
+
+        // Отфильтровали группы по биому один раз
+        var groups = spawner.EnemiesSpawnerInfo.Where(g => g.EnemyBiomeInfo.Any(e => e.Biome == biome)).ToArray();
+        if (groups.Length == 0) yield break;
+
+        // Для каждой группы сразу подготовим варианты по текущему биому
+        var variantsPerGroup = new EnemyBiomeInfo[groups.Length][];
+        for (int gi = 0; gi < groups.Length; gi++)
+            variantsPerGroup[gi] = groups[gi].EnemyBiomeInfo.Where(e => e.Biome == biome).ToArray();
+
+        // Вычислим сторону спавна один раз (если не RandomSide)
+        SpawnSide spawnSideEnum = SpawnSide.RandomSide;
+        if (spawner.LandscapeSpawnSide != null && spawner.LandscapeSpawnSide.Length > 0)
+        {
+            var matched = spawner.LandscapeSpawnSide.FirstOrDefault(ls => (int)ls.LandscapeEnum == GetLandscapeNumber());
+            if (matched != null) spawnSideEnum = matched.SpawnSide;
+        }
+
+        int spawnedThisFrame = 0;
+        float frameStart = Time.realtimeSinceStartup;
 
         for (int i = 0; i < spawner.Count; i++)
         {
-            var group = groups[Random.Range(0, groups.Length)];
-            var variants = group.EnemyBiomeInfo.Where(e => e.Biome == GetCurrentBiome()).ToArray();
+            // Выбираем группу и её варианты
+            int gi = Random.Range(0, groups.Length);
+            var group = groups[gi];
+            var variants = variantsPerGroup[gi];
+            if (variants.Length == 0) continue;
 
             var entry = variants[Random.Range(0, variants.Length)];
-            SpawnSide spawnSideEnum = SpawnSide.RandomSide;
 
-            if (spawner.LandscapeSpawnSide != null && spawner.LandscapeSpawnSide.Length > 0)
-            {
-                var matched = spawner.LandscapeSpawnSide.FirstOrDefault(ls => (int)ls.LandscapeEnum == GetLandscapeNumber());
+            // Точка спавна
+            Vector3 basePoint = spawnSideEnum == SpawnSide.RandomSide ? GetRandomSpawnTransform() : GetSideSpawnTransform((int)spawnSideEnum);
 
-                if (matched != null) spawnSideEnum = matched.SpawnSide;
-            }
+            var enemyPrefab = _allEnemies.GetEnemyForEnum(entry.EnemyEnum);
+            var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, basePoint + GetRandomizePosition(), Quaternion.identity, null);
 
-            var spawnPoint = spawnSideEnum == SpawnSide.RandomSide ? GetRandomSpawnTransform() : GetSideSpawnTransform((int)spawnSideEnum);
-            var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForEnum(entry.EnemyEnum), spawnPoint + GetRandomizePosition(), Quaternion.identity, null);
+            // Кэш компонентов (без повторных GetComponent)
+            var enemyLevel = enemyObject.GetComponent<EnemyLevel>();
+            var enemyInfo = enemyObject.GetComponent<EnemyInfo>();
+            var enemyHealth = enemyObject.GetComponent<EnemyHealth>();
+            var enemyDamage = enemyObject.GetComponent<EnemyDamage>();
 
-            enemyObject.GetComponent<EnemyLevel>().SetLevel(group.EnemyLevel);
-            enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, 1, 1);
-            enemyObject.GetComponent<EnemyHealth>().SetHealth();
-            enemyObject.GetComponent<EnemyDamage>().SetDamage();
-            enemyObject.transform.SetParent(_enemiesParent);
+            enemyLevel.SetLevel(group.EnemyLevel);
+            enemyInfo.SetEnemyInfo(_enemyNumber, 1, 1);
+            enemyHealth.SetHealth();
+            enemyDamage.SetDamage();
+
+            enemyObject.transform.SetParent(_enemiesParent, false);
 
             AddEnemyToList((int)entry.EnemyEnum, _enemyNumber, enemyObject);
             _enemyNumber++;
+
+            // Тайм-слайс: либо лимит по количеству, либо по времени
+            spawnedThisFrame++;
+            if (spawnedThisFrame >= _maxSpawnedEnemiesPerFrame)
+            {
+                spawnedThisFrame = 0;
+                frameStart = Time.realtimeSinceStartup;
+                yield return null; // следующая порция — в следующий кадр
+            }
         }
+
+        _spawnRoutine = null;
     }
+
 
     private void SpawnMiniBoss(MiniBossSpawner[] miniBossSpawners)
     {

@@ -119,9 +119,6 @@ public class MapGenerator : MonoBehaviour
             AddToSavedMap(s, NodeType.Start, 0);
         }
 
-        bool IsVisible(NodeData d) =>
-               d is RewardEventNode || d is ResourceTraderNode || d is SkillTraderNode;
-
         void AddStub(int layer)
         {
             var stub = CreateNode(_allMissionsInfo.MissionNodeTemplate, layer);
@@ -137,21 +134,6 @@ public class MapGenerator : MonoBehaviour
             AddToLayer(layer, n);
             _generatedNodes.Add(n);
             AddToSavedMap(n, t, _generatedNodes.Count - 1, seq, pool);
-        }
-
-        void SwapNodes(NodeInstance a, NodeInstance b)
-        {
-            (a.nodeData, b.nodeData) = (b.nodeData, a.nodeData);
-
-            int ia = _generatedNodes.IndexOf(a);
-            int ib = _generatedNodes.IndexOf(b);
-
-            (SavedMap.Nodes[ia].NodeType, SavedMap.Nodes[ib].NodeType) =
-            (SavedMap.Nodes[ib].NodeType, SavedMap.Nodes[ia].NodeType);
-            (SavedMap.Nodes[ia].EventPoolIndex, SavedMap.Nodes[ib].EventPoolIndex) =
-            (SavedMap.Nodes[ib].EventPoolIndex, SavedMap.Nodes[ia].EventPoolIndex);
-            (SavedMap.Nodes[ia].EventSequenceIndex, SavedMap.Nodes[ib].EventSequenceIndex) =
-            (SavedMap.Nodes[ib].EventSequenceIndex, SavedMap.Nodes[ia].EventSequenceIndex);
         }
 
         bool TryPopRandomOpen(bool allowTraders, out NodeData node, out NodeType nodeType, out int seq, out int pool)
@@ -213,64 +195,48 @@ public class MapGenerator : MonoBehaviour
             return true;
         }
 
-        // 4. Генерация слоя
+        // генерация слоя
         int GenLayer(int layer, int minN, int maxN, bool allowTraders)
         {
             bool needVisible = targetLayers.Contains(layer);
             bool visiblePlaced = false;
 
-            int need = Random.Range(minN, maxN + 1); // сколько нужно поставить
-            int placed = 0; // сколько уже поставили
+            int need = Random.Range(minN, maxN + 1);
+            int placed = 0;
+
+            int visibleSlot = -1;
+            if (needVisible)
+            {
+                int prevVis = MapHelper.GetVisibleIndexInLayer(_layers, layer - 1);
+                visibleSlot = MapHelper.PickVisibleSlot(need, prevVis);
+            }
 
             while (placed < need)
             {
-                if (needVisible && !visiblePlaced && TryPopRandomOpen(allowTraders, out var openNode, out var openType, out var seq, out var pool))
+                if (needVisible && !visiblePlaced && placed == visibleSlot &&
+                    TryPopRandomOpen(allowTraders, out var openNode, out var openType, out var seq, out var pool))
                 {
                     SpawnVisible(openNode, openType, layer, seq, pool);
                     visiblePlaced = true;
-                    placed++;
-                    continue;
                 }
-
-                AddStub(layer);
+                else
+                {
+                    AddStub(layer);
+                }
                 placed++;
             }
 
-            // проверка «видимый-видимый» и возможный свап
-            foreach (var inst in _layers[layer])
-            {
-                if (!IsVisible(inst.nodeData)) continue;
-
-                foreach (var prev in inst.connectedNodes)
-                {
-                    if (prev.layer == layer - 1 && IsVisible(prev.nodeData))
-                    {
-                        var swap = FindSafePlaceholder(layer);
-                        if (swap != null) SwapNodes(inst, swap);
-                        break;
-                    }
-                }
-            }
-
-            return placed;     //сколько узлов реально поставили
+            // удалите/закомментируйте старую попытку «свапа» видимый↔видимый снизу — она бесполезна до GenerateConnections()
+            return placed;
         }
 
         // 5-bis. Добрасываем оставшиеся открытые узлы
         void PlaceRemainingOpenNodes()
         {
-            NodeInstance TakeRandomStub()
-            {
-                // в слой 1 «открытые» ставить нельзя
-                var stubs = _generatedNodes.Where((n, idx) =>
-                            SavedMap.Nodes[idx].NodeType == NodeType.None &&
-                            n.layer > 1).ToList();
-                return stubs.Count > 0 ? stubs[Random.Range(0, stubs.Count)] : null;
-            }
-
             // RewardEvent
             foreach (var rev in rewardEvents)
             {
-                var stub = TakeRandomStub();
+                var stub = MapHelper.PickSafeStubForVisible(_generatedNodes, _layers, SavedMap);
                 if (stub == null) break;
 
                 stub.nodeData = rev.Node;
@@ -283,7 +249,7 @@ public class MapGenerator : MonoBehaviour
             // ResourceTraders
             foreach (var tr in resourceTraders)
             {
-                var stub = TakeRandomStub();
+                var stub = MapHelper.PickSafeStubForVisible(_generatedNodes, _layers, SavedMap);
                 if (stub == null) break;
 
                 stub.nodeData = tr;
@@ -293,7 +259,7 @@ public class MapGenerator : MonoBehaviour
             // SkillTraders
             foreach (var tr in skillTraders)
             {
-                var stub = TakeRandomStub();
+                var stub = MapHelper.PickSafeStubForVisible(_generatedNodes, _layers, SavedMap);
                 if (stub == null) break;
 
                 stub.nodeData = tr;
@@ -303,7 +269,7 @@ public class MapGenerator : MonoBehaviour
             // WeaponEnineers
             foreach (var tr in weponEngineers)
             {
-                var stub = TakeRandomStub();
+                var stub = MapHelper.PickSafeStubForVisible(_generatedNodes, _layers, SavedMap);
                 if (stub == null) break;
 
                 stub.nodeData = tr;
@@ -331,7 +297,7 @@ public class MapGenerator : MonoBehaviour
 
         GenLayer(lastContent, 2, 3, true);
         PlaceRemainingOpenNodes();
-        foreach (var kv in _layers) kv.Value.Shuffle();  // лёгкая рандомизация позиций
+        MapHelper.ShuffleNonVisible(_layers);
 
         // 6. Boss
         var boss = CreateNode(_allMissionsInfo.BossNode, totalLayers - 1);
