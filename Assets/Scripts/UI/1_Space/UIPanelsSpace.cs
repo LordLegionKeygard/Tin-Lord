@@ -107,6 +107,7 @@ public class UIPanelsSpace : MonoBehaviour
         else if (_mainResourcesPanelDoMove.IsOpen()) _mainResourcesPanelDoMove.PanelClose();
         else if (_resourceTraderPanelDoMove.IsOpen()) _resourceTraderPanelDoMove.PanelClose();
         else if (_skillTraderPanelDoMove.IsOpen()) _skillTraderPanelDoMove.PanelClose();
+        else if (_weaponEngineerPanelDoMove.IsOpen()) _weaponEngineerPanelDoMove.PanelClose();
         else
         {
             if (emptyEscapeClick) return;

@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,7 @@ public class ResourceTraderPanel : MonoBehaviour
         _buttonImage.sprite = _buttonSprites[1];
         _quantsText.color = Colors.GreySeven;
         _amountInputField.gameObject.SetActive(false);
+        _buyButton.interactable = false;
         ResetToggleItems();
 
         foreach (var item in _resourceTraderItems)
@@ -50,25 +52,31 @@ public class ResourceTraderPanel : MonoBehaviour
         _currentResource = resource;
         _resourceTraderItems[(int)_currentResource.ResourceEnum].SelectToggle(true);
 
-        if (_amountInputField.text == string.Empty) return;
+        if (string.IsNullOrEmpty(_amountInputField.text)) _amountInputField.text = "1";
+
         UpdateView();
     }
 
     public void OnAmountChange()
     {
-        if (_amountInputField.text == string.Empty) return;
-        if (int.Parse(_amountInputField.text) == 0) _amountInputField.text = "1";
-        if (int.Parse(_amountInputField.text) > 99) _amountInputField.text = "99";
-
+        SanitizeAndClampInput();
         UpdateView();
     }
 
     private void UpdateView()
     {
-        if (_currentResource == null) return;
+        if (_currentResource == null)
+        {
+            _buyButton.interactable = false;
+            return;
+        }
 
         _amountInputField.gameObject.SetActive(true);
-        var totalPrice = _currentResource.Price * int.Parse(_amountInputField.text);
+
+        
+        int amount = GetAmount(); // всегда валидное число 1..99
+        int totalPrice = _currentResource.Price * amount;
+
         _quantsText.text = totalPrice.ToString();
 
         var enoughtQuants = _quantsSystem.GetQuants() >= totalPrice;
@@ -80,9 +88,39 @@ public class ResourceTraderPanel : MonoBehaviour
     public void BuyResource()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        _quantsSystem.ChangeQuants(-_currentResource.Price * int.Parse(_amountInputField.text));
-        _mainResources.ChangeResource(_currentResource.ResourceEnum, int.Parse(_amountInputField.text));
+        int amount = GetAmount();
+        _quantsSystem.ChangeQuants(-_currentResource.Price * amount);
+        _mainResources.ChangeResource(_currentResource.ResourceEnum, amount);
         _spaceSaveGame.SaveDataToJson();
         UpdateView();
+    }
+
+    // Читает число безопасно и держит диапазон 1..99
+    private int GetAmount()
+    {
+        var text = _amountInputField.text;
+        if (!int.TryParse(text, out int value)) value = 1;
+        return Mathf.Clamp(value, 1, 99);
+    }
+
+    // Убирает всё, кроме цифр, и приводит к 1..99 без рекурсивных событий
+    private void SanitizeAndClampInput()
+    {
+        string digitsOnly = new string((_amountInputField.text ?? "").Where(char.IsDigit).ToArray());
+
+        if (string.IsNullOrEmpty(digitsOnly))
+            digitsOnly = "1";
+
+        // ограничим до 2 символов (99)
+        if (digitsOnly.Length > 2)
+            digitsOnly = digitsOnly.Substring(0, 2);
+
+        if (!int.TryParse(digitsOnly, out int value))
+            value = 1;
+
+        value = Mathf.Clamp(value, 1, 99);
+
+        // Без уведомления, чтобы не зациклить onValueChanged
+        _amountInputField.SetTextWithoutNotify(value.ToString());
     }
 }
