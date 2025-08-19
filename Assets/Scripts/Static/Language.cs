@@ -1178,15 +1178,15 @@ public class Language : MonoBehaviour
         _text[361, 1] = "При улучшении здания, вы автоматически получаете часть ресурсов затраченных на ранее стоящее здание.\n\nПоэтому не обязательно уничтожать здание перед постройкой его улучшенной версии.";
 
         // MissionShipWeaponModeActive_62
-        _text[362, 0] = "If you are having trouble dealing with enemies, simply turn on ship mode to activate your weapons."; 
+        _text[362, 0] = "If you are having trouble dealing with enemies, simply turn on ship mode to activate your weapons.";
         _text[362, 1] = "Если вы не справляетесь с врагами, просто включите режим корабля, чтобы активировать оружие.";
 
         // MissionShipWeaponModeDescription_63
-        _text[363, 0] = "Weapon ammo is given out at the start of each mission and has a limited supply.\n\nUse it only in emergency situations.\n\nTo improve weapon damage, you need to visit the engineer on the star map."; 
+        _text[363, 0] = "Weapon ammo is given out at the start of each mission and has a limited supply.\n\nUse it only in emergency situations.\n\nTo improve weapon damage, you need to visit the engineer on the star map.";
         _text[363, 1] = "Боеприпасы оружия выдаются в начале каждой миссии и имею ограниченный запас.\n\nИспользуйте их только в экстренных ситуациях.\n\nЧтобы улучшить урон оружия, вам необходимо посетить инженера на звездной карте.";
 
         // MissionPlanetModeActive_64
-        _text[364, 0] = "The left mouse button is responsible for shooting the left weapon, the right mouse button is responsible for the right.\n\nWeapons cannot shoot while the game is paused.\n\nIt is better to save ammo at this point.\n\nExit ship mode, back to planet mode."; 
+        _text[364, 0] = "The left mouse button is responsible for shooting the left weapon, the right mouse button is responsible for the right.\n\nWeapons cannot shoot while the game is paused.\n\nIt is better to save ammo at this point.\n\nExit ship mode, back to planet mode.";
         _text[364, 1] = "Левая кнопка мыши отвечает за выстрелы левым оружие, правая кнопка мыши за правым.\n\nОружие не может стрелять, пока игра находится на паузе.\n\nНа данный момент лучше сэкономить патроны.\n\nВыйдите из режима корабля, обратно в режим планеты.";
 
         // MissionDefeatMissionDescription_65
@@ -1686,9 +1686,36 @@ public class Language : MonoBehaviour
         _text[519, 0] = "Ignore";
         _text[519, 1] = "Игнорировать";
 
+        // 1_ResourceDialogue
+        _text[520, 0] = "You intercept a colonial logistics crate. Scans show packaged organic structural panels.";
+        _text[520, 1] = "Вы перехватываете контейнер колониальной логистики. Сканы показывают органические конструкционные панели.";
+
+        _text[521, 0] = "Unseal and salvage";
+        _text[521, 1] = "Вскрыть и изъять"; // выбор 1
+
+        _text[522, 0] = "You breach the seal and sort the stock.\n\nSuccess: Intact timber modules are transferred to storage.";
+        _text[522, 1] = "Вы вскрываете пломбу и сортируете груз.\n\nУспех: целые деревянные модули отправлены в хранилище."; // + дерево
+
+        _text[523, 0] = "Failure: A sterilization foam discharge contaminates the bay — you jettison part of your wood supplies.";
+        _text[523, 1] = "Провал: срабатывает стерилизующая пена — отсек загрязнён, часть древесных материалов приходится сбросить."; // - дерево
+
+        _text[524, 0] = "Push it away and move on";
+        _text[524, 1] = "Оттолкнуть и уйти"; // выбор 2
+
+        _text[525, 0] = "You keep your distance and nudge the crate with maneuvering thrusters.";
+        _text[525, 1] = "Вы держите дистанцию и легким импульсом маневровых двигателей отталкиваете контейнер.";
+
+        _text[526, 0] = "Success: It clears your trajectory. No further events.";
+        _text[526, 1] = "Успех: объект уходит с курса. Ничего не происходит."; // ничего
+
+        _text[527, 0] = "Failure: A loose fragment scrapes the hull — emergency patching consumes spare timber panels.";
+        _text[527, 1] = "Провал: отломившийся фрагмент царапает обшивку — на аварийный ремонт уходят запасные деревянные панели."; // - Wood
+
+
         #endregion
 
 
         for (int x = 0; x < WorldGameInfo.LanguageLength; x++) TextStatic[x] = _text[x, LanguageNumber];
+
     }
 }
