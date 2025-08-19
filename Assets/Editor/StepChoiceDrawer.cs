@@ -11,130 +11,130 @@ public class StepChoiceDrawer : PropertyDrawer
     //------------------------------------------------------------------
     public override void OnGUI(Rect pos, SerializedProperty prop, GUIContent label)
     {
-        // ── Foldout
-        prop.isExpanded = EditorGUI.Foldout(
-            new Rect(pos.x, pos.y, pos.width, EditorGUIUtility.singleLineHeight),
-            prop.isExpanded, label, true);
+        // Сохраняем глобальные значения и обязательно восстанавливаем в finally
+        int oldIndent = EditorGUI.indentLevel;
+        float oldLabelWidth = EditorGUIUtility.labelWidth;
 
-        if (!prop.isExpanded) return;
-
-        EditorGUI.indentLevel++;
-        float y = pos.y + EditorGUIUtility.singleLineHeight + PadY;
-
-        // ── Choice text number
-        var choiceText = prop.FindPropertyRelative(nameof(StepChoice.ChoiseTextNumber));
-        EditorGUI.PropertyField(
-            new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-            choiceText, new GUIContent("Choice Text"));
-        y += EditorGUIUtility.singleLineHeight + PadY;
-
-        // ── Kind
-        var kindProp = prop.FindPropertyRelative(nameof(StepChoice.Kind));
-        EditorGUI.PropertyField(
-            new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-            kindProp);
-        y += EditorGUIUtility.singleLineHeight + PadY;
-
-        // ссылки на вложенные блоки
-        var stdProp = prop.FindPropertyRelative(nameof(StepChoice.Standard));
-        var chanceProp = prop.FindPropertyRelative(nameof(StepChoice.Chance));
-        var randProp = prop.FindPropertyRelative(nameof(StepChoice.Random));
-
-        switch ((ChoiceKind)kindProp.enumValueIndex)
+        try
         {
-            case ChoiceKind.Standard:
-                {
-                    // ── Next step
-                    var nextProp = stdProp.FindPropertyRelative(nameof(StandardChoiceData.NextStepIndex));
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-                        nextProp, new GUIContent("Next Step Index"));
-                    y += EditorGUIUtility.singleLineHeight + PadY;
+            // Заголовок (foldout)
+            var line = new Rect(pos.x, pos.y, pos.width, EditorGUIUtility.singleLineHeight);
+            prop.isExpanded = EditorGUI.Foldout(line, prop.isExpanded, label, true);
+            if (!prop.isExpanded) return;
 
-                    // ── Rewards
-                    var rewardsProp = stdProp.FindPropertyRelative(nameof(StandardChoiceData.Rewards));
-                    float h = EditorGUI.GetPropertyHeight(rewardsProp, true);
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x, y, pos.width, h), rewardsProp, true);
-                    y += h + PadY;
+            float y = line.yMax + PadY;
 
-                    // ── Choice Required
-                    var reqProp = stdProp.FindPropertyRelative(nameof(StandardChoiceData.ChoiceRequired));
-                    float hReq = EditorGUI.GetPropertyHeight(reqProp, true);
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x, y, pos.width, hReq), reqProp, true);
-                    y += hReq + PadY;
-                    break;
-                }
-
-            case ChoiceKind.Chance:
-                {
-                    // ── Success / Failure texts
-                    var succText = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.SuccessTextNumber));
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-                        succText, new GUIContent("Success Text"));
-                    y += EditorGUIUtility.singleLineHeight + PadY;
-
-                    var failText = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.FailureTextNumber));
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-                        failText, new GUIContent("Failure Text"));
-                    y += EditorGUIUtility.singleLineHeight + PadY;
-
-                    // ── Rewards
-                    var succRewards = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.SuccessRewards));
-                    float h1 = EditorGUI.GetPropertyHeight(succRewards, true);
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x, y, pos.width, h1), succRewards, true);
-                    y += h1 + PadY;
-
-                    var failRewards = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.FailureRewards));
-                    float h2 = EditorGUI.GetPropertyHeight(failRewards, true);
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x, y, pos.width, h2), failRewards, true);
-                    y += h2 + PadY;
-                    break;
-                }
-
-            case ChoiceKind.Random:
-                var listProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.PossibleRewards));
-                float hList = EditorGUI.GetPropertyHeight(listProp, true);
-                EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, hList),
-                                        listProp, true);
-                y += hList + PadY;
-                // ── RewardCount (фолдаут + 2 enum'а)
-                var rcProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.RewardCount));
-
-                // Фолдаут
-                rcProp.isExpanded = EditorGUI.Foldout(
-                    new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-                    rcProp.isExpanded, new GUIContent("Reward Count"), true);
+            // Весь контент рисуем внутри scope — он сам вернёт indent обратно
+            using (new EditorGUI.IndentLevelScope())
+            {
+                // Choice text number
+                var choiceText = prop.FindPropertyRelative(nameof(StepChoice.ChoiseTextNumber));
+                EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                                        choiceText, new GUIContent("Choice Text"));
                 y += EditorGUIUtility.singleLineHeight + PadY;
 
-                // Дочерние поля, если открыт
-                if (rcProp.isExpanded)
+                // Kind
+                var kindProp = prop.FindPropertyRelative(nameof(StepChoice.Kind));
+                EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                                        kindProp);
+                y += EditorGUIUtility.singleLineHeight + PadY;
+
+                // ссылки на вложенные блоки
+                var stdProp = prop.FindPropertyRelative(nameof(StepChoice.Standard));
+                var chanceProp = prop.FindPropertyRelative(nameof(StepChoice.Chance));
+                var randProp = prop.FindPropertyRelative(nameof(StepChoice.Random));
+
+                switch ((ChoiceKind)kindProp.enumValueIndex)
                 {
-                    EditorGUI.indentLevel++;
+                    case ChoiceKind.Standard:
+                        {
+                            // Next step
+                            var nextProp = stdProp.FindPropertyRelative(nameof(StandardChoiceData.NextStepIndex));
+                            EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                                                    nextProp, new GUIContent("Next Step Index"));
+                            y += EditorGUIUtility.singleLineHeight + PadY;
 
-                    var amountProp = rcProp.FindPropertyRelative(nameof(RewardCount.RewardAmountEnum));
-                    var signProp = rcProp.FindPropertyRelative(nameof(RewardCount.PlusMinusEnum));
+                            // Rewards
+                            var rewardsProp = stdProp.FindPropertyRelative(nameof(StandardChoiceData.Rewards));
+                            float h = EditorGUI.GetPropertyHeight(rewardsProp, true);
+                            EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, h), rewardsProp, true);
+                            y += h + PadY;
 
-                    EditorGUI.PropertyField(
-                         new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-                         amountProp, new GUIContent("Reward Amount Enum"));
-                    y += EditorGUIUtility.singleLineHeight + PadY;
+                            // Choice Required
+                            var reqProp = stdProp.FindPropertyRelative(nameof(StandardChoiceData.ChoiceRequired));
+                            float hReq = EditorGUI.GetPropertyHeight(reqProp, true);
+                            EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, hReq), reqProp, true);
+                            y += hReq + PadY;
+                            break;
+                        }
 
-                    EditorGUI.PropertyField(
-                        new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-                        signProp, new GUIContent("Plus / Minus"));
-                    y += EditorGUIUtility.singleLineHeight + PadY;
+                    case ChoiceKind.Chance:
+                        {
+                            var succText = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.SuccessTextNumber));
+                            EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                                                    succText, new GUIContent("Success Text"));
+                            y += EditorGUIUtility.singleLineHeight + PadY;
 
-                    EditorGUI.indentLevel--;
+                            var failText = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.FailureTextNumber));
+                            EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                                                    failText, new GUIContent("Failure Text"));
+                            y += EditorGUIUtility.singleLineHeight + PadY;
+
+                            var succRewards = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.SuccessRewards));
+                            float h1 = EditorGUI.GetPropertyHeight(succRewards, true);
+                            EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, h1), succRewards, true);
+                            y += h1 + PadY;
+
+                            var failRewards = chanceProp.FindPropertyRelative(nameof(ChanceChoiceData.FailureRewards));
+                            float h2 = EditorGUI.GetPropertyHeight(failRewards, true);
+                            EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, h2), failRewards, true);
+                            y += h2 + PadY;
+                            break;
+                        }
+
+                    case ChoiceKind.Random:
+                        {
+                            var listProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.PossibleRewards));
+                            float hList = EditorGUI.GetPropertyHeight(listProp, true);
+                            EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, hList), listProp, true);
+                            y += hList + PadY;
+
+                            var rcProp = randProp.FindPropertyRelative(nameof(RandomChoiceData.RewardCount));
+
+                            // Фолдаут блока Reward Count
+                            rcProp.isExpanded = EditorGUI.Foldout(
+                                new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                                rcProp.isExpanded, new GUIContent("Reward Count"), true);
+                            y += EditorGUIUtility.singleLineHeight + PadY;
+
+                            if (rcProp.isExpanded)
+                            {
+                                using (new EditorGUI.IndentLevelScope())
+                                {
+                                    var amountProp = rcProp.FindPropertyRelative(nameof(RewardCount.RewardAmountEnum));
+                                    var signProp = rcProp.FindPropertyRelative(nameof(RewardCount.PlusMinusEnum));
+
+                                    EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                                                            amountProp, new GUIContent("Reward Amount Enum"));
+                                    y += EditorGUIUtility.singleLineHeight + PadY;
+
+                                    EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
+                                                            signProp, new GUIContent("Plus / Minus"));
+                                    y += EditorGUIUtility.singleLineHeight + PadY;
+                                }
+                            }
+                            break;
+                        }
                 }
-                break;
+            }
+        }
+        finally
+        {
+            EditorGUI.indentLevel = oldIndent;
+            EditorGUIUtility.labelWidth = oldLabelWidth;
         }
     }
+
 
     public override float GetPropertyHeight(SerializedProperty prop, GUIContent label)
     {

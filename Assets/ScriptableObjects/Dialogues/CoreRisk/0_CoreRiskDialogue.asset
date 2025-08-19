@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 043b2baa39c66b3458497ac75327445a, type: 3}
-  m_Name: 0_ResourceDialogue
+  m_Name: 0_CoreRiskDialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 507
+  - TextNumber: 416
     Choices:
-    - ChoiseTextNumber: 508
+    - ChoiseTextNumber: 417
       Kind: 0
       Standard:
         NextStepIndex: 1
-        Rewards: []
+        Rewards:
+        - Type: 1
+          RewardCount:
+            RewardAmountEnum: 0
+            PlusMinusEnum: 0
         ChoiceRequired:
           RequiredType: 0
           Amount: 0
@@ -29,12 +33,12 @@ MonoBehaviour:
         SuccessRewards: []
         FailureRewards: []
       Random:
-        NextStepIndex: 0
-        PossibleRewards: 0400000005000000
+        NextStepIndex: -1
+        PossibleRewards: 
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-    - ChoiseTextNumber: 510
+    - ChoiseTextNumber: 419
       Kind: 0
       Standard:
         NextStepIndex: 2
@@ -48,17 +52,15 @@ MonoBehaviour:
         SuccessRewards: []
         FailureRewards: []
       Random:
-        NextStepIndex: 0
-        PossibleRewards: 0400000005000000
+        NextStepIndex: -1
+        PossibleRewards: 
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 509
-    Choices:
-    - ChoiseTextNumber: 33
-      Kind: 2
+    - ChoiseTextNumber: 421
+      Kind: 0
       Standard:
-        NextStepIndex: -1
+        NextStepIndex: 3
         Rewards: []
         ChoiceRequired:
           RequiredType: 0
@@ -70,11 +72,36 @@ MonoBehaviour:
         FailureRewards: []
       Random:
         NextStepIndex: -1
-        PossibleRewards: 0400000005000000060000000700000008000000090000000a0000000b0000000c00000012000000
+        PossibleRewards: 
         RewardCount:
-          RewardAmountEnum: 9
+          RewardAmountEnum: 0
           PlusMinusEnum: 0
-  - TextNumber: 511
+  - TextNumber: 418
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 1
+          RewardCount:
+            RewardAmountEnum: 0
+            PlusMinusEnum: 1
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
+  - TextNumber: 420
     Choices:
     - ChoiseTextNumber: 33
       Kind: 0
@@ -90,7 +117,32 @@ MonoBehaviour:
         SuccessRewards: []
         FailureRewards: []
       Random:
-        NextStepIndex: 0
+        NextStepIndex: -1
+        PossibleRewards: 
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
+  - TextNumber: 422
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 1
+          RewardCount:
+            RewardAmountEnum: 1
+            PlusMinusEnum: 1
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: -1
         PossibleRewards: 
         RewardCount:
           RewardAmountEnum: 0
