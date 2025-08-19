@@ -1543,13 +1543,13 @@ public class Language : MonoBehaviour
 
         // 0_BuildersFaction_Dialogue
         _text[474, 0] = "In orbit of the abandoned construction station, the AI detects activity. The automated drones continue their work cycle - building, dismantling, and building again.\n\nOne of them approaches the ship and transmits a message:\n\n\"Exchange. Energy carriers for data. The conditions are equal. 25 quanta for 25 data fragments.\"";
-        _text[474, 1] = "На орбите покинутой строительной станции ИИ фиксирует активность. Автоматические дроны продолжают цикл работы — строят, разбирают и снова строят.\n\nОдин из них приближается к кораблю и передаёт сообщение:\n\n\"Обмен. Энергоносители на данные. Условия равны. 25 квант на 25 фрагментов данных.\"";
+        _text[474, 1] = "На орбите покинутой строительной станции ИИ фиксирует активность. Автоматические дроны продолжают цикл работы — строят, разбирают и снова строят.\n\nОдин из них приближается к кораблю и передаёт сообщение:\n\n\"Обмен. Энергоносители на данные. Квант на фрагменты данных.\"";
 
-        _text[475, 0] = "Transfer 25 quant";
-        _text[475, 1] = "Передать 25 квант"; // выбор 1
+        _text[475, 0] = "Transfer quant";
+        _text[475, 1] = "Передать квант"; // выбор 1
 
         _text[476, 0] = "You receive fragments of data. The drone turns and leaves, not responding to further signals.";
-        _text[476, 1] = "Вы получаете фрагменты данных. Дрон разворачивается и уходит, не отвечая на дальнейшие сигналы."; // + 25 квант, - 25 фрагментов
+        _text[476, 1] = "Вы получаете фрагменты данных. Дрон разворачивается и уходит, не отвечая на дальнейшие сигналы."; // + квант, - фрагменты
 
         _text[477, 0] = "Decline the offer";
         _text[477, 1] = "Отклонить предложение"; // выбор 2
@@ -1687,29 +1687,57 @@ public class Language : MonoBehaviour
         _text[519, 1] = "Игнорировать";
 
         // 1_ResourceDialogue
-        _text[520, 0] = "You intercept a colonial logistics crate. Scans show packaged organic structural panels.";
+        _text[520, 0] = "You intercept a colonial logistics container. Scans show organic structural panels.";
         _text[520, 1] = "Вы перехватываете контейнер колониальной логистики. Сканы показывают органические конструкционные панели.";
 
-        _text[521, 0] = "Unseal and salvage";
+        _text[521, 0] = "Open and remove";
         _text[521, 1] = "Вскрыть и изъять"; // выбор 1
 
-        _text[522, 0] = "You breach the seal and sort the stock.\n\nSuccess: Intact timber modules are transferred to storage.";
+        _text[522, 0] = "You break the seal and sort the cargo.\n\nSuccess: whole wooden modules sent to storage.";
         _text[522, 1] = "Вы вскрываете пломбу и сортируете груз.\n\nУспех: целые деревянные модули отправлены в хранилище."; // + дерево
 
-        _text[523, 0] = "Failure: A sterilization foam discharge contaminates the bay — you jettison part of your wood supplies.";
-        _text[523, 1] = "Провал: срабатывает стерилизующая пена — отсек загрязнён, часть древесных материалов приходится сбросить."; // - дерево
+        _text[523, 0] = "Failure: the sterilizing foam is activated - the compartment is contaminated, some of the wood materials have to be discarded.";
+        _text[523, 1] = "Провал: срабатывает стерилизующая пена - отсек загрязнён, часть древесных материалов приходится сбросить."; // - дерево
 
-        _text[524, 0] = "Push it away and move on";
+        _text[524, 0] = "Push away and leave";
         _text[524, 1] = "Оттолкнуть и уйти"; // выбор 2
 
-        _text[525, 0] = "You keep your distance and nudge the crate with maneuvering thrusters.";
+        _text[525, 0] = "You keep your distance and push the container away with a light impulse from the maneuvering engines.";
         _text[525, 1] = "Вы держите дистанцию и легким импульсом маневровых двигателей отталкиваете контейнер.";
 
-        _text[526, 0] = "Success: It clears your trajectory. No further events.";
+        _text[526, 0] = "Success: The object goes off course. Nothing happens.";
         _text[526, 1] = "Успех: объект уходит с курса. Ничего не происходит."; // ничего
 
-        _text[527, 0] = "Failure: A loose fragment scrapes the hull — emergency patching consumes spare timber panels.";
-        _text[527, 1] = "Провал: отломившийся фрагмент царапает обшивку — на аварийный ремонт уходят запасные деревянные панели."; // - Wood
+        _text[527, 0] = "Failure: a broken fragment scratches the paneling - spare wooden panels are used for emergency repairs.";
+        _text[527, 1] = "Провал: отломившийся фрагмент царапает обшивку - на аварийный ремонт уходят запасные деревянные панели."; // - дерево
+
+        // 2_ResourceDialogue
+        _text[528, 0] = "Scanners reveal a \"cargo graveyard\": several lost capsules, coiled into a thin cloud of debris.";
+        _text[528, 1] = "Сканеры отмечают \"кладбище грузов\": несколько потерянных капсул, смотанных в тонкое облако обломков.";
+
+        _text[529, 0] = "Search the capsules";
+        _text[529, 1] = "Обыскать капсулы"; // выбор 1
+
+        _text[530, 0] = "You maneuver among the debris and open the least damaged capsules.";
+        _text[530, 1] = "Вы лавируете среди обломков и вскрываете наименее повреждённые капсулы."; // + случайный ресурс
+
+        _text[531, 0] = "Success: you extract the payload and distribute it among the compartments.";
+        _text[531, 1] = "Успех: извлекаете полезный груз и распределяете по отсекам."; // + случайный ресурс
+
+        _text[532, 0] = "Failure: A trap or depressurization forces an emergency reset - you lose some resources.";
+        _text[532, 1] = "Провал: ловушка или разгерметизация вынуждает к аварийному сбросу - вы теряете часть ресурсов."; // - случайный ресурс
+
+        _text[533, 0] = "Leave the cargo graveyard";
+        _text[533, 1] = "Оставить кладбище грузов"; // выбор 2
+
+        _text[534, 0] = "You reduce thrust and maintain course as you pass the debris field.";
+        _text[534, 1] = "Вы снижаете тягу и сохраняете курс, проходя поле обломков.";
+
+        _text[535, 0] = "Success: You walk around the field without incident.";
+        _text[535, 1] = "Успех: вы обходите поле без происшествий."; // ничего
+
+        _text[536, 0] = "Failure: Drifting pod hits shields - you spend resources on repairs.";
+        _text[536, 1] = "Провал: дрейфующая капсула задевает щиты - вы тратите запасы ресурсов на починку."; // - случайный ресурс
 
 
         #endregion

@@ -62,20 +62,138 @@ public class EventNodePanel : MonoBehaviour
     private readonly List<(EventReward reward, int amount)> _cachedRewards = new();
     private readonly List<(EventReward reward, int amount)> _pendingRewards = new();
 
+    [Header("PoolsForRandomReward")]
+    // Пулы для рандома
+    private static readonly RewardType[] _randomResourceTypes = new[]
+{
+    RewardType.Wood,
+    RewardType.Stone,
+    RewardType.IronOre,
+    RewardType.CopperOre,
+    RewardType.Coal,
+    RewardType.Oil,
+    RewardType.Water,
+    RewardType.Sand,
+    RewardType.Electricity,
+};
+
+    private static readonly RewardType[] _randomMaterialTypes = new[]
+    {
+    RewardType.StoneBlock,
+    RewardType.IronIngot,
+    RewardType.SteelIngot,
+    RewardType.CopperPlate,
+    RewardType.Concrete,
+    RewardType.Glass,
+    RewardType.Steam,
+};
+
+    private static readonly RewardType[] _randomComponentTypes = new[]
+    {
+    RewardType.CopperWire,
+    RewardType.GearWheel,
+    RewardType.ElectronicCircuit,
+    RewardType.Processor,
+    RewardType.Engine,
+    RewardType.ElectricEngine,
+};
+
+    // Маппинг RewardType -> ResourceEnum (для считывания количества и изменения)
+    private bool TryMapRewardTypeToResourceEnum(RewardType type, out ResourceEnum res)
+    {
+        switch (type)
+        {
+            // Ресурсы
+            case RewardType.Wood: res = ResourceEnum.Wood; return true;
+            case RewardType.Stone: res = ResourceEnum.Stone; return true;
+            case RewardType.IronOre: res = ResourceEnum.IronOre; return true;
+            case RewardType.CopperOre: res = ResourceEnum.CopperOre; return true;
+            case RewardType.Coal: res = ResourceEnum.Coal; return true;
+            case RewardType.Oil: res = ResourceEnum.Oil; return true;
+            case RewardType.Water: res = ResourceEnum.Water; return true;
+            case RewardType.Sand: res = ResourceEnum.Sand; return true;
+            case RewardType.Electricity: res = ResourceEnum.Electricity; return true;
+
+            // Материалы
+            case RewardType.StoneBlock: res = ResourceEnum.StoneBlock; return true;
+            case RewardType.IronIngot: res = ResourceEnum.IronIngot; return true;
+            case RewardType.SteelIngot: res = ResourceEnum.SteelIngot; return true;
+            case RewardType.CopperPlate: res = ResourceEnum.CopperPlate; return true;
+            case RewardType.Concrete: res = ResourceEnum.Concrete; return true;
+            case RewardType.Steam: res = ResourceEnum.Steam; return true;
+            case RewardType.Glass: res = ResourceEnum.Glass; return true;
+
+            // Компоненты
+            case RewardType.CopperWire: res = ResourceEnum.CopperWire; return true;
+            case RewardType.GearWheel: res = ResourceEnum.GearWheel; return true;
+            case RewardType.ElectronicCircuit: res = ResourceEnum.ElectronicCircuit; return true;
+            case RewardType.Processor: res = ResourceEnum.Processor; return true;
+            case RewardType.Engine: res = ResourceEnum.Engine; return true;
+            case RewardType.ElectricEngine: res = ResourceEnum.ElectricEngine; return true;
+
+            default:
+                res = default;
+                return false;
+        }
+    }
+
+    // Универсальный резолвер для Random-типов
+    private RewardType? ResolveRandomConcreteType(RewardType randKind, int amount)
+    {
+        RewardType[] pool;
+        switch (randKind)
+        {
+            case RewardType.RandomResource: pool = _randomResourceTypes; break;
+            case RewardType.RandomMaterial: pool = _randomMaterialTypes; break;
+            case RewardType.RandomComponent: pool = _randomComponentTypes; break;
+            default: return null;
+        }
+
+        // Копия пула для фильтрации
+        var list = new List<RewardType>(pool);
+
+        if (amount < 0)
+        {
+            // При штрафе оставляем только те, у которых запас > 0
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                if (!TryMapRewardTypeToResourceEnum(list[i], out var rEnum)) { list.RemoveAt(i); continue; }
+                if (_mainResources.GetResourceAmountForEnum(rEnum) <= 0f)
+                    list.RemoveAt(i);
+            }
+            if (list.Count == 0) return null; // нечего списывать
+        }
+
+        return list[UnityEngine.Random.Range(0, list.Count)];
+    }
+
     /// <summary>
     /// Возвращает случайное значение в диапазоне,
     /// исходя из RewardCount и текущего _dialogue.
     /// </summary>
     private int RollAmount(RewardType type, RewardCount rewardCount)
     {
-        // Шард по‑прежнему считается особым способом
-        if (type == RewardType.Shard)
-            return _shardsCalculateSystem.GetCalculatedShards();
+        // Особый случай
+        if (type == RewardType.Shard) return _shardsCalculateSystem.GetCalculatedShards();
 
         int min = _dialogue.GetRewardAmount(rewardCount, true);
         int max = _dialogue.GetRewardAmount(rewardCount, false);
-        return UnityEngine.Random.Range(min, max + 1);
+        int raw = UnityEngine.Random.Range(min, max + 1);
+
+        // Явно применяем знак из настроек (и страхуемся Abs'ом)
+        int signed = Mathf.Abs(raw);
+        int sign;
+
+        switch (rewardCount.PlusMinusEnum)
+        {
+            case PlusMinusEnum.Plus: sign = +1; break;
+            case PlusMinusEnum.Minus: sign = -1; break;
+            default: sign = +1; break; // по умолчанию — плюс
+        }
+
+        return sign * signed;
     }
+
 
     public void Open(DialogueSequence node, Action onFinished = null)
     {
@@ -101,27 +219,32 @@ public class EventNodePanel : MonoBehaviour
                 foreach (var reward in choise.Standard.Rewards)
                 {
                     int amount = RollAmount(reward.Type, reward.RewardCount);
-                    _cachedRewards.Add((reward, amount));
-                    sb.AppendLine(FormatRewardLine(reward, amount));
+
+                    RewardType effective;
+                    var line = FormatRewardLine(reward, amount, out effective);
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        var resolvedReward = new EventReward { Type = effective, RewardCount = reward.RewardCount };
+                        _cachedRewards.Add((resolvedReward, amount));
+                        sb.AppendLine(line);
+                    }
                 }
-                break;
             }
             if (choise.Kind == ChoiceKind.Random && choise.Random.PossibleRewards?.Count > 0)
             {
-                sb.AppendLine();
                 var rndReward = choise.Random;
                 var type = rndReward.PossibleRewards[UnityEngine.Random.Range(0, rndReward.PossibleRewards.Count)];
                 int amount = RollAmount(type, rndReward.RewardCount);
 
-                var reward = new EventReward
-                {
-                    Type = type,
-                    RewardCount = rndReward.RewardCount
-                };
+                var reward = new EventReward { Type = type, RewardCount = rndReward.RewardCount };
 
-                _cachedRewards.Add((reward, amount));
-                sb.AppendLine(FormatRewardLine(reward, amount));
-                break;
+                RewardType effective;
+                var line = FormatRewardLine(reward, amount, out effective); // effective == type
+                if (!string.IsNullOrEmpty(line))
+                {
+                    _cachedRewards.Add((new EventReward { Type = effective, RewardCount = rndReward.RewardCount }, amount));
+                    sb.AppendLine(line);
+                }
             }
         }
         _mainText.text = sb.ToString();
@@ -165,10 +288,14 @@ public class EventNodePanel : MonoBehaviour
                 foreach (var reward in rewards)
                 {
                     int amount = RollAmount(reward.Type, reward.RewardCount);
-                    _pendingRewards.Add((reward, amount));
 
-                    var line = FormatRewardLine(reward, amount);
-                    if (!string.IsNullOrEmpty(line)) sb.AppendLine(line);
+                    RewardType effective;
+                    var line = FormatRewardLine(reward, amount, out effective);
+                    if (!string.IsNullOrEmpty(line))
+                    {
+                        _pendingRewards.Add((new EventReward { Type = effective, RewardCount = reward.RewardCount }, amount));
+                        sb.AppendLine(line);
+                    }
                 }
             }
 
@@ -254,20 +381,58 @@ public class EventNodePanel : MonoBehaviour
     }
 
     /// <summary>
-    /// Формирует текст-строку с описанием изменения ресурса.
+    /// Формирует текст строки изменения. Для Random-типа выбирает конкретный подтип и возвращает его в effectiveType.
+    /// Если вывести нечего (неизвестный тип / нечего списывать) — возвращает null.
     /// </summary>
-    private string FormatRewardLine(EventReward reward, int amount)
+    private string FormatRewardLine(EventReward reward, int amount, out RewardType effectiveType)
     {
-        if (!RewardNameKey.TryGetValue(reward.Type, out int nameKey))
-            return null; // неизвестный тип — ничего не выводим
+        effectiveType = reward.Type;
+
+        if (reward.Type == RewardType.RandomResource || reward.Type == RewardType.RandomMaterial || reward.Type == RewardType.RandomComponent)
+        {
+            var resolved = ResolveRandomConcreteType(reward.Type, amount);
+            if (resolved == null) return null;
+            effectiveType = resolved.Value;
+        }
+
+        if (!RewardNameKey.TryGetValue(effectiveType, out int nameKey))
+            return null;
 
         bool isPositive = amount >= 0;
         string color = isPositive ? Colors.HexColorGreen : Colors.HexColorRed;
         int statusKey = isPositive ? 183 : 184;
 
-        return $"<color={color}>{Language.TextStatic[statusKey]} " +
-               $"{Language.TextStatic[nameKey]}: {amount}</color>";
+        int displayAmount = Mathf.Abs(amount);
+
+        return $"<color={color}>{Language.TextStatic[statusKey]} " + $"{Language.TextStatic[nameKey]}: {displayAmount}</color>";
     }
+
+
+    private void GrantRandomFromKind(RewardType randKind, int amount)
+    {
+        var resolved = ResolveRandomConcreteType(randKind, amount);
+        if (resolved == null) return; // нечего применять
+
+        var concrete = resolved.Value;
+
+        if (!TryMapRewardTypeToResourceEnum(concrete, out var resEnum)) return;
+
+        int delta = amount;
+
+        if (amount < 0)
+        {
+            float haveF = _mainResources.GetResourceAmountForEnum(resEnum);
+            int haveInt = Mathf.FloorToInt(haveF);
+            if (haveInt <= 0) return;
+            if (-amount > haveInt) delta = -haveInt;
+        }
+
+        if (delta == 0) return;
+
+        AudioManager.Instance.PlayerOneShot(delta > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
+        _mainResources.ChangeResource(resEnum, delta);
+    }
+
 
     private void GrantReward(EventReward reward, int amount)
     {
@@ -377,8 +542,25 @@ public class EventNodePanel : MonoBehaviour
                 AudioManager.Instance.PlayerOneShot(amount > 0 ? FMODEvents.Instance.ReceivedResource : FMODEvents.Instance.LostResource, transform.position);
                 _mainResources.ChangeResource(ResourceEnum.BeamEnergy, amount);
                 break;
+            case RewardType.RandomResource:
+                {
+                    GrantRandomFromKind(RewardType.RandomResource, amount);
+                    break;
+                }
+            case RewardType.RandomMaterial:
+                {
+                    GrantRandomFromKind(RewardType.RandomMaterial, amount);
+                    break;
+                }
+            case RewardType.RandomComponent:
+                {
+                    GrantRandomFromKind(RewardType.RandomComponent, amount);
+                    break;
+                }
+
         }
     }
+
 
     private int GetCurrent(RewardType type)
     {
