@@ -1739,6 +1739,24 @@ public class Language : MonoBehaviour
         _text[536, 0] = "Failure: Drifting pod hits shields - you spend resources on repairs.";
         _text[536, 1] = "Провал: дрейфующая капсула задевает щиты - вы тратите запасы ресурсов на починку."; // - случайный ресурс
 
+        // 3_ResourceDialogue
+        _text[537, 0] = "A damaged tugboat drifts ahead, the mining capsule still attached to its winch. Telemetry shows high iron content.";
+        _text[537, 1] = "Впереди дрейфует повреждённый буксир, к его лебёдке всё ещё прицеплена горная капсула. Телеметрия показывает высокое содержание железа.";
+
+        _text[538, 0] = "Quickly tear off the capsule";
+        _text[538, 1] = "Быстро сорвать капсулу"; // выбор 1
+
+        _text[539, 0] = "Success: You break the capsule and unload the iron ore into the receiver.";
+        _text[539, 1] = "Успех: вы срываете капсулу и выгружаете железную руду в приёмник."; // + железная руда
+
+        _text[540, 0] = "Failure: capsule goes into rotation and disintegrates among the debris. Nothing is received.";
+        _text[540, 1] = "Провал: капсула уходит в вращение и распадается среди обломков. Ничего не получено."; // ничего
+
+        _text[541, 0] = "Carefully pick it up with a manipulator";
+        _text[541, 1] = "Аккуратно забрать манипулятором"; // выбор 2
+
+        _text[542, 0] = "You lock the capsule and begin unloading. The tug restarts - the autoturret wakes up and manages to fire. You have the ore, but one of the AI ​​cores burns out.";
+        _text[542, 1] = "Вы фиксируете капсулу и начинаете выгрузку. Буксир перезапускается — автотурель просыпается и успевает выстрелить. Руда у вас, но одно ядро ИИ перегорает."; // + железная руда - ядро
 
         #endregion
 
