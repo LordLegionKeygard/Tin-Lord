@@ -72,21 +72,27 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
+        // 1) Сначала ввод
         GetKeyboardMovement();
+        HandleMouseDrag();
         // CheckMouseAtScreenEdge();
 
+        // 2) Физика/скорости
         UpdateVelocity();
         UpdateBasePosition();
+
+        // 3) Камера и параметры
         UpdateCameraPosition();
         ChangeMaxSpeed();
-        UpdateLimits();
-        if (!_missionModeSystem.IsPlanetMode()) return;
 
-        HandleMouseDrag();
+        // 4) Жёсткий кламп в конце кадра
+        UpdateLimits();
     }
 
     private void HandleMouseDrag()
     {
+        if (!_missionModeSystem.IsPlanetMode()) return;
+
         if (Mouse.current.rightButton.wasPressedThisFrame && !IsPointerOverUISystem.IsPointerOverUI)
         {
             Plane plane = new Plane(Vector3.up, Vector3.zero);
@@ -116,8 +122,17 @@ public class CameraMovement : MonoBehaviour
                 Vector3 offset = _startPos - currentPos;
                 Vector3 newCamPos = transform.position + offset;
                 transform.position = newCamPos;
+
+                transform.position = ClampPosition(newCamPos);
             }
         }
+    }
+
+    private Vector3 ClampPosition(Vector3 pos)
+    {
+        pos.x = Mathf.Clamp(pos.x, _xMin, _xMax);
+        pos.z = Mathf.Clamp(pos.z, _yMin, _yMax);
+        return pos;
     }
 
     private void UpdateVelocity()
@@ -218,13 +233,7 @@ public class CameraMovement : MonoBehaviour
 
     public void UpdateLimits()
     {
-        Vector3 vector = transform.position;
-        if (vector.x < _xMin) vector.x = _xMin;
-        else if (vector.x > _xMax) vector.x = _xMax;
-        if (vector.z < _yMin) vector.z = _yMin;
-        else if (vector.z > _yMax) vector.z = _yMax;
-
-        transform.position = vector;
+        transform.position = ClampPosition(transform.position);
     }
 
     private void OnDestroy()

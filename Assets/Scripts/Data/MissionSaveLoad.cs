@@ -146,6 +146,9 @@ public class MissionSaveLoad : MonoBehaviour
 
     public void LoadGameData(ref MissionSaveData currentSaveData)
     {
+        // Tutorial
+        _tutorialSystem.LoadTutorial(_hangarSaveGame.HangarSaveData.TutorialProgress, _spaceSaveGame.SpaceSaveData.PrologueCompleted);
+        
         // Main
         CurrentMissionInfo.Instance.LoadMission(BuildMissionFromSelected(), _spaceSaveGame.SpaceSaveData.CurrentMission.MissionDeckIndex);
         _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
@@ -200,8 +203,6 @@ public class MissionSaveLoad : MonoBehaviour
         //Hazard
         _spawnedHazardSystem.LoadHazardData(currentSaveData.Hazards, currentSaveData.IsStartMission);
 
-        // Tutorial
-        _tutorialSystem.LoadTutorial(_hangarSaveGame.HangarSaveData.TutorialProgress, _spaceSaveGame.SpaceSaveData.PrologueCompleted);
 
         CustomEvents.FireDataLoad();
     }

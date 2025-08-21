@@ -30,12 +30,10 @@ public class MissionModeSystem : MonoBehaviour
 
     public bool IsPlanetMode() => _isPlanetMode;
 
-    public void LoadMode(bool isCannonMode)
+    public void LoadMode(bool isWeaponMode)
     {
-        if (isCannonMode)
-        {
-            ChangeMode(false);
-        }
+        if (!isWeaponMode) return;      
+        ChangeMode(false);        
     }
 
     private void ToggleShipWeapons(bool state)
@@ -58,7 +56,6 @@ public class MissionModeSystem : MonoBehaviour
     public void ChangeMode(bool needSound)
     {
         if (_endMissionSystem.IsMissionEnd() || !_tutorialSystem.CanClickChangeModeButton()) return;
-
         _isPlanetMode = !_isPlanetMode;
         ChangeView(needSound);
 
