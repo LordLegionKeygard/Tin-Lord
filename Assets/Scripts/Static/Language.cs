@@ -1449,7 +1449,7 @@ public class Language : MonoBehaviour
         _text[443, 0] = "You activate the assimilation procedure.\n\nSuccess: alien core integrated - system strengthened.";
         _text[443, 1] = "Вы активируете процедуру ассимиляции.\n\nУспех: чужое ядро интегрировано — система усилена."; // + ядро
 
-        _text[444, 0] = "You are activating the assimilation procedure.\n\nFailure: The conflict structure is destroying your active cores.";
+        _text[444, 0] = "You are activating the assimilation procedure.\n\nFailure: the conflict structure is destroying your active cores.";
         _text[444, 1] = "Вы активируете процедуру ассимиляции.\n\nПровал: структура конфликта уничтожает твои активные ядра."; // - ядра
 
         // 0_PlanetDialogue
@@ -1474,7 +1474,7 @@ public class Language : MonoBehaviour
         _text[451, 0] = "You are directly hacking the security protocols.\n\nSuccess: you managed to bypass the security";
         _text[451, 1] = "Вы напрямую взламываете протоколы защиты.\n\nУспех: вам удалось обойти защиту"; // + фрагменты
 
-        _text[452, 0] = "You are directly hacking the security protocols.\n\nFailure: You have caught a virus that destroys your memory";
+        _text[452, 0] = "You are directly hacking the security protocols.\n\nFailure: you have caught a virus that destroys your memory";
         _text[452, 1] = "Вы напрямую взламываете протоколы защиты.\n\nПровал: вы подхватили вирус, уничтожающий вашу память"; // - фрагменты
 
         _text[453, 0] = "Precise calibration";
@@ -1483,7 +1483,7 @@ public class Language : MonoBehaviour
         _text[454, 0] = "You accurately calibrate the bypass system.\n\nSuccess: you manage to extract the data";
         _text[454, 1] = "Вы точно калибруете систему обхода защиты.\n\nУспех: вам удается извлечь данные"; // + фрагменты
 
-        _text[455, 0] = "You calibrate the bypass system accurately.\n\nFailure: You mixed up the protocols. The console self-destructs.";
+        _text[455, 0] = "You calibrate the bypass system accurately.\n\nFailure: you mixed up the protocols. The console self-destructs.";
         _text[455, 1] = "Вы точно калибруете систему обхода защиты.\n\nПровал: вы перепутали протоколы. Консоль самоуничтожается."; // - ядро
 
         _text[456, 0] = "Send a drone";
@@ -1535,11 +1535,11 @@ public class Language : MonoBehaviour
         _text[471, 0] = "Refuse";
         _text[471, 1] = "Отказаться"; // выбор 2
 
-        _text[472, 0] = "A Corrosive Capsule is dropped on you.\n\nSuccess: Your Energy Shield neutralizes the attack.\n\nYour Warp Engines are engaged, instantly escaping the battlefield.";
+        _text[472, 0] = "A Corrosive Capsule is dropped on you.\n\nSuccess: your Energy Shield neutralizes the attack.\n\nYour Warp Engines are engaged, instantly escaping the battlefield.";
         _text[472, 1] = "На вас сбрасывают коррозийную капсулу.\n\nУспех: ваш энергетический щит нейтрализует атаку.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; //ничего
 
-        _text[473, 0] = "A corrosive capsule is dropped on you.\n\nFailure: It hits the hull and causes a hull leak. Drones rush to patch the hole.\n\nYou instantly escape the battlefield by activating your warp engines.";
-        _text[473, 1] = "На вас сбрасывают коррозийную капсулу.\n\nПровал: Она поражает корпус и образуется разгерметизация корпуса. Дроны срочно латают пробоину.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; // - ядра
+        _text[473, 0] = "A corrosive capsule is dropped on you.\n\nFailure: it hits the hull and causes a hull leak. Drones rush to patch the hole.\n\nYou instantly escape the battlefield by activating your warp engines.";
+        _text[473, 1] = "На вас сбрасывают коррозийную капсулу.\n\nПровал: она поражает корпус и образуется разгерметизация корпуса. Дроны срочно латают пробоину.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; // - ядра
 
         // 0_BuildersFaction_Dialogue
         _text[474, 0] = "In orbit of the abandoned construction station, the AI detects activity. The automated drones continue their work cycle - building, dismantling, and building again.\n\nOne of them approaches the ship and transmits a message:\n\n\"Exchange. Energy carriers for data. The conditions are equal. 25 quanta for 25 data fragments.\"";
@@ -1604,11 +1604,11 @@ public class Language : MonoBehaviour
         _text[493, 0] = "Accept the gift";
         _text[493, 1] = "Принять дар"; //выбор 1
 
-        _text[494, 0] = "The organism grows in the cargo bay.\n\nSuccess: It synchronizes with the ship's systems, causing strange images.";
-        _text[494, 1] = "Организм прорастает в грузовом отсеке.\n\nУспех: Он синхронизируется с системами корабля, вызывая странные образы."; // + фрагменты
+        _text[494, 0] = "The organism grows in the cargo bay.\n\nSuccess: it synchronizes with the ship's systems, causing strange images.";
+        _text[494, 1] = "Организм прорастает в грузовом отсеке.\n\nУспех: он синхронизируется с системами корабля, вызывая странные образы."; // + фрагменты
 
-        _text[495, 0] = "The organism grows in the cargo bay.\n\nFailure: The Corruption gets out of control. The virus penetrates the control network, causing one of the cores to fail fatally.";
-        _text[495, 1] = "Организм прорастает в грузовом отсеке.\n\nПровал: Скверна выходит из-под контроля. Вирус проникает в управляющую сеть, приводя к фатальному сбою одного из ядер."; // -1 ядро
+        _text[495, 0] = "The organism grows in the cargo bay.\n\nFailure: the Corruption gets out of control. The virus penetrates the control network, causing one of the cores to fail fatally.";
+        _text[495, 1] = "Организм прорастает в грузовом отсеке.\n\nПровал: скверна выходит из-под контроля. Вирус проникает в управляющую сеть, приводя к фатальному сбою одного из ядер."; // -1 ядро
 
         _text[496, 0] = "Refuse and move away";
         _text[496, 1] = "Отказаться и отойти"; //выбор 2
@@ -1616,10 +1616,10 @@ public class Language : MonoBehaviour
         _text[497, 0] = "You slowly move away from the station, but you feel that it is too late - the spores have penetrated the ship's ventilation.";
         _text[497, 1] = "Вы медленно отдаляетесь от станции, но чувствуете, что уже слишком поздно — споры внедрились в вентиляцию корабля.";
 
-        _text[498, 0] = "Success: You initiate internal cleansing protocols - the ship is successfully cleaned.";
+        _text[498, 0] = "Success: you initiate internal cleansing protocols - the ship is successfully cleaned.";
         _text[498, 1] = "Успех: вы запускаете протоколы внутренней очистки — корабль успешно очищен."; // ничего
 
-        _text[499, 0] = "Failure: A spore enters the life support module, causing a malfunction.";
+        _text[499, 0] = "Failure: a spore enters the life support module, causing a malfunction.";
         _text[499, 1] = "Провал: спора проникает в модуль жизнеобеспечения, вызывая сбой"; // - ядро
 
         _text[500, 0] = "Perform external cleaning";
@@ -1628,7 +1628,7 @@ public class Language : MonoBehaviour
         _text[501, 0] = "You initiate an external cleansing of the infected ship: you direct a concentrated laser at the biomass foci and block the infection signals.";
         _text[501, 1] = "Вы запускаете внешнюю очистку заражённого корабля: направляете концентрированный лазер на очаги биомассы и блокируете сигналы заражения.";
 
-        _text[502, 0] = "Success: The cleansing is successful - the organism is destroyed, you take resources from the station.";
+        _text[502, 0] = "Success: the cleansing is successful - the organism is destroyed, you take resources from the station.";
         _text[502, 1] = "Успех: очистка проходит успешно — организм уничтожен, вы забираете ресурсы со станции."; // + квант
 
         _text[503, 0] = "Failure: the infection goes deeper - the system overheats and one of the neurosections fails.";
@@ -1705,7 +1705,7 @@ public class Language : MonoBehaviour
         _text[525, 0] = "You keep your distance and push the container away with a light impulse from the maneuvering engines.";
         _text[525, 1] = "Вы держите дистанцию и легким импульсом маневровых двигателей отталкиваете контейнер.";
 
-        _text[526, 0] = "Success: The object goes off course. Nothing happens.";
+        _text[526, 0] = "Success: the object goes off course. Nothing happens.";
         _text[526, 1] = "Успех: объект уходит с курса. Ничего не происходит."; // ничего
 
         _text[527, 0] = "Failure: a broken fragment scratches the paneling - spare wooden panels are used for emergency repairs.";
@@ -1724,7 +1724,7 @@ public class Language : MonoBehaviour
         _text[531, 0] = "Success: you extract the payload and distribute it among the compartments.";
         _text[531, 1] = "Успех: извлекаете полезный груз и распределяете по отсекам."; // + случайный ресурс
 
-        _text[532, 0] = "Failure: A trap or depressurization forces an emergency reset - you lose some resources.";
+        _text[532, 0] = "Failure: a trap or depressurization forces an emergency reset - you lose some resources.";
         _text[532, 1] = "Провал: ловушка или разгерметизация вынуждает к аварийному сбросу - вы теряете часть ресурсов."; // - случайный ресурс
 
         _text[533, 0] = "Leave the cargo graveyard";
@@ -1733,10 +1733,10 @@ public class Language : MonoBehaviour
         _text[534, 0] = "You reduce thrust and maintain course as you pass the debris field.";
         _text[534, 1] = "Вы снижаете тягу и сохраняете курс, проходя поле обломков.";
 
-        _text[535, 0] = "Success: You walk around the field without incident.";
+        _text[535, 0] = "Success: you walk around the field without incident.";
         _text[535, 1] = "Успех: вы обходите поле без происшествий."; // ничего
 
-        _text[536, 0] = "Failure: Drifting pod hits shields - you spend resources on repairs.";
+        _text[536, 0] = "Failure: drifting pod hits shields - you spend resources on repairs.";
         _text[536, 1] = "Провал: дрейфующая капсула задевает щиты - вы тратите запасы ресурсов на починку."; // - случайный ресурс
 
         // 3_ResourceDialogue
@@ -1746,7 +1746,7 @@ public class Language : MonoBehaviour
         _text[538, 0] = "Quickly tear off the capsule";
         _text[538, 1] = "Быстро сорвать капсулу"; // выбор 1
 
-        _text[539, 0] = "Success: You break the capsule and unload the iron ore into the receiver.";
+        _text[539, 0] = "Success: you break the capsule and unload the iron ore into the receiver.";
         _text[539, 1] = "Успех: вы срываете капсулу и выгружаете железную руду в приёмник."; // + железная руда
 
         _text[540, 0] = "Failure: capsule goes into rotation and disintegrates among the debris. Nothing is received.";
@@ -1757,6 +1757,35 @@ public class Language : MonoBehaviour
 
         _text[542, 0] = "You lock the capsule and begin unloading. The tug restarts - the autoturret wakes up and manages to fire. You have the ore, but one of the AI ​​cores burns out.";
         _text[542, 1] = "Вы фиксируете капсулу и начинаете выгрузку. Буксир перезапускается — автотурель просыпается и успевает выстрелить. Руда у вас, но одно ядро ИИ перегорает."; // + железная руда - ядро
+
+        // 4_ResourceDialogue
+        _text[543, 0] = "Reconnaissance notes a planet with a high rock content. Scans show voids and layered strata with unstable areas. You land on a rock plateau and set up a temporary quarry.";
+        _text[543, 1] = "Разведка отмечает планету с высоким содержанием горных пород. Сканы показывают пустоты и слоистые пласты с нестабильными участками. Вы садитесь на каменное плато и разворачиваете временный карьер.";
+
+        _text[544, 0] = "Send robots with cutters";
+        _text[544, 1] = "Отправить роботов с резаками"; // выбор 1
+
+        _text[545, 0] = "Robots make shallow cuts, separate the blocks, forklifts carry the containers to the shuttle. You extract a modest batch of stone and leave before the shifts begin.";
+        _text[545, 1] = "Роботы делают неглубокие пропилы, отделяют блоки, погрузчики уносят контейнеры к шаттлу. Вы добываете скромную партию камня и уходите до начала смещений."; // +камень (мало)
+
+        _text[546, 0] = "Start the drill";
+        _text[546, 1] = "Запустить бур"; // выбор 2
+
+        _text[547, 0] = "Success: resonant cracks open a rich vein. You haul away a large shipment of stone.";
+        _text[547, 1] = "Успех: резонансные трещины открывают богатую жилу. Вы вывозите крупную партию камня."; // +камень (много)
+
+        _text[548, 0] = "Failure: the edge of the quarry caves in. The safety rope breaks, the drilling frame is pulled into the hole, the loaders drop pallets to avoid falling. The spoils are lost.";
+        _text[548, 1] = "Провал: край карьера проседает. Рвётся страховочный трос, буровую раму тянет в провал, погрузчики сбрасывают паллеты, чтобы не сорваться. Добыча утрачена."; // ничего
+
+        _text[549, 0] = "Launch a reconnaissance drone";
+        _text[549, 1] = "Запустить разведовательный дрон"; // выбор 3
+
+        _text[550, 0] = "Success: the drone finds a stable cavity under the crust. You mine a stable medium batch.";
+        _text[550, 1] = "Успех: дрон находит стабильную полость под коркой. Вы добываете стабильную среднюю партию."; // +камень (средне)
+
+        _text[551, 0] = "Failure: dust emission jams turbines - drone lost. All loot lost.";
+        _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян. Вся добыча потеряна."; // -ядро (мало)
+
 
         #endregion
 
