@@ -41,16 +41,8 @@ MonoBehaviour:
     - ChoiseTextNumber: 541
       Kind: 0
       Standard:
-        NextStepIndex: -1
-        Rewards:
-        - Type: 6
-          RewardCount:
-            RewardAmountEnum: 9
-            PlusMinusEnum: 0
-        - Type: 1
-          RewardCount:
-            RewardAmountEnum: 0
-            PlusMinusEnum: 1
+        NextStepIndex: 1
+        Rewards: []
         ChoiceRequired:
           RequiredType: 0
           Amount: 0
@@ -66,6 +58,35 @@ MonoBehaviour:
       Random:
         NextStepIndex: 0
         PossibleRewards: 0400000005000000
+        RewardCount:
+          RewardAmountEnum: 0
+          PlusMinusEnum: 0
+  - TextNumber: 542
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 6
+          RewardCount:
+            RewardAmountEnum: 9
+            PlusMinusEnum: 0
+        - Type: 1
+          RewardCount:
+            RewardAmountEnum: 0
+            PlusMinusEnum: 1
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
         RewardCount:
           RewardAmountEnum: 0
           PlusMinusEnum: 0

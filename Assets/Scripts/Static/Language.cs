@@ -1687,8 +1687,8 @@ public class Language : MonoBehaviour
         _text[519, 1] = "Игнорировать";
 
         // 1_ResourceDialogue
-        _text[520, 0] = "You intercept a colonial logistics container. Scans show organic structural panels.";
-        _text[520, 1] = "Вы перехватываете контейнер колониальной логистики. Сканы показывают органические конструкционные панели.";
+        _text[520, 0] = "You intercept a colonial logistics container.\n\nScans show organic structural panels.";
+        _text[520, 1] = "Вы перехватываете контейнер колониальной логистики.\n\nСканы показывают органические конструкционные панели.";
 
         _text[521, 0] = "Open and remove";
         _text[521, 1] = "Вскрыть и изъять"; // выбор 1
@@ -1740,8 +1740,8 @@ public class Language : MonoBehaviour
         _text[536, 1] = "Провал: дрейфующая капсула задевает щиты - вы тратите запасы ресурсов на починку."; // - случайный ресурс
 
         // 3_ResourceDialogue
-        _text[537, 0] = "A damaged tugboat drifts ahead, the mining capsule still attached to its winch. Telemetry shows high iron content.";
-        _text[537, 1] = "Впереди дрейфует повреждённый буксир, к его лебёдке всё ещё прицеплена горная капсула. Телеметрия показывает высокое содержание железа.";
+        _text[537, 0] = "A damaged tugboat drifts ahead, the mining capsule still attached to its winch.\n\nTelemetry shows high iron content.";
+        _text[537, 1] = "Впереди дрейфует повреждённый буксир, к его лебёдке всё ещё прицеплена горная капсула.\n\nТелеметрия показывает высокое содержание железа.";
 
         _text[538, 0] = "Quickly tear off the capsule";
         _text[538, 1] = "Быстро сорвать капсулу"; // выбор 1
@@ -1755,18 +1755,18 @@ public class Language : MonoBehaviour
         _text[541, 0] = "Carefully pick it up with a manipulator";
         _text[541, 1] = "Аккуратно забрать манипулятором"; // выбор 2
 
-        _text[542, 0] = "You lock the capsule and begin unloading. The tug restarts - the autoturret wakes up and manages to fire. You have the ore, but one of the AI ​​cores burns out.";
-        _text[542, 1] = "Вы фиксируете капсулу и начинаете выгрузку. Буксир перезапускается — автотурель просыпается и успевает выстрелить. Руда у вас, но одно ядро ИИ перегорает."; // + железная руда - ядро
+        _text[542, 0] = "You lock the capsule and begin unloading. The tug restarts - the autoturret wakes up and manages to fire.\n\nYou have the ore, but one of the AI ​​cores burns out.";
+        _text[542, 1] = "Вы фиксируете капсулу и начинаете выгрузку. Буксир перезапускается — автотурель просыпается и успевает выстрелить.\n\nРуда у вас, но одно ядро ИИ перегорает."; // + железная руда - ядро
 
         // 4_ResourceDialogue
-        _text[543, 0] = "Reconnaissance notes a planet with a high rock content. Scans show voids and layered strata with unstable areas. You land on a rock plateau and set up a temporary quarry.";
-        _text[543, 1] = "Разведка отмечает планету с высоким содержанием горных пород. Сканы показывают пустоты и слоистые пласты с нестабильными участками. Вы садитесь на каменное плато и разворачиваете временный карьер.";
+        _text[543, 0] = "Reconnaissance notes a planet with a high rock content.\n\nScans show voids and layered strata with unstable areas.\n\nYou land on a rock plateau and set up a temporary quarry.";
+        _text[543, 1] = "Разведка отмечает планету с высоким содержанием горных пород.\n\nСканы показывают пустоты и слоистые пласты с нестабильными участками.\n\nВы садитесь на каменное плато и разворачиваете временный карьер.";
 
         _text[544, 0] = "Send robots with cutters";
         _text[544, 1] = "Отправить роботов с резаками"; // выбор 1
 
-        _text[545, 0] = "Robots make shallow cuts, separate the blocks, forklifts carry the containers to the shuttle. You extract a modest batch of stone and leave before the shifts begin.";
-        _text[545, 1] = "Роботы делают неглубокие пропилы, отделяют блоки, погрузчики уносят контейнеры к шаттлу. Вы добываете скромную партию камня и уходите до начала смещений."; // +камень (мало)
+        _text[545, 0] = "Robots make shallow cuts, separate the blocks, forklifts carry the containers to the shuttle.\n\nYou extract a modest batch of stone and leave before the shifts begin.";
+        _text[545, 1] = "Роботы делают неглубокие пропилы, отделяют блоки, погрузчики уносят контейнеры к шаттлу.\n\nВы добываете скромную партию камня и уходите до начала смещений."; // +камень (мало)
 
         _text[546, 0] = "Start the drill";
         _text[546, 1] = "Запустить бур"; // выбор 2
@@ -1774,17 +1774,17 @@ public class Language : MonoBehaviour
         _text[547, 0] = "Success: resonant cracks open a rich vein. You haul away a large shipment of stone.";
         _text[547, 1] = "Успех: резонансные трещины открывают богатую жилу. Вы вывозите крупную партию камня."; // +камень (много)
 
-        _text[548, 0] = "Failure: the edge of the quarry caves in. The safety rope breaks, the drilling frame is pulled into the hole, the loaders drop pallets to avoid falling. The spoils are lost.";
-        _text[548, 1] = "Провал: край карьера проседает. Рвётся страховочный трос, буровую раму тянет в провал, погрузчики сбрасывают паллеты, чтобы не сорваться. Добыча утрачена."; // ничего
+        _text[548, 0] = "Failure: the edge of the quarry caves in. The safety rope breaks, the drilling frame is pulled into the hole, the loaders drop pallets to avoid falling.\n\nThe spoils are lost.";
+        _text[548, 1] = "Провал: край карьера проседает. Рвётся страховочный трос, буровую раму тянет в провал, погрузчики сбрасывают паллеты, чтобы не сорваться.\n\nДобыча утрачена."; // ничего
 
         _text[549, 0] = "Launch a reconnaissance drone";
         _text[549, 1] = "Запустить разведовательный дрон"; // выбор 3
 
-        _text[550, 0] = "Success: the drone finds a stable cavity under the crust. You mine a stable medium batch.";
-        _text[550, 1] = "Успех: дрон находит стабильную полость под коркой. Вы добываете стабильную среднюю партию."; // +камень (средне)
+        _text[550, 0] = "Success: the drone finds a stable cavity under the crust.\n\nYou mine a stable medium batch.";
+        _text[550, 1] = "Успех: дрон находит стабильную полость под коркой.\n\nВы добываете стабильную среднюю партию."; // +камень (средне)
 
-        _text[551, 0] = "Failure: dust emission jams turbines - drone lost. All loot lost.";
-        _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян. Вся добыча потеряна."; // -ядро (мало)
+        _text[551, 0] = "Failure: dust emission jams turbines - drone lost.\n\nAll loot lost.";
+        _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян.\n\nВся добыча потеряна."; // -ядро (мало)
 
 
         #endregion

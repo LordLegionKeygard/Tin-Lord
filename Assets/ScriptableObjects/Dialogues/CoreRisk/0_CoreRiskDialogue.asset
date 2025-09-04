@@ -19,11 +19,7 @@ MonoBehaviour:
       Kind: 0
       Standard:
         NextStepIndex: 1
-        Rewards:
-        - Type: 1
-          RewardCount:
-            RewardAmountEnum: 0
-            PlusMinusEnum: 0
+        Rewards: []
         ChoiceRequired:
           RequiredType: 0
           Amount: 0
