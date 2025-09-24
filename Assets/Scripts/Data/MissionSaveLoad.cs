@@ -80,254 +80,151 @@ public class MissionSaveLoad : MonoBehaviour
             IsStartMission = true,
             GameSpeed = (int)GameSpeedEnum.Default,
             ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
-            ShipCannonsData = new MissionShipWeaponsData(),
-            Cards = Array.Empty<int>(),
-            DayEventsData = Array.Empty<DayEventData>(),
-            EnemyData = Array.Empty<EnemyData>(),
-            TilesData = Array.Empty<TileDataWrapper>(),
-            RoadTilesId = Array.Empty<int>(),
-            ObjectiveAmount = Array.Empty<int>(),
-            SkillsCooldown = Array.Empty<int>(),
-            SkillsDuration = Array.Empty<int>(),
-            QuantPickups = Array.Empty<QuantPickupData>(),
-            Hazards = Array.Empty<HazardSaveData>()
         };
 
-        // копирование стартовых ресурсов из ангара:
         for (int i = 0; i < _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.MainResourcesData.Length; i++)
+        {
             currentSaveData.ResourcesData[i] = _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.MainResourcesData[i];
+        }
 
         currentSaveData.ResourcesData[(int)ResourceEnum.DataFragment] = 0;
     }
 
-    private T[] NotNull<T>(T[] arr) => arr ?? Array.Empty<T>();
-
-    public void SaveMissionData(ref MissionSaveData data)
+    public void SaveMissionData(ref MissionSaveData currentSaveData)
     {
-        EnsureDefaults(ref data);
-        var localData = data;
+        //Main
+        currentSaveData.IsStartMission = false;
 
-        int resLen = Enum.GetValues(typeof(ResourceEnum)).Length - 1;
+        //UpPanel
+        currentSaveData.Day = _timeTickSystem.GetCurrentDay();
+        currentSaveData.Tick = _timeTickSystem.GetCurrentTick();
+        currentSaveData.Radiation = _ecologySystem.GetRadiation();
+        currentSaveData.EveryDayEcology = _ecologySystem.GetEveryDayEcology();
+        currentSaveData.GameSpeed = (int)GameSpeedEnum.Pause;
 
-        StepSave("Main", () =>
-        {
-            localData.IsStartMission = false;
-        });
+        //Resources
+        currentSaveData.ResourcesData = _missionResources.GetAllResourcesAmount();
 
-        StepSave("UpPanel", () =>
-        {
-            localData.Day = _timeTickSystem.GetCurrentDay();
-            localData.Tick = _timeTickSystem.GetCurrentTick();
-            localData.Radiation = _ecologySystem.GetRadiation();
-            localData.EveryDayEcology = NotNull(_ecologySystem.GetEveryDayEcology());
-            localData.GameSpeed = (int)GameSpeedEnum.Pause;
-        });
+        //Cards
+        currentSaveData.Cards = _cardHolderSystem.GetAllCards();
 
-        StepSave("Resources", () =>
-        {
-            var res = _missionResources.GetAllResourcesAmount();
-            if (res == null) res = new float[resLen];
-            else if (res.Length != resLen) Array.Resize(ref res, resLen);
-            localData.ResourcesData = res;
-        });
+        //DayEvents
+        currentSaveData.DayEventsData = _missionEventSystem.GetAllCurrentEvents();
 
-        StepSave("Cards", () =>
-        {
-            localData.Cards = NotNull(_cardHolderSystem.GetAllCards());
-        });
+        //Enemies
+        currentSaveData.EnemyData = _enemiesSpawnerSystem.GetAllCurrentEnemies();
 
-        StepSave("DayEvents", () =>
-        {
-            localData.DayEventsData = NotNull(_missionEventSystem.GetAllCurrentEvents());
-        });
+        //Tiles
+        currentSaveData.BaseLevel = _tilesSystem.GetBaseLevel();
+        currentSaveData.IsHaveRiver = _tilesSystem.IsHaveRiver();
+        currentSaveData.IsHaveMachineProduction = _tilesSystem.IsHaveMachineProduction();
+        currentSaveData.TilesData = _allTileObjects.GetAllTileObjects();
+        currentSaveData.RoadTilesId = _tileMapBuilder.GetRoadTilesId();
 
-        StepSave("Enemies", () =>
-        {
-            localData.EnemyData = NotNull(_enemiesSpawnerSystem.GetAllCurrentEnemies());
-        });
+        //Robot
+        currentSaveData.MachineData = _currentMachineSystem.GetMachineData();
 
-        StepSave("Tiles", () =>
-        {
-            localData.BaseLevel = _tilesSystem.GetBaseLevel();
-            localData.IsHaveRiver = _tilesSystem.IsHaveRiver();
-            localData.IsHaveMachineProduction = _tilesSystem.IsHaveMachineProduction();
-            localData.TilesData = NotNull(_allTileObjects.GetAllTileObjects());
-            localData.RoadTilesId = NotNull(_tileMapBuilder.GetRoadTilesId());
-        });
+        //Objectives
+        currentSaveData.ObjectiveAmount = _objectivesPanel.GetAllObjectivesAmount();
 
-        StepSave("Robot", () =>
-        {
-            localData.MachineData = _currentMachineSystem.GetMachineData();
-        });
+        //ShipCannons
+        currentSaveData.ShipCannonsData.IsWeaponMode = !_missionModeSystem.IsPlanetMode();
+        currentSaveData.ShipCannonsData.LeftWeaponBulletsCount = _missionShipWeaponSystem.GetCurrentLeftShipWeaponBulletsCount();
+        currentSaveData.ShipCannonsData.RightWeaponBulletsCount = _missionShipWeaponSystem.GetCurrentRightShipWeaponBulletsCount();
 
-        StepSave("Objectives", () =>
-        {
-            localData.ObjectiveAmount = NotNull(_objectivesPanel.GetAllObjectivesAmount());
-        });
+        //Skills
+        currentSaveData.SkillsCooldown = _allSkills.GetAllSkillsCooldown();
+        currentSaveData.SkillsDuration = _allSkills.GetAllSkillsDuration();
 
-        StepSave("ShipCannons", () =>
-        {
-            localData.ShipCannonsData ??= new MissionShipWeaponsData();
-            localData.ShipCannonsData.IsWeaponMode = !_missionModeSystem.IsPlanetMode();
-            localData.ShipCannonsData.LeftWeaponBulletsCount = _missionShipWeaponSystem.GetCurrentLeftShipWeaponBulletsCount();
-            localData.ShipCannonsData.RightWeaponBulletsCount = _missionShipWeaponSystem.GetCurrentRightShipWeaponBulletsCount();
-        });
+        //Quants
+        currentSaveData.QuantsAmount = _missionQuantSystem.GetQuants();
+        currentSaveData.QuantPickups = _quantPool.GetActiveQuants();
 
-        StepSave("Skills", () =>
-        {
-            localData.SkillsCooldown = NotNull(_allSkills.GetAllSkillsCooldown());
-            localData.SkillsDuration = NotNull(_allSkills.GetAllSkillsDuration());
-        });
-
-        StepSave("Quants", () =>
-        {
-            localData.QuantsAmount = _missionQuantSystem.GetQuants();
-            localData.QuantPickups = NotNull(_quantPool.GetActiveQuants());
-        });
-
-        StepSave("Hazards", () =>
-        {
-            localData.Hazards = NotNull(_spawnedHazardSystem.GetHazards());
-        });
+        //Hazard
+        currentSaveData.Hazards = _spawnedHazardSystem.GetHazards();
     }
 
-    public void LoadGameData(ref MissionSaveData data)
+    public void LoadGameData(ref MissionSaveData currentSaveData)
     {
-        EnsureDefaults(ref data);
-        var localData = data;
+        // Tutorial
+        _tutorialSystem.LoadTutorial(_hangarSaveGame.HangarSaveData.TutorialProgress, _spaceSaveGame.SpaceSaveData.PrologueCompleted);
+        
+        // Main
+        CurrentMissionInfo.Instance.LoadMission(BuildMissionFromSelected(), _spaceSaveGame.SpaceSaveData.CurrentMission.MissionDeckIndex);
+        _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
 
-        // --- защита от пустой выбранной миссии ---
-        var currentSelectMission = _spaceSaveGame.SpaceSaveData?.CurrentMission;
-        if (currentSelectMission == null)
-        {
-            Debug.LogError("[MissionSaveLoad.Load] CurrentMission is null");
-            return;
-        }
+        //UpPanel
+        _timeTickSystem.LoadTime(currentSaveData.Day, currentSaveData.Tick);
+        _ecologySystem.LoadEcology(currentSaveData.Radiation, currentSaveData.EveryDayEcology, currentSaveData.IsStartMission);
+        _gameSpeedSystem.ChangeGameSpeed(currentSaveData.GameSpeed, false);
 
-        int deckIndex = Mathf.Clamp(
-            currentSelectMission.MissionDeckIndex,
-            0,
-            _allMissionsInfo.MissionDeck.Length - 1
-        );
+        //Resources
+        _missionResources.LoadResources(currentSaveData.ResourcesData);
 
-        StepLoad("Tutorial", () =>
-            _tutorialSystem.LoadTutorial(_hangarSaveGame.HangarSaveData.TutorialProgress,
-                                         _spaceSaveGame.SpaceSaveData.PrologueCompleted));
+        //Cards
+        _cardHolderSystem.LoadCards(currentSaveData.IsStartMission, currentSaveData.Cards);
 
-        StepLoad("BuildMission", () =>
-        {
-            var node = BuildMissionFromSelected(currentSelectMission, deckIndex);
-            CurrentMissionInfo.Instance.LoadMission(node, deckIndex);
-            _tileMapBuilder.BuildMap(localData.IsStartMission);
-        });
+        //DayEvents
+        _missionEventSystem.LoadEvents(currentSaveData.DayEventsData, currentSaveData.IsStartMission);
 
-        StepLoad("UpPanel", () =>
-        {
-            _timeTickSystem.LoadTime(localData.Day, localData.Tick);
-            _ecologySystem.LoadEcology(localData.Radiation, NotNull(localData.EveryDayEcology), localData.IsStartMission);
-            _gameSpeedSystem.ChangeGameSpeed(localData.GameSpeed, false);
-        });
+        //Enemies
+        _enemiesSpawnerSystem.LoadEnemies(currentSaveData.EnemyData, currentSaveData.IsStartMission);
 
-        StepLoad("Resources", () => _missionResources.LoadResources(localData.ResourcesData));
+        //Tiles
+        _tilesSystem.SetBaseLevel(currentSaveData.BaseLevel);
+        _tilesSystem.SetIsHaveRiver(currentSaveData.IsHaveRiver);
+        _tilesSystem.SetIsHaveMachineProduction(currentSaveData.IsHaveMachineProduction);
+        _allTileObjects.LoadTiles(currentSaveData.TilesData, currentSaveData.IsStartMission);
+        _tileMapBuilder.LoadRoadTiles(currentSaveData.RoadTilesId, currentSaveData.IsStartMission);
 
-        StepLoad("Cards", () => _cardHolderSystem.LoadCards(localData.IsStartMission, NotNull(localData.Cards)));
+        //Machine
+        _machineSpawnerSystem.LoadSpawnMachine(currentSaveData);
 
-        StepLoad("DayEvents", () => _missionEventSystem.LoadEvents(NotNull(localData.DayEventsData), localData.IsStartMission));
+        //Buildings
+        _learnedBuildingsDataMission.LoadLearnedBuildings(_spaceSaveGame.SpaceSaveData.BuildingsLearned);
 
-        StepLoad("Enemies", () => _enemiesSpawnerSystem.LoadEnemies(NotNull(localData.EnemyData), localData.IsStartMission));
+        //Objectives
+        _objectivesPanel.LoadObjectiveItems(currentSaveData.ObjectiveAmount, currentSaveData.IsStartMission);
 
-        StepLoad("Tiles", () =>
-        {
-            _tilesSystem.SetBaseLevel(localData.BaseLevel);
-            _tilesSystem.SetIsHaveRiver(localData.IsHaveRiver);
-            _tilesSystem.SetIsHaveMachineProduction(localData.IsHaveMachineProduction);
-            _allTileObjects.LoadTiles(NotNull(localData.TilesData), localData.IsStartMission);
-            _tileMapBuilder.LoadRoadTiles(NotNull(localData.RoadTilesId), localData.IsStartMission);
-        });
+        //ShipCannons
+        _missionModeSystem.LoadMode(currentSaveData.ShipCannonsData.IsWeaponMode);
+        _missionWeaponSetterSystem.LoadWeapons(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData.WeaponData, currentSaveData.ShipCannonsData, currentSaveData.IsStartMission);
 
-        StepLoad("Machine", () =>
-        {
-            localData.MachineData ??= new MachineData();
-            _machineSpawnerSystem.LoadSpawnMachine(localData);
-        });
+        //Skills
+        _allSkills.LoadAllSkills(currentSaveData.SkillsCooldown, currentSaveData.SkillsDuration, _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.OpenedSkills);
 
-        StepLoad("LearnedBuildings", () =>
-            _learnedBuildingsDataMission.LoadLearnedBuildings(
-                _spaceSaveGame.SpaceSaveData.BuildingsLearned));
+        //Quants
+        _missionQuantSystem.SetQuants(currentSaveData.QuantsAmount);
+        _quantPool.LoadQuantPickup(currentSaveData.QuantPickups);
 
-        StepLoad("Objectives", () =>
-            _objectivesPanel.LoadObjectiveItems(NotNull(localData.ObjectiveAmount), localData.IsStartMission));
+        //Hangar
+        _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData);
 
-        StepLoad("ShipCannons", () =>
-        {
-            localData.ShipCannonsData ??= new MissionShipWeaponsData();
-            _missionModeSystem.LoadMode(localData.ShipCannonsData.IsWeaponMode);
-            _missionWeaponSetterSystem.LoadWeapons(
-                _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.WeaponData,
-                localData.ShipCannonsData,
-                localData.IsStartMission);
-        });
+        //Hazard
+        _spawnedHazardSystem.LoadHazardData(currentSaveData.Hazards, currentSaveData.IsStartMission);
 
-        StepLoad("Skills", () =>
-            _allSkills.LoadAllSkills(NotNull(localData.SkillsCooldown), NotNull(localData.SkillsDuration),
-                _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.OpenedSkills));
-
-        StepLoad("Quants", () =>
-        {
-            _missionQuantSystem.SetQuants(localData.QuantsAmount);
-            _quantPool.LoadQuantPickup(NotNull(localData.QuantPickups));
-        });
-
-        StepLoad("Hangar", () =>
-            _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData));
-
-        StepLoad("Hazards", () =>
-            _spawnedHazardSystem.LoadHazardData(NotNull(localData.Hazards), localData.IsStartMission));
 
         CustomEvents.FireDataLoad();
     }
 
-    private MissionNode BuildMissionFromSelected(SelectedMissionData sel, int deckIndex)
+    //  Собирает MissionNode из SelectedMissionData
+    private MissionNode BuildMissionFromSelected()
     {
-        if (sel == null)
-        {
-            Debug.LogError("[BuildMissionFromSelected] SelectedMissionData is null");
-            return null;
-        }
+        SelectedMissionData sel = _spaceSaveGame.SpaceSaveData.CurrentMission;
+        if (sel == null) return null;
 
-        // Защита MissionDeck
-        var deck = _allMissionsInfo.MissionDeck;
-        if (deck == null || deck.Length == 0)
-        {
-            Debug.LogError("[BuildMissionFromSelected] MissionDeck is null or empty");
-            return null;
-        }
-        deckIndex = Mathf.Clamp(deckIndex, 0, deck.Length - 1);
-
-        // Защита Landscapes
-        var landscapes = _allMissionsInfo.Landscapes;
-        if (landscapes == null || landscapes.Length == 0)
-        {
-            Debug.LogError("[BuildMissionFromSelected] Landscapes is null or empty");
-            return null;
-        }
-        int landscapeIndex = Mathf.Clamp(sel.LandscapeId, 0, landscapes.Length - 1);
-
-        var definition = deck[deckIndex];
+        var definition = _allMissionsInfo.MissionDeck[sel.MissionDeckIndex];
         var template = _allMissionsInfo.MissionNodeTemplate;
-        var landscape = landscapes[landscapeIndex];
+        var landscape = _allMissionsInfo.Landscapes[sel.LandscapeId];
         var spawnerSO = definition.Spawner;
 
-        // SavedObjectives защита
-        var saved = sel.SavedObjectives ?? Array.Empty<ObjectiveSave>();
-
-        var wrappers = new ObjectiveWrapper[saved.Length];
-        for (int i = 0; i < saved.Length; i++)
+        var wrappers = new ObjectiveWrapper[sel.SavedObjectives.Length];
+        for (int i = 0; i < wrappers.Length; i++)
         {
             wrappers[i] = new ObjectiveWrapper
             {
-                ObjectiveEnum = saved[i].Objective,
-                ObjectiveAmount = saved[i].Amount
+                ObjectiveEnum = sel.SavedObjectives[i].Objective,
+                ObjectiveAmount = sel.SavedObjectives[i].Amount
             };
         }
         var objectiveSO = ScriptableObject.CreateInstance<Objective>();
@@ -347,7 +244,6 @@ public class MissionSaveLoad : MonoBehaviour
 
         return node;
     }
-
 
     public void PrepareRestartMission()
     {
@@ -383,56 +279,5 @@ public class MissionSaveLoad : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnDayEnd -= AutoSave;
-    }
-
-
-    private void EnsureDefaults(ref MissionSaveData d)
-    {
-        if (d == null) d = new MissionSaveData();
-
-        int resLen = Enum.GetValues(typeof(ResourceEnum)).Length - 1;
-
-        d.ResourcesData ??= new float[resLen];
-        d.Cards ??= Array.Empty<int>();
-        d.DayEventsData ??= Array.Empty<DayEventData>();
-        d.EnemyData ??= Array.Empty<EnemyData>();
-        d.TilesData ??= Array.Empty<TileDataWrapper>();
-        d.RoadTilesId ??= Array.Empty<int>();
-        d.ObjectiveAmount ??= Array.Empty<int>();
-        d.ShipCannonsData ??= new MissionShipWeaponsData();   // ← ← главный виновник
-        d.SkillsCooldown ??= Array.Empty<int>();
-        d.SkillsDuration ??= Array.Empty<int>();
-        d.QuantPickups ??= Array.Empty<QuantPickupData>();
-        d.Hazards ??= Array.Empty<HazardSaveData>();
-
-        // На случай, если количество ресурсов изменилось между версиями:
-        if (d.ResourcesData.Length != resLen)
-        {
-            Array.Resize(ref d.ResourcesData, resLen);
-        }
-    }
-
-    private static void StepSave(string label, Action body)
-    {
-        try
-        {
-            body();
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[MissionSave] FAIL at '{label}': {ex.Message}");
-            Debug.LogException(ex);
-        }
-    }
-
-    private static void StepLoad(string label, Action body)
-    {
-        try { body(); }
-        catch (Exception ex)
-        {
-            Debug.LogError($"[MissionLoad.Load] FAIL at '{label}': {ex.Message}");
-            Debug.LogException(ex);
-            throw;
-        }
     }
 }
