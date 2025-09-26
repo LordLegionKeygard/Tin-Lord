@@ -15,6 +15,7 @@ public class MapSystem : MonoBehaviour
     [SerializeField] private ConnectionsDrawer _drawer;
     [SerializeField] private UIPanelsSpace _panels;
     [SerializeField] private MissionPanel _missionPanel;
+    [SerializeField] private EndActSystem _endActSystem;
     private TraderKind _activeTraderKind;
     private List<EventEntry> _eventQueue = new();
     private List<ResourceTraderNode> _resourceTraders = new();
@@ -35,10 +36,12 @@ public class MapSystem : MonoBehaviour
         return map != null && map.Nodes != null && nodeIdx >= 0 && nodeIdx < map.Nodes.Count && map.Nodes[nodeIdx].IsCompleted;
     }
 
-    private void OnEnable() => CustomEvents.OnDataLoad += HandleDataLoaded;
-    private void OnDisable() => CustomEvents.OnDataLoad -= HandleDataLoaded;
+    private void Start()
+    {
+        CustomEvents.OnDataLoad += LoadMapData;
+    }
 
-    private void HandleDataLoaded()
+    private void LoadMapData()
     {
         _generator.SetActInfo(_actsInfo[_save.SpaceSaveData.Act]);
 
@@ -48,6 +51,7 @@ public class MapSystem : MonoBehaviour
 
         if (needGenerate)
         {
+            _endActSystem.PrepareOpenStartNewActDialoguePanel(_save.SpaceSaveData.Act);
             _generator.GenerateMap();
             data.Map = _generator.SavedMap;
 
@@ -62,7 +66,7 @@ public class MapSystem : MonoBehaviour
         }
 
         _drawer.DrawConnections();
-        _uiNodes = _visualizer.GenerateAndDisplayMap();
+        _uiNodes = _visualizer.GenerateAndDisplayMap(_save.SpaceSaveData.Act);
 
         _currentNodeIndex = data.Map.CurrentNodeIndex;
         MoveTargetTo(_currentNodeIndex);
@@ -131,7 +135,7 @@ public class MapSystem : MonoBehaviour
 
         if (!isCurrent && (!IsReachable(nodeIndex) || !map.Nodes[_currentNodeIndex].IsCompleted)) return;
 
-        bool isVisibleNonMission = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.RewardEvent or NodeType.WeaponEngineer;;
+        bool isVisibleNonMission = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.RewardEvent or NodeType.WeaponEngineer; ;
 
         if (isVisibleNonMission)
         {
@@ -703,5 +707,10 @@ public class MapSystem : MonoBehaviour
         }
 
         return free[Random.Range(0, free.Count)];
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnDataLoad -= LoadMapData;
     }
 }
