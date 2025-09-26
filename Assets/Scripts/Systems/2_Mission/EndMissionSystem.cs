@@ -130,11 +130,13 @@ public class EndMissionSystem : MonoBehaviour
             var saveData = _spaceSaveGame.SpaceSaveData;
             var map = saveData.Map;
 
-            int curIdx = map.CurrentNodeIndex;
-            if (curIdx >= 0 && curIdx < map.Nodes.Count)
+            int index = map.CurrentNodeIndex;
+            if (index >= 0 && index < map.Nodes.Count)
             {
-                map.Nodes[curIdx].IsCompleted = true;
+                map.Nodes[index].IsCompleted = true;
             }
+
+            CheckChangeAct(missionEndEnum);
 
             _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(saveData);
         }
@@ -146,6 +148,25 @@ public class EndMissionSystem : MonoBehaviour
 
         _missionSaveGame.DeleteMissionJson();
         _spaceSaveGame.SaveEndMissionDataToJson(_receivedFragments, aiCores, quants);
+    }
+
+    private void CheckChangeAct(MissionEndEnum missionEndEnum)
+    {
+        var saveData = _spaceSaveGame.SpaceSaveData;
+        var map = saveData.Map;
+
+        int index = map.CurrentNodeIndex;
+
+        if (missionEndEnum == MissionEndEnum.Victory &&
+            index >= 0 && index < map.Nodes.Count &&
+            map.Nodes[index].NodeType == NodeType.Boss)
+        {
+            saveData.Act += 1;
+
+            // Сбрасываем карту, чтобы при следующем входе в космос сгенерировалась новая под новый акт
+            saveData.Map = null;
+            saveData.CurrentMission = null;
+        }
     }
 
     private IEnumerator UpdateFragmentsAndSlider(int targetFragments, float targetPercent)

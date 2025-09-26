@@ -6,11 +6,10 @@ using Zenject;
 public class MapSystem : MonoBehaviour
 {
     [Inject] private SpaceSaveGame _save;
-
+    [SerializeField] private ActInfo[] _actsInfo;
     [SerializeField] private MapDragScroller _mapScroller;
     [SerializeField] private EventNodePanel _eventPanel;
     [SerializeField] private CosmosView _cosmosView;
-    [SerializeField] private AllNodesInfo _allMissionsInfo;
     [SerializeField] private MapGenerator _generator;
     [SerializeField] private MapVisualizer _visualizer;
     [SerializeField] private ConnectionsDrawer _drawer;
@@ -21,7 +20,6 @@ public class MapSystem : MonoBehaviour
     private List<ResourceTraderNode> _resourceTraders = new();
     private List<SkillTraderNode> _skillTraders = new();
     private List<WeaponEngineerNode> _weaponEngineers = new();
-
 
     [Header("UI")]
     [SerializeField] private RectTransform _currentTarget;
@@ -42,6 +40,8 @@ public class MapSystem : MonoBehaviour
 
     private void HandleDataLoaded()
     {
+        _generator.SetActInfo(_actsInfo[_save.SpaceSaveData.Act]);
+
         var data = _save.SpaceSaveData;
 
         bool needGenerate = data.Map == null || data.Map.Nodes == null || data.Map.Nodes.Count == 0;
@@ -90,12 +90,12 @@ public class MapSystem : MonoBehaviour
     private void InitSpawnQueues()
     {
         // обычные Event’ы (без RewardEvent)
-        _eventQueue = MapHelper.BuildEventEntries(_allMissionsInfo.EventPools).Where(e => !(e.Node is RewardEventNode)).ToList();
+        _eventQueue = MapHelper.BuildEventEntries(_actsInfo[_save.SpaceSaveData.Act].EventPools).Where(e => !(e.Node is RewardEventNode)).ToList();
 
         // Traders
-        _resourceTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
-        _skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
-        _weaponEngineers = new List<WeaponEngineerNode>(_allMissionsInfo.WeaponEngineers);
+        _resourceTraders = new List<ResourceTraderNode>(_actsInfo[_save.SpaceSaveData.Act].ResourceTraders);
+        _skillTraders = new List<SkillTraderNode>(_actsInfo[_save.SpaceSaveData.Act].SkillTraders);
+        _weaponEngineers = new List<WeaponEngineerNode>(_actsInfo[_save.SpaceSaveData.Act].WeaponEngineers);
 
         _eventQueue.Shuffle();
         _resourceTraders.Shuffle();
@@ -135,7 +135,7 @@ public class MapSystem : MonoBehaviour
 
         if (isVisibleNonMission)
         {
-            var seq = _allMissionsInfo.MapPattern.Sequence;
+            var seq = _actsInfo[_save.SpaceSaveData.Act].MapPattern.Sequence;
             int curSymId = map.PatternIndex % seq.Length;
 
             if (seq[curSymId] == MapPatternEnum.NonMission)
@@ -171,7 +171,7 @@ public class MapSystem : MonoBehaviour
                     if (save.MissionDeckIndex < 0)
                     {
                         int completed = GetCompletedMissionsCount();
-                        int deckIdx = Mathf.Clamp(completed, 0, _allMissionsInfo.MissionDeck.Length - 1);
+                        int deckIdx = Mathf.Clamp(completed, 0, _actsInfo[_save.SpaceSaveData.Act].MissionDeck.Length - 1);
 
                         var mission = BuildMissionRandom(deckIdx, nodeType == NodeType.Boss, out int landIdx, out ObjectiveSave[] obj);
 
@@ -223,7 +223,7 @@ public class MapSystem : MonoBehaviour
     private void ResolveUnknownNode(int nodeIndex)
     {
         var map = _save.SpaceSaveData.Map;
-        var pattern = _allMissionsInfo.MapPattern.Sequence;
+        var pattern = _actsInfo[_save.SpaceSaveData.Act].MapPattern.Sequence;
 
         var symbol = pattern[map.PatternIndex % pattern.Length];
         map.PatternIndex++;
@@ -232,7 +232,7 @@ public class MapSystem : MonoBehaviour
         {
             case MapPatternEnum.Mission:
                 {
-                    int deckIdx = Mathf.Clamp(GetCompletedMissionsCount(), 0, _allMissionsInfo.MissionDeck.Length - 1);
+                    int deckIdx = Mathf.Clamp(GetCompletedMissionsCount(), 0, _actsInfo[_save.SpaceSaveData.Act].MissionDeck.Length - 1);
 
                     var mNode = BuildMissionRandom(deckIdx, false, out int landIdx, out ObjectiveSave[] obj);
 
@@ -355,7 +355,7 @@ public class MapSystem : MonoBehaviour
         if ((nodeSave.NodeType == NodeType.Mission || nodeSave.NodeType == NodeType.Boss) &&
             nodeSave.MissionDeckIndex < 0)
         {
-            int deckIdx = Mathf.Clamp(GetCompletedMissionsCount(), 0, _allMissionsInfo.MissionDeck.Length - 1);
+            int deckIdx = Mathf.Clamp(GetCompletedMissionsCount(), 0, _actsInfo[_save.SpaceSaveData.Act].MissionDeck.Length - 1);
 
             var mission = BuildMissionRandom(deckIdx, nodeSave.NodeType == NodeType.Boss, out int landIdx, out ObjectiveSave[] obj);
 
@@ -438,7 +438,7 @@ public class MapSystem : MonoBehaviour
             {
                 case NodeType.None:
                     // тот же шаблон, что и во время первоначальной генерации плейсхолдера
-                    data = _allMissionsInfo.MissionNodeTemplate;
+                    data = _actsInfo[_save.SpaceSaveData.Act].MissionNodeTemplate;
                     break;
                 case NodeType.Boss:
                     if (n.MissionDeckIndex >= 0 && n.SavedLandscapeIndex >= 0 && n.SavedObjectives != null && n.SavedObjectives.Length > 0)
@@ -462,9 +462,9 @@ public class MapSystem : MonoBehaviour
                     break;
                 case NodeType.Event:
                 case NodeType.RewardEvent:
-                    if (n.EventPoolIndex >= 0 && n.EventPoolIndex < _allMissionsInfo.EventPools.Length)
+                    if (n.EventPoolIndex >= 0 && n.EventPoolIndex < _actsInfo[_save.SpaceSaveData.Act].EventPools.Length)
                     {
-                        data = _allMissionsInfo.EventPools[n.EventPoolIndex].Node;
+                        data = _actsInfo[_save.SpaceSaveData.Act].EventPools[n.EventPoolIndex].Node;
                     }
                     else
                     {
@@ -504,7 +504,7 @@ public class MapSystem : MonoBehaviour
         var currentMission = _save.SpaceSaveData.CurrentMission;
         if (currentMission == null) return null;
 
-        var info = _allMissionsInfo;
+        var info = _actsInfo[_save.SpaceSaveData.Act];
         int deckIndex = currentMission.MissionDeckIndex;
         int landscapeIndex = currentMission.LandscapeId;
 
@@ -605,12 +605,12 @@ public class MapSystem : MonoBehaviour
     // Строит Mission-/Boss-Node для случайной планеты
     private MissionNode BuildMissionRandom(int deckIdx, bool isBossNode, out int landscapeIdx, out ObjectiveSave[] savedObj)
     {
-        var definition = _allMissionsInfo.MissionDeck[deckIdx];
-        var tplMission = _allMissionsInfo.MissionNodeTemplate;
-        var tplBoss = _allMissionsInfo.BossNode;
+        var definition = _actsInfo[_save.SpaceSaveData.Act].MissionDeck[deckIdx];
+        var tplMission = _actsInfo[_save.SpaceSaveData.Act].MissionNodeTemplate;
+        var tplBoss = _actsInfo[_save.SpaceSaveData.Act].BossNode;
 
         landscapeIdx = PickUniqueLandscape();
-        var landscape = _allMissionsInfo.Landscapes[landscapeIdx];
+        var landscape = _actsInfo[_save.SpaceSaveData.Act].Landscapes[landscapeIdx];
         var spawnerSO = definition.Spawner;
 
         Objective objectiveSO;
@@ -646,12 +646,12 @@ public class MapSystem : MonoBehaviour
     // Восстанавливает Mission-/Boss-Node из сейва (без RNG)
     private MissionNode BuildMissionFixed(int deckIndex, int landscapeIdx, ObjectiveSave[] savedObj, bool isBossNode)
     {
-        var definition = _allMissionsInfo.MissionDeck[deckIndex];
-        var tplMission = _allMissionsInfo.MissionNodeTemplate;
-        var tplBoss = _allMissionsInfo.BossNode;
+        var definition = _actsInfo[_save.SpaceSaveData.Act].MissionDeck[deckIndex];
+        var tplMission = _actsInfo[_save.SpaceSaveData.Act].MissionNodeTemplate;
+        var tplBoss = _actsInfo[_save.SpaceSaveData.Act].BossNode;
 
-        landscapeIdx = Mathf.Clamp(landscapeIdx, 0, _allMissionsInfo.Landscapes.Length - 1);
-        var landscape = _allMissionsInfo.Landscapes[landscapeIdx];
+        landscapeIdx = Mathf.Clamp(landscapeIdx, 0, _actsInfo[_save.SpaceSaveData.Act].Landscapes.Length - 1);
+        var landscape = _actsInfo[_save.SpaceSaveData.Act].Landscapes[landscapeIdx];
         var spawnerSO = definition.Spawner;
         var objectiveSO = BuildObjectiveFromSave(savedObj);
         var node = isBossNode ? ScriptableObject.CreateInstance<BossNode>() : ScriptableObject.CreateInstance<MissionNode>();
@@ -674,7 +674,7 @@ public class MapSystem : MonoBehaviour
     // возвращает индекс ландшафта, который ещё не использовался
     private int PickUniqueLandscape()
     {
-        var landscapes = _allMissionsInfo.Landscapes;
+        var landscapes = _actsInfo[_save.SpaceSaveData.Act].Landscapes;
 
         // 1) какие уже заняты?
         HashSet<int> used = new();

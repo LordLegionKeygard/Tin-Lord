@@ -13,7 +13,7 @@ public class MissionSaveLoad : MonoBehaviour
     [Inject] private readonly TutorialSystem _tutorialSystem;
 
     [Header("Main")]
-    [SerializeField] private AllNodesInfo _allMissionsInfo;
+    [SerializeField] private ActInfo[] _actsInfo;
     [SerializeField] private TileMapBuilder _tileMapBuilder;
 
     [Header("UpPanel")]
@@ -213,9 +213,9 @@ public class MissionSaveLoad : MonoBehaviour
         SelectedMissionData sel = _spaceSaveGame.SpaceSaveData.CurrentMission;
         if (sel == null) return null;
 
-        var definition = _allMissionsInfo.MissionDeck[sel.MissionDeckIndex];
-        var template = _allMissionsInfo.MissionNodeTemplate;
-        var landscape = _allMissionsInfo.Landscapes[sel.LandscapeId];
+        var definition = _actsInfo[_spaceSaveGame.SpaceSaveData.Act].MissionDeck[sel.MissionDeckIndex];
+        var template = _actsInfo[_spaceSaveGame.SpaceSaveData.Act].MissionNodeTemplate;
+        var landscape = _actsInfo[_spaceSaveGame.SpaceSaveData.Act].Landscapes[sel.LandscapeId];
         var spawnerSO = definition.Spawner;
 
         var wrappers = new ObjectiveWrapper[sel.SavedObjectives.Length];

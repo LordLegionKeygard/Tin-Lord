@@ -10,7 +10,7 @@ public class MissionPanel : MonoBehaviour
     [Inject] private readonly MissionSaveGame _missionSaveGame;
     [SerializeField] private AiCoreSystem _aiCoreSystem;
     [SerializeField] private RectTransform _descriptionPanel;
-    [SerializeField] private AllNodesInfo _allMissionsInfo;
+    [SerializeField] private ActInfo _allMissionsInfo;
     [SerializeField] private TextMeshProUGUI _missionNameHeaderText;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
     [SerializeField] private TextMeshProUGUI _objectiveText;

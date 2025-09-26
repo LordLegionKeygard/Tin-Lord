@@ -14,7 +14,7 @@ public class MissionSaveGame : MonoBehaviour
     public MissionSaveData CurrentMissionSaveData;
 
     [Header("Other")]
-    [SerializeField] private AllNodesInfo _allMissionsInfo;
+    [SerializeField] private ActInfo _allMissionsInfo;
 
     private void Awake()
     {

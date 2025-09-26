@@ -44,15 +44,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c54aed0131f024088d2775047dc498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actsInfo:
+  - {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
+  - {fileID: 11400000, guid: ebeaddafd8356864fa59bc75879ce249, type: 2}
   _tileMapBuilder: {fileID: 0}
-  _timeTickSystem: {fileID: 0}
   _ecologySystem: {fileID: 0}
+  _timeTickSystem: {fileID: 0}
   _gameSpeedSystem: {fileID: 0}
   _cardHolderSystem: {fileID: 0}
-  _worldEventSystem: {fileID: 0}
+  _missionEventSystem: {fileID: 0}
   _enemiesSpawnerSystem: {fileID: 0}
   _allTileObjects: {fileID: 0}
-  _currentRobotSystem: {fileID: 0}
-  _robotSpawnerSystem: {fileID: 0}
-  _learnedBuildingsDataWorld: {fileID: 0}
+  _currentMachineSystem: {fileID: 0}
+  _machineSpawnerSystem: {fileID: 0}
+  _learnedBuildingsDataMission: {fileID: 0}
   _objectivesPanel: {fileID: 0}
+  _missionModeSystem: {fileID: 0}
+  _missionShipWeaponSystem: {fileID: 0}
+  _missionWeaponSetterSystem: {fileID: 0}
+  _allSkills: {fileID: 0}
+  _quantPool: {fileID: 0}
+  _missionQuantSystem: {fileID: 0}
+  _missionHangarSystem: {fileID: 0}
+  _spawnedHazardSystem: {fileID: 0}

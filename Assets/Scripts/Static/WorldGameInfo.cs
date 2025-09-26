@@ -4,7 +4,7 @@ public class WorldGameInfo
 {
     [Header("Build")]
     public static bool IsSteam = true;
-    public static bool IsDemo = true;
+    public static bool IsDemo = false;
 
     [Header("Price")]
     public static int StartWeaponEnigneerUpgradePrice = 5;

@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e66a00a56736149a69e5056b93ccb2, type: 3}
+  m_Name: Desert_Wasteland
+  m_EditorClassIdentifier: 
+  Name:
+  - Wasteland
+  - "\u041F\u0443\u0441\u0442\u043E\u0448\u044C"
+  LandscapeEnum: 2
+  MonsterBiome: 0
+  MissionView:
+    BiomEnum: 1
+    RockTexture: {fileID: 2800000, guid: 5c186f1eda635d94ab9f3e07f6f7d70c, type: 3}
+    MissionLight:
+      LightRotation: {x: 35, y: -241.3}
+      SkyColor: {r: 1, g: 0.9647059, b: 0.8627451, a: 1}
+      EquatorColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
+      GroundColor: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 1}
+      FilterColor: {r: 1, g: 1, b: 1, a: 1}
+      Temperature: 3640
+      Intencity: 2
+  LoadingScreenSprite: {fileID: 21300000, guid: 32925932bad1e3746a35ab6f0a666755,
+    type: 3}
+  StartEcology: -10
+  MapWidth: 16
+  MapLength: 20
+  MapEdge: 4
+  StartPosEdge: 4
+  MissionEvents:
+  - {fileID: 11400000, guid: d49694d92c2ca064fbd724a765463f2a, type: 2}
+  - {fileID: 11400000, guid: f31e1355a13e3d74f8a04ca87d106172, type: 2}
+  - {fileID: 11400000, guid: 1885003221e2d2542bb13d02ddecac30, type: 2}
+  - {fileID: 11400000, guid: cf5029c26ff6b1d4c9f7df124499f7c4, type: 2}
+  - {fileID: 11400000, guid: b01517c9cc44abb43bbb8b412d1d229f, type: 2}
+  - {fileID: 11400000, guid: d7945db18c22138408e919098ed72839, type: 2}
+  - {fileID: 11400000, guid: e8d2194d0eb1e96498765b5f192c8d4c, type: 2}
+  - {fileID: 11400000, guid: f0fe6c302849e3645a8ab3899aae67a0, type: 2}
+  - {fileID: 11400000, guid: 9f1032a85967ad244a6e279af0c61b47, type: 2}
+  - {fileID: 11400000, guid: 99f94f0f253ce294cbe096adc6993fa0, type: 2}
+  - {fileID: 11400000, guid: 213ea7ee948c22542a9e01d0c52aa062, type: 2}
+  Cards:
+  - {fileID: 11400000, guid: 4721036f466c86a4d94c149b6ee8f790, type: 2}
+  - {fileID: 11400000, guid: 419af5759a767c14cb33898e99882029, type: 2}
+  - {fileID: 11400000, guid: 4a4396315f837f14fa447567d9b23600, type: 2}
+  - {fileID: 11400000, guid: 0436ec09a8dc5fb4498827cdea0315b2, type: 2}
+  - {fileID: 11400000, guid: 834e6c1dfd5dcf74480dac385be07c7c, type: 2}
+  - {fileID: 11400000, guid: 3f79d7498863a8d48b1eb22f90ae331b, type: 2}
+  - {fileID: 11400000, guid: adc20fa2d0fb7a04499607598b1290d7, type: 2}
+  DescriptionWrappers:
+  - PanelHeight: 140
+    Description: Huge spaces scorched by catastrophe, where life once boiled. It's
+      a world of dead earth, littered with the wreckage of old civilizations. There
+      is no water, only cracked soil and the rusty remains of technology.
+  - PanelHeight: 160
+    Description: "\u041E\u0433\u0440\u043E\u043C\u043D\u044B\u0435 \u043F\u0440\u043E\u0441\u0442\u0440\u0430\u043D\u0441\u0442\u0432\u0430,
+      \u043E\u043F\u0430\u043B\u0451\u043D\u043D\u044B\u0435 \u043A\u0430\u0442\u0430\u0441\u0442\u0440\u043E\u0444\u043E\u0439,
+      \u0433\u0434\u0435 \u043D\u0435\u043A\u043E\u0433\u0434\u0430 \u043A\u0438\u043F\u0435\u043B\u0430
+      \u0436\u0438\u0437\u043D\u044C. \u042D\u0442\u043E \u043C\u0438\u0440 \u043C\u0451\u0440\u0442\u0432\u043E\u0439
+      \u0437\u0435\u043C\u043B\u0438, \u0443\u0441\u044B\u043F\u0430\u043D\u043D\u044B\u0439
+      \u043E\u0431\u043B\u043E\u043C\u043A\u0430\u043C\u0438 \u0441\u0442\u0430\u0440\u044B\u0445
+      \u0446\u0438\u0432\u0438\u043B\u0438\u0437\u0430\u0446\u0438\u0439. \u0417\u0434\u0435\u0441\u044C
+      \u043D\u0435\u0442 \u0432\u043E\u0434\u044B, \u043B\u0438\u0448\u044C \u043F\u043E\u0442\u0440\u0435\u0441\u043A\u0430\u0432\u0448\u0438\u0439\u0441\u044F
+      \u0433\u0440\u0443\u043D\u0442 \u0438 \u0440\u0436\u0430\u0432\u044B\u0435
+      \u043E\u0441\u0442\u0430\u043D\u043A\u0438 \u0442\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0438\u0439."
+  CosmosVariations:
+  - PlanetPrefab: {fileID: 3737507109534531556, guid: f23a3e08c5afbc74c82d367b72309f10,
+      type: 3}
+    PlanetPosition: {x: -31.66, y: 16.7, z: 80.3}
+    PlanetRotation: {x: 0, y: -61.01, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 207ad39d40816b24297083174e3dcbce, type: 2}
+    SkyboxRotation: 110.8
+    LightRotation: {x: -46, y: -86, z: 0}
+    Temperature: 6799
+  - PlanetPrefab: {fileID: 3737507109534531556, guid: f23a3e08c5afbc74c82d367b72309f10,
+      type: 3}
+    PlanetPosition: {x: -24.6, y: 11.1, z: 42.7}
+    PlanetRotation: {x: 0, y: -120.1, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
+    SkyboxRotation: 0
+    LightRotation: {x: 140.7, y: 68.5, z: 0}
+    Temperature: 6368
+  - PlanetPrefab: {fileID: 3737507109534531556, guid: f23a3e08c5afbc74c82d367b72309f10,
+      type: 3}
+    PlanetPosition: {x: -50.89, y: -7, z: 86}
+    PlanetRotation: {x: 0, y: -290.8, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 9f9e70c53913bde498166e785462455f, type: 2}
+    SkyboxRotation: 196.4
+    LightRotation: {x: 139.1, y: 14.7, z: 0}
+    Temperature: 7326

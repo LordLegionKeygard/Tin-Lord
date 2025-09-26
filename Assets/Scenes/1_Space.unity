@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007799202, g: 0.00009618833, b: 0.000115814524,
+  m_IndirectSpecularColor: {r: 0.00007797222, g: 0.00009617033, b: 0.00011579374,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -6352,7 +6352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &158255176
@@ -13731,7 +13731,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -24093,7 +24093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514
@@ -25991,7 +25991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _contentTransform: {fileID: 1115393801}
-  _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
+  _currentAct: {fileID: 0}
   SavedMap:
     Nodes: []
     CurrentNodeIndex: 0
@@ -26024,10 +26024,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd0518778e7d4a42998f099d3907588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actsInfo:
+  - {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
+  - {fileID: 11400000, guid: ebeaddafd8356864fa59bc75879ce249, type: 2}
   _mapScroller: {fileID: 320487157}
   _eventPanel: {fileID: 1451985186}
   _cosmosView: {fileID: 417999332}
-  _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
   _generator: {fileID: 849943933}
   _visualizer: {fileID: 849943932}
   _drawer: {fileID: 849943934}

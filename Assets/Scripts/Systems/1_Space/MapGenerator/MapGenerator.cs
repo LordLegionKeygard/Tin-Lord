@@ -6,7 +6,12 @@ public class MapGenerator : MonoBehaviour
 {
     [Header("UI/Content")]
     [SerializeField] private RectTransform _contentTransform;   // Content из ScrollView
-    [SerializeField] private AllNodesInfo _allMissionsInfo;   // Все возможные данные
+    [SerializeField] private ActInfo _currentAct;   // Все возможные данные
+
+    public void SetActInfo(ActInfo info)
+    {
+        _currentAct = info;
+    }
 
     [Header("Generation Settings")]
     private float _nodeXoffset = 300f;   // Шаг слоёв по X
@@ -26,14 +31,14 @@ public class MapGenerator : MonoBehaviour
     {
         return type switch
         {
-            NodeType.Start => _allMissionsInfo.StartNode,
-            NodeType.Boss => _allMissionsInfo.BossNode,
-            NodeType.Event => _allMissionsInfo.EventPools[0].Node,
-            NodeType.RewardEvent => _allMissionsInfo.EventPools[1].Node,
-            NodeType.ResourceTrader => _allMissionsInfo.ResourceTraders[0],
-            NodeType.SkillTrader => _allMissionsInfo.SkillTraders[0],
-            NodeType.WeaponEngineer => _allMissionsInfo.WeaponEngineers[0],
-            NodeType.Mission => _allMissionsInfo.MissionNodeTemplate,
+            NodeType.Start => _currentAct.StartNode,
+            NodeType.Boss => _currentAct.BossNode,
+            NodeType.Event => _currentAct.EventPools[0].Node,
+            NodeType.RewardEvent => _currentAct.EventPools[1].Node,
+            NodeType.ResourceTrader => _currentAct.ResourceTraders[0],
+            NodeType.SkillTrader => _currentAct.SkillTraders[0],
+            NodeType.WeaponEngineer => _currentAct.WeaponEngineers[0],
+            NodeType.Mission => _currentAct.MissionNodeTemplate,
             _ => null
         };
     }
@@ -50,12 +55,12 @@ public class MapGenerator : MonoBehaviour
         var rewardEvents = new List<EventEntry>();
         var hiddenEvents = new List<EventEntry>();
 
-        foreach (var e in MapHelper.BuildEventEntries(_allMissionsInfo.EventPools))
+        foreach (var e in MapHelper.BuildEventEntries(_currentAct.EventPools))
             (e.Node is RewardEventNode ? rewardEvents : hiddenEvents).Add(e);
 
-        var resourceTraders = new List<ResourceTraderNode>(_allMissionsInfo.ResourceTraders);
-        var skillTraders = new List<SkillTraderNode>(_allMissionsInfo.SkillTraders);
-        var weponEngineers = new List<WeaponEngineerNode>(_allMissionsInfo.WeaponEngineers);
+        var resourceTraders = new List<ResourceTraderNode>(_currentAct.ResourceTraders);
+        var skillTraders = new List<SkillTraderNode>(_currentAct.SkillTraders);
+        var weponEngineers = new List<WeaponEngineerNode>(_currentAct.WeaponEngineers);
 
         rewardEvents.Shuffle();
         hiddenEvents.Shuffle();
@@ -63,7 +68,7 @@ public class MapGenerator : MonoBehaviour
         skillTraders.Shuffle();
         weponEngineers.Shuffle();
 
-        int missionPlaceholders = _allMissionsInfo.MissionDeck.Length;
+        int missionPlaceholders = _currentAct.MissionDeck.Length;
 
         // «открытые» = Reward + торговцы
         int openTotal = rewardEvents.Count + resourceTraders.Count + skillTraders.Count + weponEngineers.Count;
@@ -113,7 +118,7 @@ public class MapGenerator : MonoBehaviour
 
         // 2. Start
         {
-            var s = CreateNode(_allMissionsInfo.StartNode, 0);
+            var s = CreateNode(_currentAct.StartNode, 0);
             AddToLayer(0, s);
             _generatedNodes.Add(s);
             AddToSavedMap(s, NodeType.Start, 0);
@@ -121,7 +126,7 @@ public class MapGenerator : MonoBehaviour
 
         void AddStub(int layer)
         {
-            var stub = CreateNode(_allMissionsInfo.MissionNodeTemplate, layer);
+            var stub = CreateNode(_currentAct.MissionNodeTemplate, layer);
             AddToLayer(layer, stub);
             _generatedNodes.Add(stub);
             AddToSavedMap(stub, NodeType.None, _generatedNodes.Count - 1);
@@ -300,7 +305,7 @@ public class MapGenerator : MonoBehaviour
         MapHelper.ShuffleNonVisible(_layers);
 
         // 6. Boss
-        var boss = CreateNode(_allMissionsInfo.BossNode, totalLayers - 1);
+        var boss = CreateNode(_currentAct.BossNode, totalLayers - 1);
         AddToLayer(totalLayers - 1, boss);
         _generatedNodes.Add(boss);
         AddToSavedMap(boss, NodeType.Boss, _generatedNodes.Count - 1);
