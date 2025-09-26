@@ -38,8 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007797222, g: 0.00009617033, b: 0.00011579374,
-    a: 1}
+  m_IndirectSpecularColor: {r: 0.00007799531, g: 0.0000961876, b: 0.00011581603, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9367,9 +9366,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2236add95af510146946e92064bdfbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actsInfo:
+  - {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
+  - {fileID: 11400000, guid: ebeaddafd8356864fa59bc75879ce249, type: 2}
   _aiCoreSystem: {fileID: 1966886381}
   _descriptionPanel: {fileID: 1547388440}
-  _allMissionsInfo: {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
   _missionNameHeaderText: {fileID: 913253614}
   _ecologyLevelText: {fileID: 206720641}
   _objectiveText: {fileID: 2057055630}

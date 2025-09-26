@@ -6,11 +6,12 @@ using Zenject;
 
 public class MissionPanel : MonoBehaviour
 {
+    [Inject] private SpaceSaveGame _save;
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [Inject] private readonly MissionSaveGame _missionSaveGame;
+    [SerializeField] private ActInfo[] _actsInfo;
     [SerializeField] private AiCoreSystem _aiCoreSystem;
     [SerializeField] private RectTransform _descriptionPanel;
-    [SerializeField] private ActInfo _allMissionsInfo;
     [SerializeField] private TextMeshProUGUI _missionNameHeaderText;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
     [SerializeField] private TextMeshProUGUI _objectiveText;
@@ -175,7 +176,7 @@ public class MissionPanel : MonoBehaviour
     private void SaveSelectedMission()
     {
         var ccSave = _spaceSaveGame.SpaceSaveData;
-        var info = _allMissionsInfo;
+        var info = _actsInfo[_save.SpaceSaveData.Act];
 
         /* ---------- индекс ландшафта ---------- */
         int landId = System.Array.IndexOf(info.Landscapes, _currentNode.Landscape);
