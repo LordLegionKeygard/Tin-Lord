@@ -6,7 +6,7 @@ using Steamworks;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 1;
+    public static int LanguageNumber = 0;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 2];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 
@@ -729,11 +729,11 @@ public class Language : MonoBehaviour
         _text[233, 0] = "Change Mode";
         _text[233, 1] = "Сменить Режим";
 
-        _text[234, 0] = "";
-        _text[234, 1] = "";
+        _text[234, 0] = "Act";
+        _text[234, 1] = "Акт";
 
-        _text[235, 0] = "";
-        _text[235, 1] = "";
+        _text[235, 0] = "Node";
+        _text[235, 1] = "Узел";
 
         _text[236, 0] = "";
         _text[236, 1] = "";

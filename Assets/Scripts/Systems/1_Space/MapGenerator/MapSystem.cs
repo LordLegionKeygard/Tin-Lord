@@ -88,7 +88,10 @@ public class MapSystem : MonoBehaviour
             _missionPanel.RefreshInfo(missionNode, _currentNodeIndex);
             _panels.MissionPanelOpen(false);
         }
+
         InitSpawnQueues();
+
+        _visualizer.UpdateMapProgressText(_save.SpaceSaveData.Act, _save.SpaceSaveData.Map.CurrentNodeIndex);
     }
 
     private void InitSpawnQueues()
@@ -220,6 +223,8 @@ public class MapSystem : MonoBehaviour
 
         ApplyCosmos();
         _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.SpaceSaveData);
+
+        _visualizer.UpdateMapProgressText(_save.SpaceSaveData.Act, _save.SpaceSaveData.Map.CurrentNodeIndex);
     }
 
 
