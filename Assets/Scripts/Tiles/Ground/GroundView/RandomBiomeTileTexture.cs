@@ -36,4 +36,5 @@ public enum BiomEnum
     Canyon = 0,
     Desert = 1,
     Winter = 2,
+    Scorched = 3,
 }
