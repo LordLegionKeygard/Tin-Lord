@@ -23,7 +23,7 @@ public class ObjectiveSet
 [System.Serializable]
 public class BiomeSpawner
 {
-    public MonsterBiome Biome;
+    public MonsterType Biome;
     public EnemiesSpawner Spawner;
 }
 

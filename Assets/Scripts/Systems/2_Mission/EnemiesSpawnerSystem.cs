@@ -14,7 +14,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     private int _enemyNumber;
     private int _maxSpawnedEnemiesPerFrame = 8;           // сколько врагов максимум за кадр
     private Coroutine _spawnRoutine;
-    private MonsterBiome GetCurrentBiome() => CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterBiome;
+    private MonsterType GetCurrentBiome() => CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterType;
     private int GetLandscapeNumber() => (int)CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum;
 
     public EnemyData[] GetAllCurrentEnemies()
@@ -82,13 +82,13 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         var biome = GetCurrentBiome();
 
         // Отфильтровали группы по биому один раз
-        var groups = spawner.EnemiesSpawnerInfo.Where(g => g.EnemyBiomeInfo.Any(e => e.Biome == biome)).ToArray();
+        var groups = spawner.EnemiesSpawnerInfo.Where(g => g.EnemyBiomeInfo.Any(e => e.MonsterType == biome)).ToArray();
         if (groups.Length == 0) yield break;
 
         // Для каждой группы сразу подготовим варианты по текущему биому
         var variantsPerGroup = new EnemyBiomeInfo[groups.Length][];
         for (int gi = 0; gi < groups.Length; gi++)
-            variantsPerGroup[gi] = groups[gi].EnemyBiomeInfo.Where(e => e.Biome == biome).ToArray();
+            variantsPerGroup[gi] = groups[gi].EnemyBiomeInfo.Where(e => e.MonsterType == biome).ToArray();
 
         // Вычислим сторону спавна один раз (если не RandomSide)
         SpawnSide spawnSideEnum = SpawnSide.RandomSide;
@@ -151,7 +151,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     {
         foreach (var spawner in miniBossSpawners)
         {
-            var variants = spawner.EnemySpawnerInfo.EnemyBiomeInfo.Where(e => e.Biome == GetCurrentBiome()).ToArray();
+            var variants = spawner.EnemySpawnerInfo.EnemyBiomeInfo.Where(e => e.MonsterType == GetCurrentBiome()).ToArray();
 
             if (variants.Length == 0) continue;
 
@@ -190,7 +190,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     private void SpawnBoss(EnemiesSpawner enemiesSpawner)
     {
         var spawner = enemiesSpawner.BossSpawner;
-        var bossEntry = spawner.Bosses.FirstOrDefault(b => b.Biome == GetCurrentBiome());
+        var bossEntry = spawner.Bosses.FirstOrDefault(b => b.MonsterType == GetCurrentBiome());
         var enemyPrefab = _allEnemies.GetEnemyForEnum(bossEntry.EnemyEnum);
 
         SpawnSide spawnSideEnum = SpawnSide.RandomSide;

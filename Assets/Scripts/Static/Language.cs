@@ -6,7 +6,7 @@ using Steamworks;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 0;
+    public static int LanguageNumber = 1;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 2];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 
@@ -1787,8 +1787,8 @@ public class Language : MonoBehaviour
         _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян.\n\nВся добыча потеряна."; // -ядро (мало)
 
         // StartAct_2_Dialogue
-        _text[552, 0] = "";
-        _text[552, 1] = "Протоколы колонизации выполнены. Базы развернуты на нескольких планетах, контуры экосистем запущены. \n\nРезультат — отрицательный.\n\nАтмосфера враждебна, почвы не удерживают цикл жизни, погода нестабильна.\n\nОставаться нецелесообразно. Корабль переводится в режим гиперпрыжка. \n\nСердцевины двигателей выведены на максимальный режим, навигационные решения обновлены.\n\nМаршрут: покинуть текущий звёздный узел. \n\nЦель следующей итерации — другая галактика.";
+        _text[552, 0] = "Colonization protocols completed. Bases deployed on several planets, ecosystem circuits activated.\n\nResult: negative.\n\nAtmosphere hostile, soils unable to support life cycle, weather unstable.\n\nRemaining unviable. Ship entering hyperspace jump mode.\n\nEngine cores maxed out, navigational solutions updated.\n\nRoute: exit current stellar node.\n\nNext iteration target: another galaxy.";
+        _text[552, 1] = "Протоколы колонизации выполнены. Базы развернуты на нескольких планетах, контуры экосистем запущены.\n\nРезультат — отрицательный.\n\nАтмосфера враждебна, почвы не удерживают цикл жизни, погода нестабильна.\n\nОставаться нецелесообразно. Корабль переводится в режим гиперпрыжка.\n\nСердцевины двигателей выведены на максимальный режим, навигационные решения обновлены.\n\nМаршрут: покинуть текущий звёздный узел. \n\nЦель следующей итерации — другая галактика.";
 
         _text[553, 0] = "";
         _text[553, 1] = "";

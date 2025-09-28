@@ -6,51 +6,6 @@ public class EnemiesSpawner : ScriptableObject
     public Spawner[] Spawners;
     public MiniBossSpawner[] MiniBossSpawners;
     public BossSpawner BossSpawner;
-
-
-    private void OnValidate()
-    {
-        int biomeCount = System.Enum.GetValues(typeof(MonsterBiome)).Length;
-        if (Spawners == null) return;
-
-        foreach (var sp in Spawners)
-        {
-            if (sp?.EnemiesSpawnerInfo == null) continue;
-
-            foreach (var group in sp.EnemiesSpawnerInfo)
-            {
-                if (group?.EnemyBiomeInfo == null) continue;
-
-                for (int i = 0; i < group.EnemyBiomeInfo.Length; i++)
-                {
-                    int biomeIndex = i % biomeCount;
-                    group.EnemyBiomeInfo[i].Biome = (MonsterBiome)biomeIndex;
-                }
-            }
-        }
-
-        foreach (var item in MiniBossSpawners)
-        {
-            if (item?.EnemySpawnerInfo == null) continue;
-
-            var group = item.EnemySpawnerInfo;
-            for (int i = 0; i < group.EnemyBiomeInfo.Length; i++)
-            {
-                int biomeIndex = i % biomeCount;
-                group.EnemyBiomeInfo[i].Biome = (MonsterBiome)biomeIndex;
-            }
-        }
-
-        if (BossSpawner.Bosses != null)
-        {
-            for (int i = 0; i < BossSpawner.Bosses.Length; i++)
-            {
-                int biomeIndex = i % biomeCount;
-                BossSpawner.Bosses[i].Biome = (MonsterBiome)biomeIndex;
-            }
-        }
-    }
-
 }
 
 [System.Serializable]
@@ -73,14 +28,15 @@ public class EnemySpawnerInfo
 [System.Serializable]
 public class EnemyBiomeInfo
 {
-    public MonsterBiome Biome;
+    public MonsterType MonsterType;
     public EnemyEnum EnemyEnum = EnemyEnum.None;
 }
 
-public enum MonsterBiome
+public enum MonsterType
 {
     Desert = 0,
     Winter = 1,
+    Robots = 2,
 }
 
 [System.Serializable]

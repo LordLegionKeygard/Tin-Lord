@@ -21,9 +21,9 @@ MonoBehaviour:
       SpawnSide: 0
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 2
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 8
       EnemyLevel: 1
   - StartDaySpawn: 15
@@ -34,9 +34,9 @@ MonoBehaviour:
       SpawnSide: 0
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 2
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 8
       EnemyLevel: 1
   - StartDaySpawn: 24
@@ -47,9 +47,9 @@ MonoBehaviour:
       SpawnSide: 0
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 2
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 8
       EnemyLevel: 2
   - StartDaySpawn: 33
@@ -60,9 +60,9 @@ MonoBehaviour:
       SpawnSide: 0
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 2
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 8
       EnemyLevel: 2
   - StartDaySpawn: 42
@@ -73,9 +73,9 @@ MonoBehaviour:
       SpawnSide: 0
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 2
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 8
       EnemyLevel: 2
   - StartDaySpawn: 51
@@ -86,9 +86,9 @@ MonoBehaviour:
       SpawnSide: 1
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 2
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 8
       EnemyLevel: 2
   - StartDaySpawn: 60
@@ -99,9 +99,9 @@ MonoBehaviour:
       SpawnSide: 1
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 2
-      - Biome: 1
+      - MonsterType: 0
         EnemyEnum: 8
       EnemyLevel: 3
   MiniBossSpawners:
@@ -114,9 +114,9 @@ MonoBehaviour:
       SpawnSide: 0
     EnemySpawnerInfo:
       EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 3
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 9
       EnemyLevel: 3
   - DaySpawn: 30
@@ -128,9 +128,9 @@ MonoBehaviour:
       SpawnSide: 0
     EnemySpawnerInfo:
       EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 3
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 9
       EnemyLevel: 4
   - DaySpawn: 51
@@ -142,9 +142,9 @@ MonoBehaviour:
       SpawnSide: 1
     EnemySpawnerInfo:
       EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 3
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 9
       EnemyLevel: 4
   - DaySpawn: 60
@@ -156,9 +156,9 @@ MonoBehaviour:
       SpawnSide: 1
     EnemySpawnerInfo:
       EnemyBiomeInfo:
-      - Biome: 0
+      - MonsterType: 0
         EnemyEnum: 3
-      - Biome: 1
+      - MonsterType: 1
         EnemyEnum: 9
       EnemyLevel: 5
   BossSpawner:
