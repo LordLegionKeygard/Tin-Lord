@@ -17,9 +17,9 @@ public class MapVisualizer : MonoBehaviour
     [SerializeField] private UINode _nodePrefab;
     private List<UINode> spawnedNodes = new();
 
-    public void UpdateMapProgressText(int act, int currentNode)
+    public void UpdateMapProgressText(int act, int completeNodes)
     {
-        _mapProgressText.text = $"{Language.TextStatic[234]}: {act + 1}           {Language.TextStatic[235]}: {currentNode}";
+        _mapProgressText.text = $"{Language.TextStatic[234]}: {act + 1}           {Language.TextStatic[235]}: {completeNodes}";
     }
 
     public List<UINode> GenerateAndDisplayMap(int act)
