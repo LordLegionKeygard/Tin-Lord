@@ -25,14 +25,14 @@ MonoBehaviour:
   MiniBossSpawners:
   - DaySpawn: 1
     Count: 1
-    HealthFactor: 1
+    HealthFactor: 10
     DamageFactor: 1
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - MonsterType: 2
         EnemyEnum: 12
-      EnemyLevel: 1
+      EnemyLevel: 5
   BossSpawner:
     Bosses: []
     BossLevel: 0

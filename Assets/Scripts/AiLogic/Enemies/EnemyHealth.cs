@@ -21,6 +21,7 @@ public class EnemyHealth : BaseHealth
     private BaseTakeDamageVFX _takeDamageVFX;
     private EnemyCenterPoint _enemyCenterPoint;
     private EnemyInfo _enemyInfo;
+    private AnimationToRagdoll _animationToRagdoll;
 
     public override Transform GetTransform()
     {
@@ -37,6 +38,7 @@ public class EnemyHealth : BaseHealth
         _enemyAnimator = GetComponent<EnemyAnimator>();
         _enemyCenterPoint = GetComponent<EnemyCenterPoint>();
         _enemyInfo = GetComponent<EnemyInfo>();
+        _animationToRagdoll = GetComponent<AnimationToRagdoll>();
     }
 
     public override void CalculateDamage(float damage, float knockBackPoints)
@@ -105,6 +107,7 @@ public class EnemyHealth : BaseHealth
         _characterController.enabled = false;
         _aiPath.enabled = false;
         _enemyAnimator.DeathAnim();
+        _animationToRagdoll?.ActiveRagdoll();
         DeathSound();
         DropQuant();
 
