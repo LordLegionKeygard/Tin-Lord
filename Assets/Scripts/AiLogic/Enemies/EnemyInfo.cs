@@ -6,16 +6,18 @@ public class EnemyInfo : MonoBehaviour
     private int _healthFactor;
     private int _damageFactor;
     private int _enemyNumber;
+    private bool _isMiniBoss;
     public EnemyEnum GetEnemyEnum() => _enemyEnum;
     public int GetEnemyNumber() => _enemyNumber;
     public int GetHealthFactor() => _healthFactor;
     public int GetDamageFactor() => _damageFactor;
-    public bool IsMiniBoss() => _healthFactor != 1 || _damageFactor != 1;
+    public bool IsMiniBoss() => _isMiniBoss;
 
-    public void SetEnemyInfo(int enemyNumber, int healthFactor, int damageFactor)
+    public void SetEnemyInfo(int enemyNumber, int healthFactor, int damageFactor, bool isMiniBoss)
     {
         _enemyNumber = enemyNumber;
         _healthFactor = healthFactor;
         _damageFactor = damageFactor;
+        _isMiniBoss = isMiniBoss;
     }
 }

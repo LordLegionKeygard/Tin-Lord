@@ -78,6 +78,7 @@ public class EnemyData
     public float EnemyHealth;
     public int HealthFactor;
     public int DamageFactor;
+    public bool IsMiniBoss;
 }
 
 
