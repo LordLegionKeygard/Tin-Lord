@@ -22,13 +22,18 @@ public class EnemyAttacks : MonoBehaviour
 
     private void CalculateDefaultMaxAttack()
     {
-        if (_attacks.Length == 0) return;
-        _defaultMeleeMaxAttackRange = _attacks
-            .Where(attack => attack.AttackType == AttackType.Melee)
-            .Max(attack => attack.MaximumDistanceNeededToAttack);
+        if (_attacks == null || _attacks.Length == 0) return;
 
-        _defaultMaxAttackRange = _attacks.Max(attack => attack.MaximumDistanceNeededToAttack);
+        var melee = _attacks.Where(a => a.AttackType == AttackType.Melee);
+        var ranged = _attacks.Where(a => a.AttackType == AttackType.Range);
+
+        _defaultMeleeMaxAttackRange = melee.Any()
+            ? melee.Max(a => a.MaximumDistanceNeededToAttack)
+            : (ranged.Any() ? ranged.Max(a => a.MaximumDistanceNeededToAttack) : 0f);
+
+        _defaultMaxAttackRange = _attacks.Max(a => a.MaximumDistanceNeededToAttack);
     }
+
 
 
 
@@ -36,6 +41,6 @@ public class EnemyAttacks : MonoBehaviour
     {
         _tileDistance = tile != null ? tile.IsFourTile ? WorldGameInfo.EnemyReachedFourTileDistance : WorldGameInfo.EnemyReachedTileDistance : WorldGameInfo.EnemyReachedMachineDistance;
         _maxMeleeAttackRange = _tileDistance + _defaultMeleeMaxAttackRange;
-        _maxAttackRange =  _tileDistance + _defaultMaxAttackRange;
+        _maxAttackRange = _tileDistance + _defaultMaxAttackRange;
     }
 }
