@@ -120,7 +120,7 @@ public class EnemyHealth : BaseHealth
     public virtual void DeathSound()
     {
         var rnd = Random.Range(0, 100);
-        if (WorldGameInfo.EnemiesDeathSoundChance < rnd) return;
+        if (WorldGameInfo.EnemiesDeathSoundChance < rnd && !_enemyInfo.IsMiniBoss()) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Death[(int)_enemyInfo.GetEnemyEnum()], transform.position);
     }
 
