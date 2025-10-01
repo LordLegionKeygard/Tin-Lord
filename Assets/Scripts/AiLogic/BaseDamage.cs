@@ -25,7 +25,7 @@ public class BaseDamage : MonoBehaviour
 
     public virtual void Attack(int firePointNumber)
     {
-        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(firePointNumber);
+        if (BaseAttackVFX != null) BaseAttackVFX.PlayAttackVFX(firePointNumber);
         if (CurrentTargetBaseHealth == null) return;
         CurrentTargetBaseHealth.CalculateDamage(Damage, 0);
     }

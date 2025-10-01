@@ -23,7 +23,7 @@ public class BossDamage : BaseDamage
 
     public override void Shoot(int firePointNumber)
     {
-        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(firePointNumber);
+        if (BaseAttackVFX != null) BaseAttackVFX.PlayAttackVFX(firePointNumber);
 
         var currentPoint = _bulletFromPoolWrapper.FirePoints[firePointNumber];
 

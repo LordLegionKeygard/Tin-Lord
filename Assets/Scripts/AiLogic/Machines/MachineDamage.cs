@@ -15,7 +15,7 @@ public class MachineDamage : BaseDamage
 
     public override void Shoot(int fireNumber)
     {
-        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(fireNumber);
+        if (BaseAttackVFX != null) BaseAttackVFX.PlayAttackVFX(fireNumber);
 
         var currentPoint = _firePoints[fireNumber];
 

@@ -35,7 +35,7 @@ public class TurretDamage : BaseDamage
             _turretAttackState.ChangeAttackIndex();
         }
 
-        if (BaseAttackVFX != null) BaseAttackVFX.PlayVFX(attackNumber);
+        if (BaseAttackVFX != null) BaseAttackVFX.PlayAttackVFX(attackNumber);
 
         var currentPoint = _firePoints.Length == 1 ? _firePoints[0] : _firePoints[attackNumber];
 
