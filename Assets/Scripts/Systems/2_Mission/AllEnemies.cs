@@ -11,7 +11,7 @@ public class AllEnemies : MonoBehaviour
 public enum EnemyEnum
 {
     None = -1,
-    
+
     Desert_1_Arathrox = 0,
     Desert_2_Serparmat = 1,
     Desert_3_Ceratoferox = 2,
@@ -26,5 +26,10 @@ public enum EnemyEnum
     Winter_5_Pistripod_Explosion = 10,
     Winter_Boss_Trunckarce = 11,
 
-    Robot_1_Etasphera10 = 12,
+    Robot_1_Orb_01 = 12,
+    Robot_2_AdvancedCombatDroid = 13,
+    Robot_3_Quadroid = 14,
+    Robot_4_DroidBipedSentinel = 15,
+    Robot_5_Etasphera10 = 16,
+    Robot_Boss_ScoutDroid = 17,
 }
