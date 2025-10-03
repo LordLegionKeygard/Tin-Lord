@@ -129,7 +129,7 @@ public enum BulletEnum
     Any_BattleShipTower_Bullet = 1,
     Any_Ballista_Bolt = 2,
     Any_CannonBall = 3,
-    NotUse_SniperRiffleBullet = 4,
+    Any_SniperRedBullet = 4,
     Any_HowitzerBullet = 5,
     Any_Rocket = 6,
     NotUse_RobotTankBullet = 7,
