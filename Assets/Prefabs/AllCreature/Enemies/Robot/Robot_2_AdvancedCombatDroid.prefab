@@ -779,9 +779,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3303138361507861640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.47, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3303138361990385644}
   - {fileID: 3303138361977606503}
@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canMove: 1
-  _defaultSpeed: 2.5
+  _defaultSpeed: 3.5
 --- !u!114 &3303138361507861659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
-  _sliderHeightOffset: 4
+  _sliderHeightOffset: 6
 --- !u!114 &3303138361507861657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attacks:
   - {fileID: 11400000, guid: 821f764cf729b1a4c99a5d9274a6435c, type: 2}
-  _reachDistanceOffset: 0
+  _reachDistanceOffset: -2
 --- !u!114 &3303138361507861661
 MonoBehaviour:
   m_ObjectHideFlags: 0

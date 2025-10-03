@@ -27,9 +27,7 @@ public class EnemyAttacks : MonoBehaviour
         var melee = _attacks.Where(a => a.AttackType == AttackType.Melee);
         var ranged = _attacks.Where(a => a.AttackType == AttackType.Range);
 
-        _defaultMeleeMaxAttackRange = melee.Any()
-            ? melee.Max(a => a.MaximumDistanceNeededToAttack)
-            : (ranged.Any() ? ranged.Max(a => a.MaximumDistanceNeededToAttack) : 0f);
+        _defaultMeleeMaxAttackRange = melee.Any() ? melee.Max(a => a.MaximumDistanceNeededToAttack) : ranged.Max(a => a.MaximumDistanceNeededToAttack);
 
         _defaultMaxAttackRange = _attacks.Max(a => a.MaximumDistanceNeededToAttack);
     }
