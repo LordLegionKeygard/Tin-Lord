@@ -60,4 +60,5 @@ public enum LandscapeEnum
     FrozenValley = 3,
     IceLake = 4,
     ScorchedLands = 5,
+    Zone = 6,
 }

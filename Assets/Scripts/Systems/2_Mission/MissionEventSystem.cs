@@ -12,7 +12,6 @@ public class MissionEventSystem : MonoBehaviour
     [SerializeField] private TimeTickSystem _timeTickSystem;
     [SerializeField] private GameObject _gameEventPrefab;
     [SerializeField] private RectTransform _container;
-    [SerializeField] private GameEventInfo[] _allEvents;
     private int _dayBeforeSpawnEvent = 3;
     private GameEventInfo[] _availableEvents;
     private float _fullDuration;
@@ -21,6 +20,7 @@ public class MissionEventSystem : MonoBehaviour
     private List<DayEventForListData> _currentEventsData = new();
 
     [Header("Events")]
+    [SerializeField] private GameEventInfo[] _allEvents;
     [SerializeField] private EarthquakeMissionEvent _earthquakeEvent;
     [SerializeField] private AcidRainMissionEvent _acidRainEvent;
     [SerializeField] private MeteorStrikeMissionEvent _meteorStrikeEvent;
