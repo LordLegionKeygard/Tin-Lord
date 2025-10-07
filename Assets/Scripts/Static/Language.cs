@@ -6,7 +6,7 @@ using Steamworks;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 1;
+    public static int LanguageNumber = 0;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 2];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 
@@ -1202,8 +1202,8 @@ public class Language : MonoBehaviour
         _text[367, 1] = "Вы прошли миссию и заработали фрагменты данных.\n\nТеперь откройте панель изучений";
 
         // SpaceSelectNotLearnBuilding_68
-        _text[368, 0] = "Here you can see all types of buildings in the game.\n\nSee how many data fragments you have mined and select any unexplored building.";
-        _text[368, 1] = "Здесь вы можете увидеть все типы зданий в игре.\n\nПосмотрите сколько фрагментов данных вы добыли и выберите любое не изученное здание.";
+        _text[368, 0] = "Here you can see all types of buildings available for study.\n\nSee how many data fragments you have mined and select any unexplored building.";
+        _text[368, 1] = "Здесь вы можете увидеть все типы зданий доступные для изучения.\n\nПосмотрите сколько фрагментов данных вы добыли и выберите любое не изученное здание.";
 
         // SpaceLearnBuilding_69
         _text[369, 0] = "If there are enough data fragments, start the study by clicking the button.\n\nSelect another building if there are not enough resources or preliminary research of another building is required.";
@@ -1214,7 +1214,7 @@ public class Language : MonoBehaviour
         _text[370, 1] = "Отлично, вы изучили новое здание.\n\nТеперь оно станет доступно для постройки на миссиях.";
 
         // SpaceGoodLuck_71
-        _text[371, 0] = "Return to the map and explore space.\nn To find a habitable planet...";
+        _text[371, 0] = "Return to the map and explore space.\n\nTo find a habitable planet...";
         _text[371, 1] = "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...";
 
         _text[372, 0] = "";

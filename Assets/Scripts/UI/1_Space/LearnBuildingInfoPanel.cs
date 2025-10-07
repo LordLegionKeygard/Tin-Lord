@@ -1,4 +1,5 @@
 using System.Collections;
+using ModestTree;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private GameObject _resourceForWorkPanelLine;
     private ResourceForWorkPanelSpace _resourceForWorkPanel;
     private float _resourceForWorkAmount;
+    private Resource _currentResourceForWork;
 
     [Header("Recept")]
     [SerializeField] private TextMeshProUGUI _receptText;
@@ -76,6 +78,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _buildingLearnPanel.UnselectAllBuildingItems();
         _currentLearnBuildingItem = learnBuildingItem;
         _currentResourcesProduction = 0;
+        _currentResourceForWork = null;
     }
 
     public void RefreshInfo()
@@ -129,11 +132,20 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         }
     }
 
+    public void ChangeResourceForWorkPanel(Resource resource)
+    {
+        if (_currentResourceForWork == resource) return;
+        _currentResourceForWork = resource;
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        SetResourceForWorkAndText(_currentResourceForWork);
+    }
+
     private void SetResourceForWorkPanel(Building building)
     {
         if (building.ResourcesForWork.Length != 0)
         {
-            SetResourceForWorkAndText(building.ResourcesForWork[0].ResourceForWork);
+            var resourceForWork = _currentResourceForWork ?? building.ResourcesForWork[0].ResourceForWork;
+            SetResourceForWorkAndText(resourceForWork);
             _resourceForWorkPanelObject.SetActive(true);
             _resourceForWorkPanelLine.SetActive(true);
         }

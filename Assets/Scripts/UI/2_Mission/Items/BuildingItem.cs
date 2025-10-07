@@ -85,7 +85,7 @@ public class BuildingItem : MonoBehaviour
         var requiredLevel = _currentTile.Buildings[_buildingIndex - 1].RequiredBaseLevel;
         var building = _currentTile.Buildings[_buildingIndex - 1];
         _haveRequiredLevel = requiredLevel <= _tilesSystem.GetBaseLevel();
-        
+
         _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[297], requiredLevel)}"; ;
         _icon.sprite = building.BuildingSprite;
     }
@@ -95,7 +95,7 @@ public class BuildingItem : MonoBehaviour
         var requiredLevel = _currentTile.Buildings[_buildingIndex - 1].RequiredBaseLevel;
         var building = _currentTile.Buildings[_buildingIndex - 1];
         _haveRequiredLevel = building.RequiredBaseLevel <= _tilesSystem.GetBaseLevel();
-        
+
         _resourcesEnough = _missionResources.ResourcesEnough(GetResources());
         _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[297], requiredLevel)}"; ;
         _nameText.color = _resourcesEnough && _haveRequiredLevel ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
@@ -118,7 +118,7 @@ public class BuildingItem : MonoBehaviour
         SelectToggleState(true);
         _buildingResourcesViewMission.SetResourcesView(GetResources());
 
-        if (_currentTile.BuildingTileView == BuildingTileViewEnum.AttackingStructures)
+        if (_currentTile.BuildingTileView == BuildingTileViewEnum.AttackingStructures && _currentBuildingState != BuildingState.Repair)
         {
             var building = _currentTile.Buildings[_buildingIndex - 1];
             _tileViewSystem.ActivateRadius(_currentTileObject.transform, building.AttackRadius);
