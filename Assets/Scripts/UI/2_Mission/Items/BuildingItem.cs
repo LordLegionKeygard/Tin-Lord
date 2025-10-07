@@ -123,6 +123,10 @@ public class BuildingItem : MonoBehaviour
             var building = _currentTile.Buildings[_buildingIndex - 1];
             _tileViewSystem.ActivateRadius(_currentTileObject.transform, building.AttackRadius);
         }
+        else
+        {
+            _tileViewSystem.UnactiveRadius();
+        }
     }
 
     public void DeselectView()
