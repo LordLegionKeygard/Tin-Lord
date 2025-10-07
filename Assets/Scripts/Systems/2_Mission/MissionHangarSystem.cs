@@ -12,7 +12,7 @@ public class MissionHangarSystem : MonoBehaviour
 
     public string GetRepairText()
     {
-        return GetPatchRepairBonus() != 1 ? $"{Language.TextStatic[4]}\n<color={Colors.HexColorLightGreen}>-{WorldGameInfo.PatchPassiveAbility}%</color>" : Language.TextStatic[4];
+        return GetPatchRepairBonus() != 1 ? $"{Language.TextStatic[4]}\n<color={Colors.HexLightGreen}>-{WorldGameInfo.PatchPassiveAbility}%</color>" : Language.TextStatic[4];
     }
 
     public float GetPatchRepairBonus()

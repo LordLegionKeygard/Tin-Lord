@@ -1,5 +1,4 @@
 using System.Collections;
-using ModestTree;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +12,8 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     [Header("Main")]
     [SerializeField] private TextMeshProUGUI _buildingNameText;
-    [SerializeField] private TextMeshProUGUI _buildingHealthText;
     [SerializeField] private TextMeshProUGUI _buildingEcologyText;
+    [SerializeField] private TextMeshProUGUI _buildingHealthText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
 
     [Header("BuildingResources")]
@@ -73,6 +72,17 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _receptPanel = GetComponent<ReceptPanelSpace>();
     }
 
+    private void Start()
+    {
+        var buildingEcologyText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[16]}:</color>";
+        var buildingHealthText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[97]}:</color>";
+        var buildindLevelText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[3]}:</color>";
+
+        _buildingEcologyText.text = $"{buildingEcologyText} -";
+        _buildingHealthText.text = $"{buildingHealthText} -";
+        _buildingLevelText.text = $"{buildindLevelText} -";
+    }
+
     public void SetNewBuildingItem(LearnBuildingItem learnBuildingItem)
     {
         _buildingLearnPanel.UnselectAllBuildingItems();
@@ -98,9 +108,13 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     private void SetMainPanel(Building building)
     {
         _buildingNameText.text = building.Name[Language.LanguageNumber];
-        _buildingHealthText.text = $"{Language.TextStatic[97]}: {building.BuildingHealth}";
-        _buildingEcologyText.text = $"{Language.TextStatic[16]}: {building.BuildingEcology}";
-        _buildingLevelText.text = $"{Language.TextStatic[3]}: {building.BuildingLevel}";
+        var buildingEcologyText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[16]}:</color>";
+        var buildingHealthText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[97]}:</color>";
+        var buildindLevelText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[3]}:</color>";
+
+        _buildingEcologyText.text = $"{buildingEcologyText} {building.BuildingEcology}";
+        _buildingHealthText.text = $"{buildingHealthText} {building.BuildingHealth}";
+        _buildingLevelText.text = $"{buildindLevelText} {building.BuildingLevel}";
     }
 
     private void SetBuildingResourcesPanel(Building building)
@@ -124,8 +138,8 @@ public class LearnBuildingInfoPanel : MonoBehaviour
             var productionName = $"{Language.TextStatic[building.ResourcesProduction[_currentResourcesProduction].ProductionResource.NameNumber]}";
             string productionAmount;
             productionAmount = building.ResourceExtractedAmount.ToString();
-            var productionText = $"{Language.TextStatic[6]}: {productionName} {productionAmount}";
-            _productionResourceText.text = productionText;
+            var productionResourceText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[6]}:</color>";
+            _productionResourceText.text = $"{productionResourceText} {productionName} {productionAmount}";
 
             _productionResourcePanelObject.SetActive(true);
             _productionResourcePanelLine.SetActive(true);
@@ -181,10 +195,15 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         }
         else
         {
-            _damageText.text = $"{Language.TextStatic[98]}: {building.Damage}";
-            _attackSpeedText.text = $"{Language.TextStatic[99]}: {building.AttackSpeed}";
-            _attackRadiusText.text = $"{Language.TextStatic[100]}: {building.AttackRadius}";
-            _rotationSpeedText.text = $"{Language.TextStatic[101]}: {building.RotationSpeed}";
+            var damageText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[98]}:</color>";
+            var attackSpeedText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[99]}:</color>";
+            var attackRadiusText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[100]}:</color>";
+            var rotationSpeedText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[101]}:</color>";
+
+            _damageText.text = $"{damageText} {building.Damage}";
+            _attackSpeedText.text = $"{attackSpeedText} {building.AttackSpeed}";
+            _attackRadiusText.text = $"{attackRadiusText} {building.AttackRadius}";
+            _rotationSpeedText.text = $"{rotationSpeedText} {building.RotationSpeed}";
 
             _turretPanelObject.SetActive(true);
             _turretPanelLine.SetActive(true);
@@ -325,6 +344,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         }
 
         _resourceForWorkPanel.UpdateButtonsView(building, resource.ResourceEnum);
-        _resourceForWorkText.text = $"{Language.TextStatic[14]}: {Language.TextStatic[resource.NameNumber]} {_resourceForWorkAmount}";
+        var resourceForWorkText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[14]}:</color>";
+        _resourceForWorkText.text = $"{resourceForWorkText} {Language.TextStatic[resource.NameNumber]} {_resourceForWorkAmount}";
     }
 }

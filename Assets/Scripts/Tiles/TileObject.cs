@@ -191,7 +191,7 @@ public class TileObject : MonoBehaviour
     {
         for (int i = 0; i < allResourcesForWorkWrapper.Length; i++)
         {
-            if (_currentResourceForWork == allResourcesForWorkWrapper[i].ResourceForWork) //если находим текущий ресурс для работы у нового здания, значит ничего менять не нужно
+            if (_currentResourceForWork == allResourcesForWorkWrapper[i].ResourceForWork && _currentResourceForWorkAmount == allResourcesForWorkWrapper[i].ResourcesForWorkAmount) //если находим текущий ресурс для работы у нового здания, значит ничего менять не нужно
             {
                 //здесь не требуется обновлять требуемые ресурсы как у производимых, потому что метод SetResourceProduction() вызывает FireChangeResourceRequired()
                 return;

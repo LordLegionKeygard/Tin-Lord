@@ -36,14 +36,14 @@ public class SelectTilePanel : MonoBehaviour
 
     [Header("Texts")]
     [SerializeField] private TextMeshProUGUI _groundTileNameText;
+    [SerializeField] private TextMeshProUGUI _groundEcologyText;
+    [SerializeField] private TextMeshProUGUI _buildingEcologyText;
     [SerializeField] private TextMeshProUGUI _buildingNameText;
     [SerializeField] private TextMeshProUGUI _buildingHealthText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
     [SerializeField] private TextMeshProUGUI _productionModifierText;
     [SerializeField] private TextMeshProUGUI _productionResourceText;
     [SerializeField] private TextMeshProUGUI _resourceForWorkText;
-    [SerializeField] private TextMeshProUGUI _groundEcologyText;
-    [SerializeField] private TextMeshProUGUI _buildingEcologyText;
 
     [Header("Turret")]
     [SerializeField] private GameObject _turretPanelObject;
@@ -169,11 +169,17 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetTextFields(TileObject tileObject, Tile tile, bool haveBuildingTile, Building building)
     {
-        var buildingFullHealth = haveBuildingTile ? _missionHangarSystem.GetTitanBuildingHealthBonus() > 1 ? $"<color={Colors.HexColorLightGreen}>{tileObject.BuildingHealth().GetMaxHealth()}</color>" : building.BuildingHealth.ToString() : "";
+        var buildingFullHealth = haveBuildingTile ? _missionHangarSystem.GetTitanBuildingHealthBonus() > 1 ? $"<color={Colors.HexLightGreen}>{tileObject.BuildingHealth().GetMaxHealth()}</color>" : building.BuildingHealth.ToString() : "";
+
+        var buildindText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[2]}:</color>";
+        var buildingHealthText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[97]}:</color>";
+        var buildindLevelText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[3]}:</color>";
+        var productionModifierText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[11]}:</color>";
+
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
-        _buildingNameText.text = haveBuildingTile ? $"{Language.TextStatic[2]}: {building.Name[Language.LanguageNumber]}" : $"{Language.TextStatic[2]}: -";
-        _buildingHealthText.text = haveBuildingTile ? $"{Language.TextStatic[97]}: {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingFullHealth}" : $"{Language.TextStatic[97]}: -";
-        _buildingLevelText.text = haveBuildingTile ? $"{Language.TextStatic[3]}: {tileObject.BuildingTileObject().CurrentBuildingLevel()}" : $"{Language.TextStatic[3]}: -";
+        _buildingNameText.text = haveBuildingTile ? $"{buildindText} {building.Name[Language.LanguageNumber]}" : $"{buildindText} -";
+        _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingFullHealth}" : $"{buildingHealthText} -";
+        _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().CurrentBuildingLevel()}" : $"{buildindLevelText} -";
 
 
 
@@ -181,13 +187,15 @@ public class SelectTilePanel : MonoBehaviour
         var haveProduction = haveBuildingTile && tile.IsHaveProductionResources();
 
 
-        _productionModifierText.text = haveProduction ? $"{Language.TextStatic[11]}: <color={color}>x{tileObject.CurrentModifier()}</color>" : $"{Language.TextStatic[11]}: -";
+        _productionModifierText.text = haveProduction ? $"{productionModifierText} <color={color}>x{tileObject.CurrentModifier()}</color>" : $"{productionModifierText} -";
     }
 
 
 
     private void SetProductionText(TileObject tileObject, Tile tile, bool haveBuildingTile, Building buildings)
     {
+        var productionResourceText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[6]}:</color>";
+
         if (haveBuildingTile && tile.IsHaveProductionResources())
         {
             var isUseRources = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork.Length != 0;
@@ -208,14 +216,11 @@ public class SelectTilePanel : MonoBehaviour
             }
 
             var productionColor = Colors.GetSelectTilePanelProductionColor(productionAmount);
-
-            var productionText = $"{Language.TextStatic[6]}: <color={productionColor}>{productionName} {productionAmount}</color>";
-
-            _productionResourceText.text = productionText;
+            _productionResourceText.text = $"{productionResourceText} <color={productionColor}>{productionName} {productionAmount}</color>";
         }
         else
         {
-            _productionResourceText.text = $"{Language.TextStatic[6]}: -";
+            _productionResourceText.text = $"{productionResourceText} -";
         }
 
     }
@@ -227,14 +232,18 @@ public class SelectTilePanel : MonoBehaviour
         if (haveBuildingTile && tileObject.CurrentResourceForWork() != null && tileObject.IsHaveRequiredResource() &&
             (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier))
         {
-            textColor = Colors.HexColorWhite;
+            textColor = Colors.HexWhite;
         }
         else
         {
-            textColor = Colors.HexColorWarningYellow;
+            textColor = Colors.HexWarningYellow;
         }
 
-        _resourceForWorkText.text = $"{Language.TextStatic[14]}: <color={textColor}>{(haveBuildingTile && (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier) && tileObject.CurrentResourceForWork() != null ? $"{Language.TextStatic[tileObject.CurrentResourceForWork().NameNumber]} {tileObject.CurrentResourceForWorkAmount()}" : "-")}</color>";
+
+        var resourceForWorkText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[14]}:</color>";
+        var haveResourceForWork = haveBuildingTile && (tile.IsHaveProductionResources() || tile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier) && tileObject.CurrentResourceForWork() != null;
+
+        _resourceForWorkText.text = $"{resourceForWorkText} <color={textColor}>{(haveResourceForWork ? $"{Language.TextStatic[tileObject.CurrentResourceForWork().NameNumber]} {tileObject.CurrentResourceForWorkAmount()}" : "-")}</color>";
     }
 
     private void SetEcologyTexts(TileObject tileObject)
@@ -245,8 +254,11 @@ public class SelectTilePanel : MonoBehaviour
         var groundColor = Colors.GetSelectTilePanelEcologyColor(groundEcology);
         var buildingColor = Colors.GetSelectTilePanelEcologyColor(buildingEcology);
 
-        _groundEcologyText.text = $"{Language.TextStatic[15]}: <color={groundColor}>{groundEcology}</color>";
-        _buildingEcologyText.text = $"{Language.TextStatic[16]}: <color={buildingColor}>{buildingEcology}</color>";
+        var groundEcologyText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[15]}:</color>";
+        var buildingEcologyText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[16]}:</color>";
+
+        _groundEcologyText.text = $"{groundEcologyText} <color={groundColor}>{groundEcology}</color>";
+        _buildingEcologyText.text = $"{buildingEcologyText} <color={buildingColor}>{buildingEcology}</color>";
     }
 
     private void SetButtonStates(bool haveBuildingNow)
@@ -297,12 +309,18 @@ public class SelectTilePanel : MonoBehaviour
         }
         else
         {
+            var damageText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[98]}:</color>";
+            var attackSpeedText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[99]}:</color>";
+            var attackRadiusText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[100]}:</color>";
+            var rotationSpeedText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[101]}:</color>";
+
             var bonus = _missionHangarSystem.GetAimBotDamageBonus();
-            string damageText = bonus != 1 ? $"<color={Colors.HexColorLightGreen}>{building.Damage * bonus}</color>" : building.Damage.ToString();
-            _damageText.text = $"{Language.TextStatic[98]}: {damageText}";
-            _attackSpeedText.text = $"{Language.TextStatic[99]}: {building.AttackSpeed}";
-            _attackRadiusText.text = $"{Language.TextStatic[100]}: {building.AttackRadius}";
-            _rotationSpeedText.text = $"{Language.TextStatic[101]}: {building.RotationSpeed}";
+            var buldingDamage = bonus != 1 ? $"<color={Colors.HexLightGreen}>{building.Damage * bonus}</color>" : building.Damage.ToString();
+
+            _damageText.text = $"{damageText} {buldingDamage}";
+            _attackSpeedText.text = $"{attackSpeedText} {building.AttackSpeed}";
+            _attackRadiusText.text = $"{attackRadiusText} {building.AttackRadius}";
+            _rotationSpeedText.text = $"{rotationSpeedText} {building.RotationSpeed}";
 
             _turretPanelObject.SetActive(true);
             _turretPanelLine.SetActive(true);

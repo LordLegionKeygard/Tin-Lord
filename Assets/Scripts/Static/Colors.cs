@@ -17,11 +17,12 @@ public class Colors : MonoBehaviour
     public static readonly Color ConstructionBlue = new Color(0.2f, 0.44f, 0.8f, 1);
     public static readonly Color DecayYellow = new Color(0.8f, 0.56f, 0, 1);
 
-    public static string HexColorWhite = "#FFFFFF";
-    public static string HexColorWarningYellow = "#FFA800";
-    public static string HexColorGreen = "#00FF00";
-    public static string HexColorLightGreen = "#40BF00";
-    public static string HexColorRed = "#FF0000";
+    public static string HexWhite = "#FFFFFF";
+    public static string HexWarningYellow = "#FFA800";
+    public static string HexGreen = "#00FF00";
+    public static string HexLightGreen = "#40BF00";
+    public static string HexRed = "#FF0000";
+    public static string HexGreySeven = "#B7B7B7";
 
     //MemoryRecovery
     public static readonly Color MemoryOn = new Color(0, 3, 12, 1);
@@ -42,15 +43,15 @@ public class Colors : MonoBehaviour
         switch (modifier)
         {
             case 0:
-                return HexColorRed;
+                return HexRed;
             case 0.5f:
-                return HexColorWarningYellow;
+                return HexWarningYellow;
             case 1:
-                return HexColorWhite;
+                return HexWhite;
             case > 1:
-                return HexColorLightGreen;
+                return HexLightGreen;
         }
-        return HexColorWhite;
+        return HexWhite;
     }
 
     public static string GetSelectTilePanelEcologyColor(float ecology)
@@ -58,22 +59,22 @@ public class Colors : MonoBehaviour
         switch (ecology)
         {
             case > 0:                       // положительные значения
-                return HexColorLightGreen;
+                return HexLightGreen;
 
             case 0:                         // ровно ноль
-                return HexColorWhite;
+                return HexWhite;
 
             case < 0 and >= -3:             // -0.0001 … -3 включительно
-                return HexColorWarningYellow;
+                return HexWarningYellow;
 
             default:                        // всё, что меньше -3
-                return HexColorRed;
+                return HexRed;
         }
     }
 
     public static string GetSelectTilePanelProductionColor(float production)
     {
-        return production == 0 ? HexColorRed : HexColorWhite;
+        return production == 0 ? HexRed : HexWhite;
     }
 }
 

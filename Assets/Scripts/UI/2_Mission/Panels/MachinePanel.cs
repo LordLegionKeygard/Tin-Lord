@@ -128,9 +128,13 @@ public class MachinePanel : MonoBehaviour
         var _meleeDamage = haveAliveMachine ? $"{_currentSelectMachineInfo.GetMeleeDamage(level)}" : "-";
         var rangeDamage = haveAliveMachine ? $"{_currentSelectMachineInfo.GetRangeDamage(level)}" : "-";
 
-        _durabilityText.text = $"{Language.TextStatic[18]}: {durability}";
-        _meleeDamageText.text = $"{Language.TextStatic[19]}: {_meleeDamage}";
-        _rangeDamageText.text = $"{Language.TextStatic[20]}: {rangeDamage}";
+        var durabilityText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[18]}:</color>";
+        var meleeDamageText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[19]}:</color>";
+        var rangeDamageText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[20]}:</color>";
+
+        _durabilityText.text = $"{durabilityText} {durability}";
+        _meleeDamageText.text = $"{meleeDamageText} {_meleeDamage}";
+        _rangeDamageText.text = $"{rangeDamageText} {rangeDamage}";
     }
 
     public void UpdateLevelAndExperience()

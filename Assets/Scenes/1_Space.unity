@@ -381,9 +381,6 @@ MonoBehaviour:
   - {fileID: 592619514}
   - {fileID: 1329329461}
   _selectBuildingText: {fileID: 1619825982}
-  _buildingHealthText: {fileID: 1445140585}
-  _buildingEcologyText: {fileID: 458157563}
-  _buildingLevelText: {fileID: 1052974393}
   _resourceTraderHeaderText: {fileID: 2084968119}
   _resourceTraderPriceText: {fileID: 1007621529}
   _resourceTradeBuyText: {fileID: 1022938922}
@@ -6272,7 +6269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &158255176
@@ -13645,8 +13642,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1445140584}
   - {fileID: 458157562}
+  - {fileID: 1445140584}
   - {fileID: 1052974392}
   m_Father: {fileID: 1729682371}
   m_RootOrder: 2
@@ -15484,7 +15481,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 377191525}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -23312,7 +23309,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -24095,7 +24092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514
@@ -26094,8 +26091,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290230199
+  m_fontColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -45078,7 +45075,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 377191525}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -50453,7 +50450,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -52945,8 +52942,8 @@ MonoBehaviour:
   _buildingLearnPanel: {fileID: 1789072449}
   _panelDoMoveY: {fileID: 1729158873}
   _buildingNameText: {fileID: 1619825982}
-  _buildingHealthText: {fileID: 1445140585}
   _buildingEcologyText: {fileID: 458157563}
+  _buildingHealthText: {fileID: 1445140585}
   _buildingLevelText: {fileID: 1052974393}
   _buildingResourcesText: {fileID: 1661159171}
   _buildingResourcesPanelObject: {fileID: 1210053371}

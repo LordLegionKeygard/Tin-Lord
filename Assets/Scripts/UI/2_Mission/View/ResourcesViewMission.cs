@@ -21,7 +21,7 @@ public class ResourcesViewMission : BaseResourceView
             }
             else
             {
-                _amountText[i].text = $"<color={Colors.HexColorWarningYellow}>{resources[i].RecourceAmount}</color>";
+                _amountText[i].text = $"<color={Colors.HexWarningYellow}>{resources[i].RecourceAmount}</color>";
             }
 
             _resourceCells[i].SetActive(true);

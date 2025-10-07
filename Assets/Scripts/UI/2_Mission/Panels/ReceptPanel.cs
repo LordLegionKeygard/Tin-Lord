@@ -30,7 +30,7 @@ public class ReceptPanel : MonoBehaviour
             }
             else
             {
-                _receptCellResourceText[i].text = $"<color={Colors.HexColorWarningYellow}>{resourceRecept[i].ResourcesForReceptAmount}</color>";
+                _receptCellResourceText[i].text = $"<color={Colors.HexWarningYellow}>{resourceRecept[i].ResourcesForReceptAmount}</color>";
             }
         }
     }

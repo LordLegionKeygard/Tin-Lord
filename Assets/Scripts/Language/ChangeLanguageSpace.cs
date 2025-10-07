@@ -14,9 +14,6 @@ public class ChangeLanguageSpace : MonoBehaviour
 
     [Header("SelectBuildingInfoPanel")]
     [SerializeField] private TextMeshProUGUI _selectBuildingText;
-    [SerializeField] private TextMeshProUGUI _buildingHealthText;
-    [SerializeField] private TextMeshProUGUI _buildingEcologyText;
-    [SerializeField] private TextMeshProUGUI _buildingLevelText;
 
     [Header("ResourceTraderPanel")]
     [SerializeField] private TextMeshProUGUI _resourceTraderHeaderText;
@@ -68,8 +65,5 @@ public class ChangeLanguageSpace : MonoBehaviour
         _escapeTexts[2].text = Language.TextStatic[47];
 
         _selectBuildingText.text = Language.TextStatic[12];
-        _buildingHealthText.text = $"{Language.TextStatic[97]}: -";
-        _buildingEcologyText.text = $"{Language.TextStatic[16]}: -";
-        _buildingLevelText.text = $"{Language.TextStatic[3]}: -";
     }
 }

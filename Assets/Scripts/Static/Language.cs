@@ -171,8 +171,8 @@ public class Language : MonoBehaviour
         _text[47, 0] = "Main menu";
         _text[47, 1] = "Меню";
 
-        _text[48, 0] = $"Are you sure you want to restart the mission?\n\n<color={Colors.HexColorWarningYellow}>You will lose one AI core.</color>";
-        _text[48, 1] = $"Вы уверены, что хотите перезапустить миссию?\n\n<color={Colors.HexColorWarningYellow}>Вы потеряете одно ядро ИИ.</color>";
+        _text[48, 0] = $"Are you sure you want to restart the mission?\n\n<color={Colors.HexWarningYellow}>You will lose one AI core.</color>";
+        _text[48, 1] = $"Вы уверены, что хотите перезапустить миссию?\n\n<color={Colors.HexWarningYellow}>Вы потеряете одно ядро ИИ.</color>";
 
         _text[49, 0] = "Yes";
         _text[49, 1] = "Да";
@@ -225,14 +225,14 @@ public class Language : MonoBehaviour
         _text[65, 0] = "Escape";
         _text[65, 1] = "Сбежал";
 
-        _text[66, 0] = $"<color={Colors.HexColorWarningYellow}>Escaping the mission will give you {WorldGameInfo.EscapeFragmentsPercent}% of the data fragments and losing one AI core.</color>\n\nYou must complete half of the objectives.";
-        _text[66, 1] = $"<color={Colors.HexColorWarningYellow}>Сбежав с миссии, вы получите {WorldGameInfo.EscapeFragmentsPercent}% от фрагментов данных и потеряете одно ядро ИИ.</color>\n\nНеобходимо выполнить половину поставленных целей.";
+        _text[66, 0] = $"<color={Colors.HexWarningYellow}>Escaping the mission will give you {WorldGameInfo.EscapeFragmentsPercent}% of the data fragments and losing one AI core.</color>\n\nYou must complete half of the objectives.";
+        _text[66, 1] = $"<color={Colors.HexWarningYellow}>Сбежав с миссии, вы получите {WorldGameInfo.EscapeFragmentsPercent}% от фрагментов данных и потеряете одно ядро ИИ.</color>\n\nНеобходимо выполнить половину поставленных целей.";
 
         _text[67, 0] = "Save the mission and return to command center?";
         _text[67, 1] = "Сохранить миссию и вернуться в командный центр?";
 
-        _text[68, 0] = $"Restart mission?\n\n<color={Colors.HexColorWarningYellow}>You will lose one AI core.</color>";
-        _text[68, 1] = $"Перезапустить миссию?\n\n<color={Colors.HexColorWarningYellow}>Вы потеряете одно ядро ИИ.</color>";
+        _text[68, 0] = $"Restart mission?\n\n<color={Colors.HexWarningYellow}>You will lose one AI core.</color>";
+        _text[68, 1] = $"Перезапустить миссию?\n\n<color={Colors.HexWarningYellow}>Вы потеряете одно ядро ИИ.</color>";
 
         _text[69, 0] = "In 2100 the first robots were created to help humans.";
         _text[69, 1] = "В 2100 году были созданы первые роботы для помощи людям.";

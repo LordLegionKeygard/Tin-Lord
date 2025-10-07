@@ -32,8 +32,6 @@ public class CameraMovement : MonoBehaviour
     [SerializeField, Range(0f, 0.1f)] private float edgeTolerance = 0.05f;
     private Vector3 _targetPosition;
     private float _zoomHeight;
-    private Vector3 _horizontalVelocity;
-    private Vector3 _lastPosition;
     [SerializeField] private int _xMin = -50;
     [SerializeField] private int _xMax = 150; //20
     [SerializeField] private int _yMin = -50;
@@ -48,8 +46,6 @@ public class CameraMovement : MonoBehaviour
     {
         _zoomHeight = cameraTransform.localPosition.y;
         cameraTransform.LookAt(transform);
-
-        _lastPosition = transform.position;
     }
 
     private void SetCameraEdges()
@@ -78,7 +74,6 @@ public class CameraMovement : MonoBehaviour
         // CheckMouseAtScreenEdge();
 
         // 2) Физика/скорости
-        UpdateVelocity();
         UpdateBasePosition();
 
         // 3) Камера и параметры
@@ -135,13 +130,6 @@ public class CameraMovement : MonoBehaviour
         return pos;
     }
 
-    private void UpdateVelocity()
-    {
-        _horizontalVelocity = (transform.position - _lastPosition) / Time.unscaledDeltaTime;
-        _horizontalVelocity.y = 0f;
-        _lastPosition = transform.position;
-    }
-
     private void GetKeyboardMovement()
     {
         Vector3 inputValue = _missionInputSystem.MoveInput.x * GetCameraRight()
@@ -173,16 +161,8 @@ public class CameraMovement : MonoBehaviour
 
     private void UpdateBasePosition()
     {
-        if (_targetPosition.sqrMagnitude > 0.1f)
-        {
-            _speed = Mathf.Lerp(_speed, _currentMaxSpeed, Time.unscaledDeltaTime * _acceleration);
-            transform.position += _targetPosition * _speed * Time.unscaledDeltaTime;
-        }
-        else
-        {
-            _horizontalVelocity = Vector3.Lerp(_horizontalVelocity, Vector3.zero, Time.unscaledDeltaTime * _damping);
-            transform.position += _horizontalVelocity * Time.unscaledDeltaTime;
-        }
+        _speed = Mathf.Lerp(_speed, _currentMaxSpeed, Time.unscaledDeltaTime * _acceleration);
+        transform.position += _targetPosition * _speed * Time.unscaledDeltaTime;
         _targetPosition = Vector3.zero;
     }
 
