@@ -8,6 +8,7 @@ public class EnemyAnimator : BaseAnimator
     private EnemySpeed _creatureSpeed;
     private BaseHealth _baseHealth;
     [SerializeField] private int _getHitAnimationsCount;
+    [SerializeField] private RuntimeAnimatorController _miniBossAnimator;
 
 
     public override void Awake()
@@ -91,5 +92,10 @@ public class EnemyAnimator : BaseAnimator
     {
         _baseHealth.SetCanTarget(false);
         _baseHealth.HideSlider();
+    }
+
+    public void SetMiniBossAnimator()
+    {
+        Animator.runtimeAnimatorController = _miniBossAnimator;
     }
 }

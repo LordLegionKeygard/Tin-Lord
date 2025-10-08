@@ -2390,6 +2390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _getHitAnimationsCount: 1
+  _miniBossAnimator: {fileID: 9100000, guid: 7951263d9647d164aaa29789eb595d7c, type: 2}
 --- !u!114 &2675814229500550979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2523,7 +2524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _resistSlow: 0
+  _resistTypes: 
   _isHaveEmission: 1
   _emissionColor: {r: 1, g: 1, b: 1, a: 1}
   _meshRenderers:

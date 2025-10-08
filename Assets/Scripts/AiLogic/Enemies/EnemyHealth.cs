@@ -51,7 +51,7 @@ public class EnemyHealth : BaseHealth
     {
         if (_healthSliderObject == null)
         {
-            var isMiniBoss = _enemyInfo.GetHealthFactor() > 1 || _enemyInfo.GetDamageFactor() > 1;
+            var isMiniBoss = _enemyInfo.IsMiniBoss();
             var sliderHeightOfsset = isMiniBoss ? _sliderHeightOffset * WorldGameInfo.MiniBossScale : _sliderHeightOffset;
             _healthSliderObject = _diContainer.InstantiatePrefab(_healthSliderPrefab, _healthCanvas.transform);
             _healthSlider = _healthSliderObject.GetComponent<EnemySlider>();

@@ -118,16 +118,10 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             var enemyPrefab = _allEnemies.GetEnemyForEnum(entry.EnemyEnum);
             var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, basePoint + GetRandomizePosition(), Quaternion.identity, null);
 
-            // Кэш компонентов (без повторных GetComponent)
-            var enemyLevel = enemyObject.GetComponent<EnemyLevel>();
-            var enemyInfo = enemyObject.GetComponent<EnemyInfo>();
-            var enemyHealth = enemyObject.GetComponent<EnemyHealth>();
-            var enemyDamage = enemyObject.GetComponent<EnemyDamage>();
-
-            enemyLevel.SetLevel(group.EnemyLevel);
-            enemyInfo.SetEnemyInfo(_enemyNumber, 1, 1, false);
-            enemyHealth.SetHealth();
-            enemyDamage.SetDamage();
+            enemyObject.GetComponent<EnemyLevel>().SetLevel(group.EnemyLevel);
+            enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, 1, 1, false);
+            enemyObject.GetComponent<EnemyHealth>().SetHealth();
+            enemyObject.GetComponent<EnemyDamage>().SetDamage();
             enemyObject.GetComponent<EnemyScale>().SetScale(false);
 
             enemyObject.transform.SetParent(_enemiesParent, false);
@@ -179,6 +173,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
                 enemyObject.GetComponent<EnemyHealth>().SetHealth();
                 enemyObject.GetComponent<EnemyDamage>().SetDamage();
                 enemyObject.GetComponent<EnemyScale>().SetScale(true);
+                enemyObject.GetComponent<EnemyAnimator>().SetMiniBossAnimator();
 
                 enemyObject.transform.SetParent(_enemiesParent);
 
@@ -226,14 +221,15 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             var position = new Vector3(enemyData[i].PositionX, enemyData[i].PositionY, enemyData[i].PositionZ);
             var rotation = Quaternion.Euler(0f, enemyData[i].Rotation, 0f);
             var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForNumber(enemyData[i].EnemyEnum), position, rotation, null);
-            var isMiniBoss = enemyData[i].HealthFactor > 1 || enemyData[i].DamageFactor > 1;
 
             enemyObject.GetComponent<EnemyLevel>().SetLevel(enemyData[i].EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, enemyData[i].HealthFactor, enemyData[i].DamageFactor, enemyData[i].IsMiniBoss);
             enemyObject.GetComponent<BaseHealth>().LoadHealth(enemyData[i].EnemyHealth);
             enemyObject.GetComponent<BaseDamage>().SetDamage();
-            enemyObject.GetComponent<EnemyScale>()?.SetScale(enemyData[i].IsMiniBoss);
+            enemyObject.GetComponent<EnemyScale>().SetScale(enemyData[i].IsMiniBoss);
+            if(enemyData[i].IsMiniBoss) enemyObject.GetComponent<EnemyAnimator>().SetMiniBossAnimator();
             enemyObject.transform.SetParent(_enemiesParent);
+
 
             AddEnemyToList(enemyData[i].EnemyEnum, _enemyNumber, enemyObject);
 

@@ -26,7 +26,7 @@ public class WorldGameInfo
     public const float TickSpeed = 2;
 
     [Header("Enemies")]
-    public const float MiniBossScale = 2;
+    public const float MiniBossScale = 2.5f;
 
     [Header("GoogleSheet")]
     public const string GoogleSheetId = "1phPv5iEL7Iw6A6CCdU4SdSgN5LwbEprCKEzY10dwDr4";
