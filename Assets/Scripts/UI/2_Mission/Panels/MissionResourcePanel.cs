@@ -1,10 +1,10 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 public class MissionResourcePanel : MonoBehaviour
 {
+    [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly MissionModeSystem _missionModeSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private PanelDoMoveX _panelDoMoveX;
@@ -17,7 +17,7 @@ public class MissionResourcePanel : MonoBehaviour
 
     public void PanelMove(bool needSound = true)
     {
-        if (!_missionModeSystem.IsPlanetMode()) return;
+        if (!_missionModeSystem.IsPlanetMode() || _escapePanel.IsEscapeMode()) return;
 
         if (!_tutorialSystem.IsCompleteMissionTutorial())
         {

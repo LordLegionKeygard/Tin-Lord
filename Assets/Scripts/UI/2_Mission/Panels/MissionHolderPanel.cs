@@ -1,18 +1,16 @@
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 public class MissionHolderPanel : MonoBehaviour
 {
+    [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly MissionModeSystem _missionModeSystem;
-    [Inject] TutorialSystem _tutorialSystem;
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private DownPanelDoMoveX _panelDoMoveX;
-    [SerializeField] private Button _button;
-
 
     public void PanelMove()
     {
-        if (!_missionModeSystem.IsPlanetMode()) return;
+        if (!_missionModeSystem.IsPlanetMode() || _escapePanel.IsEscapeMode()) return;
 
         if (!_tutorialSystem.IsCompleteMissionTutorial() && _tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.MissionOpenSkillsPanel_51) return;
 

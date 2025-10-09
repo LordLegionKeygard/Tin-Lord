@@ -7,6 +7,7 @@ using System.Collections;
 
 public class SelectTilePanel : MonoBehaviour
 {
+    [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly TileViewSystem _tileViewSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
@@ -340,7 +341,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void BuildButton()
     {
-        if (!_buildButton.activeInHierarchy || _tileObject == null || !_tutorialSystem.CanClickBuildButton()) return;
+        if (!_buildButton.activeInHierarchy || _tileObject == null || !_tutorialSystem.CanClickBuildButton() || _escapePanel.IsEscapeMode()) return;
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
@@ -362,7 +363,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ToggleBuildingWorkButton()
     {
-        if (!_workButton.activeInHierarchy || _tileObject == null || !_tutorialSystem.CanClickBuildingWorkButton()) return;
+        if (!_workButton.activeInHierarchy || _tileObject == null || !_tutorialSystem.CanClickBuildingWorkButton() || _escapePanel.IsEscapeMode()) return;
         if (_tileObject.BuildingTileObject().IsEcologyBuilding() && !_tileObject.IsHaveRequiredResource()) return;
 
         _tutorialSystem.ClickToggleBuildingWork(_tileObject.IsBuildingWork());
@@ -379,7 +380,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ToggleGeneralRepairButton()
     {
-        if (!_tutorialSystem.IsCompleteMissionTutorial()) return;
+        if (!_tutorialSystem.IsCompleteMissionTutorial() || _escapePanel.IsEscapeMode()) return;
 
         if (!_generalRepairButton.activeInHierarchy || _tileObject == null) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
@@ -392,7 +393,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void RotateButton()
     {
-        if (!_rotateButton.activeInHierarchy || _tileObject == null) return;
+        if (!_rotateButton.activeInHierarchy || _tileObject == null || _escapePanel.IsEscapeMode()) return;
 
         CustomEvents.FireToggleCheckTags(false);
         if (_tagsCoroutine != null) StopCoroutine(_tagsCoroutine);
@@ -460,7 +461,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void MachinePanelButton()
     {
-        if (!_machineButton.activeInHierarchy || _tileObject == null) return;
+        if (!_machineButton.activeInHierarchy || _tileObject == null || _escapePanel.IsEscapeMode()) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _machineSpawnerSystem.SetTileObject(_tileObject);
         _machinePanel.ActiveMacnineItems(_tileObject.BuildingTileObject().CurrentBuildingLevel());

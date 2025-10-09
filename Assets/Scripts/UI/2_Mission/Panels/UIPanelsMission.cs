@@ -3,6 +3,7 @@ using Zenject;
 
 public class UIPanelsMission : MonoBehaviour
 {
+    [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private TileDetector _tileDetector;
@@ -16,7 +17,6 @@ public class UIPanelsMission : MonoBehaviour
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private MachinePanel _machinePanel;
-    [SerializeField] private EscapePanelMission _escapePanel;
     [SerializeField] private SettingsPanels _settingsPanel;
     [SerializeField] private MissionResourcePanel _missionResourcePanel;
     [SerializeField] private MissionHolderPanel _missionHolderPanel;
@@ -157,6 +157,8 @@ public class UIPanelsMission : MonoBehaviour
 
     public void InputDestroyButton()
     {
+        if (_escapePanel.IsEscapeMode()) return;
+
         if (_selectTilePanel.PanelActive()) _selectTilePanel.DestroyButton();
         if (_machinePanel.PanelActive()) _machinePanel.DestroyMachineButton();
     }

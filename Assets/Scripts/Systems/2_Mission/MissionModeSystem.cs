@@ -6,6 +6,7 @@ using Zenject;
 
 public class MissionModeSystem : MonoBehaviour
 {
+    [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly EndMissionSystem _endMissionSystem;
     private bool _isPlanetMode = true;
@@ -32,8 +33,8 @@ public class MissionModeSystem : MonoBehaviour
 
     public void LoadMode(bool isWeaponMode)
     {
-        if (!isWeaponMode) return;      
-        ChangeMode(false);        
+        if (!isWeaponMode) return;
+        ChangeMode(false);
     }
 
     private void ToggleShipWeapons(bool state)
@@ -50,6 +51,7 @@ public class MissionModeSystem : MonoBehaviour
 
     public void ChangeModeButton()
     {
+        if (_escapePanel.IsEscapeMode()) return;
         ChangeMode(true);
     }
 

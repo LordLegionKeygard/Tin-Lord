@@ -4,6 +4,7 @@ using Zenject;
 
 public class GameSpeedSystem : MonoBehaviour
 {
+    [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private TutorialSystem _tutorialSystem;
     [SerializeField] private Image[] _images;
     [SerializeField] private Sprite[] _spriteOn;
@@ -13,11 +14,10 @@ public class GameSpeedSystem : MonoBehaviour
     public GameSpeedEnum CurrentGameSpeedEnum() => _currentGameSpeedEnum;
     private bool _isPause;
     public bool IsPause() => _isPause;
-    private bool _canChangeGameSpeed = true;
 
     public void InputChangeGameSpeed(int gameSpeed)
     {
-        if (!_canChangeGameSpeed) return;
+        if (_escapePanel.IsEscapeMode()) return;
         ChangeGameSpeedButton(gameSpeed, false);
     }
 
@@ -92,12 +92,11 @@ public class GameSpeedSystem : MonoBehaviour
         _images[(int)_currentGameSpeedEnum].sprite = _spriteOn[(int)_currentGameSpeedEnum];
     }
 
-    public void SpeedButtonInteractableToggle(bool escapePanelIsOpen)
+    public void RefreshSpeedButtonInteractable()
     {
-        _canChangeGameSpeed = !escapePanelIsOpen;
         foreach (var item in _speedButtons)
         {
-            item.interactable = !escapePanelIsOpen;
+            item.interactable = !_escapePanel.IsEscapeMode();
         }
     }
 }

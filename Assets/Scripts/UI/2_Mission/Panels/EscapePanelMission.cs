@@ -23,18 +23,19 @@ public class EscapePanelMission : MonoBehaviour
     [SerializeField] private Button _yesButton;
     [SerializeField] private Image _yesIcon;
     [SerializeField] private RectTransform _extraPanelTransform;
-    private bool _isOpen;
+    private bool _escapePanelIsOpen;
+    public bool IsEscapeMode() => _escapePanelIsOpen || _settingsPanel.activeInHierarchy;
 
     public void PanelViewToggle(bool changeSpeed)
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EscapePanel, transform.position);
 
-        _isOpen = !_isOpen;
+        _escapePanelIsOpen = !_escapePanelIsOpen;
 
-        _gameSpeedSystem.SpeedButtonInteractableToggle(_isOpen);
-        _escapePanelBackgroundBlack.SetActive(_isOpen);
+        _gameSpeedSystem.RefreshSpeedButtonInteractable();
+        _escapePanelBackgroundBlack.SetActive(_escapePanelIsOpen);
 
-        if (_isOpen)
+        if (_escapePanelIsOpen)
         {
             if (changeSpeed) _gameSpeedSystem.ChangeGameSpeedButton((int)GameSpeedEnum.Pause, true);
             _escapePanelTransform.DOAnchorPosY(-185.5f, 0.8f).SetUpdate(true);

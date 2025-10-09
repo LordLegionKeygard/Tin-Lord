@@ -4,6 +4,7 @@ using Zenject;
 
 public class CameraMovement : MonoBehaviour
 {
+    [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly MissionModeSystem _missionModeSystem;
     [SerializeField] private float _cameraSpeedCoeff;
     [SerializeField] private Camera _camera;
@@ -15,7 +16,6 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float _currentMaxSpeed;
     private float _speed;
     private readonly float _acceleration = 10;
-    private readonly float _damping = 15;
 
     [Header("Vertical Translation")]
     private readonly float _stepSize = 2;
@@ -68,6 +68,8 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
+        if (_escapePanel.IsEscapeMode()) return;
+
         // 1) Сначала ввод
         GetKeyboardMovement();
         HandleMouseDrag();
@@ -168,7 +170,7 @@ public class CameraMovement : MonoBehaviour
 
     public void ZoomCamera(InputAction.CallbackContext callBack)
     {
-        if (IsPointerOverUISystem.IsPointerOverUI) return;
+        if (IsPointerOverUISystem.IsPointerOverUI || _escapePanel.IsEscapeMode()) return;
 
         float inputValue = -callBack.ReadValue<Vector2>().y / 100f;
 

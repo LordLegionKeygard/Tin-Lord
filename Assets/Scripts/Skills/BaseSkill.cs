@@ -3,6 +3,7 @@ using Zenject;
 
 public class BaseSkill : MonoBehaviour
 {
+    [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly MissionModeSystem _missionModeSystem;
     [Inject] protected TutorialSystem TutorialSystem;
     [Inject] protected MissionResources MissionResources;
@@ -30,6 +31,8 @@ public class BaseSkill : MonoBehaviour
 
     public virtual void UseSkill()
     {
+        if (_escapePanel.IsEscapeMode()) return;
+
         if (CantUseSkill())
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);

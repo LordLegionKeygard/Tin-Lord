@@ -20,6 +20,7 @@ public class MissionInstaller : MonoInstaller
     [SerializeField] private TutorialSystem _tutorialSystem;
     [SerializeField] private TileViewSystem _tileViewSystem;
     [SerializeField] private MissionModeSystem _missionModeSystem;
+    [SerializeField] private EscapePanelMission _escapePanel;
 
     public override void InstallBindings()
     {
@@ -40,5 +41,6 @@ public class MissionInstaller : MonoInstaller
         Container.Bind<TutorialSystem>().FromInstance(_tutorialSystem).AsSingle();
         Container.Bind<TileViewSystem>().FromInstance(_tileViewSystem).AsSingle();
         Container.Bind<MissionModeSystem>().FromInstance(_missionModeSystem).AsSingle();
+        Container.Bind<EscapePanelMission>().FromInstance(_escapePanel).AsSingle();
     }
 }

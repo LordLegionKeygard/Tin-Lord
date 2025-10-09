@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using Zenject;
 public class MissionInputSystem : MonoBehaviour
 {
+    [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly MissionModeSystem _missionModeSystem;
     private PlayerInput _playerInput;
 
@@ -178,6 +179,8 @@ public class MissionInputSystem : MonoBehaviour
 
     private void OnNumberInput(InputAction.CallbackContext context)
     {
+        if (_escapePanel.IsEscapeMode()) return;
+        
         var key = context.control.displayName; // Получаем нажатую клавишу как строку
 
         if (int.TryParse(key, out int pressedNumber))
@@ -200,6 +203,8 @@ public class MissionInputSystem : MonoBehaviour
 
     private void UpdateInputs()
     {
+        if (_escapePanel.IsEscapeMode()) return;
+
         MoveInput = _playerInput.actions["CameraMovement"].ReadValue<Vector2>();
 
         if (!_missionModeSystem.IsPlanetMode() && _playerInput.actions["LeftMouseClick"].IsPressed() && !IsPointerOverUISystem.IsPointerOverUI)
