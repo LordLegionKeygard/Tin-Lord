@@ -1213,7 +1213,7 @@ public class Language : MonoBehaviour
         _text[370, 0] = "Great, you've explored a new building.\n\nIt will now be available for construction during missions.";
         _text[370, 1] = "Отлично, вы изучили новое здание.\n\nТеперь оно станет доступно для постройки на миссиях.";
 
-        // SpaceGoodLuck_71
+        // SpaceExploreSpace_71
         _text[371, 0] = "Return to the map and explore space.\n\nTo find a habitable planet...";
         _text[371, 1] = "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...";
 

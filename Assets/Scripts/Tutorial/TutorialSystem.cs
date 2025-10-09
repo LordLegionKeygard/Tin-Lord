@@ -640,7 +640,7 @@ public enum TutorialStepEnum
     SpaceSelectNotLearnBuilding_68 = 68,
     SpaceLearnBuilding_69 = 69,
     SpaceLearnBuildingDescription_70 = 70,
-    SpaceGoodLuck_71 = 71,
+    SpaceExploreSpace_71 = 71,
     CompleteAllTutorials_72 = 72,
 }
 

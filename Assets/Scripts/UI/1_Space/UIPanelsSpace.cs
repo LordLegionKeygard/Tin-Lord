@@ -49,7 +49,7 @@ public class UIPanelsSpace : MonoBehaviour
     {
         if (_tutorialSystem.GetTutorialStepEnum() < TutorialStepEnum.SpaceOpenMap_5) return;
         if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceStartMission_8 && _tutorialSystem.PanelIsActive()) return;
-        if (_tutorialSystem.GetTutorialStepEnum() == TutorialStepEnum.SpaceOpenLearningPanel_67) return;
+        if (_tutorialSystem.GetTutorialStepEnum() >= TutorialStepEnum.SpaceOpenLearningPanel_67 && _tutorialSystem.GetTutorialStepEnum() <= TutorialStepEnum.SpaceLearnBuildingDescription_70) return;
 
         if (_buildingsPanelDoMove.IsOpen()) LearnBuildingPanelToggle();
         _missionPanelDoMove.PanelClose();

@@ -143,7 +143,14 @@ public class EndMissionSystem : MonoBehaviour
 
         if (!_tutorialSystem.IsCompleteAllTutorial() || _tutorialSystem.GetTutorialStepEnum() <= TutorialStepEnum.MissionGoodLuckDescription_66)
         {
-            _tutorialSystem.SaveTutorial(TutorialStepEnum.SpaceOpenLearningPanel_67);
+            if (missionEndEnum is MissionEndEnum.Victory or MissionEndEnum.Escape)
+            {
+                _tutorialSystem.SaveTutorial(TutorialStepEnum.SpaceOpenLearningPanel_67);
+            }
+            else
+            {
+                _tutorialSystem.SaveTutorial(TutorialStepEnum.SpaceStartMission_8);
+            }
         }
 
         _missionSaveGame.DeleteMissionJson();
@@ -195,15 +202,7 @@ public class EndMissionSystem : MonoBehaviour
     public void ContinueButton()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-
-        // if (_missionEndEnum == MissionEndEnum.Victory)
-        // {
-        //     _terminalSystem.ActiveTerminal();
-        // }
-        // else
-        // {
         LoadCommandCenter();
-        // }
     }
 
     public void LoadCommandCenter()
