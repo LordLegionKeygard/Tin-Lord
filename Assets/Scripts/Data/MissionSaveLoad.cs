@@ -80,6 +80,10 @@ public class MissionSaveLoad : MonoBehaviour
             IsStartMission = true,
             GameSpeed = (int)GameSpeedEnum.Default,
             ResourcesData = new float[Enum.GetValues(typeof(ResourceEnum)).Length - 1],
+            ShipCannonsData = new MissionShipWeaponsData()
+            {
+                IsWeaponMode = false
+            }
         };
 
         for (int i = 0; i < _spaceSaveGame.SpaceSaveData.HangarCommandCenterData.MainResourcesData.Length; i++)
