@@ -25,7 +25,7 @@ public class EndMissionSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _ecologyBonusText;
     [SerializeField] private TextMeshProUGUI _receivedFragmentsText;
     [SerializeField] private TextMeshProUGUI _maxFragmentsText;
-    [SerializeField] private TextMeshProUGUI _quantsText;
+    [SerializeField] private TextMeshProUGUI _receivedQuantsText;
     [SerializeField] private Slider _slider;
     private bool _isMissionEnd = false;
     private int _receivedFragments;
@@ -87,12 +87,15 @@ public class EndMissionSystem : MonoBehaviour
 
         _headerText.color = headerTextColor;
         _headerText.text = Language.TextStatic[headerTextNumber];
-        _memoryRestoredText.text = $"{Language.TextStatic[147]} {memoryRestoredAmount}";
-        _ecologyBonusText.text = $"{Language.TextStatic[148]} {ecologyBonus}x";
 
+        var memoryRestoredText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[147]}:</color>";
+        var ecologyBonusText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[148]}:</color>";
+        var receivedQuantsText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[187]}:</color>";
+
+        _memoryRestoredText.text = $"{memoryRestoredText} {memoryRestoredAmount}";
+        _ecologyBonusText.text = $"{ecologyBonusText} {ecologyBonus}x";
+        _receivedQuantsText.text = _missionEndEnum is MissionEndEnum.Victory ? $"{receivedQuantsText} {_missionQuantSystem.GetQuants()}" : $"{receivedQuantsText} 0";
         _maxFragmentsText.text = totalFragmentsAmount.ToString();
-
-        _quantsText.text = _missionEndEnum is MissionEndEnum.Victory ? $"{Language.TextStatic[187]} {_missionQuantSystem.GetQuants()}" : $"{Language.TextStatic[187]} 0";
     }
 
     private float GetEcologyBonus()
@@ -180,6 +183,7 @@ public class EndMissionSystem : MonoBehaviour
     {
         float duration = 2f;
         float elapsedTime = 0f;
+        var receivedFragmentsText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[149]}:</color>";
 
         while (elapsedTime < duration)
         {
@@ -189,13 +193,13 @@ public class EndMissionSystem : MonoBehaviour
             int currentFragments = Mathf.RoundToInt(Mathf.Lerp(0, targetFragments, progress));
             float currentSliderValue = Mathf.Lerp(0, targetPercent, progress);
 
-            _receivedFragmentsText.text = $"{Language.TextStatic[62]} {currentFragments}";
+            _receivedFragmentsText.text = $"{receivedFragmentsText} {currentFragments}";
             _slider.value = currentSliderValue;
 
             yield return null;
         }
 
-        _receivedFragmentsText.text = $"{Language.TextStatic[62]} {targetFragments}";
+        _receivedFragmentsText.text = $"{receivedFragmentsText} {targetFragments}";
         _slider.value = targetPercent;
     }
 

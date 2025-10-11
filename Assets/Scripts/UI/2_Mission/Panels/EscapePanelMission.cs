@@ -63,16 +63,17 @@ public class EscapePanelMission : MonoBehaviour
 
     public void RestartButton()
     {
+        var haveAiCore = _spaceSaveGame.SpaceSaveData.AiCores > 1;
+
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         ToggleAllEscapePanelButtons(true);
         _restartButton.interactable = false;
+        ToggleYesButton(haveAiCore);
         _extraPanel.SetActive(true);
         ChangePanelPosition(-93f);
 
-        var haveAiCore = _spaceSaveGame.SpaceSaveData.AiCores > 1;
 
         _extra.text = haveAiCore ? Language.TextStatic[68] : Language.TextStatic[76];
-        ToggleYesButton(haveAiCore);
     }
 
     public void EscapeButton()
@@ -80,11 +81,11 @@ public class EscapePanelMission : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         ToggleAllEscapePanelButtons(true);
         _escapeButton.interactable = false;
+        ToggleYesButton(_objectivesPanel.CanEscape());
         _extraPanel.SetActive(true);
         ChangePanelPosition(-155);
 
         _extra.text = Language.TextStatic[66];
-        ToggleYesButton(_objectivesPanel.CanEscape());
     }
 
     public void SettingsButton()
@@ -99,11 +100,11 @@ public class EscapePanelMission : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         ToggleAllEscapePanelButtons(true);
         _exitButton.interactable = false;
+        ToggleYesButton(true);
         _extraPanel.SetActive(true);
         ChangePanelPosition(-71.6f);
 
         _extra.text = Language.TextStatic[67];
-        ToggleYesButton(true);
     }
 
     private void ChangePanelPosition(float newYPosition)

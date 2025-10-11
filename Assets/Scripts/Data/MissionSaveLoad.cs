@@ -270,7 +270,11 @@ public class MissionSaveLoad : MonoBehaviour
     private IEnumerator PrepareSaveMissionCoroutine()
     {
         yield return new WaitForSecondsRealtime(1);
-        _missionSaveGame.SaveMissionToJson();
+        // не сохраняем миссию так как еще идет туториал миссии и при перезапуске он начнется сначала
+        if (_tutorialSystem.GetTutorialStepEnum() >= TutorialStepEnum.MissionGoodLuckDescription_66)
+        {
+            _missionSaveGame.SaveMissionToJson();
+        }
         CustomEvents.FireLoadScene(SceneEnum.Space, WorldGameInfo.LoadSceneTime, null);
     }
 

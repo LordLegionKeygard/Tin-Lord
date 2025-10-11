@@ -13,6 +13,7 @@ public class UIPanelsMission : MonoBehaviour
     [SerializeField] private GameObject[] _selectTilePanels;
     [SerializeField] private GameObject[] _mainPanels;
     [SerializeField] private GameObject _settingsPanelObject;
+    [SerializeField] private GameObject _tutorialCanvas;
 
     [Header("Panel Logic")]
     [SerializeField] private SelectTilePanel _selectTilePanel;
@@ -31,8 +32,6 @@ public class UIPanelsMission : MonoBehaviour
 
     public void EscapeClick()
     {
-        if (!_tutorialSystem.IsCompleteMissionTutorial()) return;
-        
         _skillTargetSystem.CancelSkillCircle();
         if (_selectTilePanels[0].activeInHierarchy)
         {
@@ -56,8 +55,14 @@ public class UIPanelsMission : MonoBehaviour
         }
         else
         {
-            _escapePanel.PanelViewToggle(true);
+            EscapeButton();
         }
+    }
+    
+    public void EscapeButton()
+    {
+        _escapePanel.PanelViewToggle(true);
+        _tutorialCanvas.SetActive(!_escapePanel.IsEscapeMode());
     }
 
     public void PreparePanelsToShipMode()

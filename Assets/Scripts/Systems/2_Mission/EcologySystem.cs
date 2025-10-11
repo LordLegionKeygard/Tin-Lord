@@ -101,7 +101,7 @@ public class EcologySystem : MonoBehaviour
     {
         if (_radiation < 0) _radiation = 0;
         if (_radiation > WorldGameInfo.MaximumRadiation) _radiation = WorldGameInfo.MaximumRadiation;
-        _radiationText.text = $"{Language.TextStatic[5]} {_radiation:D2}";
+        _radiationText.text = $"{Language.TextStatic[5]}: {_radiation:D2}";
         _radiationIcon.sprite = _radiation < 25 ? _radiationSprites[0] : _radiationSprites[1];
     }
 

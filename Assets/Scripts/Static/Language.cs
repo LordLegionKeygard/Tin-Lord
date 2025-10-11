@@ -42,8 +42,8 @@ public class Language : MonoBehaviour
         _text[4, 0] = "Repair";
         _text[4, 1] = "Починить";
 
-        _text[5, 0] = "RADIATION";
-        _text[5, 1] = "РАДИАЦИЯ";
+        _text[5, 0] = "RAD";
+        _text[5, 1] = "РАД";
 
         _text[6, 0] = "Production resource";
         _text[6, 1] = "Добываемый ресурс";
@@ -213,8 +213,8 @@ public class Language : MonoBehaviour
         _text[61, 0] = "Days lived: {0}/{1}";
         _text[61, 1] = "Прожито дней: {0}/{1}";
 
-        _text[62, 0] = "Data fragments received:";
-        _text[62, 1] = "Получено фрагментов данных:";
+        _text[62, 0] = "";
+        _text[62, 1] = "";
 
         _text[63, 0] = "Victory";
         _text[63, 1] = "Победа";
@@ -469,13 +469,13 @@ public class Language : MonoBehaviour
         _text[146, 1] = "Открыть панель машин";
 
         _text[147, 0] = "Data restored:";
-        _text[147, 1] = "Восстановлено данных:";
+        _text[147, 1] = "Восстановлено данных";
 
         _text[148, 0] = "Ecology bonus:";
-        _text[148, 1] = "Экологический бонус:";
+        _text[148, 1] = "Экологический бонус";
 
-        _text[149, 0] = "Difficulty bonus:";
-        _text[149, 1] = "Бонус за сложность:";
+        _text[149, 0] = "Data fragments received";
+        _text[149, 1] = "Получено фрагментов данных";
 
         _text[150, 0] = "Defeat the boss: {0}/{1}";
         _text[150, 1] = "Победить босса: {0}/{1}";
@@ -588,7 +588,7 @@ public class Language : MonoBehaviour
         _text[186, 0] = "Quant";
         _text[186, 1] = "Квант";
 
-        _text[187, 0] = "Quant received:";
+        _text[187, 0] = "Quant received";
         _text[187, 1] = "Получено квант";
 
         _text[188, 0] = "Scout";
@@ -970,7 +970,7 @@ public class Language : MonoBehaviour
         _text[309, 1] = "Мы высадились на неизвестную планету.\n\nНаша задача развернуть базу и выполнить поставленные цели.";
 
         // MissionSelectBaseFoundationCard_10
-        _text[310, 0] = "At the beginning of each mission, you have access to a landscape map - \"Base Foundation\".\n\nSelect a map.";
+        _text[310, 0] = "At the beginning of each mission, you have access to a landscape card - \"Base Foundation\".\n\nSelect a card.";
         _text[310, 1] = "В начале каждой миссии вам доступна карта ландшафта - \"Фундамент Базы\".\n\nВыберите карту.";
 
         // MissionSetBaseFoundationCard_11
@@ -994,7 +994,7 @@ public class Language : MonoBehaviour
         _text[315, 1] = "Если радиация горит серым или зеленым цветом, это означает, что ее число положительно.\n\nЕсли желтым или красным, значит отрицательно.\n\nЧем хуже экология, тем выше будет показатель защиты у врагов и меньше награда в конце миссии.";
 
         // MissionClickBuildButton_16
-        _text[316, 0] = "Click on the \"Build\" button.\n\nA list of available building types on this landscape will open.";
+        _text[316, 0] = "Click on the \"Construct\" button.\n\nA list of available building types on this landscape will open.";
         _text[316, 1] = "Нажмите на кнопку \"Построить\".\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.";
 
         // MissionSelectBaseTypeButton_17
@@ -1010,7 +1010,7 @@ public class Language : MonoBehaviour
         _text[319, 1] = "Откройте панель ресурсов.";
 
         // MissionBuildSettlement_20
-        _text[320, 0] = "You have enough resources to build.\n\nClick on the \"Settlement\" map to start building.";
+        _text[320, 0] = "You have enough resources to build.\n\nClick on the \"Settlement\" card to start building.";
         _text[320, 1] = "Вам хватает ресурсов на постройку.\n\nНажмите на карту \"Поселение\" чтобы начать строительство.";
 
         // MissionBuildingDescription_21
@@ -1046,7 +1046,7 @@ public class Language : MonoBehaviour
         _text[328, 1] = "Пока мы находимся в режиме паузы, время остановлено. Создание и потребление ресурсов зданиями не происходит.\n\nЕсли требуемый для работы ресурс закончится. То здание перестанет его добывать до тех пор, пока необходимое кол-во ресурсов снова не появится.";
 
         // MissionAddCardsDescription_29
-        _text[329, 0] = "After building a base, you are guaranteed to receive 1 Forest and 1 Mountain card, as well as two random landscape cards.\n\nEach new day always brings 2 new cards.";
+        _text[329, 0] = "After building a base, you are guaranteed to receive 1 Forest card and 1 Mountain card, plus two random landscape cards.\n\nEach new day always brings 2 new cards.";
         _text[329, 1] = "После строительства базы вам гарантировано дается по 1 карте Леса и Горы, а так же две случайные карты ландшафтов.\n\nКаждый новый день всегда приносит 2 новые карты.";
 
         // MissionToggleOffSettlement_30
@@ -1054,11 +1054,11 @@ public class Language : MonoBehaviour
         _text[330, 1] = "Временно отключите работу здания.\n\nЧтобы сэкономить ресурсы для дальнейших построек.\n\nЕсли здание выключено, оно не добывает и не потребляет ресурсы.\n\nА также снижает порчу экологии.";
 
         // MissionSelectForestCard_31
-        _text[331, 0] = "It's time to look at the new terrain tiles.\n\nSelect the \"Forest\" map.";
+        _text[331, 0] = "It's time to look at the new terrain tiles.\n\nSelect the \"Forest\" card.";
         _text[331, 1] = "Настало время посмотреть на новые тайлы ландшафта.\n\nВыберите карту \"Лес\".";
 
         // MissionSetForestCard_32
-        _text[332, 0] = "This terrain map is a standard 1x1 tile size.\n\n Place the map on the ground.";
+        _text[332, 0] = "This terrain card is a standard 1x1 tile size.\n\n Place the card on the ground.";
         _text[332, 1] = "Данная карта ландшафта имеет обычный размер 1x1 клетки.\n\nУстановите карту на землю.";
 
         // MissionSelectForestTile_33
@@ -1066,7 +1066,7 @@ public class Language : MonoBehaviour
         _text[333, 1] = "Нажмите на тайл \"Лес\".\n\nЧтобы открыть панель с информацией.";
 
         // MissionClickBuildButton_34
-        _text[334, 0] = "Click on the \"Build\" button.\n\nA list of available building types on this landscape will open.";
+        _text[334, 0] = "Click on the \"Construct\" button.\n\nA list of available building types on this landscape will open.";
         _text[334, 1] = "Нажмите на кнопку \"Построить\".\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.";
 
         // MissionTileForestDescription_35
@@ -1094,7 +1094,7 @@ public class Language : MonoBehaviour
         _text[340, 1] = "На данный момент вы добываете два основных ресурса.\n\nНо теперь настало время защитить базу.";
 
         // MissionConstructionBallista_41
-        _text[341, 0] = "You need to place a landscape tile on which the building type \"Structures: Attackers\" will be available.\n\nThen build a building on it - \"Ballista\".";
+        _text[341, 0] = "You need to place a landscape tile on which the building type \"Structures: Attacking\" will be available.\n\nThen build a building on it - \"Ballista\".";
         _text[341, 1] = "Вам необходимо поставить тайл ландшафта на котором будет доступен тип здания \"Сооружения: Атакующие\".\n\nЗатем постройте на нем здание - \"Баллиста\".";
 
         // MissionBallistaDescription_42
@@ -1106,8 +1106,8 @@ public class Language : MonoBehaviour
         _text[343, 1] = "Теперь когда база защищена, включите работу в здании \"Поселение\".\n\nОчень важно начать добывать фрагменты данных.";
 
         // MissionEnergyBeamDescription_44
-        _text[344, 0] = "If your deck exceeds 8 terrain cards, the extras begin to disappear, generating beam energy in return.\n\nIt is required to replace a card in your hand with a random one and to destroy already placed landscape cards.";
-        _text[344, 1] = "Если колода карт ландшафтов превышает 8 карт, лишние карты начинают исчезать, давая взамен энергию луча.\n\nОна требуется для замены карты в руке на случайную и для уничтожения уже установленных карт ландшафтов";
+        _text[344, 0] = "If your deck exceeds 8 terrain cards, the extras begin to disappear, generating beam energy.\n\nIt is required to replace a card in your hand with a random one and to destroy already placed landscape tiles.";
+        _text[344, 1] = "Если колода карт ландшафтов превышает 8 карт, лишние карты начинают исчезать, давая энергию луча.\n\nОна требуется для замены карты в руке на случайную и для уничтожения уже установленных тайлов ландшафта";
 
         // MissionTileCombineDescription1_45
         _text[345, 0] = "Proper placement of terrain tiles is the key to successfully completing the mission.\n\nYou can combine them to create new tiles.";
@@ -1118,23 +1118,23 @@ public class Language : MonoBehaviour
         _text[346, 1] = "Например, если поставить равнину вплотную к горе.\n\nТайл равнины превратится в луг.\n\nНа нем вы сможете создавать другие типы зданий и повысите экологию.";
 
         // MissionTileCombineDescription3_47
-        _text[347, 0] = "But be careful when setting a desert near a forest.\n\nThis will turn the forest into an oasis.\n\nThe wood production modifier will increase, but the ecology will be less.";
-        _text[347, 1] = "Но будьте осторожны в установке пустыни возле леса.\n\nТаким образом лес превратится в оазис.\n\nМодификатор добычи дерева повысится, но экология станет меньше.";
+        _text[347, 0] = "But be careful when setting a desert near a forest.\n\nThe forest will turn into an oasis and wood production will decrease.";
+        _text[347, 1] = "Но будьте осторожны в установке пустыни возле леса.\n\nТаким образом лес превратится в оазис и добыча дерева уменьшится.";
 
         // MissionSelectForestTileWithWoodExtractionBuilding_48
         _text[348, 0] = "Click on the tile where wood is mined.";
         _text[348, 1] = "Нажмите на тайл, где добывается дерево.";
 
         // MissionProductionModifierDescription_49
-        _text[349, 0] = "Look at the resource extraction modifier.\n\nThe modifier may differ on different tiles.\n\nThus, there are profitable and unprofitable tiles for extracting a particular resource.";
-        _text[349, 1] = "Посмотрите на модификатор добычи ресурсов.\n\nНа разных тайлах модификатор может отличаться.\n\nТаким образом есть выгодные и не выгодные тайлы для добычи того, или иного ресурса.";
+        _text[349, 0] = "Look at the resource production modifier.\n\nThe modifier may differ on different tiles.\n\nThus, there are profitable and unprofitable tiles for extracting a particular resource.";
+        _text[349, 1] = "Посмотрите на модификатор производства ресурсов.\n\nНа разных тайлах модификатор может отличаться.\n\nТаким образом есть выгодные и не выгодные тайлы для добычи того, или иного ресурса.";
 
         // MissionEventPanel_50
         _text[350, 0] = "This is the event panel.\n\nYou will periodically notice event icons in it.\n\nThe scale is 3 days long.\n\nYou will receive a notification with information about the event 1 day before it.";
         _text[350, 1] = "Это панель событий.\n\nВ ней периодически вы будете замечать иконки событий.\n\nДлина шкалы равна 3 дням.\n\nЗа 1 день до события вам будет приходить уведомление с информацией о нем.";
 
         // MissionOpenSkillsPanel_51
-        _text[351, 0] = "Open the skill panel.";
+        _text[351, 0] = "Open the skills panel.";
         _text[351, 1] = "Откройте панель умений.";
 
         // MissionSkillsPanelDescription_52
@@ -1162,15 +1162,15 @@ public class Language : MonoBehaviour
         _text[357, 1] = "Вы можете починить здание.\n\nНажмите на него, чтобы открыть панель с информацией о тайле.";
 
         // MissionClickBuildButton_58
-        _text[358, 0] = "In the panel, click the \"Build\" button.";
+        _text[358, 0] = "In the panel, click the \"Construct\" button.";
         _text[358, 1] = "В панеле нажмите кнопку \"Построить\".";
 
         // MissionRepairBuilding_59
-        _text[359, 0] = "A panel with a map of repairs for the current building immediately opened in front of you.\n\nRepair the building.";
+        _text[359, 0] = "A panel with a card of repairs for the current building immediately opened in front of you.\n\nRepair the building.";
         _text[359, 1] = "Перед вами сразу открылась панель с картой починки текущего здания.\n\nПочините здание.";
 
         // MissionUpgradeBuildingDescription1_60
-        _text[360, 0] = "If you already have a building on the tile and have studied other buildings of the same type.\n\nThen when you click on the \"Build\" button, in addition to repairing the current building, you will find building cards nearby that you can upgrade the current building to.";
+        _text[360, 0] = "If you already have a building on the tile and have studied other buildings of the same type.\n\nThen when you click on the \"Construct\" button, in addition to repairing the current building, you will find building cards nearby that you can upgrade the current building to.";
         _text[360, 1] = "Если у вас уже есть здание на тайле и изучены другие здания такого же типа.\n\nТогда при нажатии на кнопку \"Построить\", помимо ремонта текущего здания, рядом вы обнаружите карточки зданий в которые вы можете улучшить текущее здание.";
 
         // MissionUpgradeBuildingDescription2_61
@@ -1213,7 +1213,7 @@ public class Language : MonoBehaviour
         _text[370, 0] = "Great, you've explored a new building.\n\nIt will now be available for construction during missions.";
         _text[370, 1] = "Отлично, вы изучили новое здание.\n\nТеперь оно станет доступно для постройки на миссиях.";
 
-        // SpaceExploreSpace_71
+        // SpaceExploreSpace_71.
         _text[371, 0] = "Return to the map and explore space.\n\nTo find a habitable planet...";
         _text[371, 1] = "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...";
 
