@@ -45,7 +45,6 @@ public class TileObject : MonoBehaviour
     public float CurrentResourceForWorkAmount() => _currentResourceForWorkAmount;
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
-    public void SetBuildingWork(bool state) => _isBuildingWork = state;
     public void SetGeneralRepairSelect(bool state) => _isGeneralRepairSelect = state;
     public void SetRiftViewNumber(int number) => _riftViewNumber = number;
 
@@ -63,6 +62,12 @@ public class TileObject : MonoBehaviour
         _tileEcology = GetComponent<TileEcology>();
         _buildingHealth = GetComponent<BuildingHealth>();
         _tileObjectEvents = GetComponent<TileObjectEvents>();
+    }
+
+    public void SetBuildingWork(bool state)
+    {
+        _isBuildingWork = state;
+        _buildingHealth.GetBuildingSliderWorkView().SetIsBuildingWorkView(_isBuildingWork);
     }
 
     public TileObject GetNearNeighbourCrossRoad()
@@ -83,7 +88,7 @@ public class TileObject : MonoBehaviour
         {
             if (_buildingTile.IsEcologyBuilding())
             {
-                _isBuildingWork = false; // отключаем полностью только здания по очистке экологии, если закончился ресурс
+                SetBuildingWork(false); // отключаем полностью только здания по очистке экологии, если закончился ресурс
             }
             return false;
         }
@@ -154,13 +159,15 @@ public class TileObject : MonoBehaviour
 
             CustomEvents.FireChangeEcology(TileEcology().GetEcology(GetEcologyEnum.Total), GetId(), false); //обновляем экологию здания, после изменения состояния его работы
 
-            CheckBuildingView();
+            CheckBuildingView(state);
             ChangeResourceProduction();
         }
     }
 
-    public void CheckBuildingView()
+    // Обновляем визуал хватает ли нам ресурса для работы на слайдере и у самого здания
+    public void CheckBuildingView(bool isHaveRequiredResource)
     {
+        _buildingHealth.GetBuildingSliderWorkView()?.SetIsHaveRequiredResourceView(isHaveRequiredResource);
         _buildingProductionView?.CheckMainBuildingView();
     }
 

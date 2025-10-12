@@ -14,6 +14,7 @@ public class BuildingHealth : BaseHealth
     [SerializeField] private Transform _fourTileTransform;
     private BuildingTile _buildingTile;
     private TileObject _tileObject;
+    private BuildingSliderWorkView _buildingSliderWorkView;
     private bool _isConstructionNow;
     public bool IsContructionNow() => _isConstructionNow;
     public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
@@ -21,6 +22,7 @@ public class BuildingHealth : BaseHealth
     public bool IsFullHealth() => _currentHealth == _maxHealth;
     public float GetCurrentHealthPercent() => _currentHealth / _maxHealth;
     public TileObject GetTileObject() => _tileObject;
+    public BuildingSliderWorkView GetBuildingSliderWorkView() => _buildingSliderWorkView;
 
     public override bool IsDeath()
     {
@@ -80,10 +82,14 @@ public class BuildingHealth : BaseHealth
         _healthSlider.SetupAllHealthValue(_maxHealth);
     }
 
-    private void SetBuildingSkillView()
+    private void SetupBuildingSliderView()
     {
-        var buildingSkillView = _healthSliderObject.GetComponent<BuildingSkillView>();
-        buildingSkillView.SetBuildingTile(_buildingTile.CurrentBuilding());
+        // сетапим здание для отображения умений через получение событий
+        var buildingSliderSkillView = _healthSliderObject.GetComponent<BuildingSliderSkillView>();
+        buildingSliderSkillView.SetBuildingTile(_buildingTile.CurrentBuilding());
+
+        // берем компонент BuildingWorkView для постоянного отображения не хватки ресурса и работы здания
+        _buildingSliderWorkView = _healthSliderObject.GetComponent<BuildingSliderWorkView>();
     }
 
     public void SetNewBuildingHealth(Building building, bool isConstruction)
@@ -94,7 +100,7 @@ public class BuildingHealth : BaseHealth
         _currentHealth = _isConstructionNow ? 1 : _maxHealth;
 
         CreateHealthSlider(isConstruction);
-        SetBuildingSkillView();
+        SetupBuildingSliderView();
         UpdateSlider();
     }
 
@@ -119,7 +125,7 @@ public class BuildingHealth : BaseHealth
         _maxHealth = (int)(building.BuildingHealth * _missionHangarSystem.GetTitanBuildingHealthBonus());
         _currentHealth = currentHealth;
         CreateHealthSlider(isConstruction);
-        SetBuildingSkillView();
+        SetupBuildingSliderView();
         UpdateSlider();
     }
 
