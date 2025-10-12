@@ -15,6 +15,8 @@ public class ResourceTraderPanel : MonoBehaviour
     [SerializeField] private Button _buyButton;
     [SerializeField] private Image _buttonImage;
     [SerializeField] private Sprite[] _buttonSprites;
+    [SerializeField] private GameObject _leftArrow;
+    [SerializeField] private GameObject _rightArrow;
 
     private Resource _currentResource;
 
@@ -68,12 +70,15 @@ public class ResourceTraderPanel : MonoBehaviour
         if (_currentResource == null)
         {
             _buyButton.interactable = false;
+            if (_leftArrow) _leftArrow.SetActive(false);
+            if (_rightArrow) _rightArrow.SetActive(false);
+            _amountInputField.gameObject.SetActive(false);
             return;
         }
 
         _amountInputField.gameObject.SetActive(true);
 
-        
+
         int amount = GetAmount(); // всегда валидное число 1..99
         int totalPrice = _currentResource.Price * amount;
 
@@ -83,6 +88,8 @@ public class ResourceTraderPanel : MonoBehaviour
         _buttonImage.sprite = enoughtQuants ? _buttonSprites[0] : _buttonSprites[1];
         _buyButton.interactable = enoughtQuants;
         _quantsText.color = enoughtQuants ? Colors.GreySeven : Colors.WarningYellow;
+
+        UpdateArrowsView(amount);
     }
 
     public void BuyResource()
@@ -122,5 +129,36 @@ public class ResourceTraderPanel : MonoBehaviour
 
         // Без уведомления, чтобы не зациклить onValueChanged
         _amountInputField.SetTextWithoutNotify(value.ToString());
+    }
+
+    public void OnArrowChange(bool toRight)
+    {
+        int amount = Mathf.Clamp(GetAmount(), 1, 99);
+
+        // Ничего не делаем, если уже на границе
+        if (!toRight && amount <= 1)
+        {
+            _amountInputField.SetTextWithoutNotify("1");
+            UpdateView();
+            return;
+        }
+        if (toRight && amount >= 99)
+        {
+            _amountInputField.SetTextWithoutNotify("99");
+            UpdateView();
+            return;
+        }
+
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+
+        amount += toRight ? 1 : -1;
+        _amountInputField.SetTextWithoutNotify(amount.ToString());
+        UpdateView();
+    }
+
+    private void UpdateArrowsView(int amount)
+    {
+        if (_leftArrow) _leftArrow.SetActive(amount > 1);
+        if (_rightArrow) _rightArrow.SetActive(amount < 99);
     }
 }
