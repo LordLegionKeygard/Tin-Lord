@@ -14,19 +14,24 @@ public class TurretAttackState : TurretState
 
     public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
-        if (aiDestinationSetter.CurrentTarget == null)
+        var targetTransform = aiDestinationSetter.CurrentTarget;
+        if (targetTransform == null)
         {
-            stateChanger.StopAllAttacks(); ;
+            // Нет цели — возвращаемся к боевой логике (она решит: искать/патрулить)
+            stateChanger.StopAllAttacks();
             return _combatState;
         }
 
         stateChanger.CanRotateForwardToggle(true);
+        float attackRadius = _turretBuilding.Building().AttackRadius;
+        float distanceToTarget = stateChanger.DistanceToTarget();
 
-        if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))
+        // Единая точка валидации: цель мертва/не таргетится/вышла из радиуса/рассинхрон
+        if (CheckNeedChangeTarget(targetTransform.gameObject, attackRadius: attackRadius, distanceToTarget: distanceToTarget))
         {
             aiDestinationSetter.CurrentTarget = null;
             stateChanger.StopAllAttacks();
-            return _patrolState;
+            return _combatState;
         }
 
         var targetPos = aiDestinationSetter.CurrentTarget.transform.position;
@@ -41,7 +46,7 @@ public class TurretAttackState : TurretState
 
         if (_currentAttack != 0)
         {
-            if (IsTargetWithinAttackRange(stateChanger))
+            if (IsTargetWithinAttackRange(attackRadius: attackRadius, distanceToTarget: distanceToTarget))
             {
                 if (IsTargetInAttackAngle(viewableAngle))
                 {
@@ -60,7 +65,7 @@ public class TurretAttackState : TurretState
         else
         {
             _currentAttackIndex = SelectNextAttack();
-            if (IsTargetWithinAttackRange(stateChanger) && IsTargetInAttackAngle(viewableAngle))
+            if (IsTargetWithinAttackRange(attackRadius: attackRadius, distanceToTarget: distanceToTarget) && IsTargetInAttackAngle(viewableAngle))
             {
                 _currentAttack = _currentAttackIndex;
             }
@@ -69,12 +74,16 @@ public class TurretAttackState : TurretState
         return _combatState;
     }
 
-    private bool IsTargetDead(GameObject target)
+    private bool CheckNeedChangeTarget(GameObject target, float attackRadius, float distanceToTarget)
     {
-        if (target.TryGetComponent<BaseHealth>(out BaseHealth health))
-        {
-            return health.IsDeath() || !health.IsCanTarget();
-        }
+        if (target == null) return true;
+
+        if (!target.TryGetComponent<BaseHealth>(out var health)) return true;
+
+        if (health.IsDeath() || !health.IsCanTarget()) return true;
+
+        if (distanceToTarget < 0f || distanceToTarget > attackRadius) return true;
+
         return false;
     }
 
@@ -83,11 +92,9 @@ public class TurretAttackState : TurretState
         return new Vector3(targetPos.x, transform.position.y, targetPos.z) - transform.position;
     }
 
-    private bool IsTargetWithinAttackRange(TurretStateChanger stateChanger)
+    private bool IsTargetWithinAttackRange(float attackRadius, float distanceToTarget)
     {
-        float distanceToTarget = stateChanger.DistanceToTarget();
-        return distanceToTarget >= 0
-                && distanceToTarget <= _turretBuilding.Building().AttackRadius;
+        return distanceToTarget >= 0 && distanceToTarget <= attackRadius;
     }
 
     private bool IsTargetInAttackAngle(float viewableAngle)
@@ -109,9 +116,6 @@ public class TurretAttackState : TurretState
         stateChanger.CurrentAttackRecoveryTime = _turretBuilding.Building().AttackSpeed;
         _currentAttack = 0;
     }
-
-
-
 
     private int SelectNextAttack()
     {

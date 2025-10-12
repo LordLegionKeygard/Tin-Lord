@@ -8,41 +8,45 @@ public class TurretCombatState : TurretState
 
     public override TurretState Tick(TurretStateChanger stateChanger, BaseAnimator animator, AIDestinationSetter aiDestinationSetter)
     {
-        if (aiDestinationSetter.CurrentTarget != null)
-        {
-            stateChanger.CanRotateForwardToggle(true);
+        var targetTransform = aiDestinationSetter.CurrentTarget;
 
-            if (IsTargetDead(aiDestinationSetter.CurrentTarget.gameObject))
-            {
-                aiDestinationSetter.CurrentTarget = null;
-                return _patrolState;
-            }
-
-            if (stateChanger.CurrentAttackRecoveryTime <= 0 && stateChanger.DistanceToTarget() <= _turretBuilding.Building().AttackRadius)
-            {
-                return _attackState;
-            }
-            else if (stateChanger.DistanceToTarget() > _turretBuilding.Building().AttackRadius)
-            {
-                return _patrolState;
-            }
-            else
-            {
-                return this;
-            }
-        }
-        else
+        if (targetTransform == null)
         {
+            // Нет цели — возвращаемся к патрулю
             return _patrolState;
         }
+
+        stateChanger.CanRotateForwardToggle(true);
+        float attackRadius = _turretBuilding.Building().AttackRadius;
+        float distanceToTarget = stateChanger.DistanceToTarget();
+
+        // Если цель стала невалидной или вышла за радиус — сбрасываем и уходим в патруль
+        if (CheckNeedChangeTarget(targetTransform.gameObject, attackRadius: attackRadius, distanceToTarget: distanceToTarget))
+        {
+            aiDestinationSetter.CurrentTarget = null;
+            return _patrolState;
+        }
+
+        // Готовы атаковать и в радиусе — переходим в атаку
+        if (stateChanger.CurrentAttackRecoveryTime <= 0 && distanceToTarget <= attackRadius)
+        {
+            return _attackState;
+        }
+
+        return this;
     }
 
-    private bool IsTargetDead(GameObject target)
+    private bool CheckNeedChangeTarget(GameObject target, float attackRadius, float distanceToTarget)
     {
-        if (target.TryGetComponent<BaseHealth>(out BaseHealth health))
-        {
-            return health.IsDeath() || !health.IsCanTarget();
-        }
+        if (target == null) return true;
+
+        if (!target.TryGetComponent<BaseHealth>(out var health)) return true;
+
+        if (health.IsDeath() || !health.IsCanTarget()) return true;
+
+        // вне радиуса — считаем цель непригодной для текущей турели
+        if (distanceToTarget < 0f || distanceToTarget > attackRadius) return true;
+
         return false;
     }
 }
