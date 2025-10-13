@@ -3,9 +3,14 @@ guid: 06dcb1b43b857914a8a0c7596a93bf53
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chain.001
+    second: {fileID: 2100000, guid: 9db0a87b183ecea4c92ce393b9ab2338, type: 2}
   materials:
-    materialImportMode: 0
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
