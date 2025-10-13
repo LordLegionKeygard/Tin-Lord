@@ -88,6 +88,7 @@ public enum GroundTileViewEnum
     OvergrownMountain = 25,
     Rift = 26,
     Crater = 27,
+    Grove = 28,
 }
 
 public enum BuildingTileViewEnum

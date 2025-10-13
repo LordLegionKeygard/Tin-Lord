@@ -23,6 +23,7 @@ public class OilReleaseMissionEvent : BaseMissionEvent
             if (tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.CoalDeposits)
              || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Desert)
              || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Forest)
+             || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Grove)
              || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Ground)
              || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Meadow)
              || tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Oasis)

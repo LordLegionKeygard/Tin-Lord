@@ -69,6 +69,9 @@ public class BuildingProductionView : MonoBehaviour
             case GroundTileViewEnum.DeadForest:
                 _trees[2].SetActive(true);
                 break;
+            case GroundTileViewEnum.Grove:
+                _trees[biomEnum == BiomEnum.Winter ? 4 : 5].SetActive(true);
+                break;
         }
     }
 

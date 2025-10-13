@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
+  m_Name: 27_Grove
+  m_EditorClassIdentifier: 
+  Name:
+  - Grove
+  - "\u0420\u043E\u0449\u0430"
+  TileObject: {fileID: 2196790771032332189, guid: 79e1414c8b2daa54ca425d6b71f9b8d6,
+    type: 3}
+  Icon: {fileID: 21300000, guid: 4133c8afa01a2544da83d10f2081607a, type: 3}
+  TileTypeEnum: 0
+  GroundTileView: 28
+  GroundEcology: 4
+  IsWater: 0
+  IsFourTile: 0
+  CanBuildMachineProduction: 1
+  BuildingTypes:
+  - {fileID: 11400000, guid: af5bae1ce98b11748b6ce75629ca4056, type: 2}
+  - {fileID: 11400000, guid: 806c4d977d8c2bd48861a74945b2872b, type: 2}
+  - {fileID: 11400000, guid: 360ba803cdf366645bb2f8117c48d8b3, type: 2}
+  - {fileID: 11400000, guid: 0201f24a41783a74b835b447a2b63c8c, type: 2}
+  - {fileID: 11400000, guid: f75a197b363f67549bc847eb987e8084, type: 2}
+  - {fileID: 11400000, guid: 2bede6007fa81aa46841bf4bb9d9a476, type: 2}
+  ProductionOnGroundResources:
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 69ee63311ac395b42be5034bc3d28746,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1.5
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1
+  BuildingTileView: -1
+  Buildings: []

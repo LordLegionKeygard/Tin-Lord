@@ -229,9 +229,9 @@ public class GroundTile : MonoBehaviour
     /// <summary>
     /// Превращаем тайл в новый
     /// </summary>
-    private void ChangeTile(GroundTileViewEnum newView)
+    private void ChangeTile(GroundTileViewEnum newTile)
     {
-        SetGroundTile(_tilesSystem.GetGroundTileForEnum(newView));
+        SetGroundTile(_tilesSystem.GetGroundTileForEnum(newTile));
         SpawnGroundTile();
     }
 
@@ -431,6 +431,12 @@ public class GroundTile : MonoBehaviour
                         ChangeTile(GroundTileViewEnum.Oasis);
                         return;
                     }
+
+                }
+
+                if (IsTwoFromCheckCross(GroundTileViewEnum.Ground))
+                {
+                    ChangeTile(GroundTileViewEnum.Grove);
                 }
                 break;
 
@@ -577,6 +583,38 @@ public class GroundTile : MonoBehaviour
                     ChangeTile(GroundTileViewEnum.OvergrownMountain);
                 }
                 break;
+
+            case GroundTileViewEnum.Grove:
+                for (int i = 0; i < neighbours.Length; i++)
+                {
+                    if (!IsCheckTiles(i, true)) continue;
+
+                    var neighbour = neighbours[i];
+                    if (neighbour == null) continue;
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Volcano))
+                    {
+                        ChangeTile(GroundTileViewEnum.BlazingField);
+                        return;
+                    }
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.OilSwamp) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.BlackDesert) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.PollutedRiver) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.Barrenland))
+                    {
+                        ChangeTile(GroundTileViewEnum.DeadForest);
+                        return;
+                    }
+
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Desert))
+                    {
+                        ChangeTile(GroundTileViewEnum.Oasis);
+                        return;
+                    }
+                }
+                break;
+
         }
     }
 

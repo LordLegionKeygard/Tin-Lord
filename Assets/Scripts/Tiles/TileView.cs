@@ -34,6 +34,9 @@ public class TileView : MonoBehaviour
 
     public void PlayAnimation(TileAnimationsEnum tileAnimationsEnum, TweenCallback onComplete = null)
     {
+        // Снимаем все активные твины с этого transform, чтобы не было накопления
+        transform.DOKill();
+
         switch (tileAnimationsEnum)
         {
             case TileAnimationsEnum.Spawn:
