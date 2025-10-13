@@ -24,6 +24,11 @@ public class EscapePanelMission : MonoBehaviour
     [SerializeField] private Image _yesIcon;
     [SerializeField] private RectTransform _extraPanelTransform;
     private bool _escapePanelIsOpen;
+
+    [Header("View")]
+    [SerializeField] private Image _escapeImage;
+    [SerializeField] private Sprite[] _escapeSprites;
+
     public bool IsEscapeMode() => _escapePanelIsOpen || _settingsPanel.activeInHierarchy;
 
     public void PanelViewToggle(bool changeSpeed)
@@ -46,6 +51,12 @@ public class EscapePanelMission : MonoBehaviour
             _escapePanelTransform.DOAnchorPosY(-55, 0.8f).SetUpdate(true);
             Reset();
         }
+        UpdateButtonView();
+    }
+
+    private void UpdateButtonView()
+    {
+        _escapeImage.sprite = IsEscapeMode() ? _escapeSprites[0] : _escapeSprites[1];
     }
 
     private void Reset()

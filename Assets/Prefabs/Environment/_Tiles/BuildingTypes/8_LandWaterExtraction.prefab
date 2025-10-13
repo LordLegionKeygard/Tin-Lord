@@ -1829,7 +1829,6 @@ MonoBehaviour:
   - TargetPoints:
     - {fileID: 5147923475634278268}
     - {fileID: 1256400454302926405}
-  _currentBuildingLevel: 0
 --- !u!114 &5807974333404226764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2672,6 +2671,11 @@ PrefabInstance:
       propertyPath: _currentCharacterWorkType
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7534874079487673151, guid: ce293a650c2d95248828f735d9af065f,
+        type: 3}
+      propertyPath: _characterWorkWrapper.Array.data[5].RightHandTarget
+      value: 
+      objectReference: {fileID: 1775084538930854846}
     - target: {fileID: 7772150064301761786, guid: ce293a650c2d95248828f735d9af065f,
         type: 3}
       propertyPath: m_RootOrder
