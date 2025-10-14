@@ -1,6 +1,5 @@
 using UnityEngine;
 using Unity.Services.Core;
-using Unity.Services.Core.Environments;
 
 public class UnityGamingServiceInit : MonoBehaviour
 {
