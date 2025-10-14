@@ -26,6 +26,6 @@ public class SetTileRotation : MonoBehaviour
                 break;
         }
 
-        _groundTile.SetGroundModelRotation((int)transform.eulerAngles.y);
+        _groundTile.SetGroundModelRotation((int)transform.localEulerAngles.y);
     }
 }

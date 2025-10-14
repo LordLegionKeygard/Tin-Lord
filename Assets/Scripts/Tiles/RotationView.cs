@@ -25,7 +25,8 @@ public class RotationView : MonoBehaviour
     {
         for (int i = 0; i < _objectsForRotate.Length; i++)
         {
-            _objectsForRotate[i].transform.localRotation = Quaternion.Euler(_objectsForRotate[i].transform.rotation.x, value, _objectsForRotate[i].transform.rotation.z);
+            var t = _objectsForRotate[i].transform;
+            t.localRotation = Quaternion.Euler(0f, WorldHelper.Normalize360(value), 0f);
         }
     }
 }

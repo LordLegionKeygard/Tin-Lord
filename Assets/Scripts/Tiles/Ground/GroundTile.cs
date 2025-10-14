@@ -199,10 +199,20 @@ public class GroundTile : MonoBehaviour
 
         if (_tileObject.GroundTileObject().CurrentGroundTileObject().TryGetComponent<RotationView>(out var rotationView))
         {
-            rotationView.LoadRotate(tileDataWrapper.GroundData.GroundTileRotation);
+            rotationView.LoadRotate(WorldHelper.Normalize360(tileDataWrapper.GroundData.GroundTileRotation));
         }
 
-        _tileObject.GroundTileObject().SetGroundModelRotation(tileDataWrapper.GroundData.GroundModelRotation);
+        // 1) Сохраняем нормализованное значение
+        var modelY = WorldHelper.Normalize360(tileDataWrapper.GroundData.GroundModelRotation);
+        _tileObject.GroundTileObject().SetGroundModelRotation(modelY);
+
+        // 2) Применяем поворот к реальному дочернему объекту модели (там где висит SetTileRotation)
+        var setRot = _currentGroundTileObject.GetComponentInChildren<SetTileRotation>();
+        if (setRot != null)
+        {
+            // Меняем ИМЕННО ЛОКАЛЬНЫЙ поворот модели (см. правку в SetTileRotation)
+            setRot.transform.localRotation = Quaternion.Euler(0f, modelY, 0f);
+        }
 
         if (_currentGroundTile.GroundTileView == GroundTileViewEnum.Rift)
         {
