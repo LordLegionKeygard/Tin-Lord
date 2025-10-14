@@ -10,15 +10,16 @@ public class TerminalSystem : MonoBehaviour
     [SerializeField] private ConsoleTextsTyping _consoleTextsTyping;
     [SerializeField] private StoryTextTyping _storyTextTyping;
     [SerializeField] private EndMissionSystem _endMissionSystem;
+    [SerializeField] private TerminalActTexts[] _terminalActTexts;
 
-    public void ActiveTerminal()
+    public void ActiveTerminal(int act)
     {
         CustomEvents.FireControlFadeMusic(false, MusicType.Main);
         UnactiveObjects();
         ActiveRender();
         _terminal.SetActive(true);
-        // _consoleTextsTyping.StartTyping();
-        // _storyTextTyping.StartTyping();
+        _consoleTextsTyping.StartTyping(_terminalActTexts[act].ConsoleTextsIndexes);
+        _storyTextTyping.StartTyping(_terminalActTexts[act].StoryTextsIndexes);
         _eventEmitter.Play();
     }
 
@@ -41,4 +42,11 @@ public class TerminalSystem : MonoBehaviour
         CustomEvents.FireControlFadeMusic(false, MusicType.Terminal);
         _endMissionSystem.LoadCommandCenter();
     }
+}
+
+[System.Serializable]
+public class TerminalActTexts
+{
+    public int[] StoryTextsIndexes;
+    public int[] ConsoleTextsIndexes;
 }

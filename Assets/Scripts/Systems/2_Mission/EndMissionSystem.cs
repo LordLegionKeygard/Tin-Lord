@@ -31,6 +31,7 @@ public class EndMissionSystem : MonoBehaviour
     private int _receivedFragments;
     public bool IsMissionEnd() => _isMissionEnd;
     private MissionEndEnum _missionEndEnum;
+    public bool _isVictoryBoss = false;
 
 
     private void Start()
@@ -42,11 +43,15 @@ public class EndMissionSystem : MonoBehaviour
     {
         CustomEvents.FireCloseTooltips();
         if (_isMissionEnd) return;
-        _isMissionEnd = true;
+
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EndMission[(int)missionEndEnum], transform.position);
+
+        _isMissionEnd = true;
+        _missionEndEnum = missionEndEnum;
+
         PrepareEndMission();
-        SetMissionEndViewInfo(missionEndEnum);
-        PrepareData(missionEndEnum);
+        SetMissionEndViewInfo();
+        PrepareData();
     }
 
     private void PrepareEndMission()
@@ -57,10 +62,8 @@ public class EndMissionSystem : MonoBehaviour
         _missionModeSystem.ChangeModeAfterMissionEnd();
     }
 
-    private void SetMissionEndViewInfo(MissionEndEnum missionEndEnum)
+    private void SetMissionEndViewInfo()
     {
-        _missionEndEnum = missionEndEnum;
-
         var missionEndPercent = _missionEndEnum switch
         {
             MissionEndEnum.Defeat => WorldGameInfo.DefeatFragmentsPercent / 100f,
@@ -124,11 +127,11 @@ public class EndMissionSystem : MonoBehaviour
         return 2f;
     }
 
-    private void PrepareData(MissionEndEnum missionEndEnum)
+    private void PrepareData()
     {
-        var aiCores = missionEndEnum == MissionEndEnum.Victory ? 0 : -1;
-        var quants = missionEndEnum == MissionEndEnum.Victory ? _missionQuantSystem.GetQuants() : 0;
-        if (missionEndEnum is MissionEndEnum.Victory or MissionEndEnum.Escape)
+        var aiCores = _missionEndEnum == MissionEndEnum.Victory ? 0 : -1;
+        var quants = _missionEndEnum == MissionEndEnum.Victory ? _missionQuantSystem.GetQuants() : 0;
+        if (_missionEndEnum is MissionEndEnum.Victory or MissionEndEnum.Escape)
         {
             var saveData = _spaceSaveGame.SpaceSaveData;
             var map = saveData.Map;
@@ -139,14 +142,14 @@ public class EndMissionSystem : MonoBehaviour
                 map.Nodes[index].IsCompleted = true;
             }
 
-            CheckChangeAct(missionEndEnum);
+            CheckChangeAct();
 
             _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(saveData);
         }
 
         if (!_tutorialSystem.IsCompleteAllTutorial() || _tutorialSystem.GetTutorialStepEnum() <= TutorialStepEnum.MissionGoodLuckDescription_66)
         {
-            if (missionEndEnum is MissionEndEnum.Victory or MissionEndEnum.Escape)
+            if (_missionEndEnum is MissionEndEnum.Victory or MissionEndEnum.Escape)
             {
                 _tutorialSystem.SaveTutorial(TutorialStepEnum.SpaceOpenLearningPanel_67);
             }
@@ -160,16 +163,17 @@ public class EndMissionSystem : MonoBehaviour
         _spaceSaveGame.SaveEndMissionDataToJson(_receivedFragments, aiCores, quants);
     }
 
-    private void CheckChangeAct(MissionEndEnum missionEndEnum)
+
+    private void CheckChangeAct()
     {
         var saveData = _spaceSaveGame.SpaceSaveData;
         var map = saveData.Map;
 
         int index = map.CurrentNodeIndex;
 
-        if (missionEndEnum == MissionEndEnum.Victory &&
-            index >= 0 && index < map.Nodes.Count &&
-            map.Nodes[index].NodeType == NodeType.Boss)
+        _isVictoryBoss = _missionEndEnum == MissionEndEnum.Victory && index >= 0 && index < map.Nodes.Count && map.Nodes[index].NodeType == NodeType.Boss;
+
+        if (_isVictoryBoss)
         {
             saveData.Act += 1;
 
@@ -206,7 +210,15 @@ public class EndMissionSystem : MonoBehaviour
     public void ContinueButton()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        LoadCommandCenter();
+
+        if (_isVictoryBoss)
+        {
+            _terminalSystem.ActiveTerminal(_spaceSaveGame.SpaceSaveData.Act - 1);
+        }
+        else
+        {
+            LoadCommandCenter();
+        }
     }
 
     public void LoadCommandCenter()

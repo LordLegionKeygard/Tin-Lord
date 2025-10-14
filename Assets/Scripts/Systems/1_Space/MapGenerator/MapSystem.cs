@@ -15,7 +15,6 @@ public class MapSystem : MonoBehaviour
     [SerializeField] private ConnectionsDrawer _drawer;
     [SerializeField] private UIPanelsSpace _panels;
     [SerializeField] private MissionPanel _missionPanel;
-    [SerializeField] private EndActSystem _endActSystem;
     private TraderKind _activeTraderKind;
     private List<EventEntry> _eventQueue = new();
     private List<ResourceTraderNode> _resourceTraders = new();
@@ -51,7 +50,6 @@ public class MapSystem : MonoBehaviour
 
         if (needGenerate)
         {
-            _endActSystem.PrepareOpenStartNewActDialoguePanel(_save.SpaceSaveData.Act);
             _generator.GenerateMap();
             data.Map = _generator.SavedMap;
 

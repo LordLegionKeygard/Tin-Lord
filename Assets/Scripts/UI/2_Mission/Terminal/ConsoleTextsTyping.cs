@@ -7,7 +7,7 @@ using UnityEngine;
 public class ConsoleTextsTyping : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _consoleText;
-    private float _consoleTypingSpeed = 0.02f;     // Скорость печати в "консоли"
+    private float _consoleTypingSpeed = 0.04f;     // Скорость печати в "консоли"
     private float _consoleDelayBetweenTexts = 2f;  // Время мигания курсора перед печатью сообщения
 
     // Индексы строк для консоли

@@ -1091,9 +1091,7 @@ GameObject:
   - component: {fileID: 6073945727764995485}
   - component: {fileID: 6073945727764995474}
   - component: {fileID: 6073945727764995475}
-  - component: {fileID: 1401761618998208246}
   - component: {fileID: 6073945727764995472}
-  - component: {fileID: 5393924272318347952}
   m_Layer: 6
   m_Name: Winter_Boss_Trunckarce
   m_TagString: Untagged
@@ -1279,6 +1277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _getHitAnimationsCount: 1
+  _miniBossAnimator: {fileID: 0}
 --- !u!114 &4290564667236509810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,33 +1451,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyEnum: 11
---- !u!114 &1401761618998208246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6845803322014648110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 560112f876f5746c780eca0d404e7139, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 2
-  radiusBackingField: 0.5
-  heightBackingField: 2
-  centerBackingField: 1
-  locked: 0
-  lockWhenNotMoving: 0
-  agentTimeHorizon: 0.5
-  obstacleTimeHorizon: 0.5
-  maxNeighbours: 5
-  layer: 1
-  collidesWith: -1
-  wallAvoidForce: 1
-  wallAvoidFalloff: 1
-  priority: 0.5
-  debug: 0
 --- !u!114 &6073945727764995472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1491,21 +1463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5393924272318347952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6845803322014648110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a537d958aa5bb4f35b0d7b40d72278f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  penalty: 100
-  randomStep: 5
 --- !u!1 &7108390328515536915
 GameObject:
   m_ObjectHideFlags: 0

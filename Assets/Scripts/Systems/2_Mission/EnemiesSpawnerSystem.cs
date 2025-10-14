@@ -226,7 +226,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, enemyData[i].HealthFactor, enemyData[i].DamageFactor, enemyData[i].IsMiniBoss);
             enemyObject.GetComponent<BaseHealth>().LoadHealth(enemyData[i].EnemyHealth);
             enemyObject.GetComponent<BaseDamage>().SetDamage();
-            enemyObject.GetComponent<EnemyScale>().SetScale(enemyData[i].IsMiniBoss);
+            enemyObject.GetComponent<EnemyScale>()?.SetScale(enemyData[i].IsMiniBoss);
             if(enemyData[i].IsMiniBoss) enemyObject.GetComponent<EnemyAnimator>().SetMiniBossAnimator();
             enemyObject.transform.SetParent(_enemiesParent);
 

@@ -6,7 +6,7 @@ using Steamworks;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 0;
+    public static int LanguageNumber = 1;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 2];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 
@@ -1786,9 +1786,8 @@ public class Language : MonoBehaviour
         _text[551, 0] = "Failure: dust emission jams turbines - drone lost.\n\nAll loot lost.";
         _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян.\n\nВся добыча потеряна."; // -ядро (мало)
 
-        // StartAct_2_Dialogue
-        _text[552, 0] = "Colonization protocols completed. Bases deployed on several planets, ecosystem circuits activated.\n\nResult: negative.\n\nAtmosphere hostile, soils unable to support life cycle, weather unstable.\n\nRemaining unviable. Ship entering hyperspace jump mode.\n\nEngine cores maxed out, navigational solutions updated.\n\nRoute: exit current stellar node.\n\nNext iteration target: another galaxy.";
-        _text[552, 1] = "Протоколы колонизации выполнены. Базы развернуты на нескольких планетах, контуры экосистем запущены.\n\nРезультат — отрицательный.\n\nАтмосфера враждебна, почвы не удерживают цикл жизни, погода нестабильна.\n\nОставаться нецелесообразно. Корабль переводится в режим гиперпрыжка.\n\nСердцевины двигателей выведены на максимальный режим, навигационные решения обновлены.\n\nМаршрут: покинуть текущий звёздный узел. \n\nЦель следующей итерации — другая галактика.";
+        _text[552, 0] = "";
+        _text[552, 1] = "";
 
         _text[553, 0] = "";
         _text[553, 1] = "";
@@ -1846,6 +1845,56 @@ public class Language : MonoBehaviour
 
 
         #endregion
+
+
+        #region Terminal
+
+        // End Act 1
+
+        // Story
+        _text[1000, 0] = "";
+        _text[1000, 1] = "[ОБНОВЛЕНИЕ: СЕКТОР А-1 ОЧИЩЕН]";
+
+        _text[1001, 0] = "";
+        _text[1001, 1] = "Базы развернуты на нескольких планетах. Реконструкция территории завершена.";
+
+        _text[1002, 0] = "";
+        _text[1002, 1] = "Популяция агрессивных форм жизни снижена на 78%.";
+
+        _text[1003, 0] = "";
+        _text[1003, 1] = "Атмосфера враждебна, почвы не удерживают цикл жизни.";
+
+        _text[1004, 0] = "";
+        _text[1004, 1] = "Результат — отрицательный. Оставаться нецелесообразно.";
+
+        _text[1005, 0] = "";
+        _text[1005, 1] = "Корабль переводится в режим гиперпрыжка. Сердцевины двигателей выведены на максимальный режим, навигационные решения обновлены.";
+
+        _text[1006, 0] = "";
+        _text[1006, 1] = "Маршрут: покинуть текущий звёздный узел. Цель следующей итерации — другая галактика.";
+
+        // Console
+        _text[1007, 0] = "";
+        _text[1007, 1] = "Обновление...";
+
+        _text[1008, 0] = "";
+        _text[1008, 1] = "Сканирование сектора завершено";
+
+        _text[1009, 0] = "";
+        _text[1009, 1] = "Оценка биосферы: стабильность < 0.2";
+
+        _text[1010, 0] = "";
+        _text[1010, 1] = "Гиперпрыжок: подготовка — 100%";
+
+        _text[1011, 0] = "";
+        _text[1011, 1] = "Подготовка маршрута к следующему узлу...";
+
+        _text[1012, 0] = "";
+        _text[1012, 1] = "Назначение новой цели";
+
+        #endregion
+
+
 
 
         for (int x = 0; x < WorldGameInfo.LanguageLength; x++) TextStatic[x] = _text[x, LanguageNumber];

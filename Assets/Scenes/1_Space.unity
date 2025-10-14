@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.0000779824, g: 0.000096175594, b: 0.00011580625,
+  m_IndirectSpecularColor: {r: 0.00007796631, g: 0.00009616263, b: 0.00011578642,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -26305,7 +26305,6 @@ MonoBehaviour:
   _drawer: {fileID: 849943934}
   _panels: {fileID: 616848379}
   _missionPanel: {fileID: 223234108}
-  _endActSystem: {fileID: 1864443700}
   _currentTarget: {fileID: 1362283374}
 --- !u!1 &852473219
 GameObject:
@@ -58166,54 +58165,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854664441}
   m_CullTransparentMesh: 1
---- !u!1 &1864443698
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1864443699}
-  - component: {fileID: 1864443700}
-  m_Layer: 0
-  m_Name: EndActSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1864443699
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1864443698}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1900720298}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1864443700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1864443698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a9a4180f73d3448bfece2c92a3b163, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _eventPanel: {fileID: 1451985186}
-  _panels: {fileID: 616848379}
-  _newActDialogues:
-  - {fileID: 11400000, guid: fb509f8aa91f92c4e8efe8b00b9586bd, type: 2}
 --- !u!1001 &1865135151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59640,7 +59591,6 @@ Transform:
   - {fileID: 1795485594}
   - {fileID: 2049178740}
   - {fileID: 1487753770}
-  - {fileID: 1864443699}
   - {fileID: 1674251681}
   m_Father: {fileID: 0}
   m_RootOrder: 1
