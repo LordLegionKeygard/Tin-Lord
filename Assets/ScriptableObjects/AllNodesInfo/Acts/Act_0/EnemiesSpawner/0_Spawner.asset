@@ -26,9 +26,9 @@ MonoBehaviour:
       - MonsterType: 1
         EnemyEnum: 6
       EnemyLevel: 1
-  - StartDaySpawn: 10
+  - StartDaySpawn: 12
     SpawnPeriod: 2
-    Count: 12
+    Count: 10
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
       - MonsterType: 1
         EnemyEnum: 6
       EnemyLevel: 1
-  - StartDaySpawn: 14
+  - StartDaySpawn: 18
     SpawnPeriod: 2
     Count: 20
     LandscapeSpawnSide:
@@ -52,7 +52,7 @@ MonoBehaviour:
       - MonsterType: 1
         EnemyEnum: 6
       EnemyLevel: 1
-  - StartDaySpawn: 20
+  - StartDaySpawn: 24
     SpawnPeriod: 2
     Count: 35
     LandscapeSpawnSide:
@@ -65,7 +65,7 @@ MonoBehaviour:
       - MonsterType: 1
         EnemyEnum: 6
       EnemyLevel: 1
-  - StartDaySpawn: 25
+  - StartDaySpawn: 30
     SpawnPeriod: 2
     Count: 35
     LandscapeSpawnSide:
@@ -78,19 +78,6 @@ MonoBehaviour:
       - MonsterType: 1
         EnemyEnum: 6
       EnemyLevel: 2
-  - StartDaySpawn: 30
-    SpawnPeriod: 2
-    Count: 50
-    LandscapeSpawnSide:
-    - LandscapeEnum: 0
-      SpawnSide: 0
-    EnemiesSpawnerInfo:
-    - EnemyBiomeInfo:
-      - MonsterType: 0
-        EnemyEnum: 0
-      - MonsterType: 1
-        EnemyEnum: 6
-      EnemyLevel: 3
   MiniBossSpawners: []
   BossSpawner:
     Bosses: []

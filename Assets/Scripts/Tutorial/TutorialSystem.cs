@@ -134,8 +134,12 @@ public class TutorialSystem : MonoBehaviour
                     target = _allTileObjects.FindGroundTileObject(GroundTileViewEnum.Forest).transform;
                     _tutorialArrowWorld.SetObjectTransform(target);
                     break;
-                case TutorialArrowObjectEnum.ForestWithWoodExtraction:
-                    target = _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.WoodExtraction).transform;
+                case TutorialArrowObjectEnum.WoodExtraction:
+                    // Игрок стоял афк и ничего не делал 6 дней после установки добычи дерева и камня, добычи дерева нету, 
+                    // поэтому мы ищем добычу камня, если ее тоже нету, то указываем на базу
+                    target = _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.WoodExtraction)?.transform
+                          ?? _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.StoneMining)?.transform
+                          ?? _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.Base).transform;
                     _tutorialArrowWorld.SetObjectTransform(target);
                     break;
                 case TutorialArrowObjectEnum.DamagedBuilding:
@@ -259,33 +263,39 @@ public class TutorialSystem : MonoBehaviour
     {
         if (IsCompleteMissionTutorial()) return;
 
-        if (_currentStep.TutorialStepEnum == TutorialStepEnum.MissionSelectTileObjectForRepair_57)
+        switch (_currentStep.TutorialStepEnum)
         {
-            if (tileObject.GroundTileObject().CurrentGroundTile() == null) return;
-
-            if (!tileObject.BuildingTileObject().HaveBuildingGameObject()) return;
-
-            if (!tileObject.BuildingHealth().IsFullHealth())
-            {
-                CompleteStep(TutorialStepEnum.MissionSelectTileObjectForRepair_57);
-            }
-        }
-
-        if (_currentStep.TutorialStepEnum == TutorialStepEnum.MissionToggleOnSettlement_43)
-        {
-            _tutorialArrowWorld.gameObject.SetActive(false);
-        }
-
-        switch (tileObject.GroundTileObject().CurrentGroundTile().GroundTileView)
-        {
-            case GroundTileViewEnum.BaseFoundation:
-                CompleteStep(TutorialStepEnum.MissionSelectBaseFoundationTile_12);
-                break;
-            case GroundTileViewEnum.Forest or GroundTileViewEnum.Oasis or GroundTileViewEnum.Grove:
-                CompleteStep(TutorialStepEnum.MissionSelectForestTile_33);
-                if (tileObject.BuildingTileObject().HaveBuildingGameObject() && tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.WoodExtraction)
+            case TutorialStepEnum.MissionSelectTileObjectForRepair_57:
+                if (tileObject.GroundTileObject().CurrentGroundTile() == null) return;
+                if (!tileObject.BuildingTileObject().HaveBuildingGameObject()) return;
+                if (!tileObject.BuildingHealth().IsFullHealth())
                 {
-                    CompleteStep(TutorialStepEnum.MissionSelectForestTileWithWoodExtractionBuilding_48);
+                    CompleteStep(TutorialStepEnum.MissionSelectTileObjectForRepair_57);
+                }
+                break;
+
+            case TutorialStepEnum.MissionToggleOnSettlement_43:
+                _tutorialArrowWorld.gameObject.SetActive(false);
+                break;
+
+            case TutorialStepEnum.MissionSelectTileWithResourceExtraction_48:
+                if (tileObject.BuildingTileObject().HaveBuildingGameObject() && tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView is BuildingTileViewEnum.WoodExtraction or BuildingTileViewEnum.StoneMining or BuildingTileViewEnum.Base)
+                {
+                    CompleteStep(TutorialStepEnum.MissionSelectTileWithResourceExtraction_48);
+                }
+                break;
+
+            case TutorialStepEnum.MissionSelectBaseFoundationTile_12:
+                if (tileObject.GroundTileObject().CurrentGroundTile().GroundTileView == GroundTileViewEnum.BaseFoundation)
+                {
+                    CompleteStep(TutorialStepEnum.MissionSelectBaseFoundationTile_12);
+                }
+                break;
+
+            case TutorialStepEnum.MissionSelectForestTile_33:
+                if (tileObject.GroundTileObject().CurrentGroundTile().GroundTileView is GroundTileViewEnum.Forest or GroundTileViewEnum.Oasis or GroundTileViewEnum.Grove)
+                {
+                    CompleteStep(TutorialStepEnum.MissionSelectForestTile_33);
                 }
                 break;
         }
@@ -562,7 +572,7 @@ public enum TutorialArrowObjectEnum
     None = 0,
     BaseFoundation = 1,
     Forest = 2,
-    ForestWithWoodExtraction = 3,
+    WoodExtraction = 3,
     DamagedBuilding = 4,
 }
 
@@ -617,7 +627,7 @@ public enum TutorialStepEnum
     MissionTileCombineDescription1_45 = 45,
     MissionTileCombineDescription2_46 = 46,
     MissionTileCombineDescription3_47 = 47,
-    MissionSelectForestTileWithWoodExtractionBuilding_48 = 48,
+    MissionSelectTileWithResourceExtraction_48 = 48,
     MissionProductionModifierDescription_49 = 49,
     MissionEventPanel_50 = 50,
     MissionOpenSkillsPanel_51 = 51,

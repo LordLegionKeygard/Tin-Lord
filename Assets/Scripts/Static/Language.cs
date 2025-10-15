@@ -1121,9 +1121,9 @@ public class Language : MonoBehaviour
         _text[347, 0] = "But be careful when setting a desert near a forest.\n\nThe forest will turn into an oasis and wood production will decrease.";
         _text[347, 1] = "Но будьте осторожны в установке пустыни возле леса.\n\nТаким образом лес превратится в оазис и добыча дерева уменьшится.";
 
-        // MissionSelectForestTileWithWoodExtractionBuilding_48
-        _text[348, 0] = "Click on the tile where wood is mined.";
-        _text[348, 1] = "Нажмите на тайл, где добывается дерево.";
+        // MissionSelectTileWithResourceExtraction_48
+        _text[348, 0] = "Click on the tile where the resource is being mined.";
+        _text[348, 1] = "Нажмите на тайл, где происходит добыча ресурса.";
 
         // MissionProductionModifierDescription_49
         _text[349, 0] = "Look at the resource production modifier.\n\nThe modifier may differ on different tiles.\n\nThus, there are profitable and unprofitable tiles for extracting a particular resource.";
@@ -1852,44 +1852,44 @@ public class Language : MonoBehaviour
         // End Act 1
 
         // Story
-        _text[1000, 0] = "";
+        _text[1000, 0] = "[UPDATE: SECTOR A-1 CLEARED]";
         _text[1000, 1] = "[ОБНОВЛЕНИЕ: СЕКТОР А-1 ОЧИЩЕН]";
 
-        _text[1001, 0] = "";
+        _text[1001, 0] = "Bases have been deployed on several planets. Territorial reconstruction is complete.";
         _text[1001, 1] = "Базы развернуты на нескольких планетах. Реконструкция территории завершена.";
 
-        _text[1002, 0] = "";
+        _text[1002, 0] = "The population of aggressive life forms has been reduced by 78%.";
         _text[1002, 1] = "Популяция агрессивных форм жизни снижена на 78%.";
 
-        _text[1003, 0] = "";
+        _text[1003, 0] = "The atmosphere is hostile, the soils do not support the cycle of life.";
         _text[1003, 1] = "Атмосфера враждебна, почвы не удерживают цикл жизни.";
 
-        _text[1004, 0] = "";
+        _text[1004, 0] = "The result is negative. It is not advisable to stay.";
         _text[1004, 1] = "Результат — отрицательный. Оставаться нецелесообразно.";
 
-        _text[1005, 0] = "";
+        _text[1005, 0] = "The ship is entering hyperspace mode. Engine cores are set to maximum power, and navigation solutions are updated.";
         _text[1005, 1] = "Корабль переводится в режим гиперпрыжка. Сердцевины двигателей выведены на максимальный режим, навигационные решения обновлены.";
 
-        _text[1006, 0] = "";
+        _text[1006, 0] = "Route: leave the current star node. The next iteration's destination - another galaxy.";
         _text[1006, 1] = "Маршрут: покинуть текущий звёздный узел. Цель следующей итерации — другая галактика.";
 
         // Console
-        _text[1007, 0] = "";
+        _text[1007, 0] = "Update...";
         _text[1007, 1] = "Обновление...";
 
-        _text[1008, 0] = "";
+        _text[1008, 0] = "Sector scanning completed";
         _text[1008, 1] = "Сканирование сектора завершено";
 
-        _text[1009, 0] = "";
+        _text[1009, 0] = "Biosphere assessment: stability < 0.2";
         _text[1009, 1] = "Оценка биосферы: стабильность < 0.2";
 
-        _text[1010, 0] = "";
+        _text[1010, 0] = "Hyperjump: 100% Ready";
         _text[1010, 1] = "Гиперпрыжок: подготовка — 100%";
 
-        _text[1011, 0] = "";
+        _text[1011, 0] = "Preparing route to next node...";
         _text[1011, 1] = "Подготовка маршрута к следующему узлу...";
 
-        _text[1012, 0] = "";
+        _text[1012, 0] = "Assigning a new target";
         _text[1012, 1] = "Назначение новой цели";
 
         #endregion
