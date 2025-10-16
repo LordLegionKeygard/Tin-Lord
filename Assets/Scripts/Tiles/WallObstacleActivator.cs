@@ -7,6 +7,12 @@ public class WallObstacleActivator : MonoBehaviour
 
     private void OnEnable()
     {
+        // Базу уничтожили, но после этого достроилась стена
+        if (BasePoint.Instance == null)
+        {
+            return;
+        }
+
         Vector3 basePosition = BasePoint.Instance.transform.position;
 
         float distA = Vector3.Distance(obstacleA.transform.position, basePosition);
