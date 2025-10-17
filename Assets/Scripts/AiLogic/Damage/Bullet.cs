@@ -131,7 +131,7 @@ public enum BulletEnum
     Any_CannonBall = 3,
     Any_SniperRedBullet = 4,
     Any_HowitzerBullet = 5,
-    Any_Rocket = 6,
+    Turret_Rocket = 6,
     NotUse_RobotTankBullet = 7,
     Any_Beetle_Bullet = 8,
     Any_IceCrystal_Bullet = 9,
@@ -140,6 +140,7 @@ public enum BulletEnum
     Machine_MechaRocket = 12,
     ShipWeapon_SteelRiffle_Bullet = 13,
     ShipWeapon_TitaniumRocketLauncher_Bullet = 14,
-    Any_GiantRocket = 15,
+    Enemy_GiantRocket = 15,
+    Enemy_MediumRocket = 16,
 }
 

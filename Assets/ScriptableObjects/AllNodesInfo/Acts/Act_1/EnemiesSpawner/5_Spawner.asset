@@ -13,19 +13,15 @@ MonoBehaviour:
   m_Name: 5_Spawner
   m_EditorClassIdentifier: 
   Spawners:
-  - StartDaySpawn: 26
-    SpawnPeriod: 26
-    Count: 50
+  - StartDaySpawn: 2
+    SpawnPeriod: 2
+    Count: 2
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
       - MonsterType: 2
-        EnemyEnum: 12
-      EnemyLevel: 7
-    - EnemyBiomeInfo:
-      - MonsterType: 2
-        EnemyEnum: 13
-      EnemyLevel: 9
+        EnemyEnum: 14
+      EnemyLevel: 1
   MiniBossSpawners:
   - DaySpawn: 25
     Count: 1

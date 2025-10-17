@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activeObjects:
-  - {fileID: 4076684572864086909}
+  - {fileID: 4551811120204553322}
 --- !u!1 &7305456059033566924
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +147,7 @@ MonoBehaviour:
   _meshRenderer: {fileID: 7305456059033566926}
   _tileTextures:
   - BiomTextureEnum: 0
+    OverrideMaterial: {fileID: 0}
     Base:
     - {fileID: 2800000, guid: fc76737c1f738bc4db01fc14a732d57e, type: 3}
     - {fileID: 2800000, guid: d68a98be4b2f1f147af09b8d53ea4f0a, type: 3}
@@ -154,6 +155,7 @@ MonoBehaviour:
     - {fileID: 2800000, guid: 187e6a2803602374e8a9b2dbf8c18ff8, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
   - BiomTextureEnum: 1
+    OverrideMaterial: {fileID: 0}
     Base:
     - {fileID: 2800000, guid: d07940407187b25449068b5a92c40d45, type: 3}
     - {fileID: 2800000, guid: 61b35e765625560458b6446f3f6d4009, type: 3}
@@ -161,6 +163,7 @@ MonoBehaviour:
     - {fileID: 2800000, guid: d3fb3db23150ff74581a6195f729349c, type: 3}
     Color: {r: 1, g: 0.85490197, b: 0.64705884, a: 1}
   - BiomTextureEnum: 2
+    OverrideMaterial: {fileID: 0}
     Base:
     - {fileID: 2800000, guid: d07940407187b25449068b5a92c40d45, type: 3}
     - {fileID: 2800000, guid: 61b35e765625560458b6446f3f6d4009, type: 3}
@@ -168,12 +171,17 @@ MonoBehaviour:
     - {fileID: 2800000, guid: d3fb3db23150ff74581a6195f729349c, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
   - BiomTextureEnum: 3
+    OverrideMaterial: {fileID: 0}
     Base:
     - {fileID: 2800000, guid: 0359f3559e9c32b43bf19d3154313a7c, type: 3}
     - {fileID: 2800000, guid: 3c869c71aad937443920826788977f0b, type: 3}
     - {fileID: 2800000, guid: 23d579643db8c2e46a85d7ca76fcd150, type: 3}
     - {fileID: 2800000, guid: 467ab804a3d2a234985febf1d2e29677, type: 3}
     Color: {r: 0.6117647, g: 0.6039216, b: 0.6, a: 1}
+  - BiomTextureEnum: 4
+    OverrideMaterial: {fileID: 2100000, guid: 2e1345654744ace4eac58e05551413cb, type: 2}
+    Base: []
+    Color: {r: 0, g: 0, b: 0, a: 0}
   _normal:
   - {fileID: 2800000, guid: da4ab5bae5cc6f049a69f00ec6fd1ca1, type: 3}
   - {fileID: 2800000, guid: 7a6fbee09b166eb4799fc1478583b7f7, type: 3}
@@ -188,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3439800404191818885}
-  - component: {fileID: 4076684572864086909}
+  - component: {fileID: 4551811120204553322}
   m_Layer: 0
   m_Name: Rocks
   m_TagString: Untagged
@@ -241,7 +249,7 @@ Transform:
   m_Father: {fileID: 7305456058208014204}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4076684572864086909
+--- !u!114 &4551811120204553322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +258,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8533493553100746733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a41121dadd662641b97a6bf1af55d92, type: 3}
+  m_Script: {fileID: 11500000, guid: a66d61e9f6b4fdf47ac30ed5c6ed5fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _objects:

@@ -112,13 +112,7 @@ MonoBehaviour:
   _meshRenderer: {fileID: 4667713159135676907}
   _tileTextures:
   - BiomTextureEnum: 0
-    Base:
-    - {fileID: 2800000, guid: 45153d51d91c9e741af40b674629530c, type: 3}
-    - {fileID: 2800000, guid: ec85cf93cbad4e14e94f839748171681, type: 3}
-    - {fileID: 2800000, guid: bbf348fd77d5b9a40a1f2076684c52cd, type: 3}
-    - {fileID: 2800000, guid: cec66e82ed715814bad30e660c8d3e20, type: 3}
-    Color: {r: 1, g: 1, b: 1, a: 1}
-  - BiomTextureEnum: 1
+    OverrideMaterial: {fileID: 0}
     Base:
     - {fileID: 2800000, guid: 45153d51d91c9e741af40b674629530c, type: 3}
     - {fileID: 2800000, guid: ec85cf93cbad4e14e94f839748171681, type: 3}
@@ -126,18 +120,12 @@ MonoBehaviour:
     - {fileID: 2800000, guid: cec66e82ed715814bad30e660c8d3e20, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
   - BiomTextureEnum: 2
+    OverrideMaterial: {fileID: 0}
     Base:
     - {fileID: 2800000, guid: 05ace34d1fa53834c8a6b7f5b73b596b, type: 3}
     - {fileID: 2800000, guid: f66c2c62a9481fa49a6eb05c6d3674f0, type: 3}
     - {fileID: 2800000, guid: f5f5b8faf1d4aa9479faee7649a1e325, type: 3}
     - {fileID: 2800000, guid: e23ab31446614234aa7936283c21608b, type: 3}
-    Color: {r: 1, g: 1, b: 1, a: 1}
-  - BiomTextureEnum: 3
-    Base:
-    - {fileID: 2800000, guid: 45153d51d91c9e741af40b674629530c, type: 3}
-    - {fileID: 2800000, guid: ec85cf93cbad4e14e94f839748171681, type: 3}
-    - {fileID: 2800000, guid: bbf348fd77d5b9a40a1f2076684c52cd, type: 3}
-    - {fileID: 2800000, guid: cec66e82ed715814bad30e660c8d3e20, type: 3}
     Color: {r: 1, g: 1, b: 1, a: 1}
   _normal:
   - {fileID: 2800000, guid: 711eee47b9adaca4f98ace0dffd73014, type: 3}

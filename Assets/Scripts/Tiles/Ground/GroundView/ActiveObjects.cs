@@ -8,7 +8,7 @@ public class ActiveObjects : MonoBehaviour
     [SerializeField] private int _max;
     private int _currentObjectsCount;
 
-    public void Refresh()
+    public virtual void Refresh()
     {
         Reset();
         ActiveNewObjects();
