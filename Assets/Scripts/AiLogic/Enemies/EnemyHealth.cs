@@ -13,6 +13,7 @@ public class EnemyHealth : BaseHealth
     [Inject] private MissionQuantSystem _quantSystem;
     [SerializeField] private GameObject _healthSliderPrefab;
     [SerializeField] private float _sliderHeightOffset;
+    [SerializeField] private bool _needDeathSound;
     private EnemyAnimator _enemyAnimator;
     private EnemyKnockBack _creatureKnockBackController;
     private AIPath _aiPath;
@@ -120,8 +121,10 @@ public class EnemyHealth : BaseHealth
     public virtual void DeathSound()
     {
         var rnd = Random.Range(0, 100);
-        if (WorldGameInfo.EnemiesDeathSoundChance < rnd && !_enemyInfo.IsMiniBoss()) return;
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Death[(int)_enemyInfo.GetEnemyEnum()], transform.position);
+        if (WorldGameInfo.EnemiesDeathSoundChance > rnd || _enemyInfo.IsMiniBoss() || _needDeathSound)
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Death[(int)_enemyInfo.GetEnemyEnum()], transform.position);
+        }
     }
 
     private IEnumerator FadeAndDestroy()

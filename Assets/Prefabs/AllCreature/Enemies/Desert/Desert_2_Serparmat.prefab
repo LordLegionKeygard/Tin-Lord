@@ -2224,6 +2224,7 @@ MonoBehaviour:
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 4
+  _needDeathSound: 0
 --- !u!114 &8633156420727041166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2330,7 +2331,7 @@ MonoBehaviour:
   heightBackingField: 2
   centerBackingField: 1
   locked: 0
-  lockWhenNotMoving: 0
+  lockWhenNotMoving: 1
   agentTimeHorizon: 0.5
   obstacleTimeHorizon: 0.5
   maxNeighbours: 5
