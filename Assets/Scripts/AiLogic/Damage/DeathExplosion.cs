@@ -75,4 +75,5 @@ public enum DeathExplosionEnum
     Pistripod = 0,
     Funglicane = 1,
     Etasphera10 = 2,
+    DroidBipedSentinel = 3,
 }
