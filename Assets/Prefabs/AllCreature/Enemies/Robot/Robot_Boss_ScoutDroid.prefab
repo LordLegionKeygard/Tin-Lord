@@ -1,0 +1,4625 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &104502529291964034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3568880168528759656}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3568880168528759656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104502529291964034}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26707855, y: 0.0000029754638, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1350563856545540747}
+  m_Father: {fileID: 171765284173272036}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.28195825, y: 0.39517498, z: -17.401945}
+--- !u!1 &119846309292281828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8518922026112522216}
+  m_Layer: 6
+  m_Name: ScoutDroid_ShoulderFrontR_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8518922026112522216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119846309292281828}
+  m_LocalRotation: {x: -0.016840281, y: 0.55736583, z: 0.68008304, w: 0.4759693}
+  m_LocalPosition: {x: 0.15200001, y: -0.3839432, z: 0.3828195}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8335857048050069901}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: -50.727215, y: 53.32089, z: 83.2496}
+--- !u!1 &210821013218745174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880965630756726275}
+  m_Layer: 6
+  m_Name: ScoutDroid_ClawFrontR_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1880965630756726275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210821013218745174}
+  m_LocalRotation: {x: 0.96587306, y: 0.0027049906, z: -0.25880492, w: 0.010095136}
+  m_LocalPosition: {x: -0.06587898, y: -0.0000009918213, z: 0.0004504776}
+  m_LocalScale: {x: 1.0000001, y: 0.99999976, z: 0.9999997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6319575892695867307}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 1.085432, y: -175.00479, z: 179.49379}
+--- !u!1 &437387686825843815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6681091599278323212}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6681091599278323212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437387686825843815}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26376536, y: 0.00000030517577, z: 0.000000076293944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6956656473072292397}
+  m_Father: {fileID: 1412626415071252848}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.43646225, y: -14.986808, z: 0.6453077}
+--- !u!1 &471269720922168153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3955717174605140746}
+  m_Layer: 6
+  m_Name: ScoutDroid_ClawRearR_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3955717174605140746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471269720922168153}
+  m_LocalRotation: {x: 0.00000044827428, y: -0.25881907, z: 0.000000333875, w: 0.9659259}
+  m_LocalPosition: {x: -0.09830059, y: 0.0000025177, z: 0.0000017929077}
+  m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5635754882240698694}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.000051377887, y: -9.999994, z: 0.000026326823}
+--- !u!1 &510024437213672595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6956656473072292397}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6956656473072292397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510024437213672595}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26857036, y: 0.000022583008, z: 0.0000000667572}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 178150460023645953}
+  m_Father: {fileID: 6681091599278323212}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.89468855, y: -14.938034, z: -1.0950181}
+--- !u!1 &619032741821229611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9088684412026602841}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9088684412026602841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619032741821229611}
+  m_LocalRotation: {x: 1.994256e-22, y: -1.8783474e-15, z: 0.00000010617077, w: 1}
+  m_LocalPosition: {x: -0.26219192, y: -0.0000058364867, z: 0.000000030743085}
+  m_LocalScale: {x: 0.9999997, y: 0.9999997, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1091145323978183309}
+  m_Father: {fileID: 5759359595576963443}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.09685477, y: -0.116960764, z: -14.74402}
+--- !u!1 &688179103841763692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793906705436544257}
+  m_Layer: 6
+  m_Name: ScoutDroid_ShoulderRearR_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793906705436544257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688179103841763692}
+  m_LocalRotation: {x: 0.09229352, y: 0.092298, z: 0.7010576, w: 0.7010572}
+  m_LocalPosition: {x: -0.19379017, y: -0.014150581, z: 0.000022697448}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4484440347379819513}
+  m_Father: {fileID: 8522654068319154592}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00036204266, y: 11.505175, z: 90}
+--- !u!1 &709135009120694643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5759359595576963443}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5759359595576963443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709135009120694643}
+  m_LocalRotation: {x: 2.289925e-31, y: -1.8698657e-15, z: 1.2246469e-16, w: 1}
+  m_LocalPosition: {x: -0.26707855, y: -0.0000030517576, z: 0.000000031341013}
+  m_LocalScale: {x: 1.0000004, y: 1.0000004, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9088684412026602841}
+  m_Father: {fileID: 5172042184100821396}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.062851325, y: -0.13731486, z: -14.743536}
+--- !u!1 &927362858498773748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6746928546588643849}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeRight_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6746928546588643849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927362858498773748}
+  m_LocalRotation: {x: -0.4663384, y: 0.50995755, z: 0.3913043, w: 0.607744}
+  m_LocalPosition: {x: 0.47200003, y: 0.08410421, z: 0.62442243}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: -75.00002, y: 79.99995, z: 0.00002572829}
+--- !u!1 &1023418962456190945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 326796628512822573}
+  m_Layer: 6
+  m_Name: ScoutDroid_ShoulderRearL_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &326796628512822573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023418962456190945}
+  m_LocalRotation: {x: -0.092293866, y: 0.092298016, z: -0.70105755, w: 0.70105726}
+  m_LocalPosition: {x: -0.1937902, y: 0.014150581, z: 0.000022716522}
+  m_LocalScale: {x: 1.0000002, y: 0.9999993, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8376501615958065386}
+  m_Father: {fileID: 1638935299180604462}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.00034695514, y: 11.618789, z: -90}
+--- !u!1 &1121069947205468455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8000887870867387446}
+  m_Layer: 6
+  m_Name: ScoutDroid_ClawFrontL_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8000887870867387446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121069947205468455}
+  m_LocalRotation: {x: 0.9659259, y: -0.00000006892769, z: 0.25881907, w: 0.00000025724162}
+  m_LocalPosition: {x: -0.06587914, y: 0.0000009918213, z: 0.00045063018}
+  m_LocalScale: {x: 0.99999976, y: 0.9999988, z: 1.0000023}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 391567389785638408}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0.000030517576, y: 175, z: 180}
+--- !u!1 &1196678743444155867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178150460023645953}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178150460023645953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196678743444155867}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28030956, y: -0.00000030517577, z: 0.000000085830685}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2030047150881924846}
+  m_Father: {fileID: 6956656473072292397}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.6187382, y: -14.9402895, z: -1.2126741}
+--- !u!1 &1241688648252673775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3080575479420901350}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3080575479420901350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241688648252673775}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26707846, y: 0.0000032043456, z: 0.0000000333786}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3834596274660070824}
+  m_Father: {fileID: 8790916733497625247}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.061750695, y: -0.13815641, z: 14.743297}
+--- !u!1 &1242406248889396717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8601611433891756834}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8601611433891756834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242406248889396717}
+  m_LocalRotation: {x: 0, y: -2.1175824e-22, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2703081, y: 0, z: 0.000000028610229}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4740079139675208292}
+  m_Father: {fileID: 3834596274660070824}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.12407011, y: -0.08963037, z: 14.744434}
+--- !u!1 &1297937156767884957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9133843336403389284}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9133843336403389284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297937156767884957}
+  m_LocalRotation: {x: 6.1248784e-12, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2703081, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 998386795114472199}
+  m_Father: {fileID: 1350563856545540747}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.45206338, y: 0.1768903, z: -17.401735}
+--- !u!1 &1322476494310296012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6491360995348926516}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeRight_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6491360995348926516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322476494310296012}
+  m_LocalRotation: {x: -0.45451963, y: 0.54167503, z: 0.45451927, w: 0.54167545}
+  m_LocalPosition: {x: 0.31200004, y: -0.045015372, z: 0.5689784}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: -79.999985, y: 89.999954, z: 0}
+--- !u!1 &1368838754463124396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091145323978183309}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1091145323978183309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368838754463124396}
+  m_LocalRotation: {x: 3.4350743e-21, y: -5.2670585e-29, z: -0.000000015333171, w: 1}
+  m_LocalPosition: {x: -0.27030808, y: 0.000000038146972, z: 0.000000031725286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8343552438549335169}
+  m_Father: {fileID: 9088684412026602841}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.124571964, y: -0.08834902, z: -14.744566}
+--- !u!1 &1375413592796405101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8442170923769726927}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8442170923769726927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375413592796405101}
+  m_LocalRotation: {x: 6.131984e-12, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.27030802, y: 0, z: 0.000000057220458}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3649189239624164851}
+  m_Father: {fileID: 8182688718143067979}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.4705215, y: -14.989419, z: -0.31156954}
+--- !u!1 &1524209012776869310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2584431109352175002}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2584431109352175002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524209012776869310}
+  m_LocalRotation: {x: -0.0043378314, y: -0.70709354, z: 0.0043378314, w: 0.7070934}
+  m_LocalPosition: {x: 0.378, y: -0.037824936, z: -0.74332756}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5306005284510502022}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0.10472351, y: -104.990944, z: -0.18229525}
+--- !u!1 &1597036991742927119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6452195158339229325}
+  - component: {fileID: 3699831284495891964}
+  m_Layer: 6
+  m_Name: SK_ScoutDroid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6452195158339229325
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597036991742927119}
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2567134033856839787}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &3699831284495891964
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597036991742927119}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1265d86a5d96ef44b8337546091df5dd, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 2
+  m_UpdateWhenOffscreen: 1
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 1537235995457488307, guid: abcf2128e3b81ee4b98ee7fd403ed88a, type: 3}
+  m_Bones:
+  - {fileID: 1518382362501957992}
+  - {fileID: 4480192407597325626}
+  - {fileID: 6319575892695867307}
+  - {fileID: 391567389785638408}
+  - {fileID: 7156989722847697007}
+  - {fileID: 7100168495994308467}
+  - {fileID: 5378787290171323652}
+  - {fileID: 5444931635350248249}
+  - {fileID: 491160514213649693}
+  - {fileID: 7163396458761475298}
+  - {fileID: 998386795114472199}
+  - {fileID: 9133843336403389284}
+  - {fileID: 1350563856545540747}
+  - {fileID: 3568880168528759656}
+  - {fileID: 171765284173272036}
+  - {fileID: 9023798896824208711}
+  - {fileID: 8164181544754786681}
+  - {fileID: 5855176298670910223}
+  - {fileID: 589026681370573343}
+  - {fileID: 8180332818532556801}
+  - {fileID: 5635754882240698694}
+  - {fileID: 3606828806680913400}
+  - {fileID: 4334380133674154370}
+  - {fileID: 7926453916785676000}
+  - {fileID: 4676878799705856392}
+  - {fileID: 2380473323646275904}
+  - {fileID: 247388275472649578}
+  - {fileID: 863182399900815249}
+  - {fileID: 9114311412591517409}
+  - {fileID: 5984193036986258705}
+  - {fileID: 3533344571397558933}
+  - {fileID: 8626539207817705021}
+  - {fileID: 5172042184100821396}
+  - {fileID: 8848921346203699837}
+  - {fileID: 3783379027505057700}
+  - {fileID: 7761700483251229115}
+  - {fileID: 5938095331231085960}
+  - {fileID: 567446731350797211}
+  - {fileID: 9018505787035491340}
+  - {fileID: 2925464577228011552}
+  - {fileID: 4642086479284200571}
+  - {fileID: 3357152935161962744}
+  - {fileID: 7574506935326597610}
+  - {fileID: 9206851377381615338}
+  - {fileID: 2030047150881924846}
+  - {fileID: 8790916733497625247}
+  - {fileID: 5759359595576963443}
+  - {fileID: 9088684412026602841}
+  - {fileID: 1091145323978183309}
+  - {fileID: 8343552438549335169}
+  - {fileID: 9113665397942974744}
+  - {fileID: 3449331701507432546}
+  - {fileID: 1242259217451671803}
+  - {fileID: 8329182851517258209}
+  - {fileID: 1793296674063508313}
+  - {fileID: 6352226241597763052}
+  - {fileID: 2584431109352175002}
+  - {fileID: 5306005284510502022}
+  - {fileID: 5417033779496196247}
+  - {fileID: 8182688718143067979}
+  - {fileID: 8442170923769726927}
+  - {fileID: 3649189239624164851}
+  - {fileID: 2054671299408838440}
+  - {fileID: 1412626415071252848}
+  - {fileID: 6681091599278323212}
+  - {fileID: 6956656473072292397}
+  - {fileID: 178150460023645953}
+  - {fileID: 3080575479420901350}
+  - {fileID: 3834596274660070824}
+  - {fileID: 8601611433891756834}
+  - {fileID: 4740079139675208292}
+  - {fileID: 9171725002951754305}
+  - {fileID: 2678165391388589011}
+  - {fileID: 4744335460036709737}
+  - {fileID: 891635533338313751}
+  - {fileID: 684765267501047880}
+  - {fileID: 5754812304487807093}
+  - {fileID: 6659275335370212373}
+  - {fileID: 3144194343601440228}
+  - {fileID: 1817142512397919477}
+  - {fileID: 4992945616946438894}
+  - {fileID: 4460378044576051505}
+  - {fileID: 4147881820088139478}
+  - {fileID: 6746928546588643849}
+  - {fileID: 7188090827670116036}
+  - {fileID: 6491360995348926516}
+  - {fileID: 2013432434065257964}
+  - {fileID: 4069530679387940785}
+  - {fileID: 1638935299180604462}
+  - {fileID: 326796628512822573}
+  - {fileID: 8376501615958065386}
+  - {fileID: 7749573103801338871}
+  - {fileID: 8417275207252876825}
+  - {fileID: 8906128695276293356}
+  - {fileID: 2886501996214942107}
+  - {fileID: 6350050700281348917}
+  - {fileID: 5952242035712590561}
+  - {fileID: 3600497261315761746}
+  - {fileID: 1505669715568864546}
+  - {fileID: 6112399822018069736}
+  - {fileID: 1995754769204468414}
+  - {fileID: 8000887870867387446}
+  - {fileID: 8522654068319154592}
+  - {fileID: 1793906705436544257}
+  - {fileID: 4484440347379819513}
+  - {fileID: 2948261432756179014}
+  - {fileID: 2418555845500309954}
+  - {fileID: 3955717174605140746}
+  - {fileID: 70988078169425993}
+  - {fileID: 8518922026112522216}
+  - {fileID: 8335857048050069901}
+  - {fileID: 1213577819430100593}
+  - {fileID: 6078883174088980493}
+  - {fileID: 7065913956257503962}
+  - {fileID: 1880965630756726275}
+  - {fileID: 9217818432932368172}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 1518382362501957992}
+  m_AABB:
+    m_Center: {x: 0.00000047683716, y: -0.23798054, z: -1.737504}
+    m_Extent: {x: 1.004982, y: 0.6580849, z: 2.6731672}
+  m_DirtyAABB: 0
+--- !u!1 &1774466250942799756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7100168495994308467}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7100168495994308467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774466250942799756}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28030983, y: 0, z: -0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7156989722847697007}
+  m_Father: {fileID: 5378787290171323652}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.11298524, y: 0.56949115, z: -15.554223}
+--- !u!1 &2016224235224946992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1350563856545540747}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1350563856545540747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016224235224946992}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26219198, y: 0.0000057983398, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9133843336403389284}
+  m_Father: {fileID: 3568880168528759656}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.38290215, y: 0.29841235, z: -17.40199}
+--- !u!1 &2065123864930076539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853302227413289983}
+  m_Layer: 6
+  m_Name: root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1853302227413289983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065123864930076539}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1518382362501957992}
+  m_Father: {fileID: 2567134033856839787}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2071040224629624887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3783379027505057700}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3783379027505057700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071040224629624887}
+  m_LocalRotation: {x: 2.289925e-31, y: -1.8698657e-15, z: 1.2246469e-16, w: 1}
+  m_LocalPosition: {x: -0.26707855, y: -0.0000030517576, z: 0.000000031341013}
+  m_LocalScale: {x: 1.0000004, y: 1.0000004, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7761700483251229115}
+  m_Father: {fileID: 8626539207817705021}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.6324462, y: -14.97628, z: 0.6745364}
+--- !u!1 &2212248552610327249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7188090827670116036}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeRight_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7188090827670116036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212248552610327249}
+  m_LocalRotation: {x: 0.7071069, y: -0.00000009415695, z: -0.7071067, w: -0.000000094156974}
+  m_LocalPosition: {x: 0.22299999, y: 0.24241102, z: 0.62473804}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: -0.000015258789, y: -90.00001, z: 180}
+--- !u!1 &2241807630452959959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4642086479284200571}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4642086479284200571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2241807630452959959}
+  m_LocalRotation: {x: 4.4485065e-17, y: -3.6044053e-24, z: -0.000000081025064, w: 1}
+  m_LocalPosition: {x: -0.26376525, y: 0, z: 0.000000030951632}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3357152935161962744}
+  m_Father: {fileID: 2925464577228011552}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.8078106, y: -14.923641, z: -0.6414147}
+--- !u!1 &2328681177682626145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4069530679387940785}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeRight_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4069530679387940785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328681177682626145}
+  m_LocalRotation: {x: -0.45451963, y: 0.54167503, z: 0.45451927, w: 0.54167545}
+  m_LocalPosition: {x: 0.261, y: -0.20130706, z: 0.58040154}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: -79.999985, y: 89.999954, z: 0}
+--- !u!1 &2520868544568827118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8329182851517258209}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8329182851517258209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520868544568827118}
+  m_LocalRotation: {x: 4.4485065e-17, y: -3.6044053e-24, z: -0.000000081025064, w: 1}
+  m_LocalPosition: {x: -0.26376525, y: 0, z: 0.000000030951632}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1793296674063508313}
+  m_Father: {fileID: 3449331701507432546}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.14171882, y: 0.065534726, z: -14.746526}
+--- !u!1 &2527681448349981425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4676878799705856392}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4676878799705856392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527681448349981425}
+  m_LocalRotation: {x: 3.4350743e-21, y: -2.0535247e-28, z: -0.00000005978109, w: 1}
+  m_LocalPosition: {x: -0.27030808, y: 0.000000038146972, z: 0.000000031725286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7926453916785676000}
+  m_Father: {fileID: 2380473323646275904}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.4526568, y: 0.17564337, z: 17.40167}
+--- !u!1 &2817117533344176528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2380473323646275904}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2380473323646275904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2817117533344176528}
+  m_LocalRotation: {x: 1.6968671e-22, y: -1.8783474e-15, z: 0.0000000903383, w: 1}
+  m_LocalPosition: {x: -0.26219192, y: -0.0000058364867, z: 0.000000030743085}
+  m_LocalScale: {x: 0.9999997, y: 0.9999997, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4676878799705856392}
+  m_Father: {fileID: 247388275472649578}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.383824, y: 0.29737827, z: 17.40196}
+--- !u!1 &2914452515811030955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4460378044576051505}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeLeft_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4460378044576051505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914452515811030955}
+  m_LocalRotation: {x: -0.5099576, y: 0.46633834, z: 0.60774404, w: 0.39130428}
+  m_LocalPosition: {x: -0.41527143, y: -0.15974748, z: 0.5730018}
+  m_LocalScale: {x: 0.9999993, y: 0.9999995, z: 1.000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -75.00001, y: -79.99996, z: 179.99997}
+--- !u!1 &2948620126345894609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2567134033856839787}
+  - component: {fileID: 2948620126345894595}
+  - component: {fileID: 8448865162662222353}
+  - component: {fileID: 2948620126345894594}
+  - component: {fileID: 2948620126345894593}
+  - component: {fileID: 2948620126345894592}
+  - component: {fileID: 2948620126345894599}
+  - component: {fileID: 2948620126345894598}
+  - component: {fileID: 2948620126345894597}
+  - component: {fileID: 2948620126345894596}
+  - component: {fileID: 2948620126345894619}
+  - component: {fileID: 2948620126345894618}
+  - component: {fileID: 2948620126345894617}
+  - component: {fileID: 2948620126345894616}
+  - component: {fileID: 2948620126345894623}
+  - component: {fileID: 2948620126345894622}
+  - component: {fileID: 2948620126345894621}
+  - component: {fileID: 2948620126345894620}
+  - component: {fileID: 2948620126345894611}
+  - component: {fileID: 2948620126345894610}
+  m_Layer: 6
+  m_Name: Robot_Boss_ScoutDroid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2567134033856839787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1853302227413289983}
+  - {fileID: 6452195158339229325}
+  - {fileID: 6258816692884702414}
+  - {fileID: 5315482839953136187}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &2948620126345894595
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 6
+  m_Radius: 0.8
+  m_SlopeLimit: 90
+  m_StepOffset: 2
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &8448865162662222353
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: abcf2128e3b81ee4b98ee7fd403ed88a, type: 3}
+  m_Controller: {fileID: 9100000, guid: 856e84991b1b7cb40a18b99a9cc78d46, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2948620126345894594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &2948620126345894593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  smoothType: 0
+  subdivisions: 2
+  iterations: 2
+  strength: 0.5
+  uniformLength: 1
+  maxSegmentLength: 2
+  bezierTangentLength: 0.4
+  offset: 0.2
+  factor: 0.1
+--- !u!114 &2948620126345894592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+  radius: 0.8
+  height: 2
+  canMove: 1
+  maxSpeed: 0
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  repathRateCompatibility: NaN
+  canSearchCompability: 0
+  orientation: 0
+  enableRotation: 1
+  autoRepath:
+    mode: 2
+    interval: 1
+    sensitivity: 10
+    maximumInterval: 2
+    visualizeSensitivity: 0
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: 100
+  rotationSpeed: 50
+  slowdownDistance: 0
+  pickNextWaypointDist: 3
+  endReachedDistance: 0
+  alwaysDrawGizmos: 1
+  slowWhenNotFacingTarget: 0
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
+--- !u!114 &2948620126345894599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  CurrentTarget: {fileID: 0}
+--- !u!114 &2948620126345894598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4761c1e42fc2d794f8b3e095964a8c8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _getHitAnimationsCount: 2
+  _miniBossAnimator: {fileID: 0}
+--- !u!114 &2948620126345894597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16fdf31a96c02f4284f595301c83ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentAttackRecoveryTime: 0
+  _distanceToTarget: 0
+  _rotationSpeed: 1
+  _currentState: {fileID: 6258816694444165752}
+  _detectionLayer:
+    serializedVersion: 2
+    m_Bits: 264
+--- !u!114 &2948620126345894596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174e0d39fd5c8a34db05020f3f65fa7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vfxType: 1
+--- !u!114 &2948620126345894619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf6490fdd4429f46b9ff068bceaef25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canMove: 1
+  _defaultSpeed: 3.5
+--- !u!114 &2948620126345894618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa43f09e48f75f1469f385adf2b4ac6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _information: {fileID: 11400000, guid: ec02fbc029a922e4da44d42d3f61684a, type: 2}
+--- !u!114 &2948620126345894617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc4cfc5a8251684fa69ef1923d6c6ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2948620126345894616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca462e15c0f577f4b926e2543ec711d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxKnockbackPoints: 400
+  MinimumKnockbackPoints: 200
+  CurrentKnockBackPoints: 0
+--- !u!114 &2948620126345894623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b9fbea0f1b98543b657803ed550c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletFromPoolWrapper:
+    BulletType: -1
+    FirePoints: []
+  _creatureSkillsWrapper:
+  - SkillPrefab: {fileID: 6219708009166909373, guid: 005d572b1afc91a48a30d5b93f21e29a,
+      type: 3}
+    SkillPoint: {fileID: 7290561534297714358}
+    ParticleSystems: []
+    ParticlesTimer: 0
+--- !u!114 &2948620126345894622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fcd3494b809e84da0ab84e40a3d4af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attacks:
+  - {fileID: 11400000, guid: 785fe1d1b9fc6b7469e6693905653536, type: 2}
+  - {fileID: 11400000, guid: f3f5178ea31c32f48935f44d3e19c542, type: 2}
+  - {fileID: 11400000, guid: bc06c34f24908cd4098e290e72818a25, type: 2}
+  - {fileID: 11400000, guid: ab8b2828b0dd9244dad3fe0ffd1f22f1, type: 2}
+  _reachDistanceOffset: 0
+--- !u!114 &2948620126345894621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f048f135b30f6744e919a193279613b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resistTypes: 0000000001000000
+  _isHaveEmission: 1
+  _emissionColor: {r: 0.9882353, g: 0.9882353, b: 0.9882353, a: 1}
+  _meshRenderers:
+  - {fileID: 3699831284495891964}
+--- !u!114 &2948620126345894620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6787c16fd7391d498acd6f5bb9dda7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _centerPoint: {fileID: 5315482839953136187}
+--- !u!114 &2948620126345894611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b955fdfe84640fd49ab584b839dca9be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyEnum: 17
+--- !u!114 &2948620126345894610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2948620126345894609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421977d8b78a1f94daa3a111ea48406e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3260707697639758208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6352226241597763052}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6352226241597763052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3260707697639758208}
+  m_LocalRotation: {x: 4.1025832e-17, y: -5.973371e-15, z: -0.00000007636845, w: 1}
+  m_LocalPosition: {x: -0.28030944, y: 0.000000076293944, z: 0.00000003287325}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1242259217451671803}
+  m_Father: {fileID: 1793296674063508313}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.18675417, y: -0.9643911, z: -16.544226}
+--- !u!1 &3291328637311417632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7065913956257503962}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmFrontR_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7065913956257503962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3291328637311417632}
+  m_LocalRotation: {x: 0.0000007210596, y: 0.54926467, z: 0.00000009667291, w: 0.8356484}
+  m_LocalPosition: {x: -0.16312404, y: 0.000000095367426, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6319575892695867307}
+  m_Father: {fileID: 6078883174088980493}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.00014436925, y: 64.26605, z: 0.00003867831}
+--- !u!1 &3464695134906870049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5952242035712590561}
+  m_Layer: 6
+  m_Name: ScoutDroid_ShoulderFrontL_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5952242035712590561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3464695134906870049}
+  m_LocalRotation: {x: -0.0941486, y: 0.09040466, z: -0.686677, w: 0.7151488}
+  m_LocalPosition: {x: -0.1301622, y: 0.0042023277, z: 0.000014781952}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3600497261315761746}
+  m_Father: {fileID: 6350050700281348917}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.45449805, y: 11.265497, z: -87.71774}
+--- !u!1 &3486941447686684028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3606828806680913400}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3606828806680913400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3486941447686684028}
+  m_LocalRotation: {x: 0, y: -0, z: -0.00000005261973, w: 1}
+  m_LocalPosition: {x: -0.27031782, y: 0.000000038146972, z: 0.00000003171106}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8180332818532556801}
+  m_Father: {fileID: 4334380133674154370}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.4268001, y: -0.23149218, z: 17.400196}
+--- !u!1 &3868055176097288784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4484440347379819513}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmRearR_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4484440347379819513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3868055176097288784}
+  m_LocalRotation: {x: 0.6903468, y: -0.1530482, z: -0.1530442, w: 0.69034415}
+  m_LocalPosition: {x: -0.15877628, y: 0.0000008392334, z: -0.0000010681152}
+  m_LocalScale: {x: 0.9999999, y: 0.99999964, z: 0.9999995}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2948261432756179014}
+  m_Father: {fileID: 1793906705436544257}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 65.14719, y: -90.000725, z: -90.00039}
+--- !u!1 &4107888048709184378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5754812304487807093}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5754812304487807093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4107888048709184378}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28030953, y: 0, z: 0.0000000047683715}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4744335460036709737}
+  m_Father: {fileID: 684765267501047880}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.18596567, y: -0.96498233, z: 16.543964}
+--- !u!1 &4141703102674530136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4992945616946438894}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeLeft_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4992945616946438894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141703102674530136}
+  m_LocalRotation: {x: 0.5416753, y: -0.45451936, z: -0.54167515, w: -0.45451948}
+  m_LocalPosition: {x: -0.2609655, y: -0.20130706, z: 0.5804016}
+  m_LocalScale: {x: 0.99999934, y: 0.9999995, z: 1.0000012}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -80.000046, y: -90.00003, z: -179.99998}
+--- !u!1 &4294330070699300529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8417275207252876825}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmRearL_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8417275207252876825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294330070699300529}
+  m_LocalRotation: {x: -0.0000005300298, y: 0.5855884, z: -0.00000018237168, w: 0.81060857}
+  m_LocalPosition: {x: -0.24338542, y: -0.000000076293944, z: 0.00000015258789}
+  m_LocalScale: {x: 0.99999875, y: 1.0000011, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4480192407597325626}
+  m_Father: {fileID: 7749573103801338871}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.00019695358, y: 69.46983, z: -0.0000989805}
+--- !u!1 &4342267826134374069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7156989722847697007}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7156989722847697007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4342267826134374069}
+  m_LocalRotation: {x: 4.0189376e-22, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28014287, y: 0, z: 0.000000076293944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7100168495994308467}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0539529, y: 0.57973915, z: -15.552927}
+--- !u!1 &4408202838113262124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4744335460036709737}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4744335460036709737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4408202838113262124}
+  m_LocalRotation: {x: 0, y: -0.000000059604645, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28014287, y: 0, z: 0.000000042915342}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5754812304487807093}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0700687, y: -0.97998285, z: 16.544024}
+--- !u!1 &4525642813489974648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8343552438549335169}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8343552438549335169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525642813489974648}
+  m_LocalRotation: {x: 0, y: -0, z: -0.00000001769513, w: 1}
+  m_LocalPosition: {x: -0.27033463, y: 0.000004081726, z: 0.000000031716517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9113665397942974744}
+  m_Father: {fileID: 1091145323978183309}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.14404286, y: -0.05330562, z: -14.745101}
+--- !u!1 &4573912899084838073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5855176298670910223}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5855176298670910223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4573912899084838073}
+  m_LocalRotation: {x: 4.1025832e-17, y: -5.973371e-15, z: -0.00000007636845, w: 1}
+  m_LocalPosition: {x: -0.28030944, y: 0.000000076293944, z: 0.00000003287325}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8164181544754786681}
+  m_Father: {fileID: 589026681370573343}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.113973424, y: 0.5695528, z: 15.554353}
+--- !u!1 &4594271227299274477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8182688718143067979}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8182688718143067979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594271227299274477}
+  m_LocalRotation: {x: 0, y: -3.4578875e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26219204, y: 0.0000059509275, z: 0.000000047683713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8442170923769726927}
+  m_Father: {fileID: 5417033779496196247}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.38910732, y: -14.993973, z: -0.5073436}
+--- !u!1 &4620422551451284548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5444931635350248249}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5444931635350248249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620422551451284548}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26376507, y: 0, z: 0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5378787290171323652}
+  m_Father: {fileID: 491160514213649693}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.3440472, y: -0.3424951, z: -17.400064}
+--- !u!1 &4640864516390613557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 589026681370573343}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &589026681370573343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4640864516390613557}
+  m_LocalRotation: {x: 3.0386313e-10, y: -7.484308e-17, z: 0.00000008195639, w: 1}
+  m_LocalPosition: {x: -0.26857024, y: -0.000022697448, z: 0.000000031519956}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5855176298670910223}
+  m_Father: {fileID: 8180332818532556801}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.26964372, y: 0.51026815, z: 15.559758}
+--- !u!1 &4641800064988749642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391567389785638408}
+  m_Layer: 6
+  m_Name: ScoutDroid_WristFrontL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &391567389785638408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641800064988749642}
+  m_LocalRotation: {x: -0.00000007450359, y: 0.0000019036228, z: -0.0000012256199,
+    w: 1}
+  m_LocalPosition: {x: -0.3111002, y: 0.000005378723, z: 0.00030525206}
+  m_LocalScale: {x: 1.0000004, y: 0.99999845, z: 1.0000012}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1995754769204468414}
+  - {fileID: 8000887870867387446}
+  m_Father: {fileID: 6112399822018069736}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.000063324864, y: 0.00025212936, z: -0.00011773428}
+--- !u!1 &4708549388710647635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8180332818532556801}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8180332818532556801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4708549388710647635}
+  m_LocalRotation: {x: 4.4485065e-17, y: -3.6044053e-24, z: -0.000000081025064, w: 1}
+  m_LocalPosition: {x: -0.26376525, y: 0, z: 0.000000030951632}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 589026681370573343}
+  m_Father: {fileID: 3606828806680913400}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.3431162, y: -0.34352967, z: 17.400007}
+--- !u!1 &4739896963107970865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6319575892695867307}
+  m_Layer: 6
+  m_Name: ScoutDroid_WristFrontR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6319575892695867307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739896963107970865}
+  m_LocalRotation: {x: 0.0000007152533, y: 0.000001931564, z: 0.000001184641, w: 1}
+  m_LocalPosition: {x: -0.3111, y: -0.000005264282, z: 0.00030509947}
+  m_LocalScale: {x: 0.99999994, y: 1.0000002, z: 1.0000002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1880965630756726275}
+  - {fileID: 9217818432932368172}
+  m_Father: {fileID: 7065913956257503962}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.000079106285, y: 0.00021316786, z: 0.00014060522}
+--- !u!1 &4784035532462184486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5984193036986258705}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5984193036986258705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4784035532462184486}
+  m_LocalRotation: {x: 0.70709354, y: 0.004339479, z: 0.7070934, w: 0.0043360894}
+  m_LocalPosition: {x: -0.37758923, y: -0.037824936, z: -0.74332756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8626539207817705021}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: -0.26863122, y: 104.98969, z: -179.81805}
+--- !u!1 &5129261269210583311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171765284173272036}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &171765284173272036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5129261269210583311}
+  m_LocalRotation: {x: -6.1310635e-12, y: -9.994101e-10, z: -0.006134568, w: 0.9999812}
+  m_LocalPosition: {x: -0.26705658, y: 0, z: 0.000000076293944}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3568880168528759656}
+  m_Father: {fileID: 9023798896824208711}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.15200979, y: 0.46104917, z: -18.104563}
+--- !u!1 &5250836999608399894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3533344571397558933}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3533344571397558933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5250836999608399894}
+  m_LocalRotation: {x: 0.7071069, y: -0.000000047078476, z: 0.7071067, w: 0.000000047078487}
+  m_LocalPosition: {x: -0.23495418, y: -0.2771244, z: -0.74332756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5172042184100821396}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 30.48029, y: 98.48962, z: 164.9275}
+--- !u!1 &5280182128550461650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9206851377381615338}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9206851377381615338
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5280182128550461650}
+  m_LocalRotation: {x: -1.1368617e-16, y: -0.0000000014707179, z: -0.000000077299774,
+    w: 1}
+  m_LocalPosition: {x: -0.28030944, y: 0.000000076293944, z: 0.00000003287325}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7574506935326597610}
+  m_Father: {fileID: 3357152935161962744}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.25871742, y: -14.880881, z: 1.2155267}
+--- !u!1 &5289419622400919569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 891635533338313751}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &891635533338313751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5289419622400919569}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26376536, y: 0, z: 0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 684765267501047880}
+  m_Father: {fileID: 2678165391388589011}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.14260076, y: 0.06449074, z: 14.746423}
+--- !u!1 &5593888719416493539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518382362501957992}
+  m_Layer: 6
+  m_Name: ScoutDroid_Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1518382362501957992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5593888719416493539}
+  m_LocalRotation: {x: 0.00000003774895, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2013432434065257964}
+  - {fileID: 6659275335370212373}
+  - {fileID: 3144194343601440228}
+  - {fileID: 1817142512397919477}
+  - {fileID: 4992945616946438894}
+  - {fileID: 4460378044576051505}
+  - {fileID: 7188090827670116036}
+  - {fileID: 6746928546588643849}
+  - {fileID: 6491360995348926516}
+  - {fileID: 4069530679387940785}
+  - {fileID: 4147881820088139478}
+  - {fileID: 6350050700281348917}
+  - {fileID: 8518922026112522216}
+  - {fileID: 1638935299180604462}
+  - {fileID: 8522654068319154592}
+  - {fileID: 3533344571397558933}
+  - {fileID: 8848921346203699837}
+  - {fileID: 5984193036986258705}
+  - {fileID: 2584431109352175002}
+  - {fileID: 9114311412591517409}
+  - {fileID: 9023798896824208711}
+  m_Father: {fileID: 1853302227413289983}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.11783637, y: -0.66629815, z: -0.00028846134}
+--- !u!1 &5644495854057884944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4147881820088139478}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeRight_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4147881820088139478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644495854057884944}
+  m_LocalRotation: {x: -0.4663384, y: 0.5099578, z: 0.3913044, w: 0.60774374}
+  m_LocalPosition: {x: 0.41499984, y: -0.1597475, z: 0.57300174}
+  m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 0.9999997}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: -74.99999, y: 80.00005, z: -0.000038592454}
+--- !u!1 &5656833780270567325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8522654068319154592}
+  m_Layer: 6
+  m_Name: ScoutDroid_ShoulderRearR_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8522654068319154592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5656833780270567325}
+  m_LocalRotation: {x: -0.0168406, y: 0.55736566, z: 0.68008316, w: 0.47596937}
+  m_LocalPosition: {x: 0.25000003, y: -0.496565, z: 0.114952005}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1793906705436544257}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: -50.72723, y: 53.320835, z: 83.249626}
+--- !u!1 &5661680537820193448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638935299180604462}
+  m_Layer: 6
+  m_Name: ScoutDroid_ShoulderRearL_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1638935299180604462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5661680537820193448}
+  m_LocalRotation: {x: -0.5573657, y: 0.016840296, z: 0.47596934, w: 0.68008316}
+  m_LocalPosition: {x: -0.24973209, y: -0.496565, z: 0.114952035}
+  m_LocalScale: {x: 1, y: 1.0000002, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 326796628512822573}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: -50.692993, y: -53.765972, z: 97.09486}
+--- !u!1 &5720951452379865024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 567446731350797211}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &567446731350797211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720951452379865024}
+  m_LocalRotation: {x: 0, y: -0, z: -0.00000001769513, w: 1}
+  m_LocalPosition: {x: -0.27033463, y: 0.000004081726, z: 0.000000031716517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9018505787035491340}
+  m_Father: {fileID: 5938095331231085960}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.8697636, y: -14.94058, z: 0.09939651}
+--- !u!1 &5737297322419809974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9113665397942974744}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9113665397942974744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737297322419809974}
+  m_LocalRotation: {x: 8.364635e-23, y: -1.1234503e-15, z: 0.000000074454874, w: 1}
+  m_LocalPosition: {x: -0.2621103, y: 0, z: 0.000000030761328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3449331701507432546}
+  m_Father: {fileID: 8343552438549335169}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.15380278, y: -0.0141848875, z: -14.74558}
+--- !u!1 &5740775362077756725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2013432434065257964}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2013432434065257964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5740775362077756725}
+  m_LocalRotation: {x: -0.50000006, y: 0.49999997, z: 0.49999997, w: 0.50000006}
+  m_LocalPosition: {x: -0.000000002714743, y: 0.015422668, z: 0.72873336}
+  m_LocalScale: {x: 0.99999934, y: 0.9999995, z: 1.0000012}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7290561534297714358}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 89.999985, z: 0}
+--- !u!1 &5754474747896207013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4334380133674154370}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4334380133674154370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5754474747896207013}
+  m_LocalRotation: {x: 8.364635e-23, y: -1.1234503e-15, z: 0.000000074454874, w: 1}
+  m_LocalPosition: {x: -0.2621103, y: 0, z: 0.000000030761328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3606828806680913400}
+  m_Father: {fileID: 7926453916785676000}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.4750785, y: -0.10023128, z: 17.400642}
+--- !u!1 &5767743935785599286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9018505787035491340}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9018505787035491340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767743935785599286}
+  m_LocalRotation: {x: 8.364635e-23, y: -1.1234503e-15, z: 0.000000074454874, w: 1}
+  m_LocalPosition: {x: -0.2621103, y: 0, z: 0.000000030761328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2925464577228011552}
+  m_Father: {fileID: 567446731350797211}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.8421811, y: -14.935292, z: -0.107665285}
+--- !u!1 &5868770689912356959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1995754769204468414}
+  m_Layer: 6
+  m_Name: ScoutDroid_ClawFrontL_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1995754769204468414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868770689912356959}
+  m_LocalRotation: {x: 0.96587306, y: -0.0027049663, z: -0.25880492, w: -0.010094772}
+  m_LocalPosition: {x: -0.06587914, y: 0.0000009918213, z: 0.00045063018}
+  m_LocalScale: {x: 1.0000012, y: 0.99999803, z: 1.000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 391567389785638408}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -1.0853685, y: -175.00479, z: -179.4938}
+--- !u!1 &5871663367698220182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5306005284510502022}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5306005284510502022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871663367698220182}
+  m_LocalRotation: {x: -6.1310406e-12, y: -9.994064e-10, z: -0.006134567, w: 0.9999812}
+  m_LocalPosition: {x: -0.26705652, y: 0.000000076293944, z: 0.000000038146972}
+  m_LocalScale: {x: 0.9999998, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5417033779496196247}
+  m_Father: {fileID: 2584431109352175002}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.27310038, y: -14.984646, z: -1.4833612}
+--- !u!1 &5946315908113826422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1412626415071252848}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1412626415071252848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946315908113826422}
+  m_LocalRotation: {x: 5.3845825e-15, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.2703178, y: -0.00000030517577, z: 0.000000095367426}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6681091599278323212}
+  m_Father: {fileID: 2054671299408838440}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.6035544, y: -14.99155, z: 0.42626125}
+--- !u!1 &5971813082819939574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8790916733497625247}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8790916733497625247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5971813082819939574}
+  m_LocalRotation: {x: 0, y: -4.2351647e-22, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26705673, y: -0.000000076293944, z: 0.0000000333786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3080575479420901350}
+  m_Father: {fileID: 8848921346203699837}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.02370333, y: -0.1485646, z: 14.7427435}
+--- !u!1 &6046128670195386766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4480192407597325626}
+  m_Layer: 6
+  m_Name: ScoutDroid_WristRearL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4480192407597325626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046128670195386766}
+  m_LocalRotation: {x: 0.9999957, y: -0.000000009010985, z: -0.002929432, w: -0.00000053265177}
+  m_LocalPosition: {x: -0.46416518, y: -0.000002670288, z: 0.0000021362305}
+  m_LocalScale: {x: 1.0000001, y: 0.9999987, z: 1.0000013}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8906128695276293356}
+  - {fileID: 2886501996214942107}
+  m_Father: {fileID: 8417275207252876825}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00012220003, y: -179.66434, z: -179.99997}
+--- !u!1 &6096979826768714263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3144194343601440228}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeLeft_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3144194343601440228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096979826768714263}
+  m_LocalRotation: {x: -0.50995755, y: 0.46633837, z: 0.607744, w: 0.3913043}
+  m_LocalPosition: {x: -0.47203612, y: 0.08410425, z: 0.62442243}
+  m_LocalScale: {x: 0.9999994, y: 0.9999998, z: 1.0000013}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -74.99999, y: -79.99995, z: 179.99995}
+--- !u!1 &6151572584099450007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3600497261315761746}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmFrontL_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3600497261315761746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151572584099450007}
+  m_LocalRotation: {x: -0.67446774, y: -0.21255164, z: 0.2125098, w: 0.67435503}
+  m_LocalPosition: {x: -0.10641654, y: -0.00000061035155, z: -0.00000064849854}
+  m_LocalScale: {x: 0.99999964, y: 1.0000001, z: 1.0000013}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1505669715568864546}
+  m_Father: {fileID: 5952242035712590561}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -54.891014, y: -90.00005, z: 90.00002}
+--- !u!1 &6191786056020072493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9171725002951754305}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9171725002951754305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191786056020072493}
+  m_LocalRotation: {x: -1.0389201e-37, y: -2.212167e-22, z: -4.696391e-16, w: 1}
+  m_LocalPosition: {x: -0.2621103, y: 0, z: 0.000000028610229}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2678165391388589011}
+  m_Father: {fileID: 4740079139675208292}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.15399311, y: -0.015534937, z: 14.745453}
+--- !u!1 &6199997949600311025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2418555845500309954}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmRearR_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2418555845500309954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6199997949600311025}
+  m_LocalRotation: {x: 0.0000008647424, y: 0.5855889, z: 0.00000020252521, w: 0.8106082}
+  m_LocalPosition: {x: -0.24338534, y: 0.000000038146972, z: -0.000000076293944}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5635754882240698694}
+  m_Father: {fileID: 2948261432756179014}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.00004806904, y: 69.92873, z: 0.000085390646}
+--- !u!1 &6258816692866795992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6258816692866796006}
+  - component: {fileID: 6258816692866795993}
+  m_Layer: 6
+  m_Name: CombatState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6258816692866796006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258816692866795992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6258816692884702414}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6258816692866795993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258816692866795992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18ad91a296da0a4a8041925fcf4a442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackState: {fileID: 6258816694191120945}
+  _pursueTargetState: {fileID: 6258816694139356756}
+  _enemyIdleState: {fileID: 6258816694444165752}
+--- !u!1 &6258816692884702401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6258816692884702414}
+  m_Layer: 6
+  m_Name: EnemyStates
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6258816692884702414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258816692884702401}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6258816694444165753}
+  - {fileID: 6258816694139356757}
+  - {fileID: 6258816692866796006}
+  - {fileID: 6258816694191120944}
+  m_Father: {fileID: 2567134033856839787}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6258816694139356759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6258816694139356757}
+  - component: {fileID: 6258816694139356756}
+  m_Layer: 6
+  m_Name: PursueTargetState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6258816694139356757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258816694139356759}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6258816692884702414}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6258816694139356756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258816694139356759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c966cbfb757857498de21da6a0dbce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _combatState: {fileID: 6258816692866795993}
+  _idleState: {fileID: 6258816694444165752}
+--- !u!1 &6258816694191120947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6258816694191120944}
+  - component: {fileID: 6258816694191120945}
+  m_Layer: 6
+  m_Name: AttackState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6258816694191120944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258816694191120947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6258816692884702414}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6258816694191120945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258816694191120947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a32d1099c6a4741bb701dd2f108209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _combatState: {fileID: 6258816692866795993}
+--- !u!1 &6258816694444165755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6258816694444165753}
+  - component: {fileID: 6258816694444165752}
+  m_Layer: 6
+  m_Name: IdleState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6258816694444165753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258816694444165755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6258816692884702414}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6258816694444165752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6258816694444165755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586377fefe1023149be20cd2952ff27e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pursueTargetState: {fileID: 6258816694139356756}
+  _aiDestinationSetter: {fileID: 2948620126345894599}
+  _creatureDamage: {fileID: 2948620126345894623}
+--- !u!1 &6451108808039759455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054671299408838440}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2054671299408838440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451108808039759455}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26211008, y: 0.00000015258789, z: 0.0000000667572}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1412626415071252848}
+  m_Father: {fileID: 3649189239624164851}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.4714176, y: -14.98701, z: 0.10844568}
+--- !u!1 &6484105314984743146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4740079139675208292}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4740079139675208292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6484105314984743146}
+  m_LocalRotation: {x: -1.7823044e-22, y: -5.980421e-15, z: -0.000000029802322, w: 1}
+  m_LocalPosition: {x: -0.27033463, y: -0.000003967285, z: 0.0000000333786}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9171725002951754305}
+  m_Father: {fileID: 8601611433891756834}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.14387871, y: -0.054678094, z: 14.744971}
+--- !u!1 &6568236769459334430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2948261432756179014}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmRearR_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2948261432756179014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6568236769459334430}
+  m_LocalRotation: {x: 0.74910027, y: -0.00000019124356, z: 0.66245663, w: 0.0000007561078}
+  m_LocalPosition: {x: -0.34851596, y: -0.000000076293944, z: 0.0005343628}
+  m_LocalScale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2418555845500309954}
+  m_Father: {fileID: 4484440347379819513}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.00005504793, y: 98.578995, z: 179.99994}
+--- !u!1 &6599733266866237574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 247388275472649578}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &247388275472649578
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599733266866237574}
+  m_LocalRotation: {x: 2.289925e-31, y: -1.8698657e-15, z: 1.2246469e-16, w: 1}
+  m_LocalPosition: {x: -0.26707855, y: -0.0000030517576, z: 0.000000031341013}
+  m_LocalScale: {x: 1.0000004, y: 1.0000004, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2380473323646275904}
+  m_Father: {fileID: 863182399900815249}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.28314367, y: 0.39442182, z: 17.40187}
+--- !u!1 &6649423803484917946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7761700483251229115}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7761700483251229115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6649423803484917946}
+  m_LocalRotation: {x: 1.6968671e-22, y: -1.8783474e-15, z: 0.0000000903383, w: 1}
+  m_LocalPosition: {x: -0.26219192, y: -0.0000058364867, z: 0.000000030743085}
+  m_LocalScale: {x: 0.9999997, y: 0.9999997, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5938095331231085960}
+  m_Father: {fileID: 3783379027505057700}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.7612779, y: -14.960373, z: 0.5062505}
+--- !u!1 &6667612582167993686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793296674063508313}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793296674063508313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667612582167993686}
+  m_LocalRotation: {x: 3.0386313e-10, y: -7.484308e-17, z: 0.00000008195639, w: 1}
+  m_LocalPosition: {x: -0.26857024, y: -0.000022697448, z: 0.000000031519956}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6352226241597763052}
+  m_Father: {fileID: 8329182851517258209}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.42997712, y: -0.8834517, z: -16.544786}
+--- !u!1 &6726639966931682432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2925464577228011552}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2925464577228011552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726639966931682432}
+  m_LocalRotation: {x: 0, y: -0, z: -0.00000005261973, w: 1}
+  m_LocalPosition: {x: -0.27031782, y: 0.000000038146972, z: 0.00000003171106}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4642086479284200571}
+  m_Father: {fileID: 9018505787035491340}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.9745673, y: -14.930555, z: -0.423712}
+--- !u!1 &6728498416094809839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5315482839953136187}
+  m_Layer: 6
+  m_Name: CenterPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5315482839953136187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6728498416094809839}
+  m_LocalRotation: {x: 0.000000029802322, y: -0.000000029802322, z: 0.000000029802322,
+    w: 1}
+  m_LocalPosition: {x: 0, y: -0.038, z: 0.111}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2567134033856839787}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6903046707120020103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3449331701507432546}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3449331701507432546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903046707120020103}
+  m_LocalRotation: {x: 0, y: -0, z: -0.00000005261973, w: 1}
+  m_LocalPosition: {x: -0.27031782, y: 0.000000038146972, z: 0.00000003171106}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8329182851517258209}
+  m_Father: {fileID: 9113665397942974744}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.15302178, y: 0.026358036, z: -14.74607}
+--- !u!1 &6955240482864996009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6659275335370212373}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeLeft_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6659275335370212373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955240482864996009}
+  m_LocalRotation: {x: -0.00000010536714, y: 0.7071067, z: 0.000000105367114, w: 0.7071069}
+  m_LocalPosition: {x: -0.223343, y: 0.24241102, z: 0.62473804}
+  m_LocalScale: {x: 0.9999993, y: 0.9999996, z: 1.0000012}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -0.000017366632, y: 89.99998, z: 0}
+--- !u!1 &7029453257975096253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9114311412591517409}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9114311412591517409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7029453257975096253}
+  m_LocalRotation: {x: 0.70709354, y: 0.004339479, z: 0.7070934, w: 0.0043360894}
+  m_LocalPosition: {x: -0.20683925, y: 0.25002864, z: -0.74332756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 863182399900815249}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: -29.981556, y: 91.12292, z: -163.47247}
+--- !u!1 &7031923505441437015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8848921346203699837}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8848921346203699837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031923505441437015}
+  m_LocalRotation: {x: 0.000000047078483, y: -0.7071067, z: 0.00000004707848, w: 0.7071068}
+  m_LocalPosition: {x: 0.235, y: -0.2771244, z: -0.74332756}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8790916733497625247}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 30.4817, y: -98.4898, z: 15.072298}
+--- !u!1 &7106910180798103279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6078883174088980493}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmFrontR_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6078883174088980493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7106910180798103279}
+  m_LocalRotation: {x: 0.7491016, y: -0.0000046908676, z: 0.66245514, w: 0.0000045396228}
+  m_LocalPosition: {x: -0.2335849, y: -0.0000004196167, z: 0.00035869598}
+  m_LocalScale: {x: 0.99999976, y: 0.9999999, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7065913956257503962}
+  m_Father: {fileID: 1213577819430100593}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.0006969815, y: 99.17361, z: -179.99991}
+--- !u!1 &7127850676268307495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9023798896824208711}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9023798896824208711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127850676268307495}
+  m_LocalRotation: {x: -0.0043378314, y: -0.70709354, z: 0.0043378314, w: 0.7070934}
+  m_LocalPosition: {x: 0.207, y: 0.25002864, z: -0.74332756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 171765284173272036}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: -29.979876, y: -91.12297, z: -16.527508}
+--- !u!1 &7131936619001157177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030047150881924846}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2030047150881924846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7131936619001157177}
+  m_LocalRotation: {x: 0.00000005960464, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28014293, y: 0, z: 0.000000085830685}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 178150460023645953}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.32152835, y: -14.943903, z: -1.2564646}
+--- !u!1 &7160202223410391247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5635754882240698694}
+  m_Layer: 6
+  m_Name: ScoutDroid_WristRearR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5635754882240698694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160202223410391247}
+  m_LocalRotation: {x: 0.9999957, y: 0.00000024665235, z: -0.0029289504, w: 0.00000026703512}
+  m_LocalPosition: {x: -0.46416506, y: 0.000002555847, z: 0.0000019073486}
+  m_LocalScale: {x: 1, y: 0.99999976, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3955717174605140746}
+  - {fileID: 70988078169425993}
+  m_Father: {fileID: 2418555845500309954}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.000030686668, y: -179.66435, z: 179.99997}
+--- !u!1 &7189680527882336971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8335857048050069901}
+  m_Layer: 6
+  m_Name: ScoutDroid_ShoulderFrontR_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8335857048050069901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189680527882336971}
+  m_LocalRotation: {x: 0.094148435, y: 0.0904048, z: 0.6866769, w: 0.7151488}
+  m_LocalPosition: {x: -0.1301622, y: -0.004202223, z: 0.000014724731}
+  m_LocalScale: {x: 1, y: 1, z: 1.0000005}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1213577819430100593}
+  m_Father: {fileID: 8518922026112522216}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.43315348, y: 10.73101, z: 87.713585}
+--- !u!1 &7226802818063631387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7574506935326597610}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7574506935326597610
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226802818063631387}
+  m_LocalRotation: {x: -0.00000012105761, y: -1.9462316e-16, z: -1.224647e-16, w: 1}
+  m_LocalPosition: {x: -0.2801428, y: 0, z: 0.000000032875615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9206851377381615338}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.036616318, y: -14.874891, z: 1.2632003}
+--- !u!1 &7290561534297714357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7290561534297714358}
+  m_Layer: 6
+  m_Name: LaserFirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7290561534297714358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7290561534297714357}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.38, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2013432434065257964}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &7302841189517622652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505669715568864546}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmFrontL_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1505669715568864546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302841189517622652}
+  m_LocalRotation: {x: 0.7491013, y: 0.0000045603038, z: 0.6624555, w: -0.0000040545706}
+  m_LocalPosition: {x: -0.23358475, y: 0.00000036239624, z: 0.00035858154}
+  m_LocalScale: {x: 0.9999996, y: 0.9999989, z: 1.0000006}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6112399822018069736}
+  m_Father: {fileID: 3600497261315761746}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0005338983, y: 99.15734, z: 179.9999}
+--- !u!1 &7353210319268720500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684765267501047880}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &684765267501047880
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7353210319268720500}
+  m_LocalRotation: {x: 2.1175824e-22, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26857033, y: 0.000022583008, z: 0.000000019073486}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5754812304487807093}
+  m_Father: {fileID: 891635533338313751}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.42946967, y: -0.8843121, z: 16.544497}
+--- !u!1 &7408140308167916972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5417033779496196247}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5417033779496196247
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7408140308167916972}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26707852, y: 0.0000030517576, z: 0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8182688718143067979}
+  m_Father: {fileID: 5306005284510502022}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.2597506, y: -14.9903555, z: -0.67540807}
+--- !u!1 &7411975903948173593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863182399900815249}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &863182399900815249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7411975903948173593}
+  m_LocalRotation: {x: 0.000000038468155, y: 2.3598667e-10, z: 0.006134597, w: 0.9999812}
+  m_LocalPosition: {x: -0.26705658, y: 0, z: 0.000000031833224}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 247388275472649578}
+  m_Father: {fileID: 9114311412591517409}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.1533456, y: 0.46068707, z: 18.10452}
+--- !u!1 &7470975171093818942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5378787290171323652}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5378787290171323652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7470975171093818942}
+  m_LocalRotation: {x: 4.0189376e-22, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26857033, y: 0.000022583008, z: -0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7100168495994308467}
+  m_Father: {fileID: 5444931635350248249}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.26862976, y: 0.5103984, z: -15.559528}
+--- !u!1 &7495957094942471602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3649189239624164851}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleR_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3649189239624164851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495957094942471602}
+  m_LocalRotation: {x: 0, y: -0.00000005960463, z: -0, w: 1}
+  m_LocalPosition: {x: -0.27033472, y: -0.0000044250487, z: 0.000000028610229}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2054671299408838440}
+  m_Father: {fileID: 8442170923769726927}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.4985956, y: -14.988838, z: -0.1015758}
+--- !u!1 &7649430635966077487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7163396458761475298}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7163396458761475298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649430635966077487}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26211044, y: 0.00000015258789, z: -0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 491160514213649693}
+  m_Father: {fileID: 998386795114472199}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.4752758, y: -0.098865025, z: -17.40069}
+--- !u!1 &7677786188910255776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8376501615958065386}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmRearL_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8376501615958065386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677786188910255776}
+  m_LocalRotation: {x: -0.6903465, y: -0.15304802, z: 0.15304439, w: 0.69034445}
+  m_LocalPosition: {x: -0.15877622, y: -0.0000008010864, z: -0.0000009918213}
+  m_LocalScale: {x: 0.9999995, y: 0.9999999, z: 1.0000011}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7749573103801338871}
+  m_Father: {fileID: 326796628512822573}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -64.17867, y: -90.000626, z: 90.000305}
+--- !u!1 &7697937909531028213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2678165391388589011}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2678165391388589011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697937909531028213}
+  m_LocalRotation: {x: 2.1175824e-22, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.27031782, y: 0, z: 0.000000023841856}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 891635533338313751}
+  m_Father: {fileID: 9171725002951754305}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.15360618, y: 0.025113696, z: 14.745932}
+--- !u!1 &7721871827880445166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1817142512397919477}
+  m_Layer: 6
+  m_Name: ScoutDroid_EyeLeft_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1817142512397919477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7721871827880445166}
+  m_LocalRotation: {x: 0.5416753, y: -0.45451936, z: -0.54167515, w: -0.45451948}
+  m_LocalPosition: {x: -0.31243756, y: -0.04501539, z: 0.5689784}
+  m_LocalScale: {x: 0.99999946, y: 0.99999964, z: 1.0000011}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -80.000046, y: -90.00003, z: -179.99998}
+--- !u!1 &7734973086495289849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 70988078169425993}
+  m_Layer: 6
+  m_Name: ScoutDroid_ClawRearR_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &70988078169425993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734973086495289849}
+  m_LocalRotation: {x: 0.0000006036395, y: 0.25881895, z: 0.0000006932964, w: 0.9659259}
+  m_LocalPosition: {x: -0.098300494, y: 0.0000025177, z: 0.0000018310546}
+  m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5635754882240698694}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0.00009994608, y: -0.000009441553, z: 0.000109679124}
+--- !u!1 &7738758266507150699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8906128695276293356}
+  m_Layer: 6
+  m_Name: ScoutDroid_ClawRearL_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8906128695276293356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7738758266507150699}
+  m_LocalRotation: {x: -0.000000690884, y: -0.25881907, z: -0.00000018512182, w: 0.9659258}
+  m_LocalPosition: {x: -0.0983007, y: -0.0000025939942, z: 0.0000019836425}
+  m_LocalScale: {x: 1.0000014, y: 0.9999992, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4480192407597325626}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00008287072, y: -4.999999, z: 0}
+--- !u!1 &7750182386432537345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 491160514213649693}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &491160514213649693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750182386432537345}
+  m_LocalRotation: {x: 4.0189376e-22, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.27031782, y: 0, z: 0.000000114440915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5444931635350248249}
+  m_Father: {fileID: 7163396458761475298}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.42739165, y: -0.23022336, z: -17.400248}
+--- !u!1 &7777875891369634776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3834596274660070824}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomR_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3834596274660070824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777875891369634776}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26219198, y: 0.000005645752, z: 0.000000028610229}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8601611433891756834}
+  m_Father: {fileID: 3080575479420901350}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0960289, y: -0.118050836, z: 14.743889}
+--- !u!1 &7906389231258750369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3357152935161962744}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3357152935161962744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906389231258750369}
+  m_LocalRotation: {x: 3.0386313e-10, y: -7.484308e-17, z: 0.00000008195639, w: 1}
+  m_LocalPosition: {x: -0.26857024, y: -0.000022697448, z: 0.000000031519956}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9206851377381615338}
+  m_Father: {fileID: 4642086479284200571}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.5322784, y: -14.889889, z: 1.0951647}
+--- !u!1 &8155528083859632715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6112399822018069736}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmFrontL_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6112399822018069736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155528083859632715}
+  m_LocalRotation: {x: -0.00000028595588, y: 0.54926455, z: 0.00000029940557, w: 0.83564854}
+  m_LocalPosition: {x: -0.16312401, y: -0.000000057220458, z: 0}
+  m_LocalScale: {x: 0.99999857, y: 1.000001, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 391567389785638408}
+  m_Father: {fileID: 1505669715568864546}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.000049183764, y: 64.283875, z: -0.000012612238}
+--- !u!1 &8241153535672511622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1242259217451671803}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1242259217451671803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8241153535672511622}
+  m_LocalRotation: {x: -2.3834465e-32, y: -1.9462317e-16, z: -1.2246469e-16, w: 1}
+  m_LocalPosition: {x: -0.2801428, y: 0, z: 0.000000032875615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6352226241597763052}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.06912185, y: -0.9797451, z: -16.544106}
+--- !u!1 &8352830430147524382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 998386795114472199}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopR_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &998386795114472199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8352830430147524382}
+  m_LocalRotation: {x: 4.0189373e-22, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.27033463, y: -0.0000041198728, z: 0.000000038146972}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7163396458761475298}
+  m_Father: {fileID: 9133843336403389284}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.48374048, y: 0.04070025, z: -17.401243}
+--- !u!1 &8407455165696901644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6350050700281348917}
+  m_Layer: 6
+  m_Name: ScoutDroid_ShoulderFrontL_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6350050700281348917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8407455165696901644}
+  m_LocalRotation: {x: -0.55736566, y: 0.01684031, z: 0.47596934, w: 0.68008316}
+  m_LocalPosition: {x: -0.15236309, y: -0.38394323, z: 0.3828196}
+  m_LocalScale: {x: 0.9999999, y: 1.0000004, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5952242035712590561}
+  m_Father: {fileID: 1518382362501957992}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: -50.7272, y: -53.320877, z: 96.750374}
+--- !u!1 &8473823098906203343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2886501996214942107}
+  m_Layer: 6
+  m_Name: ScoutDroid_ClawRearL_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2886501996214942107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473823098906203343}
+  m_LocalRotation: {x: -0.0000009446903, y: 0.25881907, z: -0.00000046318843, w: 0.9659258}
+  m_LocalPosition: {x: -0.098300554, y: -0.000002555847, z: 0.0000019836425}
+  m_LocalScale: {x: 0.99999946, y: 0.9999994, z: 1.0000019}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4480192407597325626}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -0.00012967485, y: 5, z: -0.000091148504}
+--- !u!1 &8657095593416797286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5172042184100821396}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleBottomL_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5172042184100821396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657095593416797286}
+  m_LocalRotation: {x: 0.000000038468876, y: -1.3759185e-15, z: 0.0000000782311, w: 1}
+  m_LocalPosition: {x: -0.26705658, y: 0, z: 0.000000031833224}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5759359595576963443}
+  m_Father: {fileID: 3533344571397558933}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.024987657, y: -0.14805526, z: -14.742901}
+--- !u!1 &8720877650745788727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7926453916785676000}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7926453916785676000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8720877650745788727}
+  m_LocalRotation: {x: 0, y: -0, z: -0.00000001769513, w: 1}
+  m_LocalPosition: {x: -0.27033463, y: 0.000004081726, z: 0.000000031716517}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4334380133674154370}
+  m_Father: {fileID: 4676878799705856392}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.48393592, y: 0.039333314, z: 17.401176}
+--- !u!1 &8830550974557237715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7749573103801338871}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmRearL_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7749573103801338871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8830550974557237715}
+  m_LocalRotation: {x: 0.74909997, y: -0.00000012491422, z: 0.662457, w: -0.00000012867369}
+  m_LocalPosition: {x: -0.3485157, y: 0.00000019073485, z: 0.0005343246}
+  m_LocalScale: {x: 0.99999964, y: 0.9999989, z: 1.0000006}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8417275207252876825}
+  m_Father: {fileID: 8376501615958065386}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.0001849602, y: 98.98393, z: -179.99995}
+--- !u!1 &8862275075795778565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9217818432932368172}
+  m_Layer: 6
+  m_Name: ScoutDroid_ClawFrontR_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9217818432932368172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862275075795778565}
+  m_LocalRotation: {x: 0.9659258, y: 0.00000007556544, z: 0.25881907, w: -0.0000000202477}
+  m_LocalPosition: {x: -0.06587898, y: -0.0000009918213, z: 0.0004504776}
+  m_LocalScale: {x: 0.9999998, y: 0.99999964, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6319575892695867307}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -0.00000090653896, y: 175, z: 179.99998}
+--- !u!1 &8985648238929035183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5938095331231085960}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5938095331231085960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8985648238929035183}
+  m_LocalRotation: {x: 3.4350743e-21, y: -2.0535247e-28, z: -0.00000005978109, w: 1}
+  m_LocalPosition: {x: -0.27030808, y: 0.000000038146972, z: 0.000000031725286}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 567446731350797211}
+  m_Father: {fileID: 7761700483251229115}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.8421874, y: -14.952379, z: 0.31082535}
+--- !u!1 &9059917750790738106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8164181544754786681}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleTopL_12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8164181544754786681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9059917750790738106}
+  m_LocalRotation: {x: -2.3834465e-32, y: -1.9462317e-16, z: -1.2246469e-16, w: 1}
+  m_LocalPosition: {x: -0.2801428, y: 0, z: 0.000000032875615}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5855176298670910223}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.053025063, y: 0.57991266, z: 15.5529995}
+--- !u!1 &9139974553956412147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213577819430100593}
+  m_Layer: 6
+  m_Name: ScoutDroid_ArmFrontR_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1213577819430100593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139974553956412147}
+  m_LocalRotation: {x: 0.6743794, y: -0.21263266, z: -0.21263212, w: 0.67437935}
+  m_LocalPosition: {x: -0.106416546, y: 0.00000057220456, z: -0.0000006866455}
+  m_LocalScale: {x: 1, y: 0.99999976, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6078883174088980493}
+  m_Father: {fileID: 8335857048050069901}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 55.971634, y: -90.000015, z: -89.99996}
+--- !u!1 &9190378643999288690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8626539207817705021}
+  m_Layer: 6
+  m_Name: ScoutDroid_TentacleMiddleL_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8626539207817705021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190378643999288690}
+  m_LocalRotation: {x: 0.000000038468155, y: 2.3598667e-10, z: 0.006134597, w: 0.9999812}
+  m_LocalPosition: {x: -0.26705658, y: 0, z: 0.000000031833224}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3783379027505057700}
+  m_Father: {fileID: 5984193036986258705}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.645882, y: -14.969889, z: 1.4828506}
