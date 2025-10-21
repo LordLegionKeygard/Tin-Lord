@@ -114,7 +114,6 @@ public class WorldGameInfo
     public const float ConstructionExtraDamage = 3;
     public const float FortificationSkillDamage = 0.5f;
     public const float ExplosionDamageFactor = 4;
-    public const float BossTriggetStayDamageFactor = 200;
     public const float AcidRainTriggetStayDamageFactor = 0.25f;
 
     [Header("Duration")]

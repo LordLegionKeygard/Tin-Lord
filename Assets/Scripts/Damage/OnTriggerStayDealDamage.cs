@@ -14,6 +14,7 @@ public class OnTriggerStayDealDamage : MonoBehaviour
     private float _fadeOutTime = 2;
     private bool _isActive;
 
+
     public void SetInfo(int duration, float damageFactor)
     {
         _ticksLeft = duration;

@@ -32,9 +32,6 @@ public class EnemyAttacks : MonoBehaviour
         _defaultMaxAttackRange = _attacks.Max(a => a.MaximumDistanceNeededToAttack);
     }
 
-
-
-
     public void UpdateCreatureAttackDistance(Tile tile)
     {
         _tileDistance = tile != null ? tile.IsFourTile ? WorldGameInfo.EnemyReachedFourTileDistance : WorldGameInfo.EnemyReachedTileDistance : WorldGameInfo.EnemyReachedMachineDistance;
