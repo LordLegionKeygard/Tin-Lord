@@ -37,6 +37,7 @@ public enum MonsterType
     Desert = 0,
     Winter = 1,
     Robots = 2,
+    Acid = 3,
 }
 
 [System.Serializable]
