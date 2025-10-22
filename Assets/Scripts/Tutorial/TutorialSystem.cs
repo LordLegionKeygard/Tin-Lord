@@ -121,36 +121,44 @@ public class TutorialSystem : MonoBehaviour
 
     private void ActivateWorldArrow()
     {
-        if (_currentStep.ArrowObject != TutorialArrowObjectEnum.None)
-        {
-            Transform target;
-            switch (_currentStep.ArrowObject)
-            {
-                case TutorialArrowObjectEnum.BaseFoundation:
-                    target = _allTileObjects.FindGroundTileObject(GroundTileViewEnum.BaseFoundation).transform;
-                    _tutorialArrowWorld.SetObjectTransform(target);
-                    break;
-                case TutorialArrowObjectEnum.Forest:
-                    target = _allTileObjects.FindGroundTileObject(GroundTileViewEnum.Forest).transform;
-                    _tutorialArrowWorld.SetObjectTransform(target);
-                    break;
-                case TutorialArrowObjectEnum.WoodExtraction:
-                    // Игрок стоял афк и ничего не делал 6 дней после установки добычи дерева и камня, добычи дерева нету, 
-                    // поэтому мы ищем добычу камня, если ее тоже нету, то указываем на базу
-                    target = _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.WoodExtraction)?.transform
-                          ?? _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.StoneMining)?.transform
-                          ?? _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.Base).transform;
-                    _tutorialArrowWorld.SetObjectTransform(target);
-                    break;
-                case TutorialArrowObjectEnum.DamagedBuilding:
-                    target = _allTileObjects.FindDamagedBuildingOnTileObject().transform;
-                    _tutorialArrowWorld.SetObjectTransform(target);
-                    break;
+        Transform target = null;
 
-            }
-            _tutorialArrowWorld.gameObject.SetActive(true);
+        switch (_currentStep.ArrowObject)
+        {
+            case TutorialArrowObjectEnum.BaseFoundation:
+                target = _allTileObjects.FindGroundTileObject(GroundTileViewEnum.BaseFoundation)?.transform;
+                break;
+
+            case TutorialArrowObjectEnum.Forest:
+                target = _allTileObjects.FindGroundTileObject(GroundTileViewEnum.Forest)?.transform;
+                break;
+
+            case TutorialArrowObjectEnum.WoodExtraction:
+                // Игрок стоял афк и ничего не делал 6 дней после установки добычи дерева и камня, добычи дерева нету, 
+                // поэтому мы ищем добычу камня, если ее тоже нету, то указываем на базу
+                target =
+                    _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.WoodExtraction)?.transform
+                 ?? _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.StoneMining)?.transform
+                 ?? _allTileObjects.FindBuildingOnTileObject(BuildingTileViewEnum.Base)?.transform;
+                break;
+
+            case TutorialArrowObjectEnum.DamagedBuilding:
+                target = _allTileObjects.FindDamagedBuildingOnTileObject()?.transform;
+                break;
         }
+
+        // Если цель не найдена — пропускаем шаг, чтобы тутор не зависал
+        if (target == null)
+        {
+            Debug.Log($"[Tutorial] Target for {_currentStep.ArrowObject} not found. Skip step {_currentStep.TutorialStepEnum}");
+            CompleteStep(_currentStep.TutorialStepEnum);
+            return;
+        }
+
+        _tutorialArrowWorld.SetObjectTransform(target);
+        _tutorialArrowWorld.gameObject.SetActive(true);
     }
+
 
     private void CompleteStep(TutorialStepEnum stepEnum)
     {
