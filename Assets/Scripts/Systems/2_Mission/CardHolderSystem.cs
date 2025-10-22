@@ -10,7 +10,6 @@ public class CardHolderSystem : MonoBehaviour
     [Inject] private readonly MissionResources _missionResources;
 
     [Header("Test")]
-    [SerializeField] private bool _addAllCards;
     [SerializeField] private bool _dontRemoveCards;
 
     [Header("Base")]
@@ -42,15 +41,7 @@ public class CardHolderSystem : MonoBehaviour
 
         if (isStartMission)
         {
-            if (_addAllCards)
-            {
-                AddNewCards(_availableCards);
-                AddNewCards(new Tile[] { _baseCard });
-            }
-            else
-            {
-                AddNewCards(new Tile[] { _baseCard });
-            }
+            AddNewCards(new Tile[] { _baseCard });          
         }
         else
         {
