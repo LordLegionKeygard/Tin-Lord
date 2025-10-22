@@ -142,5 +142,6 @@ public enum BulletEnum
     ShipWeapon_TitaniumRocketLauncher_Bullet = 14,
     Enemy_GiantRocket = 15,
     Enemy_MediumRocket = 16,
+    Any_BigIceCrystal_Bullet = 17,
 }
 
