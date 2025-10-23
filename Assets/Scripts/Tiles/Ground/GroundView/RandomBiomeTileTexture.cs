@@ -63,4 +63,5 @@ public enum BiomEnum
     Winter = 2,
     Scorched = 3,
     Zone = 4,
+    AcidForest = 5,
 }

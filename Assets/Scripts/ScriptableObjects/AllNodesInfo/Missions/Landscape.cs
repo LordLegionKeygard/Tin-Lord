@@ -61,5 +61,6 @@ public enum LandscapeEnum
     IceLake = 4,
     ScorchedLands = 5,
     Megastructure = 6,
-    AlienFantasyForest = 7,
+    AcidForestAndSwamp = 7,
+    Swamp = 8,
 }

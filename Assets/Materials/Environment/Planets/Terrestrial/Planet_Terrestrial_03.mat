@@ -144,11 +144,11 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Float0: 0.003
-    - _FrenselLandMult: 0.46
+    - _FrenselLandMult: 0
     - _FresnelLandPower: 9.2
     - _FresnelNormalScale: 0
-    - _FresnelWaterMult: 0.21
-    - _FresnelWaterPower: 0.1
+    - _FresnelWaterMult: 0.46
+    - _FresnelWaterPower: 0.15
     - _GlobalBoost: 2.16
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -192,7 +192,7 @@ Material:
     - _DesertColor: {r: 0.87183803, g: 0.99264705, b: 0.642301, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelLandColor: {r: 0.48767298, g: 0.588632, b: 0.60294116, a: 1}
-    - _FresnelWaterColor: {r: 0.35802338, g: 0.62100136, b: 0.63235295, a: 1}
+    - _FresnelWaterColor: {r: 0.753, g: 1, b: 0, a: 1}
     - _MountainColor: {r: 0.50870454, g: 0.71323526, b: 0.5862852, a: 1}
     - _ScatterColor: {r: 1, g: 1, b: 1, a: 0}
     - _VegetationColor: {r: 0.7058824, g: 1, b: 0.6117647, a: 1}

@@ -197,6 +197,14 @@ MonoBehaviour:
     OverrideMaterial: {fileID: 2100000, guid: da683055ab71b244b9a013ffa44963c7, type: 2}
     Base: []
     Color: {r: 1, g: 1, b: 1, a: 1}
+  - BiomTextureEnum: 5
+    OverrideMaterial: {fileID: 0}
+    Base:
+    - {fileID: 2800000, guid: c91c3743c27cded489bbb02a0fdd297f, type: 3}
+    - {fileID: 2800000, guid: 47552ecea1411db4f9d01814c044a684, type: 3}
+    - {fileID: 2800000, guid: baac8a9ddb3efa245a36f112db80a0fa, type: 3}
+    - {fileID: 2800000, guid: 7a5e4c9b10d73ff4ebdec59a8e06ffcc, type: 3}
+    Color: {r: 0.43529412, g: 0.37254903, b: 0.2627451, a: 1}
   _normal:
   - {fileID: 2800000, guid: a27c5c7cf25ca75418f47263c5cc6f53, type: 3}
   - {fileID: 2800000, guid: 9e7fdb8bc14d66e41a8bbe9c11710313, type: 3}
