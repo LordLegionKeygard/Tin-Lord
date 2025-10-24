@@ -129,7 +129,7 @@ Material:
     - _AlphaCutoff: 0.5
     - _BumpScale: 1
     - _CityLightPopulation: 0.56
-    - _CloudShadows: 0.179
+    - _CloudShadows: 0
     - _CloudsBlendWeight: 0.485
     - _CloudsBoost: 1
     - _CloudsHeight: 0.02
@@ -145,11 +145,11 @@ Material:
     - _DstBlend: 0
     - _Float0: 0.005
     - _FrenselLandMult: 0.54
-    - _FresnelLandPower: 2.8
+    - _FresnelLandPower: 24.06
     - _FresnelNormalScale: 0
     - _FresnelWaterMult: 0.09
     - _FresnelWaterPower: 2.6
-    - _GlobalBoost: 3.76
+    - _GlobalBoost: 1.01
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -187,7 +187,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.5441177, g: 0.50471604, b: 0.37608135, a: 0}
     - _CityLightColor: {r: 0.21280275, g: 0.24942642, b: 0.30147058, a: 0}
-    - _CloudsTint: {r: 0.875, g: 0.9637931, b: 1, a: 0}
+    - _CloudsTint: {r: 0.7601377, g: 0.98039216, b: 0.56078434, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DesertColor: {r: 0.6985294, g: 0.5183522, b: 0.19517736, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
@@ -197,7 +197,7 @@ Material:
     - _ScatterColor: {r: 1, g: 1, b: 1, a: 0}
     - _VegetationColor: {r: 0.94827586, g: 1, b: 0.8897059, a: 1}
     - _WaterDeepColor: {r: 0.016544119, g: 0.08460955, b: 0.125, a: 0}
-    - _WaterShallowColor: {r: 0.2640571, g: 0.40494266, b: 0.8161765, a: 0}
+    - _WaterShallowColor: {r: 0.25119257, g: 0.41829073, b: 0.9056604, a: 0}
     - _WaterShoreColor: {r: 0.24264705, g: 0.24264705, b: 0.24264705, a: 0}
     - _WaterSpecularColor: {r: 0.765625, g: 0.875, b: 0.8433189, a: 1}
   m_BuildTextureStacks: []
