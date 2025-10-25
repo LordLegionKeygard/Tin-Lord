@@ -48,7 +48,7 @@ public class MissionLight
 public class DescriptionWrapper
 {
     public int PanelHeight;
-    [TextArea(1, 8)] public string Description;
+    [TextArea(1, 10)] public string Description;
 }
 
 [System.Serializable]
@@ -63,4 +63,5 @@ public enum LandscapeEnum
     Megastructure = 6,
     AcidForest = 7,
     Swamp = 8,
+    DeepCrags = 9,
 }

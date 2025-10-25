@@ -10,7 +10,9 @@ public class ActiveBiomObjectType : MonoBehaviour
 
     private void ActiveType()
     {
-        var biomEnum = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.BiomEnum;
+        var landscape = CurrentMissionInfo.Instance.GetCurrentLandscape();
+        if (landscape == null) return;
+        var biomEnum = landscape.MissionView.BiomEnum;
         var objectNumber = biomEnum == BiomEnum.Winter ? 1 : 0;
         if (_objectsType[objectNumber] != null) _objectsType[objectNumber].SetActive(true);
     }

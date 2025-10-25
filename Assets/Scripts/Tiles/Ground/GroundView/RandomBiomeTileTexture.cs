@@ -13,7 +13,10 @@ public class RandomBiomeTileTexture : MonoBehaviour
 
     private void SetTexture()
     {
-        var biome = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.BiomEnum;
+        var landscape = CurrentMissionInfo.Instance.GetCurrentLandscape();
+        if (landscape == null) return;
+        
+        var biome = landscape.MissionView.BiomEnum;
 
         var currentBiomTileTextures = GetTileTextureForBiome(biome);
 
@@ -24,7 +27,7 @@ public class RandomBiomeTileTexture : MonoBehaviour
             return;
         }
 
-        var rnd = Random.Range(0, currentBiomTileTextures.Base.Length); 
+        var rnd = Random.Range(0, currentBiomTileTextures.Base.Length);
         _meshRenderer.material.color = currentBiomTileTextures.Color;
         _meshRenderer.material.SetTexture("_BaseMap", currentBiomTileTextures.Base[rnd]);
         _meshRenderer.material.EnableKeyword("_NORMALMAP");

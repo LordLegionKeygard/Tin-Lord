@@ -5,7 +5,7 @@ public class CurrentMissionInfo : MonoBehaviour
     public static CurrentMissionInfo Instance;
     private MissionNode _currentMissionNode;
     private int _missionDeckIndex;
-    public Landscape GetCurrentLandscape() => _currentMissionNode.Landscape;
+    public Landscape GetCurrentLandscape() => _currentMissionNode?.Landscape;
     public EnemiesSpawner GetEnemiesSpawnerInformation() => _currentMissionNode.EnemiesSpawner;
     public Objective GetObjective() => _currentMissionNode.Objective;
     public int GetMissionDeckIndex() => _missionDeckIndex;

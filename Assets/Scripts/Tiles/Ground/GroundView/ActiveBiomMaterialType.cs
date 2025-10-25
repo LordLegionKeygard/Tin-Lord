@@ -14,7 +14,9 @@ public class ActiveBiomMaterialType : MonoBehaviour
 
     private void ActiveType()
     {
-        var biomEnum = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.BiomEnum;
+        var landscape = CurrentMissionInfo.Instance.GetCurrentLandscape();
+        if (landscape == null) return;
+        var biomEnum = landscape.MissionView.BiomEnum;
         var matNamber = biomEnum == BiomEnum.Winter ? 1 : 0;
 
         foreach (var item in _meshes)

@@ -3,7 +3,9 @@ public class ActiveRoadObjects : ActiveObjects
 {
     public override void Refresh()
     {
-        if (CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.RockTexture == null) return;
+        var landscape = CurrentMissionInfo.Instance.GetCurrentLandscape();
+        if (landscape == null) return;
+        if (landscape.MissionView.RockTexture == null) return;
         base.Refresh();
     }
 }
