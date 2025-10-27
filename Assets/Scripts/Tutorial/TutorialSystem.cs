@@ -29,6 +29,7 @@ public class TutorialSystem : MonoBehaviour
     public AllTileObjects GetAllTileObjects() => _allTileObjects;
     public bool IsCurrentInProcess() => _currentStepInProcess;
     public bool CanUseSkill() => IsCompleteMissionTutorial() || GetTutorialStepEnum() >= TutorialStepEnum.MissionOpenSkillsPanel_51;
+    public bool CanSpawnRandomEvent() => IsCompleteMissionTutorial() || GetTutorialStepEnum() >= TutorialStepEnum.MissionEventPanel_50;
 
     private static readonly Dictionary<TutorialTextPanelPos, (Vector2 anchor, Vector2 offset)> PanelLayout =
         new()

@@ -5,6 +5,7 @@ using Zenject;
 
 public class MissionEventSystem : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [SerializeField] private InfoMissionSystem _infoMissionSystem;
     [SerializeField] private EndMissionSystem _endMissionSystem;
@@ -63,6 +64,9 @@ public class MissionEventSystem : MonoBehaviour
 
     private void OnDayEnd(int currentDay)
     {
+        // не спавним ивенты, до середины тутора, чтобы случайно не уничтожить необходимые для него тайлы или здания
+        if (!_tutorialSystem.CanSpawnRandomEvent()) return;
+
         var rnd = Random.Range(0, 100);
 
         if (rnd < WorldGameInfo.DayEventChance)
