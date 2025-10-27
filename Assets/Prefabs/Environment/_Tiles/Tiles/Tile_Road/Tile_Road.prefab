@@ -142,6 +142,14 @@ MonoBehaviour:
     - {fileID: 2800000, guid: bf32ffd41d50cd843af445e70cdf24f8, type: 3}
     - {fileID: 2800000, guid: 581f5f54cfa0ed94fa627326c6d2dee9, type: 3}
     Color: {r: 0.43529412, g: 0.37254903, b: 0.2627451, a: 1}
+  - BiomTextureEnum: 6
+    OverrideMaterial: {fileID: 0}
+    Base:
+    - {fileID: 2800000, guid: 789113a9c79258c489580dc7fc5f0802, type: 3}
+    - {fileID: 2800000, guid: 117895167cacc5442be5b4bcf136134c, type: 3}
+    - {fileID: 2800000, guid: bf32ffd41d50cd843af445e70cdf24f8, type: 3}
+    - {fileID: 2800000, guid: 581f5f54cfa0ed94fa627326c6d2dee9, type: 3}
+    Color: {r: 1, g: 1, b: 1, a: 1}
   _normal:
   - {fileID: 2800000, guid: 6fa05782fec29ad44ad50cbbc1620527, type: 3}
   - {fileID: 2800000, guid: 3b7bc71840601f446be6184487d10c9c, type: 3}

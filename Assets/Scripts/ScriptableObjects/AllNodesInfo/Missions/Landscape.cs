@@ -64,4 +64,5 @@ public enum LandscapeEnum
     AcidForest = 7,
     Swamp = 8,
     DeepCrags = 9,
+    BasaltValley = 10,
 }

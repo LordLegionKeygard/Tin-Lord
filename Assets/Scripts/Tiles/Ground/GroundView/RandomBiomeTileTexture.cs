@@ -67,4 +67,5 @@ public enum BiomEnum
     Scorched = 3,
     Zone = 4,
     AcidForestAndSwamp = 5,
+    BasaltValley = 6,
 }
