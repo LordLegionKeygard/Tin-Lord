@@ -1667,8 +1667,8 @@ public class Language : MonoBehaviour
         _text[513, 0] = "Open the vault";
         _text[513, 1] = "Вскрыть хранилище"; //выбор 1
 
-        _text[514, 0] = "You manually open the compartment and extract the result of the old automated process. On the platform lies a box of processed materials: polished alloys, stabilized ceramics, and packages of synthetic fabric. Everything is neatly labeled, as if it had been waiting for its owner.";
-        _text[514, 1] = "Вы вручную открываете отсек и извлекаете результат старого автоматического процесса. На платформе лежит ящик с обработанными материалами: отшлифованные сплавы, стабилизированная керамика и упаковки с синтетической тканью. Всё аккуратно промаркировано, как будто ждало хозяина."; // + случайный материал
+        _text[514, 0] = "You manually open the compartment and extract the result of the old automated process.\n\nOn the platform lies a box of processed materials: polished alloys, stabilized ceramics, and packages of synthetic fabric.\n\nEverything is neatly labeled, as if it had been waiting for its owner.";
+        _text[514, 1] = "Вы вручную открываете отсек и извлекаете результат старого автоматического процесса.\n\nНа платформе лежит ящик с обработанными материалами: отшлифованные сплавы, стабилизированная керамика и упаковки с синтетической тканью.\n\nВсё аккуратно промаркировано, как будто ждало хозяина."; // + случайный материал
 
         _text[515, 0] = "Do not interfere";
         _text[515, 1] = "Не вмешиваться"; //выбор 2

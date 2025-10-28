@@ -232,6 +232,7 @@ public class EventNodePanel : MonoBehaviour
             }
             if (choise.Kind == ChoiceKind.Random && choise.Random.PossibleRewards?.Count > 0)
             {
+                sb.AppendLine();
                 var rndReward = choise.Random;
                 var type = rndReward.PossibleRewards[UnityEngine.Random.Range(0, rndReward.PossibleRewards.Count)];
                 int amount = RollAmount(type, rndReward.RewardCount);

@@ -5,9 +5,11 @@ using Zenject;
 public class ShardsCalculateSystem : MonoBehaviour
 {
     [Inject] private SpaceSaveGame _spaceSaveGame;
+    private int _bossShardReward = 5;
     private int _missionsCompleted;
     private int _eventsCompleted;
     private int _tradersCompleted;
+    private int _bossesCompleted;
     private int _calculatedShards;
     public int GetCalculatedShards() => _calculatedShards;
 
@@ -21,9 +23,12 @@ public class ShardsCalculateSystem : MonoBehaviour
 
         _tradersCompleted = saveData.Map.Nodes.Count(n => n.IsCompleted && (n.NodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.WeaponEngineer));
 
+        _bossesCompleted = saveData.Map.Nodes.Count(n => n.IsCompleted && n.NodeType == NodeType.Boss);
+
         _calculatedShards =
         _missionsCompleted * _missionsCompleted +
         _eventsCompleted +
-        _tradersCompleted;
+        _tradersCompleted +
+        _bossesCompleted * _bossShardReward;
     }
 }

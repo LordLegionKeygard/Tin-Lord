@@ -23,6 +23,12 @@ public class ActInfo : ScriptableObject
 
     [Header("Map-Pattern")]
     public MapPattern MapPattern;
+    public int MaxMissions;
+
+    [Header("Fianl Landscape")]
+    public bool IsFinalAct;
+    public Landscape FinalLandscape;
+
 }
 
 [System.Serializable]

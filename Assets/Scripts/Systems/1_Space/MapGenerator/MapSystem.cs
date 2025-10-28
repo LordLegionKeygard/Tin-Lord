@@ -232,22 +232,33 @@ public class MapSystem : MonoBehaviour
     private void ResolveUnknownNode(int nodeIndex)
     {
         var map = _save.SpaceSaveData.Map;
-        var pattern = _actsInfo[_save.SpaceSaveData.Act].MapPattern.Sequence;
+        var actId = _save.SpaceSaveData.Act;
+        var actInfo = _actsInfo[actId];
+        var pattern = actInfo.MapPattern.Sequence;
 
         var symbol = pattern[map.PatternIndex % pattern.Length];
         map.PatternIndex++;
+
+        // вычисляем потолок миссий для этого акта
+        bool reachedCap = GetCompletedMissionsCount() >= actInfo.MaxMissions;
 
         switch (symbol)
         {
             case MapPatternEnum.Mission:
                 {
-                    int deckIdx = Mathf.Clamp(GetCompletedMissionsCount(), 0, _actsInfo[_save.SpaceSaveData.Act].MissionDeck.Length - 1);
+                    if (!reachedCap)
+                    {
+                        int deckIdx = Mathf.Clamp(GetCompletedMissionsCount(), 0, _actsInfo[_save.SpaceSaveData.Act].MissionDeck.Length - 1);
 
-                    var mNode = BuildMissionRandom(deckIdx, false, out int landIdx, out ObjectiveSave[] obj);
+                        var mNode = BuildMissionRandom(deckIdx, false, out int landIdx, out ObjectiveSave[] obj);
 
-                    ReplacePlaceholder(nodeIndex, mNode, NodeType.Mission, deckIdx, landIdx, obj);
-                    break;
+                        ReplacePlaceholder(nodeIndex, mNode, NodeType.Mission, deckIdx, landIdx, obj);
+                        break;
+                    }
+                    // потолок уже достигнут → пробуем NonMission
+                    goto case MapPatternEnum.NonMission;
                 }
+            case MapPatternEnum.NonMission:
             default:
                 {
                     if (MapHelper.TryPickNonMission(_eventQueue, _resourceTraders, _skillTraders, _weaponEngineers, out NodeData nd, out NodeType nt, out int pool, out int seq))
@@ -256,9 +267,7 @@ public class MapSystem : MonoBehaviour
                     }
                     else
                     {
-                        // если и Event'ов и Trader'ов совсем не осталось —
-                        // паттерн превращаем в миссию
-                        goto case MapPatternEnum.Mission;
+                        Debug.LogError("Не осталось ивентов и трейдеров, этого быть не должно");
                     }
                     break;
                 }
@@ -615,10 +624,10 @@ public class MapSystem : MonoBehaviour
     private MissionNode BuildMissionRandom(int deckIdx, bool isBossNode, out int landscapeIdx, out ObjectiveSave[] savedObj)
     {
         var definition = _actsInfo[_save.SpaceSaveData.Act].MissionDeck[deckIdx];
-        var tplMission = _actsInfo[_save.SpaceSaveData.Act].MissionNodeTemplate;
-        var tplBoss = _actsInfo[_save.SpaceSaveData.Act].BossNode;
+        var templateMission = _actsInfo[_save.SpaceSaveData.Act].MissionNodeTemplate;
+        var templateBoss = _actsInfo[_save.SpaceSaveData.Act].BossNode;
 
-        landscapeIdx = PickUniqueLandscape();
+        landscapeIdx = PickUniqueLandscape(isBossNode);
         var landscape = _actsInfo[_save.SpaceSaveData.Act].Landscapes[landscapeIdx];
         var spawnerSO = definition.Spawner;
 
@@ -640,12 +649,12 @@ public class MapSystem : MonoBehaviour
         node.EnemiesSpawner = spawnerSO;
         node.Objective = objectiveSO;
 
-        var tpl = isBossNode ? tplBoss : tplMission;
-        node.Icon = tpl.Icon;
-        node.IconColor = tpl.IconColor;
-        node.IconWidth = tpl.IconWidth;
-        node.IconHeight = tpl.IconHeight;
-        node.DescriptionTextNumber = tpl.DescriptionTextNumber;
+        var template = isBossNode ? templateBoss : templateMission;
+        node.Icon = template.Icon;
+        node.IconColor = template.IconColor;
+        node.IconWidth = template.IconWidth;
+        node.IconHeight = template.IconHeight;
+        node.DescriptionTextNumber = template.DescriptionTextNumber;
         node.CosmosVariations = landscape.CosmosVariations;
 
         return node;
@@ -681,35 +690,55 @@ public class MapSystem : MonoBehaviour
     }
 
     // возвращает индекс ландшафта, который ещё не использовался
-    private int PickUniqueLandscape()
+    private int PickUniqueLandscape(bool isBoss)
     {
+        var actInfo = _actsInfo[_save.SpaceSaveData.Act];
         var landscapes = _actsInfo[_save.SpaceSaveData.Act].Landscapes;
 
-        // 1) какие уже заняты?
-        HashSet<int> used = new();
+        // если это босс и включён зарезервированный ландшафт — отдать строго его
+        if (isBoss && actInfo.IsFinalAct)
+        {
+            int bossIdx = System.Array.IndexOf(landscapes, actInfo.FinalLandscape);
+            if (bossIdx >= 0) return bossIdx;
+
+            Debug.LogError($"FinalLandscape не найден в ActInfo.Landscapes акта {_save.SpaceSaveData.Act}.");
+        }
+
+        // обычная логика уникального выбора
+        // собираем занятые индексы (только миссии)
+        var used = new HashSet<int>();
         foreach (var n in _save.SpaceSaveData.Map.Nodes)
-        {
             if (n.NodeType == NodeType.Mission && n.SavedLandscapeIndex >= 0)
-            {
                 used.Add(n.SavedLandscapeIndex);
-            }
-        }
 
-        // 2) формируем список свободных
-        List<int> free = new();
-        for (int i = 0; i < landscapes.Length; i++)
+        // если включён босс-резерв — исключаем его из пула для Обычных миссий
+        if (!isBoss && actInfo.IsFinalAct)
         {
-            if (!used.Contains(i)) free.Add(i);
+            int excl = System.Array.IndexOf(landscapes, actInfo.FinalLandscape);
+            if (excl >= 0) used.Add(excl);
         }
 
-        // 3) если всё использовано — разрешаем повторения
+        // формируем список свободных
+        var free = new List<int>();
+        for (int i = 0; i < landscapes.Length; i++)
+            if (!used.Contains(i)) free.Add(i);
+
+        // если всё занято — разрешаем повторы
         if (free.Count == 0)
         {
             for (int i = 0; i < landscapes.Length; i++)
             {
+                if (!isBoss && actInfo.IsFinalAct)
+                {
+                    int excl = System.Array.IndexOf(landscapes, actInfo.FinalLandscape);
+                    if (i == excl) continue;
+                }
                 free.Add(i);
             }
         }
+
+        // крайний случай (совсем маленький массив + исключение): вернём первый доступный
+        if (free.Count == 0) return 0;
 
         return free[Random.Range(0, free.Count)];
     }
