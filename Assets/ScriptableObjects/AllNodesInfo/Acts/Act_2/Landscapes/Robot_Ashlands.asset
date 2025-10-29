@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6e66a00a56736149a69e5056b93ccb2, type: 3}
+  m_Name: Robot_Ashlands
+  m_EditorClassIdentifier: 
+  Name:
+  - Ashlands
+  - "\u041F\u0435\u043F\u0435\u043B\u044C\u043D\u044B\u0435 \u0417\u0435\u043C\u043B\u0438"
+  LandscapeEnum: 11
+  MonsterType: 2
+  MissionView:
+    BiomEnum: 7
+    RockTexture: {fileID: 2800000, guid: 0a673c1ba9094944081d129fb31e6fdd, type: 3}
+    MissionLight:
+      LightRotation: {x: 30.17, y: -151.9}
+      SkyColor: {r: 1, g: 0.9647059, b: 0.8627451, a: 1}
+      EquatorColor: {r: 0.5764706, g: 0.5764706, b: 0.5764706, a: 1}
+      GroundColor: {r: 0.047058824, g: 0.047058824, b: 0.047058824, a: 1}
+      FilterColor: {r: 1, g: 1, b: 1, a: 1}
+      Temperature: 5284
+      Intencity: 1.5
+  LoadingScreenSprite: {fileID: 21300000, guid: ae70a4c191e0dcb40a4ca0ff21832e12,
+    type: 3}
+  StartEcology: 0
+  MapWidth: 12
+  MapLength: 12
+  MapEdge: 4
+  StartPosEdge: 4
+  MissionEvents:
+  - {fileID: 11400000, guid: f0fe6c302849e3645a8ab3899aae67a0, type: 2}
+  Cards:
+  - {fileID: 11400000, guid: 4721036f466c86a4d94c149b6ee8f790, type: 2}
+  - {fileID: 11400000, guid: 419af5759a767c14cb33898e99882029, type: 2}
+  - {fileID: 11400000, guid: 4a4396315f837f14fa447567d9b23600, type: 2}
+  - {fileID: 11400000, guid: 0436ec09a8dc5fb4498827cdea0315b2, type: 2}
+  - {fileID: 11400000, guid: 834e6c1dfd5dcf74480dac385be07c7c, type: 2}
+  - {fileID: 11400000, guid: 3f79d7498863a8d48b1eb22f90ae331b, type: 2}
+  - {fileID: 11400000, guid: adc20fa2d0fb7a04499607598b1290d7, type: 2}
+  DescriptionWrappers:
+  - PanelHeight: 280
+    Description: '-'
+  - PanelHeight: 280
+    Description: '-'
+  CosmosVariations:
+  - PlanetPrefab: {fileID: 1828953206134962, guid: 794d06f53d262aa418da7271a5948b29,
+      type: 3}
+    PlanetPosition: {x: 31.9, y: 9, z: 58.9}
+    PlanetRotation: {x: 0, y: -90.3, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
+    SkyboxRotation: 0
+    LightRotation: {x: 20.599998, y: -11.3, z: 0}
+    Temperature: 7000

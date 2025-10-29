@@ -68,5 +68,5 @@ public enum BiomEnum
     Zone = 4,
     AcidForestAndSwamp = 5,
     BasaltValley = 6,
-    Lava = 7,
+    Ashlands = 7,
 }
