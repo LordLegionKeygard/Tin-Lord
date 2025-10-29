@@ -1,68 +1,149 @@
+#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
+using System.IO;
+using System.Linq;
 
-[DisallowMultipleComponent]
-[ExecuteAlways]
-public class ClearThisTerrainDetails : MonoBehaviour
+public static class RebuildTerrainWithoutDetails
 {
-    [Tooltip("Если включить — после очистки удалит сами DetailPrototype-ы (слои травы) из TerrainData.")]
-    public bool removeDetailPrototypes = false;
-
-    [Tooltip("Снизить detail resolution до безопасного (уменьшает память у битого террейна).")]
-    public bool shrinkDetailResolution = true;
-
-    [Tooltip("Безопасное целевое разрешение карты деталей.")]
-    public int safeDetailResolution = 256;
-
-    Terrain _terrain;
-
-    void OnEnable()
+    // Меню: Tools → Terrain (Safe) → Rebuild Without Details (Selected)
+    [MenuItem("Tools/Terrain (Safe)/Rebuild Without Details (Selected)")]
+    public static void RebuildSelected()
     {
-        _terrain = GetComponent<Terrain>();
-    }
+        var terrains = Selection.gameObjects
+            .Select(go => go.GetComponent<Terrain>())
+            .Where(t => t && t.terrainData != null)
+            .Distinct()
+            .ToArray();
 
-    [ContextMenu("Clear Details (this Terrain)")]
-    public void ClearDetails()
-    {
-        if (_terrain == null || _terrain.terrainData == null)
+        if (terrains.Length == 0)
         {
-            Debug.LogWarning("[Terrain] Не найден Terrain на этом объекте.", this);
+            Debug.LogWarning("[TerrainSafe] Выдели объект(ы) с Terrain.");
             return;
         }
 
-        var td = _terrain.terrainData;
-
-        // Временно отключим отрисовку, чтобы редактор не падал
-        _terrain.detailObjectDistance = 0f;
-        _terrain.detailObjectDensity  = 0f;
-
-        int w = td.detailWidth;
-        int h = td.detailHeight;
-
-        // Обнуляем карты плотности для всех слоёв деталей
-        var zeros = new int[h, w];
-        for (int layer = 0; layer < td.detailPrototypes.Length; layer++)
+        foreach (var t in terrains)
         {
-            td.SetDetailLayer(0, 0, layer, zeros);
+            try { RebuildOne(t); }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"[TerrainSafe] Ошибка на '{t.name}': {e}");
+            }
         }
 
-        // Опционально уменьшаем resolution (лечит раздутые карты)
-        if (shrinkDetailResolution)
-        {
-            int target = Mathf.Max(32, Mathf.Min(safeDetailResolution, Mathf.Min(w, h)));
-            // patchSize = 8 — безопасное дефолтное значение
-            td.SetDetailResolution(target, 8);
-        }
-
-        // Опционально удаляем сами слои травы
-        if (removeDetailPrototypes)
-        {
-            td.detailPrototypes = System.Array.Empty<DetailPrototype>();
-        }
-
-        Debug.Log($"[Terrain] Details очищены на '{_terrain.name}'. " +
-                  $"Layers: {td.detailPrototypes.Length}, Res: {td.detailWidth}x{td.detailHeight}", this);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Debug.Log($"[TerrainSafe] Готово. Пересобрано террейнов: {terrains.Length} (детали удалены).");
     }
 
-    // Удобная кнопка для рантайма (можно вызывать из кода)
-    public void ClearNowRuntime() => ClearDetails();
+    private static void RebuildOne(Terrain terrain)
+    {
+        var src = terrain.terrainData;
+        string srcPath = AssetDatabase.GetAssetPath(src);
+
+        // Куда положим новый asset
+        string dir = string.IsNullOrEmpty(srcPath) ? "Assets" : Path.GetDirectoryName(srcPath);
+        string baseName = string.IsNullOrEmpty(srcPath) ? terrain.name : Path.GetFileNameWithoutExtension(srcPath);
+        string newPath = AssetDatabase.GenerateUniqueAssetPath(Path.Combine(dir, baseName + "_NoDetails.asset"));
+
+        // 1) Создаём пустой TerrainData
+        var dst = new TerrainData();
+
+        // Размеры террейна (мир)
+        dst.size = src.size;
+
+        // --- HEIGHTMAP ---
+        // Совпадающее разрешение карты высот
+        int hRes = src.heightmapResolution;
+        dst.heightmapResolution = hRes;
+        CopyHeightsChunked(src, dst, 512);
+
+        // --- SPLAT/TERRAIN LAYERS ---
+        // В URP/HDRP используются TerrainLayer-ы — просто копируем ссылки
+        dst.terrainLayers = src.terrainLayers;
+
+        // Совпадающее разрешение альфа-карт
+        dst.alphamapResolution = src.alphamapResolution;
+        CopyAlphamapsChunked(src, dst, 256);
+
+        // --- TREES ---
+        dst.treePrototypes = src.treePrototypes;      // типы деревьев
+        dst.treeInstances  = src.treeInstances;       // инстансы деревьев
+
+        // --- DETAILS: НЕ КОПИРУЕМ ---
+        // Ставим маленькое разрешение и пустые слои, чтобы гарантированно не падать
+        dst.SetDetailResolution(64, 8);
+        dst.detailPrototypes = System.Array.Empty<DetailPrototype>();
+
+        // Создаём asset и привязываем
+        AssetDatabase.CreateAsset(dst, newPath);
+        AssetDatabase.ImportAsset(newPath);
+
+        Undo.RecordObject(terrain, "Assign TerrainData (No Details)");
+        terrain.terrainData = dst;
+
+        // Безопасно: отключим расстояние/плотность деталей на объекте
+        terrain.detailObjectDistance = 0f;
+        terrain.detailObjectDensity  = 0f;
+
+        Debug.Log($"[TerrainSafe] '{terrain.name}': создан {newPath} без деталей.");
+    }
+
+    // ------- helpers -------
+
+    private static void CopyHeightsChunked(TerrainData src, TerrainData dst, int chunk)
+    {
+        int res = src.heightmapResolution; // квадрат
+        var tmp = new float[chunk, chunk];
+
+        for (int y = 0; y < res; y += chunk)
+        {
+            int hh = Mathf.Min(chunk, res - y);
+            for (int x = 0; x < res; x += chunk)
+            {
+                int ww = Mathf.Min(chunk, res - x);
+                var block = src.GetHeights(x, y, ww, hh);
+                // У GetHeights/SetHeights индексы (y,x)
+                dst.SetHeightsDelayLOD(x, y, block);
+            }
+        }
+        dst.SyncHeightmap(); // применить отложенные изменения
+    }
+
+    #if UNITY_2019_3_OR_NEWER
+    private static void CopyHolesChunked(TerrainData src, TerrainData dst, int chunk)
+    {
+        int w = src.holesResolution;
+        int h = src.holesResolution;
+        for (int y = 0; y < h; y += chunk)
+        {
+            int hh = Mathf.Min(chunk, h - y);
+            for (int x = 0; x < w; x += chunk)
+            {
+                int ww = Mathf.Min(chunk, w - x);
+                var block = src.GetHoles(x, y, ww, hh);
+                dst.SetHoles(x, y, block);
+            }
+        }
+    }
+    #endif
+
+    private static void CopyAlphamapsChunked(TerrainData src, TerrainData dst, int chunk)
+    {
+        int w = src.alphamapWidth;
+        int h = src.alphamapHeight;
+        int layers = src.alphamapLayers;
+
+        for (int y = 0; y < h; y += chunk)
+        {
+            int hh = Mathf.Min(chunk, h - y);
+            for (int x = 0; x < w; x += chunk)
+            {
+                int ww = Mathf.Min(chunk, w - x);
+                var block = src.GetAlphamaps(x, y, ww, hh); // [hh, ww, layers]
+                dst.SetAlphamaps(x, y, block);
+            }
+        }
+    }
 }
+#endif
