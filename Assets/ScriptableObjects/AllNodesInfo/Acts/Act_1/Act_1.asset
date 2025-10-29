@@ -59,9 +59,11 @@ MonoBehaviour:
   MissionNodeTemplate: {fileID: 11400000, guid: 4b4634f94e8a6f64e85554f13258c43f,
     type: 2}
   Landscapes:
-  - {fileID: 11400000, guid: 6b90a9dd05ca2cf42b930ee9184b1102, type: 2}
-  - {fileID: 11400000, guid: 6b90a9dd05ca2cf42b930ee9184b1102, type: 2}
-  - {fileID: 11400000, guid: 6b90a9dd05ca2cf42b930ee9184b1102, type: 2}
-  - {fileID: 11400000, guid: 6b90a9dd05ca2cf42b930ee9184b1102, type: 2}
+  - {fileID: 11400000, guid: f433fbf1b5bb22d499c47c344732f4e1, type: 2}
+  - {fileID: 11400000, guid: f433fbf1b5bb22d499c47c344732f4e1, type: 2}
+  - {fileID: 11400000, guid: f433fbf1b5bb22d499c47c344732f4e1, type: 2}
+  - {fileID: 11400000, guid: f433fbf1b5bb22d499c47c344732f4e1, type: 2}
   MapPattern: {fileID: 11400000, guid: 1e88e12a2fdf3d44b8ff90eaffca93af, type: 2}
   MaxMissions: 3
+  IsFinalAct: 0
+  FinalLandscape: {fileID: 0}
