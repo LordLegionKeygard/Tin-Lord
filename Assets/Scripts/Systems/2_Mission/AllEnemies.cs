@@ -32,4 +32,18 @@ public enum EnemyEnum
     Robot_4_DroidBipedSentinel = 15,
     Robot_5_Etasphera10 = 16,
     Robot_Boss_ScoutDroid = 17,
+
+    Acid_1_Entomorane = 18,
+    Acid_2_Arack = 19,
+    Acid_3_Rapax  = 20,
+    Acid_4_Tripodonte = 21,
+    Acid_5_Karckmahre = 22,
+    Acid_Boss_Ingenalvus = 23,
+
+    Rock_1_Venodonte = 24,
+    Rock_2_Serpenopod = 25,
+    Rock_3_Pardathrox = 26,
+    Rock_4_Arthromahre = 27,
+    Rock_5_Scolokarck = 28,
+    Rock_Boss_Crustaspikan = 29,
 }

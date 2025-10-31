@@ -143,5 +143,6 @@ public enum BulletEnum
     Enemy_GiantRocket = 15,
     Enemy_MediumRocket = 16,
     Any_BigIceCrystal_Bullet = 17,
+    Any_Spores_Bullet = 18,
 }
 
