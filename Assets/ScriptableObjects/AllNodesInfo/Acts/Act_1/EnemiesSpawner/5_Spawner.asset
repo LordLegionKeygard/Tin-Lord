@@ -20,23 +20,13 @@ MonoBehaviour:
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
       - MonsterType: 3
-        EnemyEnum: 20
+        EnemyEnum: 21
       EnemyLevel: 1
-  MiniBossSpawners:
-  - DaySpawn: 4
-    Count: 0
-    HealthFactor: 3
-    DamageFactor: 1
-    LandscapeSpawnSide: []
-    EnemySpawnerInfo:
-      EnemyBiomeInfo:
-      - MonsterType: 3
-        EnemyEnum: 18
-      EnemyLevel: 3
+  MiniBossSpawners: []
   BossSpawner:
     Bosses:
     - MonsterType: 3
       EnemyEnum: 11
     BossLevel: 1
-    BossDaySpawn: 10
+    BossDaySpawn: 100
     LandscapeSpawnSide: []
