@@ -66,9 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281543068655f0a4f8e4508bcf58cd14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _model: {fileID: 0}
   _speed: 80
+  _model: {fileID: 0}
   _needTimeAfterHit: 0
+  _destroyTimeAfterHit: 0
   _explosionPrefab: {fileID: 1892133220914832, guid: 06c109bf6a832d64091bf472379a890a,
     type: 3}
 --- !u!1 &100002

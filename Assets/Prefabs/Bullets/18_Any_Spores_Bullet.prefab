@@ -4833,8 +4833,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4347979542021874}
-  - component: {fileID: 7891571496201560695}
   - component: {fileID: 198769173318898536}
+  - component: {fileID: 7891571496201560695}
   - component: {fileID: 199578215912376750}
   m_Layer: 0
   m_Name: 18_Any_Spores_Bullet
@@ -4861,21 +4861,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7891571496201560695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1473103337094032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea0024aa55d81094bbe5e8f03f455a06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _model: {fileID: 0}
-  _speed: 20
-  _needTimeAfterHit: 1
 --- !u!198 &198769173318898536
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -9595,6 +9580,22 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &7891571496201560695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473103337094032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea0024aa55d81094bbe5e8f03f455a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 20
+  _model: {fileID: 0}
+  _needTimeAfterHit: 1
+  _destroyTimeAfterHit: 3
 --- !u!199 &199578215912376750
 ParticleSystemRenderer:
   serializedVersion: 6

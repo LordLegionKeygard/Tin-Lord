@@ -1413,7 +1413,8 @@ MonoBehaviour:
     FirePoints:
     - {fileID: 8950419300961276741}
   _creatureSkillsWrapper:
-  - SkillPrefab: {fileID: 5638209552862081304, guid: 5cfaa991c5008d94d9cae24caeeb9660,
+  - TriggerStayDamageFactor: 0.005
+    SkillPrefab: {fileID: 5638209552862081304, guid: 5cfaa991c5008d94d9cae24caeeb9660,
       type: 3}
     SkillPoint: {fileID: 1571049068611273217}
     InFirePoint: 0
@@ -1421,7 +1422,6 @@ MonoBehaviour:
     - {fileID: 3129617861049597705}
     - {fileID: 7712205720739597308}
     ParticlesTimer: 3
-  _triggerStayDamageFactor: 0.005
 --- !u!114 &1571049067697286927
 MonoBehaviour:
   m_ObjectHideFlags: 0

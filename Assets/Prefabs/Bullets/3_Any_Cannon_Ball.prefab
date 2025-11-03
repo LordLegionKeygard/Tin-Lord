@@ -98,7 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 80
+  _model: {fileID: 0}
   _needTimeAfterHit: 0
+  _destroyTimeAfterHit: 0
 --- !u!1 &5827382324522632594
 GameObject:
   m_ObjectHideFlags: 0

@@ -4943,9 +4943,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281543068655f0a4f8e4508bcf58cd14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _model: {fileID: 175940813330839914}
   _speed: 40
+  _model: {fileID: 175940813330839914}
   _needTimeAfterHit: 0
+  _destroyTimeAfterHit: 0
   _explosionPrefab: {fileID: 1892133220914832, guid: 80d3ce11425f3494f9448802ab520462,
     type: 3}
 --- !u!1 &5079227939428490067

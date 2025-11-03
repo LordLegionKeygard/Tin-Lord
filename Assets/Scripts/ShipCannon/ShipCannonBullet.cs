@@ -5,8 +5,7 @@ public class ShipCannonBullet : MonoBehaviour
 {
     [SerializeField] private LayerMask _hitMask;
     [SerializeField] private GameObject _model;
-    [SerializeField] private bool _needTimeAfterHit;
-    private float _duration = 1.5f;
+    [SerializeField] private float _destroyTimeAfterHit;
     private BulletsPool _pool;
     private BulletEnum _type;
     private float _speed;
@@ -67,7 +66,7 @@ public class ShipCannonBullet : MonoBehaviour
     private void TryReturnBullet()
     {
         _inited = false;
-        if (_needTimeAfterHit)
+        if (_destroyTimeAfterHit > 0)
         {
             if (_model != null) _model.SetActive(false);
             StartCoroutine(nameof(ReturnBulletCoroutine));
@@ -82,7 +81,7 @@ public class ShipCannonBullet : MonoBehaviour
     {
         float elapsedTime = 0;
 
-        while (elapsedTime < _duration)
+        while (elapsedTime < _destroyTimeAfterHit)
         {
             elapsedTime += Time.deltaTime;
             yield return null;

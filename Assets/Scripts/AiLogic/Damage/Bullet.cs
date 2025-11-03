@@ -3,16 +3,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private float _speed;
     [SerializeField] private GameObject _model;
-    [SerializeField] private float _speed = 80;
-    public bool _needTimeAfterHit;
+    [SerializeField] private float _destroyTimeAfterHit = 1.5f;
     protected float _damage;
     protected float _knockbackPoints;
     private BulletsPool _bulletsPool;
     private BulletEnum _bulletEnum;
     protected BaseHealth _targetHealth;
     protected Transform _targetTransform;
-    private float _duration = 1.5f;
     private bool _isHitTarget;
     private Camera _mainCamera;
     private Vector3 _cameraForwardNormalized;
@@ -97,7 +96,7 @@ public class Bullet : MonoBehaviour
             _targetHealth.CalculateDamage(_damage, _knockbackPoints);
         }
 
-        if (_needTimeAfterHit)
+        if (_destroyTimeAfterHit > 0)
         {
             if (_model != null) _model.SetActive(false);
             StartCoroutine(nameof(ReturnBulletCoroutine));
@@ -109,7 +108,7 @@ public class Bullet : MonoBehaviour
     {
         float elapsedTime = 0;
 
-        while (elapsedTime < _duration)
+        while (elapsedTime < _destroyTimeAfterHit)
         {
             elapsedTime += Time.deltaTime;
             yield return null;

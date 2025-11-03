@@ -8,7 +8,6 @@ public class BossDamage : BaseDamage
     [Inject] readonly BulletsPool _bulletsPool;
     [SerializeField] private BulletFromPoolWrapper _bulletFromPoolWrapper;
     [SerializeField] private CreatureSkillsWrapper[] _creatureSkillsWrapper;
-    [SerializeField] private float _triggerStayDamageFactor;
     private EnemyLevel _enemyLevel;
     private EnemyAttacks _attacks;
     private EnemyStateChanger _stateChanger;
@@ -64,8 +63,8 @@ public class BossDamage : BaseDamage
             skill.transform.SetParent(skillWrapper.SkillPoint);
             skill.transform.rotation = skillWrapper.SkillPoint.rotation;
         }
-        var bossSkillTriggerStayDamage = skill.GetComponent<BossSkillTriggerStayDamage>();
-        if (bossSkillTriggerStayDamage != null) bossSkillTriggerStayDamage.SetDamage(Damage * _triggerStayDamageFactor);
+        var bossSkillTriggerStayDamage = skill.GetComponent<BaseSkillTriggerStayDamage>();
+        if (bossSkillTriggerStayDamage != null) bossSkillTriggerStayDamage.SetDamage(Damage * skillWrapper.TriggerStayDamageFactor);
     }
 
     private void ActiveParticles(CreatureSkillsWrapper wrapper)
@@ -100,6 +99,7 @@ public class BulletFromPoolWrapper
 [System.Serializable]
 public class CreatureSkillsWrapper
 {
+    public float TriggerStayDamageFactor;
     public GameObject SkillPrefab;
     public Transform SkillPoint;
     public bool InFirePoint;
