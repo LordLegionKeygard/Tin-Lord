@@ -149,7 +149,7 @@ public class MissionInputSystem : MonoBehaviour
 
         //MouseClick
         _leftMouseClick = new LeftMouseClick(_inputDetector.InputOnTile);
-        _rightMouseClick = new RightMouseClick(_uiPanels.ClearAndCancelCardHolderAndTileDetector);
+        _rightMouseClick = new RightMouseClick(_uiPanels.ClearAndCancelCardHolderAndTileDetectors);
         _middleMouseClick = new MiddleMouseClick(_skillTargetSystem.CancelSkillCircle);
 
         //GameSpeed

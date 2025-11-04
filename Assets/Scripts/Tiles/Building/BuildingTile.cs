@@ -346,6 +346,7 @@ public class BuildingTile : MonoBehaviour
       if (!isUpgrade) _buildingHealth.DestroyHealthSlider(); // вызываем еще раз, так как есть ситуации, когда не вызывается уничтожение слайдера, например уничтожаем сами, а не через реальную смерть
       _currentBuildingTile = null;
       _currentLevel = 0;
+      _tacticCardIncreaseDamageLevel = 0;
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
 
       var tileObjectsView = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<TileObjectsView>();

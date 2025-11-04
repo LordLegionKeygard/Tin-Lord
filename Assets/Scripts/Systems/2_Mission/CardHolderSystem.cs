@@ -5,6 +5,7 @@ using Zenject;
 
 public class CardHolderSystem : MonoBehaviour
 {
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly DiContainer _diContainer;
     [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly MissionResources _missionResources;
@@ -81,7 +82,6 @@ public class CardHolderSystem : MonoBehaviour
     public void CancelSelectCard()
     {
         if (_currentSelectCardObject == null) return;
-
         _currentSelectCardObject.SelectViewToggle(false);
         ClearCardHolderSystem();
     }
@@ -217,7 +217,7 @@ public class CardHolderSystem : MonoBehaviour
     private void AddCardsAfterDayEnd(int dayNumber)
     {
         AddNewRandomTileCards(2);
-        AddNewRandomTacticCard();
+        if (_tutorialSystem.IsCompleteMissionTutorial()) AddNewRandomTacticCard();
     }
 
     private void ClearCardHolderSystem()

@@ -6,7 +6,7 @@ public class UIPanelsMission : MonoBehaviour
     [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
-    [SerializeField] private TileDetector _tileDetector;
+    [SerializeField] private InputDetector _inputDetector;
     [SerializeField] private SkillTargetSystem _skillTargetSystem;
 
     [Header("Panels")]
@@ -45,9 +45,9 @@ public class UIPanelsMission : MonoBehaviour
         {
             _selectTilePanel.DestroyPanelToggleAndRefreshButtonColor(false);
         }
-        else if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() || _tileDetector.IsHaveCurrentSelectedTileObject())
+        else if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() || _inputDetector.IsHaveCurrentSelectedTileObject())
         {
-            ClearAndCancelCardHolderAndTileDetector();
+            ClearAndCancelCardHolderAndTileDetectors();
         }
         else if (_settingsPanelObject.activeInHierarchy)
         {
@@ -71,15 +71,15 @@ public class UIPanelsMission : MonoBehaviour
         _selectTilePanel.PanelViewToggle(false);
         _missionResourcePanel.PanelClose();
         _missionHolderPanel.PanelClose();
-        ClearAndCancelCardHolderAndTileDetector();
+        ClearAndCancelCardHolderAndTileDetectors();
     }
 
-    public void ClearAndCancelCardHolderAndTileDetector()
+    public void ClearAndCancelCardHolderAndTileDetectors()
     {
         CustomEvents.FireTooltipToggle(false, 0);
         if (_tutorialSystem.CanClearTileDetector())
         {
-            _tileDetector.ClearTileDetector();
+            _inputDetector.ClearDetectors();
         }
         if (_tutorialSystem.CanCancelSeletCard())
         {
