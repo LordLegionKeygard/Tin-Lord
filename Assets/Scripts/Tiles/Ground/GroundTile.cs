@@ -149,7 +149,7 @@ public class GroundTile : MonoBehaviour
         _tileObject.GetNeighbourGroundTile(2).TurnOffTileCollider();
     }
 
-    public void SpawnGroundTile(GroundTileViewEnum previousGroundTileViewEnum = GroundTileViewEnum.None)
+    public void SpawnGroundTile(int previousGroundTileId = -1)
     {
         if (_currentGroundTile == null) return;
         if (_currentGroundTile.GroundTileView != GroundTileViewEnum.Road) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.GroundTiles[(int)CurrentGroundTile().GroundTileView - 1], transform.position);
@@ -166,11 +166,11 @@ public class GroundTile : MonoBehaviour
 
         _currentGroundTileObject.transform.SetParent(_groundParent);
 
-        if (previousGroundTileViewEnum != GroundTileViewEnum.None) // его передает только ивент EarthQuake при землетрясении
+        if (previousGroundTileId != -1) // его передает только ивент EarthQuake при землетрясении
         {
-            _tileObject.SetRiftViewNumber((int)previousGroundTileViewEnum);
+            _tileObject.SetRiftViewTileId(previousGroundTileId);
             var riftSetTileMaterial = _currentGroundTileObject.GetComponent<RiftSetTileMaterial>();
-            riftSetTileMaterial.SetMaterial(previousGroundTileViewEnum); //для рифта передаем прошлый тайл
+            riftSetTileMaterial.SetMaterial(previousGroundTileId); //для рифта передаем прошлый тайл
         }
 
         RefreshGroundTile();
@@ -184,7 +184,7 @@ public class GroundTile : MonoBehaviour
 
     public void LoadGroundTile(TileDataWrapper tileDataWrapper)
     {
-        _currentGroundTile = _tilesSystem.GetGroundTileForNumber(tileDataWrapper.GroundData.GroundTileId);
+        _currentGroundTile = _tilesSystem.GetGroundTileForId(tileDataWrapper.GroundData.GroundTileId);
 
         _currentGroundTileObject = _diContainer.InstantiatePrefab(_currentGroundTile.TileObject, _groundParent.position, Quaternion.identity, null);
         _currentGroundTileObject.transform.SetParent(_groundParent);
@@ -216,9 +216,9 @@ public class GroundTile : MonoBehaviour
 
         if (_currentGroundTile.GroundTileView == GroundTileViewEnum.Rift)
         {
-            _tileObject.SetRiftViewNumber(tileDataWrapper.GroundData.RiftViewNumber);
+            _tileObject.SetRiftViewTileId(tileDataWrapper.GroundData.RiftViewTileId);
             var riftSetTileMaterial = _currentGroundTileObject.GetComponent<RiftSetTileMaterial>();
-            riftSetTileMaterial.SetMaterial(_tilesSystem.GetGroundTileForNumber(tileDataWrapper.GroundData.RiftViewNumber).GroundTileView);
+            riftSetTileMaterial.SetMaterial(_tilesSystem.GetGroundTileForId(tileDataWrapper.GroundData.RiftViewTileId).Id);
         }
     }
 

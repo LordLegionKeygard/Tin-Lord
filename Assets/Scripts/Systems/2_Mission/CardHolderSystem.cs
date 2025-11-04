@@ -22,12 +22,16 @@ public class CardHolderSystem : MonoBehaviour
     [SerializeField] private Tile[] _startCards;
     [SerializeField] private List<CardObject> _currentCards;
     [SerializeField] private CardObject _currentSelectCardObject;
-    private Tile[] _availableCards;
+    private Card[] _availableTileCards;
+    private Card[] _availableTacticCards;
 
 
     public bool IsHaveCurrentSelectedCardObject() => _currentSelectCardObject != null;
     public Tile CurrentCardHolderSelectedTile() => _currentSelectCardObject.GetTile();
-    public bool CheckCurrentCardHolderSelectedTileIsFourTile() => _currentSelectCardObject == null ? false : _currentSelectCardObject.GetTile().IsFourTile;
+    public bool CheckCurrentCardHolderSelectedTileIsFourTile() => _currentSelectCardObject == null || !IsSelectedCardTile() ? false : _currentSelectCardObject.GetTile().IsFourTile;
+    public Card CurrentSelectedCard() => _currentSelectCardObject?.GetCard();
+    public bool IsSelectedCardTile() => CurrentSelectedCard() is Tile;
+
 
     private void Awake()
     {
@@ -41,15 +45,15 @@ public class CardHolderSystem : MonoBehaviour
 
         if (isStartMission)
         {
-            AddNewCards(new Tile[] { _baseCard });          
+            AddNewCards(new Card[] { _baseCard });
         }
         else
         {
-            var loadCards = new Tile[cards.Length];
+            var loadCards = new Card[cards.Length];
 
             for (int i = 0; i < cards.Length; i++)
             {
-                loadCards[i] = _tilesSystem.GetGroundTileForNumber(cards[i]);
+                loadCards[i] = _tilesSystem.GetCardForId(cards[i]);
             }
 
             AddNewCards(loadCards);
@@ -58,7 +62,8 @@ public class CardHolderSystem : MonoBehaviour
 
     private void SetAvailableCards()
     {
-        _availableCards = CurrentMissionInfo.Instance.GetCurrentLandscape().Cards;
+        _availableTileCards = CurrentMissionInfo.Instance.GetCurrentLandscape().Cards;
+        _availableTacticCards = CurrentMissionInfo.Instance.GetCurrentLandscape().TacticCards;
     }
 
     public int[] GetAllCards()
@@ -67,7 +72,7 @@ public class CardHolderSystem : MonoBehaviour
 
         for (int i = 0; i < _currentCards.Count; i++)
         {
-            cards[i] = (int)_currentCards[i].GetTile().GroundTileView;
+            cards[i] = _currentCards[i].GetCard().Id;
         }
 
         return cards;
@@ -81,33 +86,30 @@ public class CardHolderSystem : MonoBehaviour
         ClearCardHolderSystem();
     }
 
-    public void AddNewCards(Tile[] tiles)
+    public void AddNewCards(Card[] cards)
     {
-        int cardsToAdd = tiles.Length;
-        int cardsToRemove = Mathf.Max(0, _currentCards.Count + cardsToAdd - _cardsLayout.MaxCards());
+        int cardsToAddCount = cards.Length;
+        int cardsToRemove = Mathf.Max(0, _currentCards.Count + cardsToAddCount - _cardsLayout.MaxCards());
 
         if (cardsToRemove > 0)
         {
-            RemoveFirstCards(cardsToRemove, () =>
-            {
-                AddCards(tiles);
-            });
+            RemoveFirstCards(cardsToRemove, () => AddCards(cards));
         }
         else
         {
-            AddCards(tiles);
+            AddCards(cards);
         }
     }
 
-    private void AddCards(Tile[] tiles)
+    private void AddCards(Card[] cards)
     {
-        foreach (var tile in tiles)
+        foreach (var cardAsset in cards)
         {
             var card = _diContainer.InstantiatePrefab(_cardObject, transform.position, Quaternion.identity, null);
             var cardObject = card.GetComponent<CardObject>();
             _currentCards.Add(cardObject);
             card.transform.SetParent(_cardsLayout.gameObject.transform, false);
-            cardObject.SetCardInfo(tile, this);
+            cardObject.SetCardInfo(cardAsset, this);
 
             _cardsLayout.PositionNewCard(cardObject, _currentCards.Count - 1);
         }
@@ -174,17 +176,34 @@ public class CardHolderSystem : MonoBehaviour
         _currentSelectCardObject = newCardObject;
     }
 
-    private void AddNewRandomCards(int cards)
+    private void AddNewRandomTileCards(int cards)
     {
-        Tile[] randomTiles = new Tile[cards];
+        Card[] randomCards = new Card[cards];
 
         for (int i = 0; i < cards; i++)
         {
-            var rndCard = Random.Range(0, _availableCards.Length);
-            randomTiles[i] = _availableCards[rndCard];
+            var rndCard = Random.Range(0, _availableTileCards.Length);
+            randomCards[i] = _availableTileCards[rndCard];
         }
 
-        AddNewCards(randomTiles);
+        AddNewCards(randomCards);
+    }
+
+    private void AddNewRandomTacticCard()
+    {
+        var rnd = Random.Range(0, 100);
+
+        if (rnd > WorldGameInfo.TacticCardChance) return;
+
+        Card[] randomCards = new Card[1];
+
+        for (int i = 0; i < 1; i++)
+        {
+            var rndCard = Random.Range(0, _availableTacticCards.Length);
+            randomCards[i] = _availableTacticCards[rndCard];
+        }
+
+        AddNewCards(randomCards);
     }
 
     private void AddCardAfterSetBase(int level)
@@ -192,12 +211,13 @@ public class CardHolderSystem : MonoBehaviour
         if (level > 1) return;
 
         AddNewCards(_startCards);
-        AddNewRandomCards(2);
+        AddNewRandomTileCards(2);
     }
 
     private void AddCardsAfterDayEnd(int dayNumber)
     {
-        AddNewRandomCards(2);
+        AddNewRandomTileCards(2);
+        AddNewRandomTacticCard();
     }
 
     private void ClearCardHolderSystem()
@@ -205,13 +225,13 @@ public class CardHolderSystem : MonoBehaviour
         _currentSelectCardObject = null;
     }
 
-    public Tile GetRandomAvailableCardExcept(Tile except)
+    public Card GetRandomAvailableCardExcept(Card except)
     {
-        List<Tile> pool = new();
-        for (int i = 0; i < _availableCards.Length; i++)
+        List<Card> pool = new();
+        for (int i = 0; i < _availableTileCards.Length; i++)
         {
-            var t = _availableCards[i];
-            if (t != null && t.GroundTileView != except.GroundTileView)
+            var t = _availableTileCards[i];
+            if (t != null && t.Name != except.Name)
             {
                 pool.Add(t);
             }

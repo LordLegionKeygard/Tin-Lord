@@ -1,12 +1,13 @@
 using UnityEngine;
+using Zenject;
 
 public class RiftSetTileMaterial : MonoBehaviour
 {
+    [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private MeshRenderer _meshRenderer;
-    [SerializeField] private Material[] _allMaterials;
 
-    public void SetMaterial(GroundTileViewEnum groundTileViewEnum)
+    public void SetMaterial(int id)
     {
-        _meshRenderer.material = _allMaterials[(int)groundTileViewEnum - 1];
+        _meshRenderer.material = _tilesSystem.GetGroundTileForId(id).MaterialForRift;     
     }
 }

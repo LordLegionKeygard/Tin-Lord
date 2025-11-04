@@ -17,7 +17,7 @@ public class BuildingHealth : BaseHealth
     private BuildingSliderWorkView _buildingSliderWorkView;
     private bool _isConstructionNow;
     public bool IsContructionNow() => _isConstructionNow;
-    public override Tile BuildingTile() => _buildingTile.CurrentBuildingTile();
+    public override Tile BuildingTile() => _buildingTile.GetCurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
     public bool IsFullHealth() => _currentHealth == _maxHealth;
     public float GetCurrentHealthPercent() => _currentHealth / _maxHealth;
@@ -26,7 +26,7 @@ public class BuildingHealth : BaseHealth
 
     public override bool IsDeath()
     {
-        var state = _isDeath || !_buildingTile.HaveTile();
+        var state = _isDeath || !_buildingTile.IsHaveTile();
         return state;
     }
 
@@ -43,7 +43,7 @@ public class BuildingHealth : BaseHealth
 
     private void BuidingDecay(int _)
     {
-        if (_buildingTile.HaveTile() && !_buildingTile.IsConstructionNow() && _buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Traps)
+        if (_buildingTile.IsHaveTile() && !_buildingTile.IsConstructionNow() && _buildingTile.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Traps)
         {
             CalculateDamage(CalculateHealthFromPercent(5));
         }
@@ -86,7 +86,7 @@ public class BuildingHealth : BaseHealth
     {
         // сетапим здание для отображения умений через получение событий
         var buildingSliderSkillView = _healthSliderObject.GetComponent<BuildingSliderSkillView>();
-        buildingSliderSkillView.SetBuildingTile(_buildingTile.CurrentBuilding());
+        buildingSliderSkillView.SetBuildingTile(_buildingTile.GetCurrentBuilding());
 
         // берем компонент BuildingWorkView для постоянного отображения не хватки ресурса и работы здания
         _buildingSliderWorkView = _healthSliderObject.GetComponent<BuildingSliderWorkView>();
@@ -131,7 +131,7 @@ public class BuildingHealth : BaseHealth
 
     public override void CalculateDamage(float damage, float knockBackPoints = 0)
     {
-        if (!_buildingTile.HaveTile()) return;
+        if (!_buildingTile.IsHaveTile()) return;
         if (IsDeath()) return;
 
         var extraDamage = _isConstructionNow ? WorldGameInfo.ConstructionExtraDamage : 1;
@@ -160,15 +160,15 @@ public class BuildingHealth : BaseHealth
 
     public override void Death()
     {
-        if (!_buildingTile.HaveTile()) return;
+        if (!_buildingTile.IsHaveTile()) return;
 
-        if (_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base)
+        if (_buildingTile.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Base)
         {
             CustomEvents.FireMissionEnd(MissionEndEnum.Defeat);
         }
         else AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.DestructionBuilding, transform.position);
 
-        if (_buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.MachineProduction)
+        if (_buildingTile.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.MachineProduction)
         {
             _tilesSystem.SetIsHaveMachineProduction(false);
             CustomEvents.FireDestroyMachineProductionBuilding();
@@ -186,8 +186,8 @@ public class BuildingHealth : BaseHealth
 
     private IEnumerator FadeAndDestroy()
     {
-        var spawnPos = _buildingTile.CurrentBuildingTile().IsFourTile ? _fourTileTransform.position : transform.position;
-        Instantiate(_buildingTile.CurrentBuilding().DestroyVFXPrefab, spawnPos, Quaternion.identity);
+        var spawnPos = _buildingTile.GetCurrentBuildingTile().IsFourTile ? _fourTileTransform.position : transform.position;
+        Instantiate(_buildingTile.GetCurrentBuilding().DestroyVFXPrefab, spawnPos, Quaternion.identity);
 
         if (!_isConstructionNow)
         {

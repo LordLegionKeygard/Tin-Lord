@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Crater
   - "\u041A\u0440\u0430\u0442\u0435\u0440"
+  Icon: {fileID: 21300000, guid: 325bafba7b147b24fa86fcda3baeb987, type: 3}
+  Kind: 0
+  Id: 26
   TileObject: {fileID: 1783138857758652465, guid: cc2331eca4172bc418a25eb96597c3f1,
     type: 3}
-  Icon: {fileID: 21300000, guid: 325bafba7b147b24fa86fcda3baeb987, type: 3}
   TileTypeEnum: 0
   GroundTileView: 27
   GroundEcology: -2
@@ -29,3 +31,4 @@ MonoBehaviour:
   ProductionOnGroundResources: []
   BuildingTileView: -1
   Buildings: []
+  MaterialForRift: {fileID: 2100000, guid: ec9a3f1b0b4f82743858c8111152004e, type: 2}

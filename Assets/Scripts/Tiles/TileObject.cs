@@ -24,9 +24,9 @@ public class TileObject : MonoBehaviour
     private bool _isHaveResourceRequired = true;
     private bool _isBuildingDestroyedNow;
     private bool _isGroundDestroyedNow;
-    private int _riftViewNumber = -1;
+    private int _riftViewTileId = -1;
     public bool IsGeneralRepairSelect() => _isGeneralRepairSelect;
-    public int GetRiftViewNumber() => _riftViewNumber;
+    public int GetRiftViewTileId() => _riftViewTileId;
     public bool IsBuildingWork() => _isBuildingWork;
     public bool IsBuildingDestroyedNow() => _isBuildingDestroyedNow;
     public void ToggleIsBuildingDestroyedNow(bool state) => _isBuildingDestroyedNow = state;
@@ -46,7 +46,7 @@ public class TileObject : MonoBehaviour
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
     public void SetGeneralRepairSelect(bool state) => _isGeneralRepairSelect = state;
-    public void SetRiftViewNumber(int number) => _riftViewNumber = number;
+    public void SetRiftViewTileId(int id) => _riftViewTileId = id;
 
     //Neighbours
     public TileObject GetNeighbourTileObject(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number] : null;
@@ -83,7 +83,7 @@ public class TileObject : MonoBehaviour
 
     public bool IsHaveRequiredResource()
     {
-        var haveResourcesForWork = _buildingTile.CurrentBuilding().ResourcesForWork.Length == 0 || _missionResources.ResourceEnough(_currentResourceForWork.ResourceEnum, _currentResourceForWorkAmount);
+        var haveResourcesForWork = _buildingTile.GetCurrentBuilding().ResourcesForWork.Length == 0 || _missionResources.ResourceEnough(_currentResourceForWork.ResourceEnum, _currentResourceForWorkAmount);
         if (!haveResourcesForWork)
         {
             if (_buildingTile.IsEcologyBuilding())
@@ -173,11 +173,11 @@ public class TileObject : MonoBehaviour
 
     public void ChangeResourceProduction()
     {
-        if (_currentResourceProduction == null || _buildingTile.CurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() || _buildingTile.IsConstructionNow() ||
-           (_buildingTile.CurrentBuildingTile().BuildingTileView is BuildingTileViewEnum.AttackingStructures or
+        if (_currentResourceProduction == null || _buildingTile.GetCurrentBuildingTile() == null || !GroundTileObject().IsHaveBuildingTypes() || _buildingTile.IsConstructionNow() ||
+           (_buildingTile.GetCurrentBuildingTile().BuildingTileView is BuildingTileViewEnum.AttackingStructures or
             BuildingTileViewEnum.Walls or BuildingTileViewEnum.EcologyPurifier or BuildingTileViewEnum.RadioCommunication or BuildingTileViewEnum.Bridge or BuildingTileViewEnum.MachineProduction or BuildingTileViewEnum.Traps or BuildingTileViewEnum.Gates)) return;
 
-        var resourceWrapper = _buildingTile.CurrentBuilding();
+        var resourceWrapper = _buildingTile.GetCurrentBuilding();
         var resourcesProduction = _isBuildingWork
             ? _currentResourceForWork == null && _currentResourceRecept == null
             ? resourceWrapper.ResourceExtractedAmount * _currentModifier

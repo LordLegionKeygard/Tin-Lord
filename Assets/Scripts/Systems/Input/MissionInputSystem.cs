@@ -69,7 +69,7 @@ public class MissionInputSystem : MonoBehaviour
 
     [Header("Links")]
     [SerializeField] private SkillTargetSystem _skillTargetSystem;
-    [SerializeField] private TileDetector _tileDetector;
+    [SerializeField] private InputDetector _inputDetector;
     [SerializeField] private CameraMovement _cameraMovement;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private SelectTilePanel _selectTilePanel;
@@ -148,7 +148,7 @@ public class MissionInputSystem : MonoBehaviour
         _cameraZoom = new CameraZoom(_cameraMovement.ZoomCamera);
 
         //MouseClick
-        _leftMouseClick = new LeftMouseClick(_tileDetector.InputOnTile);
+        _leftMouseClick = new LeftMouseClick(_inputDetector.InputOnTile);
         _rightMouseClick = new RightMouseClick(_uiPanels.ClearAndCancelCardHolderAndTileDetector);
         _middleMouseClick = new MiddleMouseClick(_skillTargetSystem.CancelSkillCircle);
 

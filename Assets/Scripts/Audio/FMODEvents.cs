@@ -5,14 +5,13 @@ public class FMODEvents : MonoBehaviour
 {
     public static FMODEvents Instance;
 
-    [Header("UiSFX")]
+    [Header("UserInterface")]
     public EventReference[] UiClick;
     public EventReference EscapePanel;
     public EventReference Warp;
     public EventReference InfoWarning;
 
     [Header("DialogueReward")]
-
     public EventReference ReceivedAiCore;
     public EventReference ReceivedQuants;
     public EventReference ReceivedMemory;
@@ -55,6 +54,9 @@ public class FMODEvents : MonoBehaviour
     public EventReference NotEnoughtAmmo;
     public EventReference TurnOnShipMode;
     public EventReference TurnOffShipMode;
+
+    [Header("TacticalCards")]
+    public EventReference[] TacticalCards;
 
     private void Awake()
     {

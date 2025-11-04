@@ -6,6 +6,10 @@ public class WorldGameInfo
     public static bool IsSteam = true;
     public static bool IsDemo = false;
 
+    [Header("TacticCards")]
+    public static float TacticCardIncreaseDamageFactor = 0.25f;
+    public static int TacticCardChance = 100;
+
     [Header("Price")]
     public static int StartWeaponEnigneerUpgradePrice = 5;
     public static int FactorWeaponEnigneerUpgradePrice = 5;

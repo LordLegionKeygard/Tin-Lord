@@ -46,12 +46,12 @@ public class BuildsPanel : MonoBehaviour
     public void SpawnUpgradeItemsInScrollView(TileObject tileObject, SelectTilePanel selectTilePanel) //оставшиеся здания в типе
     {
         Reset();
-        var tile = tileObject.BuildingTileObject().CurrentBuildingTile();
+        var tile = tileObject.BuildingTileObject().GetCurrentBuildingTile();
         var length = tile.Buildings;
         _scrollRect.horizontal = length.Length > 3;
         _scrollRect.horizontalNormalizedPosition = 0f;
         var isFullHealth = tileObject.BuildingHealth().IsFullHealth();
-        var level = tileObject.BuildingTileObject().CurrentBuildingLevel();
+        var level = tileObject.BuildingTileObject().GetCurrentBuildingLevel();
 
         if (!isFullHealth)
         {

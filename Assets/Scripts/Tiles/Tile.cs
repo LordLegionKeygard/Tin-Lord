@@ -2,14 +2,12 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "New Tile", menuName = "TinLord/Tile")]
-public class Tile : ScriptableObject
+public class Tile : Card
 {
     [Header("TextInfo")]
-    public string[] Name; //0 eng, 1 rus
 
     [Header("Base")]
     public GameObject TileObject;
-    public Sprite Icon;
     public TileTypeEnum TileTypeEnum;
 
     [Header("Ground")]
@@ -25,6 +23,9 @@ public class Tile : ScriptableObject
     public BuildingTileViewEnum BuildingTileView;
     public Building[] Buildings;
     public bool IsHaveProductionResources() => Buildings[0].ResourcesProduction.Length > 0; //берем 0 здание так как у нас обычно все здания определенного типа имеют ресурс или нет
+
+    [Header("Other")]
+    public Material MaterialForRift;
 
 
     public float GetEnergyBeam()

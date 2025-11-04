@@ -51,12 +51,12 @@ public class BuildingTileTransform : MonoBehaviour
     /// </summary>
     private void SetUniqueTransform(Transform objectTransform, TileObject tileObject)
     {
-        if (tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Bridge)
+        if (tileObject.BuildingTileObject().GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.Bridge)
         {
             objectTransform.localRotation = Quaternion.Euler(0, tileObject.GroundTileObject().GroundModelRotation(), 0);
         }
 
-        if (tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.StoneMining)
+        if (tileObject.BuildingTileObject().GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.StoneMining)
         {
             objectTransform.localRotation = Quaternion.Euler(0, tileObject.GroundTileObject().GroundModelRotation()
 + tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>().transform.eulerAngles.y, 0);

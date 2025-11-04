@@ -58,7 +58,7 @@ public class GeneralRepairSkill : BaseSkill
 
     public ResourceWrapper[] GetResourcesForRepair(TileObject tileObject)
     {
-        var building = tileObject.BuildingTileObject().CurrentBuilding();
+        var building = tileObject.BuildingTileObject().GetCurrentBuilding();
 
         var buildingHealth = tileObject.BuildingHealth();
         float healthPercentage = (float)(buildingHealth.GetMaxHealth() - buildingHealth.GetCurrentHealth()) / buildingHealth.GetMaxHealth();

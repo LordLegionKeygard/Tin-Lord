@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Rift
   - "\u0420\u0430\u0437\u043B\u043E\u043C"
+  Icon: {fileID: 21300000, guid: d9505f389e386dd4cbd1916799b6cf3b, type: 3}
+  Kind: 0
+  Id: 25
   TileObject: {fileID: 7546311966536835712, guid: 08c876149ccccf44aa398ea4344ee60e,
     type: 3}
-  Icon: {fileID: 21300000, guid: d9505f389e386dd4cbd1916799b6cf3b, type: 3}
   TileTypeEnum: 0
   GroundTileView: 26
   GroundEcology: -2
@@ -28,3 +30,4 @@ MonoBehaviour:
   ProductionOnGroundResources: []
   BuildingTileView: -1
   Buildings: []
+  MaterialForRift: {fileID: 2100000, guid: ec9a3f1b0b4f82743858c8111152004e, type: 2}

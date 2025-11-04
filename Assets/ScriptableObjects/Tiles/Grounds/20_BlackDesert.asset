@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Black Desert
   - "\u0427\u0435\u0440\u043D\u0430\u044F \u041F\u0443\u0441\u0442\u044B\u043D\u044F"
+  Icon: {fileID: 21300000, guid: 248996152abd52947a51ffc52592f108, type: 3}
+  Kind: 0
+  Id: 20
   TileObject: {fileID: 943504291324001087, guid: e553eed32181bf844a8776795067d2e5,
     type: 3}
-  Icon: {fileID: 21300000, guid: 248996152abd52947a51ffc52592f108, type: 3}
   TileTypeEnum: 0
   GroundTileView: 21
   GroundEcology: -3
@@ -43,3 +45,4 @@ MonoBehaviour:
     ProductionOnGroundResourceModifier: 0.5
   BuildingTileView: -1
   Buildings: []
+  MaterialForRift: {fileID: 2100000, guid: 29a3f293c1bffeb4ca65882793245f34, type: 2}

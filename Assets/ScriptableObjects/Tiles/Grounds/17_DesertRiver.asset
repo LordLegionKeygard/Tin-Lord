@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Desert River
   - "\u041F\u0443\u0441\u0442\u044B\u043D\u043D\u0430\u044F \u0420\u0435\u043A\u0430"
+  Icon: {fileID: 21300000, guid: ca6aaba5c90af6e4989793497f1ad4ee, type: 3}
+  Kind: 0
+  Id: 17
   TileObject: {fileID: 2479273178103927905, guid: e4f73b0c2b6924141b8b3b49bbf1b79c,
     type: 3}
-  Icon: {fileID: 21300000, guid: ca6aaba5c90af6e4989793497f1ad4ee, type: 3}
   TileTypeEnum: 0
   GroundTileView: 18
   GroundEcology: 1
@@ -30,3 +32,4 @@ MonoBehaviour:
   ProductionOnGroundResources: []
   BuildingTileView: -1
   Buildings: []
+  MaterialForRift: {fileID: 2100000, guid: 3b18d0037ea59cf4289db93213a4cc83, type: 2}

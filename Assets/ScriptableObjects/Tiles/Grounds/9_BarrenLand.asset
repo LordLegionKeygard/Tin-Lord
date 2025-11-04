@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Barren Land
   - "\u0411\u0435\u0441\u043F\u043B\u043E\u0434\u043D\u0430\u044F \u0417\u0435\u043C\u043B\u044F"
+  Icon: {fileID: 21300000, guid: ea3942927fcdbb24a98b46cc25b41218, type: 3}
+  Kind: 0
+  Id: 9
   TileObject: {fileID: 7778438933443403073, guid: a4762e53cd842dd4c82ddca049039c86,
     type: 3}
-  Icon: {fileID: 21300000, guid: ea3942927fcdbb24a98b46cc25b41218, type: 3}
   TileTypeEnum: 0
   GroundTileView: 10
   GroundEcology: -3
@@ -63,3 +65,4 @@ MonoBehaviour:
     ProductionOnGroundResourceModifier: 0.5
   BuildingTileView: -1
   Buildings: []
+  MaterialForRift: {fileID: 2100000, guid: 6bf0f9f998619904585489bb6abebf9f, type: 2}

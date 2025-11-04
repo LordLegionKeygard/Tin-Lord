@@ -268,7 +268,7 @@ public class TutorialSystem : MonoBehaviour
         {
             case TutorialStepEnum.MissionSelectTileObjectForRepair_57:
                 if (tileObject.GroundTileObject().CurrentGroundTile() == null) return;
-                if (!tileObject.BuildingTileObject().HaveBuildingGameObject()) return;
+                if (!tileObject.BuildingTileObject().IsHaveBuildingGameObject()) return;
                 if (!tileObject.BuildingHealth().IsFullHealth())
                 {
                     CompleteStep(TutorialStepEnum.MissionSelectTileObjectForRepair_57);
@@ -280,7 +280,7 @@ public class TutorialSystem : MonoBehaviour
                 break;
 
             case TutorialStepEnum.MissionSelectTileWithResourceExtraction_48:
-                if (tileObject.BuildingTileObject().HaveBuildingGameObject() && tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView is BuildingTileViewEnum.WoodExtraction or BuildingTileViewEnum.StoneMining or BuildingTileViewEnum.Base)
+                if (tileObject.BuildingTileObject().IsHaveBuildingGameObject() && tileObject.BuildingTileObject().GetCurrentBuildingTile().BuildingTileView is BuildingTileViewEnum.WoodExtraction or BuildingTileViewEnum.StoneMining or BuildingTileViewEnum.Base)
                 {
                     CompleteStep(TutorialStepEnum.MissionSelectTileWithResourceExtraction_48);
                 }

@@ -6,6 +6,7 @@ public class TurretDamage : BaseDamage
     [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [Inject] private readonly BulletsPool _pool;
     private TurretBuilding _turretBuilding;
+    [SerializeField] private BuildingLevels _buildingLevels;
     [SerializeField] private TurretAttackState _turretAttackState;
     [SerializeField] private BulletEnum _bulletType;
     [SerializeField] private Transform[] _firePoints;
@@ -23,13 +24,13 @@ public class TurretDamage : BaseDamage
 
     public override void SetDamage()
     {
-        Damage = _turretBuilding.Building().Damage * _missionHangarSystem.GetAimBotDamageBonus();
+        Damage = _buildingLevels.CurrentTileObject().BuildingTileObject().GetRealTurretDamage();
     }
 
     public override void Shoot(int attackNumber)
     {
         if (_bulletType == BulletEnum.None) return;
-        
+
         if (_turretAttackState.AttackOneByOne())
         {
             _turretAttackState.ChangeAttackIndex();

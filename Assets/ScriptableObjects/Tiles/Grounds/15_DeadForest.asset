@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Dead Forest
   - "\u041C\u0435\u0440\u0442\u0432\u044B\u0439 \u041B\u0435\u0441"
+  Icon: {fileID: 21300000, guid: 8cbe7bb205172c74985964c8345f6ad2, type: 3}
+  Kind: 0
+  Id: 15
   TileObject: {fileID: 1128623563670308853, guid: 0f9719aca4c36184aa6d82848a6c1c1f,
     type: 3}
-  Icon: {fileID: 21300000, guid: 8cbe7bb205172c74985964c8345f6ad2, type: 3}
   TileTypeEnum: 0
   GroundTileView: 16
   GroundEcology: -2
@@ -40,3 +42,4 @@ MonoBehaviour:
     ProductionOnGroundResourceModifier: 0.5
   BuildingTileView: -1
   Buildings: []
+  MaterialForRift: {fileID: 2100000, guid: 23da216ba87380845b5f71f594aa2e05, type: 2}

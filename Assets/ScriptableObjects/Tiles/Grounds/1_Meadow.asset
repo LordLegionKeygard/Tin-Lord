@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Meadow
   - "\u041B\u0443\u0433"
+  Icon: {fileID: 21300000, guid: 6a54043ad028d1f42ad7d59236c0bb1b, type: 3}
+  Kind: 0
+  Id: 1
   TileObject: {fileID: 8123914287721754775, guid: 9c9f423f92cd0b14985f661425b1f853,
     type: 3}
-  Icon: {fileID: 21300000, guid: 6a54043ad028d1f42ad7d59236c0bb1b, type: 3}
   TileTypeEnum: 0
   GroundTileView: 2
   GroundEcology: 2
@@ -63,3 +65,4 @@ MonoBehaviour:
     ProductionOnGroundResourceModifier: 1
   BuildingTileView: -1
   Buildings: []
+  MaterialForRift: {fileID: 2100000, guid: cea6587837678094dbdc1dd5d38a6b0c, type: 2}

@@ -22,7 +22,7 @@ public class MachineSpawnerSystem : MonoBehaviour
         {
             if (roadTiles[i] == nearTileObject)
             {
-                if (buildingTileObject.HaveTile())
+                if (buildingTileObject.IsHaveTile())
                 {
                     if (buildingTileObject.IsConstructionNow())
                     {

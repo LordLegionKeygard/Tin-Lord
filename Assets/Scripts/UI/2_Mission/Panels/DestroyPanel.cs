@@ -16,11 +16,11 @@ public class DestroyPanel : MonoBehaviour
         {
             if (tileObject.BuildingTileObject().IsConstructionNow()) // если мы уничтожили строящееся нами здание, то возвращаем половину ресурсов, передаем 100 хп
             {
-                _resourcesViewMission.SetReturnedResources(tileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild, 100);
+                _resourcesViewMission.SetReturnedResources(tileObject.BuildingTileObject().GetCurrentBuilding().ResourcesForBuild, 100);
             }
             else // если мы уничтожаем обычное, не строящееся здание, то показываем процент ресурсы от % текущего здоровья здания
             {
-                _resourcesViewMission.SetReturnedResources(tileObject.BuildingTileObject().CurrentBuilding().ResourcesForBuild, tileObject.BuildingHealth().GetCurrentHealthPercent());
+                _resourcesViewMission.SetReturnedResources(tileObject.BuildingTileObject().GetCurrentBuilding().ResourcesForBuild, tileObject.BuildingHealth().GetCurrentHealthPercent());
             }
         }
         else

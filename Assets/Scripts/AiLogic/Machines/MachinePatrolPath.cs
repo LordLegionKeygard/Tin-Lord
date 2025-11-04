@@ -26,8 +26,8 @@ public class MachinePatrolPath : MonoBehaviour
     public bool CheckTileForGate(int index)
     {
         var tile = _roadTileObjects[index];
-        var hasBuilding = tile.BuildingTileObject().HaveTile();
-        var buildingTileView = hasBuilding ? tile.BuildingTileObject().CurrentBuildingTile().BuildingTileView : BuildingTileViewEnum.None;
+        var hasBuilding = tile.BuildingTileObject().IsHaveTile();
+        var buildingTileView = hasBuilding ? tile.BuildingTileObject().GetCurrentBuildingTile().BuildingTileView : BuildingTileViewEnum.None;
 
         return hasBuilding && buildingTileView == BuildingTileViewEnum.Gates;
     }
@@ -36,9 +36,9 @@ public class MachinePatrolPath : MonoBehaviour
     {
         var tile = _roadTileObjects[index];
         var isWaterTile = tile.GroundTileObject().IsWaterTile();
-        var hasBuilding = tile.BuildingTileObject().HaveTile();
+        var hasBuilding = tile.BuildingTileObject().IsHaveTile();
         var isConstructionNow = tile.BuildingTileObject().IsConstructionNow();
-        var buildingTileView = hasBuilding ? tile.BuildingTileObject().CurrentBuildingTile().BuildingTileView : BuildingTileViewEnum.None;
+        var buildingTileView = hasBuilding ? tile.BuildingTileObject().GetCurrentBuildingTile().BuildingTileView : BuildingTileViewEnum.None;
 
         return isConstructionNow || (isWaterTile && !hasBuilding) || (isWaterTile && hasBuilding && buildingTileView != BuildingTileViewEnum.Bridge) || hasBuilding && buildingTileView is BuildingTileViewEnum.Traps or BuildingTileViewEnum.Walls;
     }

@@ -28,7 +28,7 @@ public class ResourceForWorkPanel : MonoBehaviour
     public void UpdateButtonsView(TileObject tileObject, bool upgradeBuilding)
     {
         var resourceEnum = tileObject.CurrentResourceForWork().ResourceEnum;
-        var resourcesForWork = tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork;
+        var resourcesForWork = tileObject.BuildingTileObject().GetCurrentBuilding().ResourcesForWork;
 
         if (resourceEnum == _lastResourceEnum && _tileObject == tileObject && !upgradeBuilding)
         {

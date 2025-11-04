@@ -10,7 +10,7 @@ public class TileEcology : MonoBehaviour
     }
     public float GetEcology(GetEcologyEnum getEcologyEnum)
     {
-        var haveBuildingTile = _tileObject.BuildingTileObject().HaveTile();
+        var haveBuildingTile = _tileObject.BuildingTileObject().IsHaveTile();
         var isConstructionNow = haveBuildingTile && _tileObject.BuildingTileObject().IsConstructionNow();
 
         float buildingEcology = 0;
@@ -20,7 +20,7 @@ public class TileEcology : MonoBehaviour
 
         if (haveBuildingTile && !isConstructionNow)
         {
-            var currentBuilding = _tileObject.BuildingTileObject().CurrentBuilding();
+            var currentBuilding = _tileObject.BuildingTileObject().GetCurrentBuilding();
             var baseBuildingEcology = currentBuilding.BuildingEcology;
 
             if (_tileObject.BuildingTileObject().IsEcologyBuilding())

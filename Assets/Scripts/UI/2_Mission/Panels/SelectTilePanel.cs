@@ -120,9 +120,9 @@ public class SelectTilePanel : MonoBehaviour
         if (_tileObject == null) return;
 
         var buildingTileObject = _tileObject.BuildingTileObject();
-        var buildingTile = buildingTileObject.CurrentBuildingTile();
-        var haveBuildingTile = buildingTileObject.HaveTile() && buildingTileObject.HaveBuildingGameObject() && !buildingTileObject.IsConstructionNow();
-        var building = haveBuildingTile ? buildingTileObject.CurrentBuilding() : null;
+        var buildingTile = buildingTileObject.GetCurrentBuildingTile();
+        var haveBuildingTile = buildingTileObject.IsHaveTile() && buildingTileObject.IsHaveBuildingGameObject() && !buildingTileObject.IsConstructionNow();
+        var building = haveBuildingTile ? buildingTileObject.GetCurrentBuilding() : null;
 
         SetTextFields(_tileObject, buildingTile, haveBuildingTile, building);
         SetProductionText(_tileObject, buildingTile, haveBuildingTile, building);
@@ -145,7 +145,7 @@ public class SelectTilePanel : MonoBehaviour
 
             if (buildingTile.IsHaveProductionResources())
             {
-                _productionResourcePanel.SetButtonView(buildingTileObject.CurrentBuilding(), _tileObject.CurrentResourceProduction());
+                _productionResourcePanel.SetButtonView(buildingTileObject.GetCurrentBuilding(), _tileObject.CurrentResourceProduction());
                 _receptPanel.UpdateReceptView(_tileObject.CurrentResourceRecept());
             }
 
@@ -180,7 +180,7 @@ public class SelectTilePanel : MonoBehaviour
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _buildingNameText.text = haveBuildingTile ? $"{buildindText} {building.Name[Language.LanguageNumber]}" : $"{buildindText} -";
         _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingFullHealth}" : $"{buildingHealthText} -";
-        _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().CurrentBuildingLevel()}" : $"{buildindLevelText} -";
+        _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().GetCurrentBuildingLevel()}" : $"{buildindLevelText} -";
 
 
 
@@ -199,7 +199,7 @@ public class SelectTilePanel : MonoBehaviour
 
         if (haveBuildingTile && tile.IsHaveProductionResources())
         {
-            var isUseRources = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork.Length != 0;
+            var isUseRources = _tileObject.BuildingTileObject().GetCurrentBuilding().ResourcesForWork.Length != 0;
             var productionName = $"{Language.TextStatic[tileObject.CurrentResourceProduction().NameNumber]}";
             float productionAmount;
 
@@ -266,11 +266,11 @@ public class SelectTilePanel : MonoBehaviour
     {
         var currentGroundTile = _tileObject.GroundTileObject().CurrentGroundTile();
         var buildingTile = _tileObject.BuildingTileObject();
-        var currentBuildingTile = haveBuildingNow ? buildingTile.CurrentBuildingTile() : null;
+        var currentBuildingTile = haveBuildingNow ? buildingTile.GetCurrentBuildingTile() : null;
 
         var isRoad = currentGroundTile.GroundTileView == GroundTileViewEnum.Road;
         var isBase = currentGroundTile.GroundTileView == GroundTileViewEnum.BaseFoundation;
-        var isMachineProduction = buildingTile.HaveTile() && buildingTile.HaveBuildingGameObject() && buildingTile.CurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.MachineProduction;
+        var isMachineProduction = buildingTile.IsHaveTile() && buildingTile.IsHaveBuildingGameObject() && buildingTile.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.MachineProduction;
         var isWater = currentGroundTile.IsWater;
         var haveProdictionResources = currentBuildingTile?.IsHaveProductionResources() ?? false;
         var canUpgrade = buildingTile.IsCanUpgrade();
@@ -282,7 +282,7 @@ public class SelectTilePanel : MonoBehaviour
         bool canRepairOrUpgrade = !haveBuildingNow || canUpgrade || canRepair;
 
         var haveRotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>() != null;
-        var canRotateBuilding = buildingTile.HaveTile() && buildingTile.HaveBuildingGameObject() && buildingTile.CurrentBuilding().CanRotateBuilding;
+        var canRotateBuilding = buildingTile.IsHaveTile() && buildingTile.IsHaveBuildingGameObject() && buildingTile.GetCurrentBuilding().CanRotateBuilding;
 
         var buildButtonState = canRepairOrUpgrade && groundHaveBuildings && !isConstructionNow;
         var workButtonState = haveBuildingNow && (haveProdictionResources || buildingTile.IsEcologyBuilding());
@@ -316,7 +316,7 @@ public class SelectTilePanel : MonoBehaviour
             var rotationSpeedText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[101]}:</color>";
 
             var bonus = _missionHangarSystem.GetAimBotDamageBonus();
-            var buldingDamage = bonus != 1 ? $"<color={Colors.HexLightGreen}>{building.Damage * bonus}</color>" : building.Damage.ToString();
+            var buldingDamage = bonus != 1 ? $"<color={Colors.HexLightGreen}>{_tileObject.BuildingTileObject().GetRealTurretDamage()}</color>" : _tileObject.BuildingTileObject().GetRealTurretDamage().ToString();
 
             _damageText.text = $"{damageText} {buldingDamage}";
             _attackSpeedText.text = $"{attackSpeedText} {building.AttackSpeed}";
@@ -348,12 +348,12 @@ public class SelectTilePanel : MonoBehaviour
         _uiPanels.TogglePanel(UIPanelsEnum.DestroyPanel, false);
         DestroyButtonChangeColor();
 
-        if (!_tileObject.BuildingTileObject().HaveTile() && !_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildTypesPanel))
+        if (!_tileObject.BuildingTileObject().IsHaveTile() && !_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildTypesPanel))
         {
             _uiPanels.SetBuildTypesPanelAndLineVisibility(true);
             _buildTypesPanel.SpawnBuildingTypesInScrollView(_tileObject, this);
         }
-        else if (_tileObject.BuildingTileObject().HaveTile() && !_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildsPanel))
+        else if (_tileObject.BuildingTileObject().IsHaveTile() && !_uiPanels.ActiveInHierarchy(UIPanelsEnum.BuildsPanel))
         {
             _uiPanels.TogglePanel(UIPanelsEnum.BuildsPanel, true);
             _buildsPanel.SpawnUpgradeItemsInScrollView(_tileObject, this);
@@ -400,7 +400,7 @@ public class SelectTilePanel : MonoBehaviour
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Rotate], transform.position);
         var rotationViewGround = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<RotationView>();
-        var rotationViewBuilding = _tileObject.BuildingTileObject().HaveTile() && _tileObject.BuildingTileObject().HaveBuildingGameObject() ? _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() : null;
+        var rotationViewBuilding = _tileObject.BuildingTileObject().IsHaveTile() && _tileObject.BuildingTileObject().IsHaveBuildingGameObject() ? _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() : null;
 
         if (rotationViewGround != null) rotationViewGround.Rotate();
         if (rotationViewBuilding != null) rotationViewBuilding.Rotate();
@@ -423,17 +423,17 @@ public class SelectTilePanel : MonoBehaviour
         if (!_destroyPanel.gameObject.activeInHierarchy)
         {
             DestroyPanelToggleAndRefreshButtonColor(true);
-            _destroyPanel.SetInfo(_tileObject.BuildingTileObject().HaveTile(), _tileObject);
+            _destroyPanel.SetInfo(_tileObject.BuildingTileObject().IsHaveTile(), _tileObject);
             return;
         }
 
         var groundTileObject = _tileObject.GroundTileObject();
 
-        if (_tileObject.BuildingTileObject().HaveTile())
+        if (_tileObject.BuildingTileObject().IsHaveTile())
         {
             _tileObject.BuildingHealth().Death();
         }
-        else if (!_tileObject.BuildingTileObject().HaveTile() && _missionResources.ResourceEnough(ResourceEnum.BeamEnergy, groundTileObject.CurrentGroundTile().GetEnergyBeam()))
+        else if (!_tileObject.BuildingTileObject().IsHaveTile() && _missionResources.ResourceEnough(ResourceEnum.BeamEnergy, groundTileObject.CurrentGroundTile().GetEnergyBeam()))
         {
             _missionResources.ChangeResource(ResourceEnum.BeamEnergy, -groundTileObject.CurrentGroundTile().GetEnergyBeam());
             groundTileObject.DestroyGroundTile();
@@ -453,9 +453,9 @@ public class SelectTilePanel : MonoBehaviour
 
     private void RefreshDestroyPanelInfoAfterBuildingTakeDamage()
     {
-        if (_destroyPanel.gameObject.activeInHierarchy && _tileObject.BuildingTileObject().HaveTile())
+        if (_destroyPanel.gameObject.activeInHierarchy && _tileObject.BuildingTileObject().IsHaveTile())
         {
-            _destroyPanel.SetInfo(_tileObject.BuildingTileObject().HaveTile(), _tileObject);
+            _destroyPanel.SetInfo(_tileObject.BuildingTileObject().IsHaveTile(), _tileObject);
         }
     }
 
@@ -464,7 +464,7 @@ public class SelectTilePanel : MonoBehaviour
         if (!_machineButton.activeInHierarchy || _tileObject == null || _escapePanel.IsEscapeMode()) return;
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
         _machineSpawnerSystem.SetTileObject(_tileObject);
-        _machinePanel.ActiveMacnineItems(_tileObject.BuildingTileObject().CurrentBuildingLevel());
+        _machinePanel.ActiveMacnineItems(_tileObject.BuildingTileObject().GetCurrentBuildingLevel());
         _machinePanel.PanelViewToggle(true);
         PanelViewToggle(false);
     }
@@ -489,7 +489,7 @@ public class SelectTilePanel : MonoBehaviour
         CustomEvents.FireCompleteTutorialStep(TutorialStepEnum.MissionSettlementChangeResourceRequired_27);
 
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        var resourcesForWork = _tileObject.BuildingTileObject().CurrentBuilding().ResourcesForWork;
+        var resourcesForWork = _tileObject.BuildingTileObject().GetCurrentBuilding().ResourcesForWork;
 
         for (int i = 0; i < resourcesForWork.Length; i++)
         {

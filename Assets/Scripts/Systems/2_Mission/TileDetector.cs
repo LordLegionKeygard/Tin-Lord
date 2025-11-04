@@ -5,16 +5,12 @@ public class TileDetector : MonoBehaviour
 {
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly TilesSystem _tilesSystem;
-    [Inject] private readonly MissionModeSystem _missionModeSystem;
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private TileObject _currentTileObject;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
     [SerializeField] private SelectTilePanel _selectTilePanel;
     [SerializeField] private UIPanelsMission _uiPanels;
-    [SerializeField] private BuildsPanel _buildsPanel;
-    [SerializeField] private ScrollViewInteraction _scrollViewInteraction;
-    [SerializeField] private SkillTargetSystem _skillTargetSystem;
     private Transform _lastRayCastTransform;
     private bool _canSetTile = false;
 
@@ -39,9 +35,23 @@ public class TileDetector : MonoBehaviour
     {
         if (_cardHolderSystem.IsHaveCurrentSelectedCardObject())
         {
+            var selected = _cardHolderSystem.CurrentSelectedCard();
+            // если выбрана не Tile — очищаем и выходим
+            if (selected == null || selected.Kind != CardKind.Tile)
+            {
+                if (_currentTileObject != null) ClearTileDetector();
+                return;
+            }
+
+            if (IsPointerOverUISystem.IsPointerOverUI)
+            {
+                ClearTileDetector();
+                return;
+            }
+
             RaycastHit raycastHit;
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !IsPointerOverUISystem.IsPointerOverUI)
+            if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask))
             {
                 if (raycastHit.transform != null)
                 {
@@ -62,24 +72,18 @@ public class TileDetector : MonoBehaviour
                 }
             }
 
-            if (IsPointerOverUISystem.IsPointerOverUI)
-            {
-                ClearTileDetector();
-            }
         }
     }
 
-    public void InputOnTile()
+    public void InputOnTileForSetTileCard()
     {
-        if (_scrollViewInteraction.IsScrolling() || _skillTargetSystem.IsActive() || !_tutorialSystem.CanInputOnTile() || !_missionModeSystem.IsPlanetMode()) return;
-
-        if (_cardHolderSystem.IsHaveCurrentSelectedCardObject() && _currentTileObject != null)
+        if (_currentTileObject != null)
         {
             if (_canSetTile && !IsPointerOverUISystem.IsPointerOverUI)
             {
                 if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River)
                 {
-                    if (!CanSetRiver() || _currentTileObject.BuildingTileObject().HaveTile())
+                    if (!CanSetRiver() || _currentTileObject.BuildingTileObject().IsHaveTile())
                     {
                         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
                         return;
@@ -122,16 +126,17 @@ public class TileDetector : MonoBehaviour
                 AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
             }
         }
-        else if (!_cardHolderSystem.IsHaveCurrentSelectedCardObject())
+    }
+
+    public void InputOnTile()
+    {
+        RaycastHit raycastHit;
+        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !IsPointerOverUISystem.IsPointerOverUI)
         {
-            RaycastHit raycastHit;
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out raycastHit, 500f, _layerMask) && !IsPointerOverUISystem.IsPointerOverUI)
+            if (raycastHit.transform != null)
             {
-                if (raycastHit.transform != null)
-                {
-                    DetectGroundTileObject(raycastHit.transform.gameObject);
-                }
+                DetectGroundTileObject(raycastHit.transform.gameObject);
             }
         }
     }
@@ -151,7 +156,7 @@ public class TileDetector : MonoBehaviour
             }
             else //если это дорога и есть река
             {
-                if (_currentTileObject.GroundTileObject().IsForwardRoad() && !_currentTileObject.BuildingTileObject().HaveTile())
+                if (_currentTileObject.GroundTileObject().IsForwardRoad() && !_currentTileObject.BuildingTileObject().IsHaveTile())
                 {
                     for (int i = 0; i < 8; i++)
                     {

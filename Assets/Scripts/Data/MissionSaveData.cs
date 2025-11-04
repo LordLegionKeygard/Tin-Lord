@@ -118,7 +118,7 @@ public class GroundData
     public float GroundTileRotation;
     public float GroundModelRotation;
     public bool IsForwardRoad;
-    public int RiftViewNumber;
+    public int RiftViewTileId;
 }
 
 [System.Serializable]
@@ -139,6 +139,7 @@ public class BuildingData
     public bool IsUpgradeBase;
     public float PreviousBaseBuildingHealth;
     public bool IsGeneralRepairSelect;
+    public int TacticCardIncreaseDamage;
 }
 
 [System.Serializable]

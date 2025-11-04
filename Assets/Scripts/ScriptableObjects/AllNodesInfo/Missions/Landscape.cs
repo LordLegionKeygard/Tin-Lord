@@ -14,7 +14,8 @@ public class Landscape : ScriptableObject
     public int MapEdge = 4;
     public int StartPosEdge = 4;
     public GameEventInfo[] MissionEvents;
-    public Tile[] Cards;
+    public Card[] Cards;
+    public Card[] TacticCards;
     public DescriptionWrapper[] DescriptionWrappers;
 
     [Header("Cosmos")]

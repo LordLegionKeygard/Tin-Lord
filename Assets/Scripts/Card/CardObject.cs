@@ -8,19 +8,28 @@ public class CardObject : MonoBehaviour
 {
     [Inject] private MissionResources _missionResources;
     [Inject] private readonly TutorialSystem _tutorialSystem;
+
+    [Header("UI")]
     [SerializeField] private TextMeshProUGUI _changeTextAmount;
     [SerializeField] private Transform _cardParentTransform;
     [SerializeField] private Button _changeCardButton;
-    [SerializeField] private Tile _tile;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private Button _button;
+
+    [Header("Tutorial")]
     [SerializeField] private GameObject _tutorialView;
     [SerializeField] private Image _squareTutorialClickImage;
+
     private CardHolderSystem _cardHolderSystem;
     private bool _isSelect;
-    public Tile GetTile() => _tile;
+    [SerializeField] private Card _card;
+
+    public Card GetCard() => _card;
+    public bool IsTile => _card is Tile;
+    public Tile GetTile() => _card as Tile;   // может вернуть null, если карта не Tile
+    public bool IsUpgrade => _card.Kind == CardKind.Upgrade;
 
     private void Start()
     {
@@ -36,14 +45,19 @@ public class CardObject : MonoBehaviour
     private void TutorialHightlightCard(TutorialStepEnum tutorialStepEnum)
     {
         _tutorialView.SetActive(false);
+        _squareTutorialClickImage.enabled = false;
+
+        var tile = GetTile();
+        if (tile == null) return;
+
         switch (tutorialStepEnum)
         {
             case TutorialStepEnum.MissionSelectBaseFoundationCard_10:
-                _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.BaseFoundation);
+                _tutorialView.SetActive(tile.GroundTileView == GroundTileViewEnum.BaseFoundation);
                 _squareTutorialClickImage.enabled = true;
                 break;
             case TutorialStepEnum.MissionSelectForestCard_31:
-                _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.Forest);
+                _tutorialView.SetActive(tile.GroundTileView == GroundTileViewEnum.Forest);
                 _squareTutorialClickImage.enabled = true;
                 break;
             case TutorialStepEnum.MissionAddCardsDescription_29:
@@ -51,11 +65,11 @@ public class CardObject : MonoBehaviour
                 _squareTutorialClickImage.enabled = false;
                 break;
             case TutorialStepEnum.MissionConstructionStoneMining_39:
-                _tutorialView.SetActive(_tile.GroundTileView == GroundTileViewEnum.Mountain && !_tutorialSystem.IsCurrentInProcess());
+                _tutorialView.SetActive(tile.GroundTileView == GroundTileViewEnum.Mountain && !_tutorialSystem.IsCurrentInProcess());
                 _squareTutorialClickImage.enabled = true;
                 break;
             case TutorialStepEnum.MissionConstructionBallista_41:
-                _tutorialView.SetActive(_tile.GroundTileView is GroundTileViewEnum.Plain or GroundTileViewEnum.Forest or GroundTileViewEnum.Desert or GroundTileViewEnum.Ground or GroundTileViewEnum.Highland && !_tutorialSystem.IsCurrentInProcess());
+                _tutorialView.SetActive(tile.GroundTileView is GroundTileViewEnum.Plain or GroundTileViewEnum.Forest or GroundTileViewEnum.Desert or GroundTileViewEnum.Ground or GroundTileViewEnum.Highland && !_tutorialSystem.IsCurrentInProcess());
                 _squareTutorialClickImage.enabled = true;
                 break;
         }
@@ -74,24 +88,57 @@ public class CardObject : MonoBehaviour
         _button.enabled = false;
     }
 
-    public void SetCardInfo(Tile tile, CardHolderSystem cardHolderSystem)
+    public void SetCardInfo(Card card, CardHolderSystem holder)
     {
-        _tile = tile;
-        _cardHolderSystem = cardHolderSystem;
-        gameObject.name = _tile.Name[0];
-        _image.sprite = _tile.Icon;
-        _text.text = _tile.Name[Language.LanguageNumber];
+        _card = card;
+        _cardHolderSystem = holder;
+
+        gameObject.name = _card.Name[0];
+        _image.sprite = _card.Icon;
+        _text.text = _card.Name[Language.LanguageNumber];
     }
 
     public void SelectCardObject()
     {
-        if (!_tutorialSystem.CanSelectCardObject(_tile) || _isSelect) return;
+        // Если уже выделена — ничего не делаем
+        if (_isSelect) return;
+
+        var tile = GetTile(); // _card as Tile
+
+        if (tile != null)
+        {
+            // === Ветвь для тайла ===
+            if (!_tutorialSystem.CanSelectCardObject(tile)) return;
+
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
+
+            // Индикатор энергии нужен только для смены тайлов
+            UpdateChangeTextColorForTile();
+
+            _cardHolderSystem.SelectCardInCardHolder(this);
+            SelectViewToggle(true);
+
+            // Тутаориал ждёт GroundTileView
+            _tutorialSystem.SelectCard(tile.GroundTileView);
+            return;
+        }
+
+        // === Ветвь для апгрейда (или любых других не-тайловых карт) ===
+        // Если у тебя нет отдельной проверки туториала для апгрейдов — просто разрешаем выделение.
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Card], transform.position);
-        UpdateChangeTextColor();
+
         _cardHolderSystem.SelectCardInCardHolder(this);
         SelectViewToggle(true);
-        _tutorialSystem.SelectCard(_tile.GroundTileView);
     }
+
+    private void UpdateChangeTextColorForTile()
+    {
+        if (_changeTextAmount == null) return;
+        // Этот индикатор имеет смысл только для тайлов (смена стоит 1 энергию)
+        bool enough = _missionResources.ResourceEnough(ResourceEnum.BeamEnergy, 1);
+        _changeTextAmount.color = enough ? Colors.GreyEight : Colors.WarningYellow;
+    }
+
 
     private void UpdateChangeTextColor()
     {
@@ -103,10 +150,11 @@ public class CardObject : MonoBehaviour
     {
         _objectTransform.DOKill();
 
-        if (_tile.GroundTileView != GroundTileViewEnum.BaseFoundation)
-        {
+        var tile = GetTile();
+        if (tile != null && tile.GroundTileView != GroundTileViewEnum.BaseFoundation)
             ChangeButtonToggle(state);
-        }
+        else
+            ChangeButtonToggle(false);
 
         _isSelect = state;
         _objectTransform.DOAnchorPosY(state ? 30 : 0, 0.3f).SetUpdate(true);
@@ -143,8 +191,8 @@ public class CardObject : MonoBehaviour
         // Меняем карту на случайную доступную (кроме той же)
         seq.AppendCallback(() =>
         {
-            var newTile = _cardHolderSystem.GetRandomAvailableCardExcept(_tile);
-            if (newTile != null && newTile != _tile)
+            var newTile = _cardHolderSystem.GetRandomAvailableCardExcept(_card);
+            if (newTile != null && newTile != _card)
             {
                 SetCardInfo(newTile, _cardHolderSystem);
                 UpdateChangeTextColor();

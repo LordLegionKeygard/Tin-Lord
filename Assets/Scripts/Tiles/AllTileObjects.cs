@@ -47,10 +47,10 @@ public class AllTileObjects : MonoBehaviour
         {
             var tileObject = TileObjects[i];
             var groundHaveTile = tileObject.GroundTileObject().HaveTile();
-            var buildingHaveTile = tileObject.BuildingTileObject().HaveTile() && !tileObject.BuildingHealth().IsDeath();
+            var buildingHaveTile = tileObject.BuildingTileObject().IsHaveTile() && !tileObject.BuildingHealth().IsDeath();
             var isWater = tileObject.GroundTileObject().IsWaterTile();
             var riverTile = tileObject.GroundTileObject().CurrentTileRiver();
-            var haveBuildingTileGameObject = tileObject.BuildingTileObject().HaveBuildingGameObject();
+            var haveBuildingTileGameObject = tileObject.BuildingTileObject().IsHaveBuildingGameObject();
             var haveRotationView = buildingHaveTile && haveBuildingTileGameObject && tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() != null;
             var haveRequiredResource = buildingHaveTile && tileObject.CurrentResourceForWork() != null;
             var haveProductionResource = buildingHaveTile && tileObject.CurrentResourceProduction() != null;
@@ -59,16 +59,16 @@ public class AllTileObjects : MonoBehaviour
             {
                 GroundData = new GroundData
                 {
-                    GroundTileId = groundHaveTile ? (int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView : (int)GroundTileViewEnum.None,
+                    GroundTileId = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTile().Id : -1,
                     GroundTileRotation = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTileObject().transform.eulerAngles.y : 0,
                     GroundModelRotation = groundHaveTile ? tileObject.GroundTileObject().GroundModelRotation() : 0,
                     IsForwardRoad = groundHaveTile ? tileObject.GroundTileObject().IsForwardRoad() : false,
-                    RiftViewNumber = groundHaveTile ? tileObject.GetRiftViewNumber() : -1,
+                    RiftViewTileId = groundHaveTile ? tileObject.GetRiftViewTileId() : -1,
                 },
                 BuildingData = new BuildingData
                 {
-                    BuildingTileTypeId = buildingHaveTile ? (int)tileObject.BuildingTileObject().CurrentBuildingTile().BuildingTileView : -1,
-                    BuildingTileLevel = buildingHaveTile ? tileObject.BuildingTileObject().CurrentBuildingLevel() : -1,
+                    BuildingTileTypeId = buildingHaveTile ? (int)tileObject.BuildingTileObject().GetCurrentBuildingTile().BuildingTileView : -1,
+                    BuildingTileLevel = buildingHaveTile ? tileObject.BuildingTileObject().GetCurrentBuildingLevel() : -1,
                     BuildingHealth = buildingHaveTile ? tileObject.BuildingHealth().GetCurrentHealth() : 0,
                     IsBuildingWork = buildingHaveTile && tileObject.IsBuildingWork(),
                     BuildingTilePositionY = buildingHaveTile ? tileObject.BuildingTileObject().GetBuildingTileTransform().GetPositionY() : 0,
@@ -82,6 +82,7 @@ public class AllTileObjects : MonoBehaviour
                     IsUpgradeBase = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase(),
                     PreviousBaseBuildingHealth = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase() ? tileObject.BuildingTileObject().PreviousBaseBuildingHealth() : 0,
                     IsGeneralRepairSelect = buildingHaveTile && tileObject.IsGeneralRepairSelect(),
+                    TacticCardIncreaseDamage = buildingHaveTile ? tileObject.BuildingTileObject().GetTacticCardIncreaseDamageLevel() : -1,
                 },
                 WaterData = new WaterData
                 {
@@ -109,7 +110,7 @@ public class AllTileObjects : MonoBehaviour
 
         for (int i = 0; i < TileObjects.Count; i++)
         {
-            if (tilesData[i].GroundData.GroundTileId == (int)GroundTileViewEnum.None) continue;
+            if (tilesData[i].GroundData.GroundTileId == -1) continue;
             TileObjects[i].GroundTileObject().LoadGroundTile(tilesData[i]);
         }
 
@@ -152,9 +153,9 @@ public class AllTileObjects : MonoBehaviour
         {
             if (TileObjects[i].GroundTileObject().CurrentGroundTile() == null) continue;
 
-            if (!TileObjects[i].BuildingTileObject().HaveBuildingGameObject()) continue;
+            if (!TileObjects[i].BuildingTileObject().IsHaveBuildingGameObject()) continue;
 
-            if (TileObjects[i].BuildingTileObject().CurrentBuildingTile().BuildingTileView == findBuildingTileView)
+            if (TileObjects[i].BuildingTileObject().GetCurrentBuildingTile().BuildingTileView == findBuildingTileView)
             {
                 return TileObjects[i];
             }
@@ -169,7 +170,7 @@ public class AllTileObjects : MonoBehaviour
         {
             if (TileObjects[i].GroundTileObject().CurrentGroundTile() == null) continue;
 
-            if (!TileObjects[i].BuildingTileObject().HaveBuildingGameObject()) continue;
+            if (!TileObjects[i].BuildingTileObject().IsHaveBuildingGameObject()) continue;
 
             if (!TileObjects[i].BuildingHealth().IsFullHealth())
             {

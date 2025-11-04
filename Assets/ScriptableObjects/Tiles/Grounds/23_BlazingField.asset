@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Blazing Field
   - "\u041F\u044B\u043B\u0430\u044E\u0449\u0435\u0435 \u041F\u043E\u043B\u0435"
+  Icon: {fileID: 21300000, guid: 93a686fe845a2bd4f968765e1a09743e, type: 3}
+  Kind: 0
+  Id: 23
   TileObject: {fileID: 8123914287721754775, guid: 3b13ace11d920d64898318b29f152e6f,
     type: 3}
-  Icon: {fileID: 21300000, guid: 93a686fe845a2bd4f968765e1a09743e, type: 3}
   TileTypeEnum: 0
   GroundTileView: 24
   GroundEcology: -3
@@ -44,3 +46,4 @@ MonoBehaviour:
     ProductionOnGroundResourceModifier: 1
   BuildingTileView: -1
   Buildings: []
+  MaterialForRift: {fileID: 2100000, guid: abb2bb2702db2794db930101e017b957, type: 2}

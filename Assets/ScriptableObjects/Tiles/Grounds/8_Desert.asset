@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Desert
   - "\u041F\u0443\u0441\u0442\u044B\u043D\u044F"
+  Icon: {fileID: 21300000, guid: cbc2eab06c984de42a1bdd682d6f2288, type: 3}
+  Kind: 0
+  Id: 8
   TileObject: {fileID: 3777417690190183260, guid: 23317805ae4f5654bb05dedd0a9451e3,
     type: 3}
-  Icon: {fileID: 21300000, guid: cbc2eab06c984de42a1bdd682d6f2288, type: 3}
   TileTypeEnum: 0
   GroundTileView: 9
   GroundEcology: 0
@@ -56,3 +58,4 @@ MonoBehaviour:
     ProductionOnGroundResourceModifier: 0.5
   BuildingTileView: -1
   Buildings: []
+  MaterialForRift: {fileID: 2100000, guid: 3b18d0037ea59cf4289db93213a4cc83, type: 2}

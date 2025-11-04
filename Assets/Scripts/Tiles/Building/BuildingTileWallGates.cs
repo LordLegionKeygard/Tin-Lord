@@ -19,7 +19,7 @@ public class BuildingTileWallGates : MonoBehaviour
 
     public void PrepareWallsAndGates()
     {
-        if (!_buildingTile.HaveTile() || (!_buildingTile.IsWallTile() && !_buildingTile.IsGateTile()) || !_buildingTile.HaveBuildingGameObject())
+        if (!_buildingTile.IsHaveTile() || (!_buildingTile.IsWallTile() && !_buildingTile.IsGateTile()) || !_buildingTile.IsHaveBuildingGameObject())
         {
             return;
         }
@@ -37,7 +37,7 @@ public class BuildingTileWallGates : MonoBehaviour
         {
             if (CheckSolo())
             {
-                buildingWallView.SetBuildingWall(_wallType, 0, _buildingTile.CurrentBuildingLevel());
+                buildingWallView.SetBuildingWall(_wallType, 0, _buildingTile.GetCurrentBuildingLevel());
                 return;
             }
 
@@ -83,7 +83,7 @@ public class BuildingTileWallGates : MonoBehaviour
             _buildingTile.NeightbourTileIsWallOrGate((int)TileDirectionEnum.South) &&
             _buildingTile.NeightbourTileIsWallOrGate((int)TileDirectionEnum.West))
         {
-            _buildingTile.CurrentBuildingGameObject().GetComponent<BuildingWallView>().SetBuildingWall(_wallType, 0, _buildingTile.CurrentBuildingLevel());
+            _buildingTile.CurrentBuildingGameObject().GetComponent<BuildingWallView>().SetBuildingWall(_wallType, 0, _buildingTile.GetCurrentBuildingLevel());
             return true;
         }
         return false;
@@ -109,7 +109,7 @@ public class BuildingTileWallGates : MonoBehaviour
                 _buildingTile.NeightbourTileIsWallOrGate((int)directions[i].Item2) &&
                 _buildingTile.NeightbourTileIsWallOrGate((int)directions[i].Item3))
             {
-                _buildingTile.CurrentBuildingGameObject().GetComponent<BuildingWallView>().SetBuildingWall(directions[i].Item4, directions[i].Item5, _buildingTile.CurrentBuildingLevel());
+                _buildingTile.CurrentBuildingGameObject().GetComponent<BuildingWallView>().SetBuildingWall(directions[i].Item4, directions[i].Item5, _buildingTile.GetCurrentBuildingLevel());
                 return true;
             }
         }
@@ -132,7 +132,7 @@ public class BuildingTileWallGates : MonoBehaviour
         {
             if (_buildingTile.NeightbourTileIsWallOrGate((int)directions[i].Item1) && _buildingTile.NeightbourTileIsWallOrGate((int)directions[i].Item2))
             {
-                _buildingTile.CurrentBuildingGameObject().GetComponent<BuildingWallView>().SetBuildingWall(directions[i].Item3, directions[i].Item4, _buildingTile.CurrentBuildingLevel());
+                _buildingTile.CurrentBuildingGameObject().GetComponent<BuildingWallView>().SetBuildingWall(directions[i].Item3, directions[i].Item4, _buildingTile.GetCurrentBuildingLevel());
                 return true;
             }
         }
@@ -155,7 +155,7 @@ public class BuildingTileWallGates : MonoBehaviour
         {
             if (_buildingTile.NeightbourTileIsWallOrGate((int)direction))
             {
-                tileRiver.SetBuildingWall(type, rotation, _buildingTile.CurrentBuildingLevel());
+                tileRiver.SetBuildingWall(type, rotation, _buildingTile.GetCurrentBuildingLevel());
                 break;
             }
         }

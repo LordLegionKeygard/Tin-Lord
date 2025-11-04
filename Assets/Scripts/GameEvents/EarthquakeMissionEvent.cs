@@ -96,10 +96,10 @@ public class EarthquakeMissionEvent : BaseMissionEvent
             if (validTiles.Count > 0)
             {
                 var randomTile = validTiles[Random.Range(0, validTiles.Count)];
-                var previousGroundTileViewEnum = randomTile.GroundTileObject().CurrentGroundTile().GroundTileView;
+                var previousGroundTileId = randomTile.GroundTileObject().CurrentGroundTile().Id;
                 randomTile.BuildingHealth().Death();
                 randomTile.GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Rift));
-                randomTile.GroundTileObject().SpawnGroundTile(previousGroundTileViewEnum);
+                randomTile.GroundTileObject().SpawnGroundTile(previousGroundTileId);
             }
         }
     }

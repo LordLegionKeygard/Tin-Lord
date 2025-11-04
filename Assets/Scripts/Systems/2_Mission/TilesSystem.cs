@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TilesSystem : MonoBehaviour
 {
+    [SerializeField] private Card[] _allCards;
     [SerializeField] private Tile[] _allGroundTiles;
     [SerializeField] private Tile[] _allBuildingTiles;
 
@@ -17,13 +18,30 @@ public class TilesSystem : MonoBehaviour
     public bool IsHaveMachineProduction() => _isHaveMachineProduction;
     public void SetIsHaveMachineProduction(bool state) => _isHaveMachineProduction = state;
     public Tile GetGroundTileForEnum(GroundTileViewEnum tileView) => _allGroundTiles[(int)tileView - 1];
-    public Tile GetGroundTileForNumber(int number) => _allGroundTiles[number - 1];
     public Tile GetBuildingTileForEnum(BuildingTileViewEnum tileView) => _allBuildingTiles[(int)tileView];
-    public Tile GetBuildingTileForNumber(int number) => _allBuildingTiles[number];
+    public Tile GetBuildingTileForId(int id) => _allBuildingTiles[id];
 
     private void Start()
     {
         CustomEvents.OnSetBase += SetBaseLevel;
+    }
+
+    public Tile GetGroundTileForId(int id)
+    {
+        for (int i = 0; i < _allGroundTiles.Length; i++)
+        {
+            if (_allGroundTiles[i].Id == id) return _allGroundTiles[i];
+        }
+        return null;
+    }
+
+    public Card GetCardForId(int id)
+    {
+        for (int i = 0; i < _allCards.Length; i++)
+        {
+            if (_allCards[i].Id == id) return _allCards[i];
+        }
+        return null;
     }
 
     private void OnDestroy()
