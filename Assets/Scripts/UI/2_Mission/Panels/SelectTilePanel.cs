@@ -180,18 +180,22 @@ public class SelectTilePanel : MonoBehaviour
         var productionModifierText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[11]}:</color>";
 
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
-        _groundTileNameText.color = Colors.GetRarityColor(tileObject.GroundTileObject().GetRarity());
+        _groundTileNameText.color = Colors.GetRarityColor(tileObject.GetRarity());
         _buildingNameText.text = haveBuildingTile ? $"{buildindText} {building.Name[Language.LanguageNumber]}" : $"{buildindText} -";
         _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingFullHealth}" : $"{buildingHealthText} -";
         _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().GetCurrentBuildingLevel()}" : $"{buildindLevelText} -";
 
 
 
-        var color = Colors.GetSelectTilePanelProductionModifierColor(tileObject.CurrentModifier());
+        var color = Colors.GetSelectTilePanelProductionModifierColor(tileObject.GetBaseModifier());
         var haveProduction = haveBuildingTile && tile.IsHaveProductionResources();
 
+        var rarity = tileObject.GetRarity();
+        var rarityModifier = _tileObject.CurrentModifier() - _tileObject.GetBaseModifier();
 
-        _productionModifierText.text = haveProduction ? $"{productionModifierText} <color={color}>x{tileObject.CurrentModifier()}</color>" : $"{productionModifierText} -";
+        var productionModifier = rarity == 1 ? $"<color={color}>x{tileObject.GetBaseModifier()}</color>" : $"<color={color}>x{tileObject.GetBaseModifier()}</color> <color={Colors.GetRarityHexColor(rarity)}>+ {rarityModifier}</color>";
+
+        _productionModifierText.text = haveProduction ? $"{productionModifierText} {productionModifier}" : $"{productionModifierText} -";
     }
 
 
@@ -252,7 +256,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetEcologyTexts(TileObject tileObject)
     {
-        var rarity = tileObject.GroundTileObject().GetRarity();
+        var rarity = tileObject.GetRarity();
         var groundEcology = tileObject.TileEcology().GetEcology(GetEcologyEnum.Ground);
         var buildingEcology = tileObject.TileEcology().GetEcology(GetEcologyEnum.Building);
 
@@ -263,7 +267,7 @@ public class SelectTilePanel : MonoBehaviour
         var buildingEcologyText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[16]}:</color>";
 
         var baseGroundEcologytext = $"<color={groundColor}>{groundEcology}</color>";
-        var groundText = rarity == 0 ? $"{baseGroundEcologytext}" : $"{baseGroundEcologytext} + <color={Colors.GetRarityHexColor(rarity)}>{rarity - 1}</color>";
+        var groundText = rarity == 1 ? $"{baseGroundEcologytext}" : $"{baseGroundEcologytext} <color={Colors.GetRarityHexColor(rarity)}>+ {rarity - 1}</color>";
         _groundEcologyText.text = $"{groundEcologyText} {groundText}";
         _buildingEcologyText.text = $"{buildingEcologyText} <color={buildingColor}>{buildingEcology}</color>";
     }
@@ -325,7 +329,7 @@ public class SelectTilePanel : MonoBehaviour
             var baseBuildingDamageWithRobotBonus = bonus != 1 ? $"<color={Colors.HexLightGreen}>{building.Damage * bonus}</color>" : building.Damage.ToString();
 
             var tacticCardIncreaseDamageLevel = _tileObject.BuildingTileObject().GetTacticCardIncreaseDamageLevel();
-            var realDamageText = tacticCardIncreaseDamageLevel == 0 ? baseBuildingDamageWithRobotBonus : $"{baseBuildingDamageWithRobotBonus} + <color={Colors.HexLightGreen}>{_tileObject.BuildingTileObject().GetTacticCardIncreaseDamage()}</color>";
+            var realDamageText = tacticCardIncreaseDamageLevel == 0 ? baseBuildingDamageWithRobotBonus : $"{baseBuildingDamageWithRobotBonus} <color={Colors.HexLightGreen}>+ {_tileObject.BuildingTileObject().GetTacticCardIncreaseDamage()}</color>";
 
             _damageText.text = $"{damageText} {realDamageText}";
             _attackSpeedText.text = $"{attackSpeedText} {building.AttackSpeed}";

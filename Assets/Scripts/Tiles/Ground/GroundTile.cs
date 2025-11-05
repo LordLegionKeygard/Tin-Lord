@@ -18,8 +18,6 @@ public class GroundTile : MonoBehaviour
     private TileRiver _tileRiver;
     private TileRoad _tileRoad;
     private int _riverNumber = 0;
-    private int _rarity;
-
 
     //LastRiverTile
     public TileRiver CurrentTileRiver() => _tileRiver;
@@ -65,7 +63,6 @@ public class GroundTile : MonoBehaviour
     public GroundTile NeighbourGroundTile(int number) => _tileObject.GetNeighbourGroundTile(number);
     public void TurnOffTileCollider() => _tileView.TurnOffCollider();
     public void SetId(int id) => _tileObject.SetId(id);
-    public int GetRarity() => _rarity;
 
     private void Awake()
     {
@@ -77,7 +74,7 @@ public class GroundTile : MonoBehaviour
     public void SetupGroundTile(Tile tile, int rarity, int previousGroundTileId = -1)
     {
         _currentGroundTile = tile;
-        _rarity = rarity;
+        _tileObject.SetRarity(rarity);
 
         SpawnGroundTile(previousGroundTileId);
     }
@@ -99,56 +96,6 @@ public class GroundTile : MonoBehaviour
             }
         }
     }
-
-    public void DestroyGroundTile()
-    {
-        _tileObject.ToggleIsGroundDestroyedNow(true);
-        if (GetLastRiverTile())
-        {
-            _tileRiver.Reset();
-            _currentGroundTile = null; // иначе река не туда повернет, так соседа IsWater найдет в цикле
-
-            RefreshWaterNeighbourTiles();
-        }
-
-        _currentGroundTile = null;
-        _groundModelRotation = 0;
-        CustomEvents.FireChangeEcology(0, _tileObject.GetId(), true);
-        SelectTile(false);
-
-        if (IsForwardRoad())
-        {
-            _tileRoad.SetRoadTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Road));
-            CustomEvents.FireSpawnRoadComplete();
-        }
-        else
-        {
-            StartCoroutine(nameof(DestroyViewCoroutine));
-        }
-    }
-
-    private IEnumerator DestroyViewCoroutine()
-    {
-        Instantiate(_laserDestructionVFX, transform.position, Quaternion.identity);
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.LaserDestruction, transform.position);
-
-        float delay = 0.2f;
-        float elapsed = 0f;
-
-        while (elapsed < delay)
-        {
-            elapsed += Time.unscaledDeltaTime;
-            yield return null;
-        }
-
-        _tileView.PlayAnimation(TileAnimationsEnum.Destroy, () =>
-        {
-            Destroy(_currentGroundTileObject);
-            transform.localScale = Vector3.one * 1;
-            _tileObject.ToggleIsGroundDestroyedNow(false);
-        });
-    }
-
 
     public void TurnOffFourTileNeighboursCollider()
     {
@@ -200,7 +147,7 @@ public class GroundTile : MonoBehaviour
         if (IsWaterTile()) _tileRiver.LoadRiver(tileDataWrapper);
 
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
-        _rarity = tileDataWrapper.GroundData.Rarity;
+        _tileObject.SetRarity(tileDataWrapper.GroundData.Rarity);
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceProduction();
         _tileObject.SetResourceModifier();
@@ -250,7 +197,7 @@ public class GroundTile : MonoBehaviour
     /// </summary>
     private void ChangeTile(GroundTileViewEnum newTile)
     {
-        SetupGroundTile(_tilesSystem.GetGroundTileForEnum(newTile), _rarity);
+        SetupGroundTile(_tilesSystem.GetGroundTileForEnum(newTile), _tileObject.GetRarity());
     }
 
     public void RefreshGroundTile()
@@ -695,5 +642,55 @@ public class GroundTile : MonoBehaviour
         if (!_tileObject.GetNeighbourGroundTile(i).HaveTile()) return false;
 
         return true;
+    }
+
+    public void DestroyGroundTile()
+    {
+        _tileObject.ToggleIsGroundDestroyedNow(true);
+        if (GetLastRiverTile())
+        {
+            _tileRiver.Reset();
+            _currentGroundTile = null; // иначе река не туда повернет, так соседа IsWater найдет в цикле
+
+            RefreshWaterNeighbourTiles();
+        }
+
+        _currentGroundTile = null;
+        _groundModelRotation = 0;
+        _tileObject.SetRarity(0);
+        CustomEvents.FireChangeEcology(0, _tileObject.GetId(), true);
+        SelectTile(false);
+
+        if (IsForwardRoad())
+        {
+            _tileRoad.SetRoadTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Road));
+            CustomEvents.FireSpawnRoadComplete();
+        }
+        else
+        {
+            StartCoroutine(nameof(DestroyViewCoroutine));
+        }
+    }
+
+    private IEnumerator DestroyViewCoroutine()
+    {
+        Instantiate(_laserDestructionVFX, transform.position, Quaternion.identity);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.LaserDestruction, transform.position);
+
+        float delay = 0.2f;
+        float elapsed = 0f;
+
+        while (elapsed < delay)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        _tileView.PlayAnimation(TileAnimationsEnum.Destroy, () =>
+        {
+            Destroy(_currentGroundTileObject);
+            transform.localScale = Vector3.one * 1;
+            _tileObject.ToggleIsGroundDestroyedNow(false);
+        });
     }
 }

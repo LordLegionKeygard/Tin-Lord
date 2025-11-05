@@ -18,17 +18,17 @@ public class Colors : MonoBehaviour
     public static readonly Color DecayYellow = new Color(0.8f, 0.56f, 0, 1);
 
     public static readonly Color CommonRarity = new Color(0.8f, 0.8f, 0.8f, 1);
-    public static readonly Color UncommonRarity = new Color(0.25f, 0.75f, 0, 1);
-    public static readonly Color RareRarity = new Color(0, 0.44f, 0.86f, 1);
-    public static readonly Color EpicRarity = new Color(0.64f, 0.2f, 0.93f, 1);
-    public static readonly Color LegendaryRarity = new Color(0.84f, 0.43f, 0.01f, 1);
+    public static readonly Color UncommonRarity = new Color(0.5f, 0.6f, 0.8f, 1);
+    public static readonly Color RareRarity = new Color(0.29f, 0.41f, 1, 1);
+    public static readonly Color EpicRarity = new Color(0.6f, 0.4f, 1, 1);
+    public static readonly Color LegendaryRarity = new Color(0.8f, 0.2f, 1, 1);
 
     [Header("Hex")]
     public static readonly string HexCommonRarity = "#CCCCCC";
-    public static readonly string HexUncommonRarity = "#40BF00";
-    public static readonly string HexRareRarity = "#0070DB";
-    public static readonly string HexEpicRarity = "#A333ED";
-    public static readonly string HexLegendaryRarity = "#D66E03";
+    public static readonly string HexUncommonRarity = "#8099CC";
+    public static readonly string HexRareRarity = "#4B69FF";
+    public static readonly string HexEpicRarity = "#8847FF";
+    public static readonly string HexLegendaryRarity = "#D32CE6";
 
     public static string HexWhite = "#FFFFFF";
     public static string HexWarningYellow = "#FFA800";

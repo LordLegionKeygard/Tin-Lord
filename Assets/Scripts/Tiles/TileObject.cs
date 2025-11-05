@@ -15,6 +15,7 @@ public class TileObject : MonoBehaviour
     private BuildingProductionView _buildingProductionView;
     private BuildingHealth _buildingHealth;
     private int _id;
+    private float _baseModifier;
     private float _currentModifier;
     private Resource _currentResourceProduction;
     private Resource _currentResourceForWork;
@@ -25,6 +26,9 @@ public class TileObject : MonoBehaviour
     private bool _isBuildingDestroyedNow;
     private bool _isGroundDestroyedNow;
     private int _riftViewTileId = -1;
+    private int _rarity;
+
+
     public bool IsGeneralRepairSelect() => _isGeneralRepairSelect;
     public int GetRiftViewTileId() => _riftViewTileId;
     public bool IsBuildingWork() => _isBuildingWork;
@@ -39,7 +43,9 @@ public class TileObject : MonoBehaviour
     public TileObjectEvents GetTileObjectEvents() => _tileObjectEvents;
     public int CurrentTileId() => _id;
     public int GetId() => _id;
+    public int GetRarity() => _rarity;
     public float CurrentModifier() => _currentModifier;
+    public float GetBaseModifier() => _baseModifier;
     public Resource CurrentResourceProduction() => _currentResourceProduction;
     public Resource CurrentResourceForWork() => _currentResourceForWork;
     public float CurrentResourceForWorkAmount() => _currentResourceForWorkAmount;
@@ -47,6 +53,8 @@ public class TileObject : MonoBehaviour
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
     public void SetGeneralRepairSelect(bool state) => _isGeneralRepairSelect = state;
     public void SetRiftViewTileId(int id) => _riftViewTileId = id;
+    public void SetRarity(int rarity) => _rarity = rarity;
+    public void SetId(int id) => _id = id;
 
     //Neighbours
     public TileObject GetNeighbourTileObject(int number) => _neighbourTiles[number] != null ? _neighbourTiles[number] : null;
@@ -119,11 +127,11 @@ public class TileObject : MonoBehaviour
         CustomEvents.FireChangeResourceForWork(this, null, 0, null);
     }
 
-    public void SetId(int id) => _id = id;
-
     public void SetResourceModifier()
     {
-        _currentModifier = CalculateCurrentModifier();
+        var modifier = CalculateCurrentModifier();
+        _baseModifier = modifier;
+        _currentModifier = _baseModifier * GetRarityProductionResourceModifierFactor();
         if (_buildingProductionView != null) _buildingProductionView.RefreshModifierView();
         ChangeResourceProduction();
     }
@@ -147,6 +155,19 @@ public class TileObject : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    private float GetRarityProductionResourceModifierFactor()
+    {
+        return _rarity switch
+        {
+            1 => 1,
+            2 => 1.25f,
+            3 => 1.5f,
+            4 => 1.75f,
+            5 => 2f,
+            _ => 1,
+        };
     }
 
     public void CheckResourceRequired(bool needCheck)

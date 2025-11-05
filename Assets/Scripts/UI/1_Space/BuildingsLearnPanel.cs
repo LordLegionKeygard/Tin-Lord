@@ -50,7 +50,6 @@ public class BuildingsLearnPanel : MonoBehaviour
         _scrollRect.verticalNormalizedPosition = 1f;
     }
 
-    // Добавляем в трекер ресурсы, которые производит здание
     public void RegisterBuilding(Building building)
     {
         foreach (var prod in building.ResourcesProduction)
