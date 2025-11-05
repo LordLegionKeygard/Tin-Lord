@@ -122,6 +122,7 @@ public class TileDataWrapper
 public class GroundData
 {
     public int GroundTileId;
+    public int Rarity;
     public float GroundTileRotation;
     public float GroundModelRotation;
     public bool IsForwardRoad;

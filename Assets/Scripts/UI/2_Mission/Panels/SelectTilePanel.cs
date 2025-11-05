@@ -4,6 +4,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using Zenject;
 using System.Collections;
+using System.Threading;
 
 public class SelectTilePanel : MonoBehaviour
 {
@@ -179,7 +180,7 @@ public class SelectTilePanel : MonoBehaviour
         var productionModifierText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[11]}:</color>";
 
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
-        _groundTileNameText.color = _rarityCardsSystem.GetRarityColor(tileObject.GroundTileObject().GetRarity());
+        _groundTileNameText.color = Colors.GetRarityColor(tileObject.GroundTileObject().GetRarity());
         _buildingNameText.text = haveBuildingTile ? $"{buildindText} {building.Name[Language.LanguageNumber]}" : $"{buildindText} -";
         _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingFullHealth}" : $"{buildingHealthText} -";
         _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().GetCurrentBuildingLevel()}" : $"{buildindLevelText} -";
@@ -251,6 +252,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetEcologyTexts(TileObject tileObject)
     {
+        var rarity = tileObject.GroundTileObject().GetRarity();
         var groundEcology = tileObject.TileEcology().GetEcology(GetEcologyEnum.Ground);
         var buildingEcology = tileObject.TileEcology().GetEcology(GetEcologyEnum.Building);
 
@@ -260,7 +262,9 @@ public class SelectTilePanel : MonoBehaviour
         var groundEcologyText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[15]}:</color>";
         var buildingEcologyText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[16]}:</color>";
 
-        _groundEcologyText.text = $"{groundEcologyText} <color={groundColor}>{groundEcology}</color>";
+        var baseGroundEcologytext = $"<color={groundColor}>{groundEcology}</color>";
+        var groundText = rarity == 0 ? $"{baseGroundEcologytext}" : $"{baseGroundEcologytext} + <color={Colors.GetRarityHexColor(rarity)}>{rarity - 1}</color>";
+        _groundEcologyText.text = $"{groundEcologyText} {groundText}";
         _buildingEcologyText.text = $"{buildingEcologyText} <color={buildingColor}>{buildingEcology}</color>";
     }
 
@@ -318,9 +322,12 @@ public class SelectTilePanel : MonoBehaviour
             var rotationSpeedText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[101]}:</color>";
 
             var bonus = _missionHangarSystem.GetAimBotDamageBonus();
-            var buldingDamage = bonus != 1 ? $"<color={Colors.HexLightGreen}>{_tileObject.BuildingTileObject().GetRealTurretDamage()}</color>" : _tileObject.BuildingTileObject().GetRealTurretDamage().ToString();
+            var baseBuildingDamageWithRobotBonus = bonus != 1 ? $"<color={Colors.HexLightGreen}>{building.Damage * bonus}</color>" : building.Damage.ToString();
 
-            _damageText.text = $"{damageText} {buldingDamage}";
+            var tacticCardIncreaseDamageLevel = _tileObject.BuildingTileObject().GetTacticCardIncreaseDamageLevel();
+            var realDamageText = tacticCardIncreaseDamageLevel == 0 ? baseBuildingDamageWithRobotBonus : $"{baseBuildingDamageWithRobotBonus} + <color={Colors.HexLightGreen}>{_tileObject.BuildingTileObject().GetTacticCardIncreaseDamage()}</color>";
+
+            _damageText.text = $"{damageText} {realDamageText}";
             _attackSpeedText.text = $"{attackSpeedText} {building.AttackSpeed}";
             _attackRadiusText.text = $"{attackRadiusText} {building.AttackRadius}";
             _rotationSpeedText.text = $"{rotationSpeedText} {building.RotationSpeed}";

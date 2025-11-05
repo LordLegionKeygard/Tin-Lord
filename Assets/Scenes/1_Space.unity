@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007792593, g: 0.00009613107, b: 0.00011564696,
+  m_IndirectSpecularColor: {r: 0.0000779953, g: 0.00009618774, b: 0.000115816496,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -28371,8 +28371,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Canyon
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8bede43c7b93ad447bd450d5a4a90e36, type: 2}
-  m_sharedMaterial: {fileID: -3506200788955325779, guid: 8bede43c7b93ad447bd450d5a4a90e36,
+  m_fontAsset: {fileID: 11400000, guid: a139fe98c5d493e4091298ee6bab1157, type: 2}
+  m_sharedMaterial: {fileID: -3506200788955325779, guid: a139fe98c5d493e4091298ee6bab1157,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -28397,8 +28397,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -50095,8 +50095,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select a building
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8bede43c7b93ad447bd450d5a4a90e36, type: 2}
-  m_sharedMaterial: {fileID: -3506200788955325779, guid: 8bede43c7b93ad447bd450d5a4a90e36,
+  m_fontAsset: {fileID: 11400000, guid: a139fe98c5d493e4091298ee6bab1157, type: 2}
+  m_sharedMaterial: {fileID: -3506200788955325779, guid: a139fe98c5d493e4091298ee6bab1157,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -50121,8 +50121,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
-  m_fontSizeBase: 22
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

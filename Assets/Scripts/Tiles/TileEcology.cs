@@ -17,6 +17,7 @@ public class TileEcology : MonoBehaviour
 
 
         var groundEcology = _tileObject.GroundTileObject().CurrentGroundTile().GroundEcology;
+        var rarityBonusEcology = _tileObject.GroundTileObject().GetRarity();
 
         if (haveBuildingTile && !isConstructionNow)
         {
@@ -37,7 +38,7 @@ public class TileEcology : MonoBehaviour
         {
             GetEcologyEnum.Ground => groundEcology,
             GetEcologyEnum.Building => buildingEcology,
-            GetEcologyEnum.Total => groundEcology + buildingEcology,
+            GetEcologyEnum.Total => groundEcology + rarityBonusEcology - 1 + buildingEcology,
             _ => 0,
         };
     }

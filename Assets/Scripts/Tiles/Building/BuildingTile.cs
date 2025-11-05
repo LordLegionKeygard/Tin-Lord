@@ -49,15 +49,15 @@ public class BuildingTile : MonoBehaviour
    public bool IsWallOrGate() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView is BuildingTileViewEnum.Walls or BuildingTileViewEnum.Gates;
    public bool IsEcologyBuilding() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier;
    public bool NeightbourTileIsWallOrGate(int number) => _tileObject.GetNeighbourBuildingTile(number) == null ? false : _tileObject.GetNeighbourBuildingTile(number).IsWallOrGate();
-
    public int GetTacticCardIncreaseDamageLevel() => _tacticCardIncreaseDamageLevel;
+   public float GetTacticCardIncreaseDamage() => GetCurrentBuilding().Damage * _tacticCardIncreaseDamageLevel * WorldGameInfo.TacticCardIncreaseDamageFactor;
 
-   public float GetRealTurretDamage()
+   public float GetResultTurretDamage()
    {
       var baseDamage = GetCurrentBuilding().Damage;
       var bonus = _missionHangarSystem.GetAimBotDamageBonus();
       var tacticCardIncreaseDamage = baseDamage * _tacticCardIncreaseDamageLevel * WorldGameInfo.TacticCardIncreaseDamageFactor;
-      return (baseDamage + tacticCardIncreaseDamage) * bonus;
+      return baseDamage * bonus + tacticCardIncreaseDamage;
    }
 
    public void TacticCardIncreaseDamageLevel(int rarity)
@@ -343,10 +343,13 @@ public class BuildingTile : MonoBehaviour
 
          RefreshNeighbourWallTiles();
       }
-      if (!isUpgrade) _buildingHealth.DestroyHealthSlider(); // вызываем еще раз, так как есть ситуации, когда не вызывается уничтожение слайдера, например уничтожаем сами, а не через реальную смерть
+      if (!isUpgrade)
+      {
+         _buildingHealth.DestroyHealthSlider(); // вызываем еще раз, так как есть ситуации, когда не вызывается уничтожение слайдера, например уничтожаем сами, а не через реальную смерть 
+         _tacticCardIncreaseDamageLevel = 0; // оставляем бонус урона между апгрейдами 
+      }
       _currentBuildingTile = null;
       _currentLevel = 0;
-      _tacticCardIncreaseDamageLevel = 0;
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
 
       var tileObjectsView = _tileObject.GroundTileObject().CurrentGroundTileObject().GetComponent<TileObjectsView>();

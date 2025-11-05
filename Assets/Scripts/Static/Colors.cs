@@ -17,12 +17,18 @@ public class Colors : MonoBehaviour
     public static readonly Color ConstructionBlue = new Color(0.2f, 0.44f, 0.8f, 1);
     public static readonly Color DecayYellow = new Color(0.8f, 0.56f, 0, 1);
 
-    [Header("Rarity")]
-    public static readonly Color CommonRarity = new Color(0.8f, 0.8f, 0.8f, 1); //Grey 80%
-    public static readonly Color UncommonRarity = new Color(0.08f, 0.67f, 0f, 1); //Green 10%
-    public static readonly Color RareRarity = new Color(0, 0.44f, 0.86f, 1); //Blue 6%
-    public static readonly Color EpicRarity = new Color(0.64f, 0.2f, 0.93f, 1); //Violet  3%
-    public static readonly Color LegendaryRarity = new Color(0.84f, 0.43f, 0.01f, 1); //Orange 1%
+    public static readonly Color CommonRarity = new Color(0.8f, 0.8f, 0.8f, 1);
+    public static readonly Color UncommonRarity = new Color(0.25f, 0.75f, 0, 1);
+    public static readonly Color RareRarity = new Color(0, 0.44f, 0.86f, 1);
+    public static readonly Color EpicRarity = new Color(0.64f, 0.2f, 0.93f, 1);
+    public static readonly Color LegendaryRarity = new Color(0.84f, 0.43f, 0.01f, 1);
+
+    [Header("Hex")]
+    public static readonly string HexCommonRarity = "#CCCCCC";
+    public static readonly string HexUncommonRarity = "#40BF00";
+    public static readonly string HexRareRarity = "#0070DB";
+    public static readonly string HexEpicRarity = "#A333ED";
+    public static readonly string HexLegendaryRarity = "#D66E03";
 
     public static string HexWhite = "#FFFFFF";
     public static string HexWarningYellow = "#FFA800";
@@ -82,6 +88,32 @@ public class Colors : MonoBehaviour
     public static string GetSelectTilePanelProductionColor(float production)
     {
         return production == 0 ? HexRed : HexWhite;
+    }
+
+    public static Color GetRarityColor(int rarity)
+    {
+        return rarity switch
+        {
+            1 => CommonRarity,
+            2 => UncommonRarity,
+            3 => RareRarity,
+            4 => EpicRarity,
+            5 => LegendaryRarity,
+            _ => CommonRarity,
+        };
+    }
+
+    public static string GetRarityHexColor(int rarity)
+    {
+        return rarity switch
+        {
+            1 => HexCommonRarity,
+            2 => HexUncommonRarity,
+            3 => HexRareRarity,
+            4 => HexEpicRarity,
+            5 => HexLegendaryRarity,
+            _ => HexCommonRarity,
+        };
     }
 }
 

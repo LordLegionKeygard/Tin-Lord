@@ -17,19 +17,6 @@ public class RarityCardsSystem : MonoBehaviour
 
         return rarity;
     }
-
-    public Color GetRarityColor(int rarity)
-    {
-        return rarity switch
-        {
-            1 => Colors.CommonRarity,
-            2 => Colors.UncommonRarity,
-            3 => Colors.RareRarity,
-            4 => Colors.EpicRarity,
-            5 => Colors.LegendaryRarity,
-            _ => Colors.CommonRarity,
-        };
-    }
 }
 
 [System.Serializable]

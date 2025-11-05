@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: War Ballista
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 749d2ac91cd04c048a88633120d76de4, type: 2}
-  m_sharedMaterial: {fileID: -7740022604001485521, guid: 749d2ac91cd04c048a88633120d76de4,
+  m_fontAsset: {fileID: 11400000, guid: a139fe98c5d493e4091298ee6bab1157, type: 2}
+  m_sharedMaterial: {fileID: -3506200788955325779, guid: a139fe98c5d493e4091298ee6bab1157,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -368,7 +368,7 @@ MonoBehaviour:
   _icon: {fileID: 5914226276301972922}
   _backImage: {fileID: 1407918202575798087}
   _currentMachineSystem: {fileID: 0}
-  resourcesViewMission: {fileID: 0}
+  _resourcesViewMission: {fileID: 0}
 --- !u!114 &645218132170262859
 MonoBehaviour:
   m_ObjectHideFlags: 0

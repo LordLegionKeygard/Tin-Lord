@@ -64,6 +64,7 @@ public class AllTileObjects : MonoBehaviour
                     GroundModelRotation = groundHaveTile ? tileObject.GroundTileObject().GroundModelRotation() : 0,
                     IsForwardRoad = groundHaveTile ? tileObject.GroundTileObject().IsForwardRoad() : false,
                     RiftViewTileId = groundHaveTile ? tileObject.GetRiftViewTileId() : -1,
+                    Rarity = groundHaveTile ? tileObject.GroundTileObject().GetRarity() : 0
                 },
                 BuildingData = new BuildingData
                 {

@@ -200,6 +200,7 @@ public class GroundTile : MonoBehaviour
         if (IsWaterTile()) _tileRiver.LoadRiver(tileDataWrapper);
 
         _tileView.SetTileView(_currentGroundTileObject.transform, _currentGroundTile);
+        _rarity = tileDataWrapper.GroundData.Rarity;
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceProduction();
         _tileObject.SetResourceModifier();
@@ -250,7 +251,6 @@ public class GroundTile : MonoBehaviour
     private void ChangeTile(GroundTileViewEnum newTile)
     {
         SetupGroundTile(_tilesSystem.GetGroundTileForEnum(newTile), _rarity);
-        SpawnGroundTile();
     }
 
     public void RefreshGroundTile()
