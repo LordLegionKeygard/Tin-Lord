@@ -22,7 +22,7 @@ public class MissionSaveData
     public float[] ResourcesData;
 
     [Header("Cards")]
-    public int[] Cards;
+    public CardData[] Cards;
 
     [Header("DayEvents")]
     public DayEventData[] DayEventsData;
@@ -56,6 +56,13 @@ public class MissionSaveData
 
     [Header("Hazards")]
     public HazardSaveData[] Hazards;
+}
+
+[System.Serializable]
+public class CardData
+{
+    public int CardId;
+    public int CardRarity;
 }
 
 [System.Serializable]

@@ -36,8 +36,7 @@ public class OilReleaseMissionEvent : BaseMissionEvent
         if (validTiles.Count > 0)
         {
             var randomTile = validTiles[Random.Range(0, validTiles.Count)];
-            randomTile.GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.OilSwamp));
-            randomTile.GroundTileObject().SpawnGroundTile();
+            randomTile.GroundTileObject().SetupGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.OilSwamp), (int)CardRarityEnum.Common);
         }
     }
 }

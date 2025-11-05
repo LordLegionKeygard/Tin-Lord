@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -24,6 +25,7 @@ public class MissionSaveLoad : MonoBehaviour
 
     [Header("Cards")]
     [SerializeField] private CardHolderSystem _cardHolderSystem;
+    [SerializeField] private RarityCardsSystem _rarityCardsSystem;
 
     [Header("WorldEvents")]
     [SerializeField] private MissionEventSystem _missionEventSystem;

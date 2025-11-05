@@ -60,9 +60,9 @@ public class BuildingTile : MonoBehaviour
       return (baseDamage + tacticCardIncreaseDamage) * bonus;
    }
 
-   public void TacticCardIncreaseDamageLevel()
+   public void TacticCardIncreaseDamageLevel(int rarity)
    {
-      _tacticCardIncreaseDamageLevel += 1;
+      _tacticCardIncreaseDamageLevel += rarity;
    }
 
    public bool IsCanUpgrade()

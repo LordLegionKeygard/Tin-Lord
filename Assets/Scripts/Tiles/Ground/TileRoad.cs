@@ -16,8 +16,7 @@ public class TileRoad : MonoBehaviour
 
     public void SetRoadTile(Tile tile)
     {
-        _groundTile.SetGroundTile(tile);
-        _groundTile.SpawnGroundTile();
+        _groundTile.SetupGroundTile(tile, (int)CardRarityEnum.Common);
     }
 
     public void LoadForwardRoad(bool state)

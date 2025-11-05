@@ -6,16 +6,17 @@ using Zenject;
 
 public class CardObject : MonoBehaviour
 {
+    [Inject] private readonly RarityCardsSystem _rarityCardsSystem;
     [Inject] private MissionResources _missionResources;
     [Inject] private readonly TutorialSystem _tutorialSystem;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI _changeTextAmount;
-    [SerializeField] private Transform _cardParentTransform;
+    [SerializeField] private RectTransform _cardParentTransform;
     [SerializeField] private Button _changeCardButton;
     [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI _text;
-    [SerializeField] private RectTransform _objectTransform;
+    [SerializeField] private RectTransform _mainCardTransform;
     [SerializeField] private Button _button;
 
     [Header("Tutorial")]
@@ -25,11 +26,11 @@ public class CardObject : MonoBehaviour
     private CardHolderSystem _cardHolderSystem;
     private bool _isSelect;
     [SerializeField] private Card _card;
+    [SerializeField] private int _rarity;
 
     public Card GetCard() => _card;
-    public bool IsTile => _card is Tile;
-    public Tile GetTile() => _card as Tile;   // может вернуть null, если карта не Tile
-    public bool IsUpgrade => _card.Kind == CardKind.Upgrade;
+    public Tile GetTile() => _card as Tile;
+    public int GetRarity() => _rarity;
 
     private void Start()
     {
@@ -88,14 +89,16 @@ public class CardObject : MonoBehaviour
         _button.enabled = false;
     }
 
-    public void SetCardInfo(Card card, CardHolderSystem holder)
+    public void SetCardInfo(Card card, CardHolderSystem holder, int rarity)
     {
         _card = card;
+        _rarity = rarity;
         _cardHolderSystem = holder;
 
         gameObject.name = _card.Name[0];
         _image.sprite = _card.Icon;
         _text.text = _card.Name[Language.LanguageNumber];
+        _text.color = _rarityCardsSystem.GetRarityColor(_rarity);
     }
 
     public void SelectCardObject()
@@ -148,16 +151,22 @@ public class CardObject : MonoBehaviour
 
     public void SelectViewToggle(bool state)
     {
-        _objectTransform.DOKill();
+        _mainCardTransform.DOKill();
 
         var tile = GetTile();
         if (tile != null && tile.GroundTileView != GroundTileViewEnum.BaseFoundation)
+        {
             ChangeButtonToggle(state);
+            _isSelect = state;
+            _mainCardTransform.DOAnchorPosY(state ? 30 : 0, 0.3f).SetUpdate(true);
+        }
         else
+        {
             ChangeButtonToggle(false);
+            _isSelect = state;
+            _cardParentTransform.DOAnchorPosY(state ? 30 : 0, 0.3f).SetUpdate(true);
+        }
 
-        _isSelect = state;
-        _objectTransform.DOAnchorPosY(state ? 30 : 0, 0.3f).SetUpdate(true);
     }
 
     private void ChangeButtonToggle(bool state)
@@ -194,7 +203,7 @@ public class CardObject : MonoBehaviour
             var newTile = _cardHolderSystem.GetRandomAvailableCardExcept(_card);
             if (newTile != null && newTile != _card)
             {
-                SetCardInfo(newTile, _cardHolderSystem);
+                SetCardInfo(newTile, _cardHolderSystem, _rarityCardsSystem.GetRarity());
                 UpdateChangeTextColor();
             }
         });
@@ -214,9 +223,9 @@ public class CardObject : MonoBehaviour
         CustomEvents.OnStartTutorialStep -= TutorialHightlightCard;
         CustomEvents.OnTurnOffTutorialCardObjectView -= TurnOffTutorialView;
 
-        if (_objectTransform != null)
+        if (_mainCardTransform != null)
         {
-            _objectTransform.DOKill();
+            _mainCardTransform.DOKill();
         }
     }
 }

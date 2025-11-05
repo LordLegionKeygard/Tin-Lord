@@ -7,6 +7,7 @@ using System.Collections;
 
 public class SelectTilePanel : MonoBehaviour
 {
+    [Inject] private readonly RarityCardsSystem _rarityCardsSystem;
     [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly TileViewSystem _tileViewSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;
@@ -178,6 +179,7 @@ public class SelectTilePanel : MonoBehaviour
         var productionModifierText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[11]}:</color>";
 
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
+        _groundTileNameText.color = _rarityCardsSystem.GetRarityColor(tileObject.GroundTileObject().GetRarity());
         _buildingNameText.text = haveBuildingTile ? $"{buildindText} {building.Name[Language.LanguageNumber]}" : $"{buildindText} -";
         _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingFullHealth}" : $"{buildingHealthText} -";
         _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().GetCurrentBuildingLevel()}" : $"{buildindLevelText} -";

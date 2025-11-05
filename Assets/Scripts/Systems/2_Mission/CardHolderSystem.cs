@@ -9,6 +9,7 @@ public class CardHolderSystem : MonoBehaviour
     [Inject] private readonly DiContainer _diContainer;
     [Inject] private readonly TilesSystem _tilesSystem;
     [Inject] private readonly MissionResources _missionResources;
+    [Inject] private readonly RarityCardsSystem _rarityCardsSystem;
 
     [Header("Test")]
     [SerializeField] private bool _dontRemoveCards;
@@ -21,8 +22,8 @@ public class CardHolderSystem : MonoBehaviour
     [Header("Cards")]
     [SerializeField] private Tile _baseCard;
     [SerializeField] private Tile[] _startCards;
-    [SerializeField] private List<CardObject> _currentCards;
-    [SerializeField] private CardObject _currentSelectCardObject;
+    private CardObject _currentSelectCardObject;
+    private List<CardObject> _currentCards = new();
     private Card[] _availableTileCards;
     private Card[] _availableTacticCards;
 
@@ -32,6 +33,7 @@ public class CardHolderSystem : MonoBehaviour
     public bool CheckCurrentCardHolderSelectedTileIsFourTile() => _currentSelectCardObject == null || !IsSelectedCardTile() ? false : _currentSelectCardObject.GetTile().IsFourTile;
     public Card CurrentSelectedCard() => _currentSelectCardObject?.GetCard();
     public bool IsSelectedCardTile() => CurrentSelectedCard() is Tile;
+    public int GetCurrentSelectCardObjectRarity() => _currentSelectCardObject.GetRarity();
 
 
     private void Awake()
@@ -40,24 +42,38 @@ public class CardHolderSystem : MonoBehaviour
         CustomEvents.OnSetBase += AddCardAfterSetBase;
     }
 
-    public void LoadCards(bool isStartMission, int[] cards)
+    public void LoadCards(bool isStartMission, CardData[] cardsData)
     {
         SetAvailableCards();
 
         if (isStartMission)
         {
-            AddNewCards(new Card[] { _baseCard });
+            // в начале игры всегда даем фундамент базы обычной редкости
+            AddNewCards(new CardHolderCardData[]
+            {
+                new() { Card = _baseCard, Rarity = (int)CardRarityEnum.Common }
+            });
         }
         else
         {
-            var loadCards = new Card[cards.Length];
+            var loadCardsData = new Card[cardsData.Length];
 
-            for (int i = 0; i < cards.Length; i++)
+            // получаем сами Card по их id
+            for (int i = 0; i < cardsData.Length; i++)
             {
-                loadCards[i] = _tilesSystem.GetCardForId(cards[i]);
+                loadCardsData[i] = _tilesSystem.GetCardForId(cardsData[i].CardId);
             }
 
-            AddNewCards(loadCards);
+            // упаковываем в CardHolderCardData, перенося редкость из CardData
+            var data = new CardHolderCardData[cardsData.Length];
+            for (int i = 0; i < cardsData.Length; i++)
+                data[i] = new CardHolderCardData
+                {
+                    Card = loadCardsData[i],
+                    Rarity = cardsData[i].CardRarity
+                };
+
+            AddNewCards(data);
         }
     }
 
@@ -67,16 +83,23 @@ public class CardHolderSystem : MonoBehaviour
         _availableTacticCards = CurrentMissionInfo.Instance.GetCurrentLandscape().TacticCards;
     }
 
-    public int[] GetAllCards()
+    public CardData[] GetAllCards()
     {
-        var cards = new int[_currentCards.Count];
+        var result = new List<CardData>(_currentCards.Count);
 
         for (int i = 0; i < _currentCards.Count; i++)
         {
-            cards[i] = _currentCards[i].GetCard().Id;
+            var obj = _currentCards[i];
+            var card = obj.GetCard();
+
+            result.Add(new CardData
+            {
+                CardId = card.Id,
+                CardRarity = obj.GetRarity()
+            });
         }
 
-        return cards;
+        return result.ToArray();
     }
 
     public void CancelSelectCard()
@@ -86,30 +109,30 @@ public class CardHolderSystem : MonoBehaviour
         ClearCardHolderSystem();
     }
 
-    public void AddNewCards(Card[] cards)
+    public void AddNewCards(CardHolderCardData[] cardsData)
     {
-        int cardsToAddCount = cards.Length;
+        int cardsToAddCount = cardsData.Length;
         int cardsToRemove = Mathf.Max(0, _currentCards.Count + cardsToAddCount - _cardsLayout.MaxCards());
 
         if (cardsToRemove > 0)
         {
-            RemoveFirstCards(cardsToRemove, () => AddCards(cards));
+            RemoveFirstCards(cardsToRemove, () => AddCards(cardsData));
         }
         else
         {
-            AddCards(cards);
+            AddCards(cardsData);
         }
     }
 
-    private void AddCards(Card[] cards)
+    private void AddCards(CardHolderCardData[] cardsData)
     {
-        foreach (var cardAsset in cards)
+        foreach (var cardData in cardsData)
         {
             var card = _diContainer.InstantiatePrefab(_cardObject, transform.position, Quaternion.identity, null);
             var cardObject = card.GetComponent<CardObject>();
-            _currentCards.Add(cardObject);
             card.transform.SetParent(_cardsLayout.gameObject.transform, false);
-            cardObject.SetCardInfo(cardAsset, this);
+            cardObject.SetCardInfo(cardData.Card, this, cardData.Rarity);
+            _currentCards.Add(cardObject);
 
             _cardsLayout.PositionNewCard(cardObject, _currentCards.Count - 1);
         }
@@ -149,7 +172,7 @@ public class CardHolderSystem : MonoBehaviour
                 {
                     cardToRemove.transform.DOScaleX(0, 0.5f).SetEase(Ease.Linear).SetUpdate(true).OnComplete(() =>
                     {
-                        _missionResources.ChangeResource(ResourceEnum.BeamEnergy, 1);
+                        _missionResources.ChangeResource(ResourceEnum.BeamEnergy, cardToRemove.GetRarity());
                         Destroy(cardToRemove.gameObject);
                     });
                 }));
@@ -176,43 +199,56 @@ public class CardHolderSystem : MonoBehaviour
         _currentSelectCardObject = newCardObject;
     }
 
-    private void AddNewRandomTileCards(int cards)
+    private void AddNewRandomTileCards(int count)
     {
-        Card[] randomCards = new Card[cards];
+        var data = new CardHolderCardData[count];
 
-        for (int i = 0; i < cards; i++)
+        for (int i = 0; i < count; i++)
         {
-            var rndCard = Random.Range(0, _availableTileCards.Length);
-            randomCards[i] = _availableTileCards[rndCard];
+            var rndIdx = Random.Range(0, _availableTileCards.Length);
+            var card = _availableTileCards[rndIdx];
+
+            data[i] = new CardHolderCardData
+            {
+                Card = card,
+                Rarity = _rarityCardsSystem.GetRarity()
+            };
         }
 
-        AddNewCards(randomCards);
+        AddNewCards(data);
     }
 
     private void AddNewRandomTacticCard()
     {
-        var rnd = Random.Range(0, 100);
+        if (Random.Range(0, 100) > WorldGameInfo.TacticCardChance) return;
 
-        if (rnd > WorldGameInfo.TacticCardChance) return;
+        var card = _availableTacticCards[Random.Range(0, _availableTacticCards.Length)];
 
-        Card[] randomCards = new Card[1];
-
-        for (int i = 0; i < 1; i++)
+        AddNewCards(new CardHolderCardData[]
         {
-            var rndCard = Random.Range(0, _availableTacticCards.Length);
-            randomCards[i] = _availableTacticCards[rndCard];
-        }
-
-        AddNewCards(randomCards);
+            new() { Card = card, Rarity = _rarityCardsSystem.GetRarity()}
+        });
     }
 
     private void AddCardAfterSetBase(int level)
     {
         if (level > 1) return;
 
-        AddNewCards(_startCards);
-        AddNewRandomTileCards(2);
+        int len = _startCards.Length;
+        var data = new CardHolderCardData[len];
+        for (int i = 0; i < len; i++)
+        {
+            data[i] = new CardHolderCardData
+            {
+                Card = _startCards[i],
+                Rarity = _rarityCardsSystem.GetRarity()
+            };
+        }
+
+        AddNewCards(data);
+        AddNewRandomTileCards(2); // уже добавляет с редкостью из системы
     }
+
 
     private void AddCardsAfterDayEnd(int dayNumber)
     {
@@ -246,4 +282,11 @@ public class CardHolderSystem : MonoBehaviour
         CustomEvents.OnDayEnd -= AddCardsAfterDayEnd;
         CustomEvents.OnSetBase -= AddCardAfterSetBase;
     }
+}
+
+[System.Serializable]
+public class CardHolderCardData
+{
+    public Card Card;
+    public int Rarity;
 }

@@ -71,8 +71,7 @@ public class EarthquakeMissionEvent : BaseMissionEvent
             {
                 var randomTile = validTiles[Random.Range(0, validTiles.Count)];
                 randomTile.BuildingHealth().Death();
-                randomTile.GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Volcano));
-                randomTile.GroundTileObject().SpawnGroundTile();
+                randomTile.GroundTileObject().SetupGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Volcano), (int)CardRarityEnum.Common);
             }
         }
         else
@@ -98,8 +97,7 @@ public class EarthquakeMissionEvent : BaseMissionEvent
                 var randomTile = validTiles[Random.Range(0, validTiles.Count)];
                 var previousGroundTileId = randomTile.GroundTileObject().CurrentGroundTile().Id;
                 randomTile.BuildingHealth().Death();
-                randomTile.GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Rift));
-                randomTile.GroundTileObject().SpawnGroundTile(previousGroundTileId);
+                randomTile.GroundTileObject().SetupGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Rift), (int)CardRarityEnum.Common, previousGroundTileId);
             }
         }
     }

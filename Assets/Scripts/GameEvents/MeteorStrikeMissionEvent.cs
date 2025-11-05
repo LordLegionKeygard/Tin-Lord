@@ -51,8 +51,7 @@ public class MeteorStrikeMissionEvent : BaseMissionEvent
                 break;
             default:
                 GetTileObject().BuildingHealth().Death();
-                GetTileObject().GroundTileObject().SetGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Crater));
-                GetTileObject().GroundTileObject().SpawnGroundTile();
+                GetTileObject().GroundTileObject().SetupGroundTile(_tilesSystem.GetGroundTileForEnum(GroundTileViewEnum.Crater), (int)CardRarityEnum.Common);
                 break;
         }
     }

@@ -73,7 +73,7 @@ public class TacticCardDetector : MonoBehaviour
         switch (type)
         {
             case TacticCardType.IncreaseDamage:
-                _currentTileObject.BuildingTileObject().TacticCardIncreaseDamageLevel();
+                _currentTileObject.BuildingTileObject().TacticCardIncreaseDamageLevel(_cardHolderSystem.GetCurrentSelectCardObjectRarity());
                 AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TacticalCards[(int)TacticCardType.IncreaseDamage], transform.position);
                 break;
         }

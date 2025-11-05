@@ -10,13 +10,15 @@ public class GroundTile : MonoBehaviour
     [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Transform _groundParent;
     [SerializeField] private TileObject _tileObject;
+    [SerializeField] private GameObject _laserDestructionVFX;
     private Tile _currentGroundTile;
     private GameObject _currentGroundTileObject;
     private float _groundModelRotation;
     private TileView _tileView;
     private TileRiver _tileRiver;
     private TileRoad _tileRoad;
-    [SerializeField] private GameObject _laserDestructionVFX;
+    private int _riverNumber = 0;
+    private int _rarity;
 
 
     //LastRiverTile
@@ -59,19 +61,25 @@ public class GroundTile : MonoBehaviour
     //Other
     public bool IsHaveBuildingTypes() => _currentGroundTile.BuildingTypes.Length > 0;
     public GameObject CurrentGroundTileObject() => _currentGroundTileObject;
-    public void SetGroundTile(Tile tile) => _currentGroundTile = tile;
     public Tile CurrentGroundTile() => _currentGroundTile;
     public GroundTile NeighbourGroundTile(int number) => _tileObject.GetNeighbourGroundTile(number);
     public void TurnOffTileCollider() => _tileView.TurnOffCollider();
     public void SetId(int id) => _tileObject.SetId(id);
-    private int _riverNumber = 0;
-
+    public int GetRarity() => _rarity;
 
     private void Awake()
     {
         _tileView = GetComponent<TileView>();
         _tileRiver = GetComponent<TileRiver>();
         _tileRoad = GetComponent<TileRoad>();
+    }
+
+    public void SetupGroundTile(Tile tile, int rarity, int previousGroundTileId = -1)
+    {
+        _currentGroundTile = tile;
+        _rarity = rarity;
+
+        SpawnGroundTile(previousGroundTileId);
     }
 
     private void RefreshWaterNeighbourTiles()
@@ -149,7 +157,7 @@ public class GroundTile : MonoBehaviour
         _tileObject.GetNeighbourGroundTile(2).TurnOffTileCollider();
     }
 
-    public void SpawnGroundTile(int previousGroundTileId = -1)
+    private void SpawnGroundTile(int previousGroundTileId = -1)
     {
         if (_currentGroundTile == null) return;
         if (_currentGroundTile.GroundTileView != GroundTileViewEnum.Road) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.GroundTiles[(int)CurrentGroundTile().GroundTileView - 1], transform.position);
@@ -241,7 +249,7 @@ public class GroundTile : MonoBehaviour
     /// </summary>
     private void ChangeTile(GroundTileViewEnum newTile)
     {
-        SetGroundTile(_tilesSystem.GetGroundTileForEnum(newTile));
+        SetupGroundTile(_tilesSystem.GetGroundTileForEnum(newTile), _rarity);
         SpawnGroundTile();
     }
 
