@@ -266,4 +266,16 @@ public class CustomEvents
     {
         OnToggleCheckTags?.Invoke(state);
     }
+
+    public static Action OnUpdateTurretsDamage;
+    public static void FireUpdateTurretsDamage()
+    {
+        OnUpdateTurretsDamage?.Invoke();
+    }
+
+    public static Action OnUpdateBuildingsMaxHealth;
+    public static void FireUpdateBuildingsMaxHealth()
+    {
+        OnUpdateBuildingsMaxHealth?.Invoke();
+    }
 }

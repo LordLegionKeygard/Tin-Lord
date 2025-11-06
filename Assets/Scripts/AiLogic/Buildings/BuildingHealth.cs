@@ -16,6 +16,7 @@ public class BuildingHealth : BaseHealth
     private TileObject _tileObject;
     private BuildingSliderWorkView _buildingSliderWorkView;
     private bool _isConstructionNow;
+
     public bool IsContructionNow() => _isConstructionNow;
     public override Tile BuildingTile() => _buildingTile.GetCurrentBuildingTile();
     public override Transform GetFoutTileTransform() => _fourTileTransform;
@@ -39,6 +40,19 @@ public class BuildingHealth : BaseHealth
     private void Start()
     {
         CustomEvents.OnDayEnd += BuidingDecay;
+        CustomEvents.OnUpdateBuildingsMaxHealth += UpdateBuildingMaxHealth;
+    }
+
+    private void UpdateBuildingMaxHealth()
+    {
+        var buildingTile = _tileObject.BuildingTileObject();
+
+        if (buildingTile.IsHaveTile())
+        {
+            _maxHealth = CalculateMaxHealth(buildingTile.GetCurrentBuilding());
+            _healthSlider.UpdateMaxSliderValue(_maxHealth);
+            UpdateSlider();
+        }
     }
 
     private void BuidingDecay(int _)
@@ -96,7 +110,7 @@ public class BuildingHealth : BaseHealth
     {
         _isDeath = false;
         _isConstructionNow = isConstruction;
-        _maxHealth = (int)(building.BuildingHealth * _missionHangarSystem.GetTitanBuildingHealthBonus());
+        _maxHealth = CalculateMaxHealth(building);
         _currentHealth = _isConstructionNow ? 1 : _maxHealth;
 
         CreateHealthSlider(isConstruction);
@@ -107,10 +121,16 @@ public class BuildingHealth : BaseHealth
     public void SetUpgradeBuildingHealth(Building building, bool isConstruction)
     {
         _isConstructionNow = isConstruction;
-        _maxHealth = (int)(building.BuildingHealth * _missionHangarSystem.GetTitanBuildingHealthBonus());
+        _maxHealth = CalculateMaxHealth(building);
         UpdateSliderColor(isConstruction);
         _healthSlider.SetupMaxHealth(_maxHealth);
         UpdateSlider();
+    }
+
+    private float CalculateMaxHealth(Building building)
+    {
+        var tacticCardIncreaseHealth = building.BuildingHealth * _tileObject.BuildingTileObject().GetTacticCardIncreaseHealthLevel() * WorldGameInfo.TacticCardIncreaseHealthFactor;
+        return (int)(building.BuildingHealth * _missionHangarSystem.GetTitanBuildingHealthBonus() + tacticCardIncreaseHealth);
     }
 
     public void UpdateSliderColor(bool isConstruction)
@@ -122,7 +142,7 @@ public class BuildingHealth : BaseHealth
     public void LoadBuildingHealth(Building building, float currentHealth, bool isConstruction)
     {
         _isConstructionNow = isConstruction;
-        _maxHealth = (int)(building.BuildingHealth * _missionHangarSystem.GetTitanBuildingHealthBonus());
+        _maxHealth = CalculateMaxHealth(building);
         _currentHealth = currentHealth;
         CreateHealthSlider(isConstruction);
         SetupBuildingSliderView();
@@ -211,5 +231,6 @@ public class BuildingHealth : BaseHealth
     private void OnDestroy()
     {
         CustomEvents.OnDayEnd -= BuidingDecay;
+        CustomEvents.OnUpdateBuildingsMaxHealth -= UpdateBuildingMaxHealth;
     }
 }

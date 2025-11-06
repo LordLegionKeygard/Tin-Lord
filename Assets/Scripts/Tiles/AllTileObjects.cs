@@ -83,7 +83,8 @@ public class AllTileObjects : MonoBehaviour
                     IsUpgradeBase = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase(),
                     PreviousBaseBuildingHealth = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase() ? tileObject.BuildingTileObject().PreviousBaseBuildingHealth() : 0,
                     IsGeneralRepairSelect = buildingHaveTile && tileObject.IsGeneralRepairSelect(),
-                    TacticCardIncreaseDamage = buildingHaveTile ? tileObject.BuildingTileObject().GetTacticCardIncreaseDamageLevel() : -1,
+                    TacticCardIncreaseDamage = buildingHaveTile ? tileObject.BuildingTileObject().GetTacticCardIncreaseDamageLevel() : 0,
+                    TacticCardIncreaseHealth = buildingHaveTile ? tileObject.BuildingTileObject().GetTacticCardIncreaseHealthLevel() : 0,
                 },
                 WaterData = new WaterData
                 {

@@ -19,7 +19,7 @@ public class TacticCardDetector : MonoBehaviour
         {
             var selected = _cardHolderSystem.CurrentSelectedCard();
 
-            if (selected == null || selected.Kind != CardKind.Upgrade)
+            if (selected == null || selected.Kind != CardKind.Tactic)
             {
                 if (_currentTileObject != null) ClearTileDetector();
                 return;
@@ -70,11 +70,17 @@ public class TacticCardDetector : MonoBehaviour
 
     private void UseTacticCard(TacticCardType type)
     {
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TacticalCards[(int)type], transform.position);
         switch (type)
         {
             case TacticCardType.IncreaseDamage:
                 _currentTileObject.BuildingTileObject().TacticCardIncreaseDamageLevel(_cardHolderSystem.GetCurrentSelectCardObjectRarity());
-                AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TacticalCards[(int)TacticCardType.IncreaseDamage], transform.position);
+                break;
+            case TacticCardType.IncreaseHealth:
+                _currentTileObject.BuildingTileObject().TacticCardIncreaseHealthLevel(_cardHolderSystem.GetCurrentSelectCardObjectRarity());
+                break;
+            case TacticCardType.Repair:
+                _currentTileObject.BuildingHealth().FullRepair();
                 break;
         }
     }
@@ -97,11 +103,20 @@ public class TacticCardDetector : MonoBehaviour
 
     private bool IsValidTarget(TacticCard upgrade, TileObject tileObject)
     {
+        var buildingTileObject = tileObject.BuildingTileObject();
+        var isHaveTile = buildingTileObject.IsHaveTile();
+        var isConstructionNow = buildingTileObject.IsConstructionNow();
         switch (upgrade.CardType)
         {
             case TacticCardType.IncreaseDamage:
-                if (tileObject.BuildingTileObject().IsConstructionNow()) return false;
-                return tileObject.BuildingTileObject().IsHaveTile() && tileObject.BuildingTileObject().GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.AttackingStructures;
+                if (isConstructionNow) return false;
+                return isHaveTile && buildingTileObject.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.AttackingStructures;
+            case TacticCardType.IncreaseHealth:
+                if (isConstructionNow) return false;
+                return isHaveTile && buildingTileObject.GetCurrentBuildingTile().BuildingTileView != BuildingTileViewEnum.Base;
+            case TacticCardType.Repair:
+                if (isConstructionNow) return false;
+                return isHaveTile && !tileObject.BuildingHealth().IsFullHealth();
         }
 
         return false;

@@ -20,7 +20,7 @@ public class BossDamage : BaseDamage
         _stateChanger = GetComponent<EnemyStateChanger>();
     }
 
-    public override void SetDamage()
+    public override void UpdateDamage()
     {
         Damage = _enemyLevel.GetInformation().GetPhysAttack(_enemyLevel.GetLevel());
     }

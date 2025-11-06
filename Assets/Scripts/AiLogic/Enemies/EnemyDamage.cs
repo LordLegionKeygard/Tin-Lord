@@ -23,7 +23,7 @@ public class EnemyDamage : BaseDamage
         _enemyHealth = GetComponent<EnemyHealth>();
     }
 
-    public override void SetDamage()
+    public override void UpdateDamage()
     {
         Damage = _enemyLevel.GetInformation().GetPhysAttack(_enemyLevel.GetLevel()) * _enemyInfo.GetDamageFactor();
     }

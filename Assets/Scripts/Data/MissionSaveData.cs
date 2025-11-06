@@ -148,6 +148,7 @@ public class BuildingData
     public float PreviousBaseBuildingHealth;
     public bool IsGeneralRepairSelect;
     public int TacticCardIncreaseDamage;
+    public int TacticCardIncreaseHealth;
 }
 
 [System.Serializable]

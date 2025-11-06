@@ -27,6 +27,7 @@ public class BuildingTile : MonoBehaviour
    private float _previousBaseBuildingHealth;
    private float _previousBuildingHealthPercent;
    private int _tacticCardIncreaseDamageLevel;
+   private int _tacticCardIncreaseHealthLevel;
 
    public TileObject IsExtraBaseTileObject() => _isRealBaseTileObject;
    public BuildingTileTransform GetBuildingTileTransform() => _buildingTileTransform;
@@ -50,6 +51,7 @@ public class BuildingTile : MonoBehaviour
    public bool IsEcologyBuilding() => _currentBuildingTile == null ? false : _currentBuildingTile.BuildingTileView == BuildingTileViewEnum.EcologyPurifier;
    public bool NeightbourTileIsWallOrGate(int number) => _tileObject.GetNeighbourBuildingTile(number) == null ? false : _tileObject.GetNeighbourBuildingTile(number).IsWallOrGate();
    public int GetTacticCardIncreaseDamageLevel() => _tacticCardIncreaseDamageLevel;
+   public int GetTacticCardIncreaseHealthLevel() => _tacticCardIncreaseHealthLevel;
    public float GetTacticCardIncreaseDamage() => GetCurrentBuilding().Damage * _tacticCardIncreaseDamageLevel * WorldGameInfo.TacticCardIncreaseDamageFactor;
 
    public float GetResultTurretDamage()
@@ -63,6 +65,13 @@ public class BuildingTile : MonoBehaviour
    public void TacticCardIncreaseDamageLevel(int rarity)
    {
       _tacticCardIncreaseDamageLevel += rarity;
+      CustomEvents.FireUpdateTurretsDamage();
+   }
+
+   public void TacticCardIncreaseHealthLevel(int rarity)
+   {
+      _tacticCardIncreaseHealthLevel += rarity;
+      CustomEvents.FireUpdateBuildingsMaxHealth();
    }
 
    public bool IsCanUpgrade()
@@ -346,7 +355,8 @@ public class BuildingTile : MonoBehaviour
       if (!isUpgrade)
       {
          _buildingHealth.DestroyHealthSlider(); // вызываем еще раз, так как есть ситуации, когда не вызывается уничтожение слайдера, например уничтожаем сами, а не через реальную смерть 
-         _tacticCardIncreaseDamageLevel = 0; // оставляем бонус урона между апгрейдами 
+         _tacticCardIncreaseDamageLevel = 0;
+         _tacticCardIncreaseHealthLevel = 0;
       }
       _currentBuildingTile = null;
       _currentLevel = 0;
@@ -403,6 +413,7 @@ public class BuildingTile : MonoBehaviour
       _currentBuildingTile = _tilesSystem.GetBuildingTileForId(tileDataWrapper.BuildingData.BuildingTileTypeId);
       _currentLevel = tileDataWrapper.BuildingData.BuildingTileLevel;
       _tacticCardIncreaseDamageLevel = tileDataWrapper.BuildingData.TacticCardIncreaseDamage;
+      _tacticCardIncreaseHealthLevel = tileDataWrapper.BuildingData.TacticCardIncreaseHealth;
 
       if (tileDataWrapper.BuildingData.IsConstructionNow)
       {

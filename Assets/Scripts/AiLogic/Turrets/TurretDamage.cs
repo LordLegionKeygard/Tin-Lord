@@ -19,10 +19,11 @@ public class TurretDamage : BaseDamage
 
     private void Start()
     {
-        SetDamage();
+        CustomEvents.OnUpdateTurretsDamage += UpdateDamage;
+        UpdateDamage();
     }
 
-    public override void SetDamage()
+    public override void UpdateDamage()
     {
         Damage = _buildingLevels.CurrentTileObject().BuildingTileObject().GetResultTurretDamage();
     }
@@ -49,5 +50,10 @@ public class TurretDamage : BaseDamage
             bulletScript.SetDamage(Damage, _turretBuilding.Building().KnockbackPoints);
             bulletScript.SetBulletPool(_pool, _bulletType);
         }
+    }
+
+    private void OnDestroy()
+    {
+        CustomEvents.OnUpdateTurretsDamage -= UpdateDamage;
     }
 }

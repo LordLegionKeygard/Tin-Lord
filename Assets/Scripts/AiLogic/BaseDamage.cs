@@ -12,7 +12,7 @@ public class BaseDamage : MonoBehaviour
         BaseAttackVFX = GetComponent<BaseAttackVFX>();
     }
 
-    public virtual void SetDamage()
+    public virtual void UpdateDamage()
     {
 
     }

@@ -8,6 +8,7 @@ public class WorldGameInfo
 
     [Header("TacticCards")]
     public static float TacticCardIncreaseDamageFactor = 0.25f;
+    public static float TacticCardIncreaseHealthFactor = 0.2f;
     public static int TacticCardChance = 100;
 
     [Header("Price")]

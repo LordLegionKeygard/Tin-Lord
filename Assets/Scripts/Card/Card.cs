@@ -11,5 +11,5 @@ public class Card : ScriptableObject
 public enum CardKind
 { 
     Tile = 0,
-    Upgrade = 1 
+    Tactic = 1 
 }

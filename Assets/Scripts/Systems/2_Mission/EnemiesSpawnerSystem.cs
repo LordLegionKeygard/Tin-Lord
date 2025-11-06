@@ -121,7 +121,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             enemyObject.GetComponent<EnemyLevel>().SetLevel(group.EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, 1, 1, false);
             enemyObject.GetComponent<EnemyHealth>().SetHealth();
-            enemyObject.GetComponent<EnemyDamage>().SetDamage();
+            enemyObject.GetComponent<EnemyDamage>().UpdateDamage();
             enemyObject.GetComponent<EnemyScale>().SetScale(false);
 
             enemyObject.transform.SetParent(_enemiesParent, false);
@@ -171,7 +171,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
                 enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.EnemySpawnerInfo.EnemyLevel);
                 enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, spawner.HealthFactor, spawner.DamageFactor, true);
                 enemyObject.GetComponent<EnemyHealth>().SetHealth();
-                enemyObject.GetComponent<EnemyDamage>().SetDamage();
+                enemyObject.GetComponent<EnemyDamage>().UpdateDamage();
                 enemyObject.GetComponent<EnemyScale>().SetScale(true);
                 enemyObject.GetComponent<EnemyAnimator>().SetMiniBossAnimator();
 
@@ -204,7 +204,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
         enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.BossLevel);
         enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, 1, 1, false);
         enemyObject.GetComponent<BossHealth>().SetHealth();
-        enemyObject.GetComponent<BossDamage>().SetDamage();
+        enemyObject.GetComponent<BossDamage>().UpdateDamage();
         enemyObject.transform.SetParent(_enemiesParent);
 
         AddEnemyToList((int)bossEntry.EnemyEnum, _enemyNumber, enemyObject);
@@ -225,7 +225,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             enemyObject.GetComponent<EnemyLevel>().SetLevel(enemyData[i].EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, enemyData[i].HealthFactor, enemyData[i].DamageFactor, enemyData[i].IsMiniBoss);
             enemyObject.GetComponent<BaseHealth>().LoadHealth(enemyData[i].EnemyHealth);
-            enemyObject.GetComponent<BaseDamage>().SetDamage();
+            enemyObject.GetComponent<BaseDamage>().UpdateDamage();
             enemyObject.GetComponent<EnemyScale>()?.SetScale(enemyData[i].IsMiniBoss);
             if(enemyData[i].IsMiniBoss) enemyObject.GetComponent<EnemyAnimator>().SetMiniBossAnimator();
             enemyObject.transform.SetParent(_enemiesParent);

@@ -172,7 +172,10 @@ public class SelectTilePanel : MonoBehaviour
 
     private void SetTextFields(TileObject tileObject, Tile tile, bool haveBuildingTile, Building building)
     {
-        var buildingFullHealth = haveBuildingTile ? _missionHangarSystem.GetTitanBuildingHealthBonus() > 1 ? $"<color={Colors.HexLightGreen}>{tileObject.BuildingHealth().GetMaxHealth()}</color>" : building.BuildingHealth.ToString() : "";
+        var bonus = _missionHangarSystem.GetTitanBuildingHealthBonus();
+        var tacticCardIncreaseHealthLevel = _tileObject.BuildingTileObject().GetTacticCardIncreaseHealthLevel();
+        var maxHealthColor = bonus > 1 || tacticCardIncreaseHealthLevel > 0 ? Colors.HexLightGreen : Colors.HexWhite;
+        var buildingMaxHealth = haveBuildingTile ? $"<color={maxHealthColor}>{tileObject.BuildingHealth().GetMaxHealth()}</color>" : "";
 
         var buildindText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[2]}:</color>";
         var buildingHealthText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[97]}:</color>";
@@ -182,7 +185,7 @@ public class SelectTilePanel : MonoBehaviour
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _groundTileNameText.color = Colors.GetRarityColor(tileObject.GetRarity());
         _buildingNameText.text = haveBuildingTile ? $"{buildindText} {building.Name[Language.LanguageNumber]}" : $"{buildindText} -";
-        _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingFullHealth}" : $"{buildingHealthText} -";
+        _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingMaxHealth}" : $"{buildingHealthText} -";
         _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().GetCurrentBuildingLevel()}" : $"{buildindLevelText} -";
 
 

@@ -51,7 +51,7 @@ public class MachineSpawnerSystem : MonoBehaviour
         _currentMachineSystem.SetNewMachine(_diContainer.InstantiatePrefab(_machinePrefabs[(int)machineType], spawnPosition, Quaternion.identity, _parent), machineType);
         _currentMachineSystem.GetMachinePatrolPath().InitializePatrolPoints(roadTiles, GetNearRoadTileObject(roadTiles));
         _currentMachineSystem.GetMachineHealth().SetHealth();
-        _currentMachineSystem.GetMachineDamage().SetDamage();
+        _currentMachineSystem.GetMachineDamage().UpdateDamage();
     }
 
     public void LoadSpawnMachine(MissionSaveData missionSaveData)
