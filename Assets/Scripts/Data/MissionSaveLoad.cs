@@ -56,7 +56,7 @@ public class MissionSaveLoad : MonoBehaviour
     [SerializeField] private AllSkills _allSkills;
 
     [Header("Quants")]
-    [SerializeField] private QuantPickupPool _quantPool;
+    [SerializeField] private ResourceViewPool _quantPool;
     [SerializeField] private MissionQuantSystem _missionQuantSystem;
 
     [Header("Hangar")]
@@ -144,7 +144,6 @@ public class MissionSaveLoad : MonoBehaviour
 
         //Quants
         currentSaveData.QuantsAmount = _missionQuantSystem.GetQuants();
-        currentSaveData.QuantPickups = _quantPool.GetActiveQuants();
 
         //Hazard
         currentSaveData.Hazards = _spawnedHazardSystem.GetHazards();
@@ -201,7 +200,6 @@ public class MissionSaveLoad : MonoBehaviour
 
         //Quants
         _missionQuantSystem.SetQuants(currentSaveData.QuantsAmount);
-        _quantPool.LoadQuantPickup(currentSaveData.QuantPickups);
 
         //Hangar
         _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData);

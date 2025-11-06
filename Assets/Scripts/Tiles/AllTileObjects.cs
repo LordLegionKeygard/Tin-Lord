@@ -53,7 +53,7 @@ public class AllTileObjects : MonoBehaviour
             var haveBuildingTileGameObject = tileObject.BuildingTileObject().IsHaveBuildingGameObject();
             var haveRotationView = buildingHaveTile && haveBuildingTileGameObject && tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>() != null;
             var haveRequiredResource = buildingHaveTile && tileObject.CurrentResourceForWork() != null;
-            var haveProductionResource = buildingHaveTile && tileObject.CurrentResourceProduction() != null;
+            var haveProductionResource = buildingHaveTile && tileObject.GetCurrentResourceProduction() != null;
 
             tilesData[i] = new TileDataWrapper
             {
@@ -78,7 +78,7 @@ public class AllTileObjects : MonoBehaviour
                     BuildingRotation = buildingHaveTile && haveBuildingTileGameObject && haveRotationView ? tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>().GetObjectRotation() : 0,
                     RequiredResource = haveRequiredResource ? _missionResources.GetResourceNumberForResource(tileObject.CurrentResourceForWork()) : -1,
                     RequiredResourceAmount = buildingHaveTile ? tileObject.CurrentResourceForWorkAmount() : 0,
-                    ResourceProduction = haveProductionResource ? _missionResources.GetResourceNumberForResource(tileObject.CurrentResourceProduction()) : -1,
+                    ResourceProduction = haveProductionResource ? _missionResources.GetResourceNumberForResource(tileObject.GetCurrentResourceProduction()) : -1,
                     IsConstructionNow = buildingHaveTile && tileObject.BuildingTileObject().IsConstructionNow(),
                     IsUpgradeBase = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase(),
                     PreviousBaseBuildingHealth = buildingHaveTile && tileObject.BuildingTileObject().IsUpgradeBase() ? tileObject.BuildingTileObject().PreviousBaseBuildingHealth() : 0,

@@ -256,7 +256,7 @@ public class BuildingTile : MonoBehaviour
       PrepareSetResourceRequired();
       CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
       _buildingLevels.SetBuildingProductionView();
-      _tileObject.SetResourceProduction(_tileObject.CurrentResourceProduction(), _tileObject.CurrentResourceRecept());
+      _tileObject.SetResourceProduction(_tileObject.GetCurrentResourceProduction(), _tileObject.CurrentResourceRecept());
 
       if (IsWallOrGate()) UpdateWallsAndGates();
       _tileObject.CheckResourceRequired(true);

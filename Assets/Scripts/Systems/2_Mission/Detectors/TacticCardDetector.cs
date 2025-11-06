@@ -1,7 +1,10 @@
 using UnityEngine;
+using Zenject;
 
 public class TacticCardDetector : MonoBehaviour
 {
+    [Inject] private ResourceViewPool _resourceViewPool;
+    [Inject] private MissionResources _missionResources;
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private CardHolderSystem _cardHolderSystem;
@@ -82,6 +85,29 @@ public class TacticCardDetector : MonoBehaviour
             case TacticCardType.Repair:
                 _currentTileObject.BuildingHealth().FullRepair();
                 break;
+            case TacticCardType.OverProduction:
+                var resource = _currentTileObject.GetCurrentResourceProduction();
+                Vector3 pos = _currentTileObject.transform.position + Vector3.up * 0.3f;
+                var count = 0;
+                switch (resource.ResourceType)
+                {
+                    case ResourceType.Resource:
+                        count = 8;
+                        break;
+                    case ResourceType.Material:
+                        count = 4;
+                        break;
+                    case ResourceType.Component:
+                        count = 2;
+                        break;
+                    case ResourceType.Other:
+                        count = 10;
+                        break;
+                }
+                var totalCount = count * _cardHolderSystem.GetCurrentSelectCardObjectRarity();
+                _missionResources.ChangeResource(resource.ResourceEnum, totalCount);
+                _resourceViewPool.ActiveAddResourceView(pos, resource.Icon, totalCount);
+                break;
         }
     }
 
@@ -104,19 +130,22 @@ public class TacticCardDetector : MonoBehaviour
     private bool IsValidTarget(TacticCard upgrade, TileObject tileObject)
     {
         var buildingTileObject = tileObject.BuildingTileObject();
-        var isHaveTile = buildingTileObject.IsHaveTile();
+        var isHaveBuildingTile = buildingTileObject.IsHaveTile();
         var isConstructionNow = buildingTileObject.IsConstructionNow();
         switch (upgrade.CardType)
         {
             case TacticCardType.IncreaseDamage:
                 if (isConstructionNow) return false;
-                return isHaveTile && buildingTileObject.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.AttackingStructures;
+                return isHaveBuildingTile && buildingTileObject.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.AttackingStructures;
             case TacticCardType.IncreaseHealth:
                 if (isConstructionNow) return false;
-                return isHaveTile && buildingTileObject.GetCurrentBuildingTile().BuildingTileView != BuildingTileViewEnum.Base;
+                return isHaveBuildingTile && buildingTileObject.GetCurrentBuildingTile().BuildingTileView != BuildingTileViewEnum.Base;
             case TacticCardType.Repair:
                 if (isConstructionNow) return false;
-                return isHaveTile && !tileObject.BuildingHealth().IsFullHealth();
+                return isHaveBuildingTile && !tileObject.BuildingHealth().IsFullHealth();
+            case TacticCardType.OverProduction:
+                if (isConstructionNow) return false;
+                return isHaveBuildingTile && tileObject.GetCurrentResourceProduction() != null;
         }
 
         return false;

@@ -12,4 +12,5 @@ public enum TacticCardType
     IncreaseDamage = 0,
     IncreaseHealth = 1,
     Repair = 2,
+    OverProduction = 3,
 }

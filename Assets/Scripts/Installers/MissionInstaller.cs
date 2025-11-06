@@ -14,7 +14,7 @@ public class MissionInstaller : MonoInstaller
     [SerializeField] private EndMissionSystem _endMissionSystem;
     [SerializeField] private AllSkills _allSkills;
     [SerializeField] private MissionQuantSystem _quantSystem;
-    [SerializeField] private QuantPickupPool _quantPickupPool;
+    [SerializeField] private ResourceViewPool _resourceViewPool;
     [SerializeField] private DeathExplosionPool _deathExplosionPool;
     [SerializeField] private MissionHangarSystem _missionHangarSystem;
     [SerializeField] private TutorialSystem _tutorialSystem;
@@ -36,7 +36,7 @@ public class MissionInstaller : MonoInstaller
         Container.Bind<AllSkills>().FromInstance(_allSkills).AsSingle();
         Container.Bind<EnemyDefenceSystem>().FromInstance(_enemyDefenceSystem).AsSingle();
         Container.Bind<MissionQuantSystem>().FromInstance(_quantSystem).AsSingle();
-        Container.Bind<QuantPickupPool>().FromInstance(_quantPickupPool).AsSingle();
+        Container.Bind<ResourceViewPool>().FromInstance(_resourceViewPool).AsSingle();
         Container.Bind<DeathExplosionPool>().FromInstance(_deathExplosionPool).AsSingle();
         Container.Bind<MissionHangarSystem>().FromInstance(_missionHangarSystem).AsSingle();
         Container.Bind<TutorialSystem>().FromInstance(_tutorialSystem).AsSingle();

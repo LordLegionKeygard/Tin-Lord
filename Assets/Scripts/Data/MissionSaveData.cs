@@ -52,7 +52,6 @@ public class MissionSaveData
 
     [Header("Quants")]
     public float QuantsAmount;
-    public QuantPickupData[] QuantPickups;
 
     [Header("Hazards")]
     public HazardSaveData[] Hazards;
@@ -166,15 +165,6 @@ public class WaterData
 public class TileWorldEventData
 {
     public int ToxicGasTicksNumber;
-}
-
-[System.Serializable]
-public class QuantPickupData
-{
-    public float PosX;
-    public float PosY;
-    public float PosZ;
-    public float TimeLeft;
 }
 
 [System.Serializable]

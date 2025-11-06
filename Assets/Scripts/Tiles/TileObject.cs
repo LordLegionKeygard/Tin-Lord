@@ -46,7 +46,7 @@ public class TileObject : MonoBehaviour
     public int GetRarity() => _rarity;
     public float CurrentModifier() => _currentModifier;
     public float GetBaseModifier() => _baseModifier;
-    public Resource CurrentResourceProduction() => _currentResourceProduction;
+    public Resource GetCurrentResourceProduction() => _currentResourceProduction;
     public Resource CurrentResourceForWork() => _currentResourceForWork;
     public float CurrentResourceForWorkAmount() => _currentResourceForWorkAmount;
     public ResourceRecept[] CurrentResourceRecept() => _currentResourceRecept;

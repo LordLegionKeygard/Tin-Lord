@@ -73,7 +73,7 @@ public class CardHolderSystem : MonoBehaviour
                     Rarity = cardsData[i].CardRarity
                 };
 
-            AddNewCards(data);
+            AddNewCards(data, true);
         }
     }
 
@@ -109,12 +109,12 @@ public class CardHolderSystem : MonoBehaviour
         ClearCardHolderSystem();
     }
 
-    public void AddNewCards(CardHolderCardData[] cardsData)
+    public void AddNewCards(CardHolderCardData[] cardsData, bool isLoad = false)
     {
         int cardsToAddCount = cardsData.Length;
         int cardsToRemove = Mathf.Max(0, _currentCards.Count + cardsToAddCount - _cardsLayout.MaxCards());
 
-        if (cardsToRemove > 0)
+        if (cardsToRemove > 0 && !isLoad)
         {
             RemoveFirstCards(cardsToRemove, () => AddCards(cardsData));
         }
@@ -220,8 +220,6 @@ public class CardHolderSystem : MonoBehaviour
 
     private void AddNewRandomTacticCard()
     {
-        if (Random.Range(0, 100) > WorldGameInfo.TacticCardChance) return;
-
         var card = _availableTacticCards[Random.Range(0, _availableTacticCards.Length)];
 
         AddNewCards(new CardHolderCardData[]
@@ -235,25 +233,49 @@ public class CardHolderSystem : MonoBehaviour
         if (level > 1) return;
 
         int len = _startCards.Length;
-        var data = new CardHolderCardData[len];
+        var startCardsData = new CardHolderCardData[len];
         for (int i = 0; i < len; i++)
         {
-            data[i] = new CardHolderCardData
+            startCardsData[i] = new CardHolderCardData
             {
                 Card = _startCards[i],
                 Rarity = _rarityCardsSystem.GetRarity()
             };
         }
 
-        AddNewCards(data);
-        AddNewRandomTileCards(2); // уже добавляет с редкостью из системы
+        AddNewCards(startCardsData); // даем лес и гору точно
+        AddCardsAfterDayEnd(0); // даем еще случайно, как будто день кончился
     }
 
 
-    private void AddCardsAfterDayEnd(int dayNumber)
+    private void AddCardsAfterDayEnd(int _)
     {
-        AddNewRandomTileCards(2);
-        if (_tutorialSystem.IsCompleteMissionTutorial()) AddNewRandomTacticCard();
+        var rnd = Random.Range(0, 100);
+        var addTacticCard = _tutorialSystem.IsCompleteMissionTutorial() && Random.Range(0, 100) <= WorldGameInfo.TacticCardChance;
+
+        if (rnd < 50) //шанс выдачи только 1 карты
+        {
+            if (addTacticCard)
+            {
+                AddNewRandomTacticCard();
+            }
+            else
+            {
+                AddNewRandomTileCards(1);
+            }
+        }
+        else //выдаем 2 карты
+        {
+            if (addTacticCard)
+            {
+                AddNewRandomTacticCard();
+                AddNewRandomTileCards(1);
+            }
+            else
+            {
+                AddNewRandomTileCards(2);
+            }
+        }
     }
 
     private void ClearCardHolderSystem()

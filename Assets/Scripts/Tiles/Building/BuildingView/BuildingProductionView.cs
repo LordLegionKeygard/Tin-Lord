@@ -146,7 +146,7 @@ public class BuildingProductionView : MonoBehaviour
         {
             for (int k = 0; k < _resourceViewMeshRenders[i].ResourceMaterialWrapper.Length; k++)
             {
-                if (_tileObject.CurrentResourceProduction() == _resourceViewMeshRenders[i].ResourceMaterialWrapper[k].Resource)
+                if (_tileObject.GetCurrentResourceProduction() == _resourceViewMeshRenders[i].ResourceMaterialWrapper[k].Resource)
                 {
                     foreach (var item in _resourceViewMeshRenders[i].MeshRenderers)
                     {
@@ -174,7 +174,7 @@ public class BuildingProductionView : MonoBehaviour
         {
             foreach (var item in _resourceViewActiveGameObjects[i].ActiveGameObjects)
             {
-                item.SetActive(_tileObject.CurrentResourceProduction() == _resourceViewActiveGameObjects[i].Resource);
+                item.SetActive(_tileObject.GetCurrentResourceProduction() == _resourceViewActiveGameObjects[i].Resource);
             }
         }
     }

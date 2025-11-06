@@ -147,7 +147,7 @@ public class SelectTilePanel : MonoBehaviour
 
             if (buildingTile.IsHaveProductionResources())
             {
-                _productionResourcePanel.SetButtonView(buildingTileObject.GetCurrentBuilding(), _tileObject.CurrentResourceProduction());
+                _productionResourcePanel.SetButtonView(buildingTileObject.GetCurrentBuilding(), _tileObject.GetCurrentResourceProduction());
                 _receptPanel.UpdateReceptView(_tileObject.CurrentResourceRecept());
             }
 
@@ -210,7 +210,7 @@ public class SelectTilePanel : MonoBehaviour
         if (haveBuildingTile && tile.IsHaveProductionResources())
         {
             var isUseRources = _tileObject.BuildingTileObject().GetCurrentBuilding().ResourcesForWork.Length != 0;
-            var productionName = $"{Language.TextStatic[tileObject.CurrentResourceProduction().NameNumber]}";
+            var productionName = $"{Language.TextStatic[tileObject.GetCurrentResourceProduction().NameNumber]}";
             float productionAmount;
 
             if (isUseRources)
