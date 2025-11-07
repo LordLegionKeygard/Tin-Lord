@@ -221,7 +221,7 @@ public class CardHolderSystem : MonoBehaviour
 
     private void AddCardsAfterDayEnd(int _)
     {
-        bool addTacticCard = _tutorialSystem.IsCompleteMissionTutorial() && Random.Range(0, 100) <= WorldGameInfo.TacticCardChance;
+        bool addTacticCard = _tutorialSystem.IsCompleteMissionTutorial() && Random.Range(0, 100) <= WorldGameInfo.AddTacticCardChance;
 
         int totalToGive = Random.Range(0, 100) < 75 ? 1 : 2; // какое кол-во карт дать
 

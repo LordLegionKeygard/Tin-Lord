@@ -21,7 +21,6 @@ public class FMODEvents : MonoBehaviour
     public EventReference LostMemory;
     public EventReference LostResource;
 
-    
     [Header("Environment")]
     public EventReference[] GroundTiles;
     public EventReference LaserDestruction;
@@ -57,6 +56,8 @@ public class FMODEvents : MonoBehaviour
 
     [Header("TacticalCards")]
     public EventReference[] TacticalCards;
+    public EventReference ChangeRaritySuccess;
+    public EventReference ChangeRarityFailure;
 
     private void Awake()
     {

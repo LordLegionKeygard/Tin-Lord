@@ -127,7 +127,7 @@ public class TileObject : MonoBehaviour
         CustomEvents.FireChangeResourceForWork(this, null, 0, null);
     }
 
-    public void SetResourceModifier()
+    public void UpdateResourceModifier()
     {
         var modifier = CalculateCurrentModifier();
         _baseModifier = modifier;
@@ -235,7 +235,7 @@ public class TileObject : MonoBehaviour
     {
         _currentResourceProduction = resource;
         _currentResourceRecept = resourceRecept;
-        SetResourceModifier();
+        UpdateResourceModifier();
         ChangeResourceProduction();
         _selectTilePanel.RefreshInfo();
         CustomEvents.FireChangeResourceForWork(this, _currentResourceForWork, _currentResourceForWorkAmount, _currentResourceRecept);

@@ -735,11 +735,11 @@ public class Language : MonoBehaviour
         _text[235, 0] = "Node";
         _text[235, 1] = "Узел";
 
-        _text[236, 0] = "";
-        _text[236, 1] = "";
+        _text[236, 0] = "Success";
+        _text[236, 1] = "Успех";
 
-        _text[237, 0] = "";
-        _text[237, 1] = "";
+        _text[237, 0] = "Failure";
+        _text[237, 1] = "Неудача";
 
         _text[238, 0] = "";
         _text[238, 1] = "";

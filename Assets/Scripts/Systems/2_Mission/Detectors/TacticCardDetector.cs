@@ -3,7 +3,7 @@ using Zenject;
 
 public class TacticCardDetector : MonoBehaviour
 {
-    [Inject] private ResourceViewPool _resourceViewPool;
+    [Inject] private TextViewSpawner _textViewSpawner;
     [Inject] private MissionResources _missionResources;
     [SerializeField] private Camera _camera;
     [SerializeField] private LayerMask _layerMask;
@@ -73,7 +73,8 @@ public class TacticCardDetector : MonoBehaviour
 
     private void UseTacticCard(TacticCardType type)
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TacticalCards[(int)type], transform.position);
+        Vector3 pos = _currentTileObject.transform.position + Vector3.up * 0.3f;
+        if (type != TacticCardType.ChangeRarity) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TacticalCards[(int)type], transform.position);
         switch (type)
         {
             case TacticCardType.IncreaseDamage:
@@ -87,7 +88,6 @@ public class TacticCardDetector : MonoBehaviour
                 break;
             case TacticCardType.OverProduction:
                 var resource = _currentTileObject.GetCurrentResourceProduction();
-                Vector3 pos = _currentTileObject.transform.position + Vector3.up * 0.3f;
                 var count = 0;
                 switch (resource.ResourceType)
                 {
@@ -106,7 +106,30 @@ public class TacticCardDetector : MonoBehaviour
                 }
                 var totalCount = count * _cardHolderSystem.GetCurrentSelectCardObjectRarity();
                 _missionResources.ChangeResource(resource.ResourceEnum, totalCount);
-                _resourceViewPool.ActiveAddResourceView(pos, resource.Icon, totalCount);
+                _textViewSpawner.ShowAddResourceView(pos, resource.Icon, totalCount);
+                break;
+            case TacticCardType.ChangeRarity:
+                var rnd = Random.Range(0, 100);
+                var success = rnd <= WorldGameInfo.TacticCardChangeSuccessRarityChance;
+                switch (_currentTileObject.GetRarity())
+                {
+                    case 1:
+                        _currentTileObject.SetRarity(success ? 2 : 1);
+                        break;
+                    case 2:
+                        _currentTileObject.SetRarity(success ? 3 : 1);
+                        break;
+                    case 3:
+                        _currentTileObject.SetRarity(success ? 4 : 2);
+                        break;
+                    case 4:
+                        _currentTileObject.SetRarity(success ? 5 : 3);
+                        break;
+                }
+
+                AudioManager.Instance.PlayerOneShot(success ? FMODEvents.Instance.ChangeRaritySuccess : FMODEvents.Instance.ChangeRarityFailure, transform.position);
+                _textViewSpawner.ShowTextView(pos, Language.TextStatic[success ? 236 : 237], success ? Colors.LightGreen : Colors.WarningRed);
+                _currentTileObject.UpdateResourceModifier();
                 break;
         }
     }
@@ -129,6 +152,8 @@ public class TacticCardDetector : MonoBehaviour
 
     private bool IsValidTarget(TacticCard upgrade, TileObject tileObject)
     {
+        var groundTileObject = tileObject.GroundTileObject();
+        var isHaveGroundTile = groundTileObject.IsHaveTile();
         var buildingTileObject = tileObject.BuildingTileObject();
         var isHaveBuildingTile = buildingTileObject.IsHaveTile();
         var isConstructionNow = buildingTileObject.IsConstructionNow();
@@ -146,6 +171,8 @@ public class TacticCardDetector : MonoBehaviour
             case TacticCardType.OverProduction:
                 if (isConstructionNow) return false;
                 return isHaveBuildingTile && tileObject.GetCurrentResourceProduction() != null;
+            case TacticCardType.ChangeRarity:
+                return isHaveGroundTile && groundTileObject.CurrentGroundTile().GroundTileView != GroundTileViewEnum.BaseFoundation && tileObject.GetRarity() != (int)CardRarityEnum.Legendary;
         }
 
         return false;

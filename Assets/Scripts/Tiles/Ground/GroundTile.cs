@@ -25,8 +25,8 @@ public class GroundTile : MonoBehaviour
     public bool NeighbourHaveLastRiverTile(int number) => _tileObject.GetNeighbourGroundTile(number).GetLastRiverTile();
 
     //HaveTile
-    public bool HaveTile() => _currentGroundTile != null;
-    public bool NeighbourHaveGroundTile(int number) => _tileObject.GetNeighbourGroundTile(number) == null ? false : _tileObject.GetNeighbourGroundTile(number).HaveTile();
+    public bool IsHaveTile() => _currentGroundTile != null;
+    public bool NeighbourHaveGroundTile(int number) => _tileObject.GetNeighbourGroundTile(number) == null ? false : _tileObject.GetNeighbourGroundTile(number).IsHaveTile();
     public bool HaveNeighbour(int number) => _tileObject.GetNeighbourGroundTile(number) == null ? false : true;
 
     //TileView
@@ -34,7 +34,7 @@ public class GroundTile : MonoBehaviour
     public bool NeighbourTileView(int number, GroundTileViewEnum tileView)
     {
         if (_tileObject.GetNeighbourGroundTile(number) == null) return false;
-        if (!_tileObject.GetNeighbourGroundTile(number).HaveTile()) return false;
+        if (!_tileObject.GetNeighbourGroundTile(number).IsHaveTile()) return false;
         return _tileObject.GetNeighbourGroundTile(number).CheckTileView(tileView);
     }
 
@@ -134,7 +134,7 @@ public class GroundTile : MonoBehaviour
         _tileView.PlayAnimation(TileAnimationsEnum.Spawn);
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceProduction();
-        _tileObject.SetResourceModifier();
+        _tileObject.UpdateResourceModifier();
     }
 
     public void LoadGroundTile(TileDataWrapper tileDataWrapper)
@@ -150,7 +150,7 @@ public class GroundTile : MonoBehaviour
         _tileObject.SetRarity(tileDataWrapper.GroundData.Rarity);
         CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
         _tileObject.ChangeResourceProduction();
-        _tileObject.SetResourceModifier();
+        _tileObject.UpdateResourceModifier();
         _tileRoad.LoadForwardRoad(tileDataWrapper.GroundData.IsForwardRoad);
 
         if (_tileObject.GroundTileObject().CurrentGroundTileObject().TryGetComponent<RotationView>(out var rotationView))
@@ -639,7 +639,7 @@ public class GroundTile : MonoBehaviour
         }
 
         if (_tileObject.GetNeighbourGroundTile(i) == null) return false;
-        if (!_tileObject.GetNeighbourGroundTile(i).HaveTile()) return false;
+        if (!_tileObject.GetNeighbourGroundTile(i).IsHaveTile()) return false;
 
         return true;
     }

@@ -25,7 +25,6 @@ public class MissionSaveLoad : MonoBehaviour
 
     [Header("Cards")]
     [SerializeField] private CardHolderSystem _cardHolderSystem;
-    [SerializeField] private RarityCardsSystem _rarityCardsSystem;
 
     [Header("WorldEvents")]
     [SerializeField] private MissionEventSystem _missionEventSystem;
@@ -56,7 +55,6 @@ public class MissionSaveLoad : MonoBehaviour
     [SerializeField] private AllSkills _allSkills;
 
     [Header("Quants")]
-    [SerializeField] private ResourceViewPool _quantPool;
     [SerializeField] private MissionQuantSystem _missionQuantSystem;
 
     [Header("Hangar")]

@@ -26,7 +26,7 @@ public class TileRoad : MonoBehaviour
 
     private void PrepareRoads()
     {
-        if (!_groundTile.HaveTile() || !_groundTile.CheckTileView(GroundTileViewEnum.Road)) return;
+        if (!_groundTile.IsHaveTile() || !_groundTile.CheckTileView(GroundTileViewEnum.Road)) return;
 
         (TileDirectionEnum, TileDirectionEnum, int, int)[] roadDirections = new (TileDirectionEnum, TileDirectionEnum, int, int)[]
     {

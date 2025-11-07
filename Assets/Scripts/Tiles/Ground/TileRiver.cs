@@ -66,7 +66,7 @@ public class TileRiver : MonoBehaviour
         }
         else
         {
-            if (!_groundTile.HaveTile() || !_groundTile.IsWaterTile())
+            if (!_groundTile.IsHaveTile() || !_groundTile.IsWaterTile())
             {
                 return;
             }

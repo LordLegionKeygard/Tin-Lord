@@ -88,12 +88,12 @@ public class TileDetector : MonoBehaviour
                         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
                         return;
                     }
-                    if (_currentTileObject.GroundTileObject().HaveTile() && !_tilesSystem.IsHaveRiver())
+                    if (_currentTileObject.GroundTileObject().IsHaveTile() && !_tilesSystem.IsHaveRiver())
                     {
                         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
                         return;
                     }
-                    if (_currentTileObject.GroundTileObject().HaveTile())
+                    if (_currentTileObject.GroundTileObject().IsHaveTile())
                     {
                         if (!_currentTileObject.GroundTileObject().IsForwardRoad())
                         {
@@ -101,7 +101,7 @@ public class TileDetector : MonoBehaviour
                             return;
                         }
                     }
-                    if (_currentTileObject.GroundTileObject().HaveTile())
+                    if (_currentTileObject.GroundTileObject().IsHaveTile())
                     {
                         for (int i = 0; i < 8; i++)
                         {
@@ -145,7 +145,7 @@ public class TileDetector : MonoBehaviour
         var newTileObject = gameObject.GetComponent<TileObject>();
         UnselectLastTile(true);
 
-        if (newTileObject.GroundTileObject().HaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River)
+        if (newTileObject.GroundTileObject().IsHaveTile() && _cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River)
         {
             _currentTileObject = newTileObject;
             if (!newTileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.Road) || !_tilesSystem.IsHaveRiver())
@@ -208,13 +208,13 @@ public class TileDetector : MonoBehaviour
                                     (groundTile.HaveNeighbour(2) && neighboursTwoToxicGasActive);
 
 
-            groundTile.SelectTile(true, _currentTileObject.GroundTileObject().HaveTile() || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            groundTile.SelectTile(true, _currentTileObject.GroundTileObject().IsHaveTile() || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
             if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(true, groundTile.NeighbourHaveGroundTile(0) || !haveNeighbours || neighboursZeroToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
             if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(true, groundTile.NeighbourHaveGroundTile(1) || !haveNeighbours || neighboursOneToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
             if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(true, groundTile.NeighbourHaveGroundTile(2) || !haveNeighbours || neighboursTwoToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
 
 
-            _canSetTile = !groundTile.HaveTile() && !neighboursHaveGroundTile && haveNeighbours && !haveToxicGasEvent;
+            _canSetTile = !groundTile.IsHaveTile() && !neighboursHaveGroundTile && haveNeighbours && !haveToxicGasEvent;
         }
         else
         {
@@ -228,10 +228,10 @@ public class TileDetector : MonoBehaviour
             }
             else
             {
-                _currentTileObject.GroundTileObject().SelectTile(true, newTileObject.GroundTileObject().HaveTile() || newTileObject.GetTileObjectEvents().IsToxicGasActive() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+                _currentTileObject.GroundTileObject().SelectTile(true, newTileObject.GroundTileObject().IsHaveTile() || newTileObject.GetTileObjectEvents().IsToxicGasActive() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
             }
 
-            _canSetTile = !_currentTileObject.GroundTileObject().HaveTile() && !newTileObject.GetTileObjectEvents().IsToxicGasActive();
+            _canSetTile = !_currentTileObject.GroundTileObject().IsHaveTile() && !newTileObject.GetTileObjectEvents().IsToxicGasActive();
         }
     }
 
@@ -244,7 +244,7 @@ public class TileDetector : MonoBehaviour
         UnselectLastTile(false);
         _selectTilePanel.ResetPanels();
 
-        if (newTileObject.GroundTileObject().HaveTile())
+        if (newTileObject.GroundTileObject().IsHaveTile())
         {
             if (!_tutorialSystem.CanDetectGroundTileObject(newTileObject)) return;
 

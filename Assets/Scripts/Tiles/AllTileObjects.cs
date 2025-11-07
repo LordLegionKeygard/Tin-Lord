@@ -46,7 +46,7 @@ public class AllTileObjects : MonoBehaviour
         for (int i = 0; i < TileObjects.Count; i++)
         {
             var tileObject = TileObjects[i];
-            var groundHaveTile = tileObject.GroundTileObject().HaveTile();
+            var groundHaveTile = tileObject.GroundTileObject().IsHaveTile();
             var buildingHaveTile = tileObject.BuildingTileObject().IsHaveTile() && !tileObject.BuildingHealth().IsDeath();
             var isWater = tileObject.GroundTileObject().IsWaterTile();
             var riverTile = tileObject.GroundTileObject().CurrentTileRiver();
