@@ -73,15 +73,16 @@ public class TacticCardDetector : MonoBehaviour
 
     private void UseTacticCard(TacticCardType type)
     {
+        var rarity = _cardHolderSystem.GetCurrentSelectCardObjectRarity();
         Vector3 pos = _currentTileObject.transform.position + Vector3.up * 0.3f;
         if (type != TacticCardType.ChangeRarity) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.TacticalCards[(int)type], transform.position);
         switch (type)
         {
             case TacticCardType.IncreaseDamage:
-                _currentTileObject.BuildingTileObject().TacticCardIncreaseDamageLevel(_cardHolderSystem.GetCurrentSelectCardObjectRarity());
+                _currentTileObject.BuildingTileObject().TacticCardIncreaseDamageLevel(rarity);
                 break;
             case TacticCardType.IncreaseHealth:
-                _currentTileObject.BuildingTileObject().TacticCardIncreaseHealthLevel(_cardHolderSystem.GetCurrentSelectCardObjectRarity());
+                _currentTileObject.BuildingTileObject().TacticCardIncreaseHealthLevel(rarity);
                 break;
             case TacticCardType.Repair:
                 _currentTileObject.BuildingHealth().FullRepair();
@@ -104,13 +105,13 @@ public class TacticCardDetector : MonoBehaviour
                         count = 10;
                         break;
                 }
-                var totalCount = count * _cardHolderSystem.GetCurrentSelectCardObjectRarity();
+                var totalCount = count * rarity;
                 _missionResources.ChangeResource(resource.ResourceEnum, totalCount);
                 _textViewSpawner.ShowAddResourceView(pos, resource.Icon, totalCount);
                 break;
             case TacticCardType.ChangeRarity:
                 var rnd = Random.Range(0, 100);
-                var success = rnd <= WorldGameInfo.TacticCardChangeSuccessRarityChance;
+                var success = rnd <= WorldGameInfo.TacticCardChangeSuccessRarityChance + rarity * 5;
                 switch (_currentTileObject.GetRarity())
                 {
                     case 1:
