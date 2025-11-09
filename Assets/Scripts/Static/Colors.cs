@@ -21,20 +21,20 @@ public class Colors : MonoBehaviour
     public static readonly Color UncommonRarity = new Color(0.5f, 0.6f, 0.8f, 1);
     public static readonly Color RareRarity = new Color(0.29f, 0.41f, 1, 1);
     public static readonly Color EpicRarity = new Color(0.6f, 0.4f, 1, 1);
-    public static readonly Color LegendaryRarity = new Color(0.8f, 0.2f, 1, 1);
+    public static readonly Color LegendaryRarity = new Color(1, 0.68f, 0.2f, 1);
 
     [Header("Hex")]
     public static readonly string HexCommonRarity = "#CCCCCC";
     public static readonly string HexUncommonRarity = "#8099CC";
     public static readonly string HexRareRarity = "#4B69FF";
     public static readonly string HexEpicRarity = "#8847FF";
-    public static readonly string HexLegendaryRarity = "#D32CE6";
+    public static readonly string HexLegendaryRarity = "#FFAF33";
 
     public static string HexWhite = "#FFFFFF";
     public static string HexWarningYellow = "#FFA800";
     public static string HexGreen = "#00FF00";
     public static string HexLightGreen = "#40BF00";
-    public static string HexRed = "#FF0000";
+    public static string HexWarningRed = "#BF0000";
     public static string HexGreySeven = "#B7B7B7";
 
     //MemoryRecovery
@@ -56,7 +56,7 @@ public class Colors : MonoBehaviour
         switch (modifier)
         {
             case 0:
-                return HexRed;
+                return HexWarningRed;
             case 0.5f:
                 return HexWarningYellow;
             case 1:
@@ -73,21 +73,16 @@ public class Colors : MonoBehaviour
         {
             case > 0:                       // положительные значения
                 return HexLightGreen;
-
             case 0:                         // ровно ноль
                 return HexWhite;
-
-            case < 0 and >= -3:             // -0.0001 … -3 включительно
-                return HexWarningYellow;
-
-            default:                        // всё, что меньше -3
-                return HexRed;
+            default:
+                return HexWarningRed;
         }
     }
 
     public static string GetSelectTilePanelProductionColor(float production)
     {
-        return production == 0 ? HexRed : HexWhite;
+        return production == 0 ? HexWarningRed : HexWhite;
     }
 
     public static Color GetRarityColor(int rarity)

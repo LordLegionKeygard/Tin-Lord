@@ -14,6 +14,7 @@ public class TileObject : MonoBehaviour
     private TileObjectEvents _tileObjectEvents;
     private BuildingProductionView _buildingProductionView;
     private BuildingHealth _buildingHealth;
+    private TileView _tileView;
     private int _id;
     private float _baseModifier;
     private float _currentModifier;
@@ -53,7 +54,11 @@ public class TileObject : MonoBehaviour
     public void SetBuildingProductionView(BuildingProductionView buildingProductionView) => _buildingProductionView = buildingProductionView;
     public void SetGeneralRepairSelect(bool state) => _isGeneralRepairSelect = state;
     public void SetRiftViewTileId(int id) => _riftViewTileId = id;
-    public void SetRarity(int rarity) => _rarity = rarity;
+    public void SetRarity(int rarity)
+    {
+        _rarity = rarity;
+        _tileView.UpdateTileRarityView(_rarity);
+    }
     public void SetId(int id) => _id = id;
 
     //Neighbours
@@ -70,6 +75,7 @@ public class TileObject : MonoBehaviour
         _tileEcology = GetComponent<TileEcology>();
         _buildingHealth = GetComponent<BuildingHealth>();
         _tileObjectEvents = GetComponent<TileObjectEvents>();
+        _tileView = GetComponent<TileView>();
     }
 
     public void SetBuildingWork(bool state)

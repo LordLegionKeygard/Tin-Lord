@@ -80,12 +80,15 @@ public class TacticCardDetector : MonoBehaviour
         {
             case TacticCardType.IncreaseDamage:
                 _currentTileObject.BuildingTileObject().TacticCardIncreaseDamageLevel(rarity);
+                _textViewSpawner.ShowTextView(pos, Language.TextStatic[62],Colors.LightGreen);
                 break;
-            case TacticCardType.IncreaseHealth:
+            case TacticCardType.IncreaseDurability:
                 _currentTileObject.BuildingTileObject().TacticCardIncreaseHealthLevel(rarity);
+                _textViewSpawner.ShowTextView(pos, Language.TextStatic[227],Colors.LightGreen);
                 break;
             case TacticCardType.Repair:
                 _currentTileObject.BuildingHealth().FullRepair();
+                _textViewSpawner.ShowTextView(pos, Language.TextStatic[238],Colors.LightGreen);
                 break;
             case TacticCardType.OverProduction:
                 var resource = _currentTileObject.GetCurrentResourceProduction();
@@ -163,7 +166,7 @@ public class TacticCardDetector : MonoBehaviour
             case TacticCardType.IncreaseDamage:
                 if (isConstructionNow) return false;
                 return isHaveBuildingTile && buildingTileObject.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.AttackingStructures;
-            case TacticCardType.IncreaseHealth:
+            case TacticCardType.IncreaseDurability:
                 if (isConstructionNow) return false;
                 return isHaveBuildingTile && buildingTileObject.GetCurrentBuildingTile().BuildingTileView != BuildingTileViewEnum.Base;
             case TacticCardType.Repair:

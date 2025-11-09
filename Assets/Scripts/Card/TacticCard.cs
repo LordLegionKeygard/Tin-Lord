@@ -10,7 +10,7 @@ public class TacticCard : Card
 public enum TacticCardType
 {
     IncreaseDamage = 0,
-    IncreaseHealth = 1,
+    IncreaseDurability = 1,
     Repair = 2,
     OverProduction = 3,
     ChangeRarity = 4,

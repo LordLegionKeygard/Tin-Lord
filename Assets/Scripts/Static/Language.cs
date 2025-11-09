@@ -213,8 +213,8 @@ public class Language : MonoBehaviour
         _text[61, 0] = "Days lived: {0}/{1}";
         _text[61, 1] = "Прожито дней: {0}/{1}";
 
-        _text[62, 0] = "";
-        _text[62, 1] = "";
+        _text[62, 0] = "Damage Increased";
+        _text[62, 1] = "Урон Повышен";
 
         _text[63, 0] = "Victory";
         _text[63, 1] = "Победа";
@@ -318,8 +318,8 @@ public class Language : MonoBehaviour
         _text[96, 0] = "Learn";
         _text[96, 1] = "Изучить";
 
-        _text[97, 0] = "Building health";
-        _text[97, 1] = "Здоровье здания";
+        _text[97, 0] = "Building durability";
+        _text[97, 1] = "Прочность здания";
 
         _text[98, 0] = "Damage";
         _text[98, 1] = "Урон";
@@ -708,8 +708,8 @@ public class Language : MonoBehaviour
         _text[226, 0] = "Collect";
         _text[226, 1] = "Соберите";
 
-        _text[227, 0] = "";
-        _text[227, 1] = "";
+        _text[227, 0] = "Durability Increased";
+        _text[227, 1] = "Прочность Повышена";
 
         _text[228, 0] = "Steel Riffle";
         _text[228, 1] = "Стальная Винтовка";
@@ -741,8 +741,8 @@ public class Language : MonoBehaviour
         _text[237, 0] = "Failure";
         _text[237, 1] = "Неудача";
 
-        _text[238, 0] = "";
-        _text[238, 1] = "";
+        _text[238, 0] = "Restored";
+        _text[238, 1] = "Восстановлено";
 
         _text[239, 0] = "";
         _text[239, 1] = "";

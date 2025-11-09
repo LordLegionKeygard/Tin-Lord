@@ -4,11 +4,9 @@ using DG.Tweening;
 using UnityEngine.UI;
 using Zenject;
 using System.Collections;
-using System.Threading;
 
 public class SelectTilePanel : MonoBehaviour
 {
-    [Inject] private readonly RarityCardsSystem _rarityCardsSystem;
     [Inject] private readonly EscapePanelMission _escapePanel;
     [Inject] private readonly TileViewSystem _tileViewSystem;
     [Inject] private readonly TutorialSystem _tutorialSystem;

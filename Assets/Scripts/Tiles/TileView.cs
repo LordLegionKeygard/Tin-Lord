@@ -8,6 +8,7 @@ public class TileView : MonoBehaviour
     [SerializeField] private GameObject _selectView;
     [SerializeField] private Material _fourTileMaterial;
     [SerializeField] private GameObject[] _edgeViews;
+    [SerializeField] private MeshRenderer _meshRenderer;
 
     private void Awake()
     {
@@ -66,6 +67,12 @@ public class TileView : MonoBehaviour
     }
 
     public void TurnOffCollider() => _boxCollider.enabled = false;
+
+    public void UpdateTileRarityView(int rarity)
+    {
+        _meshRenderer.enabled = rarity > 1;
+        _meshRenderer.material.color = Colors.GetRarityColor(rarity);
+    }
 }
 
 [System.Serializable]

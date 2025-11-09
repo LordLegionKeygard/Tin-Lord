@@ -400,7 +400,7 @@ public class EventNodePanel : MonoBehaviour
             return null;
 
         bool isPositive = amount >= 0;
-        string color = isPositive ? Colors.HexGreen : Colors.HexRed;
+        string color = isPositive ? Colors.HexGreen : Colors.HexWarningRed;
         int statusKey = isPositive ? 183 : 184;
 
         int displayAmount = Mathf.Abs(amount);
