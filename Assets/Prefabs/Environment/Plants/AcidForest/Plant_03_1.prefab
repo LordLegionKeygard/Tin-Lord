@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4702326398781002}
   - component: {fileID: 205141402498135620}
-  - component: {fileID: 8586574587847737543}
   m_Layer: 0
   m_Name: Plant_03_1
   m_TagString: Untagged
@@ -152,19 +151,6 @@ LODGroup:
     renderers:
     - renderer: {fileID: 23097797219645070}
   m_Enabled: 1
---- !u!65 &8586574587847737543
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233283779510702}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 8.37, z: 0.7}
-  m_Center: {x: 0, y: 1.59, z: 0}
 --- !u!1 &1428597822609306
 GameObject:
   m_ObjectHideFlags: 0
