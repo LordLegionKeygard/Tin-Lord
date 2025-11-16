@@ -1106,8 +1106,8 @@ public class Language : MonoBehaviour
         _text[343, 1] = "Теперь когда база защищена, включите работу в здании \"Поселение\".\n\nОчень важно начать добывать фрагменты данных.";
 
         // MissionEnergyBeamDescription_44
-        _text[344, 0] = "If your deck exceeds 8 terrain cards, the extras begin to disappear, generating beam energy.\n\nIt is required to replace a card in your hand with a random one and to destroy already placed landscape tiles.";
-        _text[344, 1] = "Если колода карт ландшафтов превышает 8 карт, лишние карты начинают исчезать, давая энергию луча.\n\nОна требуется для замены карты в руке на случайную и для уничтожения уже установленных тайлов ландшафта";
+        _text[344, 0] = "When you place any landscape tile, you receive a resource—beam energy.\n\nIt's needed to replace a card in your hand with a random one and to destroy already placed landscape tiles.\n\nIt can also be obtained if extra cards begin to disappear when the deck is full.";
+        _text[344, 1] = "Когда вы устанавливаете любой тайл ланшафта, то вы получаете ресурс - энергия луча.\n\nОна требуется для замены карты в руке на случайную и для уничтожения уже установленных тайлов ландшафта.\n\nТак же ее можно получить, если лишние карты начинают исчезать, когда колода переполняется.";
 
         // MissionTileCombineDescription1_45
         _text[345, 0] = "Proper placement of terrain tiles is the key to successfully completing the mission.\n\nYou can combine them to create new tiles.";

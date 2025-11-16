@@ -3,6 +3,7 @@ using Zenject;
 
 public class TileDetector : MonoBehaviour
 {
+    [Inject] private readonly MissionResources _missionResources;
     [Inject] private readonly TutorialSystem _tutorialSystem;
     [Inject] private readonly TilesSystem _tilesSystem;
     [SerializeField] private Camera _camera;
@@ -116,6 +117,7 @@ public class TileDetector : MonoBehaviour
                 }
 
                 _currentTileObject.GroundTileObject().SetupGroundTile(_cardHolderSystem.CurrentCardHolderSelectedTile(), _cardHolderSystem.GetCurrentSelectCardObjectRarity());
+                _missionResources.ChangeResource(ResourceEnum.BeamEnergy, WorldGameInfo.BeamEnergyAfterSetNewTile);
                 if (_currentTileObject.GroundTileObject().CurrentGroundTile().IsFourTile) _currentTileObject.GroundTileObject().TurnOffFourTileNeighboursCollider();
                 ClearTileDetector();
                 _cardHolderSystem.RemoveCurrentCard();

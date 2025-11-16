@@ -18,6 +18,7 @@ public class WorldGameInfo
     public static int FactorWeaponEnigneerUpgradePrice = 5;
 
     [Header("Currency")]
+    public static float BeamEnergyAfterSetNewTile = 0.5f;
     public static float QuantDropChance = 0.1f;
     public static int MaxAiCores = 12;
 
