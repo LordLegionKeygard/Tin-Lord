@@ -3,10 +3,11 @@ using UnityEngine;
 public class WorldGameInfo
 {
     [Header("Build")]
-    public static bool IsSteam = true;
+    public static bool IsSteam = false;
     public static bool IsDemo = false;
 
-    [Header("TacticCards")]
+    [Header("Cards")]
+    public static int ChanceAddOneCard = 50;
     public static float TacticCardIncreaseDamageFactor = 0.25f;
     public static float TacticCardIncreaseHealthFactor = 0.2f;
     public static int AddTacticCardChance = 20;

@@ -223,7 +223,7 @@ public class CardHolderSystem : MonoBehaviour
     {
         bool addTacticCard = _tutorialSystem.IsCompleteMissionTutorial() && Random.Range(0, 100) <= WorldGameInfo.AddTacticCardChance;
 
-        int totalToGive = Random.Range(0, 100) < 75 ? 1 : 2; // какое кол-во карт дать
+        int totalToGive = Random.Range(0, 100) < WorldGameInfo.ChanceAddOneCard ? 1 : 2; // какое кол-во карт дать
 
         var cardsList = new List<CardHolderCardData>(totalToGive);
 

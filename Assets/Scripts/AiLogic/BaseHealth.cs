@@ -5,7 +5,7 @@ public class BaseHealth : MonoBehaviour
 	protected float _maxHealth;
 	protected float _currentHealth;
 	protected bool _isDeath;
-	protected bool _isCanTarget = true;
+	public bool _isCanTarget = true;
 	protected BaseSlider _healthSlider;
 	protected GameObject _healthSliderObject;
 
