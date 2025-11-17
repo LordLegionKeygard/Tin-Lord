@@ -12,27 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e025a72d5c3a743add5457e9f1553f, type: 3}
   m_Name: 11_Spawner
   m_EditorClassIdentifier: 
-  Spawners:
-  - StartDaySpawn: 2
-    SpawnPeriod: 2
-    Count: 0
-    LandscapeSpawnSide: []
-    EnemiesSpawnerInfo:
-    - EnemyBiomeInfo:
-      - MonsterType: 2
-        EnemyEnum: 15
-      EnemyLevel: 1
-  MiniBossSpawners:
-  - DaySpawn: 4
-    Count: 0
-    HealthFactor: 3
-    DamageFactor: 1
-    LandscapeSpawnSide: []
-    EnemySpawnerInfo:
-      EnemyBiomeInfo:
-      - MonsterType: 2
-        EnemyEnum: 15
-      EnemyLevel: 3
+  Spawners: []
+  MiniBossSpawners: []
   BossSpawner:
     Bosses:
     - MonsterType: 2

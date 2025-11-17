@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38f53b5ee25211d489fa8bca8b7416ba, type: 3}
-  m_Name: 8_Mission
+  m_Name: 4_Mission
   m_EditorClassIdentifier: 
-  Spawner: {fileID: 11400000, guid: daa5fe53fe60b34448eea8976973cc18, type: 2}
+  Spawner: {fileID: 11400000, guid: 53a4ea159719fa2419d93b918547e14e, type: 2}
   ObjectiveSets:
   - Objectives:
-    - ObjectiveEnum: 4
-      Values: 01000000
+    - ObjectiveEnum: 0
+      Values: 32000000
