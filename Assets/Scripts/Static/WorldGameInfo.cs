@@ -10,7 +10,7 @@ public class WorldGameInfo
     public static int ChanceAddOneCard = 50;
     public static float TacticCardIncreaseDamageFactor = 0.25f;
     public static float TacticCardIncreaseHealthFactor = 0.2f;
-    public static int AddTacticCardChance = 20;
+    public static int AddTacticCardChance = 25;
     public static int TacticCardChangeSuccessRarityChance = 55;
 
     [Header("Price")]

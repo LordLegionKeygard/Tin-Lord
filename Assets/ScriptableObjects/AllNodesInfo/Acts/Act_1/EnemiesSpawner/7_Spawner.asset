@@ -15,9 +15,7 @@ MonoBehaviour:
   Spawners: []
   MiniBossSpawners: []
   BossSpawner:
-    Bosses:
-    - MonsterType: 3
-      EnemyEnum: 11
-    BossLevel: 1
-    BossDaySpawn: 4
+    Bosses: []
+    BossLevel: 0
+    BossDaySpawn: 0
     LandscapeSpawnSide: []
