@@ -1274,7 +1274,7 @@ MonoBehaviour:
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: 100
-  rotationSpeed: 15
+  rotationSpeed: 30
   slowdownDistance: 0
   pickNextWaypointDist: 3
   endReachedDistance: 0
@@ -1381,6 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc4cfc5a8251684fa69ef1923d6c6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isCanTarget: 1
 --- !u!114 &6073945727764995486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,14 +1414,13 @@ MonoBehaviour:
     FirePoints:
     - {fileID: 5301360855168732948}
   _creatureSkillsWrapper:
-  - SkillPrefab: {fileID: 7414113474186689754, guid: aab6dfa90c251644c931e51b24a530c8,
+  - TriggerStayDamageFactor: 0.002
+    SkillPrefab: {fileID: 7414113474186689754, guid: aab6dfa90c251644c931e51b24a530c8,
       type: 3}
     SkillPoint: {fileID: 7703744426943472793}
     InFirePoint: 0
     ParticleSystems: []
     ParticlesTimer: 0
-    TriggerStayDamageFactor: 0.005
-  _triggerStayDamageFactor: 0.005
 --- !u!114 &6073945727764995484
 MonoBehaviour:
   m_ObjectHideFlags: 0

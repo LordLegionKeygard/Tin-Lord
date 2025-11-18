@@ -89230,6 +89230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc4cfc5a8251684fa69ef1923d6c6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isCanTarget: 1
 --- !u!114 &7861850851629023395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89261,7 +89262,7 @@ MonoBehaviour:
     BulletType: -1
     FirePoints: []
   _creatureSkillsWrapper:
-  - TriggerStayDamageFactor: 0.005
+  - TriggerStayDamageFactor: 0.002
     SkillPrefab: {fileID: 7815034315947177567, guid: d6f854b5365750a4b9c1e69a3ab49fe1,
       type: 3}
     SkillPoint: {fileID: 5722481542820332139}
@@ -89269,7 +89270,7 @@ MonoBehaviour:
     ParticleSystems:
     - {fileID: 5722481542811014585}
     ParticlesTimer: 3.5
-  - TriggerStayDamageFactor: 0.005
+  - TriggerStayDamageFactor: 0.002
     SkillPrefab: {fileID: 100004, guid: e57c17609d0427a4dadc9a9f5a1962ba, type: 3}
     SkillPoint: {fileID: 5722481542820332139}
     InFirePoint: 1
