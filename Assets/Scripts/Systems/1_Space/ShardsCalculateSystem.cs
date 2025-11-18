@@ -13,7 +13,7 @@ public class ShardsCalculateSystem : MonoBehaviour
     private int _calculatedShards;
     public int GetCalculatedShards() => _calculatedShards;
 
-    public void Calculate()
+    public int CalculateShardsForThisAct()
     {
         var saveData = _spaceSaveGame.SpaceSaveData;
 
@@ -30,5 +30,17 @@ public class ShardsCalculateSystem : MonoBehaviour
         _eventsCompleted +
         _tradersCompleted +
         _bossesCompleted * _bossShardReward;
+
+        return _calculatedShards;
+    }
+
+    public void CalculateAllShards()
+    {
+        var saveData = _spaceSaveGame.SpaceSaveData;
+
+        var shardsThisAct = CalculateShardsForThisAct();
+        var shardsPreviousActs = saveData.PreviousActsShards;
+
+        _calculatedShards = shardsPreviousActs + shardsThisAct;
     }
 }

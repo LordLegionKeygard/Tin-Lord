@@ -12,6 +12,7 @@ public class EndMissionSystem : MonoBehaviour
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [Inject] private MissionResources _missionResources;
 
+    [SerializeField] private ShardsCalculateSystem _shardsCalculateSystem;
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private UIPanelsMission _uiPanelsMission;
@@ -175,6 +176,13 @@ public class EndMissionSystem : MonoBehaviour
 
         if (_isVictoryBoss)
         {
+            // Считаем осколки за ТЕКУЩИЙ акт до того, как обнулим карту
+            var shardsForThisAct = _shardsCalculateSystem.CalculateShardsForThisAct();
+
+            // Накапливаем прогресс по прошлым актам
+            saveData.PreviousActsShards += shardsForThisAct;
+
+            // Переходим к следующему акту
             saveData.Act += 1;
 
             // Сбрасываем карту, чтобы при следующем входе в космос сгенерировалась новая под новый акт

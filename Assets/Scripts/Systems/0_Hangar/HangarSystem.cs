@@ -562,6 +562,7 @@ public class HangarSystem : MonoBehaviour
             Act = 0,
             Quants = 35,
             AiCores = 6,
+            PreviousActsShards = 0,
             HangarCommandCenterData = new HangarCommandCenterData(),
 
             PrologueCompleted = false,

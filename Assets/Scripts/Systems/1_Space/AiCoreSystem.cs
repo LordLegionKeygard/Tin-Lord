@@ -40,7 +40,7 @@ public class AiCoreSystem : MonoBehaviour
 
     private void ShowGameOverPanel()
     {
-        _shardsCalculateSystem.Calculate();
+        _shardsCalculateSystem.CalculateAllShards();
         _eventPanel.Open(_endGameDialogue, GameOver);
         _uiPanelsSpace.EventPanelOpen();
     }

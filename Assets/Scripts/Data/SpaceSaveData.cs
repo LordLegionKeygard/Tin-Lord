@@ -4,6 +4,7 @@ public class SpaceSaveData
     public int Act;
     public int Quants;
     public int AiCores;
+    public int PreviousActsShards;
     public bool PrologueCompleted;
     public HangarCommandCenterData HangarCommandCenterData;
     public bool[] BuildingsLearned;
