@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillEnum: 1
   QuantPrice: 0
-  ShardPrice: 0
+  ShardPrice: 30
   Icon: {fileID: 21300000, guid: 19ece05ea4a6c0f4991ca3da9556e1a2, type: 3}
   TriggerStayDamageFactor: 0.5
   CooldownTicks: 24
@@ -29,6 +29,7 @@ MonoBehaviour:
       Data3: 239675044
       Data4: 685992248
     Path: event:/Ui/Skills/Ignite
+  SkillTraderRequiredAct: 0
   NameNumber: 219
   InfoNumber: 220
   Input: Shift+2

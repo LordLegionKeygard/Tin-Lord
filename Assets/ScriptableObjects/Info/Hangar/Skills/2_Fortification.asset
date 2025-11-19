@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SkillEnum: 2
   QuantPrice: 20
-  ShardPrice: 20
+  ShardPrice: 50
   Icon: {fileID: 21300000, guid: cddab69ae86d91340b39d03f13896176, type: 3}
   TriggerStayDamageFactor: 0
   CooldownTicks: 240
@@ -29,6 +29,7 @@ MonoBehaviour:
       Data3: 746936505
       Data4: 1045384843
     Path: event:/Ui/Skills/Fortification
+  SkillTraderRequiredAct: 0
   NameNumber: 215
   InfoNumber: 216
   Input: Shift+3

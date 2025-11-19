@@ -78,12 +78,10 @@ public class ShipWeaponAimer : MonoBehaviour
 
     public void TryFireHold()
     {
-
-        if (_currentCooldown > 0f || _gameSpeedSystem.IsPause()) return;
-
-
-
         var info = _missionShipWeaponSystem.GetShipCannonInfo(_isLeftWeapon);
+
+        if (_currentCooldown > 0f || _gameSpeedSystem.IsPause() || info == null) return;
+
         _cooldownMax = (info.FireRate > 0f) ? 1f / info.FireRate : 0f;
         _currentCooldown = _cooldownMax;
 

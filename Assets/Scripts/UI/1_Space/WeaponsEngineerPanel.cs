@@ -30,8 +30,8 @@ public class WeaponsEngineerPanel : MonoBehaviour
 
     public void LoadWeapons(WeaponData weaponData)
     {
-        _leftShipWeaponInfo = _shipWeaponsInfos[weaponData.LeftWeapon];
-        _rightShipWeaponInfo = _shipWeaponsInfos[weaponData.RightWeapon];
+        if (weaponData.LeftWeapon != -1)_leftShipWeaponInfo = _shipWeaponsInfos[weaponData.LeftWeapon];
+        if (weaponData.RightWeapon != -1) _rightShipWeaponInfo = _shipWeaponsInfos[weaponData.RightWeapon];
 
         _leftWeaponLevel = weaponData.LeftWeaponLevel;
         _rightWeaponLevel = weaponData.RightWeaponLevel;

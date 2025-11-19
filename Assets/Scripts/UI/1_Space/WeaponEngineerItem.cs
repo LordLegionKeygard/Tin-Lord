@@ -9,10 +9,12 @@ public class WeaponEngineerItem : MonoBehaviour
     [SerializeField] private Image _selectView;
     private Image _backImage;
     private bool _isSelect;
+    private Button _button;
 
     private void Awake()
     {
         _backImage = GetComponent<Image>();
+        _button = GetComponent<Button>();
     }
 
     public void Select()
@@ -32,8 +34,16 @@ public class WeaponEngineerItem : MonoBehaviour
 
     public void UpdateView()
     {
+        var shipWeaponInfo = _weaponsEngineerPanel.GetShipWeapon(_isLeft);
+
+        if(shipWeaponInfo == null) // орудие не доступно
+        {
+            _button.interactable = false;
+            return;
+        }
+
         _selectView.enabled = _isSelect;
-        _icon.sprite = _weaponsEngineerPanel.GetShipWeapon(_isLeft).Icon;
+        _icon.sprite = shipWeaponInfo.Icon;
         _selectView.color = _isSelect ? Colors.LightGreen : Colors.GreyFive;
 
         _icon.color = _isSelect ? Color.white : Colors.GreyEight;

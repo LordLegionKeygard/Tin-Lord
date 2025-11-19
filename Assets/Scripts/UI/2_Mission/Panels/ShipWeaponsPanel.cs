@@ -31,8 +31,11 @@ public class ShipWeaponsPanel : MonoBehaviour
 
     public void SetupSlidersAndText()
     {
-        SetupSliders();
-        SetTexts();
+        var leftShipWeaponInfo = _shipWeaponSystem.GetShipCannonInfo(true);
+        var rightShipWeaponInfo = _shipWeaponSystem.GetShipCannonInfo(false);
+
+        SetupSliders(leftShipWeaponInfo, rightShipWeaponInfo);
+        SetTexts(leftShipWeaponInfo, rightShipWeaponInfo);
     }
 
     private void Update()
@@ -43,16 +46,16 @@ public class ShipWeaponsPanel : MonoBehaviour
         _rightCooldownSlider.value = 1f - _rightShipWeaponAimer.GetSliderCooldown();
     }
 
-    private void SetTexts()
+    private void SetTexts(ShipWeaponInfo leftShipWeaponInfo, ShipWeaponInfo rightShipWeaponInfo)
     {
-        _leftWeaponNameText.text = Language.TextStatic[_shipWeaponSystem.GetShipCannonInfo(true).NameNumber];
-        _rightWeaponNameText.text = Language.TextStatic[_shipWeaponSystem.GetShipCannonInfo(false).NameNumber];
+        _leftWeaponNameText.text = leftShipWeaponInfo != null ? Language.TextStatic[_shipWeaponSystem.GetShipCannonInfo(true).NameNumber] : string.Empty;
+        _rightWeaponNameText.text = rightShipWeaponInfo != null ?  Language.TextStatic[_shipWeaponSystem.GetShipCannonInfo(false).NameNumber] : string.Empty;
     }
 
-    private void SetupSliders()
+    private void SetupSliders(ShipWeaponInfo leftShipWeaponInfo, ShipWeaponInfo rightShipWeaponInfo)
     {
-        _leftAmmunitionSlider.maxValue = _shipWeaponSystem.GetShipCannonInfo(true).BulletsCount;
-        _rightAmmunitionSlider.maxValue = _shipWeaponSystem.GetShipCannonInfo(false).BulletsCount;
+        _leftAmmunitionSlider.maxValue = leftShipWeaponInfo != null ? leftShipWeaponInfo.BulletsCount : 0;
+        _rightAmmunitionSlider.maxValue = rightShipWeaponInfo != null ? rightShipWeaponInfo.BulletsCount : 0;
         UpdateSliders();
     }
 

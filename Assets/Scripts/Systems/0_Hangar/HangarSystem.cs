@@ -152,9 +152,8 @@ public class HangarSystem : MonoBehaviour
         if (_currentRobot == -1) SelectRobot(HangarRobotType.Patch, true);
         if (_currentCrate == -1) SelectCrate(HangarCrateType.BaseCrate, true);
         if (_currentFirstSkill == -1) SelectSkill(SkillEnum.GeneralRepair, true);
-        if (_currentSecondSkill == -1) SelectSkill(SkillEnum.Ignite, true);
+
         if (_currentLeftShipWeapon == -1) SelectShipWeapon(ShipWeaponEnum.Left_SteelRiffle_0, true, true);
-        if (_currentRightShipWeapon == -1) SelectShipWeapon(ShipWeaponEnum.Right_TitatiumRocketLauncher_0, true, false);
 
         _cameraAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
         _manipulatorAnimator.SetBool(AnimatorStrings.CameraHangarState, true);
@@ -306,10 +305,6 @@ public class HangarSystem : MonoBehaviour
         {
             _skillDescription.text = Language.TextStatic[221];
         }
-        else if (isExit)
-        {
-            _skillDescription.text = "-";
-        }
         else
         {
             var info = _hangarSkillItems[(int)skillType].GetInfo();
@@ -347,7 +342,7 @@ public class HangarSystem : MonoBehaviour
 
     private void SetShipWeaponTexts()
     {
-        if (_currentLeftShipWeapon == -1 || _currentRightShipWeapon == -1)
+        if (_currentLeftShipWeapon == -1 && _currentRightShipWeapon == -1)
         {
             _shipWeaponsDescription.text = Language.TextStatic[87];
         }
@@ -498,18 +493,16 @@ public class HangarSystem : MonoBehaviour
     {
         if (_currentCrate == -1 || _currentRobot == -1) return;
 
-        var robotOpened = _hangarRobotItems[_currentRobot].IsOpen();
-        var crateOpened = _hangarCrateItems[_currentCrate].IsOpen();
+        var robotSelect = _hangarRobotItems[_currentRobot].IsOpen();
+        var crateSelect = _hangarCrateItems[_currentCrate].IsOpen();
 
-        var firstSkillOpened = _currentFirstSkill != -1 ? _hangarSkillItems[_currentFirstSkill].IsOpen() : false;
-        var secondSkillOpened = _currentSecondSkill != -1 ? _hangarSkillItems[_currentSecondSkill].IsOpen() : false;
+        var firstSkillSelect = _currentFirstSkill != -1 ? _hangarSkillItems[_currentFirstSkill].IsOpen() : false;
+        var secondSkillSelect = _currentSecondSkill != -1 ? _hangarSkillItems[_currentSecondSkill].IsOpen() : false;
 
-        var leftShipWeaponOpened = _currentLeftShipWeapon != -1 ? _hangarShipWeaponItems[_currentLeftShipWeapon].IsOpen() : false;
-        var rightShipWeaponOpened = _currentRightShipWeapon != -1 ? _hangarShipWeaponItems[_currentRightShipWeapon].IsOpen() : false;
+        var leftShipWeaponSelect = _currentLeftShipWeapon != -1 ? _hangarShipWeaponItems[_currentLeftShipWeapon].IsOpen() : false;
+        var rightShipWeaponSelect = _currentRightShipWeapon != -1 ? _hangarShipWeaponItems[_currentRightShipWeapon].IsOpen() : false;
 
-        var shipWeaponsOpened = leftShipWeaponOpened && rightShipWeaponOpened;
-
-        _launchButton.SetActive(robotOpened && crateOpened && (firstSkillOpened || secondSkillOpened) && shipWeaponsOpened);
+        _launchButton.SetActive(robotSelect && crateSelect && (firstSkillSelect || secondSkillSelect) && (leftShipWeaponSelect || rightShipWeaponSelect));
     }
 
     public void LaunchButton()
@@ -593,7 +586,6 @@ public class HangarSystem : MonoBehaviour
 
         if (_currentFirstSkill != -1 && _hangarSkillItems[_currentFirstSkill].IsOpen()) data.HangarCommandCenterData.OpenedSkills[_currentFirstSkill] = true;
         if (_currentSecondSkill != -1 && _hangarSkillItems[_currentSecondSkill].IsOpen()) data.HangarCommandCenterData.OpenedSkills[_currentSecondSkill] = true;
-
 
 
         _missionSaveGame.DeleteMissionJson();

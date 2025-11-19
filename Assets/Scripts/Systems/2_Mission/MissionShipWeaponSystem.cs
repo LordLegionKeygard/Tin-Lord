@@ -21,29 +21,35 @@ public class MissionShipWeaponSystem : MonoBehaviour
 
     public void LoadWeapons(WeaponData weaponData, MissionShipWeaponsData shipCannonsData, bool isStartMission)
     {
-        var leftWeaponSetter = _weaponSetter[weaponData.LeftWeapon];
+        if (weaponData.LeftWeapon != -1)
+        {
+            var leftWeaponSetter = _weaponSetter[weaponData.LeftWeapon];
 
-        _leftShipWeaponInfo = leftWeaponSetter.ShipWeaponInfo;
-        _leftWeaponLevel = weaponData.LeftWeaponLevel;
-        leftWeaponSetter.WeaponModel.gameObject.SetActive(true);
-        _leftShipWeaponAimer.SetupWeapon(leftWeaponSetter);
+            _leftShipWeaponInfo = leftWeaponSetter.ShipWeaponInfo;
+            _leftWeaponLevel = weaponData.LeftWeaponLevel;
+            leftWeaponSetter.WeaponModel.gameObject.SetActive(true);
+            _leftShipWeaponAimer.SetupWeapon(leftWeaponSetter);
+        }
 
-        var rightWeaponSetter = _weaponSetter[weaponData.RightWeapon];
+        if (weaponData.RightWeapon != -1)
+        {
+            var rightWeaponSetter = _weaponSetter[weaponData.RightWeapon];
 
-        _rightShipWeaponInfo = rightWeaponSetter.ShipWeaponInfo;
-        _rightWeaponLevel = weaponData.RightWeaponLevel;
-        rightWeaponSetter.WeaponModel.gameObject.SetActive(true);
-        _rightShipWeaponAimer.SetupWeapon(rightWeaponSetter);
+            _rightShipWeaponInfo = rightWeaponSetter.ShipWeaponInfo;
+            _rightWeaponLevel = weaponData.RightWeaponLevel;
+            rightWeaponSetter.WeaponModel.gameObject.SetActive(true);
+            _rightShipWeaponAimer.SetupWeapon(rightWeaponSetter);
+        }
 
         if (isStartMission)
         {
-            _leftWeaponBulletsCount = _leftShipWeaponInfo.BulletsCount;
-            _rightWeaponBulletsCount = _rightShipWeaponInfo.BulletsCount;
+            _leftWeaponBulletsCount = weaponData.LeftWeapon != -1 ? _leftShipWeaponInfo.BulletsCount : 0;
+            _rightWeaponBulletsCount = weaponData.RightWeapon != -1 ? _rightShipWeaponInfo.BulletsCount : 0;
         }
         else
         {
-            _leftWeaponBulletsCount = shipCannonsData.LeftWeaponBulletsCount;
-            _rightWeaponBulletsCount = shipCannonsData.RightWeaponBulletsCount;
+            _leftWeaponBulletsCount = weaponData.LeftWeapon != -1 ? shipCannonsData.LeftWeaponBulletsCount : 0;
+            _rightWeaponBulletsCount = weaponData.RightWeapon != -1 ? shipCannonsData.RightWeaponBulletsCount : 0;
         }
     }
 

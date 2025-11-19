@@ -288,8 +288,8 @@ public class Language : MonoBehaviour
         _text[86, 0] = "You cannot restart the mission.\n\nYou have no spare AI cores.";
         _text[86, 1] = "Вы не можете начать миссию с начала.\n\nУ вас нет запасных ядер ИИ.";
 
-        _text[87, 0] = "You must select both weapons for the ship";
-        _text[87, 1] = "Необходимо выбрать оба оружия для корабля";
+        _text[87, 0] = "You must select at least one weapon for the ship";
+        _text[87, 1] = "Необходимо выбрать хотя бы одно оружие для корабля";
 
         _text[88, 0] = "Left";
         _text[88, 1] = "Левое";
