@@ -17,8 +17,9 @@ public class OnTriggerStayDealDamage : MonoBehaviour
 
     public void SetInfo(int duration, float damageFactor)
     {
+        var missionInfo = CurrentMissionInfo.Instance;
         _ticksLeft = duration;
-        _damage = damageFactor * (1 + CurrentMissionInfo.Instance.GetMissionDeckIndex());
+        _damage = damageFactor * (1 + missionInfo.GetMissionDeckIndex() * missionInfo.GetAct());
         _isActive = true;
         CustomEvents.OnTimeTick += OnTimeTick;
     }

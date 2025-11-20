@@ -9,7 +9,7 @@ public class AcidRainMissionEvent : BaseMissionEvent
     {
         base.StartEvent();
         _currentPrefab = Instantiate(_spawnPrefab, GetTileObject().transform.position, Quaternion.identity);
-        _currentPrefab.GetComponent<OnTriggerStayDealDamage>().SetInfo(WorldGameInfo.AcidRainDuration, WorldGameInfo.AcidRainTriggetStayDamageFactor);
-        _spawnedHazardSystem.RegisterHazard((int)HazardEnum.AcidRain, _currentPrefab, WorldGameInfo.AcidRainDuration, WorldGameInfo.AcidRainTriggetStayDamageFactor);
+        _currentPrefab.GetComponent<OnTriggerStayDealDamage>().SetInfo(WorldGameInfo.AcidRainDuration, WorldGameInfo.AcidRainTriggerStayDamageFactor);
+        _spawnedHazardSystem.RegisterHazard((int)HazardEnum.AcidRain, _currentPrefab, WorldGameInfo.AcidRainDuration, WorldGameInfo.AcidRainTriggerStayDamageFactor);
     }
 }

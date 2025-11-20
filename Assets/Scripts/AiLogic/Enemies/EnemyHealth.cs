@@ -92,7 +92,7 @@ public class EnemyHealth : BaseHealth
         _creatureKnockBackController.TakeKnockbackPoints(knockBackPoints);
     }
 
-    private void DropQuant()
+    private void AddQuant()
     {
         if (Random.value > WorldGameInfo.QuantDropChance) return;
         _quantSystem.ChangeQuants(1);
@@ -106,7 +106,7 @@ public class EnemyHealth : BaseHealth
         _enemyAnimator.DeathAnim();
         _animationToRagdoll?.ActiveRagdoll();
         DeathSound();
-        DropQuant();
+        AddQuant();
 
         CustomEvents.FireEnemyDeath(_enemyInfo.GetEnemyNumber());
         CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.KillEnemies, 1);

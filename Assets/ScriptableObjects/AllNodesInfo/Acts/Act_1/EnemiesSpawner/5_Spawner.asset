@@ -26,7 +26,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 16
     SpawnPeriod: 2
-    Count: 16
+    Count: 14
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -37,29 +37,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 24
     SpawnPeriod: 2
-    Count: 24
-    LandscapeSpawnSide: []
-    EnemiesSpawnerInfo:
-    - EnemyBiomeInfo:
-      - MonsterType: 3
-        EnemyEnum: 18
-      - MonsterType: 4
-        EnemyEnum: 24
-      EnemyLevel: 2
-  - StartDaySpawn: 30
-    SpawnPeriod: 2
-    Count: 22
-    LandscapeSpawnSide: []
-    EnemiesSpawnerInfo:
-    - EnemyBiomeInfo:
-      - MonsterType: 3
-        EnemyEnum: 18
-      - MonsterType: 4
-        EnemyEnum: 24
-      EnemyLevel: 2
-  - StartDaySpawn: 40
-    SpawnPeriod: 2
-    Count: 25
+    Count: 14
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -68,7 +46,18 @@ MonoBehaviour:
       - MonsterType: 4
         EnemyEnum: 24
       EnemyLevel: 3
-  - StartDaySpawn: 50
+  - StartDaySpawn: 32
+    SpawnPeriod: 2
+    Count: 20
+    LandscapeSpawnSide: []
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 3
+        EnemyEnum: 18
+      - MonsterType: 4
+        EnemyEnum: 24
+      EnemyLevel: 3
+  - StartDaySpawn: 40
     SpawnPeriod: 2
     Count: 30
     LandscapeSpawnSide: []
@@ -78,7 +67,18 @@ MonoBehaviour:
         EnemyEnum: 18
       - MonsterType: 4
         EnemyEnum: 24
-      EnemyLevel: 3
+      EnemyLevel: 4
+  - StartDaySpawn: 50
+    SpawnPeriod: 2
+    Count: 35
+    LandscapeSpawnSide: []
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 3
+        EnemyEnum: 18
+      - MonsterType: 4
+        EnemyEnum: 24
+      EnemyLevel: 4
   - StartDaySpawn: 60
     SpawnPeriod: 2
     Count: 40
@@ -89,8 +89,19 @@ MonoBehaviour:
         EnemyEnum: 18
       - MonsterType: 4
         EnemyEnum: 24
-      EnemyLevel: 4
+      EnemyLevel: 5
   - StartDaySpawn: 70
+    SpawnPeriod: 2
+    Count: 40
+    LandscapeSpawnSide: []
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 3
+        EnemyEnum: 18
+      - MonsterType: 4
+        EnemyEnum: 24
+      EnemyLevel: 6
+  - StartDaySpawn: 80
     SpawnPeriod: 2
     Count: 50
     LandscapeSpawnSide: []
@@ -100,8 +111,8 @@ MonoBehaviour:
         EnemyEnum: 18
       - MonsterType: 4
         EnemyEnum: 24
-      EnemyLevel: 5
-  - StartDaySpawn: 80
+      EnemyLevel: 6
+  - StartDaySpawn: 90
     SpawnPeriod: 2
     Count: 60
     LandscapeSpawnSide: []
@@ -111,18 +122,7 @@ MonoBehaviour:
         EnemyEnum: 18
       - MonsterType: 4
         EnemyEnum: 24
-      EnemyLevel: 5
-  - StartDaySpawn: 90
-    SpawnPeriod: 2
-    Count: 65
-    LandscapeSpawnSide: []
-    EnemiesSpawnerInfo:
-    - EnemyBiomeInfo:
-      - MonsterType: 3
-        EnemyEnum: 18
-      - MonsterType: 4
-        EnemyEnum: 24
-      EnemyLevel: 6
+      EnemyLevel: 7
   MiniBossSpawners:
   - DaySpawn: 20
     Count: 1

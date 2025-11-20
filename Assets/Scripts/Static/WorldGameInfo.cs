@@ -3,8 +3,8 @@ using UnityEngine;
 public class WorldGameInfo
 {
     [Header("Build")]
-    public static bool IsSteam = true;
-    public static bool IsDemo = true;
+    public static bool IsSteam = false;
+    public static bool IsDemo = false;
 
     [Header("Cards")]
     public static int ChanceAddOneCard = 50;
@@ -122,7 +122,7 @@ public class WorldGameInfo
     public const float ConstructionExtraDamage = 3;
     public const float FortificationSkillDamage = 0.5f;
     public const float ExplosionDamageFactor = 4;
-    public const float AcidRainTriggetStayDamageFactor = 0.25f;
+    public const float AcidRainTriggerStayDamageFactor = 0.25f;
 
     [Header("Duration")]
     public const int AcidRainDuration = 24;

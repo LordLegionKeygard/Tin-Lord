@@ -153,7 +153,7 @@ public class MissionSaveLoad : MonoBehaviour
         _tutorialSystem.LoadTutorial(_hangarSaveGame.HangarSaveData.TutorialProgress, _spaceSaveGame.SpaceSaveData.PrologueCompleted);
         
         // Main
-        CurrentMissionInfo.Instance.LoadMission(BuildMissionFromSelected(), _spaceSaveGame.SpaceSaveData.CurrentMission.MissionDeckIndex);
+        CurrentMissionInfo.Instance.LoadMission(BuildMissionFromSelected(), _spaceSaveGame.SpaceSaveData.CurrentMission.MissionDeckIndex, _spaceSaveGame.SpaceSaveData.Act);
         _tileMapBuilder.BuildMap(currentSaveData.IsStartMission);
 
         //UpPanel
