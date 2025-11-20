@@ -207,8 +207,8 @@ Shader "BK/StandardLayered"
 
 			#define _NORMAL_DROPOFF_TS 1
 			#pragma multi_compile_instancing
-			#pragma instancing_options renderinglayer
-			#pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+			// #pragma instancing_options renderinglayer // disabled for URP 2021
+			// #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE // disabled for URP 2021
 			#pragma multi_compile_fog
 			#define ASE_FOG 1
 			#define _NORMALMAP 1
@@ -227,7 +227,7 @@ Shader "BK/StandardLayered"
 			#pragma multi_compile_fragment _ _SHADOWS_SOFT
 			#pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
 			#pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
-			#pragma multi_compile_fragment _ _LIGHT_LAYERS
+			// #pragma multi_compile_fragment _ _LIGHT_LAYERS // disabled for URP 2021
 			#pragma multi_compile_fragment _ _LIGHT_COOKIES
 			#pragma multi_compile _ _FORWARD_PLUS
 
@@ -237,7 +237,7 @@ Shader "BK/StandardLayered"
 			#pragma multi_compile _ LIGHTMAP_ON
 			#pragma multi_compile _ DYNAMICLIGHTMAP_ON
 			#pragma multi_compile_fragment _ DEBUG_DISPLAY
-			#pragma multi_compile_fragment _ _WRITE_RENDERING_LAYERS
+			// #pragma multi_compile_fragment _ _WRITE_RENDERING_LAYERS // disabled for URP 2021
 
 			#pragma vertex vert
 			#pragma fragment frag
@@ -630,9 +630,7 @@ Shader "BK/StandardLayered"
 						#ifdef ASE_DEPTH_WRITE_ON
 						,out float outputDepth : ASE_SV_DEPTH
 						#endif
-						#ifdef _WRITE_RENDERING_LAYERS
-						, out float4 outRenderingLayers : SV_Target1
-						#endif
+
 						 ) : SV_Target
 			{
 				UNITY_SETUP_INSTANCE_ID(IN);
@@ -858,7 +856,7 @@ Shader "BK/StandardLayered"
 					SUM_LIGHT_TRANSMISSION( GetMainLight( inputData.shadowCoord ) );
 
 					#if defined(_ADDITIONAL_LIGHTS)
-						uint meshRenderingLayers = GetMeshRenderingLayer();
+						// uint meshRenderingLayers = GetMeshRenderingLayer(); // disabled for URP 2021
 						uint pixelLightCount = GetAdditionalLightsCount();
 						#if USE_FORWARD_PLUS
 							for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++)
@@ -866,19 +864,13 @@ Shader "BK/StandardLayered"
 								FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
 
 								Light light = GetAdditionalLight(lightIndex, inputData.positionWS);
-								#ifdef _LIGHT_LAYERS
-								if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
-								#endif
-								{
+{
 									SUM_LIGHT_TRANSMISSION( light );
 								}
 							}
 						#endif
 						LIGHT_LOOP_BEGIN( pixelLightCount )
 							Light light = GetAdditionalLight(lightIndex, inputData.positionWS);
-							#ifdef _LIGHT_LAYERS
-							if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
-							#endif
 							{
 								SUM_LIGHT_TRANSMISSION( light );
 							}
@@ -907,7 +899,7 @@ Shader "BK/StandardLayered"
 					SUM_LIGHT_TRANSLUCENCY( GetMainLight( inputData.shadowCoord ) );
 
 					#if defined(_ADDITIONAL_LIGHTS)
-						uint meshRenderingLayers = GetMeshRenderingLayer();
+						// uint meshRenderingLayers = GetMeshRenderingLayer(); // disabled for URP 2021
 						uint pixelLightCount = GetAdditionalLightsCount();
 						#if USE_FORWARD_PLUS
 							for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++)
@@ -915,9 +907,6 @@ Shader "BK/StandardLayered"
 								FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
 
 								Light light = GetAdditionalLight(lightIndex, inputData.positionWS);
-								#ifdef _LIGHT_LAYERS
-								if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
-								#endif
 								{
 									SUM_LIGHT_TRANSLUCENCY( light );
 								}
@@ -925,9 +914,6 @@ Shader "BK/StandardLayered"
 						#endif
 						LIGHT_LOOP_BEGIN( pixelLightCount )
 							Light light = GetAdditionalLight(lightIndex, inputData.positionWS);
-							#ifdef _LIGHT_LAYERS
-							if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
-							#endif
 							{
 								SUM_LIGHT_TRANSLUCENCY( light );
 							}
@@ -961,10 +947,7 @@ Shader "BK/StandardLayered"
 					outputDepth = DepthValue;
 				#endif
 
-				#ifdef _WRITE_RENDERING_LAYERS
-					uint renderingLayers = GetMeshRenderingLayer();
-					outRenderingLayers = float4( EncodeMeshRenderingLayer( renderingLayers ), 0, 0, 0 );
-				#endif
+
 
 				return color;
 			}
@@ -988,7 +971,7 @@ Shader "BK/StandardLayered"
 
 			#define _NORMAL_DROPOFF_TS 1
 			#pragma multi_compile_instancing
-			#pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+			// #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE // disabled for URP 2021
 			#define ASE_FOG 1
 			#define _NORMALMAP 1
 			#define ASE_SRP_VERSION 140004
@@ -1311,7 +1294,7 @@ Shader "BK/StandardLayered"
 
 			#define _NORMAL_DROPOFF_TS 1
 			#pragma multi_compile_instancing
-			#pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+			// #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE // disabled for URP 2021
 			#define ASE_FOG 1
 			#define _NORMALMAP 1
 			#define ASE_SRP_VERSION 140004
@@ -2412,7 +2395,7 @@ Shader "BK/StandardLayered"
 
 			#define _NORMAL_DROPOFF_TS 1
 			#pragma multi_compile_instancing
-			#pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+			// #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE // disabled for URP 2021
 			#define ASE_FOG 1
 			#define _NORMALMAP 1
 			#define ASE_SRP_VERSION 140004
@@ -2421,7 +2404,7 @@ Shader "BK/StandardLayered"
 			#pragma vertex vert
 			#pragma fragment frag
 
-			#pragma multi_compile_fragment _ _WRITE_RENDERING_LAYERS
+			// #pragma multi_compile_fragment _ _WRITE_RENDERING_LAYERS // disabled for URP 2021
 
 			#define SHADERPASS SHADERPASS_DEPTHNORMALSONLY
 
@@ -2724,9 +2707,7 @@ Shader "BK/StandardLayered"
 						#ifdef ASE_DEPTH_WRITE_ON
 						,out float outputDepth : ASE_SV_DEPTH
 						#endif
-						#ifdef _WRITE_RENDERING_LAYERS
-						, out float4 outRenderingLayers : SV_Target1
-						#endif
+
 						 )
 			{
 				UNITY_SETUP_INSTANCE_ID(IN);
@@ -2836,10 +2817,7 @@ Shader "BK/StandardLayered"
 					outNormalWS = half4(NormalizeNormalPerPixel(normalWS), 0.0);
 				#endif
 
-				#ifdef _WRITE_RENDERING_LAYERS
-					uint renderingLayers = GetMeshRenderingLayer();
-					outRenderingLayers = float4( EncodeMeshRenderingLayer( renderingLayers ), 0, 0, 0 );
-				#endif
+
 			}
 			ENDHLSL
 		}
@@ -2862,8 +2840,8 @@ Shader "BK/StandardLayered"
 
 			#define _NORMAL_DROPOFF_TS 1
 			#pragma multi_compile_instancing
-			#pragma instancing_options renderinglayer
-			#pragma multi_compile_fragment _ LOD_FADE_CROSSFADE
+			// #pragma instancing_options renderinglayer // disabled for URP 2021
+			// #pragma multi_compile_fragment _ LOD_FADE_CROSSFADE // disabled for URP 2021
 			#pragma multi_compile_fog
 			#define ASE_FOG 1
 			#define _NORMALMAP 1
@@ -2887,7 +2865,7 @@ Shader "BK/StandardLayered"
 			#pragma multi_compile _ LIGHTMAP_ON
 			#pragma multi_compile _ DYNAMICLIGHTMAP_ON
 			#pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT
-			#pragma multi_compile_fragment _ _WRITE_RENDERING_LAYERS
+			// #pragma multi_compile_fragment _ _WRITE_RENDERING_LAYERS // disabled for URP 2021
 
 			#pragma vertex vert
 			#pragma fragment frag
