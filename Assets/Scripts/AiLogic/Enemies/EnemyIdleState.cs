@@ -9,6 +9,12 @@ public class EnemyIdleState : EnemyState
     [SerializeField] private AIDestinationSetter _aiDestinationSetter;
     [SerializeField] private BaseDamage _creatureDamage;
 
+    [Header("Performance")]
+    [SerializeField] private float _targetScanInterval = 0.35f;
+    [SerializeField] private int _maxReachabilityChecks = 6;
+
+    private float _nextTargetScan;
+
     private void Start()
     {
         SetBaseTarget();
@@ -19,16 +25,21 @@ public class EnemyIdleState : EnemyState
         animator.IsCombat(false);
         stateChanger.CanRotateForwardToggle(false);
 
-        BaseHealth foundTarget = FindTargetWithExtendedRadius(stateChanger);
-        if (foundTarget != null)
+        if (Time.time >= _nextTargetScan)
         {
-            SetTargetAndStartPursuit(foundTarget, attacks, aiPath);
-            return _pursueTargetState;
-        }
+            _nextTargetScan = Time.time + _targetScanInterval;
 
-        if (_aiDestinationSetter.CurrentTarget == null)
-        {
-            SetBaseTarget();
+            BaseHealth foundTarget = FindTargetWithExtendedRadius(stateChanger);
+            if (foundTarget != null)
+            {
+                SetTargetAndStartPursuit(foundTarget, attacks, aiPath);
+                return _pursueTargetState;
+            }
+
+            if (_aiDestinationSetter.CurrentTarget == null)
+            {
+                SetBaseTarget();
+            }
         }
 
         return this;
@@ -87,8 +98,14 @@ public class EnemyIdleState : EnemyState
         if (startNode == null) return null;
 
         List<BaseHealth> reachable = new();
-        foreach (var candidate in allTargets)
+
+        // Проверяем достижимость ограниченного числа случайных целей, чтобы не грузить CPU на больших пачках
+        int checks = Mathf.Min(_maxReachabilityChecks, allTargets.Count);
+        List<int> indices = TRManager.Instance.GenerateIntegerPRNG(0, allTargets.Count - 1, checks);
+
+        for (int i = 0; i < checks; i++)
         {
+            var candidate = allTargets[indices[i]];
             var endNode = AstarPath.active.GetNearest(candidate.transform.position).node;
             if (endNode != null && PathUtilities.IsPathPossible(startNode, endNode))
             {

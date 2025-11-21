@@ -2,6 +2,7 @@ using UnityEngine;
 using Pathfinding;
 using Zenject;
 using System.Collections;
+using Pathfinding.RVO;
 
 
 public class EnemyHealth : BaseHealth
@@ -15,13 +16,12 @@ public class EnemyHealth : BaseHealth
     [SerializeField] private bool _needDeathSound;
     private EnemyAnimator _enemyAnimator;
     private EnemyKnockBack _creatureKnockBackController;
-    private AIPath _aiPath;
-    private CharacterController _characterController;
     private EnemyLevel _enemyLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
     private EnemyCenterPoint _enemyCenterPoint;
     private EnemyInfo _enemyInfo;
     private AnimationToRagdoll _animationToRagdoll;
+    private AiStop _aiStop;
 
     public override Transform GetTransform()
     {
@@ -32,13 +32,12 @@ public class EnemyHealth : BaseHealth
     {
         _enemyLevel = GetComponent<EnemyLevel>();
         _creatureKnockBackController = GetComponent<EnemyKnockBack>();
-        _characterController = GetComponent<CharacterController>();
         _takeDamageVFX = GetComponent<BaseTakeDamageVFX>();
-        _aiPath = GetComponent<AIPath>();
         _enemyAnimator = GetComponent<EnemyAnimator>();
         _enemyCenterPoint = GetComponent<EnemyCenterPoint>();
         _enemyInfo = GetComponent<EnemyInfo>();
         _animationToRagdoll = GetComponent<AnimationToRagdoll>();
+        _aiStop = GetComponent<AiStop>();
     }
 
     public override void CalculateDamage(float damage, float knockBackPoints)
@@ -101,10 +100,10 @@ public class EnemyHealth : BaseHealth
     public override void Death()
     {
         base.Death();
-        _characterController.enabled = false;
-        _aiPath.enabled = false;
+
+        _aiStop.DisableLogicOnDeath();
         _enemyAnimator.DeathAnim();
-        _animationToRagdoll?.ActiveRagdoll();
+        _animationToRagdoll.ActiveRagdoll();
         DeathSound();
         AddQuant();
 
