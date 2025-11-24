@@ -103,7 +103,7 @@ public class EnemyHealth : BaseHealth
 
         _aiStop.DisableLogicOnDeath();
         _enemyAnimator.DeathAnim();
-        _animationToRagdoll.ActiveRagdoll();
+        _animationToRagdoll?.ActiveRagdoll();
         DeathSound();
         AddQuant();
 
