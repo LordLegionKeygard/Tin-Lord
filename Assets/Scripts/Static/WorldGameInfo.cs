@@ -34,7 +34,7 @@ public class WorldGameInfo
     public const float TickSpeed = 2;
 
     [Header("Enemies")]
-    public const float MiniBossScale = 2.5f;
+    public const float MiniBossScale = 2;
 
     [Header("GoogleSheet")]
     public const string GoogleSheetId = "1phPv5iEL7Iw6A6CCdU4SdSgN5LwbEprCKEzY10dwDr4";
@@ -84,7 +84,7 @@ public class WorldGameInfo
     public const int LoadSceneTime = 2;
 
     [Header("EndMissionFragmentsPercent")]
-    public const int DefeatFragmentsPercent = 5;
+    public const int DefeatFragmentsPercent = 15;
     public const int EscapeFragmentsPercent = 60;
     public const int VictoryFragmentsPercent = 100;
 
