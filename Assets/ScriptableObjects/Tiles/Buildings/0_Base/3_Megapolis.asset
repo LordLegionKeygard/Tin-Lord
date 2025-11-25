@@ -21,8 +21,8 @@ MonoBehaviour:
   RequiredBaseLevel: 3
   BuildingEcology: -4
   BuildingHealth: 1000
-  ResourceExtractedAmount: 1
-  Price: 1000
+  ResourceExtractedAmount: 0.5
+  Price: 500
   CanRotateBuilding: 1
   ResourcesForBuild:
   - ResourceEnum: 11
