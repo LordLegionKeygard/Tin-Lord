@@ -447,6 +447,7 @@ public class BuildingTile : MonoBehaviour
          _buildingHealth.LoadBuildingHealth(GetCurrentBuilding(), tileDataWrapper.BuildingData.BuildingHealth, false);
 
          _tileObject.SetBuildingWork(tileDataWrapper.BuildingData.IsBuildingWork);
+         _tileObject.SetTurretBuildingCantShoot();
          _tileObject.CheckResourceRequired(true);
 
          var rotationView = _tileObject.BuildingTileObject().CurrentBuildingGameObject().GetComponent<RotationView>();

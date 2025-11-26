@@ -146,6 +146,12 @@ public class CustomEvents
         OnBuildingTakeDamage?.Invoke(id);
     }
 
+    public static Action<int> OnToxicGasEventActive;
+    public static void FireToxicGasEventActive(int id)
+    {
+        OnToxicGasEventActive?.Invoke(id);
+    }
+
     public static Action<int> OnRobotFullRepairBuilding;
     public static void FireRobotFullRepairBuilding(int id)
     {

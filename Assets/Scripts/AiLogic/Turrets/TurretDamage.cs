@@ -25,7 +25,7 @@ public class TurretDamage : BaseDamage
 
     public override void UpdateDamage()
     {
-        Damage = _buildingLevels.CurrentTileObject().BuildingTileObject().GetResultTurretDamage();
+        Damage = _buildingLevels.GetCurrentTileObject().BuildingTileObject().GetResultTurretDamage();
     }
 
     public override void Shoot(int attackNumber)

@@ -10,17 +10,27 @@ public class SpawnedHazardSystem : MonoBehaviour
     {
         public int Type;
         public GameObject Instance;
-        public float TimeLeft;
+        public int TicksLeft;
         public float DamageFactor;
     }
 
-    public void RegisterHazard(int type, GameObject obj, float duration, float damageFactor)
+    private void OnEnable()
+    {
+        CustomEvents.OnTimeTick += OnTimeTick;
+    }
+
+    private void OnDisable()
+    {
+        CustomEvents.OnTimeTick -= OnTimeTick;
+    }
+
+    public void RegisterHazard(int type, GameObject obj, int ticksLeft, float damageFactor)
     {
         _activeHazards.Add(new ActiveHazard
         {
             Type = type,
             Instance = obj,
-            TimeLeft = duration,
+            TicksLeft = ticksLeft,
             DamageFactor = damageFactor
         });
     }
@@ -30,6 +40,8 @@ public class SpawnedHazardSystem : MonoBehaviour
         var list = new List<HazardSaveData>(_activeHazards.Count);
         foreach (var h in _activeHazards)
         {
+            if (h.Instance == null) continue;
+
             var tr = h.Instance.transform;
             list.Add(new HazardSaveData
             {
@@ -38,7 +50,7 @@ public class SpawnedHazardSystem : MonoBehaviour
                 PosY = tr.position.y,
                 PosZ = tr.position.z,
                 RotationY = tr.eulerAngles.y,
-                TimeLeft = h.TimeLeft,
+                TimeLeft = h.TicksLeft,
                 DamageFactor = h.DamageFactor
             });
         }
@@ -47,30 +59,35 @@ public class SpawnedHazardSystem : MonoBehaviour
 
     public void LoadHazardData(HazardSaveData[] data, bool isStartMission)
     {
-        if (isStartMission) return;
+        if (isStartMission || data == null || data.Length == 0) return;
+
+        _activeHazards.Clear();
 
         foreach (var h in data)
         {
+            if (h.HazardType < 0 || h.HazardType >= _hazardPrefabs.Length) continue;
+
+            var ticksLeft = Mathf.Max(1, Mathf.CeilToInt(h.TimeLeft));
             var prefab = _hazardPrefabs[h.HazardType];
             var obj = Instantiate(prefab, new Vector3(h.PosX, h.PosY, h.PosZ), Quaternion.Euler(0, h.RotationY, 0));
 
             var dmg = obj.GetComponent<OnTriggerStayDealDamage>();
-            dmg.SetInfo(Mathf.CeilToInt(h.TimeLeft), h.DamageFactor);
+            dmg.SetInfo(ticksLeft, h.DamageFactor);
 
-            RegisterHazard(h.HazardType, obj, h.TimeLeft, h.DamageFactor);
+            RegisterHazard(h.HazardType, obj, ticksLeft, h.DamageFactor);
         }
     }
 
-    private void Update()
+    private void OnTimeTick()
     {
-        // идём с конца, чтобы безопасно удалять
         for (int i = _activeHazards.Count - 1; i >= 0; i--)
         {
             var hazard = _activeHazards[i];
-            hazard.TimeLeft -= Time.deltaTime;
-            if (hazard.TimeLeft <= 0f)
+            hazard.TicksLeft--;
+
+            if (hazard.TicksLeft <= 0 || hazard.Instance == null)
             {
-                _activeHazards.RemoveAt(i); // объект сам уничтожится по таймеру
+                _activeHazards.RemoveAt(i);
             }
         }
     }
@@ -81,5 +98,5 @@ public enum HazardEnum
 {
     AcidRain = 0,
     IgniteSkill = 1,
+    ToxicGas = 2,
 }
-

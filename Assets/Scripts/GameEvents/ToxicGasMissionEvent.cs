@@ -4,27 +4,22 @@ using UnityEngine;
 
 public class ToxicGasMissionEvent : BaseMissionEvent
 {
-    private float _delay = 1.5f;
+    [SerializeField] private SpawnedHazardSystem _spawnedHazardSystem;
+    [SerializeField] private GameObject _spawnPrefab;
+    private GameObject _currentPrefab;
     public override void StartEvent()
-    {
-        StartCoroutine(nameof(ToxicGasCoroutine));
-    }
-
-    private IEnumerator ToxicGasCoroutine()
-    {
-        // AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.EarthQuake, transform.position);
-        yield return new WaitForSeconds(_delay);
-        UseToxicGas();
-    }
-
-    private void UseToxicGas()
     {
         var validTiles = new List<TileObject>();
 
         // Собираем все подходящие тайлы
         foreach (var tileObject in GetAllTileObjects().TileObjects)
         {
-            if (tileObject.GroundTileObject().CurrentGroundTile() == null)
+            var buildingTileObject = tileObject.BuildingTileObject();
+            if (buildingTileObject.IsHaveTile() 
+            && buildingTileObject.GetCurrentBuildingTile().BuildingTileView != BuildingTileViewEnum.Base 
+            && !buildingTileObject.IsExtraBaseTileObject()
+            && !buildingTileObject.IsConstructionNow()
+            && !tileObject.GetTileObjectEvents().IsToxicGasActive())
             {
                 validTiles.Add(tileObject);
             }
@@ -35,6 +30,10 @@ public class ToxicGasMissionEvent : BaseMissionEvent
         {
             var randomTile = validTiles[Random.Range(0, validTiles.Count)];
             randomTile.GetTileObjectEvents().ActiveEvent(WorldGameInfo.ToxicGasTicks);
+
+            _currentPrefab = Instantiate(_spawnPrefab, randomTile.transform.position, Quaternion.identity);
+            _currentPrefab.GetComponent<OnTriggerStayDealDamage>().SetInfo(WorldGameInfo.ToxicGasTicks, WorldGameInfo.ToxicGasTriggerStayDamageFactor);
+            _spawnedHazardSystem.RegisterHazard((int)HazardEnum.ToxicGas, _currentPrefab, WorldGameInfo.ToxicGasTicks, WorldGameInfo.ToxicGasTriggerStayDamageFactor);
         }
     }
 }

@@ -21,6 +21,8 @@ public class TurretPatrolState : TurretState
     {
         stateChanger.CanRotateForwardToggle(false);
         stateChanger.StopAllAttacks();
+        
+        if(stateChanger.IsToxicGasActive()) return this;
 
         BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
 

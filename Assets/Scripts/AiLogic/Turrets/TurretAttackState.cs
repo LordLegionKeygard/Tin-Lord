@@ -5,7 +5,6 @@ public class TurretAttackState : TurretState
     [SerializeField] private int _attacksNumber;
     [SerializeField] private bool _attackOneByOne;
     [SerializeField] private TurretBuilding _turretBuilding;
-    [SerializeField] private TurretPatrolState _patrolState;
     [SerializeField] private TurretCombatState _combatState;
     private int _currentAttackIndex = 1;
     private int _currentAttack;

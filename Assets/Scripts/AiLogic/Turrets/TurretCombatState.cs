@@ -21,7 +21,7 @@ public class TurretCombatState : TurretState
         float distanceToTarget = stateChanger.DistanceToTarget();
 
         // Если цель стала невалидной или вышла за радиус — сбрасываем и уходим в патруль
-        if (CheckNeedChangeTarget(targetTransform.gameObject, attackRadius: attackRadius, distanceToTarget: distanceToTarget))
+        if (CheckNeedChangeTarget(targetTransform.gameObject, attackRadius: attackRadius, distanceToTarget: distanceToTarget, stateChanger.IsToxicGasActive()))
         {
             aiDestinationSetter.CurrentTarget = null;
             return _patrolState;
@@ -36,7 +36,7 @@ public class TurretCombatState : TurretState
         return this;
     }
 
-    private bool CheckNeedChangeTarget(GameObject target, float attackRadius, float distanceToTarget)
+    private bool CheckNeedChangeTarget(GameObject target, float attackRadius, float distanceToTarget, bool isToxicGasActive)
     {
         if (target == null) return true;
 
@@ -46,6 +46,8 @@ public class TurretCombatState : TurretState
 
         // вне радиуса — считаем цель непригодной для текущей турели
         if (distanceToTarget < 0f || distanceToTarget > attackRadius) return true;
+
+        if(isToxicGasActive) return true;
 
         return false;
     }

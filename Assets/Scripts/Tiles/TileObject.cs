@@ -84,6 +84,11 @@ public class TileObject : MonoBehaviour
         _buildingHealth.GetBuildingSliderWorkView().SetIsBuildingWorkView(_isBuildingWork);
     }
 
+    public void SetTurretBuildingCantShoot()
+    {
+        _buildingHealth.GetBuildingSliderWorkView().SetlIsBuildingTurrentCantShootView(_tileObjectEvents.IsToxicGasActive());
+    }
+
     public TileObject GetNearNeighbourCrossRoad()
     {
         if (!_groundTile.CurrentGroundTile().CanBuildMachineProduction) return null;

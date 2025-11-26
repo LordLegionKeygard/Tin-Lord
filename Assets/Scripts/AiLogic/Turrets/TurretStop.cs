@@ -29,7 +29,7 @@ public class TurretStop : MonoBehaviour
 
     private void CheckStopTurret(int id)
     {
-        if (_buildingLevels.CurrentTileObject().GetId() == id)
+        if (_buildingLevels.GetCurrentTileObject().GetId() == id)
         {
             StopTurretLogic(MissionEndEnum.Nothing);
         }

@@ -12,7 +12,7 @@ public class BuildingLevels : MonoBehaviour
     private int _currentBuildingLevel;
     private BuildingProductionView _buildingProductionView;
     private TileObject _tileObject;
-    public TileObject CurrentTileObject() => _tileObject;
+    public TileObject GetCurrentTileObject() => _tileObject;
 
     private void Awake()
     {

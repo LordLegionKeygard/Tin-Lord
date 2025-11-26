@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TurretStateChanger : BaseAiStateChanger
 {
+    [SerializeField] private BuildingLevels _buildingLevels;
     [SerializeField] private TurretState _currentState;
     private ITurretAttack[] _attackComponents;
     private TurretBuilding _turretBuilding;
@@ -10,6 +11,7 @@ public class TurretStateChanger : BaseAiStateChanger
     [SerializeField] private LayerMask _detectionLayer;
     public float AttackRadius() => _turretBuilding.Building().AttackRadius;
     public LayerMask DetectionLayer() => _detectionLayer;
+    public bool IsToxicGasActive() => _buildingLevels.GetCurrentTileObject().GetTileObjectEvents().IsToxicGasActive();
 
     public override void Awake()
     {

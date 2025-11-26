@@ -846,6 +846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
+  _buildingLevels: {fileID: 7759801266027362676}
   _currentState: {fileID: 3558175490679918083}
   _detectionLayer:
     serializedVersion: 2
@@ -2471,6 +2472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
+  _buildingLevels: {fileID: 7759801266027362676}
   _currentState: {fileID: 4358446773627071915}
   _detectionLayer:
     serializedVersion: 2
@@ -3629,7 +3631,6 @@ MonoBehaviour:
   _attacksNumber: 6
   _attackOneByOne: 1
   _turretBuilding: {fileID: 8261314187909332495}
-  _patrolState: {fileID: 4698885217497921250}
   _combatState: {fileID: 6776269221412260068}
 --- !u!1 &2999027236424750854
 GameObject:
@@ -4100,7 +4101,6 @@ MonoBehaviour:
   _attacksNumber: 1
   _attackOneByOne: 0
   _turretBuilding: {fileID: 6932562901064885030}
-  _patrolState: {fileID: 3558175490679918083}
   _combatState: {fileID: 3259908806267902046}
 --- !u!1 &3272545218066199810
 GameObject:
@@ -4500,6 +4500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
+  _buildingLevels: {fileID: 7759801266027362676}
   _currentState: {fileID: 389025380287167617}
   _detectionLayer:
     serializedVersion: 2
@@ -4695,7 +4696,6 @@ MonoBehaviour:
   _attacksNumber: 1
   _attackOneByOne: 0
   _turretBuilding: {fileID: 5729923435506815406}
-  _patrolState: {fileID: 297863033788183669}
   _combatState: {fileID: 7133581256150429954}
 --- !u!1 &3515545009342314748
 GameObject:
@@ -4778,7 +4778,6 @@ MonoBehaviour:
   _attacksNumber: 3
   _attackOneByOne: 1
   _turretBuilding: {fileID: 8719285422043222950}
-  _patrolState: {fileID: 389025380287167617}
   _combatState: {fileID: 4431824854880737592}
 --- !u!1 &3572905312484517123
 GameObject:
@@ -6265,6 +6264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
+  _buildingLevels: {fileID: 7759801266027362676}
   _currentState: {fileID: 6294441056446208205}
   _detectionLayer:
     serializedVersion: 2
@@ -7321,6 +7321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
+  _buildingLevels: {fileID: 7759801266027362676}
   _currentState: {fileID: 957712387587233722}
   _detectionLayer:
     serializedVersion: 2
@@ -7826,6 +7827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
+  _buildingLevels: {fileID: 7759801266027362676}
   _currentState: {fileID: 6014673522229659386}
   _detectionLayer:
     serializedVersion: 2
@@ -8341,7 +8343,6 @@ MonoBehaviour:
   _attacksNumber: 1
   _attackOneByOne: 0
   _turretBuilding: {fileID: 5334293581158750380}
-  _patrolState: {fileID: 4358446773627071915}
   _combatState: {fileID: 1374911170967737018}
 --- !u!1 &6341257829999821393
 GameObject:
@@ -9109,7 +9110,6 @@ MonoBehaviour:
   _attacksNumber: 1
   _attackOneByOne: 0
   _turretBuilding: {fileID: 7100236537475276832}
-  _patrolState: {fileID: 6014673522229659386}
   _combatState: {fileID: 6527214018946395622}
 --- !u!1 &7358958351651720325
 GameObject:
@@ -9191,7 +9191,6 @@ MonoBehaviour:
   _attacksNumber: 1
   _attackOneByOne: 0
   _turretBuilding: {fileID: 6337883881350747282}
-  _patrolState: {fileID: 957712387587233722}
   _combatState: {fileID: 786885562710030989}
 --- !u!1 &7415100744715651441
 GameObject:
@@ -10056,6 +10055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
+  _buildingLevels: {fileID: 7759801266027362676}
   _currentState: {fileID: 297863033788183669}
   _detectionLayer:
     serializedVersion: 2
@@ -11394,6 +11394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentAttackRecoveryTime: 0
   _distanceToTarget: 0
+  _buildingLevels: {fileID: 7759801266027362676}
   _currentState: {fileID: 4698885217497921250}
   _detectionLayer:
     serializedVersion: 2
@@ -12259,7 +12260,6 @@ MonoBehaviour:
   _attacksNumber: 1
   _attackOneByOne: 0
   _turretBuilding: {fileID: 5986964967466746207}
-  _patrolState: {fileID: 6294441056446208205}
   _combatState: {fileID: 3810505717208880284}
 --- !u!1 &9061540770026817751
 GameObject:

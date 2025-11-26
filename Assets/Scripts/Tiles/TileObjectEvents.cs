@@ -1,10 +1,11 @@
 using UnityEngine;
 
+//Класс необходим, чтобы логика других скриптов могла сюда обратиться и узнать активен ли сейчас ивент на данном именно тайле 
 public class TileObjectEvents : MonoBehaviour
 {
     [Header("ToxicGas")]
     [SerializeField] private int _toxicGasTicksNumber;
-    [SerializeField] private GameObject _view;
+    [SerializeField] private TileObject _tileObject;
     public int GetToxicGasTicks() => _toxicGasTicksNumber;
     public bool IsToxicGasActive() => _toxicGasTicksNumber > 0;
 
@@ -17,24 +18,38 @@ public class TileObjectEvents : MonoBehaviour
     {
         if (IsToxicGasActive()) return;
         _toxicGasTicksNumber = ticksNumber;
-        _view.SetActive(true);
+
+        var buildingTileObject = _tileObject.BuildingTileObject();
+
+        if (!buildingTileObject.IsHaveTile()) return;
+
+        var haveProdictionResources = buildingTileObject.GetCurrentBuildingTile().IsHaveProductionResources();
+
+        if (haveProdictionResources || buildingTileObject.IsEcologyBuilding())
+        {
+            _tileObject.SetBuildingWork(false);
+            CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
+            _tileObject.ChangeResourceProduction();
+            CustomEvents.FireChangeResourceForWork(_tileObject, _tileObject.CurrentResourceForWork(), 0, _tileObject.CurrentResourceRecept());
+            CustomEvents.FireToxicGasEventActive(_tileObject.GetId());
+        }
+
+        if (buildingTileObject.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.AttackingStructures)
+        {
+            _tileObject.SetTurretBuildingCantShoot();
+        }
     }
 
     private void EventTick()
     {
         if (_toxicGasTicksNumber == 0) return;
 
-        if (_toxicGasTicksNumber == 1)
-        {
-            UnactiveEvent();
-        }
-
         _toxicGasTicksNumber--;
-    }
-
-    public void UnactiveEvent()
-    {
-        _view.SetActive(false);
+        
+        if (_toxicGasTicksNumber == 0)
+        {
+            _tileObject.SetTurretBuildingCantShoot();
+        }
     }
 
     private void OnDestroy()

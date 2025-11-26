@@ -3,8 +3,8 @@ using UnityEngine;
 public class WorldGameInfo
 {
     [Header("Build")]
-    public static bool IsSteam = false;
-    public static bool IsDemo = false;
+    public static bool IsSteam = true;
+    public static bool IsDemo = true;
 
     [Header("Cards")]
     public static int ChanceAddOneCard = 50;
@@ -54,9 +54,12 @@ public class WorldGameInfo
 
     [Header("DayEvent")]
     public const int DayEventChance = 30;
-    public const int ToxicGasTicks = 72;
     public const int OilReleaseChance = 30;
     public const int EatchQuakeChance = 60;
+
+    [Header("Duration")]
+    public const int AcidRainTicks = 24;
+    public const int ToxicGasTicks = 48;
 
     [Header("Machine")]
     public const int MachineExperienceFromTick = 1;
@@ -123,9 +126,7 @@ public class WorldGameInfo
     public const float FortificationSkillDamage = 0.5f;
     public const float ExplosionDamageFactor = 4;
     public const float AcidRainTriggerStayDamageFactor = 0.25f;
-
-    [Header("Duration")]
-    public const int AcidRainDuration = 24;
+    public const float ToxicGasTriggerStayDamageFactor = 0.15f;
 
     [Header("Hangar")]
     public const int HangarRobotsCount = 3;

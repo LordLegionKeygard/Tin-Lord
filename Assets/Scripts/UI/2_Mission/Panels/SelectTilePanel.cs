@@ -75,6 +75,7 @@ public class SelectTilePanel : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnBuildingTakeDamage += RefreshInfoAfterTakeDamage;
+        CustomEvents.OnToxicGasEventActive += RefreshInfoAfterSpawnToxicGas;
         CustomEvents.OnRobotFullRepairBuilding += CheckBuildingFullRepairFromRobot;
     }
 
@@ -83,6 +84,12 @@ public class SelectTilePanel : MonoBehaviour
         if (_tileObject == null || _tileObject.GetId() != tileId) return;
         RefreshInfo();
         RefreshDestroyPanelInfoAfterBuildingTakeDamage();
+    }
+
+    public void RefreshInfoAfterSpawnToxicGas(int tileId)
+    {
+        if (_tileObject == null || _tileObject.GetId() != tileId) return;
+        RefreshInfo();
     }
 
     public void PanelViewToggle(bool state)
@@ -173,7 +180,8 @@ public class SelectTilePanel : MonoBehaviour
         var bonus = _missionHangarSystem.GetTitanBuildingHealthBonus();
         var tacticCardIncreaseHealthLevel = _tileObject.BuildingTileObject().GetTacticCardIncreaseHealthLevel();
         var maxHealthColor = bonus > 1 || tacticCardIncreaseHealthLevel > 0 ? Colors.HexLightGreen : Colors.HexWhite;
-        var buildingMaxHealth = haveBuildingTile ? $"<color={maxHealthColor}>{tileObject.BuildingHealth().GetMaxHealth()}</color>" : "";
+        var buildingMaxHealthValue = tileObject.BuildingHealth().GetMaxHealth();
+        var buildingMaxHealth = haveBuildingTile ? $"<color={maxHealthColor}>{buildingMaxHealthValue.ToString("F1")}</color>" : "";
 
         var buildindText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[2]}:</color>";
         var buildingHealthText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[97]}:</color>";
@@ -183,7 +191,8 @@ public class SelectTilePanel : MonoBehaviour
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _groundTileNameText.color = Colors.GetRarityColor(tileObject.GetRarity());
         _buildingNameText.text = haveBuildingTile ? $"{buildindText} {building.Name[Language.LanguageNumber]}" : $"{buildindText} -";
-        _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {tileObject.BuildingHealth().GetCurrentHealth()}/{buildingMaxHealth}" : $"{buildingHealthText} -";
+        var buildingCurrentHealth = tileObject.BuildingHealth().GetCurrentHealth();
+        _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {buildingCurrentHealth:F1}/{buildingMaxHealth}" : $"{buildingHealthText} -";
         _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().GetCurrentBuildingLevel()}" : $"{buildindLevelText} -";
 
 
@@ -377,7 +386,7 @@ public class SelectTilePanel : MonoBehaviour
 
     public void ToggleBuildingWorkButton()
     {
-        if (!_workButton.activeInHierarchy || _tileObject == null || !_tutorialSystem.CanClickBuildingWorkButton() || _escapePanel.IsEscapeMode()) return;
+        if (!_workButton.activeInHierarchy || _tileObject == null || !_tutorialSystem.CanClickBuildingWorkButton() || _escapePanel.IsEscapeMode() || _tileObject.GetTileObjectEvents().IsToxicGasActive()) return;
         if (_tileObject.BuildingTileObject().IsEcologyBuilding() && !_tileObject.IsHaveRequiredResource()) return;
 
         _tutorialSystem.ClickToggleBuildingWork(_tileObject.IsBuildingWork());
@@ -529,6 +538,7 @@ public class SelectTilePanel : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnBuildingTakeDamage -= RefreshInfoAfterTakeDamage;
+        CustomEvents.OnToxicGasEventActive -= RefreshInfoAfterSpawnToxicGas;
         CustomEvents.OnRobotFullRepairBuilding -= CheckBuildingFullRepairFromRobot;
     }
 }
