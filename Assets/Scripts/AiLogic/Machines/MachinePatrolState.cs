@@ -8,10 +8,10 @@ public class MachinePatrolState : MachineState
     [SerializeField] private MachineCombatState _combatState;
     [SerializeField] private BaseDamage _creatureDamage;
     [SerializeField] private MachinePatrolPath _patrolPath;
-
     private int _currentPatrolPointIndex = 0;
     private int _nextPointNumber = 1;
     private bool _isInitialized = false;
+    private float _nextTargetScan;
 
     public int GetCurrentPatrolPointIndex() => _currentPatrolPointIndex;
 
@@ -30,27 +30,32 @@ public class MachinePatrolState : MachineState
 
         stateChanger.CanRotateForwardToggle(false);
 
-        BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
-
-        if (targetHealth != null)
+        if (Time.time >= _nextTargetScan)
         {
-            stateChanger.AttackToggle(true);
-            SetTarget(aiDestinationSetter, targetHealth);
-            return _combatState;
-        }
+            _nextTargetScan = Time.time + WorldGameInfo.TargetScanInterval;
 
-        if (_repairState != null)
-        {
-            BuildingHealth buildingToRepair = FindNearestBuildingToRepair(stateChanger);
-            if (buildingToRepair != null)
+            BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
+
+            if (targetHealth != null)
             {
-                _repairState.SetRepairTarget(buildingToRepair);
-                return _repairState;
+                stateChanger.AttackToggle(true);
+                SetTarget(aiDestinationSetter, targetHealth);
+                return _combatState;
             }
+
+            if (_repairState != null)
+            {
+                BuildingHealth buildingToRepair = FindNearestBuildingToRepair(stateChanger);
+                if (buildingToRepair != null)
+                {
+                    _repairState.SetRepairTarget(buildingToRepair);
+                    return _repairState;
+                }
+            }
+
+            Patrol(machineSpeed);
         }
 
-        
-        Patrol(machineSpeed);
         return this;
     }
 

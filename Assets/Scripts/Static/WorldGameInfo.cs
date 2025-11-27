@@ -6,6 +6,10 @@ public class WorldGameInfo
     public static bool IsSteam = false;
     public static bool IsDemo = false;
 
+    [Header("Ai Performance")]
+    public static float TargetScanInterval = 0.35f;
+    public static int MaxReachabilityChecks = 6;
+
     [Header("Cards")]
     public static int ChanceAddOneCard = 50;
     public static float TacticCardIncreaseDamageFactor = 0.25f;
@@ -48,6 +52,10 @@ public class WorldGameInfo
     [Header("Turret")]
     public const float TurretMaximumAttackAngle = 10;
     public const float TurretMinimumAttackAngle = -10;
+
+    [Header("Turret")]
+    public const float CityRobotMaximumAttackAngle = 10;
+    public const float CityRobotMinimumAttackAngle = -10;
 
     [Header("Radiadtion")]
     public const int MaximumRadiation = 50;

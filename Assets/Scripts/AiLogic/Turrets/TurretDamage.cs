@@ -3,7 +3,6 @@ using Zenject;
 
 public class TurretDamage : BaseDamage
 {
-    [Inject] private readonly MissionHangarSystem _missionHangarSystem;
     [Inject] private readonly BulletsPool _pool;
     private TurretBuilding _turretBuilding;
     [SerializeField] private BuildingLevels _buildingLevels;

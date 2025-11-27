@@ -5,7 +5,7 @@ public class MachinesDataMission : MonoBehaviour
     public static MachinesDataMission Instance;
     [SerializeField] private int _machineLevel;
     [SerializeField] private int _machineExperience;
-    [SerializeField] private MachineInformation[] _machineInformation;
+    [SerializeField] private MachineInfo[] _machineInfo;
     [SerializeField] private MachineExperienceInfo _experienceInfo;
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
     [SerializeField] private MachinePanel _robotPanel;
@@ -13,7 +13,7 @@ public class MachinesDataMission : MonoBehaviour
 
     //Current
     public int GetCurrentLevel() => _machineLevel;
-    public MachineInformation GetMachineInformation() => _machineInformation[(int)_currentMachineSystem.GetMachineType()];
+    public MachineInfo GetMachineInformation() => _machineInfo[(int)_currentMachineSystem.GetMachineType()];
     public int GetCurrentMeleeDamage() => GetMachineInformation().GetMeleeDamage(GetCurrentLevel());
     public int GetCurrentRangeDamage() => GetMachineInformation().GetRangeDamage(GetCurrentLevel());
     public float GetCurrentDurability() => GetMachineInformation().GetDurability(GetCurrentLevel());

@@ -8,7 +8,7 @@ public class MachinePanel : MonoBehaviour
     [SerializeField] MachineItem[] _machineItems;
     [SerializeField] private RectTransform _objectTransform;
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
-    private MachineInformation _currentSelectMachineInfo;
+    private MachineInfo _currentSelectMachineInfo;
     public MachineType GetCurrentMachineType() => _currentSelectMachineInfo != null ? _currentSelectMachineInfo.MachineType : MachineType.None;
     private bool _active;
     public bool PanelActive() => _active;
@@ -105,7 +105,7 @@ public class MachinePanel : MonoBehaviour
         }
     }
 
-    public void UpdateMachineInfo(MachineInformation machineInfo)
+    public void UpdateMachineInfo(MachineInfo machineInfo)
     {
         if (machineInfo == null) return;
 

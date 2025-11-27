@@ -8,11 +8,6 @@ public class EnemyIdleState : EnemyState
     [SerializeField] private EnemyPursueTargetState _pursueTargetState;
     [SerializeField] private AIDestinationSetter _aiDestinationSetter;
     [SerializeField] private BaseDamage _creatureDamage;
-
-    [Header("Performance")]
-    [SerializeField] private float _targetScanInterval = 0.35f;
-    [SerializeField] private int _maxReachabilityChecks = 6;
-
     private float _nextTargetScan;
 
     private void Start()
@@ -27,7 +22,7 @@ public class EnemyIdleState : EnemyState
 
         if (Time.time >= _nextTargetScan)
         {
-            _nextTargetScan = Time.time + _targetScanInterval;
+            _nextTargetScan = Time.time + WorldGameInfo.TargetScanInterval;
 
             BaseHealth foundTarget = FindTargetWithExtendedRadius(stateChanger);
             if (foundTarget != null)
@@ -100,7 +95,7 @@ public class EnemyIdleState : EnemyState
         List<BaseHealth> reachable = new();
 
         // Проверяем достижимость ограниченного числа случайных целей, чтобы не грузить CPU на больших пачках
-        int checks = Mathf.Min(_maxReachabilityChecks, allTargets.Count);
+        int checks = Mathf.Min(WorldGameInfo.MaxReachabilityChecks, allTargets.Count);
         List<int> indices = TRManager.Instance.GenerateIntegerPRNG(0, allTargets.Count - 1, checks);
 
         for (int i = 0; i < checks; i++)

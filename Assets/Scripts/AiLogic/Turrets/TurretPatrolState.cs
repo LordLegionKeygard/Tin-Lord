@@ -10,6 +10,7 @@ public class TurretPatrolState : TurretState
     private Coroutine _patrolTimerCoroutine;
     private float _currentPatrolTimer;
     private float _targetYRotation;
+    private float _nextTargetScan;
 
     private void Start()
     {
@@ -21,18 +22,24 @@ public class TurretPatrolState : TurretState
     {
         stateChanger.CanRotateForwardToggle(false);
         stateChanger.StopAllAttacks();
-        
-        if(stateChanger.IsToxicGasActive()) return this;
 
-        BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
+        if (stateChanger.IsToxicGasActive()) return this;
 
-        if (targetHealth != null)
+        if (Time.time >= _nextTargetScan)
         {
-            SetTarget(aiDestinationSetter, targetHealth);
-            return _turretCombatState;
+            _nextTargetScan = Time.time + WorldGameInfo.TargetScanInterval;
+
+            BaseHealth targetHealth = FindNearestTargetInRange(stateChanger);
+
+            if (targetHealth != null)
+            {
+                SetTarget(aiDestinationSetter, targetHealth);
+                return _turretCombatState;
+            }
+
+            RotateTowardsTarget();
         }
 
-        RotateTowardsTarget();
 
         return this;
     }
@@ -92,7 +99,7 @@ public class TurretPatrolState : TurretState
         Vector3 targetDirection = Quaternion.Euler(0, _targetYRotation, 0) * Vector3.forward;
 
         // Плавное вращение
-        Vector3 newDirection = Vector3.RotateTowards(_rotateObject.forward, targetDirection, 
+        Vector3 newDirection = Vector3.RotateTowards(_rotateObject.forward, targetDirection,
         _turretBuilding.Building().RotationSpeed * WorldGameInfo.TurretPatrolRotateSpeedFactor * Time.deltaTime, 0);
 
         // Применяем новую ротацию
