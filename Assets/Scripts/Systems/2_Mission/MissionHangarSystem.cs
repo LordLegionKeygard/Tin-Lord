@@ -12,12 +12,12 @@ public class MissionHangarSystem : MonoBehaviour
 
     public string GetRepairText()
     {
-        return GetPatchRepairBonus() != 1 ? $"{Language.TextStatic[4]}\n<color={Colors.HexLightGreen}>-{WorldGameInfo.PatchPassiveAbility}%</color>" : Language.TextStatic[4];
+        return GetArbalesterRepairBonus() != 1 ? $"{Language.TextStatic[4]}\n<color={Colors.HexLightGreen}>-{WorldGameInfo.PatchPassiveAbility}%</color>" : Language.TextStatic[4];
     }
 
-    public float GetPatchRepairBonus()
+    public float GetArbalesterRepairBonus()
     {
-        return _currentRobot == (int)HangarRobotType.Patch ? 1f - WorldGameInfo.PatchPassiveAbility * 0.01f : 1;
+        return _currentRobot == (int)HangarRobotType.Arbalester ? 1f - WorldGameInfo.PatchPassiveAbility * 0.01f : 1;
     }
 
     public float GetTitanBuildingHealthBonus()
@@ -25,8 +25,8 @@ public class MissionHangarSystem : MonoBehaviour
         return _currentRobot == (int)HangarRobotType.Titan ? 1f + WorldGameInfo.TitanPassiveAbility * 0.01f : 1;
     }
 
-    public float GetAimBotDamageBonus()
+    public float GetSniperDamageBonus()
     {
-        return _currentRobot == (int)HangarRobotType.AimBot ? 1f + WorldGameInfo.AimBotPassiveAbility * 0.01f : 1;
+        return _currentRobot == (int)HangarRobotType.Sniper ? 1f + WorldGameInfo.AimBotPassiveAbility * 0.01f : 1;
     }
 }

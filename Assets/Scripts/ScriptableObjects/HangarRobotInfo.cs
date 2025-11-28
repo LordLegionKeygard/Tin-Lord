@@ -14,7 +14,7 @@ public class HangarRobotInfo : ScriptableObject
 public enum HangarRobotType
 {
     None = -1,
-    Patch = 0,
-    Titan = 1,
-    AimBot = 2,
+    Arbalester = 0,
+    Sniper = 1,
+    Titan = 2,
 }

@@ -46,7 +46,7 @@ public class HangarSaveGame : MonoBehaviour
             TutorialProgress = 0,
         };
 
-        HangarSaveData.OpenedRobots[(int)HangarRobotType.Patch] = true;
+        HangarSaveData.OpenedRobots[(int)HangarRobotType.Arbalester] = true;
         HangarSaveData.OpenedCrates[(int)HangarCrateType.BaseCrate] = true;
         HangarSaveData.OpenedSkills[(int)SkillEnum.GeneralRepair] = true;
         HangarSaveData.OpenedShipWeapons[(int)ShipWeaponEnum.Left_SteelRiffle_0] = true;

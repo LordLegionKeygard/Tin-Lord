@@ -66,7 +66,7 @@ public class GeneralRepairSkill : BaseSkill
         return building.ResourcesForBuild.Select(resource => new ResourceWrapper
         {
             ResourceEnum = resource.ResourceEnum,
-            RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage * _missionHangarSystem.GetPatchRepairBonus())
+            RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage * _missionHangarSystem.GetArbalesterRepairBonus())
         }).ToArray();
     }
 

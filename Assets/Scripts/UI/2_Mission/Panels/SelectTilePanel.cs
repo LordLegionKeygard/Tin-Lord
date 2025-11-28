@@ -335,7 +335,7 @@ public class SelectTilePanel : MonoBehaviour
             var attackRadiusText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[100]}:</color>";
             var rotationSpeedText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[101]}:</color>";
 
-            var bonus = _missionHangarSystem.GetAimBotDamageBonus();
+            var bonus = _missionHangarSystem.GetSniperDamageBonus();
             var baseBuildingDamageWithRobotBonus = bonus != 1 ? $"<color={Colors.HexLightGreen}>{building.Damage * bonus}</color>" : building.Damage.ToString();
 
             var tacticCardIncreaseDamageLevel = _tileObject.BuildingTileObject().GetTacticCardIncreaseDamageLevel();

@@ -149,7 +149,7 @@ public class HangarSystem : MonoBehaviour
 
     public void OpenHangar()
     {
-        if (_currentRobot == -1) SelectRobot(HangarRobotType.Patch, true);
+        if (_currentRobot == -1) SelectRobot(HangarRobotType.Arbalester, true);
         if (_currentCrate == -1) SelectCrate(HangarCrateType.BaseCrate, true);
         if (_currentFirstSkill == -1) SelectSkill(SkillEnum.GeneralRepair, true);
 
@@ -214,13 +214,13 @@ public class HangarSystem : MonoBehaviour
 
         switch (robotType)
         {
-            case HangarRobotType.Patch:
+            case HangarRobotType.Arbalester:
                 _robotPassiveAbility.text = isOpen ? $"{Language.TextStatic[82]}:\n-{WorldGameInfo.PatchPassiveAbility}% {Language.TextStatic[79]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
                 break;
             case HangarRobotType.Titan:
                 _robotPassiveAbility.text = isOpen ? $"{Language.TextStatic[82]}:\n+{WorldGameInfo.TitanPassiveAbility}% {Language.TextStatic[80]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
                 break;
-            case HangarRobotType.AimBot:
+            case HangarRobotType.Sniper:
                 _robotPassiveAbility.text = isOpen ? $"{Language.TextStatic[82]}:\n+{WorldGameInfo.AimBotPassiveAbility}% {Language.TextStatic[81]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
                 break;
         }

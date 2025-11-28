@@ -57,7 +57,7 @@ public class BuildingTile : MonoBehaviour
    public float GetResultTurretDamage()
    {
       var baseDamage = GetCurrentBuilding().Damage;
-      var bonus = _missionHangarSystem.GetAimBotDamageBonus();
+      var bonus = _missionHangarSystem.GetSniperDamageBonus();
       var tacticCardIncreaseDamage = baseDamage * _tacticCardIncreaseDamageLevel * WorldGameInfo.TacticCardIncreaseDamageFactor;
       return baseDamage * bonus + tacticCardIncreaseDamage;
    }

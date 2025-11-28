@@ -115,7 +115,7 @@ public class MachineItem : MonoBehaviour
                 .Select(resource => new ResourceWrapper
                 {
                     ResourceEnum = resource.ResourceEnum,
-                    RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage * _missionHangarSystem.GetPatchRepairBonus())
+                    RecourceAmount = Mathf.CeilToInt(resource.RecourceAmount * healthPercentage * _missionHangarSystem.GetArbalesterRepairBonus())
                 })
                 .ToArray();
         }

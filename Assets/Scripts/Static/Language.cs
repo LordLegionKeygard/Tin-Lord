@@ -597,11 +597,11 @@ public class Language : MonoBehaviour
         _text[189, 0] = "Engineer";
         _text[189, 1] = "Инженер";
 
-        _text[190, 0] = "Aim Bot";
-        _text[190, 1] = "Аим Бот";
+        _text[190, 0] = "Patch-08";
+        _text[190, 1] = "Патч-08";
 
-        _text[191, 0] = "Patch-08";
-        _text[191, 1] = "Патч-08";
+        _text[191, 0] = "Aim Bot";
+        _text[191, 1] = "Аим Бот";
 
         _text[192, 0] = "Titan";
         _text[192, 1] = "Титан";
