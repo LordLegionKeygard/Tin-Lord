@@ -48,10 +48,10 @@ GameObject:
   - component: {fileID: 7506468436268286876}
   - component: {fileID: 4632205689137883307}
   - component: {fileID: 5278387559120932365}
+  - component: {fileID: 6828330069480643035}
   - component: {fileID: 2310345027580776361}
   - component: {fileID: 1814805487014196470}
   - component: {fileID: 2715358073157092968}
-  - component: {fileID: 6828330069480643035}
   - component: {fileID: 3154610078764249979}
   - component: {fileID: 4674335796550308438}
   m_Layer: 0
@@ -197,6 +197,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   CurrentTarget: {fileID: 0}
+--- !u!114 &6828330069480643035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6124768669419014793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b64779f328519e4080b5554bdcdc829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystems:
+  - {fileID: 1176223437134786755}
 --- !u!114 &2310345027580776361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,20 +255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletType: 4
   _firePoint: {fileID: 4077502580606890257}
---- !u!114 &6828330069480643035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6124768669419014793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b64779f328519e4080b5554bdcdc829, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _particleSystems:
-  - {fileID: 1176223437134786755}
 --- !u!114 &3154610078764249979
 MonoBehaviour:
   m_ObjectHideFlags: 0
