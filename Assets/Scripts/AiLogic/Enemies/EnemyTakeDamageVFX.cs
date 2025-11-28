@@ -1,22 +1,26 @@
-using Pathfinding;
+using UnityEngine;
+using System.Collections;
 
 public class EnemyTakeDamageVFX : BaseTakeDamageVFX
 {
-    private AIPath _aiPath;
+    private EnemyCenterPoint _enemyCenterPoint;
 
     private void Awake()
     {
-        _aiPath = GetComponent<AIPath>();
+        _enemyCenterPoint = GetComponent<EnemyCenterPoint>();
     }
-
-    private void Start()
-    {
-        Height = _aiPath.height;
-    }
-
     public override void SpawnTakeDamageVFX()
     {
         if (!WorldGameInfo.StaticBlood) return;
-        base.SpawnTakeDamageVFX();
+
+        GameObject vfx = _pool.GetVFX(_vfxType);
+
+        vfx.transform.SetPositionAndRotation(_enemyCenterPoint.GetTransform().position, transform.rotation * Quaternion.Euler(0, 90, 0));
+        StartCoroutine(ReturnVFXAfterDelay(_vfxType, vfx));
+    }
+
+    public override IEnumerator ReturnVFXAfterDelay(DamageVFXType vfxType, GameObject vfx)
+    {
+        return base.ReturnVFXAfterDelay(vfxType, vfx);
     }
 }

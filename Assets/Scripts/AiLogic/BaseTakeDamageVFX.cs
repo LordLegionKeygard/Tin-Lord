@@ -4,8 +4,8 @@ using System.Collections;
 
 public class BaseTakeDamageVFX : MonoBehaviour
 {
-    [Inject] private readonly TakeDamageVFXPool _pool;
-    [SerializeField] private DamageVFXType _vfxType;
+    [Inject] protected readonly TakeDamageVFXPool _pool;
+    [SerializeField] protected DamageVFXType _vfxType;
     private float _delay = 2;
     protected float Height;
     
@@ -21,7 +21,7 @@ public class BaseTakeDamageVFX : MonoBehaviour
         StartCoroutine(ReturnVFXAfterDelay(_vfxType, vfx));
     }
 
-    private IEnumerator ReturnVFXAfterDelay(DamageVFXType vfxType, GameObject vfx)
+    public virtual IEnumerator ReturnVFXAfterDelay(DamageVFXType vfxType, GameObject vfx)
     {
         yield return new WaitForSeconds(_delay);
         _pool.ReturnVFX(vfxType, vfx);
