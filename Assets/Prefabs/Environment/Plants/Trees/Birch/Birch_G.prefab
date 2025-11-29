@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4532949779717294}
-  - component: {fileID: 205765224586517376}
   m_Layer: 0
   m_Name: Birch_G
   m_TagString: Untagged
@@ -34,33 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205765224586517376
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021630915677674}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 1.812804, z: 0}
-  m_Size: 14
-  m_FadeMode: 2
-  m_AnimateCrossFading: 1
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.49752158
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23095688218026906}
-  - screenRelativeHeight: 0.15312894
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23530994056420952}
-  - screenRelativeHeight: 0.013046638
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  m_Enabled: 1
 --- !u!1 &1034033177171240
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4473977507546454
 Transform:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1164795136976296566
 Transform:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1167810750737190814
 Transform:
   m_ObjectHideFlags: 0
@@ -261,7 +261,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1165110851189314528}
-  - component: {fileID: 1369021560192093880}
   m_Layer: 0
   m_Name: Winter_Birch_C
   m_TagString: Untagged
@@ -288,37 +287,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &1369021560192093880
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162652409345089128}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 6.370812, z: 0}
-  m_Size: 26
-  m_FadeMode: 2
-  m_AnimateCrossFading: 1
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.49527428
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1185898481130525750}
-  - screenRelativeHeight: 0.2994664
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1184705800047104326}
-  - screenRelativeHeight: 0.1505979
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 1184528676822054384}
-  - screenRelativeHeight: 0.0060616485
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-  m_Enabled: 1
 --- !u!1 &3031265344094249290
 GameObject:
   m_ObjectHideFlags: 0
