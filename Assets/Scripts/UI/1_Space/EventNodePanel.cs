@@ -316,6 +316,17 @@ public class EventNodePanel : MonoBehaviour
 
             foreach (var (reward, amount) in toGrant) GrantReward(reward, amount);
 
+            if (_aiCoreSystem.GetAiCores() <= 0)
+            {
+                if (choice.Random.NextStepIndex < 0)
+                {
+                    _onFinished?.Invoke();
+                    _stack.Clear();
+                    Close();
+                }
+                return;
+            }
+
             int next = choice.Random.NextStepIndex;
             if (next < 0)
             {
@@ -349,6 +360,16 @@ public class EventNodePanel : MonoBehaviour
 
             foreach (var (reward, amount) in toGrant) GrantReward(reward, amount);
 
+            if (_aiCoreSystem.GetAiCores() <= 0)
+            {
+                if (choice.Standard.NextStepIndex < 0)
+                {
+                    _onFinished?.Invoke();
+                    _stack.Clear();
+                    Close();
+                }
+                return;
+            }
 
             int next = choice.Standard.NextStepIndex;
             if (next < 0)
@@ -373,6 +394,15 @@ public class EventNodePanel : MonoBehaviour
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
         foreach (var (r, amt) in _pendingRewards) GrantReward(r, amt);
+
+        if (_aiCoreSystem.GetAiCores() <= 0)
+        {
+            _waitingForContinueAfterChance = false;
+            _onFinished?.Invoke();
+            _stack.Clear();
+            Close();
+            return;
+        }
 
         _waitingForContinueAfterChance = false;
         _onFinished?.Invoke();

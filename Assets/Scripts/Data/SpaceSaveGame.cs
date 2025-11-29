@@ -21,7 +21,7 @@ public class SpaceSaveGame : MonoBehaviour
     {
         this.SpaceSaveData = spaceSaveData;
 
-        _spaceSaveGameDataWriter.WriteCommandCenterDataToSaveFile(this.SpaceSaveData);
+        _spaceSaveGameDataWriter.WriteSpaceDataToSaveFile(this.SpaceSaveData);
 
         LoadDataFromJson();
         CustomEvents.FireLoadScene(SceneEnum.Space, WorldGameInfo.LoadSceneTime, null);
@@ -31,13 +31,13 @@ public class SpaceSaveGame : MonoBehaviour
     {
         _spaceSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         SpaceSaveLoad.SaveData(ref SpaceSaveData);
-        _spaceSaveGameDataWriter.WriteCommandCenterDataToSaveFile(SpaceSaveData);
+        _spaceSaveGameDataWriter.WriteSpaceDataToSaveFile(SpaceSaveData);
     }
 
     public void LoadDataFromJson()
     {
         _spaceSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
-        SpaceSaveData = _spaceSaveGameDataWriter.LoadCommandCenterDataFromJson();
+        SpaceSaveData = _spaceSaveGameDataWriter.LoadSpaceDataFromJson();
     }
 
     public void SaveEndMissionDataToJson(int memoryFragments, int aiCores, int quants)
@@ -46,14 +46,14 @@ public class SpaceSaveGame : MonoBehaviour
         SpaceSaveData.HangarCommandCenterData.MainResourcesData[(int)ResourceEnum.DataFragment] += memoryFragments;
         SpaceSaveData.AiCores += aiCores;
         SpaceSaveData.Quants += quants;
-        _spaceSaveGameDataWriter.WriteCommandCenterDataToSaveFile(SpaceSaveData);
+        _spaceSaveGameDataWriter.WriteSpaceDataToSaveFile(SpaceSaveData);
     }
 
     public void RemoveOneAiCoreDataToJson()
     {
         _spaceSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         SpaceSaveData.AiCores -= 1;
-        _spaceSaveGameDataWriter.WriteCommandCenterDataToSaveFile(SpaceSaveData);
+        _spaceSaveGameDataWriter.WriteSpaceDataToSaveFile(SpaceSaveData);
     }
 
     public void CompletePrologue()
@@ -62,6 +62,6 @@ public class SpaceSaveGame : MonoBehaviour
 
         _spaceSaveGameDataWriter.SaveDataDirectoryPath = Application.persistentDataPath;
         SpaceSaveData.PrologueCompleted = true;
-        _spaceSaveGameDataWriter.WriteCommandCenterDataToSaveFile(SpaceSaveData);
+        _spaceSaveGameDataWriter.WriteSpaceDataToSaveFile(SpaceSaveData);
     }
 }

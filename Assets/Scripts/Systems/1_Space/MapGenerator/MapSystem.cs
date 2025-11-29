@@ -56,7 +56,7 @@ public class MapSystem : MonoBehaviour
             data.Map.CurrentNodeIndex = 0;
             data.Map.Nodes[0].IsCompleted = true;
 
-            _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(data);
+            _save.GetCommandCenterSaveGameDataWriter().WriteSpaceDataToSaveFile(data);
         }
         else
         {
@@ -219,7 +219,7 @@ public class MapSystem : MonoBehaviour
         if (!isCurrent) AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.Warp, transform.position);
 
         ApplyCosmos();
-        _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.SpaceSaveData);
+        _save.GetCommandCenterSaveGameDataWriter().WriteSpaceDataToSaveFile(_save.SpaceSaveData);
 
         UpdateMapVisual();
     }
@@ -351,6 +351,8 @@ public class MapSystem : MonoBehaviour
 
     public void CompleteCurrentNode()
     {
+        if (_save.SpaceSaveData != null && _save.SpaceSaveData.AiCores <= 0) return;
+
         var map = _save.SpaceSaveData.Map;
         var nodeSave = map.Nodes[_currentNodeIndex];
 
@@ -361,7 +363,7 @@ public class MapSystem : MonoBehaviour
 
         RefreshHighlights();
 
-        _save.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(_save.SpaceSaveData);
+        _save.GetCommandCenterSaveGameDataWriter().WriteSpaceDataToSaveFile(_save.SpaceSaveData);
     }
 
     public void TestCompleteCurrentNode()
@@ -395,7 +397,7 @@ public class MapSystem : MonoBehaviour
 
         // 3. Сохраняем сейв
         _save.GetCommandCenterSaveGameDataWriter()
-             .WriteCommandCenterDataToSaveFile(_save.SpaceSaveData);
+             .WriteSpaceDataToSaveFile(_save.SpaceSaveData);
     }
 
     private bool IsReachable(int nodeIndex)

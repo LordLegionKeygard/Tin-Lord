@@ -145,7 +145,7 @@ public class EndMissionSystem : MonoBehaviour
 
             CheckChangeAct();
 
-            _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(saveData);
+            _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteSpaceDataToSaveFile(saveData);
         }
 
         if (!_tutorialSystem.IsCompleteAllTutorial() || _tutorialSystem.GetTutorialStepEnum() <= TutorialStepEnum.MissionGoodLuckDescription_66)

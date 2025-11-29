@@ -216,6 +216,6 @@ public class MissionPanel : MonoBehaviour
         };
 
         ccSave.CurrentMission = sel;
-        _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteCommandCenterDataToSaveFile(ccSave);
+        _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteSpaceDataToSaveFile(ccSave);
     }
 }

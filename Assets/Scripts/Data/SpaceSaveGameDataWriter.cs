@@ -12,7 +12,7 @@ public class SpaceSaveGameDataWriter
         SaveDataDirectoryPath = saveDataDirectoryPath;
     }
 
-    public SpaceSaveData LoadCommandCenterDataFromJson()
+    public SpaceSaveData LoadSpaceDataFromJson()
     {
         string savePath = Path.Combine(SaveDataDirectoryPath, _dataSaveFileName);
 
@@ -43,7 +43,7 @@ public class SpaceSaveGameDataWriter
         return loadedSaveData;
     }
 
-    public void WriteCommandCenterDataToSaveFile(SpaceSaveData spaceSaveData)
+    public void WriteSpaceDataToSaveFile(SpaceSaveData spaceSaveData)
     {
         string savePath = Path.Combine(SaveDataDirectoryPath, _dataSaveFileName);
 
