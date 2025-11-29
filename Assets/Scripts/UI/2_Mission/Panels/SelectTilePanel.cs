@@ -181,7 +181,8 @@ public class SelectTilePanel : MonoBehaviour
         var tacticCardIncreaseHealthLevel = _tileObject.BuildingTileObject().GetTacticCardIncreaseHealthLevel();
         var maxHealthColor = bonus > 1 || tacticCardIncreaseHealthLevel > 0 ? Colors.HexLightGreen : Colors.HexWhite;
         var buildingMaxHealthValue = tileObject.BuildingHealth().GetMaxHealth();
-        var buildingMaxHealth = haveBuildingTile ? $"<color={maxHealthColor}>{buildingMaxHealthValue.ToString("F1")}</color>" : "";
+        var buildingMaxHealthText = FormatHealthValue(buildingMaxHealthValue);
+        var buildingMaxHealth = haveBuildingTile ? $"<color={maxHealthColor}>{buildingMaxHealthText}</color>" : "";
 
         var buildindText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[2]}:</color>";
         var buildingHealthText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[97]}:</color>";
@@ -191,8 +192,8 @@ public class SelectTilePanel : MonoBehaviour
         _groundTileNameText.text = tileObject.GroundTileObject().CurrentGroundTile().Name[Language.LanguageNumber];
         _groundTileNameText.color = Colors.GetRarityColor(tileObject.GetRarity());
         _buildingNameText.text = haveBuildingTile ? $"{buildindText} {building.Name[Language.LanguageNumber]}" : $"{buildindText} -";
-        var buildingCurrentHealth = tileObject.BuildingHealth().GetCurrentHealth();
-        _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {buildingCurrentHealth:F1}/{buildingMaxHealth}" : $"{buildingHealthText} -";
+        var buildingCurrentHealth = FormatHealthValue(tileObject.BuildingHealth().GetCurrentHealth());
+        _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {buildingCurrentHealth}/{buildingMaxHealth}" : $"{buildingHealthText} -";
         _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().GetCurrentBuildingLevel()}" : $"{buildindLevelText} -";
 
 
@@ -208,6 +209,10 @@ public class SelectTilePanel : MonoBehaviour
         _productionModifierText.text = haveProduction ? $"{productionModifierText} {productionModifier}" : $"{productionModifierText} -";
     }
 
+    private static string FormatHealthValue(float value)
+    {
+        return Mathf.Approximately(value % 1f, 0f) ? value.ToString("F0") : value.ToString("F1");
+    }
 
 
     private void SetProductionText(TileObject tileObject, Tile tile, bool haveBuildingTile, Building buildings)

@@ -66,7 +66,11 @@ public class SpaceSaveGameDataWriter
 
     public void DeleteSaveFile()
     {
-        File.Delete(Path.Combine(SaveDataDirectoryPath, _dataSaveFileName));
+        var spacePath =  Path.Combine(SaveDataDirectoryPath, _dataSaveFileName);
+        if (File.Exists(spacePath))
+        {
+            File.Delete(spacePath);
+        }
     }
 
     public bool CheckIfSaveFileExists()

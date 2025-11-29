@@ -52,9 +52,9 @@ public class MachinePatrolState : MachineState
                     return _repairState;
                 }
             }
-
-            Patrol(machineSpeed);
         }
+
+        Patrol(machineSpeed);
 
         return this;
     }
