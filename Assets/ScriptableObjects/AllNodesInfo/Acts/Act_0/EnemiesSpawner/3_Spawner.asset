@@ -231,7 +231,7 @@ MonoBehaviour:
         EnemyEnum: 1
       - MonsterType: 1
         EnemyEnum: 7
-      EnemyLevel: 5
+      EnemyLevel: 4
     - EnemyBiomeInfo:
       - MonsterType: 0
         EnemyEnum: 2
@@ -250,13 +250,13 @@ MonoBehaviour:
         EnemyEnum: 0
       - MonsterType: 1
         EnemyEnum: 6
-      EnemyLevel: 5
+      EnemyLevel: 4
     - EnemyBiomeInfo:
       - MonsterType: 0
         EnemyEnum: 1
       - MonsterType: 1
         EnemyEnum: 7
-      EnemyLevel: 5
+      EnemyLevel: 4
     - EnemyBiomeInfo:
       - MonsterType: 0
         EnemyEnum: 2
@@ -267,7 +267,7 @@ MonoBehaviour:
   - DaySpawn: 20
     Count: 1
     HealthFactor: 5
-    DamageFactor: 3
+    DamageFactor: 1
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   - DaySpawn: 30
     Count: 2
     HealthFactor: 5
-    DamageFactor: 3
+    DamageFactor: 1
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   - DaySpawn: 40
     Count: 2
     HealthFactor: 6
-    DamageFactor: 4
+    DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
   - DaySpawn: 50
     Count: 3
     HealthFactor: 6
-    DamageFactor: 4
+    DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   - DaySpawn: 60
     Count: 3
     HealthFactor: 6
-    DamageFactor: 4
+    DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -337,7 +337,7 @@ MonoBehaviour:
   - DaySpawn: 70
     Count: 4
     HealthFactor: 6
-    DamageFactor: 4
+    DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -351,7 +351,7 @@ MonoBehaviour:
   - DaySpawn: 80
     Count: 4
     HealthFactor: 6
-    DamageFactor: 4
+    DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -365,7 +365,7 @@ MonoBehaviour:
   - DaySpawn: 90
     Count: 5
     HealthFactor: 6
-    DamageFactor: 4
+    DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: -1
