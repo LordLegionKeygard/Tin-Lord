@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Gates
   - "\u0412\u043E\u0440\u043E\u0442\u0430"
+  Icon: {fileID: 21300000, guid: 663ec990e85239845b4afa0e4b6d4d6c, type: 3}
+  Kind: 0
+  Id: 0
   TileObject: {fileID: 8584051389970830521, guid: f638c8c10233d0548a0baeb49f02d69c,
     type: 3}
-  Icon: {fileID: 21300000, guid: 663ec990e85239845b4afa0e4b6d4d6c, type: 3}
   TileTypeEnum: 1
   GroundTileView: 0
   GroundEcology: 0
@@ -29,6 +31,8 @@ MonoBehaviour:
   BuildingTileView: 21
   Buildings:
   - {fileID: 11400000, guid: c627e5a5b3b5e324886e4c951627629c, type: 2}
+  - {fileID: 11400000, guid: 00cd69e3fa6d2124389b830c4258b0ac, type: 2}
   - {fileID: 11400000, guid: 78788436ec2013b4c9351ff88c8cd88b, type: 2}
   - {fileID: 11400000, guid: b900ddcb7d378cd4490942b3ee614edf, type: 2}
   - {fileID: 11400000, guid: e5d1ca8b0e214d344853674fef63b07d, type: 2}
+  MaterialForRift: {fileID: 0}

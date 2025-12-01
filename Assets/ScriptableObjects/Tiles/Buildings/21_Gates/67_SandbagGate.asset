@@ -10,42 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 59_RadioTower
+  m_Name: 67_SandbagGate
   m_EditorClassIdentifier: 
   Name:
-  - 'Radio Tower '
-  - "\u0420\u0430\u0434\u0438\u043E\u0432\u044B\u0448\u043A\u0430"
-  BuildingSprite: {fileID: 21300000, guid: 75e0c6f3646bfab48bbc7609f6ea512b, type: 3}
-  Id: 59
+  - Sandbag Gate
+  - "\u041F\u0435\u0441\u0447\u0430\u043D\u044B\u0435 \u0412\u043E\u0440\u043E\u0442\u0430"
+  BuildingSprite: {fileID: 21300000, guid: 537fb60c09380294a9b8f0f5bf60b50a, type: 3}
+  Id: 67
   BuildingLevel: 2
-  RequiredBaseLevel: 2
-  BuildingEcology: -3
-  BuildingHealth: 100
+  RequiredBaseLevel: 1
+  BuildingEcology: -0.5
+  BuildingHealth: 150
   ResourceExtractedAmount: 0
-  Price: 300
-  CanRotateBuilding: 1
+  Price: 100
+  CanRotateBuilding: 0
   ResourcesForBuild:
-  - ResourceEnum: 10
-    RecourceAmount: 20
-  - ResourceEnum: 16
-    RecourceAmount: 12
-  - ResourceEnum: 18
-    RecourceAmount: 5
-  - ResourceEnum: 15
-    RecourceAmount: 5
+  - ResourceEnum: 7
+    RecourceAmount: 15
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
     type: 3}
-  ConstructionPrefab: {fileID: 4110368271869074160, guid: a829b5b51c7ec6b43a8be3935d84c2fe,
+  ConstructionPrefab: {fileID: 4464089856222457484, guid: fb1a5c01ce279d342ae79ce7a3c18024,
     type: 3}
   Damage: 0
   AttackSpeed: 0
   AttackRadius: 0
   RotationSpeed: 0
   KnockbackPoints: 0
-  BuildingEcologyPurifier: 5
+  BuildingEcologyPurifier: 0
   RandomRange: 0
   IsChangePosition: 0
-  IsChangeRotation: 1
-  IsFixed90Rotation: 1
+  IsChangeRotation: 0
+  IsFixed90Rotation: 0

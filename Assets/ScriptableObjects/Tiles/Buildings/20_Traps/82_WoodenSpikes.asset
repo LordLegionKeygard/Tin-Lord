@@ -10,41 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 59_RadioTower
+  m_Name: 82_WoodenSpikes
   m_EditorClassIdentifier: 
   Name:
-  - 'Radio Tower '
-  - "\u0420\u0430\u0434\u0438\u043E\u0432\u044B\u0448\u043A\u0430"
-  BuildingSprite: {fileID: 21300000, guid: 75e0c6f3646bfab48bbc7609f6ea512b, type: 3}
-  Id: 59
-  BuildingLevel: 2
-  RequiredBaseLevel: 2
-  BuildingEcology: -3
+  - Wooden Spikes
+  - "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0435 \u0428\u0438\u043F\u044B"
+  BuildingSprite: {fileID: 21300000, guid: b7166d69e3ab2fb47814e89b55bce364, type: 3}
+  Id: 82
+  BuildingLevel: 1
+  RequiredBaseLevel: 1
+  BuildingEcology: -0.5
   BuildingHealth: 100
   ResourceExtractedAmount: 0
-  Price: 300
+  Price: 50
   CanRotateBuilding: 1
   ResourcesForBuild:
-  - ResourceEnum: 10
-    RecourceAmount: 20
-  - ResourceEnum: 16
-    RecourceAmount: 12
-  - ResourceEnum: 18
-    RecourceAmount: 5
-  - ResourceEnum: 15
-    RecourceAmount: 5
+  - ResourceEnum: 0
+    RecourceAmount: 15
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
     type: 3}
-  ConstructionPrefab: {fileID: 4110368271869074160, guid: a829b5b51c7ec6b43a8be3935d84c2fe,
+  ConstructionPrefab: {fileID: 5909100974166539308, guid: b92f060e9a417d24c87eec878bbd29be,
     type: 3}
   Damage: 0
   AttackSpeed: 0
   AttackRadius: 0
   RotationSpeed: 0
   KnockbackPoints: 0
-  BuildingEcologyPurifier: 5
+  BuildingEcologyPurifier: 0
   RandomRange: 0
   IsChangePosition: 0
   IsChangeRotation: 1

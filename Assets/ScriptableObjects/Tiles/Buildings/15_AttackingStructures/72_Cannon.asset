@@ -10,38 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 37_StoneBridge
+  m_Name: 72_Cannon
   m_EditorClassIdentifier: 
   Name:
-  - Stone Bridge
-  - "\u041A\u0430\u043C\u0435\u043D\u043D\u044B\u0439 \u041C\u043E\u0441\u0442"
-  BuildingSprite: {fileID: 21300000, guid: 6c58355ea4d616c49bb8fc178a28c9d5, type: 3}
-  Id: 37
+  - Cannon
+  - "\u041F\u0443\u0448\u043A\u0430"
+  BuildingSprite: {fileID: 21300000, guid: b9d56b7595be4204eab66ddf705b5d9f, type: 3}
+  Id: 72
   BuildingLevel: 2
   RequiredBaseLevel: 1
-  BuildingEcology: -0.5
-  BuildingHealth: 100
+  BuildingEcology: -3
+  BuildingHealth: 75
   ResourceExtractedAmount: 0
-  Price: 300
+  Price: 100
   CanRotateBuilding: 0
   ResourcesForBuild:
-  - ResourceEnum: 9
-    RecourceAmount: 5
-  - ResourceEnum: 7
+  - ResourceEnum: 0
+    RecourceAmount: 20
+  - ResourceEnum: 10
     RecourceAmount: 10
   ResourcesForWork: []
   ResourcesProduction: []
-  DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
+  DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
     type: 3}
-  ConstructionPrefab: {fileID: 7694589362944320355, guid: aee45f142a3bcc44b9a32137c96cf5dd,
+  ConstructionPrefab: {fileID: 6850889642253948694, guid: 6c9a8d85a777acb4baa03b7ce1a77603,
     type: 3}
-  Damage: 0
-  AttackSpeed: 0
-  AttackRadius: 0
-  RotationSpeed: 0
-  KnockbackPoints: 0
+  Damage: 2
+  AttackSpeed: 3
+  AttackRadius: 45
+  RotationSpeed: 0.6
+  KnockbackPoints: 7
   BuildingEcologyPurifier: 0
   RandomRange: 0
   IsChangePosition: 0
-  IsChangeRotation: 0
-  IsFixed90Rotation: 0
+  IsChangeRotation: 1
+  IsFixed90Rotation: 1

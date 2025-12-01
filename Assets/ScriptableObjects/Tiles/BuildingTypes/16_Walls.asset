@@ -15,9 +15,11 @@ MonoBehaviour:
   Name:
   - Walls
   - "\u0421\u0442\u0435\u043D\u044B"
+  Icon: {fileID: 21300000, guid: 79038916b6aa5474a8eaff6a713456fc, type: 3}
+  Kind: 0
+  Id: 0
   TileObject: {fileID: 8584051389970830521, guid: f4304cd33a30b6742a5fc71a97e69048,
     type: 3}
-  Icon: {fileID: 21300000, guid: 79038916b6aa5474a8eaff6a713456fc, type: 3}
   TileTypeEnum: 1
   GroundTileView: 0
   GroundEcology: 0
@@ -29,6 +31,8 @@ MonoBehaviour:
   BuildingTileView: 16
   Buildings:
   - {fileID: 11400000, guid: 6927daa43b181214e85a40f4203f3721, type: 2}
+  - {fileID: 11400000, guid: d2b08fc0330e82e4c9b1f16b7b0e4cc3, type: 2}
   - {fileID: 11400000, guid: a1956ac7bf06b08489469c45f2bf8421, type: 2}
   - {fileID: 11400000, guid: 42472338a41136443b6eef88137ba723, type: 2}
   - {fileID: 11400000, guid: 553903c19900a2442b5c42411e3da214, type: 2}
+  MaterialForRift: {fileID: 0}
