@@ -80,12 +80,14 @@ public class TileObject : MonoBehaviour
 
     public void SetBuildingWork(bool state)
     {
+        if (!_buildingTile.IsHaveTile()) return;
         _isBuildingWork = state;
         _buildingHealth.GetBuildingSliderWorkView().SetIsBuildingWorkView(_isBuildingWork);
     }
 
     public void SetTurretBuildingCantShoot()
     {
+        if (!_buildingTile.IsHaveTile()) return;
         _buildingHealth.GetBuildingSliderWorkView().SetlIsBuildingTurrentCantShootView(_tileObjectEvents.IsToxicGasActive());
     }
 

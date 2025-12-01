@@ -26,18 +26,18 @@ MonoBehaviour:
   CanRotateBuilding: 1
   ResourcesForBuild:
   - ResourceEnum: 0
-    RecourceAmount: 15
+    RecourceAmount: 10
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
     type: 3}
   ConstructionPrefab: {fileID: 5909100974166539308, guid: b92f060e9a417d24c87eec878bbd29be,
     type: 3}
-  Damage: 0
+  Damage: 10
   AttackSpeed: 0
   AttackRadius: 0
   RotationSpeed: 0
-  KnockbackPoints: 0
+  KnockbackPoints: 5
   BuildingEcologyPurifier: 0
   RandomRange: 0
   IsChangePosition: 0

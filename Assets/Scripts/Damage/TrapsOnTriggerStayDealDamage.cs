@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class TrapsOnTriggerStayDealDamage : MonoBehaviour
 {
-    [SerializeField] private int _damagePercent;
-    [SerializeField] private float _knockBackPoints;
+    [SerializeField] private Building _building;
     private readonly HashSet<BaseHealth> _targets = new();
 
 
@@ -41,7 +40,7 @@ public class TrapsOnTriggerStayDealDamage : MonoBehaviour
         {
             if (health != null && !health.IsDeath())
             {
-                health.CalculateDamage(health.CalculateHealthFromPercent(_damagePercent), _knockBackPoints);
+                health.CalculateDamage(health.CalculateHealthFromPercent((int)_building.Damage), _building.KnockbackPoints);
             }
         }
     }

@@ -708,13 +708,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 0.8
+  m_Height: 0
+  m_Radius: 0.1
   m_SlopeLimit: 90
-  m_StepOffset: 2
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!95 &7454485532193069491
 Animator:
   serializedVersion: 5
@@ -2334,13 +2334,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 0.8
+  m_Height: 0
+  m_Radius: 0.1
   m_SlopeLimit: 90
-  m_StepOffset: 2
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!95 &9215904689586576500
 Animator:
   serializedVersion: 5
@@ -4362,13 +4362,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 1.2
+  m_Height: 0
+  m_Radius: 0.1
   m_SlopeLimit: 90
-  m_StepOffset: 2
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!95 &2732025617411159054
 Animator:
   serializedVersion: 5
@@ -6126,13 +6126,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 0.8
+  m_Height: 0
+  m_Radius: 0.1
   m_SlopeLimit: 90
-  m_StepOffset: 2
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!95 &8613745594113687870
 Animator:
   serializedVersion: 5
@@ -7183,13 +7183,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 0.8
+  m_Height: 0
+  m_Radius: 0.1
   m_SlopeLimit: 90
-  m_StepOffset: 2
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!95 &5984439656055184569
 Animator:
   serializedVersion: 5
@@ -7722,13 +7722,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 1.3
+  m_Height: 0
+  m_Radius: 0.1
   m_SlopeLimit: 90
-  m_StepOffset: 2
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.2, z: 0}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!114 &3093377979272758804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9917,13 +9917,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 0.8
+  m_Height: 0
+  m_Radius: 0.1
   m_SlopeLimit: 90
-  m_StepOffset: 2
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!95 &6956745041316661572
 Animator:
   serializedVersion: 5
@@ -11256,13 +11256,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3
-  m_Radius: 0.8
+  m_Height: 0
+  m_Radius: 0.1
   m_SlopeLimit: 90
-  m_StepOffset: 2
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!95 &2993487918522419936
 Animator:
   serializedVersion: 5

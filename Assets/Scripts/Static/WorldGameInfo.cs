@@ -3,11 +3,11 @@ using UnityEngine;
 public class WorldGameInfo
 {
     [Header("Build")]
-    public static bool IsSteam = true;
-    public static bool IsDemo = true;
+    public static bool IsSteam = false;
+    public static bool IsDemo = false;
 
     [Header("Ai Performance")]
-    public static float TargetScanInterval = 0.35f;
+    public static float TargetScanInterval = 0.5f;
     public static int MaxReachabilityChecks = 6;
 
     [Header("Cards")]
@@ -47,13 +47,13 @@ public class WorldGameInfo
     [Header("EnemyReachedDistance")]
     public const int EnemyReachedMachineDistance = 9;
     public const int EnemyReachedTileDistance = 9;
-    public const int EnemyReachedFourTileDistance = 13;
+    public const int EnemyReachedFourTileDistance = 15;
 
     [Header("Turret")]
     public const float TurretMaximumAttackAngle = 10;
     public const float TurretMinimumAttackAngle = -10;
 
-    [Header("Turret")]
+    [Header("CityRobots")]
     public const float CityRobotMaximumAttackAngle = 10;
     public const float CityRobotMinimumAttackAngle = -10;
 
@@ -88,7 +88,7 @@ public class WorldGameInfo
     [Header("Buildings")]
     public const float DestroyConstructionBuildingResourcePercent = 0.5f;
     public const float ConstructionSpeed = 1.5f;
-    public const float FirstBaseConstructionSpeed = 40;
+    public const float FirstBaseConstructionSpeed = 30;
     public const float TutorialBaseConstructionSpeed = 10;
 
     [Header("Load")]
