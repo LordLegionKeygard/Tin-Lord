@@ -2,20 +2,27 @@ using UnityEngine;
 
 public class BiomeRockTexture : MonoBehaviour
 {
-    [SerializeField] private Material[] _rockMaterials;
+    [SerializeField] private Renderer[] _targetRenderers;
+    private MaterialPropertyBlock _block;
 
-    private void Start()
+    private void Awake()
     {
+        _block = new MaterialPropertyBlock();
         CustomEvents.OnDataLoad += SetTexture;
     }
 
     private void SetTexture()
     {
+        if (_targetRenderers == null || _targetRenderers.Length == 0) return;
+
         var currentBiomTileTextures = CurrentMissionInfo.Instance.GetCurrentLandscape().MissionView.RockTexture;
 
-        foreach (var materials in _rockMaterials)
+        foreach (var renderer in _targetRenderers)
         {
-            materials.SetTexture("_TopAlbedo", currentBiomTileTextures);
+            if (renderer == null) continue;
+            renderer.GetPropertyBlock(_block);
+            _block.SetTexture("_TopAlbedo", currentBiomTileTextures);
+            renderer.SetPropertyBlock(_block);
         }
     }
 
