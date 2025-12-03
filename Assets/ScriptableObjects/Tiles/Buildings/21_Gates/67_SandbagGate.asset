@@ -26,7 +26,9 @@ MonoBehaviour:
   CanRotateBuilding: 0
   ResourcesForBuild:
   - ResourceEnum: 7
-    RecourceAmount: 15
+    RecourceAmount: 10
+  - ResourceEnum: 10
+    RecourceAmount: 1
   ResourcesForWork: []
   ResourcesProduction: []
   DestroyVFXPrefab: {fileID: 5765316943416766257, guid: e0e4cb159d5a5504a9c1719719f913f5,
