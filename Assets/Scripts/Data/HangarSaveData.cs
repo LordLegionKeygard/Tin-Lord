@@ -3,8 +3,8 @@ public class HangarSaveData
 {
     public int Shards;
     public bool[] OpenedRobots;
-    public bool[] OpenedCrates;
-    public bool[] OpenedSkills;
     public bool[] OpenedShipWeapons;
+    public bool[] OpenedSkills;
+    public bool[] OpenedCrates;
     public int TutorialProgress;
 }

@@ -11,7 +11,6 @@ public class GameSpeedSystem : MonoBehaviour
     [SerializeField] private Sprite[] _spriteOff;
     [SerializeField] private Button[] _speedButtons;
     private GameSpeedEnum _currentGameSpeedEnum = GameSpeedEnum.Default;
-    public GameSpeedEnum CurrentGameSpeedEnum() => _currentGameSpeedEnum;
     private bool _isPause;
     public bool IsPause() => _isPause;
 

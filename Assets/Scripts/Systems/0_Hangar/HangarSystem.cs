@@ -95,6 +95,29 @@ public class HangarSystem : MonoBehaviour
         }
     }
 
+    private void UpdateViews()
+    {
+        for (int i = 0; i < _hangarRobotItems.Length; i++)
+        {
+            _hangarRobotItems[i].UpdateView();
+        }
+
+        for (int i = 0; i < _hangarCrateItems.Length; i++)
+        {
+            _hangarCrateItems[i].UpdateView();
+        }
+        for (int i = 0; i < _hangarSkillItems.Length; i++)
+        {
+            _hangarSkillItems[i].UpdateView();
+        }
+
+        for (int i = 0; i < _hangarShipWeaponItems.Length; i++)
+        {
+            if (_hangarShipWeaponItems[i] == null) continue;
+            _hangarShipWeaponItems[i].UpdateView();
+        }
+    }
+
     public bool[] GetOpenedRobots()
     {
         var openedRobots = new bool[_hangarRobotItems.Length];
@@ -431,6 +454,7 @@ public class HangarSystem : MonoBehaviour
             _hangarRobotItems[_currentSelectRobot].SetIsOpen(true);
             SelectRobot(robotInfo.HangarRobotType, true);
             _hangarSaveGame.SaveDataToJson();
+            UpdateViews();
         }
         else
         {
@@ -448,6 +472,7 @@ public class HangarSystem : MonoBehaviour
             _hangarCrateItems[_currentSelectCrate].SetIsOpen(true);
             SelectCrate(crateInfo.HangarCrateType, true);
             _hangarSaveGame.SaveDataToJson();
+            UpdateViews();
         }
         else
         {
@@ -465,6 +490,7 @@ public class HangarSystem : MonoBehaviour
             _hangarSkillItems[_currentSelectSkillForBuy].SetIsOpen(true);
             SelectSkill(skillInfo.SkillEnum, true);
             _hangarSaveGame.SaveDataToJson();
+            UpdateViews();
         }
         else
         {
@@ -482,6 +508,7 @@ public class HangarSystem : MonoBehaviour
             _hangarShipWeaponItems[_currentSelectShipWeaponForBuy].SetIsOpen(true);
             SelectShipWeapon(shipWeaponInfo.ShipWeaponEnum, true, shipWeaponInfo.IsLeft);
             _hangarSaveGame.SaveDataToJson();
+            UpdateViews();
         }
         else
         {
