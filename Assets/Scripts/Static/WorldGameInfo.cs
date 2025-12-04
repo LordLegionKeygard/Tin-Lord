@@ -87,8 +87,8 @@ public class WorldGameInfo
 
     [Header("Buildings")]
     public const float DestroyConstructionBuildingResourcePercent = 0.5f;
-    public const float ConstructionSpeed = 1.5f;
-    public const float FirstBaseConstructionSpeed = 30;
+    public const float ConstructionSpeed = 2;
+    public const float FirstBaseConstructionSpeed = 50;
     public const float TutorialBaseConstructionSpeed = 10;
 
     [Header("Load")]

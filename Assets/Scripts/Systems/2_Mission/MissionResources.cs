@@ -50,8 +50,9 @@ public class MissionResources : MonoBehaviour
     public void ChangeResource(ResourceEnum resourceEnum, float amount)
     {
         var resources = _resourcesWrapper[(int)resourceEnum];
-        resources.Amount = (float)Math.Round(resources.Amount + amount, 1, MidpointRounding.AwayFromZero);
-        resources.Text.text = resources.Amount.ToString("0.0");
+        resources.Amount += amount;
+        var roundedAmount = Math.Round(resources.Amount, 1, MidpointRounding.AwayFromZero);
+        resources.Text.text = roundedAmount.ToString("0.0");
 
         UpdateResourceObjectives(resourceEnum);
     }
@@ -70,7 +71,8 @@ public class MissionResources : MonoBehaviour
     {
         for (int i = 0; i < _resourcesWrapper.Length; i++)
         {
-            _resourcesWrapper[i].Text.text = _resourcesWrapper[i].Amount.ToString("0.0");
+            var roundedAmount = Math.Round(_resourcesWrapper[i].Amount, 1, MidpointRounding.AwayFromZero);
+            _resourcesWrapper[i].Text.text = roundedAmount.ToString("0.0");
         }
     }
 
