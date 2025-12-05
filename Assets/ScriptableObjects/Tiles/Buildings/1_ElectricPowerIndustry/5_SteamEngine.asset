@@ -10,35 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 5_WindGenerator
+  m_Name: 5_SteamEngine
   m_EditorClassIdentifier: 
   Name:
-  - Wind Generator
-  - "\u0412\u0435\u0442\u0440\u044F\u043D\u043E\u0439 \u0413\u0435\u043D\u0435\u0440\u0430\u0442\u043E\u0440"
-  BuildingSprite: {fileID: 21300000, guid: 56aebd9bf3d73124a960eb8f2bd10971, type: 3}
+  - Steam Engine
+  - "\u041F\u0430\u0440\u043E\u0432\u043E\u0439 \u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043B\u044C"
+  BuildingSprite: {fileID: 21300000, guid: f7a94c98c112eca439db9a78ed1bc0e9, type: 3}
   Id: 5
   BuildingLevel: 2
-  RequiredBaseLevel: 1
-  BuildingEcology: -2
+  RequiredBaseLevel: 2
+  BuildingEcology: -3
   BuildingHealth: 100
-  ResourceExtractedAmount: 0.4
+  ResourceExtractedAmount: 0.7
   Price: 200
-  CanRotateBuilding: 0
+  CanRotateBuilding: 1
   ResourcesForBuild:
-  - ResourceEnum: 10
-    RecourceAmount: 10
+  - ResourceEnum: 11
+    RecourceAmount: 15
   - ResourceEnum: 16
-    RecourceAmount: 5
+    RecourceAmount: 10
   - ResourceEnum: 17
-    RecourceAmount: 5
-  ResourcesForWork: []
+    RecourceAmount: 10
+  ResourcesForWork:
+  - ResourceForWork: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098, type: 2}
+    ResourcesForWorkAmount: 0.2
   ResourcesProduction:
   - ProductionResource: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f,
       type: 2}
     ResourceRecept: []
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
     type: 3}
-  ConstructionPrefab: {fileID: 2089724801794400174, guid: 3a6fdac53a21aa64498785b1e702cd05,
+  ConstructionPrefab: {fileID: 5262400021998755428, guid: a9f20d50173427b468c36333f8ac0ac9,
     type: 3}
   Damage: 0
   AttackSpeed: 0
@@ -46,7 +48,7 @@ MonoBehaviour:
   RotationSpeed: 0
   KnockbackPoints: 0
   BuildingEcologyPurifier: 0
-  RandomRange: 0
-  IsChangePosition: 0
-  IsChangeRotation: 0
-  IsFixed90Rotation: 0
+  RandomRange: 1.5
+  IsChangePosition: 1
+  IsChangeRotation: 1
+  IsFixed90Rotation: 1

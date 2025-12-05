@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7159581929430106817}
   m_Layer: 0
-  m_Name: 3_TargetPoint
+  m_Name: 2_TargetPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,14 +302,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildingLevels:
-  - {fileID: 3402291568421856449}
   - {fileID: 7036832622961420755}
   - {fileID: 3403497581695783725}
+  - {fileID: 3402291568421856449}
   - {fileID: 5952229133822595312}
   _buildingTargetPoints:
-  - TargetPoints:
-    - {fileID: 8179175817339503504}
-    - {fileID: 5554806074174271355}
   - TargetPoints:
     - {fileID: 8103529032194331819}
     - {fileID: 2198470421152656894}
@@ -317,11 +314,13 @@ MonoBehaviour:
   - TargetPoints:
     - {fileID: 7159581929430106817}
   - TargetPoints:
+    - {fileID: 8179175817339503504}
+    - {fileID: 5554806074174271355}
+  - TargetPoints:
     - {fileID: 404190569200124428}
     - {fileID: 2267816260663067817}
     - {fileID: 429059883777888993}
     - {fileID: 2294929185211678380}
-  _currentBuildingLevel: 0
 --- !u!114 &1267800841027848771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7655,7 +7654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8103529032194331819}
   m_Layer: 0
-  m_Name: 2_TargetPoint
+  m_Name: 1_TargetPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7686,7 +7685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2198470421152656894}
   m_Layer: 0
-  m_Name: 2_TargetPoint (1)
+  m_Name: 1_TargetPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8240,7 +8239,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914005335260893711}
   m_Layer: 0
-  m_Name: 2_TargetPoint (2)
+  m_Name: 1_TargetPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8271,7 +8270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1544597680412772434}
   m_Layer: 0
-  m_Name: 1 - SolarPanel
+  m_Name: 3 - SolarPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8294,7 +8293,7 @@ Transform:
   - {fileID: 8179175817339503504}
   - {fileID: 5554806074174271355}
   m_Father: {fileID: 9177904237762603314}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3403497581695783725
 GameObject:
@@ -8306,7 +8305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4129182161473743853}
   m_Layer: 0
-  m_Name: 3 - SteamEngine
+  m_Name: 2 - SteamEngine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8327,7 +8326,7 @@ Transform:
   - {fileID: 1768995686806482498}
   - {fileID: 7159581929430106817}
   m_Father: {fileID: 9177904237762603314}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3758909144314064303
 GameObject:
@@ -13394,7 +13393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8179175817339503504}
   m_Layer: 0
-  m_Name: 1_TargetPoint
+  m_Name: 3_TargetPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13767,9 +13766,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1544597680412772434}
   - {fileID: 404716995592081930}
   - {fileID: 4129182161473743853}
+  - {fileID: 1544597680412772434}
   - {fileID: 7967166357370195416}
   m_Father: {fileID: 789768396228311266}
   m_RootOrder: 0
@@ -18738,7 +18737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 404716995592081930}
   m_Layer: 0
-  m_Name: 2 - WindGenerator
+  m_Name: 1 - WindGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18763,7 +18762,7 @@ Transform:
   - {fileID: 2198470421152656894}
   - {fileID: 1914005335260893711}
   m_Father: {fileID: 9177904237762603314}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7107230249906113427
 GameObject:
@@ -18775,7 +18774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5554806074174271355}
   m_Layer: 0
-  m_Name: 1_TargetPoint (1)
+  m_Name: 3_TargetPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
