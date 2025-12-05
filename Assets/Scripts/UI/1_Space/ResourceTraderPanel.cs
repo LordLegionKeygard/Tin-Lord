@@ -94,11 +94,12 @@ public class ResourceTraderPanel : MonoBehaviour
 
     public void BuyResource()
     {
-        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
         int amount = GetAmount();
         _quantsSystem.ChangeQuants(-_currentResource.Price * amount);
         _mainResources.ChangeResource(_currentResource.ResourceEnum, amount);
         _spaceSaveGame.SaveDataToJson();
+        ResetTraderPanel();
         UpdateView();
     }
 
