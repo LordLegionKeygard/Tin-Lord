@@ -80,15 +80,16 @@ public class TacticCardDetector : MonoBehaviour
         {
             case TacticCardType.IncreaseDamage:
                 _currentTileObject.BuildingTileObject().TacticCardIncreaseDamageLevel(rarity);
-                _textViewSpawner.ShowTextView(pos, Language.TextStatic[62],Colors.LightGreen);
+                _textViewSpawner.ShowTextView(pos, Language.TextStatic[62], Colors.LightGreen);
                 break;
             case TacticCardType.IncreaseDurability:
                 _currentTileObject.BuildingTileObject().TacticCardIncreaseHealthLevel(rarity);
-                _textViewSpawner.ShowTextView(pos, Language.TextStatic[227],Colors.LightGreen);
+                _textViewSpawner.ShowTextView(pos, Language.TextStatic[227], Colors.LightGreen);
                 break;
             case TacticCardType.Repair:
-                _currentTileObject.BuildingHealth().FullRepair();
-                _textViewSpawner.ShowTextView(pos, Language.TextStatic[238],Colors.LightGreen);
+                var healPercent = 0.2f;
+                _currentTileObject.BuildingHealth().PercentRepair(rarity * healPercent);
+                _textViewSpawner.ShowTextView(pos, Language.TextStatic[238], Colors.LightGreen);
                 break;
             case TacticCardType.OverProduction:
                 var resource = _currentTileObject.GetCurrentResourceProduction();

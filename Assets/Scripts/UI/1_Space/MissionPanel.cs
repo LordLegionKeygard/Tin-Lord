@@ -71,6 +71,12 @@ public class MissionPanel : MonoBehaviour
                 case ObjectiveEnum.CollectDataFragments:
                     _objectiveTexts[i].text = $"{i + 1}. {Language.TextStatic[226]} {objectives[i].ObjectiveAmount} {Language.TextStatic[175]}";
                     break;
+                case ObjectiveEnum.CollectIronIngots:
+                    _objectiveTexts[i].text = $"{i + 1}. {Language.TextStatic[226]} {objectives[i].ObjectiveAmount} {Language.TextStatic[163]}";
+                    break;
+                case ObjectiveEnum.CollectWood:
+                    _objectiveTexts[i].text = $"{i + 1}. {Language.TextStatic[226]} {objectives[i].ObjectiveAmount} {Language.TextStatic[153]}";
+                    break;
             }
         }
 

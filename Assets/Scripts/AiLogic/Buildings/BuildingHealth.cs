@@ -69,6 +69,16 @@ public class BuildingHealth : BaseHealth
         UpdateSlider();
     }
 
+    public void PercentRepair(float percent)
+    {
+        var repairHealth = _maxHealth * percent;
+
+        if ((_currentHealth + repairHealth) > _maxHealth) _currentHealth = _maxHealth;
+        else _currentHealth += repairHealth;
+        
+        UpdateSlider();
+    }
+
     public void SlowTimeRepair(float repairRate)
     {
         if (_currentHealth < _maxHealth)

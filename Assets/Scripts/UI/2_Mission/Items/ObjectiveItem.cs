@@ -37,6 +37,12 @@ public class ObjectiveItem : MonoBehaviour
             case ObjectiveEnum.CollectDataFragments:
                 _objectiveText.text = $"{Language.TextStatic[226]} {currentAmount}/{_objectiveWrapper.ObjectiveAmount} {Language.TextStatic[175]}";
                 break;
+            case ObjectiveEnum.CollectIronIngots:
+                _objectiveText.text = $"{Language.TextStatic[226]} {currentAmount}/{_objectiveWrapper.ObjectiveAmount} {Language.TextStatic[163]}";
+                break;
+            case ObjectiveEnum.CollectWood:
+                _objectiveText.text = $"{Language.TextStatic[226]} {currentAmount}/{_objectiveWrapper.ObjectiveAmount} {Language.TextStatic[153]}";
+                break;
         }
         _objectiveText.color = isComplete ? Colors.LightGreen : Color.white;
         _icon.sprite = _sprites[isComplete ? 1 : 0];

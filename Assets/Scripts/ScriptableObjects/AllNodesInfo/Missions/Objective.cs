@@ -24,4 +24,6 @@ public enum ObjectiveEnum
     SurviveDays = 3,
     KillBoss = 4,
     CollectDataFragments = 5,
+    CollectIronIngots = 6,
+    CollectWood = 7,
 }

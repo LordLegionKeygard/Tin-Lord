@@ -64,6 +64,12 @@ public class MissionResources : MonoBehaviour
             case ResourceEnum.DataFragment:
                 CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.CollectDataFragments, (int)_resourcesWrapper[(int)resourceEnum].Amount);
                 break;
+            case ResourceEnum.IronIngot:
+                CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.CollectIronIngots, (int)_resourcesWrapper[(int)resourceEnum].Amount);
+                break;
+            case ResourceEnum.Wood:
+                CustomEvents.FireObjectiveAmountChange(ObjectiveEnum.CollectWood, (int)_resourcesWrapper[(int)resourceEnum].Amount);
+                break;
         }
     }
 
