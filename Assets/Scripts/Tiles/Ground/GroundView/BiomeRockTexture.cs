@@ -21,6 +21,8 @@ public class BiomeRockTexture : MonoBehaviour
         var missionView = landscape.MissionView;
         var currentBiomTileTextures = missionView.RockTexture;
 
+        if(currentBiomTileTextures == null) return;
+
         foreach (var renderer in _targetRenderers)
         {
             renderer.GetPropertyBlock(_block);
