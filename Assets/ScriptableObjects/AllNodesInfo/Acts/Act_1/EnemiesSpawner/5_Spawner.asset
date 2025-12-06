@@ -115,7 +115,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - StartDaySpawn: 81
     SpawnPeriod: 3
-    Count: 65
+    Count: 60
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -134,7 +134,7 @@ MonoBehaviour:
         EnemyEnum: 19
       - MonsterType: 4
         EnemyEnum: 25
-      EnemyLevel: 8
+      EnemyLevel: 7
   - StartDaySpawn: 99
     SpawnPeriod: 3
     Count: 100
@@ -149,7 +149,7 @@ MonoBehaviour:
   MiniBossSpawners:
   - DaySpawn: 20
     Count: 1
-    HealthFactor: 6
+    HealthFactor: 5
     DamageFactor: 2
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -161,7 +161,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - DaySpawn: 30
     Count: 2
-    HealthFactor: 6
+    HealthFactor: 5
     DamageFactor: 2
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -173,7 +173,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - DaySpawn: 40
     Count: 2
-    HealthFactor: 7
+    HealthFactor: 5
     DamageFactor: 2
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -185,7 +185,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - DaySpawn: 50
     Count: 3
-    HealthFactor: 7
+    HealthFactor: 5
     DamageFactor: 3
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -197,7 +197,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - DaySpawn: 60
     Count: 3
-    HealthFactor: 8
+    HealthFactor: 5
     DamageFactor: 3
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -209,7 +209,7 @@ MonoBehaviour:
       EnemyLevel: 7
   - DaySpawn: 70
     Count: 4
-    HealthFactor: 8
+    HealthFactor: 5
     DamageFactor: 3
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -221,7 +221,7 @@ MonoBehaviour:
       EnemyLevel: 7
   - DaySpawn: 80
     Count: 5
-    HealthFactor: 9
+    HealthFactor: 5
     DamageFactor: 3
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
@@ -233,7 +233,7 @@ MonoBehaviour:
       EnemyLevel: 7
   - DaySpawn: 90
     Count: 5
-    HealthFactor: 9
+    HealthFactor: 5
     DamageFactor: 3
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
