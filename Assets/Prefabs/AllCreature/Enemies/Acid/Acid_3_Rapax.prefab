@@ -1262,7 +1262,7 @@ Transform:
   m_GameObject: {fileID: 6529576547763366835}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6529576546974951483}
@@ -1503,6 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a772a9cd184348d4a911882f2651fbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isCanTarget: 1
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 4
@@ -1537,6 +1538,7 @@ MonoBehaviour:
   _bulletType: -1
   _deathExplosionType: -1
   _firePoints: []
+  _creatureSkillsWrapper: []
 --- !u!114 &6529576547763366821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1651,6 +1653,7 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+  maxNodesPerApply: 30
 --- !u!114 &6529576547763366830
 MonoBehaviour:
   m_ObjectHideFlags: 0
