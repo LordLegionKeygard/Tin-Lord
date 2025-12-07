@@ -744,8 +744,8 @@ public class Language : MonoBehaviour
         _text[238, 0] = "Restored";
         _text[238, 1] = "Восстановлено";
 
-        _text[239, 0] = "";
-        _text[239, 1] = "";
+        _text[239, 0] = "Scatter Shotgun";
+        _text[239, 1] = "Дробовик Рассеиватель";
 
         _text[240, 0] = "";
         _text[240, 1] = "";

@@ -144,5 +144,6 @@ public enum BulletEnum
     Any_BigIceCrystalBullet = 17,
     Any_SporesBullet = 18,
     CityRobot_ArbalesterBolt = 19,
+    ShipWeapon_ScatterShotgunBullet = 20,
 }
 

@@ -16,10 +16,11 @@ public class ShipWeaponInfo : ScriptableObject
     public float BulletSpeed; // скорость снаряда
     public float SpreadDeg; // разброс по конусу
     public float LifeTime; // страховка жизни
+    public int BulletsPerShot = 1; // кол-во пуль за выстрел
 
     [Header("Damage")]
     public float Damage;
-    public float DamageFactor;
+    public float DamageFactor; // доп урон которое получает оружие, за каждое улучшение
     public int BulletsCount;
     public GameObject ExplosionPrefab;
     public float ImpactYOffset = 0f;    // смещение вверх точки взрыва
@@ -29,7 +30,7 @@ public class ShipWeaponInfo : ScriptableObject
 public enum ShipWeaponEnum
 {
     Left_SteelRiffle_0 = 0,
-    Left_1 = 1,
+    Left_ScatterShotgun_1 = 1,
     Left_2 = 2,
     Left_3 = 3,
     Left_4 = 4,

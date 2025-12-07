@@ -94,27 +94,45 @@ public class ShipWeaponAimer : MonoBehaviour
         Fire(info);
     }
 
-    public void Fire(ShipWeaponInfo shipCannonInfo)
+    public void Fire(ShipWeaponInfo shipWeaponInfo)
     {
         _missionShipWeaponSystem.UseBullet(_isLeftWeapon);
         RecoilAnim();
         _muzzlePs.Play();
-        var go = _bulletsPool.GetBullet(shipCannonInfo.BulletType);
+        AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.ShipWeaponBullets[(int)shipWeaponInfo.ShipWeaponEnum], _firePoint.transform.position);
+        int bulletsPerShot = Mathf.Max(1, shipWeaponInfo.BulletsPerShot);
 
-        go.transform.SetPositionAndRotation(_firePoint.position, _firePoint.rotation);
+        for (int i = 0; i < bulletsPerShot; i++)
+        {
+            var go = _bulletsPool.GetBullet(shipWeaponInfo.BulletType);
+            Quaternion shotRotation = GetShotRotation(shipWeaponInfo.SpreadDeg);
 
-        var bullet = go.GetComponent<ShipCannonBullet>();
-        if (!bullet) bullet = go.AddComponent<ShipCannonBullet>();
+            go.transform.SetPositionAndRotation(_firePoint.position, shotRotation);
 
-        bullet.Setup(
-            _bulletsPool,
-            shipCannonInfo.BulletType,
-            shipCannonInfo.BulletSpeed,
-            _missionShipWeaponSystem.GetWeaponDamage(_isLeftWeapon),
-            shipCannonInfo.LifeTime,
-            shipCannonInfo.ExplosionPrefab,
-            shipCannonInfo.ImpactYOffset
-        );
+            var bullet = go.GetComponent<ShipCannonBullet>();
+            if (!bullet) bullet = go.AddComponent<ShipCannonBullet>();
+
+            bullet.Setup(
+                _bulletsPool,
+                shipWeaponInfo.BulletType,
+                shipWeaponInfo.BulletSpeed,
+                _missionShipWeaponSystem.GetWeaponDamage(_isLeftWeapon),
+                shipWeaponInfo.LifeTime,
+                shipWeaponInfo.ExplosionPrefab,
+                shipWeaponInfo.ImpactYOffset
+            );
+        }
+    }
+
+    private Quaternion GetShotRotation(float spreadDeg)
+    {
+        if (spreadDeg <= 0f) return _firePoint.rotation;
+
+        float spreadTan = Mathf.Tan(spreadDeg * Mathf.Deg2Rad);
+        Vector2 spreadOffset = Random.insideUnitCircle * spreadTan;
+        Vector3 direction = (_firePoint.forward + _firePoint.up * spreadOffset.y + _firePoint.right * spreadOffset.x).normalized;
+
+        return Quaternion.LookRotation(direction, _firePoint.up);
     }
 
     private void RecoilAnim()

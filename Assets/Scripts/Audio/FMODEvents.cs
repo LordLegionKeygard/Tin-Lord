@@ -49,15 +49,17 @@ public class FMODEvents : MonoBehaviour
     public EventReference[] DeathExplosion;
 
 
-    [Header("ShipMode")]
+    [Header("Ship")]
     public EventReference NotEnoughtAmmo;
     public EventReference TurnOnShipMode;
     public EventReference TurnOffShipMode;
+    public EventReference[] ShipWeaponBullets;
 
     [Header("TacticalCards")]
     public EventReference[] TacticalCards;
     public EventReference ChangeRaritySuccess;
     public EventReference ChangeRarityFailure;
+
 
     private void Awake()
     {
