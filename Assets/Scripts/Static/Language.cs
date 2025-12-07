@@ -747,8 +747,8 @@ public class Language : MonoBehaviour
         _text[239, 0] = "Scatter Shotgun";
         _text[239, 1] = "Дробовик Рассеиватель";
 
-        _text[240, 0] = "";
-        _text[240, 1] = "";
+        _text[240, 0] = "Longshot Railgun";
+        _text[240, 1] = "Дальнобойный Рельсотрон";
 
         _text[241, 0] = "";
         _text[241, 1] = "";

@@ -145,5 +145,6 @@ public enum BulletEnum
     Any_SporesBullet = 18,
     CityRobot_ArbalesterBolt = 19,
     ShipWeapon_ScatterShotgunBullet = 20,
+    ShipWeapon_LongshotRailgun = 21,
 }
 

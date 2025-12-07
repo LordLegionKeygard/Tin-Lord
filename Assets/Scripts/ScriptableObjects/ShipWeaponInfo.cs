@@ -31,13 +31,13 @@ public enum ShipWeaponEnum
 {
     Left_SteelRiffle_0 = 0,
     Left_ScatterShotgun_1 = 1,
-    Left_2 = 2,
-    Left_3 = 3,
-    Left_4 = 4,
+    Left_2 = 2, // minigun
+    Left_3 = 3, // vortex cannon
+    Left_4 = 4, // plasmagun
 
     Right_TitatiumRocketLauncher_0 = 5,
-    Right_1 = 6,
-    Right_2 = 7,
-    Right_3 = 8,
-    Right_4 = 9,
+    Right_LongshotRailgun_6 = 6,
+    Right_2 = 7, // flamethrower
+    Right_3 = 8, // lasergun
+    Right_4 = 9, // singularity launcher
 }

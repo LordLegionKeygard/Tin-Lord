@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.000077980905, g: 0.000096174364, b: 0.000115795905,
+  m_IndirectSpecularColor: {r: 0.00007786042, g: 0.000096029165, b: 0.0001155783,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -6020,7 +6020,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &158255176
@@ -13354,7 +13354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -23670,12 +23670,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shipWeaponsInfos:
   - {fileID: 11400000, guid: 54a1446bce9849f4dafde718aa2bedb8, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 496f77e5b6cea704c8b41b61e51f2450, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 11400000, guid: 8da5b8dd7d856dd4b94f93f285179d1d, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 07334177406dbbe42912bb7f0eab90a8, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -24062,7 +24062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514
