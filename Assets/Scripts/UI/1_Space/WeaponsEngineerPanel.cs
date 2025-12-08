@@ -82,7 +82,7 @@ public class WeaponsEngineerPanel : MonoBehaviour
 
 
         _shipWeaponNameText.text = $"{Language.TextStatic[299]}: {Language.TextStatic[_currentWeaponInfo.NameNumber]}";
-        _shipWeaponDamageText.text = $"{Language.TextStatic[98]}: {GetWeaponDamage(_currentWeaponInfo.IsLeft)}";
+        _shipWeaponDamageText.text = $"{Language.TextStatic[98]}: {GetWeaponDamage(_currentWeaponInfo.IsLeft)} <color={Colors.HexLightGreen}>+ {_currentWeaponInfo.DamageFactor}</color>";
         _shipWeaponAmmoText.text = $"{Language.TextStatic[230]}: {_currentWeaponInfo.BulletsCount}";
         _shipWeaponLevelText.text = $"{Language.TextStatic[231]}: {GetLevel(_currentWeaponInfo.IsLeft)}";
     }

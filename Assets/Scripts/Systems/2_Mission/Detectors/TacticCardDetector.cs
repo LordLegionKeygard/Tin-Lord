@@ -115,7 +115,7 @@ public class TacticCardDetector : MonoBehaviour
                 break;
             case TacticCardType.ChangeRarity:
                 var rnd = Random.Range(0, 100);
-                var success = rnd <= WorldGameInfo.TacticCardChangeSuccessRarityChance + rarity * 5;
+                var success = rnd <= WorldGameInfo.TacticCardChangeSuccessRarityChance + rarity * 10;
                 switch (_currentTileObject.GetRarity())
                 {
                     case 1:

@@ -15,7 +15,7 @@ public class WorldGameInfo
     public static float TacticCardIncreaseDamageFactor = 0.25f;
     public static float TacticCardIncreaseHealthFactor = 0.2f;
     public static int AddTacticCardChance = 25;
-    public static int TacticCardChangeSuccessRarityChance = 55;
+    public static int TacticCardChangeSuccessRarityChance = 60;
 
     [Header("Price")]
     public static int StartWeaponEnigneerUpgradePrice = 5;
