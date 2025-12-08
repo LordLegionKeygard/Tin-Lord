@@ -31,7 +31,7 @@ public enum ShipWeaponEnum
 {
     Left_SteelRiffle_0 = 0,
     Left_ScatterShotgun_1 = 1,
-    Left_2 = 2, // minigun
+    Left_BreakshotMinigun_2 = 2,
     Left_3 = 3, // vortex cannon
     Left_4 = 4, // plasmagun
 

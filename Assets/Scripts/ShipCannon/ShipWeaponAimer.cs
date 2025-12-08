@@ -9,7 +9,9 @@ public class ShipWeaponAimer : MonoBehaviour
 
     [Header("Refs")]
     [SerializeField] private Transform _cannonPivot;
+    private Transform _barrelTransform;
     private Transform _modelTransform;
+    private Vector3 _modelStartLocalPos;
     private Transform _firePoint;
     private ParticleSystem _muzzlePs;
 
@@ -18,18 +20,32 @@ public class ShipWeaponAimer : MonoBehaviour
     [SerializeField] private float _rayMaxDistance = 5000f;
     [SerializeField] private float _fallbackGroundY = 0f;
 
+    [Header("Barrel spin")]
+    private float _barrelSpinSpeedOnHold = 1;
+    private float _barrelSpinDegreesPerSecond = 1000;
+    private float _barrelSpinLerpSpeed = 1;
+    private readonly float _rotationSpeedDeg = 540f;
+    private float _currentBarrelSpinSpeed01;
+    private float _barrelSpinCommand;
+
+    [Header("Slider Cooldown")]
+    private float _currentCooldown;
+    private float _cooldownMax;
+
     [Header("Other")]
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
     [SerializeField] private MissionShipWeaponSystem _missionShipWeaponSystem;
     [SerializeField] private bool _isLeftWeapon;
     [SerializeField] private Camera _camera;
-    private readonly float _rotationSpeedDeg = 540f;
-    private float _currentCooldown;
-    private float _cooldownMax;
+
+
+
     public float GetSliderCooldown() => (_cooldownMax <= 0f) ? 0f : Mathf.Clamp01(_currentCooldown / _cooldownMax);
 
     private void Update()
     {
+        UpdateBarrelSpin();
+
         if (_missionModeSystem.IsPlanetMode()) return;
 
         if (_currentCooldown > 0f)
@@ -41,8 +57,10 @@ public class ShipWeaponAimer : MonoBehaviour
     public void SetupWeapon(WeaponSetter weaponSetter)
     {
         _modelTransform = weaponSetter.WeaponModel;
+        _modelStartLocalPos = _modelTransform != null ? _modelTransform.localPosition : Vector3.zero;
         _firePoint = weaponSetter.FirePoint;
         _muzzlePs = weaponSetter.Muzzle;
+        _barrelTransform = weaponSetter.BarrelTransform;
     }
 
     private void LateUpdate()
@@ -78,6 +96,11 @@ public class ShipWeaponAimer : MonoBehaviour
 
     public void TryFireHold()
     {
+        if (_barrelTransform != null)
+        {
+            _barrelSpinCommand = _barrelSpinSpeedOnHold;
+        }
+
         var info = _missionShipWeaponSystem.GetShipCannonInfo(_isLeftWeapon);
 
         if (_currentCooldown > 0f || _gameSpeedSystem.IsPause() || info == null) return;
@@ -141,12 +164,28 @@ public class ShipWeaponAimer : MonoBehaviour
         float recoilTime = 0.1f;    // время отката
         float returnTime = 0.2f;     // время возврата
 
-        _modelTransform.DOLocalMoveZ(-recoilDistance, recoilTime).SetRelative(true).SetEase(Ease.Linear)
-            .OnComplete(() =>
-            {
-                _modelTransform.DOLocalMoveZ(recoilDistance, returnTime)
-                    .SetRelative(true)
-                    .SetEase(Ease.Linear);
-            });
+        _modelTransform.DOKill();
+        _modelTransform.localPosition = _modelStartLocalPos;
+
+        float targetZ = _modelStartLocalPos.z - recoilDistance;
+        var sequence = DOTween.Sequence();
+        sequence.Append(_modelTransform.DOLocalMoveZ(targetZ, recoilTime).SetEase(Ease.Linear));
+        sequence.Append(_modelTransform.DOLocalMoveZ(_modelStartLocalPos.z, returnTime).SetEase(Ease.Linear));
+    }
+
+    private void UpdateBarrelSpin()
+    {
+        if (_barrelTransform == null) return;
+
+        float target = Mathf.Clamp01(_barrelSpinCommand);
+        _currentBarrelSpinSpeed01 = Mathf.MoveTowards(_currentBarrelSpinSpeed01, target, _barrelSpinLerpSpeed * Time.deltaTime);
+
+        if (_currentBarrelSpinSpeed01 > 0f)
+        {
+            float deltaDegrees = _currentBarrelSpinSpeed01 * _barrelSpinDegreesPerSecond * Time.deltaTime;
+            _barrelTransform.Rotate(0f, 0f, deltaDegrees, Space.Self);
+        }
+
+        _barrelSpinCommand = 0f;
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007786042, g: 0.000096029165, b: 0.0001155783,
+  m_IndirectSpecularColor: {r: 0.000077980905, g: 0.000096174364, b: 0.000115795905,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -23671,7 +23671,7 @@ MonoBehaviour:
   _shipWeaponsInfos:
   - {fileID: 11400000, guid: 54a1446bce9849f4dafde718aa2bedb8, type: 2}
   - {fileID: 11400000, guid: 496f77e5b6cea704c8b41b61e51f2450, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 086e53aee1ab7f544b628b1a7ce7c531, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 11400000, guid: 8da5b8dd7d856dd4b94f93f285179d1d, type: 2}

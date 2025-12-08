@@ -750,8 +750,8 @@ public class Language : MonoBehaviour
         _text[240, 0] = "Longshot Railgun";
         _text[240, 1] = "Дальнобойный Рельсотрон";
 
-        _text[241, 0] = "";
-        _text[241, 1] = "";
+        _text[241, 0] = "Breakshot Minigun";
+        _text[241, 1] = "Разрывной Пулемет";
 
         _text[242, 0] = "";
         _text[242, 1] = "";

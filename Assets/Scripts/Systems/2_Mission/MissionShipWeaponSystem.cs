@@ -75,4 +75,5 @@ public class WeaponSetter
     public Transform WeaponModel;
     public Transform FirePoint;
     public ParticleSystem Muzzle;
+    public Transform BarrelTransform;
 }
