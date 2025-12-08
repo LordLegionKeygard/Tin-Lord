@@ -1852,8 +1852,8 @@ public class Language : MonoBehaviour
         // End Act 1
 
         // Story
-        _text[1000, 0] = "[UPDATE: SECTOR A-1 CLEARED]";
-        _text[1000, 1] = "[ОБНОВЛЕНИЕ: СЕКТОР А-1 ОЧИЩЕН]";
+        _text[1000, 0] = "[UPDATE: SECTOR A COMPLETE]";
+        _text[1000, 1] = "[ОБНОВЛЕНИЕ: СЕКТОР А ЗАВЕРШЕН]";
 
         _text[1001, 0] = "Bases have been deployed on several planets. Territorial reconstruction is complete.";
         _text[1001, 1] = "Базы развернуты на нескольких планетах. Реконструкция территории завершена.";
@@ -1892,12 +1892,52 @@ public class Language : MonoBehaviour
         _text[1012, 0] = "Assigning a new target";
         _text[1012, 1] = "Назначение новой цели";
 
+        // End Act 2
+
+        // Story
+        _text[1013, 0] = "[UPDATE: SECTOR B COMPLETE]";
+        _text[1013, 1] = "[ОБНОВЛЕНИЕ: СЕКТОР B ЗАВЕРШЕН]";
+
+        _text[1014, 0] = "Swamp clusters, toxic plains and stone biomes have been processed. No stable biosphere suitable for long-term habitation.";
+        _text[1014, 1] = "Болотные кластеры, токсичные равнины и каменные биомы обработаны. Устойчивая биосфера, пригодная для длительного обитания, не обнаружена.";
+
+        _text[1015, 0] = "Expanding the scan radius beyond the current star field has revealed an anomalous object.";
+        _text[1015, 1] = "Расширение радиуса сканирования за пределы текущего звёздного поля выявило аномальный объект";
+
+        _text[1016, 0] = "Recovered data describes a planet entirely covered with archival structures. Its surface is a continuous megastructure.";
+        _text[1016, 1] = "Записи описывают планету, целиком покрытую архивными зданиями. Поверхность представляет собой сплошную мегаструктуру.";
+
+        _text[1017, 0] = "Primary control signals indicate an active network of autonomous robots and a central artificial intelligence.";
+        _text[1017, 1] = "Первичный анализ сигналов указывает на активную сеть автономных роботов и центральный искусственный интеллект.";
+
+        _text[1018, 0] = "Only fragments of coordinates remain, but all references point to the same heading beyond this galaxy.";
+        _text[1018, 1] = "Сохранились лишь обрывки координат, но все упоминания указывают на один и тот же курс за пределами этой галактики.";
+
+        _text[1019, 0] = "Route calculated: leave the current galaxy and move toward the presumed location of the megastructure — an endless data archive.";
+        _text[1019, 1] = "Построен маршрут: покинуть текущую галактику и выдвинуться к предполагаемому местоположению мегаструктуры — бескрайнего хранилища данных.";
+
+
+        // Console
+        _text[1020, 0] = "Update... integrating recovered records";
+        _text[1020, 1] = "Обновление... интеграция найденных записей";
+
+        _text[1021, 0] = "Object class: artificial world, surface coverage 100%";
+        _text[1021, 1] = "Класс объекта: искусственный мир, покрытие поверхности 100%";
+
+        _text[1022, 0] = "Coordinate data: fragmented, reconstructing probable heading";
+        _text[1022, 1] = "Координаты фрагментарны, выполняется реконструкция предполагаемого курса";
+
+        _text[1023, 0] = "Navigation: route aligned beyond current galaxy";
+        _text[1023, 1] = "Навигация: маршрут проложен за пределы текущей галактики";
+
+        _text[1024, 0] = "Hyperdrive sequence: charging for long-range transit";
+        _text[1024, 1] = "Последовательность гиперпрыжка: зарядка для дальнего перехода";
+
+        _text[1025, 0] = "Warning: megastructure scale and defense systems unknown";
+        _text[1025, 1] = "Предупреждение: масштаб мегаструктуры и параметры обороны неизвестны";
+
         #endregion
 
-
-
-
         for (int x = 0; x < WorldGameInfo.LanguageLength; x++) TextStatic[x] = _text[x, LanguageNumber];
-
     }
 }
