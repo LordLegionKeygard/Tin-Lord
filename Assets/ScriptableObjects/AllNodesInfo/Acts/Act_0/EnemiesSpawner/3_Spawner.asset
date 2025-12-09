@@ -15,7 +15,7 @@ MonoBehaviour:
   Spawners:
   - StartDaySpawn: 6
     SpawnPeriod: 2
-    Count: 7
+    Count: 8
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
       EnemyLevel: 1
   - StartDaySpawn: 16
     SpawnPeriod: 2
-    Count: 12
+    Count: 16
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
       EnemyLevel: 1
   - StartDaySpawn: 24
     SpawnPeriod: 2
-    Count: 16
+    Count: 20
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 30
     SpawnPeriod: 2
-    Count: 25
+    Count: 30
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 40
     SpawnPeriod: 2
-    Count: 20
+    Count: 30
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 50
     SpawnPeriod: 2
-    Count: 25
+    Count: 35
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
       EnemyLevel: 4
   - StartDaySpawn: 60
     SpawnPeriod: 2
-    Count: 30
+    Count: 35
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -190,7 +190,7 @@ MonoBehaviour:
       EnemyLevel: 4
   - StartDaySpawn: 70
     SpawnPeriod: 2
-    Count: 30
+    Count: 35
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -215,7 +215,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - StartDaySpawn: 80
     SpawnPeriod: 2
-    Count: 35
+    Count: 40
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -240,7 +240,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - StartDaySpawn: 90
     SpawnPeriod: 2
-    Count: 40
+    Count: 45
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -250,13 +250,13 @@ MonoBehaviour:
         EnemyEnum: 0
       - MonsterType: 1
         EnemyEnum: 6
-      EnemyLevel: 4
+      EnemyLevel: 5
     - EnemyBiomeInfo:
       - MonsterType: 0
         EnemyEnum: 1
       - MonsterType: 1
         EnemyEnum: 7
-      EnemyLevel: 4
+      EnemyLevel: 5
     - EnemyBiomeInfo:
       - MonsterType: 0
         EnemyEnum: 2
