@@ -6,23 +6,22 @@ public class BossDamage : BaseDamage
 {
     [Inject] private readonly DiContainer _diContainer;
     [Inject] readonly BulletsPool _bulletsPool;
+    [SerializeField] private float _defaultDamage;
     [SerializeField] private BulletFromPoolWrapper _bulletFromPoolWrapper;
     [SerializeField] private CreatureSkillsWrapper[] _creatureSkillsWrapper;
-    private EnemyLevel _enemyLevel;
     private EnemyAttacks _attacks;
     private EnemyStateChanger _stateChanger;
 
     public override void Awake()
     {
         base.Awake();
-        _enemyLevel = GetComponent<EnemyLevel>();
         _attacks = GetComponent<EnemyAttacks>();
         _stateChanger = GetComponent<EnemyStateChanger>();
     }
 
     public override void UpdateDamage()
     {
-        Damage = _enemyLevel.GetInformation().GetPhysAttack(_enemyLevel.GetLevel());
+        Damage = _defaultDamage;
     }
 
     public override void Attack(int firePointNumber)

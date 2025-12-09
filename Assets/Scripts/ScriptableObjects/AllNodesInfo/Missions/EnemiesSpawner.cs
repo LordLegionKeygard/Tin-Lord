@@ -56,7 +56,6 @@ public class MiniBossSpawner
 public class BossSpawner
 {
     public EnemyBiomeInfo[] Bosses;
-    public int BossLevel;
     public int BossDaySpawn;
     public LandscapeSpawnSide[] LandscapeSpawnSide;
 }

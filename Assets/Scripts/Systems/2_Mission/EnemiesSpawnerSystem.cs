@@ -12,7 +12,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
     [SerializeField] private EnemiesBiomeSpawnTransforms[] _enemiesBiomeSpawnTransforms;
     private List<EnemiesForListData> _currentEnemiesData = new();
     private int _enemyNumber;
-    private int _maxSpawnedEnemiesPerFrame = 8;           // сколько врагов максимум за кадр
+    private int _maxSpawnedEnemiesPerFrame = 8;  // сколько врагов максимум за кадр
     private Coroutine _spawnRoutine;
     private MonsterType GetCurrentBiome() => CurrentMissionInfo.Instance.GetCurrentLandscape().MonsterType;
     private int GetLandscapeNumber() => (int)CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum;
@@ -23,6 +23,8 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
         for (int i = 0; i < _currentEnemiesData.Count; i++)
         {
+            var enemyLevel = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyLevel>();
+
             data[i] = new EnemyData
             {
                 EnemyEnum = _currentEnemiesData[i].EnemyEnum,
@@ -30,7 +32,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
                 PositionY = _currentEnemiesData[i].EnemyObject.transform.position.y,
                 PositionZ = _currentEnemiesData[i].EnemyObject.transform.position.z,
                 Rotation = _currentEnemiesData[i].EnemyObject.transform.eulerAngles.y,
-                EnemyLevel = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyLevel>().GetLevel(),
+                EnemyLevel = enemyLevel != null ? enemyLevel.GetLevel() : 0,
                 EnemyHealth = _currentEnemiesData[i].EnemyObject.GetComponent<BaseHealth>().GetCurrentHealth(),
                 HealthFactor = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyInfo>().GetHealthFactor(),
                 DamageFactor = _currentEnemiesData[i].EnemyObject.GetComponent<EnemyInfo>().GetDamageFactor(),
@@ -201,7 +203,6 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
         var enemyObject = _diContainer.InstantiatePrefab(enemyPrefab, spawnPoint + GetRandomizePosition(), Quaternion.identity, null);
 
-        enemyObject.GetComponent<EnemyLevel>().SetLevel(spawner.BossLevel);
         enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, 1, 1, false);
         enemyObject.GetComponent<BossHealth>().SetHealth();
         enemyObject.GetComponent<BossDamage>().UpdateDamage();
@@ -221,15 +222,14 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             var position = new Vector3(enemyData[i].PositionX, enemyData[i].PositionY, enemyData[i].PositionZ);
             var rotation = Quaternion.Euler(0f, enemyData[i].Rotation, 0f);
             var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForNumber(enemyData[i].EnemyEnum), position, rotation, null);
-
-            enemyObject.GetComponent<EnemyLevel>().SetLevel(enemyData[i].EnemyLevel);
+            
+            enemyObject.GetComponent<EnemyLevel>()?.SetLevel(enemyData[i].EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, enemyData[i].HealthFactor, enemyData[i].DamageFactor, enemyData[i].IsMiniBoss);
             enemyObject.GetComponent<BaseHealth>().LoadHealth(enemyData[i].EnemyHealth);
             enemyObject.GetComponent<BaseDamage>().UpdateDamage();
             enemyObject.GetComponent<EnemyScale>()?.SetScale(enemyData[i].IsMiniBoss);
-            if(enemyData[i].IsMiniBoss) enemyObject.GetComponent<EnemyAnimator>().SetMiniBossAnimator();
+            if (enemyData[i].IsMiniBoss) enemyObject.GetComponent<EnemyAnimator>().SetMiniBossAnimator();
             enemyObject.transform.SetParent(_enemiesParent);
-
 
             AddEnemyToList(enemyData[i].EnemyEnum, _enemyNumber, enemyObject);
 

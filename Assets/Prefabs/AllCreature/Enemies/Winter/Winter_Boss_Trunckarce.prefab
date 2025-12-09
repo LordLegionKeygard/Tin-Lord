@@ -1114,7 +1114,6 @@ GameObject:
   - component: {fileID: 4290564667236509810}
   - component: {fileID: 6073945727764995482}
   - component: {fileID: 6073945727764995483}
-  - component: {fileID: 6073945727764995480}
   - component: {fileID: 5393924272318347953}
   - component: {fileID: 6073945727764995486}
   - component: {fileID: 2002794054286377671}
@@ -1356,19 +1355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canMove: 1
   _defaultSpeed: 4
---- !u!114 &6073945727764995480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6845803322014648110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa43f09e48f75f1469f385adf2b4ac6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _information: {fileID: 11400000, guid: ec02fbc029a922e4da44d42d3f61684a, type: 2}
 --- !u!114 &5393924272318347953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,6 +1368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isCanTarget: 1
+  _defaultHealth: 700
 --- !u!114 &6073945727764995486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1409,6 +1396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b9fbea0f1b98543b657803ed550c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultDamage: 25
   _bulletFromPoolWrapper:
     BulletType: 17
     FirePoints:

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BossHealth : BaseHealth
 {
+    [SerializeField] private float _defaultHealth;
     private EnemyAnimator _enemyAnimator;
     private EnemyKnockBack _creatureKnockBackController;
     private AIPath _aiPath;
     private CharacterController _characterController;
-    private EnemyLevel _enemyLevel;
     private BaseTakeDamageVFX _takeDamageVFX;
     private EnemyCenterPoint _enemyCenterPoint;
     private EnemyInfo _enemyInfo;
@@ -25,7 +25,6 @@ public class BossHealth : BaseHealth
 
     private void Awake()
     {
-        _enemyLevel = GetComponent<EnemyLevel>();
         _creatureKnockBackController = GetComponent<EnemyKnockBack>();
         _characterController = GetComponent<CharacterController>();
         _takeDamageVFX = GetComponent<BaseTakeDamageVFX>();
@@ -45,7 +44,7 @@ public class BossHealth : BaseHealth
     public void SetHealth()
     {
         _isDeath = false;
-        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
+        _maxHealth = _defaultHealth;
         _currentHealth = _maxHealth;
         BossHealthSlider.Instance.SetMaxHealth(_maxHealth);
         BossHealthSlider.Instance.UpdateSliders(_currentHealth);
@@ -54,7 +53,7 @@ public class BossHealth : BaseHealth
     public override void LoadHealth(float newHealth)
     {
         _isDeath = false;
-        _maxHealth = _enemyLevel.GetInformation().GetHealth(_enemyLevel.GetLevel());
+        _maxHealth = _defaultHealth;
         _currentHealth = newHealth;
         BossHealthSlider.Instance.SetMaxHealth(_maxHealth);
         BossHealthSlider.Instance.UpdateSliders(_currentHealth);
