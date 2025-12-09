@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class BuildingsLearnPanel : MonoBehaviour
 {
+    [SerializeField] private LearnBuildingInfoPanel _learnBuildingInfoPanel;
     [SerializeField] private LearnBuildingItem[] _learnBuildingItems;
     [SerializeField] private ScrollRect _scrollRect;
     [SerializeField] private Resource[] _resources;
@@ -89,11 +90,9 @@ public class BuildingsLearnPanel : MonoBehaviour
             bool fuelOk = false;
             ResourceEnum fail = ResourceEnum.None;
 
-            foreach (var rw in b.ResourcesForWork)
-            {
-                if (ResourceSatisfied(rw.ResourceForWork.ResourceEnum)) fuelOk = true;
-                else if (fail == ResourceEnum.None) fail = rw.ResourceForWork.ResourceEnum;
-            }
+            if (ResourceSatisfied(_learnBuildingInfoPanel.GetCurrentResourceForWork().ResourceEnum)) fuelOk = true;
+            else if (fail == ResourceEnum.None) fail = _learnBuildingInfoPanel.GetCurrentResourceForWork().ResourceEnum;
+
             if (!fuelOk)
             {
                 missing = fail; return false;

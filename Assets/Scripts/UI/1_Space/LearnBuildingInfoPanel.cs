@@ -29,6 +29,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     private ResourceForWorkPanelSpace _resourceForWorkPanel;
     private float _resourceForWorkAmount;
     private Resource _currentResourceForWork;
+    public Resource GetCurrentResourceForWork() => _currentResourceForWork;
 
     [Header("Recept")]
     [SerializeField] private TextMeshProUGUI _receptText;
@@ -150,8 +151,9 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     {
         if (_currentResourceForWork == resource) return;
         _currentResourceForWork = resource;
+        SetResourceForWorkAndText();
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
-        SetResourceForWorkAndText(_currentResourceForWork);
+        SetButtonPanel();
     }
 
     private void SetResourceForWorkPanel(Building building)
@@ -159,7 +161,8 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         if (building.ResourcesForWork.Length != 0)
         {
             var resourceForWork = _currentResourceForWork ?? building.ResourcesForWork[0].ResourceForWork;
-            SetResourceForWorkAndText(resourceForWork);
+            _currentResourceForWork = resourceForWork;
+            SetResourceForWorkAndText();
             _resourceForWorkPanelObject.SetActive(true);
             _resourceForWorkPanelLine.SetActive(true);
         }
@@ -331,20 +334,20 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _currentLearnBuildingItem = null;
     }
 
-    private void SetResourceForWorkAndText(Resource resource)
+    private void SetResourceForWorkAndText()
     {
         var building = _currentLearnBuildingItem.GetBuilding();
 
         for (int i = 0; i < building.ResourcesForWork.Length; i++)
         {
-            if (building.ResourcesForWork[i].ResourceForWork == resource)
+            if (building.ResourcesForWork[i].ResourceForWork == _currentResourceForWork)
             {
                 _resourceForWorkAmount = building.ResourcesForWork[i].ResourcesForWorkAmount;
             }
         }
 
-        _resourceForWorkPanel.UpdateButtonsView(building, resource.ResourceEnum);
+        _resourceForWorkPanel.UpdateButtonsView(building, _currentResourceForWork.ResourceEnum);
         var resourceForWorkText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[14]}:</color>";
-        _resourceForWorkText.text = $"{resourceForWorkText} {Language.TextStatic[resource.NameNumber]} {_resourceForWorkAmount}";
+        _resourceForWorkText.text = $"{resourceForWorkText} {Language.TextStatic[_currentResourceForWork.NameNumber]} {_resourceForWorkAmount}";
     }
 }
