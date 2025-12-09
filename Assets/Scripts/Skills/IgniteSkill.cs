@@ -1,8 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class IgniteSkill : BaseSkill
 {
-    [SerializeField] private SpawnedHazardSystem _spawnedHazardSystem;
+    [Inject] private readonly SpawnedHazardSystem _spawnedHazardSystem;
     [SerializeField] private SkillTargetSystem _skillTargetSystem;
     [SerializeField] private GameObject _skillPrefab;
     private bool _isPrepareUseSkill;

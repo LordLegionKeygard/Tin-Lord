@@ -147,5 +147,6 @@ public enum BulletEnum
     ShipWeapon_ScatterShotgunBullet = 20,
     ShipWeapon_LongshotRailgun = 21,
     ShipWeapon_BreakshotMinigunBullet = 22,
+    ShipWeapon_BlastfireLauncherBullet = 23,
 }
 

@@ -22,6 +22,7 @@ public class MissionInstaller : MonoInstaller
     [SerializeField] private MissionModeSystem _missionModeSystem;
     [SerializeField] private EscapePanelMission _escapePanel;
     [SerializeField] private RarityCardsSystem _rarityCardsSystem;
+    [SerializeField] private SpawnedHazardSystem _spawnedHazardSystem;
 
     public override void InstallBindings()
     {
@@ -44,5 +45,6 @@ public class MissionInstaller : MonoInstaller
         Container.Bind<MissionModeSystem>().FromInstance(_missionModeSystem).AsSingle();
         Container.Bind<EscapePanelMission>().FromInstance(_escapePanel).AsSingle();
         Container.Bind<RarityCardsSystem>().FromInstance(_rarityCardsSystem).AsSingle();
+        Container.Bind<SpawnedHazardSystem>().FromInstance(_spawnedHazardSystem).AsSingle();
     }
 }

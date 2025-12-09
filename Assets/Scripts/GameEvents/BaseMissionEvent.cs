@@ -1,7 +1,9 @@
 using UnityEngine;
+using Zenject;
 
 public class BaseMissionEvent : MonoBehaviour
 {
+    [Inject] public readonly SpawnedHazardSystem SpawnedHazardSystem;
     [SerializeField] private AllTileObjects _allTileObjects;
     private TileObject _tileObject;
     protected AllTileObjects GetAllTileObjects() => _allTileObjects;

@@ -6,6 +6,7 @@ public class ShipWeaponAimer : MonoBehaviour
 {
     [Inject] private readonly MissionModeSystem _missionModeSystem;
     [Inject] readonly BulletsPool _bulletsPool;
+    [Inject] private readonly SpawnedHazardSystem _spawnedHazardSystem;
 
     [Header("Refs")]
     [SerializeField] private Transform _cannonPivot;
@@ -133,17 +134,7 @@ public class ShipWeaponAimer : MonoBehaviour
             go.transform.SetPositionAndRotation(_firePoint.position, shotRotation);
 
             var bullet = go.GetComponent<ShipCannonBullet>();
-            if (!bullet) bullet = go.AddComponent<ShipCannonBullet>();
-
-            bullet.Setup(
-                _bulletsPool,
-                shipWeaponInfo.BulletType,
-                shipWeaponInfo.BulletSpeed,
-                _missionShipWeaponSystem.GetWeaponDamage(_isLeftWeapon),
-                shipWeaponInfo.LifeTime,
-                shipWeaponInfo.ExplosionPrefab,
-                shipWeaponInfo.ImpactYOffset
-            );
+            bullet.Setup(_bulletsPool, _missionShipWeaponSystem.GetWeaponDamage(_isLeftWeapon), shipWeaponInfo, _spawnedHazardSystem);
         }
     }
 

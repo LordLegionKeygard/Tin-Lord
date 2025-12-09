@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ToxicGasMissionEvent : BaseMissionEvent
 {
-    [SerializeField] private SpawnedHazardSystem _spawnedHazardSystem;
     [SerializeField] private GameObject _spawnPrefab;
     private GameObject _currentPrefab;
     public override void StartEvent()
@@ -33,7 +32,7 @@ public class ToxicGasMissionEvent : BaseMissionEvent
 
             _currentPrefab = Instantiate(_spawnPrefab, randomTile.transform.position, Quaternion.identity);
             _currentPrefab.GetComponent<OnTriggerStayDealDamage>().SetInfo(WorldGameInfo.ToxicGasTicks, WorldGameInfo.ToxicGasTriggerStayDamageFactor);
-            _spawnedHazardSystem.RegisterHazard((int)HazardEnum.ToxicGas, _currentPrefab, WorldGameInfo.ToxicGasTicks, WorldGameInfo.ToxicGasTriggerStayDamageFactor);
+            SpawnedHazardSystem.RegisterHazard((int)HazardEnum.ToxicGas, _currentPrefab, WorldGameInfo.ToxicGasTicks, WorldGameInfo.ToxicGasTriggerStayDamageFactor);
         }
     }
 }

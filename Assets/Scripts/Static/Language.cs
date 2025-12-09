@@ -753,8 +753,8 @@ public class Language : MonoBehaviour
         _text[241, 0] = "Breakshot Minigun";
         _text[241, 1] = "Разрывной Пулемет";
 
-        _text[242, 0] = "";
-        _text[242, 1] = "";
+        _text[242, 0] = "Blastfire Launcher";
+        _text[242, 1] = "Взрывопламенная Установка";
 
         _text[243, 0] = "";
         _text[243, 1] = "";

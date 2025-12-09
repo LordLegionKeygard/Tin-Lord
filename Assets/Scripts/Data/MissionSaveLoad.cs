@@ -12,6 +12,7 @@ public class MissionSaveLoad : MonoBehaviour
     [Inject] private MissionSaveGame _missionSaveGame;
     [Inject] private MissionResources _missionResources;
     [Inject] private readonly TutorialSystem _tutorialSystem;
+    [Inject] private readonly SpawnedHazardSystem _spawnedHazardSystem;
 
     [Header("Main")]
     [SerializeField] private ActInfo[] _actsInfo;
@@ -59,9 +60,6 @@ public class MissionSaveLoad : MonoBehaviour
 
     [Header("Hangar")]
     [SerializeField] private MissionHangarSystem _missionHangarSystem;
-
-    [Header("Hazards")]
-    [SerializeField] private SpawnedHazardSystem _spawnedHazardSystem;
 
     private void Awake()
     {

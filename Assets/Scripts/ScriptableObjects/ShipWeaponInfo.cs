@@ -22,8 +22,14 @@ public class ShipWeaponInfo : ScriptableObject
     public float Damage;
     public float DamageFactor; // доп урон которое получает оружие, за каждое улучшение
     public int BulletsCount;
+
     public GameObject ExplosionPrefab;
     public float ImpactYOffset = 0f;    // смещение вверх точки взрыва
+
+    [Header("Dot")]
+    public GameObject DotPrefab;
+    public float DotDamageFactor;
+    public int DotDurationTicks;
 }
 
 [System.Serializable]
@@ -35,9 +41,9 @@ public enum ShipWeaponEnum
     Left_3 = 3, // vortex cannon
     Left_4 = 4, // plasmagun
 
-    Right_TitatiumRocketLauncher_0 = 5,
+    Right_TitatiumRocketLauncher_5 = 5,
     Right_LongshotRailgun_6 = 6,
-    Right_2 = 7, // flamethrower
-    Right_3 = 8, // lasergun
-    Right_4 = 9, // singularity launcher
+    Right_BlastfireLauncher_7 = 7,
+    Right_8 = 8, // lasergun
+    Right_9 = 9, // singularity launcher
 }
