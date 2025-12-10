@@ -399,7 +399,7 @@ public class GroundTile : MonoBehaviour
 
                 }
 
-                if (IsTwoFromCheckCross(GroundTileViewEnum.Ground))
+                if (IsOneOrAnotherFromCheckCross(GroundTileViewEnum.Ground, GroundTileViewEnum.CoalDeposits))
                 {
                     ChangeTile(GroundTileViewEnum.Grove);
                 }
@@ -581,6 +581,29 @@ public class GroundTile : MonoBehaviour
                 break;
 
         }
+    }
+
+    public bool IsOneOrAnotherFromCheckCross(GroundTileViewEnum tileViewOne, GroundTileViewEnum tileViewTwo)
+    {
+        var number = 0;
+        var directions = new[]
+         {
+        TileDirectionEnum.North,
+        TileDirectionEnum.East,
+        TileDirectionEnum.West,
+        TileDirectionEnum.South
+        };
+
+        for (int i = 0; i < directions.Length; i++)
+        {
+            var neighbor = _tileObject.GetNeighbourGroundTile((int)directions[i]);
+            if (neighbor != null && (neighbor.CheckTileView(tileViewOne) || neighbor.CheckTileView(tileViewTwo)))
+            {
+                number++;
+            }
+        }
+
+        return number >= 2;
     }
 
     public bool IsTwoFromCheckCross(GroundTileViewEnum tileView)

@@ -59,7 +59,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 42
     SpawnPeriod: 3
-    Count: 30
+    Count: 35
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -70,7 +70,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 51
     SpawnPeriod: 3
-    Count: 30
+    Count: 35
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -81,7 +81,7 @@ MonoBehaviour:
       EnemyLevel: 4
   - StartDaySpawn: 63
     SpawnPeriod: 3
-    Count: 35
+    Count: 40
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -103,7 +103,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - StartDaySpawn: 81
     SpawnPeriod: 3
-    Count: 55
+    Count: 60
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -114,7 +114,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - StartDaySpawn: 90
     SpawnPeriod: 2
-    Count: 60
+    Count: 70
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -124,7 +124,7 @@ MonoBehaviour:
         EnemyEnum: 24
       EnemyLevel: 7
   MiniBossSpawners:
-  - DaySpawn: 20
+  - DaySpawn: 21
     Count: 1
     HealthFactor: 5
     DamageFactor: 2
@@ -148,7 +148,7 @@ MonoBehaviour:
       - MonsterType: 4
         EnemyEnum: 25
       EnemyLevel: 4
-  - DaySpawn: 40
+  - DaySpawn: 42
     Count: 2
     HealthFactor: 5
     DamageFactor: 2
@@ -160,7 +160,7 @@ MonoBehaviour:
       - MonsterType: 4
         EnemyEnum: 25
       EnemyLevel: 4
-  - DaySpawn: 50
+  - DaySpawn: 51
     Count: 3
     HealthFactor: 5
     DamageFactor: 2
@@ -184,7 +184,7 @@ MonoBehaviour:
       - MonsterType: 4
         EnemyEnum: 25
       EnemyLevel: 6
-  - DaySpawn: 70
+  - DaySpawn: 72
     Count: 4
     HealthFactor: 5
     DamageFactor: 2
@@ -196,7 +196,7 @@ MonoBehaviour:
       - MonsterType: 4
         EnemyEnum: 25
       EnemyLevel: 6
-  - DaySpawn: 80
+  - DaySpawn: 81
     Count: 4
     HealthFactor: 5
     DamageFactor: 2
@@ -220,7 +220,7 @@ MonoBehaviour:
       - MonsterType: 4
         EnemyEnum: 25
       EnemyLevel: 6
-  - DaySpawn: 100
+  - DaySpawn: 99
     Count: 8
     HealthFactor: 5
     DamageFactor: 3
@@ -234,6 +234,5 @@ MonoBehaviour:
       EnemyLevel: 7
   BossSpawner:
     Bosses: []
-    BossLevel: 0
     BossDaySpawn: 0
     LandscapeSpawnSide: []
