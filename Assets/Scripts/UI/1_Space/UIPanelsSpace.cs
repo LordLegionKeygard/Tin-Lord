@@ -85,7 +85,7 @@ public class UIPanelsSpace : MonoBehaviour
                     _skillTraderPanelDoMove.PanelMove();
                 }
                 break;
-            case TraderKind.WeaponEngineer:
+            case TraderKind.Weapon:
                 if (!_weaponEngineerPanelDoMove.IsOpen())
                 {
                     _weaponsEngineerPanel.ResetTraderPanel();

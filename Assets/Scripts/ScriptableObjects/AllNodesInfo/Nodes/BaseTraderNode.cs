@@ -1,5 +1,3 @@
-
-
 public class BaseTraderNode : NodeData
 {
     public DialogueSequence Dialogue;
@@ -10,5 +8,5 @@ public enum TraderKind
 {
     Resource = 0,
     Skill = 1,
-    WeaponEngineer = 2,
+    Weapon = 2,
 }

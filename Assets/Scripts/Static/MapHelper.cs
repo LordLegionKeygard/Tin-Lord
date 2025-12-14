@@ -79,7 +79,7 @@ public static class MapHelper
     public static bool TryPickTrader(
         List<ResourceTraderNode> resTraders,
         List<SkillTraderNode> skillTraders,
-        List<WeaponEngineerNode> weaponEngineers,
+        List<WeaponTraderNode> weaponEngineers,
         out NodeData node,
         out NodeType type)
     {
@@ -115,7 +115,7 @@ public static class MapHelper
             default: // 2 — WeaponEngineer
                 node = weaponEngineers[0];
                 weaponEngineers.RemoveAt(0);
-                type = NodeType.WeaponEngineer;
+                type = NodeType.WeaponTrader;
                 break;
         }
 
@@ -123,7 +123,7 @@ public static class MapHelper
     }
 
 
-    public static bool TryPickNonMission(List<EventEntry> events, List<ResourceTraderNode> resourceTraders, List<SkillTraderNode> skillTraders, List<WeaponEngineerNode> weaponEngineers, out NodeData node, out NodeType type, out int poolId, out int seqId)
+    public static bool TryPickNonMission(List<EventEntry> events, List<ResourceTraderNode> resourceTraders, List<SkillTraderNode> skillTraders, List<WeaponTraderNode> weaponEngineers, out NodeData node, out NodeType type, out int poolId, out int seqId)
     {
         bool tryEventFirst = Random.value < 0.5f;
 
@@ -164,7 +164,7 @@ public static class MapHelper
                     default: // 2 — WeaponEngineer
                         node = weaponEngineers[0];
                         weaponEngineers.RemoveAt(0);
-                        type = NodeType.WeaponEngineer;
+                        type = NodeType.WeaponTrader;
                         break;
                 }
 
@@ -191,7 +191,7 @@ public static class MapHelper
         return true;
     }
 
-    public static bool IsVisible(NodeData data) => data is RewardEventNode or ResourceTraderNode or SkillTraderNode or WeaponEngineerNode;
+    public static bool IsVisible(NodeData data) => data is RewardEventNode or ResourceTraderNode or SkillTraderNode or WeaponTraderNode;
 
     public static bool TryPop<T>(this IList<T> list, out T value)
     {

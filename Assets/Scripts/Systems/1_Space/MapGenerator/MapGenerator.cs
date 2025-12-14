@@ -37,7 +37,7 @@ public class MapGenerator : MonoBehaviour
             NodeType.RewardEvent => _currentAct.EventPools[1].Node,
             NodeType.ResourceTrader => _currentAct.ResourceTraders[0],
             NodeType.SkillTrader => _currentAct.SkillTraders[0],
-            NodeType.WeaponEngineer => _currentAct.WeaponEngineers[0],
+            NodeType.WeaponTrader => _currentAct.WeaponTraders[0],
             NodeType.Mission => _currentAct.MissionNodeTemplate,
             _ => null
         };
@@ -60,7 +60,7 @@ public class MapGenerator : MonoBehaviour
 
         var resourceTraders = new List<ResourceTraderNode>(_currentAct.ResourceTraders);
         var skillTraders = new List<SkillTraderNode>(_currentAct.SkillTraders);
-        var weponEngineers = new List<WeaponEngineerNode>(_currentAct.WeaponEngineers);
+        var weponEngineers = new List<WeaponTraderNode>(_currentAct.WeaponTraders);
 
         rewardEvents.Shuffle();
         hiddenEvents.Shuffle();
@@ -193,7 +193,7 @@ public class MapGenerator : MonoBehaviour
                         var tr = weponEngineers[0];
                         weponEngineers.RemoveAt(0);
                         node = tr;
-                        nodeType = NodeType.WeaponEngineer;
+                        nodeType = NodeType.WeaponTrader;
                         break;
                     }
             }
@@ -278,7 +278,7 @@ public class MapGenerator : MonoBehaviour
                 if (stub == null) break;
 
                 stub.nodeData = tr;
-                SavedMap.Nodes[_generatedNodes.IndexOf(stub)].NodeType = NodeType.WeaponEngineer;
+                SavedMap.Nodes[_generatedNodes.IndexOf(stub)].NodeType = NodeType.WeaponTrader;
             }
 
             // списки опустошили — больше никто «невидимо» не появится
@@ -488,7 +488,7 @@ public enum NodeType
     SkillTrader = 4,
     Boss = 5,
     RewardEvent = 6,
-    WeaponEngineer = 7,
+    WeaponTrader = 7,
 }
 
 public class NodeInstance

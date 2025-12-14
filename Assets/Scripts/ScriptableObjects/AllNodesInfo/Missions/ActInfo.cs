@@ -8,7 +8,7 @@ public class ActInfo : ScriptableObject
     public EventPool[] EventPools; // все возможные ивенты 0 элемент этого массива если что и есть RewardEventNode
     public ResourceTraderNode[] ResourceTraders; // все торговцы ресурсами
     public SkillTraderNode[] SkillTraders; // все торговцы ресурсами
-    public WeaponEngineerNode[] WeaponEngineers; // все инженеры оружия
+    public WeaponTraderNode[] WeaponTraders; // все инженеры оружия
     public BossNode BossNode; // финальный босс
 
     [Header("Campaign")]

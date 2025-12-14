@@ -855,8 +855,8 @@ public class Language : MonoBehaviour
         _text[275, 0] = "";
         _text[275, 1] = "";
 
-        _text[276, 0] = "Abandoned Station";
-        _text[276, 1] = "Заброшенная Станция";
+        _text[276, 0] = "Rest Station";
+        _text[276, 1] = "Станция Отдыха";
 
         _text[277, 0] = "Unvisited Node";
         _text[277, 1] = "Непосещенный узел";

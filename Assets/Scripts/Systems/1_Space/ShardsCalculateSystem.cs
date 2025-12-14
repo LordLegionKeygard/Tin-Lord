@@ -21,7 +21,7 @@ public class ShardsCalculateSystem : MonoBehaviour
 
         _eventsCompleted = saveData.Map.Nodes.Count(n => n.IsCompleted && (n.NodeType == NodeType.Event || n.NodeType == NodeType.RewardEvent));
 
-        _tradersCompleted = saveData.Map.Nodes.Count(n => n.IsCompleted && (n.NodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.WeaponEngineer));
+        _tradersCompleted = saveData.Map.Nodes.Count(n => n.IsCompleted && (n.NodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.WeaponTrader));
 
         _bossesCompleted = saveData.Map.Nodes.Count(n => n.IsCompleted && n.NodeType == NodeType.Boss);
 
