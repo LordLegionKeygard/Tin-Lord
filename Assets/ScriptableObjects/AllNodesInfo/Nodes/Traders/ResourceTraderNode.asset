@@ -24,7 +24,22 @@ MonoBehaviour:
     PlanetRotation: {x: 0, y: 0, z: 0}
     CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
     SkyboxRotation: 0
-    LightRotation: {x: 0, y: 0, z: 0}
-    Temperature: 0
+    LightRotation: {x: 41.7, y: -126.7, z: 0}
+    Temperature: 7000
+    EnvironmentPrefab: {fileID: 4825124627014195517, guid: c13815d5c7600004191b93a6fa7b1262,
+      type: 3}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}
+  - PlanetPrefab: {fileID: 0}
+    PlanetPosition: {x: 0, y: 0, z: 0}
+    PlanetRotation: {x: 0, y: 0, z: 0}
+    CosmosSkybox: {fileID: 2100000, guid: 22a7219da4e80fb4881e44d8df4da8b3, type: 2}
+    SkyboxRotation: 0
+    LightRotation: {x: 41.7, y: -126.7, z: 0}
+    Temperature: 7000
+    EnvironmentPrefab: {fileID: 2969828081123443265, guid: 6f27bb8239a68634aa9484c0cc9c926c,
+      type: 3}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}
   Dialogue: {fileID: 11400000, guid: f26ee13992868584b9861c844cb618ac, type: 2}
   TraderKind: 0
