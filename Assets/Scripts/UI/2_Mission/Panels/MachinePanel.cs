@@ -123,7 +123,7 @@ public class MachinePanel : MonoBehaviour
         var haveAliveMachine = _currentMachineSystem.IsHaveMachine() && !_currentMachineSystem.IsMachineDeath();
         var currentMachineHealth = _currentMachineSystem.GetMachineHealth() != null ? _currentMachineSystem.GetMachineHealth().GetCurrentHealth() : 0;
 
-        var durability = haveAliveMachine ? $"{currentMachineHealth} / {_currentSelectMachineInfo.GetDurability(level)}" : "-";
+        var durability = haveAliveMachine ? $"{(int)currentMachineHealth} / {_currentSelectMachineInfo.GetDurability(level)}" : "-";
 
         var _meleeDamage = haveAliveMachine ? $"{_currentSelectMachineInfo.GetMeleeDamage(level)}" : "-";
         var rangeDamage = haveAliveMachine ? $"{_currentSelectMachineInfo.GetRangeDamage(level)}" : "-";

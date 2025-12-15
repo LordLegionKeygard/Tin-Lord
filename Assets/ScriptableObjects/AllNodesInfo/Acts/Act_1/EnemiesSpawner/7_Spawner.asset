@@ -26,7 +26,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 18
     SpawnPeriod: 3
-    Count: 18
+    Count: 20
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -37,7 +37,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 27
     SpawnPeriod: 3
-    Count: 24
+    Count: 30
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -54,7 +54,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 33
     SpawnPeriod: 3
-    Count: 30
+    Count: 40
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -71,7 +71,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 42
     SpawnPeriod: 3
-    Count: 35
+    Count: 40
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -88,7 +88,7 @@ MonoBehaviour:
       EnemyLevel: 4
   - StartDaySpawn: 54
     SpawnPeriod: 3
-    Count: 42
+    Count: 50
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -105,7 +105,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - StartDaySpawn: 63
     SpawnPeriod: 3
-    Count: 48
+    Count: 55
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -130,13 +130,13 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 5
+      EnemyLevel: 7
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 21
       - MonsterType: 4
         EnemyEnum: 27
-      EnemyLevel: 5
+      EnemyLevel: 7
   - StartDaySpawn: 81
     SpawnPeriod: 3
     Count: 70
@@ -147,16 +147,16 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 7
+      EnemyLevel: 8
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 21
       - MonsterType: 4
         EnemyEnum: 27
       EnemyLevel: 8
-  - StartDaySpawn: 96
+  - StartDaySpawn: 90
     SpawnPeriod: 3
-    Count: 65
+    Count: 70
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -164,7 +164,7 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 8
+      EnemyLevel: 9
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 21

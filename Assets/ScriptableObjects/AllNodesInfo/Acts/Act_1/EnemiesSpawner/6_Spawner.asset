@@ -26,7 +26,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 18
     SpawnPeriod: 3
-    Count: 16
+    Count: 20
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -37,7 +37,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 24
     SpawnPeriod: 3
-    Count: 26
+    Count: 30
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -54,7 +54,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 33
     SpawnPeriod: 3
-    Count: 32
+    Count: 40
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -71,7 +71,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 42
     SpawnPeriod: 3
-    Count: 35
+    Count: 40
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -88,7 +88,7 @@ MonoBehaviour:
       EnemyLevel: 4
   - StartDaySpawn: 54
     SpawnPeriod: 3
-    Count: 40
+    Count: 45
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -105,7 +105,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - StartDaySpawn: 63
     SpawnPeriod: 3
-    Count: 45
+    Count: 50
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -130,7 +130,7 @@ MonoBehaviour:
         EnemyEnum: 19
       - MonsterType: 4
         EnemyEnum: 25
-      EnemyLevel: 5
+      EnemyLevel: 6
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 20
@@ -139,7 +139,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - StartDaySpawn: 81
     SpawnPeriod: 3
-    Count: 60
+    Count: 65
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -147,7 +147,7 @@ MonoBehaviour:
         EnemyEnum: 19
       - MonsterType: 4
         EnemyEnum: 25
-      EnemyLevel: 6
+      EnemyLevel: 7
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 20
@@ -156,7 +156,7 @@ MonoBehaviour:
       EnemyLevel: 7
   - StartDaySpawn: 90
     SpawnPeriod: 3
-    Count: 60
+    Count: 70
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
