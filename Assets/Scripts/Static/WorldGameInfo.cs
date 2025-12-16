@@ -18,8 +18,8 @@ public class WorldGameInfo
     public static int TacticCardChangeSuccessRarityChance = 60;
 
     [Header("Price")]
-    public static int StartWeaponEnigneerUpgradePrice = 5;
-    public static int FactorWeaponEnigneerUpgradePrice = 5;
+    public static int StartWeaponEnigneerUpgradePrice = 20;
+    public static int FactorWeaponEnigneerUpgradePrice = 20;
 
     [Header("Currency")]
     public static float BeamEnergyAfterSetNewTile = 0.5f;
