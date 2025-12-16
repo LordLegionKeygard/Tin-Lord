@@ -15,7 +15,7 @@ MonoBehaviour:
   Spawners:
   - StartDaySpawn: 6
     SpawnPeriod: 3
-    Count: 14
+    Count: 18
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -26,7 +26,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 18
     SpawnPeriod: 3
-    Count: 20
+    Count: 25
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -71,7 +71,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 42
     SpawnPeriod: 3
-    Count: 40
+    Count: 45
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -88,7 +88,7 @@ MonoBehaviour:
       EnemyLevel: 4
   - StartDaySpawn: 54
     SpawnPeriod: 3
-    Count: 45
+    Count: 50
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -105,7 +105,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - StartDaySpawn: 63
     SpawnPeriod: 3
-    Count: 50
+    Count: 55
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -122,7 +122,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - StartDaySpawn: 72
     SpawnPeriod: 3
-    Count: 55
+    Count: 60
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -139,7 +139,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - StartDaySpawn: 81
     SpawnPeriod: 3
-    Count: 65
+    Count: 70
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -156,7 +156,7 @@ MonoBehaviour:
       EnemyLevel: 7
   - StartDaySpawn: 90
     SpawnPeriod: 3
-    Count: 70
+    Count: 75
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
