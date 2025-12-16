@@ -8,6 +8,7 @@ public class MissionResources : MonoBehaviour
     [SerializeField] private MissionResourcesWrapper[] _resourcesWrapper;
     public Resource GetResourceForNumber(int number) => _resourcesWrapper[number].Resource;
     public float GetResourceAmountForEnum(ResourceEnum resourceEnum) => _resourcesWrapper[(int)resourceEnum].Amount;
+    private static float FloorToSingleDecimal(float amount) => Mathf.Floor(amount * 10f) * 0.1f;
     public int GetResourceNumberForResource(Resource resource)
     {
         for (int i = 0; i < _resourcesWrapper.Length; i++)
@@ -51,8 +52,7 @@ public class MissionResources : MonoBehaviour
     {
         var resources = _resourcesWrapper[(int)resourceEnum];
         resources.Amount += amount;
-        var roundedAmount = Math.Round(resources.Amount, 1, MidpointRounding.AwayFromZero);
-        resources.Text.text = roundedAmount.ToString("0.0");
+        resources.Text.text = FloorToSingleDecimal(resources.Amount).ToString("0.0");
 
         UpdateResourceObjectives(resourceEnum);
     }
@@ -77,8 +77,8 @@ public class MissionResources : MonoBehaviour
     {
         for (int i = 0; i < _resourcesWrapper.Length; i++)
         {
-            var roundedAmount = Math.Round(_resourcesWrapper[i].Amount, 1, MidpointRounding.AwayFromZero);
-            _resourcesWrapper[i].Text.text = roundedAmount.ToString("0.0");
+            var displayAmount = FloorToSingleDecimal(_resourcesWrapper[i].Amount);
+            _resourcesWrapper[i].Text.text = displayAmount.ToString("0.0");
         }
     }
 
@@ -88,7 +88,8 @@ public class MissionResources : MonoBehaviour
 
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
-            _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount -= resourcesForBuildWrapper[i].RecourceAmount;
+            var resourceEnum = resourcesForBuildWrapper[i].ResourceEnum;
+            _resourcesWrapper[(int)resourceEnum].Amount -= resourcesForBuildWrapper[i].RecourceAmount;
         }
         UpdateAllTexts();
     }
@@ -99,7 +100,8 @@ public class MissionResources : MonoBehaviour
         {
             float healthFactor = Mathf.Clamp01(buildingHealthPercent); // Убеждаемся, что значение в пределах [0, 1]
             float returnedAmount = resourcesForBuildWrapper[i].RecourceAmount * WorldGameInfo.DestroyConstructionBuildingResourcePercent * healthFactor;
-            _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount += returnedAmount;
+            var resourceEnum = resourcesForBuildWrapper[i].ResourceEnum;
+            _resourcesWrapper[(int)resourceEnum].Amount += returnedAmount;
         }
 
         UpdateAllTexts();
@@ -111,7 +113,8 @@ public class MissionResources : MonoBehaviour
 
         for (int i = 0; i < resourcesForBuildWrapper.Length; i++)
         {
-            if (resourcesForBuildWrapper[i].RecourceAmount > _resourcesWrapper[(int)resourcesForBuildWrapper[i].ResourceEnum].Amount)
+            var resourceEnum = resourcesForBuildWrapper[i].ResourceEnum;
+            if (resourcesForBuildWrapper[i].RecourceAmount > _resourcesWrapper[(int)resourceEnum].Amount)
             {
                 return false;
             }
