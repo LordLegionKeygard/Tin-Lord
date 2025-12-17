@@ -18,7 +18,7 @@ public class WorldGameInfo
     public static int TacticCardChangeSuccessRarityChance = 60;
 
     [Header("Price")]
-    public static int StartWeaponEnigneerUpgradePrice = 20;
+    public static int StartWeaponEnigneerUpgradePrice = 0;
     public static int FactorWeaponEnigneerUpgradePrice = 20;
 
     [Header("Currency")]
