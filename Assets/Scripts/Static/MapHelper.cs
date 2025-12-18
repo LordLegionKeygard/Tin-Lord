@@ -134,7 +134,7 @@ public static class MapHelper
             {
                 var e = events[0]; events.RemoveAt(0);
                 node = e.Node;
-                type = (node is RewardEventNode) ? NodeType.RewardEvent : NodeType.Event;
+                type = (node is RewardEventNode) ? NodeType.RestEvent : NodeType.Event;
                 poolId = e.PoolIndex;
                 seqId = e.SequenceIndex;
                 return true;

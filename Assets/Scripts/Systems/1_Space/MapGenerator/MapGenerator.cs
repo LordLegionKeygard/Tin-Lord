@@ -34,7 +34,7 @@ public class MapGenerator : MonoBehaviour
             NodeType.Start => _currentAct.StartNode,
             NodeType.Boss => _currentAct.BossNode,
             NodeType.Event => _currentAct.EventPools[0].Node,
-            NodeType.RewardEvent => _currentAct.EventPools[1].Node,
+            NodeType.RestEvent => _currentAct.EventPools[1].Node,
             NodeType.ResourceTrader => _currentAct.ResourceTraders[0],
             NodeType.SkillTrader => _currentAct.SkillTraders[0],
             NodeType.WeaponTrader => _currentAct.WeaponTraders[0],
@@ -162,7 +162,7 @@ public class MapGenerator : MonoBehaviour
                         var rev = rewardEvents[0]; // достали
                         rewardEvents.RemoveAt(0); // убрали
                         node = rev.Node;
-                        nodeType = NodeType.RewardEvent;
+                        nodeType = NodeType.RestEvent;
                         seq = rev.SequenceIndex;
                         pool = rev.PoolIndex;
                         break;
@@ -246,7 +246,7 @@ public class MapGenerator : MonoBehaviour
 
                 stub.nodeData = rev.Node;
                 var s = SavedMap.Nodes[_generatedNodes.IndexOf(stub)];
-                s.NodeType = NodeType.RewardEvent;
+                s.NodeType = NodeType.RestEvent;
                 s.EventPoolIndex = rev.PoolIndex;
                 s.EventSequenceIndex = rev.SequenceIndex;
             }
@@ -487,7 +487,7 @@ public enum NodeType
     ResourceTrader = 3,
     SkillTrader = 4,
     Boss = 5,
-    RewardEvent = 6,
+    RestEvent = 6,
     WeaponTrader = 7,
 }
 

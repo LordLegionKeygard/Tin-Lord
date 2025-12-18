@@ -114,7 +114,7 @@ public class MapSystem : MonoBehaviour
     {
         var map = _save.SpaceSaveData.Map;
 
-        _eventQueue = _eventQueue.Where(e => !map.Nodes.Any(n => n.NodeType == NodeType.RewardEvent && n.EventPoolIndex == e.PoolIndex && n.EventSequenceIndex == e.SequenceIndex)).ToList();
+        _eventQueue = _eventQueue.Where(e => !map.Nodes.Any(n => n.NodeType == NodeType.RestEvent && n.EventPoolIndex == e.PoolIndex && n.EventSequenceIndex == e.SequenceIndex)).ToList();
         _resourceTraders = _resourceTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.ResourceTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
         _skillTraders = _skillTraders.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.SkillTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
         _weaponEngineers = _weaponEngineers.Where(tr => !map.Nodes.Any(n => n.NodeType == NodeType.WeaponTrader && _generator.GetGeneratedNodes()[n.NodeIndex].nodeData == tr)).ToList();
@@ -135,7 +135,7 @@ public class MapSystem : MonoBehaviour
 
         if (!isCurrent && (!IsReachable(nodeIndex) || !map.Nodes[_currentNodeIndex].IsCompleted)) return;
 
-        bool isVisibleNonMission = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.RewardEvent or NodeType.WeaponTrader; ;
+        bool isVisibleNonMission = nodeType is NodeType.ResourceTrader or NodeType.SkillTrader or NodeType.RestEvent or NodeType.WeaponTrader; ;
 
         if (isVisibleNonMission)
         {
@@ -200,7 +200,7 @@ public class MapSystem : MonoBehaviour
                     _panels.EventPanelOpen();
                     break;
                 }
-            case NodeType.RewardEvent:
+            case NodeType.RestEvent:
                 {
                     var rNode = _generator.GetGeneratedNodes()[nodeIndex].nodeData as RewardEventNode;
                     _eventPanel.Open(rNode.Dialogue);
@@ -481,7 +481,7 @@ public class MapSystem : MonoBehaviour
                     }
                     break;
                 case NodeType.Event:
-                case NodeType.RewardEvent:
+                case NodeType.RestEvent:
                     if (n.EventPoolIndex >= 0 && n.EventPoolIndex < _actsInfo[_save.SpaceSaveData.Act].EventPools.Length)
                     {
                         data = _actsInfo[_save.SpaceSaveData.Act].EventPools[n.EventPoolIndex].Node;
