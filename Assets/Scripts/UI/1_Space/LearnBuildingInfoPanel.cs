@@ -20,7 +20,14 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingResourcesText;
     [SerializeField] private GameObject _buildingResourcesPanelObject;
     [SerializeField] private GameObject _buildingResourcesPanelLine;
-    private ResourcesViewSpace _resourcesView;
+    [SerializeField] private ResourcesViewSpace _buildingResourcesView;
+
+    [Header("Machine")]
+    [SerializeField] private TextMeshProUGUI _machineText;
+    [SerializeField] private TextMeshProUGUI _machineResourcesText;
+    [SerializeField] private GameObject _machinePanelObject;
+    [SerializeField] private GameObject _machinePanelLine;
+    [SerializeField] private ResourcesViewSpace _machineResourcesView;
 
     [Header("ResourcesFoWork")]
     [SerializeField] private TextMeshProUGUI _resourceForWorkText;
@@ -69,7 +76,6 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     {
         _productionResourcePanel = GetComponent<BaseProductionResourcePanel>();
         _resourceForWorkPanel = GetComponent<ResourceForWorkPanelSpace>();
-        _resourcesView = GetComponent<ResourcesViewSpace>();
         _receptPanel = GetComponent<ReceptPanelSpace>();
     }
 
@@ -101,6 +107,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         SetResourceForWorkPanel(building);
         SetReceptPanel(building);
         SetTurretPanel(building);
+        SetMachine(building);
         SetButtonPanel();
 
         if (!_panelDoMoveY.IsOpen()) _panelDoMoveY.IsOpen();
@@ -123,7 +130,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _buildingResourcesText.text = Language.TextStatic[152];
         _buildingResourcesPanelObject.SetActive(true);
         _buildingResourcesPanelLine.SetActive(true);
-        _resourcesView.SetResourcesView(building.ResourcesForBuild);
+        _buildingResourcesView.SetResourcesView(building.ResourcesForBuild);
     }
 
     private void SetProductionPanel(Building building)
@@ -186,6 +193,24 @@ public class LearnBuildingInfoPanel : MonoBehaviour
             _receptPanel.UpdateReceptView(building.ResourcesProduction[_currentResourcesProduction].ResourceRecept);
             _receptPanelObject.SetActive(true);
             _receptPanelLine.SetActive(true);
+        }
+    }
+
+    private void SetMachine(Building building)
+    {
+        if (building.MachineInfo == null)
+        {
+            _machinePanelObject.SetActive(false);
+            _machinePanelLine.SetActive(false);
+        }
+        else
+        {
+            var machineText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[243]}:</color>";
+            _machineText.text = $"{machineText} {building.MachineInfo.Name[Language.LanguageNumber]}";
+            _machineResourcesText.text = Language.TextStatic[244];
+            _machinePanelObject.SetActive(true);
+            _machinePanelLine.SetActive(true);
+            _machineResourcesView.SetResourcesView(building.MachineInfo.ResourcesForBuild);
         }
     }
 

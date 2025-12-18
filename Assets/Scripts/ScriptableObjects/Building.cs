@@ -18,6 +18,7 @@ public class Building : ScriptableObject
     public ResourceWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства здания
     public ResourcesForWorkWrapper[] ResourcesForWork; // кол-во ресурсов для работы здания
     public ResourcesProductionWrapper[] ResourcesProduction; // кол-во ресурсов которые может создавать здание
+    public MachineInfo MachineInfo; // иформация о производимой машине
 
     [Header("VFX")]
     public GameObject DestroyVFXPrefab;

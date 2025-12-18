@@ -756,11 +756,11 @@ public class Language : MonoBehaviour
         _text[242, 0] = "Blastfire Launcher";
         _text[242, 1] = "Взрывопламенная Установка";
 
-        _text[243, 0] = "";
-        _text[243, 1] = "";
+        _text[243, 0] = "Machine";
+        _text[243, 1] = "Машина";
 
-        _text[244, 0] = "";
-        _text[244, 1] = "";
+        _text[244, 0] = "Resources for create machine:";
+        _text[244, 1] = "Ресурсы для создания машины:";
 
         _text[245, 0] = "";
         _text[245, 1] = "";
