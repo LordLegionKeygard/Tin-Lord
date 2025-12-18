@@ -360,7 +360,8 @@ public class GroundTile : MonoBehaviour
                         return;
                     }
 
-                    if (neighbour.CheckTileView(GroundTileViewEnum.Mountain))
+                    if (neighbour.CheckTileView(GroundTileViewEnum.Mountain) ||
+                        neighbour.CheckTileView(GroundTileViewEnum.OvergrownMountain))
                     {
                         ChangeTile(GroundTileViewEnum.CoalDeposits);
                         return;
