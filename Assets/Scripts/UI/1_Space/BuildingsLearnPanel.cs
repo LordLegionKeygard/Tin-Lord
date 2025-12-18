@@ -73,11 +73,25 @@ public class BuildingsLearnPanel : MonoBehaviour
         }
     }
 
-    public bool TryGetBlockingResource(Building b, out ResourceEnum missing)
+    public bool TryGetBlockingResourceForMachine(MachineInfo info, out ResourceEnum missing)
     {
         missing = ResourceEnum.None;
 
-        foreach (var need in b.ResourcesForBuild)
+        foreach (var need in info.ResourcesForBuild)
+        {
+            if (!ResourceSatisfied(need.ResourceEnum))
+            {
+                missing = need.ResourceEnum; return false;
+            }
+        }
+        return true;
+    }
+
+    public bool TryGetBlockingResourceForBuilding(Building building, out ResourceEnum missing)
+    {
+        missing = ResourceEnum.None;
+
+        foreach (var need in building.ResourcesForBuild)
         {
             if (!ResourceSatisfied(need.ResourceEnum))
             {
@@ -85,7 +99,7 @@ public class BuildingsLearnPanel : MonoBehaviour
             }
         }
 
-        if (b.ResourcesForWork.Length > 0)
+        if (building.ResourcesForWork.Length > 0)
         {
             bool fuelOk = false;
             ResourceEnum fail = ResourceEnum.None;
@@ -99,11 +113,11 @@ public class BuildingsLearnPanel : MonoBehaviour
             }
         }
 
-        if (b.ResourcesProduction.Length == 0) return true;
+        if (building.ResourcesProduction.Length == 0) return true;
 
         ResourceEnum firstFail = ResourceEnum.None;
 
-        foreach (var prod in b.ResourcesProduction)
+        foreach (var prod in building.ResourcesProduction)
         {
             bool recipeOk = true;
 

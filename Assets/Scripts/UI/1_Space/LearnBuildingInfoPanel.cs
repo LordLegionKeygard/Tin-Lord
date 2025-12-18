@@ -255,21 +255,37 @@ public class LearnBuildingInfoPanel : MonoBehaviour
             return;
         }
 
-        bool depsOk = _buildingLearnPanel.TryGetBlockingResource(building, out ResourceEnum missing);
+        bool isHaveAllResourcesForBuilding = _buildingLearnPanel.TryGetBlockingResourceForBuilding(building, out ResourceEnum missing);
 
-        if (!depsOk)
+        if (!isHaveAllResourcesForBuilding)
         {
-            _targetItemForGo = _buildingLearnPanel.GetProducerOf(missing);
-            _blockReasonText.text = GetNeedOpenText(_targetItemForGo);
-
-            PrepareGoButton();
-            BlockReasonToggle(true);
-            _buttonsPanelObject.SetActive(false);
+            SetBlockReason(missing);
             return;
+        }
+
+        if (building.MachineInfo != null)
+        {
+            bool isHaveAllResourcesForMachine = _buildingLearnPanel.TryGetBlockingResourceForMachine(building.MachineInfo, out ResourceEnum missingMachine);
+
+            if (!isHaveAllResourcesForMachine)
+            {
+                SetBlockReason(missingMachine);
+                return;
+            }
         }
 
         BlockReasonToggle(false);
         _buttonsPanelObject.SetActive(!_currentLearnBuildingItem.IsLearn());
+    }
+
+    private void SetBlockReason(ResourceEnum missing)
+    {
+        _targetItemForGo = _buildingLearnPanel.GetProducerOf(missing);
+        _blockReasonText.text = GetNeedOpenText(_targetItemForGo);
+
+        PrepareGoButton();
+        BlockReasonToggle(true);
+        _buttonsPanelObject.SetActive(false);
     }
 
     private string GetNeedOpenText(LearnBuildingItem item)
