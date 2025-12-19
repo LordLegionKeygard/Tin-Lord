@@ -26,7 +26,7 @@ public class TileEcology : MonoBehaviour
 
             if (_tileObject.BuildingTileObject().IsEcologyBuilding())
             {
-                buildingEcology = _tileObject.IsBuildingWork() ? currentBuilding.BuildingEcologyPurifier : baseBuildingEcology;
+                buildingEcology = _tileObject.IsBuildingWork() ? currentBuilding.BuildingEcologicalRestoration : baseBuildingEcology;
             }
             else
             {

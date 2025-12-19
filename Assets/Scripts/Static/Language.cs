@@ -762,8 +762,8 @@ public class Language : MonoBehaviour
         _text[244, 0] = "Resources for create machine:";
         _text[244, 1] = "Ресурсы для создания машины:";
 
-        _text[245, 0] = "";
-        _text[245, 1] = "";
+        _text[245, 0] = "Ecological Restoration";
+        _text[245, 1] = "Восстановление экологии";
 
         _text[246, 0] = "";
         _text[246, 1] = "";

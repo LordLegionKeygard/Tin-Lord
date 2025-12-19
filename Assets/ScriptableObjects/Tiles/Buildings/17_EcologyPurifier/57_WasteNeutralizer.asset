@@ -20,7 +20,7 @@ MonoBehaviour:
   Id: 57
   BuildingLevel: 3
   RequiredBaseLevel: 3
-  BuildingEcology: -1
+  BuildingEcology: 0
   BuildingHealth: 150
   ResourceExtractedAmount: 0
   Price: 500
@@ -52,7 +52,7 @@ MonoBehaviour:
   AttackRadius: 0
   RotationSpeed: 0
   KnockbackPoints: 0
-  BuildingEcologyPurifier: 20
+  BuildingEcologicalRestoration: 20
   RandomRange: 0
   IsChangePosition: 0
   IsChangeRotation: 1

@@ -16,18 +16,14 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buildingHealthText;
     [SerializeField] private TextMeshProUGUI _buildingLevelText;
 
+    [Header("MainPlus")]
+    [SerializeField] private TextMeshProUGUI _ecologicalRestorationText;
+
     [Header("BuildingResources")]
     [SerializeField] private TextMeshProUGUI _buildingResourcesText;
     [SerializeField] private GameObject _buildingResourcesPanelObject;
     [SerializeField] private GameObject _buildingResourcesPanelLine;
     [SerializeField] private ResourcesViewSpace _buildingResourcesView;
-
-    [Header("Machine")]
-    [SerializeField] private TextMeshProUGUI _machineText;
-    [SerializeField] private TextMeshProUGUI _machineResourcesText;
-    [SerializeField] private GameObject _machinePanelObject;
-    [SerializeField] private GameObject _machinePanelLine;
-    [SerializeField] private ResourcesViewSpace _machineResourcesView;
 
     [Header("ResourcesFoWork")]
     [SerializeField] private TextMeshProUGUI _resourceForWorkText;
@@ -59,6 +55,13 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _attackRadiusText;
     [SerializeField] private TextMeshProUGUI _rotationSpeedText;
 
+    [Header("Machine")]
+    [SerializeField] private TextMeshProUGUI _machineText;
+    [SerializeField] private TextMeshProUGUI _machineResourcesText;
+    [SerializeField] private GameObject _machinePanelObject;
+    [SerializeField] private GameObject _machinePanelLine;
+    [SerializeField] private ResourcesViewSpace _machineResourcesView;
+
     [Header("BlockReason")]
     [SerializeField] private GameObject _blockReasonPanelObject;
     [SerializeField] private GameObject _blockReasonPanelLine;
@@ -88,6 +91,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _buildingEcologyText.text = $"{buildingEcologyText} -";
         _buildingHealthText.text = $"{buildingHealthText} -";
         _buildingLevelText.text = $"{buildindLevelText} -";
+        _ecologicalRestorationText.gameObject.SetActive(false);
     }
 
     public void SetNewBuildingItem(LearnBuildingItem learnBuildingItem)
@@ -115,14 +119,17 @@ public class LearnBuildingInfoPanel : MonoBehaviour
 
     private void SetMainPanel(Building building)
     {
+        _ecologicalRestorationText.gameObject.SetActive(building.BuildingEcologicalRestoration > 0);
         _buildingNameText.text = building.Name[Language.LanguageNumber];
         var buildingEcologyText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[16]}:</color>";
         var buildingHealthText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[97]}:</color>";
         var buildindLevelText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[3]}:</color>";
+        var ecologicalRestorationText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[245]}:</color>";
 
         _buildingEcologyText.text = $"{buildingEcologyText} {building.BuildingEcology}";
         _buildingHealthText.text = $"{buildingHealthText} {building.BuildingHealth}";
         _buildingLevelText.text = $"{buildindLevelText} {building.BuildingLevel}";
+        _ecologicalRestorationText.text = $"{ecologicalRestorationText} {building.BuildingEcologicalRestoration}";
     }
 
     private void SetBuildingResourcesPanel(Building building)
@@ -196,24 +203,6 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         }
     }
 
-    private void SetMachine(Building building)
-    {
-        if (building.MachineInfo == null)
-        {
-            _machinePanelObject.SetActive(false);
-            _machinePanelLine.SetActive(false);
-        }
-        else
-        {
-            var machineText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[243]}:</color>";
-            _machineText.text = $"{machineText} {building.MachineInfo.Name[Language.LanguageNumber]}";
-            _machineResourcesText.text = Language.TextStatic[244];
-            _machinePanelObject.SetActive(true);
-            _machinePanelLine.SetActive(true);
-            _machineResourcesView.SetResourcesView(building.MachineInfo.ResourcesForBuild);
-        }
-    }
-
     private void SetTurretPanel(Building building)
     {
         if (building.Damage == 0)
@@ -236,6 +225,29 @@ public class LearnBuildingInfoPanel : MonoBehaviour
             _turretPanelObject.SetActive(true);
             _turretPanelLine.SetActive(true);
         }
+    }
+
+    private void SetMachine(Building building)
+    {
+        if (building.MachineInfo == null)
+        {
+            _machinePanelObject.SetActive(false);
+            _machinePanelLine.SetActive(false);
+        }
+        else
+        {
+            var machineText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[243]}:</color>";
+            _machineText.text = $"{machineText} {building.MachineInfo.Name[Language.LanguageNumber]}";
+            _machineResourcesText.text = Language.TextStatic[244];
+            _machinePanelObject.SetActive(true);
+            _machinePanelLine.SetActive(true);
+            _machineResourcesView.SetResourcesView(building.MachineInfo.ResourcesForBuild);
+        }
+    }
+
+    private void SetRestoreEcology(Building building)
+    {
+
     }
 
     private void SetButtonPanel()

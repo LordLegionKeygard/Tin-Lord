@@ -32,7 +32,7 @@ public class Building : ScriptableObject
     public float KnockbackPoints;
 
     [Header("EcologyBuilding")]
-    public int BuildingEcologyPurifier; // кол-во очков экологии которое дает здание по очистке экологии
+    public int BuildingEcologicalRestoration; // кол-во очков экологии которое дает здание по очистке экологии
 
     [Header("RandomTransformOnTile")]
     [Range(0f, 2.5f)] public float RandomRange;
