@@ -44,7 +44,7 @@ public class EnemyIdleState : EnemyState
     private BaseHealth FindTargetWithExtendedRadius(EnemyStateChanger stateChanger)
     {
         // Поиск в начальном радиусе
-        Collider[] smallColliders = Physics.OverlapSphere(transform.position, stateChanger.DetectionRadius(), stateChanger.DetectionLayer());
+        Collider[] smallColliders = Physics.OverlapSphere(transform.position, WorldGameInfo.EnemiesSmallDetectionRadius, stateChanger.DetectionLayer());
         if (smallColliders.Length == 0)
         {
             // Если в начальном радиусе здание не обнаружено – враг продолжает идти к базе
@@ -52,8 +52,7 @@ public class EnemyIdleState : EnemyState
         }
 
         // Расширенный радиус
-        float extendedRadius = stateChanger.ExtraDetectionRadius();
-        Collider[] bigColliders = Physics.OverlapSphere(transform.position, extendedRadius, stateChanger.DetectionLayer());
+        Collider[] bigColliders = Physics.OverlapSphere(transform.position, WorldGameInfo.EnemiesBigDetectionRadius, stateChanger.DetectionLayer());
 
         List<BaseHealth> allTargets = new();
         foreach (var collider in bigColliders)

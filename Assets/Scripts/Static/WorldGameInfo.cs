@@ -39,6 +39,8 @@ public class WorldGameInfo
 
     [Header("Enemies")]
     public const float MiniBossScale = 2;
+    public const float EnemiesSmallDetectionRadius = 30;
+    public const float EnemiesBigDetectionRadius = 70;
 
     [Header("GoogleSheet")]
     public const string GoogleSheetId = "1phPv5iEL7Iw6A6CCdU4SdSgN5LwbEprCKEzY10dwDr4";

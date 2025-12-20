@@ -40,15 +40,26 @@ public class TileObjectEvents : MonoBehaviour
         }
     }
 
+    private void UncativeEvent()
+    {
+        _tileObject.SetTurretBuildingCantShoot();
+        
+        _tileObject.SetBuildingWork(true);
+        CustomEvents.FireChangeEcology(_tileObject.TileEcology().GetEcology(GetEcologyEnum.Total), _tileObject.GetId(), false);
+        _tileObject.ChangeResourceProduction();
+        CustomEvents.FireChangeResourceForWork(_tileObject, _tileObject.CurrentResourceForWork(), 0, _tileObject.CurrentResourceRecept());
+
+    }
+
     private void EventTick()
     {
         if (_toxicGasTicksNumber == 0) return;
 
         _toxicGasTicksNumber--;
-        
+
         if (_toxicGasTicksNumber == 0)
         {
-            _tileObject.SetTurretBuildingCantShoot();
+            UncativeEvent();
         }
     }
 
