@@ -27,8 +27,6 @@ MonoBehaviour:
   ResourcesForBuild:
   - ResourceEnum: 0
     RecourceAmount: 20
-  - ResourceEnum: 3
-    RecourceAmount: 20
   ResourcesForWork: []
   ResourcesProduction: []
   MachineInfo: {fileID: 11400000, guid: 54887ecd7095ab348ab7432e1861a6d7, type: 2}
@@ -41,7 +39,7 @@ MonoBehaviour:
   AttackRadius: 0
   RotationSpeed: 0
   KnockbackPoints: 0
-  BuildingEcologyPurifier: 0
+  BuildingEcologicalRestoration: 0
   RandomRange: 0
   IsChangePosition: 0
   IsChangeRotation: 1

@@ -72,21 +72,54 @@ public class EnemyIdleState : EnemyState
 
         var rnd = TRManager.Instance.GenerateIntegerPRNG(0, 100);
 
-        // Берем случаную цель, кроме стен
+        // Берем случайную цель, кроме стен
         if (rnd[0] > 70)
         {
-            return GetRandomReachableTarget(allTargets);
+            // Составляем список всех целей кроме стен
+            List<BaseHealth> nonWallTargets = new();
+            foreach (var candidate in allTargets)
+            {
+                var tile = candidate.BuildingTile();
+                var isWallOrGate = tile != null && (tile.BuildingTileView is BuildingTileViewEnum.Walls or BuildingTileViewEnum.Gates);
+                if (!isWallOrGate)
+                {
+                    nonWallTargets.Add(candidate);
+                }
+            }
+
+            // берем случайную цель из доступных
+            var nonWallTarget = GetRandomReachableTarget(nonWallTargets, allTargets);
+            if (nonWallTarget != null)
+            {
+                return nonWallTarget;
+            }
         }
+
         // Берем любую цель, включая стены
-        else
+        List<int> randomInts = TRManager.Instance.GenerateIntegerPRNG(0, allTargets.Count - 1);
+        int rndIndex = randomInts[0];
+        var target = allTargets[rndIndex];
+
+        var startNode = AstarPath.active.GetNearest(transform.position).node;
+        if (startNode != null)
         {
-            List<int> randomInts = TRManager.Instance.GenerateIntegerPRNG(0, allTargets.Count - 1);
-            int rndIndex = randomInts[0];
-            return allTargets[rndIndex];
+            var endNode = AstarPath.active.GetNearest(target.transform.position).node;
+            if (endNode != null && PathUtilities.IsPathPossible(startNode, endNode))
+            {
+                return target;
+            }
         }
+
+        var reachableTarget = GetRandomReachableTarget(allTargets, allTargets);
+        if (reachableTarget != null)
+        {
+            return reachableTarget;
+        }
+
+        return target;
     }
 
-    private BaseHealth GetRandomReachableTarget(List<BaseHealth> allTargets)
+    private BaseHealth GetRandomReachableTarget(List<BaseHealth> needTargets, List<BaseHealth> allTargets)
     {
         // Фильтруем по достижимости: из всех найденных зданий оставляем только те, до которых есть путь
         var startNode = AstarPath.active.GetNearest(transform.position).node;
@@ -94,13 +127,18 @@ public class EnemyIdleState : EnemyState
 
         List<BaseHealth> reachable = new();
 
+        if (needTargets == null || needTargets.Count == 0)
+        {
+            needTargets = allTargets;
+        }
+
         // Проверяем достижимость ограниченного числа случайных целей, чтобы не грузить CPU на больших пачках
-        int checks = Mathf.Min(WorldGameInfo.MaxReachabilityChecks, allTargets.Count);
-        List<int> indices = TRManager.Instance.GenerateIntegerPRNG(0, allTargets.Count - 1, checks);
+        int checks = Mathf.Min(WorldGameInfo.MaxReachabilityChecks, needTargets.Count);
+        List<int> indices = TRManager.Instance.GenerateIntegerPRNG(0, needTargets.Count - 1, checks);
 
         for (int i = 0; i < checks; i++)
         {
-            var candidate = allTargets[indices[i]];
+            var candidate = needTargets[indices[i]];
             var endNode = AstarPath.active.GetNearest(candidate.transform.position).node;
             if (endNode != null && PathUtilities.IsPathPossible(startNode, endNode))
             {
@@ -108,7 +146,7 @@ public class EnemyIdleState : EnemyState
             }
         }
 
-        // Если ни одно здание не достижимо значит база окружена стенами, возвращаем близжайшее здание 
+        // Если ни одно здание не достижимо значит база окружена стенами, возвращаем близжайшее достижимое здание 
         if (reachable.Count == 0)
         {
             BaseHealth nearestTarget = null;

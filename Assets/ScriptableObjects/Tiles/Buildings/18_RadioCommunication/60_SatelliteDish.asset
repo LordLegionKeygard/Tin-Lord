@@ -28,11 +28,11 @@ MonoBehaviour:
   - ResourceEnum: 11
     RecourceAmount: 20
   - ResourceEnum: 16
-    RecourceAmount: 15
-  - ResourceEnum: 18
     RecourceAmount: 10
+  - ResourceEnum: 18
+    RecourceAmount: 5
   - ResourceEnum: 19
-    RecourceAmount: 8
+    RecourceAmount: 1
   ResourcesForWork: []
   ResourcesProduction: []
   MachineInfo: {fileID: 0}
@@ -45,7 +45,7 @@ MonoBehaviour:
   AttackRadius: 0
   RotationSpeed: 0
   KnockbackPoints: 0
-  BuildingEcologyPurifier: 0
+  BuildingEcologicalRestoration: 0
   RandomRange: 0
   IsChangePosition: 0
   IsChangeRotation: 1
