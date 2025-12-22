@@ -26,6 +26,7 @@ public class HangarSystem : MonoBehaviour
     private bool _canLaunch = true;
 
     [Header("Robot")]
+    [SerializeField] private TextMeshProUGUI _robotHeaderText;
     [SerializeField] private GameObject _buyRobotButtonObject;
     [SerializeField] HangarRobotItem[] _hangarRobotItems;
     [SerializeField] private GameObject[] _robotModels;
@@ -35,26 +36,10 @@ public class HangarSystem : MonoBehaviour
     [SerializeField] private int _currentSelectRobot = -1;
     private Coroutine _robotEyeCoroutine;
 
-    [Header("Crates")]
-    [SerializeField] private GameObject _buyCrateButtonObject;
-    [SerializeField] HangarCrateItem[] _hangarCrateItems;
-    [SerializeField] private GameObject[] _crateModels;
-    [SerializeField] private HangarCrateResourcesView _hangarCrateResourcesView;
-    [SerializeField] private int _currentCrate = -1;
-    [SerializeField] private int _currentSelectCrate = -1;
-
-    [Header("Skills")]
-    [SerializeField] private GameObject _buySkillButtonObject;
-    [SerializeField] HangarSkillItem[] _hangarSkillItems;
-    [SerializeField] private TextMeshProUGUI _skillDescription;
-    [SerializeField] private int _currentFirstSkill = -1;
-    [SerializeField] private int _currentSecondSkill = -1;
-    [SerializeField] private int _currentSelectSkillForBuy = -1;
-
     [Header("ShipWeapons")]
+    [SerializeField] private TextMeshProUGUI _shipWeaponsHeaderText;
     [SerializeField] private GameObject _buyShipWeaponButtonObject;
     [SerializeField] private HangarShipWeaponItem[] _hangarShipWeaponItems;
-    [SerializeField] private TextMeshProUGUI _shipWeaponsDescription;
     [SerializeField] private int _currentLeftShipWeapon = -1;
     [SerializeField] private int _currentRightShipWeapon = -1;
     [SerializeField] private int _currentSelectShipWeaponForBuy = -1;
@@ -66,6 +51,31 @@ public class HangarSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _rightShipWeaponNameText;
     [SerializeField] private TextMeshProUGUI _rightShipWeaponDamageText;
     [SerializeField] private TextMeshProUGUI _rightShipWeaponAmmoText;
+
+    [Header("Crates")]
+    [SerializeField] private TextMeshProUGUI _cratesHeaderText;
+    [SerializeField] private GameObject _buyCrateButtonObject;
+    [SerializeField] HangarCrateItem[] _hangarCrateItems;
+    [SerializeField] private GameObject[] _crateModels;
+    [SerializeField] private HangarCrateResourcesView _hangarCrateResourcesView;
+    [SerializeField] private int _currentCrate = -1;
+    [SerializeField] private int _currentSelectCrate = -1;
+
+    [Header("Skills")]
+    [SerializeField] private GameObject _firstSkillResourceCell;
+    [SerializeField] private GameObject _secondSkillResourceCell;
+    [SerializeField] private HangarSkillsResourcesView _hangarFirstSkillResourcesView;
+    [SerializeField] private HangarSkillsResourcesView _hangarSecondSkillResourcesView;
+    [SerializeField] private TextMeshProUGUI _skillHeaderText;
+    [SerializeField] private TextMeshProUGUI _firstSkillNameText;
+    [SerializeField] private TextMeshProUGUI _secondSkillNameText;
+    [SerializeField] private TextMeshProUGUI _firstSkillDescriptionText;
+    [SerializeField] private TextMeshProUGUI _secondSkillDescriptionText;
+    [SerializeField] private GameObject _buySkillButtonObject;
+    [SerializeField] HangarSkillItem[] _hangarSkillItems;
+    [SerializeField] private int _currentFirstSkill = -1;
+    [SerializeField] private int _currentSecondSkill = -1;
+    [SerializeField] private int _currentSelectSkillForBuy = -1;
 
 
     public bool EnoughtShards(int price) => _shardsSystem.GetShards() >= price;
@@ -238,16 +248,18 @@ public class HangarSystem : MonoBehaviour
         switch (robotType)
         {
             case HangarRobotType.Arbalester:
-                _robotPassiveAbility.text = isOpen ? $"{Language.TextStatic[82]}:\n-{WorldGameInfo.PatchPassiveAbility}% {Language.TextStatic[79]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
+                _robotPassiveAbility.text = isOpen ? $"-{WorldGameInfo.PatchPassiveAbility}% {Language.TextStatic[79]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
                 break;
             case HangarRobotType.Titan:
-                _robotPassiveAbility.text = isOpen ? $"{Language.TextStatic[82]}:\n+{WorldGameInfo.TitanPassiveAbility}% {Language.TextStatic[80]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
+                _robotPassiveAbility.text = isOpen ? $"+{WorldGameInfo.TitanPassiveAbility}% {Language.TextStatic[80]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
                 break;
             case HangarRobotType.Sniper:
-                _robotPassiveAbility.text = isOpen ? $"{Language.TextStatic[82]}:\n+{WorldGameInfo.AimBotPassiveAbility}% {Language.TextStatic[81]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
+                _robotPassiveAbility.text = isOpen ? $"+{WorldGameInfo.AimBotPassiveAbility}% {Language.TextStatic[81]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
                 break;
         }
 
+        _robotHeaderText.text = isOpen ? Language.TextStatic[84] : Language.TextStatic[87];
+        _robotHeaderText.color = isOpen ? Color.white : Colors.WarningYellow;
         _currentSelectRobot = (int)robotType;
         _currentRobot = (int)robotType;
 
@@ -269,6 +281,9 @@ public class HangarSystem : MonoBehaviour
         {
             _hangarCrateItems[i].SelectToggleState(false);
         }
+
+        _cratesHeaderText.text = isOpen ? Language.TextStatic[202] : Language.TextStatic[87];
+        _cratesHeaderText.color = isOpen ? Color.white : Colors.WarningYellow;
 
         _hangarCrateItems[(int)crateType].SelectToggleState(true);
         _buyCrateButtonObject.SetActive(!isOpen);
@@ -304,10 +319,12 @@ public class HangarSystem : MonoBehaviour
             if (_currentFirstSkill == -1)
             {
                 _currentFirstSkill = (int)skillType;
+
             }
             else
             {
                 _currentSecondSkill = (int)skillType;
+
             }
             if (_currentFirstSkill != -1) _hangarSkillItems[_currentFirstSkill].SelectToggleState(true, 0);
             if (_currentSecondSkill != -1) _hangarSkillItems[_currentSecondSkill].SelectToggleState(true, 1);
@@ -319,19 +336,50 @@ public class HangarSystem : MonoBehaviour
             _currentSelectSkillForBuy = (int)skillType;
             _hangarSkillItems[_currentSelectSkillForBuy].SelectToggleState(true, -1);
         }
+
+        SetSkillResourceView();
+        SetSkillTexts();
         UpdateLaunchButtonActive();
     }
 
-    public void SetSkillDescription(SkillEnum skillType, bool isOpen, bool isExit)
+    private void SetSkillResourceView()
     {
-        if (isExit && _currentFirstSkill == -1 && _currentSecondSkill == -1)
+        if (_currentFirstSkill != -1)
         {
-            _skillDescription.text = Language.TextStatic[221];
+            var firstSkillRequiredResources = _hangarSkillItems[_currentFirstSkill].GetInfo().RequiredResource;
+
+            if (firstSkillRequiredResources.Resource == null)
+            {
+                _firstSkillResourceCell.SetActive(false);
+            }
+            else
+            {
+                _hangarFirstSkillResourcesView.SetResources(firstSkillRequiredResources, _hangarSkillItems[_currentFirstSkill].IsOpen());
+                _firstSkillResourceCell.SetActive(true);
+            }
         }
         else
         {
-            var info = _hangarSkillItems[(int)skillType].GetInfo();
-            _skillDescription.text = isOpen ? $"{Language.TextStatic[info.NameNumber]} - {Language.TextStatic[info.InfoNumber]}" : $"{Language.TextStatic[298]} {Language.TextStatic[194]}";
+            _firstSkillResourceCell.SetActive(false);
+        }
+
+        if (_currentSecondSkill != -1)
+        {
+            var secondSkillRequiredResources = _hangarSkillItems[_currentSecondSkill].GetInfo().RequiredResource;
+
+            if (secondSkillRequiredResources.Resource == null)
+            {
+                _secondSkillResourceCell.SetActive(false);
+            }
+            else
+            {
+                _hangarSecondSkillResourcesView.SetResources(secondSkillRequiredResources, _hangarSkillItems[_currentSecondSkill].IsOpen());
+                _secondSkillResourceCell.SetActive(true);
+            }
+        }
+        else
+        {
+            _secondSkillResourceCell.SetActive(false);
         }
     }
 
@@ -345,35 +393,60 @@ public class HangarSystem : MonoBehaviour
         else if (selectSkillIndex == 0)
         {
             _hangarSkillItems[_currentFirstSkill].SelectToggleState(false, -1);
+            _firstSkillResourceCell.SetActive(false);
             _currentFirstSkill = -1;
         }
         else
         {
             _hangarSkillItems[_currentSecondSkill].SelectToggleState(false, -1);
+            _secondSkillResourceCell.SetActive(false);
             _currentSecondSkill = -1;
         }
 
-        if (_currentFirstSkill == -1 && _currentSecondSkill == -1)
+        _buySkillButtonObject.SetActive(false);
+        SetSkillTexts();
+        UpdateLaunchButtonActive();
+    }
+
+    private void SetSkillTexts()
+    {
+        var isReady = _currentFirstSkill != -1 || _currentSecondSkill != -1;
+
+        _skillHeaderText.text = isReady ? Language.TextStatic[179] : Language.TextStatic[87];
+        _skillHeaderText.color = isReady ? Color.white : Colors.WarningYellow;
+
+
+        if (_currentFirstSkill != -1)
         {
-            _skillDescription.text = Language.TextStatic[221];
+            var firstSkillInfo = _hangarSkillItems[_currentFirstSkill].GetInfo();
+            _firstSkillNameText.text = $"{Language.TextStatic[firstSkillInfo.NameNumber]}:";
+            _firstSkillDescriptionText.text = $"{Language.TextStatic[firstSkillInfo.InfoNumber]}";
+        }
+        else
+        {
+            _firstSkillNameText.text = $"{Language.TextStatic[246]}: -";
+            _firstSkillDescriptionText.text = string.Empty;
         }
 
-
-        _buySkillButtonObject.SetActive(false);
-        UpdateLaunchButtonActive();
+        if (_currentSecondSkill != -1)
+        {
+            var secondSkillInfo = _hangarSkillItems[_currentSecondSkill].GetInfo();
+            _secondSkillNameText.text = $"{Language.TextStatic[secondSkillInfo.NameNumber]}:";
+            _secondSkillDescriptionText.text = $"{Language.TextStatic[secondSkillInfo.InfoNumber]}";
+        }
+        else
+        {
+            _secondSkillNameText.text = $"{Language.TextStatic[247]}: -";
+            _secondSkillDescriptionText.text = string.Empty;
+        }
     }
 
     private void SetShipWeaponTexts()
     {
-        if (_currentLeftShipWeapon == -1 && _currentRightShipWeapon == -1)
-        {
-            _shipWeaponsDescription.text = Language.TextStatic[87];
-        }
-        else
-        {
-            _shipWeaponsDescription.text = "-";
-        }
+        var isReady = _currentLeftShipWeapon != -1 || _currentRightShipWeapon != -1;
 
+        _shipWeaponsHeaderText.text = isReady ? Language.TextStatic[85] : Language.TextStatic[87];
+        _shipWeaponsHeaderText.color = isReady ? Color.white : Colors.WarningYellow;
 
         _leftShipWeaponNameText.text = _currentLeftShipWeapon == -1 ? $"{Language.TextStatic[88]}: -" : $"{Language.TextStatic[88]}: {Language.TextStatic[_hangarShipWeaponItems[_currentLeftShipWeapon].GetInfo().NameNumber]}";
         _rightShipWeaponNameText.text = _currentRightShipWeapon == -1 ? $"{Language.TextStatic[89]}: -" : $"{Language.TextStatic[89]}: {Language.TextStatic[_hangarShipWeaponItems[_currentRightShipWeapon].GetInfo().NameNumber]}";
@@ -520,16 +593,16 @@ public class HangarSystem : MonoBehaviour
     {
         if (_currentCrate == -1 || _currentRobot == -1) return;
 
-        var robotSelect = _hangarRobotItems[_currentRobot].IsOpen();
-        var crateSelect = _hangarCrateItems[_currentCrate].IsOpen();
+        var isRobotOpen = _hangarRobotItems[_currentRobot].IsOpen();
+        var isCrateOpen = _hangarCrateItems[_currentCrate].IsOpen();
 
-        var firstSkillSelect = _currentFirstSkill != -1 ? _hangarSkillItems[_currentFirstSkill].IsOpen() : false;
-        var secondSkillSelect = _currentSecondSkill != -1 ? _hangarSkillItems[_currentSecondSkill].IsOpen() : false;
+        var isFirstSkillOpen = _currentFirstSkill != -1 ? _hangarSkillItems[_currentFirstSkill].IsOpen() : false;
+        var isSecondSkillOpen = _currentSecondSkill != -1 ? _hangarSkillItems[_currentSecondSkill].IsOpen() : false;
 
-        var leftShipWeaponSelect = _currentLeftShipWeapon != -1 ? _hangarShipWeaponItems[_currentLeftShipWeapon].IsOpen() : false;
-        var rightShipWeaponSelect = _currentRightShipWeapon != -1 ? _hangarShipWeaponItems[_currentRightShipWeapon].IsOpen() : false;
+        var isLeftShipWeaponOpen = _currentLeftShipWeapon != -1 ? _hangarShipWeaponItems[_currentLeftShipWeapon].IsOpen() : false;
+        var isRightShipWeaponOpen = _currentRightShipWeapon != -1 ? _hangarShipWeaponItems[_currentRightShipWeapon].IsOpen() : false;
 
-        _launchButton.SetActive(robotSelect && crateSelect && (firstSkillSelect || secondSkillSelect) && (leftShipWeaponSelect || rightShipWeaponSelect));
+        _launchButton.SetActive(isRobotOpen && isCrateOpen && (isFirstSkillOpen || isSecondSkillOpen) && (isLeftShipWeaponOpen || isRightShipWeaponOpen));
     }
 
     public void LaunchButton()

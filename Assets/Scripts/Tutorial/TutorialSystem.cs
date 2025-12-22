@@ -388,10 +388,11 @@ public class TutorialSystem : MonoBehaviour
     {
         if (!IsCompleteMissionTutorial())
         {
+            if (GetTutorialStepEnum() == TutorialStepEnum.MissionPauseGame_24 && gameSpeed == (int)GameSpeedEnum.Pause) return true;
             if (GetTutorialStepEnum() > TutorialStepEnum.MissionBallistaDescription_42 && GetTutorialStepEnum() < TutorialStepEnum.MissionDoubleTripleGameSpeedDescription_55 && gameSpeed == (int)GameSpeedEnum.Default) return false;
             if (GetTutorialStepEnum() < TutorialStepEnum.MissionPauseGame_24 && gameSpeed == (int)GameSpeedEnum.Pause) return false;
             if (GetTutorialStepEnum() < TutorialStepEnum.MissionDoubleTripleGameSpeedDescription_55 && gameSpeed is (int)GameSpeedEnum.Double or (int)GameSpeedEnum.Triple) return false;
-            if (GetTutorialStepEnum() < TutorialStepEnum.MissionDefaultGameSpeed_38 && gameSpeed == (int)GameSpeedEnum.Default) return false;
+            if (GetTutorialStepEnum() < TutorialStepEnum.MissionDefaultGameSpeed_38 && gameSpeed is (int)GameSpeedEnum.Default or (int)GameSpeedEnum.Pause) return false;
             if (GetTutorialStepEnum() > TutorialStepEnum.MissionToggleOnSettlement_43 && GetTutorialStepEnum() < TutorialStepEnum.MissionPrepareAttack_54) return false;
         }
 

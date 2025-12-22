@@ -1,9 +1,8 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class HangarSkillItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class HangarSkillItem : MonoBehaviour
 {
     [SerializeField] private HangarSystem _hangarSystem;
     [SerializeField] private SkillInfo _skillInfo;
@@ -50,16 +49,6 @@ public class HangarSkillItem : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             _hangarSystem.SelectSkill(_skillInfo.SkillEnum, _isOpen);
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        _hangarSystem.SetSkillDescription(_skillInfo.SkillEnum, _isOpen, false);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _hangarSystem.SetSkillDescription(_skillInfo.SkillEnum, _isOpen, true);
     }
 
     public void SelectToggleState(bool state, int selectSkillIndex)

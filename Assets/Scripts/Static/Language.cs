@@ -264,8 +264,8 @@ public class Language : MonoBehaviour
         _text[78, 0] = "Back";
         _text[78, 1] = "Назад";
 
-        _text[79, 0] = "to repair cost";
-        _text[79, 1] = "стоимость ремонта";
+        _text[79, 0] = "cost of repairing buildings";
+        _text[79, 1] = "стоимость ремонта всех зданий";
 
         _text[80, 0] = "to building durability";
         _text[80, 1] = "к прочности зданий";
@@ -273,8 +273,8 @@ public class Language : MonoBehaviour
         _text[81, 0] = "to turret damage";
         _text[81, 1] = "к урону турелей";
 
-        _text[82, 0] = "Passive ability";
-        _text[82, 1] = "Пассивная способность";
+        _text[82, 0] = "";
+        _text[82, 1] = "";
 
         _text[83, 0] = "Shard";
         _text[83, 1] = "Осколок";
@@ -288,8 +288,8 @@ public class Language : MonoBehaviour
         _text[86, 0] = "You cannot restart the mission.\n\nYou have no spare AI cores.";
         _text[86, 1] = "Вы не можете начать миссию с начала.\n\nУ вас нет запасных ядер ИИ.";
 
-        _text[87, 0] = "You must select at least one weapon for the ship";
-        _text[87, 1] = "Необходимо выбрать хотя бы одно оружие для корабля";
+        _text[87, 0] = "Not ready";
+        _text[87, 1] = "Не готово";
 
         _text[88, 0] = "Left";
         _text[88, 1] = "Левое";
@@ -609,8 +609,8 @@ public class Language : MonoBehaviour
         _text[193, 0] = "Functional";
         _text[193, 1] = "Функционал";
 
-        _text[194, 0] = "unavailable";
-        _text[194, 1] = "недоступно";
+        _text[194, 0] = "unknown";
+        _text[194, 1] = "неизвестно";
 
         _text[195, 0] = "explores the surrounding area in search of resources";
         _text[195, 1] = "исследует окрестности в поисках ресурсов";
@@ -690,8 +690,8 @@ public class Language : MonoBehaviour
         _text[220, 0] = "Creates uncontrollable flames. Deals damage to both enemies and your buildings.";
         _text[220, 1] = "Создает неконтролируемое пламя. Наносит урон как врагам, так и вашим постройкам.";
 
-        _text[221, 0] = "You must select at least one skill";
-        _text[221, 1] = "Необходимо выбрать хотя бы одно умение";
+        _text[221, 0] = "";
+        _text[221, 1] = "";
 
         _text[222, 0] = "Toggle resources panel";
         _text[222, 1] = "Переключает панель ресурсов";
@@ -765,11 +765,11 @@ public class Language : MonoBehaviour
         _text[245, 0] = "Ecological Restoration";
         _text[245, 1] = "Восстановление экологии";
 
-        _text[246, 0] = "";
-        _text[246, 1] = "";
+        _text[246, 0] = "First skill";
+        _text[246, 1] = "Первое умение";
 
-        _text[247, 0] = "";
-        _text[247, 1] = "";
+        _text[247, 0] = "Second skill";
+        _text[247, 1] = "Второе умение";
 
         _text[248, 0] = "";
         _text[248, 1] = "";
@@ -1429,7 +1429,7 @@ public class Language : MonoBehaviour
         _text[436, 1] = "Принять соединение"; // выбор 1
 
         _text[437, 0] = "You allow the incoming flow.\n\nThe flow of someone else's consciousness merges with you.\n\nSome segments of your data are rewritten.";
-        _text[437, 1] = "Вы разрешаете входящий поток.\n\nПоток чужого сознания сливается с тобой.\n\nНекоторые сегменты твоих данных переписываются."; // - ядра, + фрагменты
+        _text[437, 1] = "Вы разрешаете входящий поток.\n\nПоток чужого сознания сливается с вами.\n\nНекоторые сегменты твоих данных переписываются."; // - ядра, + фрагменты
 
         _text[438, 0] = "Isolate the core";
         _text[438, 1] = "Изолировать ядро"; // выбор 2
