@@ -2021,7 +2021,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 4
-  m_Radius: 1
+  m_Radius: 0.6
   m_SlopeLimit: 90
   m_StepOffset: 2
   m_SkinWidth: 0.08
@@ -2111,7 +2111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
-  radius: 1
+  radius: 0.6
   height: 3.69
   canMove: 1
   maxSpeed: 0
@@ -2239,6 +2239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a772a9cd184348d4a911882f2651fbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isCanTarget: 1
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 4
@@ -2274,6 +2275,7 @@ MonoBehaviour:
   _deathExplosionType: -1
   _firePoints:
   - {fileID: 7654316932877768022}
+  _creatureSkillsWrapper: []
 --- !u!114 &6087144396509634957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2390,6 +2392,7 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+  maxNodesPerApply: 30
 --- !u!114 &6087144396509634948
 MonoBehaviour:
   m_ObjectHideFlags: 0
