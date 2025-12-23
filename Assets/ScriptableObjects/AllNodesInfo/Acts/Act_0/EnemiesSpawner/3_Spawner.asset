@@ -15,7 +15,7 @@ MonoBehaviour:
   Spawners:
   - StartDaySpawn: 6
     SpawnPeriod: 2
-    Count: 6
+    Count: 8
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -40,7 +40,7 @@ MonoBehaviour:
       EnemyLevel: 1
   - StartDaySpawn: 16
     SpawnPeriod: 2
-    Count: 14
+    Count: 10
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
       EnemyLevel: 1
   - StartDaySpawn: 24
     SpawnPeriod: 2
-    Count: 15
+    Count: 12
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 30
     SpawnPeriod: 2
-    Count: 25
+    Count: 20
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
       EnemyLevel: 3
   - StartDaySpawn: 60
     SpawnPeriod: 2
-    Count: 40
+    Count: 30
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -190,7 +190,7 @@ MonoBehaviour:
       EnemyLevel: 4
   - StartDaySpawn: 70
     SpawnPeriod: 2
-    Count: 45
+    Count: 35
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -215,7 +215,7 @@ MonoBehaviour:
       EnemyLevel: 5
   - StartDaySpawn: 80
     SpawnPeriod: 2
-    Count: 50
+    Count: 40
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -237,10 +237,10 @@ MonoBehaviour:
         EnemyEnum: 2
       - MonsterType: 1
         EnemyEnum: 8
-      EnemyLevel: 5
+      EnemyLevel: 4
   - StartDaySpawn: 90
     SpawnPeriod: 2
-    Count: 50
+    Count: 40
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
         EnemyEnum: 0
       - MonsterType: 1
         EnemyEnum: 6
-      EnemyLevel: 5
+      EnemyLevel: 4
     - EnemyBiomeInfo:
       - MonsterType: 0
         EnemyEnum: 1
@@ -267,7 +267,7 @@ MonoBehaviour:
   - DaySpawn: 20
     Count: 1
     HealthFactor: 5
-    DamageFactor: 1
+    DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
   - DaySpawn: 30
     Count: 2
     HealthFactor: 5
-    DamageFactor: 1
+    DamageFactor: 2
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
         EnemyEnum: 4
       - MonsterType: 1
         EnemyEnum: 10
-      EnemyLevel: 2
+      EnemyLevel: 3
   - DaySpawn: 50
     Count: 3
     HealthFactor: 6
@@ -319,7 +319,7 @@ MonoBehaviour:
         EnemyEnum: 4
       - MonsterType: 1
         EnemyEnum: 10
-      EnemyLevel: 3
+      EnemyLevel: 4
   - DaySpawn: 60
     Count: 3
     HealthFactor: 6
@@ -333,7 +333,7 @@ MonoBehaviour:
         EnemyEnum: 4
       - MonsterType: 1
         EnemyEnum: 10
-      EnemyLevel: 6
+      EnemyLevel: 5
   - DaySpawn: 70
     Count: 4
     HealthFactor: 6
@@ -347,7 +347,7 @@ MonoBehaviour:
         EnemyEnum: 4
       - MonsterType: 1
         EnemyEnum: 10
-      EnemyLevel: 3
+      EnemyLevel: 5
   - DaySpawn: 80
     Count: 4
     HealthFactor: 6
@@ -379,7 +379,7 @@ MonoBehaviour:
   - DaySpawn: 100
     Count: 8
     HealthFactor: 6
-    DamageFactor: 6
+    DamageFactor: 3
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: -1

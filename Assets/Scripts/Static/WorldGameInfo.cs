@@ -3,8 +3,8 @@ using UnityEngine;
 public class WorldGameInfo
 {
     [Header("Build")]
-    public static bool IsSteam = false;
-    public static bool IsDemo = false;
+    public static bool IsSteam = true;
+    public static bool IsDemo = true;
 
     [Header("Ai Performance")]
     public static float TargetScanInterval = 0.5f;
@@ -39,7 +39,7 @@ public class WorldGameInfo
 
     [Header("Enemies")]
     public const float MiniBossScale = 2;
-    public const float EnemiesSmallDetectionRadius = 40;
+    public const float EnemiesSmallDetectionRadius = 30;
     public const float EnemiesBigDetectionRadius = 100;
 
     [Header("GoogleSheet")]
