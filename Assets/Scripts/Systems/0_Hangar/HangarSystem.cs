@@ -248,13 +248,13 @@ public class HangarSystem : MonoBehaviour
         switch (robotType)
         {
             case HangarRobotType.Arbalester:
-                _robotPassiveAbility.text = isOpen ? $"-{WorldGameInfo.PatchPassiveAbility}% {Language.TextStatic[79]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
+                _robotPassiveAbility.text = isOpen ? $"-{WorldGameInfo.PatchPassiveAbility}% {Language.TextStatic[79]}" : $"{Language.TextStatic[194]}";
                 break;
             case HangarRobotType.Titan:
-                _robotPassiveAbility.text = isOpen ? $"+{WorldGameInfo.TitanPassiveAbility}% {Language.TextStatic[80]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
+                _robotPassiveAbility.text = isOpen ? $"+{WorldGameInfo.TitanPassiveAbility}% {Language.TextStatic[80]}" : $"{Language.TextStatic[194]}";
                 break;
             case HangarRobotType.Sniper:
-                _robotPassiveAbility.text = isOpen ? $"+{WorldGameInfo.AimBotPassiveAbility}% {Language.TextStatic[81]}" : $"{Language.TextStatic[82]}:\n{Language.TextStatic[194]}";
+                _robotPassiveAbility.text = isOpen ? $"+{WorldGameInfo.AimBotPassiveAbility}% {Language.TextStatic[81]}" : $"{Language.TextStatic[194]}";
                 break;
         }
 
