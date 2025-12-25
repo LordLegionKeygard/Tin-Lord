@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
-  m_Name: 73_TurretGun
+  m_Name: 73_Howitzer
   m_EditorClassIdentifier: 
   Name:
-  - Turret Gun
-  - "\u0422\u0443\u0440\u0435\u043B\u044C\u043D\u0430\u044F \u041F\u0443\u0448\u043A\u0430"
-  BuildingSprite: {fileID: 21300000, guid: 31eb31e901942cb498572b7b5cbc3a30, type: 3}
+  - Howitzer
+  - "\u0413\u0430\u0443\u0431\u0438\u0446\u0430"
+  BuildingSprite: {fileID: 21300000, guid: 4ce3dce6ad192334faf55fd87e4a207a, type: 3}
   Id: 73
   BuildingLevel: 3
   RequiredBaseLevel: 2
@@ -29,18 +29,20 @@ MonoBehaviour:
     RecourceAmount: 10
   - ResourceEnum: 11
     RecourceAmount: 5
+  - ResourceEnum: 17
+    RecourceAmount: 2
   ResourcesForWork: []
   ResourcesProduction: []
   MachineInfo: {fileID: 0}
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 6a4efe0879bbf104881d51b1076a4376,
     type: 3}
-  ConstructionPrefab: {fileID: 414988364262512770, guid: 4457794648b5eca42baec2134c4ffc96,
+  ConstructionPrefab: {fileID: 4248300103249468580, guid: ce8a4368e4cb5914c8ea48d5d839121e,
     type: 3}
-  Damage: 2
-  AttackSpeed: 1
+  Damage: 6
+  AttackSpeed: 3
   AttackRadius: 50
   RotationSpeed: 0.9
-  KnockbackPoints: 3
+  KnockbackPoints: 10
   BuildingEcologicalRestoration: 0
   RandomRange: 0
   IsChangePosition: 0
