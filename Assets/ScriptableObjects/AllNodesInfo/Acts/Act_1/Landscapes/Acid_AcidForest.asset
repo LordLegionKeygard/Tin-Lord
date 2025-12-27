@@ -45,8 +45,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8d2194d0eb1e96498765b5f192c8d4c, type: 2}
   - {fileID: 11400000, guid: e8d2194d0eb1e96498765b5f192c8d4c, type: 2}
   - {fileID: 11400000, guid: e8d2194d0eb1e96498765b5f192c8d4c, type: 2}
-  - {fileID: 11400000, guid: e8d2194d0eb1e96498765b5f192c8d4c, type: 2}
-  - {fileID: 11400000, guid: e8d2194d0eb1e96498765b5f192c8d4c, type: 2}
   Cards:
   - {fileID: 11400000, guid: 4721036f466c86a4d94c149b6ee8f790, type: 2}
   - {fileID: 11400000, guid: 419af5759a767c14cb33898e99882029, type: 2}
@@ -101,3 +99,6 @@ MonoBehaviour:
     SkyboxRotation: 52
     LightRotation: {x: 20.599998, y: -11.3, z: 0}
     Temperature: 4900
+    EnvironmentPrefab: {fileID: 0}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}

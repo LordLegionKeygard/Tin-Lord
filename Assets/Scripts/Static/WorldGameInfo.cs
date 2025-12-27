@@ -65,7 +65,7 @@ public class WorldGameInfo
     [Header("DayEvent")]
     public const int DayEventChance = 30;
     public const int OilReleaseChance = 30;
-    public const int EatchQuakeChance = 60;
+    public const int EarthQuakeChance = 70;
 
     [Header("Duration")]
     public const int AcidRainTicks = 24;

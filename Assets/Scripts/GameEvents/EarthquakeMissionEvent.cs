@@ -48,14 +48,14 @@ public class EarthquakeMissionEvent : BaseMissionEvent
     {
         var chance = Random.Range(0, 100);
 
-        if (chance >= WorldGameInfo.EatchQuakeChance) return;
+        if (chance >= WorldGameInfo.EarthQuakeChance) return;
 
 
 
-        var rnd = Random.Range(0, 2);
+        var setupVolcano = Random.Range(0, 10);
         var validTiles = new List<TileObject>();
 
-        if (rnd == 0)
+        if (setupVolcano >= 7)
         {
             // Собираем все тайлы, которые соответствуют условию "Mountain"
             foreach (var tileObject in GetAllTileObjects().TileObjects)
