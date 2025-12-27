@@ -153,6 +153,13 @@ public class EnemyIdleState : EnemyState
 
             foreach (var target in allTargets)
             {
+                var tile = target.BuildingTile();
+                var isWallOrGate = tile != null && (tile.BuildingTileView is BuildingTileViewEnum.Walls or BuildingTileViewEnum.Gates);
+                if (!isWallOrGate)
+                {
+                    continue;
+                }
+
                 float sqr = (target.transform.position - transform.position).sqrMagnitude;
                 if (sqr < minSqr)
                 {
