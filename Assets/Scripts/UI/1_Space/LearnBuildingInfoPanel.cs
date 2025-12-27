@@ -245,11 +245,6 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         }
     }
 
-    private void SetRestoreEcology(Building building)
-    {
-
-    }
-
     private void SetButtonPanel()
     {
         var building = _currentLearnBuildingItem.GetBuilding();
@@ -383,6 +378,9 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         _buttonsPanelObject.SetActive(false);
         _blockReasonPanelObject.SetActive(false);
         _blockReasonPanelLine.SetActive(false);
+        _machinePanelObject.SetActive(false);
+        _machinePanelLine.SetActive(false);
+        _ecologicalRestorationText.gameObject.SetActive(false);
 
         _currentLearnBuildingItem = null;
     }
