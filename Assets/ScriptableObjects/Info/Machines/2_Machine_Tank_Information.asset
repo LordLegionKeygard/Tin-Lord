@@ -28,8 +28,10 @@ MonoBehaviour:
     FactorRangeDamage: 1
   ResourcesForBuild:
   - ResourceEnum: 10
-    RecourceAmount: 40
+    RecourceAmount: 20
   - ResourceEnum: 11
-    RecourceAmount: 15
+    RecourceAmount: 10
   - ResourceEnum: 17
     RecourceAmount: 10
+  - ResourceEnum: 20
+    RecourceAmount: 1
