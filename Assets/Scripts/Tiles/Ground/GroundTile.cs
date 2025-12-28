@@ -294,7 +294,7 @@ public class GroundTile : MonoBehaviour
                     if (neighbour.CheckTileView(GroundTileViewEnum.Mountain) || neighbour.CheckTileView(GroundTileViewEnum.OvergrownMountain))
                     {
                         var rnd = Random.Range(0, 100);
-                        ChangeTile(rnd <= 90 ? GroundTileViewEnum.IronDeposits : GroundTileViewEnum.CopperDeposits);
+                        ChangeTile(rnd <= 80 ? GroundTileViewEnum.IronDeposits : GroundTileViewEnum.CopperDeposits);
                         return;
                     }
                 }
