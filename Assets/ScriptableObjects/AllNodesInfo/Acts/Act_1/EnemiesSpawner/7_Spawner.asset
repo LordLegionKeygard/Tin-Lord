@@ -369,9 +369,9 @@ MonoBehaviour:
       EnemyLevel: 8
   BossSpawner:
     Bosses:
-    - MonsterType: 0
-      EnemyEnum: 5
-    - MonsterType: 1
-      EnemyEnum: 11
-    BossDaySpawn: 99
+    - MonsterType: 3
+      EnemyEnum: 23
+    - MonsterType: 4
+      EnemyEnum: 29
+    BossDaySpawn: 149
     LandscapeSpawnSide: []
