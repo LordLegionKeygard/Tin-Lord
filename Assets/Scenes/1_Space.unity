@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.000077740086, g: 0.00009592693, b: 0.000115210016,
+  m_IndirectSpecularColor: {r: 0.000077522476, g: 0.00009576712, b: 0.00011504438,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -27278,6 +27278,7 @@ MonoBehaviour:
   _mapSprites:
   - {fileID: 21300000, guid: 753964ab7ffe749498e181198eb6fc11, type: 3}
   - {fileID: 21300000, guid: 3ad33d634a98fe54f993c87edbb65bef, type: 3}
+  - {fileID: 21300000, guid: dc061255b05ce6b4fa35c70330c1b282, type: 3}
   _mapProgressText: {fileID: 919870924}
   _mapGenerator: {fileID: 849943933}
   _contentTransform: {fileID: 1115393801}

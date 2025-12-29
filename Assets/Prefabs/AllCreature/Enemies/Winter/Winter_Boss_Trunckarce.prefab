@@ -1273,7 +1273,7 @@ MonoBehaviour:
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: 100
-  rotationSpeed: 30
+  rotationSpeed: 40
   slowdownDistance: 0
   pickNextWaypointDist: 3
   endReachedDistance: 0
@@ -1381,8 +1381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca462e15c0f577f4b926e2543ec711d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxKnockbackPoints: 400
-  MinimumKnockbackPoints: 200
+  MaxKnockbackPoints: 800
+  MinimumKnockbackPoints: 400
   CurrentKnockBackPoints: 0
 --- !u!114 &2002794054286377671
 MonoBehaviour:

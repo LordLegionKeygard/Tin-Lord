@@ -89122,7 +89122,7 @@ MonoBehaviour:
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: 100
-  rotationSpeed: 20
+  rotationSpeed: 40
   slowdownDistance: 0
   pickNextWaypointDist: 3
   endReachedDistance: 0
@@ -89230,8 +89230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca462e15c0f577f4b926e2543ec711d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxKnockbackPoints: 400
-  MinimumKnockbackPoints: 200
+  MaxKnockbackPoints: 800
+  MinimumKnockbackPoints: 400
   CurrentKnockBackPoints: 0
 --- !u!114 &7861850851629023397
 MonoBehaviour:
@@ -89245,7 +89245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b9fbea0f1b98543b657803ed550c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultDamage: 70
+  _defaultDamage: 125
   _bulletFromPoolWrapper:
     BulletType: -1
     FirePoints: []
@@ -89282,7 +89282,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b23ad0f42728a4d46b6a38ba7d6eee97, type: 2}
   - {fileID: 11400000, guid: ffeb7901526c8144e857787b8d7ada51, type: 2}
   - {fileID: 11400000, guid: 87c1684ebb74b2c4d842eed111bf9050, type: 2}
-  _reachDistanceOffset: 0
+  _reachDistanceOffset: -2
 --- !u!114 &7861850851629023401
 MonoBehaviour:
   m_ObjectHideFlags: 0

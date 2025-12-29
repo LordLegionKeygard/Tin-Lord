@@ -2377,8 +2377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca462e15c0f577f4b926e2543ec711d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxKnockbackPoints: 400
-  MinimumKnockbackPoints: 200
+  MaxKnockbackPoints: 800
+  MinimumKnockbackPoints: 400
   CurrentKnockBackPoints: 0
 --- !u!114 &228373564266068802
 MonoBehaviour:
@@ -2392,7 +2392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b9fbea0f1b98543b657803ed550c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultDamage: 70
+  _defaultDamage: 125
   _bulletFromPoolWrapper:
     BulletType: -1
     FirePoints: []
@@ -2418,7 +2418,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fc9a1328e5fa685418ed1797958f8f97, type: 2}
   - {fileID: 11400000, guid: 58854c3023cb4b44499392a0044acd39, type: 2}
   - {fileID: 11400000, guid: 02f07b59b29eef144a65b31b8e23adcb, type: 2}
-  _reachDistanceOffset: 0
+  _reachDistanceOffset: -2
 --- !u!114 &228373564266068812
 MonoBehaviour:
   m_ObjectHideFlags: 0

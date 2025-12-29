@@ -121,18 +121,18 @@ public class MachinePatrolState : MachineState
         {
             BaseHealth targetHealth = colliders[i].GetComponent<BaseHealth>();
 
-            if (targetHealth != null && !targetHealth.IsDeath() || !targetHealth.IsCanTarget())
-            {
-                // Вычисляем направление до цели
-                Vector3 directionToTarget = (colliders[i].transform.position - transform.position).normalized;
-                float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
+            if (targetHealth == null || targetHealth.IsDeath() || !targetHealth.IsCanTarget()) continue;
+            
+            // Вычисляем направление до цели
+            Vector3 directionToTarget = (colliders[i].transform.position - transform.position).normalized;
+            float angleToTarget = Vector3.Angle(transform.forward, directionToTarget);
 
-                if (angleToTarget < closestAngle)
-                {
-                    closestAngle = angleToTarget;
-                    nearestTarget = targetHealth;
-                }
+            if (angleToTarget < closestAngle)
+            {
+                closestAngle = angleToTarget;
+                nearestTarget = targetHealth;
             }
+            
         }
 
         return nearestTarget;
