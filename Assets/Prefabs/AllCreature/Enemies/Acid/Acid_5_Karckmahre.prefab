@@ -6352,7 +6352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _getHitAnimationsCount: 1
-  _miniBossAnimator: {fileID: 0}
+  _miniBossAnimator: {fileID: 9100000, guid: fe7e706323ee7e64ba91b32d7d157cf2, type: 2}
 --- !u!114 &8094482758576203978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6424,6 +6424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a772a9cd184348d4a911882f2651fbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isCanTarget: 1
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 4
@@ -6583,6 +6584,7 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+  maxNodesPerApply: 30
 --- !u!114 &8094482758576204024
 MonoBehaviour:
   m_ObjectHideFlags: 0
