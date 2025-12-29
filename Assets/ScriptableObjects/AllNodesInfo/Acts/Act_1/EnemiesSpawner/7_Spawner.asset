@@ -147,13 +147,13 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 6
+      EnemyLevel: 7
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 21
       - MonsterType: 4
         EnemyEnum: 27
-      EnemyLevel: 6
+      EnemyLevel: 7
   - StartDaySpawn: 90
     SpawnPeriod: 3
     Count: 55
@@ -164,13 +164,13 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 6
+      EnemyLevel: 8
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 21
       - MonsterType: 4
         EnemyEnum: 27
-      EnemyLevel: 6
+      EnemyLevel: 8
   - StartDaySpawn: 112
     SpawnPeriod: 4
     Count: 60
@@ -181,13 +181,13 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 6
+      EnemyLevel: 8
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 21
       - MonsterType: 4
         EnemyEnum: 27
-      EnemyLevel: 6
+      EnemyLevel: 8
   - StartDaySpawn: 120
     SpawnPeriod: 4
     Count: 60
@@ -198,13 +198,13 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 7
+      EnemyLevel: 9
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 21
       - MonsterType: 4
         EnemyEnum: 27
-      EnemyLevel: 7
+      EnemyLevel: 9
   - StartDaySpawn: 136
     SpawnPeriod: 4
     Count: 65
@@ -215,13 +215,13 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 7
+      EnemyLevel: 10
     - EnemyBiomeInfo:
       - MonsterType: 3
         EnemyEnum: 21
       - MonsterType: 4
         EnemyEnum: 27
-      EnemyLevel: 7
+      EnemyLevel: 10
   MiniBossSpawners:
   - DaySpawn: 21
     Count: 1
