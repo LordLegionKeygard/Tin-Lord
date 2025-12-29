@@ -145,8 +145,8 @@ public class WorldGameInfo
     public const int HangarShipWeaponsCount = 10;
 
     public const int PatchPassiveAbility = 10;
-    public const int TitanPassiveAbility = 20;
-    public const int AimBotPassiveAbility = 20;
+    public const int TitanPassiveAbility = 30;
+    public const int AimBotPassiveAbility = 15;
 
     [Header("Tooltip Pivot")]
     public const float NodePivot = 2.5f;
