@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.000077522476, g: 0.00009576712, b: 0.00011504438,
+  m_IndirectSpecularColor: {r: 0.000077829114, g: 0.00009608167, b: 0.00011553576,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -9202,6 +9202,7 @@ MonoBehaviour:
   _actsInfo:
   - {fileID: 11400000, guid: 4e83245a5aca4814dbf0c07329069f9f, type: 2}
   - {fileID: 11400000, guid: ebeaddafd8356864fa59bc75879ce249, type: 2}
+  - {fileID: 11400000, guid: a3362dbb6767ec24e9776acbdcbf8314, type: 2}
   _aiCoreSystem: {fileID: 1966886381}
   _descriptionPanel: {fileID: 1547388440}
   _missionNameHeaderText: {fileID: 913253614}
