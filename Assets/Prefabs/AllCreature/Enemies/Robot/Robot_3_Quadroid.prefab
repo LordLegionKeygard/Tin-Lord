@@ -81,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 129665399917586258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3503645552300390012}
@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a772a9cd184348d4a911882f2651fbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isCanTarget: 1
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 6
@@ -358,6 +359,7 @@ MonoBehaviour:
   _firePoints:
   - {fileID: 1124616126225694499}
   - {fileID: 4292246959274932018}
+  _creatureSkillsWrapper: []
 --- !u!114 &6658384610695751584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +488,7 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+  maxNodesPerApply: 30
 --- !u!114 &6658384610695751576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,11 +545,11 @@ MonoBehaviour:
   - {fileID: 3465458608466147589}
   - {fileID: 6080519083735606780}
   _needRandomImpulse: 1
-  _minImpulse: 2
-  _maxImpulse: 5
-  upBias: 0.2
+  _minImpulse: 5
+  _maxImpulse: 10
+  upBias: 0.4
   _addSpin: 0
-  _maxTorque: 5
+  _maxTorque: 10
 --- !u!1 &159804363846315299
 GameObject:
   m_ObjectHideFlags: 0
