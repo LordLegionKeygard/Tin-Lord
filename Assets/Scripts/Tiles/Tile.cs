@@ -103,7 +103,7 @@ public enum BuildingTileViewEnum
     SandMining = 5,
     OilProduction = 6,
     StoneMining = 7,
-    LandWaterExtraction = 8,
+    WaterExtraction = 8,
     Bridge = 9,
     StoneBlockProduction = 10,
     SmeltingProduction = 11,
