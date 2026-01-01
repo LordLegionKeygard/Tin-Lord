@@ -41,7 +41,7 @@ public class MachineItem : MonoBehaviour
 
     private void TimeTickUpdateMachineItem()
     {
-        if (!_machinePanel.PanelActive() || _currentMachineSystem.IsHaveMachine() || !_isSelect) return;
+        if (!_machinePanel.PanelActive() || !_isSelect) return;
 
         SetButtonAndTextColor();
         UpdateResourceCells();
