@@ -41,7 +41,7 @@ MonoBehaviour:
     ProductionOnGroundResourceModifier: 0.5
   - ProductionOnGroundResource: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046,
       type: 2}
-    ProductionOnGroundResourceModifier: 0.5
+    ProductionOnGroundResourceModifier: 1
   - ProductionOnGroundResource: {fileID: 11400000, guid: 7d369c7eccd859f43a95567b05c8965f,
       type: 2}
     ProductionOnGroundResourceModifier: 1
@@ -50,16 +50,16 @@ MonoBehaviour:
     ProductionOnGroundResourceModifier: 1
   - ProductionOnGroundResource: {fileID: 11400000, guid: 74a315f742d4240439661f70ab026398,
       type: 2}
-    ProductionOnGroundResourceModifier: 0.5
+    ProductionOnGroundResourceModifier: 1
   - ProductionOnGroundResource: {fileID: 11400000, guid: 6296258cf7c590140b67984f03ca6845,
       type: 2}
-    ProductionOnGroundResourceModifier: 1
+    ProductionOnGroundResourceModifier: 1.2
   - ProductionOnGroundResource: {fileID: 11400000, guid: 87e7f2965c9604145ab9de337103b03d,
       type: 2}
-    ProductionOnGroundResourceModifier: 0.5
+    ProductionOnGroundResourceModifier: 1
   - ProductionOnGroundResource: {fileID: 11400000, guid: adc84d59d087d39419aa867840587e8d,
       type: 2}
-    ProductionOnGroundResourceModifier: 0.5
+    ProductionOnGroundResourceModifier: 1
   BuildingTileView: -1
   Buildings: []
   MaterialForRift: {fileID: 2100000, guid: 9e05084cb8f992a49a5e97c74b62ab7d, type: 2}
