@@ -167,9 +167,9 @@ MonoBehaviour:
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - MonsterType: 3
-        EnemyEnum: 20
+        EnemyEnum: 19
       - MonsterType: 4
-        EnemyEnum: 26
+        EnemyEnum: 25
       EnemyLevel: 3
   - DaySpawn: 42
     Count: 2
@@ -179,9 +179,9 @@ MonoBehaviour:
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - MonsterType: 3
-        EnemyEnum: 19
+        EnemyEnum: 20
       - MonsterType: 4
-        EnemyEnum: 25
+        EnemyEnum: 26
       EnemyLevel: 4
   - DaySpawn: 51
     Count: 3
@@ -194,7 +194,7 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 5
+      EnemyLevel: 4
   - DaySpawn: 60
     Count: 3
     HealthFactor: 5
@@ -206,7 +206,7 @@ MonoBehaviour:
         EnemyEnum: 20
       - MonsterType: 4
         EnemyEnum: 26
-      EnemyLevel: 4
+      EnemyLevel: 5
   - DaySpawn: 72
     Count: 4
     HealthFactor: 5
