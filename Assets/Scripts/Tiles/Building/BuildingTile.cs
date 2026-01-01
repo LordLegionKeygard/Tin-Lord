@@ -194,7 +194,22 @@ public class BuildingTile : MonoBehaviour
       _tileObject.SetBuildingWork(true);
       _tileObject.CheckResourceRequired(true);
       _tileObject.SetGeneralRepairSelect(true);
+      CheckOreMiningOnCopperTile();
       CustomEvents.FireChangeGeneralRepairTileObject(_tileObject);
+   }
+
+   /// <summary>
+   /// Если устанавливаем добычу руды на медную жилу, то автоматически меняем добычу на медь
+   /// </summary>
+   private void CheckOreMiningOnCopperTile()
+   {
+
+      if (_currentBuildingTile.BuildingTileView == BuildingTileViewEnum.OreMining && _tileObject.GroundTileObject().CheckTileView(GroundTileViewEnum.CopperDeposits))
+      {
+         var resource = GetCurrentBuilding().ResourcesProduction[1].ProductionResource;
+         var recept = GetCurrentBuilding().ResourcesProduction[1].ResourceRecept;
+         _tileObject.SetResourceProduction(resource, recept);
+      }
    }
 
    public void UpgradeBaseBuilding(int newLevel, TileObject tileObject)
