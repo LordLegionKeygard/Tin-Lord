@@ -1561,8 +1561,6 @@ MonoBehaviour:
   _pursueTargetState: {fileID: 5482879833673488520}
   _aiDestinationSetter: {fileID: 2675814229500551001}
   _creatureDamage: {fileID: 2675814229500550986}
-  _targetScanInterval: 0.35
-  _maxReachabilityChecks: 6
 --- !u!1 &5533459332951278129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,8 +2530,9 @@ MonoBehaviour:
   _resistTypes: 
   _isHaveEmission: 1
   _emissionColor: {r: 1, g: 1, b: 1, a: 1}
-  _meshRenderers:
+  _skinnedMeshRenderers:
   - {fileID: 2722026718188707655}
+  _meshRenderers: []
 --- !u!114 &2675814229500550981
 MonoBehaviour:
   m_ObjectHideFlags: 0

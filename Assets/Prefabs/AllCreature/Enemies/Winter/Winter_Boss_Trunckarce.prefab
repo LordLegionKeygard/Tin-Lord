@@ -1443,9 +1443,10 @@ MonoBehaviour:
   _resistTypes: 0000000001000000
   _isHaveEmission: 1
   _emissionColor: {r: 2, g: 2, b: 2, a: 1}
-  _meshRenderers:
+  _skinnedMeshRenderers:
   - {fileID: 3986751028734495574}
   - {fileID: 8276390655639465372}
+  _meshRenderers: []
 --- !u!114 &6073945727764995474
 MonoBehaviour:
   m_ObjectHideFlags: 0

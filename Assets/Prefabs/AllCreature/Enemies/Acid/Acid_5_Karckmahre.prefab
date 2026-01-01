@@ -6502,8 +6502,9 @@ MonoBehaviour:
   _resistTypes: 
   _isHaveEmission: 1
   _emissionColor: {r: 1, g: 1, b: 1, a: 1}
-  _meshRenderers:
+  _skinnedMeshRenderers:
   - {fileID: 8094482759602346092}
+  _meshRenderers: []
 --- !u!114 &8094482758576204019
 MonoBehaviour:
   m_ObjectHideFlags: 0

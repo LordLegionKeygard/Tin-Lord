@@ -969,6 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a772a9cd184348d4a911882f2651fbb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isCanTarget: 1
   _healthSliderPrefab: {fileID: 404669213447232347, guid: 9dffa0b5eb3f029468d3c934ca633796,
     type: 3}
   _sliderHeightOffset: 4
@@ -1003,6 +1004,7 @@ MonoBehaviour:
   _bulletType: -1
   _deathExplosionType: -1
   _firePoints: []
+  _creatureSkillsWrapper: []
 --- !u!114 &4340323589884085320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,8 +1039,9 @@ MonoBehaviour:
   _resistTypes: 
   _isHaveEmission: 1
   _emissionColor: {r: 2.143547, g: 2.143547, b: 2.143547, a: 1.46}
-  _meshRenderers:
+  _skinnedMeshRenderers:
   - {fileID: 232261197370572453}
+  _meshRenderers: []
 --- !u!114 &4340323589884085431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,6 +1122,7 @@ MonoBehaviour:
   version: 1
   penalty: 100
   randomStep: 5
+  maxNodesPerApply: 30
 --- !u!114 &-5248384621411499965
 MonoBehaviour:
   m_ObjectHideFlags: 0
