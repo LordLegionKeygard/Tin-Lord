@@ -86,7 +86,7 @@ MonoBehaviour:
       EnemyLevel: 6
   - StartDaySpawn: 72
     SpawnPeriod: 3
-    Count: 40
+    Count: 35
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -95,7 +95,7 @@ MonoBehaviour:
       EnemyLevel: 7
   - StartDaySpawn: 81
     SpawnPeriod: 3
-    Count: 45
+    Count: 40
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -104,7 +104,7 @@ MonoBehaviour:
       EnemyLevel: 7
   - StartDaySpawn: 90
     SpawnPeriod: 3
-    Count: 50
+    Count: 45
     LandscapeSpawnSide: []
     EnemiesSpawnerInfo:
     - EnemyBiomeInfo:
@@ -141,7 +141,7 @@ MonoBehaviour:
       EnemyBiomeInfo:
       - MonsterType: 2
         EnemyEnum: 14
-      EnemyLevel: 6
+      EnemyLevel: 5
   - DaySpawn: 51
     Count: 3
     HealthFactor: 5
@@ -151,7 +151,7 @@ MonoBehaviour:
       EnemyBiomeInfo:
       - MonsterType: 2
         EnemyEnum: 14
-      EnemyLevel: 6
+      EnemyLevel: 5
   - DaySpawn: 60
     Count: 3
     HealthFactor: 5
@@ -161,9 +161,9 @@ MonoBehaviour:
       EnemyBiomeInfo:
       - MonsterType: 2
         EnemyEnum: 14
-      EnemyLevel: 6
+      EnemyLevel: 5
   - DaySpawn: 72
-    Count: 4
+    Count: 3
     HealthFactor: 5
     DamageFactor: 2
     LandscapeSpawnSide: []
@@ -171,8 +171,18 @@ MonoBehaviour:
       EnemyBiomeInfo:
       - MonsterType: 2
         EnemyEnum: 14
-      EnemyLevel: 7
+      EnemyLevel: 6
   - DaySpawn: 81
+    Count: 3
+    HealthFactor: 5
+    DamageFactor: 2
+    LandscapeSpawnSide: []
+    EnemySpawnerInfo:
+      EnemyBiomeInfo:
+      - MonsterType: 2
+        EnemyEnum: 14
+      EnemyLevel: 6
+  - DaySpawn: 90
     Count: 4
     HealthFactor: 5
     DamageFactor: 2
@@ -181,17 +191,7 @@ MonoBehaviour:
       EnemyBiomeInfo:
       - MonsterType: 2
         EnemyEnum: 14
-      EnemyLevel: 7
-  - DaySpawn: 90
-    Count: 5
-    HealthFactor: 5
-    DamageFactor: 2
-    LandscapeSpawnSide: []
-    EnemySpawnerInfo:
-      EnemyBiomeInfo:
-      - MonsterType: 2
-        EnemyEnum: 14
-      EnemyLevel: 8
+      EnemyLevel: 6
   BossSpawner:
     Bosses: []
     BossDaySpawn: 0
