@@ -21,7 +21,7 @@ MonoBehaviour:
   RequiredBaseLevel: 1
   BuildingEcology: -3
   BuildingHealth: 100
-  ResourceExtractedAmount: 0.6
+  ResourceExtractedAmount: 0.3
   Price: 250
   CanRotateBuilding: 1
   ResourcesForBuild:
@@ -40,13 +40,13 @@ MonoBehaviour:
     ResourceRecept:
     - ResourceForRecept: {fileID: 11400000, guid: e3d8dbf33d8df3444907fa66227ed046,
         type: 2}
-      ResourcesForReceptAmount: 1
+      ResourcesForReceptAmount: 0.5
     - ResourceForRecept: {fileID: 11400000, guid: ee694afc2ea5e0a4ba83a25c7b20e216,
         type: 2}
-      ResourcesForReceptAmount: 1
+      ResourcesForReceptAmount: 0.5
     - ResourceForRecept: {fileID: 11400000, guid: 320acab733423914b97c8e1f623a2a61,
         type: 2}
-      ResourcesForReceptAmount: 1
+      ResourcesForReceptAmount: 0.5
   MachineInfo: {fileID: 0}
   DestroyVFXPrefab: {fileID: 3703928818534714029, guid: 0434d9364f8dc494890cf7a2f2a6097b,
     type: 3}
