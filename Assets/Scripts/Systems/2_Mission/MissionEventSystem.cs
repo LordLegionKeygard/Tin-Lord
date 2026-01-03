@@ -67,6 +67,8 @@ public class MissionEventSystem : MonoBehaviour
         // не спавним ивенты, до середины тутора, чтобы случайно не уничтожить необходимые для него тайлы или здания
         if (!_tutorialSystem.CanSpawnRandomEvent()) return;
 
+        if (currentDay < WorldGameInfo.StartSpawnEventsDay) return;
+
         var rnd = Random.Range(0, 100);
 
         if (rnd < WorldGameInfo.DayEventChance)

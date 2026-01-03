@@ -63,6 +63,7 @@ public class WorldGameInfo
     public const int MaximumRadiation = 50;
 
     [Header("DayEvent")]
+    public const int StartSpawnEventsDay = 10;
     public const int DayEventChance = 30;
     public const int OilReleaseChance = 30;
     public const int EarthQuakeChance = 70;
