@@ -202,14 +202,14 @@ MonoBehaviour:
         EnemyEnum: 14
       EnemyLevel: 6
   - DaySpawn: 97
-    Count: 4
-    HealthFactor: 5
-    DamageFactor: 2
+    Count: 1
+    HealthFactor: 10
+    DamageFactor: 3
     LandscapeSpawnSide: []
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - MonsterType: 2
-        EnemyEnum: 14
+        EnemyEnum: 16
       EnemyLevel: 6
   BossSpawner:
     Bosses: []
