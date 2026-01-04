@@ -6,11 +6,13 @@ public class HangarRobotItem : MonoBehaviour
 {
     [SerializeField] private HangarSystem _hangarSystem;
     [SerializeField] private HangarRobotInfo _hangarRobotInfo;
+    [SerializeField] private CityRobotInfo _cityRobotInfo;
     private bool _isOpen;
     private bool _isSelect;
     public bool IsOpen() => _isOpen;
     public bool IsSelect() => _isSelect;
-    public HangarRobotInfo GetInfo() => _hangarRobotInfo;
+    public HangarRobotInfo GetHangarRobotInfo() => _hangarRobotInfo;
+    public CityRobotInfo GetCityRobotInfo() => _cityRobotInfo;
 
     [Header("View")]
     [SerializeField] private TextMeshProUGUI _nameText;

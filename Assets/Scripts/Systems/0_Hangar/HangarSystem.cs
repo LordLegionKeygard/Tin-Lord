@@ -245,16 +245,18 @@ public class HangarSystem : MonoBehaviour
         _hangarRobotItems[(int)robotType].SelectToggleState(true);
         _buyRobotButtonObject.SetActive(!isOpen);
 
+        var damageText = $"{Language.TextStatic[98]}: {_hangarRobotItems[(int)robotType].GetCityRobotInfo().Damage}";
+
         switch (robotType)
         {
             case HangarRobotType.Arbalester:
-                _robotPassiveAbility.text = isOpen ? $"-{WorldGameInfo.PatchPassiveAbility}% {Language.TextStatic[79]}" : $"{Language.TextStatic[194]}";
+                _robotPassiveAbility.text = isOpen ? $"{damageText}\n-{WorldGameInfo.PatchPassiveAbility}% {Language.TextStatic[79]}" : $"{Language.TextStatic[194]}";
                 break;
             case HangarRobotType.Titan:
-                _robotPassiveAbility.text = isOpen ? $"+{WorldGameInfo.TitanPassiveAbility}% {Language.TextStatic[80]}" : $"{Language.TextStatic[194]}";
+                _robotPassiveAbility.text = isOpen ? $"{damageText}\n+{WorldGameInfo.TitanPassiveAbility}% {Language.TextStatic[80]}" : $"{Language.TextStatic[194]}";
                 break;
             case HangarRobotType.Sniper:
-                _robotPassiveAbility.text = isOpen ? $"+{WorldGameInfo.AimBotPassiveAbility}% {Language.TextStatic[81]}" : $"{Language.TextStatic[194]}";
+                _robotPassiveAbility.text = isOpen ? $"{damageText}\n+{WorldGameInfo.AimBotPassiveAbility}% {Language.TextStatic[81]}" : $"{Language.TextStatic[194]}";
                 break;
         }
 
@@ -519,7 +521,7 @@ public class HangarSystem : MonoBehaviour
 
     public void BuyRobot()
     {
-        var robotInfo = _hangarRobotItems[_currentSelectRobot].GetInfo();
+        var robotInfo = _hangarRobotItems[_currentSelectRobot].GetHangarRobotInfo();
         if (EnoughtShards(robotInfo.Price))
         {
             AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Buy], transform.position);
