@@ -25,13 +25,13 @@ MonoBehaviour:
     StartRangeDamage: 6
     FactorDurability: 15
     FactorMeleeDamage: 0
-    FactorRangeDamage: 1
+    FactorRangeDamage: 0.5
   ResourcesForBuild:
   - ResourceEnum: 10
     RecourceAmount: 20
   - ResourceEnum: 11
-    RecourceAmount: 10
+    RecourceAmount: 15
   - ResourceEnum: 17
-    RecourceAmount: 10
+    RecourceAmount: 20
   - ResourceEnum: 20
-    RecourceAmount: 1
+    RecourceAmount: 10

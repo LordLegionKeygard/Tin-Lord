@@ -22,16 +22,16 @@ MonoBehaviour:
   MachineLevelInfo:
     StartDurability: 270
     StartMeleeDamage: 0
-    StartRangeDamage: 14
+    StartRangeDamage: 10
     FactorDurability: 30
     FactorMeleeDamage: 0
-    FactorRangeDamage: 2
+    FactorRangeDamage: 0.5
   ResourcesForBuild:
   - ResourceEnum: 11
-    RecourceAmount: 20
+    RecourceAmount: 30
   - ResourceEnum: 18
-    RecourceAmount: 5
+    RecourceAmount: 10
   - ResourceEnum: 19
-    RecourceAmount: 3
+    RecourceAmount: 10
   - ResourceEnum: 21
-    RecourceAmount: 1
+    RecourceAmount: 10

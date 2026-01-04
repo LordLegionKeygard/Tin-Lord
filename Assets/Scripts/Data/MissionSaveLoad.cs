@@ -147,6 +147,9 @@ public class MissionSaveLoad : MonoBehaviour
 
     public void LoadGameData(ref MissionSaveData currentSaveData)
     {
+        //Hangar
+        _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData);
+        
         // Tutorial
         _tutorialSystem.LoadTutorial(_hangarSaveGame.HangarSaveData.TutorialProgress, _spaceSaveGame.SpaceSaveData.PrologueCompleted);
         
@@ -196,9 +199,6 @@ public class MissionSaveLoad : MonoBehaviour
 
         //Quants
         _missionQuantSystem.SetQuants(currentSaveData.QuantsAmount);
-
-        //Hangar
-        _missionHangarSystem.LoadHangarData(_spaceSaveGame.SpaceSaveData.HangarCommandCenterData);
 
         //Hazard
         _spawnedHazardSystem.LoadHazardData(currentSaveData.Hazards, currentSaveData.IsStartMission);
