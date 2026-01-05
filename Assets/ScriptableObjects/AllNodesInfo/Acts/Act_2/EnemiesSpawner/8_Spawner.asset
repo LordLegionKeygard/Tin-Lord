@@ -205,7 +205,9 @@ MonoBehaviour:
     Count: 1
     HealthFactor: 10
     DamageFactor: 3
-    LandscapeSpawnSide: []
+    LandscapeSpawnSide:
+    - LandscapeEnum: 11
+      SpawnSide: 0
     EnemySpawnerInfo:
       EnemyBiomeInfo:
       - MonsterType: 2
