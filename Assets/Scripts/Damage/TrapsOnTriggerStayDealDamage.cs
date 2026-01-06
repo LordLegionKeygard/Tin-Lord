@@ -10,6 +10,7 @@ public class TrapsOnTriggerStayDealDamage : MonoBehaviour
     private void Start()
     {
         CustomEvents.OnTimeTick += OnTimeTick;
+        CustomEvents.OnTimeHalfTick += OnTimeTick;
     }
 
     private void OnTriggerStay(Collider other)
@@ -27,10 +28,7 @@ public class TrapsOnTriggerStayDealDamage : MonoBehaviour
     {
         if (other.TryGetComponent(out EnemyHealth enemyHealth))
         {
-            if (!enemyHealth.IsDeath())
-            {
-                _targets.Remove(enemyHealth);
-            }
+            _targets.Remove(enemyHealth);
         }
     }
 
@@ -40,7 +38,7 @@ public class TrapsOnTriggerStayDealDamage : MonoBehaviour
         {
             if (health != null && !health.IsDeath())
             {
-                health.CalculateDamage(health.CalculateHealthFromPercent((int)_building.Damage), _building.KnockbackPoints);
+                health.CalculateDamage(_building.Damage, _building.KnockbackPoints);
             }
         }
     }
@@ -48,5 +46,6 @@ public class TrapsOnTriggerStayDealDamage : MonoBehaviour
     private void OnDestroy()
     {
         CustomEvents.OnTimeTick -= OnTimeTick;
+        CustomEvents.OnTimeHalfTick -= OnTimeTick;
     }
 }

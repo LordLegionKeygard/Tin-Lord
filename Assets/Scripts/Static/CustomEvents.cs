@@ -86,6 +86,12 @@ public class CustomEvents
         OnTimeTick?.Invoke();
     }
 
+    public static event Action OnTimeHalfTick;
+    public static void FireTimeHalfTick()
+    {
+        OnTimeHalfTick?.Invoke();
+    }
+
     public static event Action<ResourceEnum, float, int, bool> OnChangeResourceProduction;
     public static void FireChangeResourceProduction(ResourceEnum resourceEnum, float amount, int tileId, bool remove)
     {
