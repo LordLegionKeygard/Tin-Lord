@@ -7,6 +7,7 @@ using Zenject;
 public class EnemiesSpawnerSystem : MonoBehaviour
 {
     [Inject] DiContainer _diContainer;
+    [SerializeField] private EndMissionSystem _endMissionSystem;
     [SerializeField] private AllEnemies _allEnemies;
     [SerializeField] private Transform _enemiesParent;
     [SerializeField] private EnemiesBiomeSpawnTransforms[] _enemiesBiomeSpawnTransforms;
@@ -51,6 +52,8 @@ public class EnemiesSpawnerSystem : MonoBehaviour
 
     private void PrepareSpawnEnemy(int day)
     {
+        if (_endMissionSystem.IsMissionEnd()) return;
+
         var enemiesSpawnerInfo = CurrentMissionInfo.Instance.GetEnemiesSpawnerInformation();
         var allSpawners = enemiesSpawnerInfo.Spawners;
 
@@ -222,7 +225,7 @@ public class EnemiesSpawnerSystem : MonoBehaviour
             var position = new Vector3(enemyData[i].PositionX, enemyData[i].PositionY, enemyData[i].PositionZ);
             var rotation = Quaternion.Euler(0f, enemyData[i].Rotation, 0f);
             var enemyObject = _diContainer.InstantiatePrefab(_allEnemies.GetEnemyForNumber(enemyData[i].EnemyEnum), position, rotation, null);
-            
+
             enemyObject.GetComponent<EnemyLevel>()?.SetLevel(enemyData[i].EnemyLevel);
             enemyObject.GetComponent<EnemyInfo>().SetEnemyInfo(_enemyNumber, enemyData[i].HealthFactor, enemyData[i].DamageFactor, enemyData[i].IsMiniBoss);
             enemyObject.GetComponent<BaseHealth>().LoadHealth(enemyData[i].EnemyHealth);
