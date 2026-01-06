@@ -93,8 +93,8 @@ Material:
     - _DstBlend: 0
     - _Float2: -3.06
     - _Float23: 1
-    - _FrenselMult: 2.63
-    - _FresnelPower: 6.58
+    - _FrenselMult: 0.13
+    - _FresnelPower: 10
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -119,7 +119,7 @@ Material:
     - _Specular: 0.003
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _UVDistortion: 0.076
+    - _UVDistortion: 0.092
     - _UVSec: 0
     - _ZWrite: 1
     - __dirty: 0
@@ -127,9 +127,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 0.18039216, g: 0.18431373, b: 0.18431373, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0.0031594948, g: 0.24128349, b: 0.6698113, a: 1}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _MetallicLoHi: {r: 0, g: 0.35, b: 0, a: 0}
-    - _PoleColor: {r: 0.5211819, g: 0.45910463, b: 0.5377358, a: 1}
+    - _PoleColor: {r: 1, g: 1, b: 1, a: 1}
     - _PoleMaskLoHi: {r: 0.01, g: 0.1, b: 0, a: 0}
     - _PoleMaskLoHi1: {r: 0, g: 1, b: 0, a: 0}
     - _ScatterColor: {r: 1, g: 1, b: 1, a: 0}

@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMap:
-        m_Texture: {fileID: 2800000, guid: cbf3455ad8f308e4d97cf666635c4c60, type: 3}
+        m_Texture: {fileID: 2800000, guid: 675e7ba0509209c4aa7f665c94e363a4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
@@ -123,6 +123,6 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RingColor: {r: 1, g: 1, b: 1, a: 1}
     - _RingFactors: {r: 3.2, g: 0.27, b: 0.6, a: 0.16}
-    - _RingTint: {r: 0.5512369, g: 0.503026, b: 0.6792453, a: 1}
+    - _RingTint: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowTint: {r: 0.1397059, g: 0.13857238, b: 0.12326991, a: 1}
   m_BuildTextureStacks: []
