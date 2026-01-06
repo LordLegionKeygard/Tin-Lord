@@ -771,8 +771,8 @@ public class Language : MonoBehaviour
         _text[247, 0] = "Second skill";
         _text[247, 1] = "Второе умение";
 
-        _text[248, 0] = "";
-        _text[248, 1] = "";
+        _text[248, 0] = "This button is already in use. Press another.";
+        _text[248, 1] = "Данная кнопка уже используется. Нажмите другую.";
 
         _text[249, 0] = "";
         _text[249, 1] = "";

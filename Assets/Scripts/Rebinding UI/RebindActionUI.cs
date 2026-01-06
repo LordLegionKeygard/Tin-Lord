@@ -292,7 +292,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
                         if (CheckDuplicateBindings(action, bindingIndex, allCompositeParts))
                         {
-                            m_RebindText.text = Language.TextStatic[280];
+                            m_RebindText.text = Language.TextStatic[248];
                             action.RemoveBindingOverride(bindingIndex);
                             CleanUp();
                             PerformInteractiveRebind(action, bindingIndex, allCompositeParts);
