@@ -12,6 +12,7 @@ public class EndMissionSystem : MonoBehaviour
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [Inject] private MissionResources _missionResources;
 
+    [SerializeField] private EndStorySystem _endGameSystem;
     [SerializeField] private ShardsCalculateSystem _shardsCalculateSystem;
     [SerializeField] private EcologySystem _ecologySystem;
     [SerializeField] private GameSpeedSystem _gameSpeedSystem;
@@ -143,7 +144,15 @@ public class EndMissionSystem : MonoBehaviour
                 map.Nodes[index].IsCompleted = true;
             }
 
-            CheckChangeAct();
+            // победа, игра окончена
+            if (CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum == LandscapeEnum.Canyon)
+            {
+                saveData.EndGame = true;
+            }
+            else
+            {
+                CheckChangeAct();
+            }
 
             _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteSpaceDataToSaveFile(saveData);
         }
@@ -162,6 +171,18 @@ public class EndMissionSystem : MonoBehaviour
 
         _missionSaveGame.DeleteMissionJson();
         _spaceSaveGame.SaveEndMissionDataToJson(_receivedFragments, aiCores, quants);
+    }
+
+    public void EndGameStory()
+    {
+        var saveData = _spaceSaveGame.SpaceSaveData;
+
+        var shardsForThisAct = _shardsCalculateSystem.CalculateShardsForThisAct();
+        saveData.PreviousActsShards += shardsForThisAct;
+
+        _spaceSaveGame.GetCommandCenterSaveGameDataWriter().WriteSpaceDataToSaveFile(saveData);
+
+        LoadCommandCenter();
     }
 
 
@@ -218,6 +239,12 @@ public class EndMissionSystem : MonoBehaviour
     public void ContinueButton()
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
+
+        if(_spaceSaveGame.SpaceSaveData.EndGame)
+        {
+            _endGameSystem.ShowEndGameStory();
+            return;
+        }
 
         if (_isVictoryBoss)
         {

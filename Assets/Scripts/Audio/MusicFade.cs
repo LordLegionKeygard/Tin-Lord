@@ -50,4 +50,5 @@ public enum MusicType
 {
     Main = 0,
     Terminal = 1,
+    EndStory = 2,
 }

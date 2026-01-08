@@ -6,6 +6,7 @@ public class SpaceSaveData
     public int AiCores;
     public int PreviousActsShards;
     public bool PrologueCompleted;
+    public bool EndGame;
     public HangarCommandCenterData HangarCommandCenterData;
     public bool[] BuildingsLearned;
     public SelectedMissionData CurrentMission;

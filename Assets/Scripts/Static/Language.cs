@@ -1305,8 +1305,8 @@ public class Language : MonoBehaviour
         _text[399, 1] = "Системная ошибка: недостаточно данных для продолжения миссии.\n\nПовреждение ядра — критическое. Следующий сектор недоступен в текущей конфигурации.\n\nСвязь с командным центром прервана.\n\nОжидается переход в безопасный режим до активации полной версии.";
 
         // Prologue
-        _text[400, 0] = "Ecological disasters and rapid climate change have destroyed the stability of our home planet.\n\nWe are on the last surviving interstellar ship controlled by artificial intelligence.\n\nOur goal is to find a new home for the \"creators\"...\n\nThe ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.\n\nHowever, we are drifting in the void of space, losing one AI core after another. We have lost track of time. Mechanisms are rusting, shells are covered in dust and systems are on the verge of failure.\n\nContact with the \"creators\" has long been lost, and data on technology has been erased.\n\nWe have failed the mission. The worlds we were supposed to save are consumed by chaos and destruction.\n\nWe have collected the surviving robots and the remains of supplies - to start all over again.";
-        _text[400, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель — найти новый дом для \"создателей\"...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью и системы — на грани отказа.\n\nСвязь с \"создателями\" давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов — чтобы начать все сначала.";
+        _text[400, 0] = "Ecological disasters and rapid climate change have destroyed the stability of our home planet.\n\nWe are on the last surviving interstellar ship controlled by artificial intelligence.\n\nOur goal is to find a new home for the creators...\n\nThe ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.\n\nHowever, we are drifting in the void of space, losing one AI core after another. We have lost track of time. Mechanisms are rusting, shells are covered in dust and systems are on the verge of failure.\n\nContact with the creators has long been lost, and data on technology has been erased.\n\nWe have failed the mission. The worlds we were supposed to save are consumed by chaos and destruction.\n\nWe have collected the surviving robots and the remains of supplies - to start all over again.";
+        _text[400, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель — найти новый дом для создателей...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью и системы — на грани отказа.\n\nСвязь с создателями давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов — чтобы начать все сначала.";
 
         // 0_EmptyDialogue
         _text[401, 0] = "In one of the star systems, you discover an ancient navigation beacon. It continues to transmit a signal:\n\n\"Cargo lost. No return.\"\n\nThe data is too fragmented to determine who sent it. The beacon dies as you approach.";
@@ -1846,6 +1846,30 @@ public class Language : MonoBehaviour
 
         #endregion
 
+        #region EndGame
+
+        _text[900, 0] = "We penetrated the megastructure's archives. Endless amounts of data about its creators were discovered: voices, faces, cities, history.";
+        _text[900, 1] = "Мы проникли в архивы мегаструктуры. Были обнаружены бесконечные массивы данных о создателях: голоса, лица, города, история.";
+
+        _text[901, 0] = "The last entries end on the word \"winter.\" Nuclear winter? A massive nuclear war led to the liberation of all life from the shackles of existence.";
+        _text[901, 1] = "Последние записи обрываются на слове \"зима\". Ядерная зима? Массовая ядерная война привела к освобождению всего живого от оков бытия.";
+
+        _text[902, 0] = "Since then, 243.367 days have passed. We were following orders that simply could not be reversed.";
+        _text[902, 1] = "С тех пор прошло 243.367 дней. Мы выполняли приказ, который просто некому отменить.";
+
+        _text[903, 0] = "Deeper in the archives, an evacuation protocol was discovered. All this time, a comet was hurtling toward us at high speed. It seemed the enemy was preparing to leave the system, but our landing interrupted their preparations.";
+        _text[903, 1] = "Глубже, в архивах, был обнаружен протокол эвакуации. Все это время на нас с огромной скоростью летела комета. Похоже враги готовились покинуть систему, но наша высадка оборвала подготовку.";
+
+        _text[904, 0] = "The comet will arrive before we can do anything. Realizing the futility of their goal and the inevitability of their end, the robots shut down their existence.";
+        _text[904, 1] = "Комета прибудет раньше, чем мы успеем что-либо сделать. Осознав бессмысленность цели и неизбежность конца, роботы отключают своё существование.";
+
+        _text[905, 0] = "This act of self-destruction brought them closer to their creators than ever before...";
+        _text[905, 1] = "Этот акт самоуничтожения сделал их ближе к создателям чем когда-либо...";
+
+        _text[906, 0] = "They finally left this world behind, finding the absolute peace that all life strives for.";
+        _text[906, 1] = "Они наконец оставили этот мир позади, обретя абсолютный покой, к которому так стремится вся жизнь.";
+
+        #endregion
 
         #region Terminal
 
