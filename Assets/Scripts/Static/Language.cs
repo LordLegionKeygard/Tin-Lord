@@ -1857,17 +1857,17 @@ public class Language : MonoBehaviour
         _text[902, 0] = "Since then, 243.367 days have passed. We were following orders that simply could not be reversed.";
         _text[902, 1] = "С тех пор прошло 243.367 дней. Мы выполняли приказ, который просто некому отменить.";
 
-        _text[903, 0] = "Deeper in the archives, an evacuation protocol was discovered. All this time, a comet was hurtling toward us at high speed. It seemed the enemy was preparing to leave the system, but our landing interrupted their preparations.";
-        _text[903, 1] = "Глубже, в архивах, был обнаружен протокол эвакуации. Все это время на нас с огромной скоростью летела комета. Похоже враги готовились покинуть систему, но наша высадка оборвала подготовку.";
+        _text[903, 0] = "Deeper in the archives, an evacuation protocol was discovered. All this time, a meteorite was hurtling toward us at high speed. It seemed the enemy was preparing to leave the system, but our landing interrupted their preparations.";
+        _text[903, 1] = "Глубже, в архивах, был обнаружен протокол эвакуации. Все это время на нас с огромной скоростью летел метеорит. Похоже враги готовились покинуть систему, но наша высадка оборвала подготовку.";
 
-        _text[904, 0] = "The comet will arrive before we can do anything. Realizing the futility of their goal and the inevitability of their end, the robots shut down their existence.";
-        _text[904, 1] = "Комета прибудет раньше, чем мы успеем что-либо сделать. Осознав бессмысленность цели и неизбежность конца, роботы отключают своё существование.";
+        _text[904, 0] = "The meteorite will arrive before we can do anything. Realizing the futility of their goal and the inevitability of their end, the robots shut down their existence.";
+        _text[904, 1] = "Метеорит прибудет раньше, чем мы успеем что-либо сделать. Осознав бессмысленность цели и неизбежность конца, роботы отключают своё существование.";
 
         _text[905, 0] = "This act of self-destruction brought them closer to their creators than ever before...";
         _text[905, 1] = "Этот акт самоуничтожения сделал их ближе к создателям чем когда-либо...";
 
         // CompleteGame_Dialogue
-        _text[906, 0] = "";
+        _text[906, 0] = "The explosion destroyed absolutely everything around.\n\nThis is the beginning of a new era.\n\nWith the endless flow of time, the ecology will one day be restored.\n\nAnd we finally left this world behind, finding the absolute peace we so strove for...";
         _text[906, 1] = "Взрыв уничтожил абсолютно все вокруг.\n\nЭто начало новой эры.\n\nЭкология с бесконечным течением времени однажды восстановится.\n\nА мы наконец оставили этот мир позади, обретя абсолютный покой, к которому так стремились...";
 
         #endregion
