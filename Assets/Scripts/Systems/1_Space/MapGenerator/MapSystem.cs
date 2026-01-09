@@ -543,6 +543,7 @@ public class MapSystem : MonoBehaviour
         node.Landscape = landscape;
         node.EnemiesSpawner = spawnerSO;
         node.Objective = objectiveSO;
+        node.MissionId = definition.MissionId;
 
         node.Icon = template.Icon;
         node.IconColor = template.IconColor;
@@ -650,6 +651,7 @@ public class MapSystem : MonoBehaviour
         node.Landscape = landscape;
         node.EnemiesSpawner = spawnerSO;
         node.Objective = objectiveSO;
+        node.MissionId = definition.MissionId;
 
         var template = isBossNode ? templateBoss : templateMission;
         node.Icon = template.Icon;
@@ -679,6 +681,7 @@ public class MapSystem : MonoBehaviour
         node.Landscape = landscape;
         node.EnemiesSpawner = spawnerSO;
         node.Objective = objectiveSO;
+        node.MissionId = definition.MissionId;
 
         var tpl = isBossNode ? tplBoss : tplMission;
         node.Icon = tpl.Icon;

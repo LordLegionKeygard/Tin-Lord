@@ -53,7 +53,17 @@ public class EndMissionSystem : MonoBehaviour
 
         PrepareEndMission();
         SetMissionEndViewInfo();
+        CheckAchievement();
         PrepareData();
+    }
+
+    private void CheckAchievement()
+    {
+        if(_missionEndEnum != MissionEndEnum.Victory) return;
+
+        var achievementString = $"ACHIEVEMENT_{CurrentMissionInfo.Instance.GetMissionId()}";
+
+        SteamAchievements.Instance.UnlockAchievement(achievementString);
     }
 
     private void PrepareEndMission()
@@ -74,7 +84,7 @@ public class EndMissionSystem : MonoBehaviour
             _ => 0f
         };
 
-        var ecologyBonus = GetEcologyBonus();
+        var ecologyBonus = _ecologySystem.GetEcologyBonus();
         var memoryRestoredAmount = (int)_missionResources.GetResourceAmountForEnum(ResourceEnum.DataFragment);
         var totalFragmentsAmount = Mathf.RoundToInt(memoryRestoredAmount * ecologyBonus);
         _receivedFragments = Mathf.RoundToInt(totalFragmentsAmount * missionEndPercent);
@@ -103,32 +113,6 @@ public class EndMissionSystem : MonoBehaviour
         _maxFragmentsText.text = totalFragmentsAmount.ToString();
     }
 
-    private float GetEcologyBonus()
-    {
-        var everyDayEcology = _ecologySystem.GetEveryDayEcology();
-        int totalMiddleEcology = 0;
-
-        if (everyDayEcology.Length > 0)
-        {
-            int sum = 0;
-            for (int i = 0; i < everyDayEcology.Length; i++)
-            {
-                sum += everyDayEcology[i];
-            }
-            totalMiddleEcology = sum / everyDayEcology.Length;
-        }
-
-        if (totalMiddleEcology <= -75) return 0.25f;
-        if (totalMiddleEcology <= -50) return 0.5f;
-        if (totalMiddleEcology <= -25) return 0.75f;
-        if (totalMiddleEcology <= 0) return 1f;
-        if (totalMiddleEcology <= 25) return 1.25f;
-        if (totalMiddleEcology <= 50) return 1.5f;
-        if (totalMiddleEcology <= 75) return 1.75f;
-
-        return 2f;
-    }
-
     private void PrepareData()
     {
         var aiCores = _missionEndEnum == MissionEndEnum.Victory ? 0 : -1;
@@ -145,7 +129,7 @@ public class EndMissionSystem : MonoBehaviour
             }
 
             // победа, игра окончена
-            if (CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum == LandscapeEnum.Canyon)
+            if (CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum == LandscapeEnum.Megastructure)
             {
                 saveData.IsGameCompleted = true;
             }

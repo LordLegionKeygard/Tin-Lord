@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f53b5ee25211d489fa8bca8b7416ba, type: 3}
   m_Name: 8_Mission
   m_EditorClassIdentifier: 
-  Spawner: {fileID: 11400000, guid: e5c2fb755de4e0641ae6a083bc1aa4d1, type: 2}
+  MissionId: 8
+  Spawner: {fileID: 11400000, guid: daa5fe53fe60b34448eea8976973cc18, type: 2}
   ObjectiveSets:
   - Objectives:
-    - ObjectiveEnum: 3
-      Values: 64000000
+    - ObjectiveEnum: 4
+      Values: 01000000

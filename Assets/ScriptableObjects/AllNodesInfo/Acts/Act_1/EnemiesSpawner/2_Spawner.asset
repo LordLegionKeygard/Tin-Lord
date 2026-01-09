@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e025a72d5c3a743add5457e9f1553f, type: 3}
+  m_Name: 2_Spawner
+  m_EditorClassIdentifier: 
+  Spawners:
+  - StartDaySpawn: 6
+    SpawnPeriod: 3
+    Count: 6
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 0
+      - MonsterType: 1
+        EnemyEnum: 6
+      EnemyLevel: 1
+  - StartDaySpawn: 15
+    SpawnPeriod: 3
+    Count: 12
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 0
+      - MonsterType: 1
+        EnemyEnum: 6
+      EnemyLevel: 1
+  - StartDaySpawn: 21
+    SpawnPeriod: 3
+    Count: 14
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 0
+      - MonsterType: 1
+        EnemyEnum: 6
+      EnemyLevel: 1
+    - EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 1
+      - MonsterType: 1
+        EnemyEnum: 7
+      EnemyLevel: 2
+  - StartDaySpawn: 24
+    SpawnPeriod: 3
+    Count: 16
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 0
+      - MonsterType: 1
+        EnemyEnum: 6
+      EnemyLevel: 1
+    - EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 1
+      - MonsterType: 1
+        EnemyEnum: 7
+      EnemyLevel: 2
+  - StartDaySpawn: 30
+    SpawnPeriod: 3
+    Count: 14
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 1
+      - MonsterType: 1
+        EnemyEnum: 7
+      EnemyLevel: 2
+  - StartDaySpawn: 42
+    SpawnPeriod: 3
+    Count: 18
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 1
+      - MonsterType: 1
+        EnemyEnum: 7
+      EnemyLevel: 2
+  - StartDaySpawn: 46
+    SpawnPeriod: 46
+    Count: 18
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
+    EnemiesSpawnerInfo:
+    - EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 1
+      - MonsterType: 1
+        EnemyEnum: 7
+      EnemyLevel: 2
+  MiniBossSpawners:
+  - DaySpawn: 15
+    Count: 1
+    HealthFactor: 4
+    DamageFactor: 1
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 0
+    EnemySpawnerInfo:
+      EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 1
+      - MonsterType: 1
+        EnemyEnum: 7
+      EnemyLevel: 2
+  - DaySpawn: 30
+    Count: 2
+    HealthFactor: 5
+    DamageFactor: 2
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
+    EnemySpawnerInfo:
+      EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 1
+      - MonsterType: 1
+        EnemyEnum: 7
+      EnemyLevel: 2
+  - DaySpawn: 39
+    Count: 2
+    HealthFactor: 6
+    DamageFactor: 2
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
+    EnemySpawnerInfo:
+      EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 2
+      - MonsterType: 1
+        EnemyEnum: 8
+      EnemyLevel: 2
+  - DaySpawn: 46
+    Count: 2
+    HealthFactor: 7
+    DamageFactor: 2
+    LandscapeSpawnSide:
+    - LandscapeEnum: 0
+      SpawnSide: 1
+    EnemySpawnerInfo:
+      EnemyBiomeInfo:
+      - MonsterType: 0
+        EnemyEnum: 2
+      - MonsterType: 1
+        EnemyEnum: 8
+      EnemyLevel: 2
+  BossSpawner:
+    Bosses: []
+    BossDaySpawn: 0
+    LandscapeSpawnSide: []

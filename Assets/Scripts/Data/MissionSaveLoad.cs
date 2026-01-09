@@ -234,6 +234,7 @@ public class MissionSaveLoad : MonoBehaviour
         node.Landscape = landscape;
         node.Objective = objectiveSO;
         node.EnemiesSpawner = spawnerSO;
+        node.MissionId = definition.MissionId;
 
         node.Icon = template.Icon;
         node.IconColor = template.IconColor;

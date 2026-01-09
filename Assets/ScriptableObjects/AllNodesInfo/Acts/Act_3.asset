@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78b2c1a812cca44fb8f9b41755e8b1d, type: 3}
+  m_Name: Act_3
+  m_EditorClassIdentifier: 
+  StartNode: {fileID: 11400000, guid: 046bc9887d86b3a419894c3509028c10, type: 2}
+  EventPools:
+  - Node: {fileID: 11400000, guid: a99ffd8955a41ab4b92d140bd008855a, type: 2}
+    MaxOnMap: 2
+    RepeatOneEventSameTime: 1
+  - Node: {fileID: 11400000, guid: 3c09af0849ff53240937ea32bd01bdcf, type: 2}
+    MaxOnMap: 6
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: cb022a0799d0a4743ada1348366b14eb, type: 2}
+    MaxOnMap: 3
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: 9a4fb79b82bf85349b69d90a41975195, type: 2}
+    MaxOnMap: 1
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: d458db04fd281e645a9a971abd9849b5, type: 2}
+    MaxOnMap: 1
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: f3ff017a0b89ddb458554c98c623d64c, type: 2}
+    MaxOnMap: 1
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: d8c03215e07c86447be28e581f15bb7b, type: 2}
+    MaxOnMap: 1
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: 5377a8c8c56073f4495e21d5e104becd, type: 2}
+    MaxOnMap: 1
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: 7d24b654d865d3a4e9fae8efdfeba349, type: 2}
+    MaxOnMap: 5
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: 73f4b5f587254c34f8766e337abc99ab, type: 2}
+    MaxOnMap: 1
+    RepeatOneEventSameTime: 0
+  ResourceTraders:
+  - {fileID: 11400000, guid: 989e931db47d8a1458374d10dbde8b7c, type: 2}
+  SkillTraders:
+  - {fileID: 11400000, guid: 1675a783d6fbee94486c88ca60bfa47e, type: 2}
+  WeaponTraders:
+  - {fileID: 11400000, guid: 3e867911fb84c5a4891cb5d0f211a629, type: 2}
+  BossNode: {fileID: 11400000, guid: 087bdfd10427bc94986dca955c470ad8, type: 2}
+  MissionDeck:
+  - {fileID: 11400000, guid: 9944347b8201a6c47bf6454038cc4d3b, type: 2}
+  - {fileID: 11400000, guid: 4e2e0b0e96a7f9f4cb21e5d7fe52c2c6, type: 2}
+  - {fileID: 11400000, guid: 8c7622a5861072849b4dc32740528f7d, type: 2}
+  MissionNodeTemplate: {fileID: 11400000, guid: 4b4634f94e8a6f64e85554f13258c43f,
+    type: 2}
+  Landscapes:
+  - {fileID: 11400000, guid: f433fbf1b5bb22d499c47c344732f4e1, type: 2}
+  - {fileID: 11400000, guid: f82c99b668e44a44093e3d737037d5a9, type: 2}
+  - {fileID: 11400000, guid: 19ec99d948d9435429500a273677119c, type: 2}
+  MapPattern: {fileID: 11400000, guid: 1e88e12a2fdf3d44b8ff90eaffca93af, type: 2}
+  MaxMissions: 2
+  IsFinalAct: 1
+  FinalLandscape: {fileID: 11400000, guid: 19ec99d948d9435429500a273677119c, type: 2}

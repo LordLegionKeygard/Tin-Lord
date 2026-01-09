@@ -186,6 +186,32 @@ public class EcologySystem : MonoBehaviour
         else if (_totalEcology > 99) _totalEcology = 99;
     }
 
+    public float GetEcologyBonus()
+    {
+        var everyDayEcology = GetEveryDayEcology();
+        int totalMiddleEcology = 0;
+
+        if (everyDayEcology.Length > 0)
+        {
+            int sum = 0;
+            for (int i = 0; i < everyDayEcology.Length; i++)
+            {
+                sum += everyDayEcology[i];
+            }
+            totalMiddleEcology = sum / everyDayEcology.Length;
+        }
+
+        if (totalMiddleEcology <= -75) return 0.25f;
+        if (totalMiddleEcology <= -50) return 0.5f;
+        if (totalMiddleEcology <= -25) return 0.75f;
+        if (totalMiddleEcology <= 0) return 1f;
+        if (totalMiddleEcology <= 25) return 1.25f;
+        if (totalMiddleEcology <= 50) return 1.5f;
+        if (totalMiddleEcology <= 75) return 1.75f;
+
+        return 2f;
+    }
+
     private void OnDestroy()
     {
         CustomEvents.OnChangeEcology -= ChangeEcology;
