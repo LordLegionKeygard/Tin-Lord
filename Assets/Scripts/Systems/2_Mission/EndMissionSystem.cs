@@ -147,7 +147,7 @@ public class EndMissionSystem : MonoBehaviour
             // победа, игра окончена
             if (CurrentMissionInfo.Instance.GetCurrentLandscape().LandscapeEnum == LandscapeEnum.Canyon)
             {
-                saveData.EndGame = true;
+                saveData.IsGameCompleted = true;
             }
             else
             {
@@ -240,7 +240,7 @@ public class EndMissionSystem : MonoBehaviour
     {
         AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Default], transform.position);
 
-        if(_spaceSaveGame.SpaceSaveData.EndGame)
+        if(_spaceSaveGame.SpaceSaveData.IsGameCompleted)
         {
             _endGameSystem.ShowEndGameStory();
             return;

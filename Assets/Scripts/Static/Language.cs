@@ -234,23 +234,23 @@ public class Language : MonoBehaviour
         _text[68, 0] = $"Restart mission?\n\n<color={Colors.HexWarningYellow}>You will lose one AI core.</color>";
         _text[68, 1] = $"Перезапустить миссию?\n\n<color={Colors.HexWarningYellow}>Вы потеряете одно ядро ИИ.</color>";
 
-        _text[69, 0] = "In 2100 the first robots were created to help humans.";
-        _text[69, 1] = "В 2100 году были созданы первые роботы для помощи людям.";
+        _text[69, 0] = "";
+        _text[69, 1] = "";
 
-        _text[70, 0] = "2150: An artificial intelligence is developed to find a habitable planet.";
-        _text[70, 1] = "2150 год. Разработан искусственный интеллект, предназначенный найти пригодную для жизни планету.";
+        _text[70, 0] = "";
+        _text[70, 1] = "";
 
-        _text[71, 0] = "2200. An interstellar ship controlled by artificial intelligence is launched.";
-        _text[71, 1] = "2200 год. Запущен межзвёздный корабль под управлением искусственного интеллекта.";
+        _text[71, 0] = "";
+        _text[71, 1] = "";
 
-        _text[72, 0] = "The ship was equipped with a crew of robots and drones designed to restore and stabilize ecosystems.";
-        _text[72, 1] = "На борту корабля снарядили экипаж роботов и дронов, созданных для восстановления и стабилизации экосистем.";
+        _text[72, 0] = "";
+        _text[72, 1] = "";
 
-        _text[73, 0] = "However, the search dragged on. Contact with the creators was lost...";
-        _text[73, 1] = "Однако поиски затянулись. Связь с создателями была утрачена...";
+        _text[73, 0] = "";
+        _text[73, 1] = "";
 
-        _text[74, 0] = "But the goal remains the same: to find a habitable planet.";
-        _text[74, 1] = "Но цель осталась прежней: найти пригодную для жизни планету.";
+        _text[74, 0] = "";
+        _text[74, 1] = "";
 
         _text[75, 0] = "in";
         _text[75, 1] = "в";
@@ -333,8 +333,8 @@ public class Language : MonoBehaviour
         _text[101, 0] = "Rotation speed";
         _text[101, 1] = "Скорость вращения";
 
-        _text[102, 0] = "Press any key";
-        _text[102, 1] = "Нажмите любую кнопку";
+        _text[102, 0] = "Press any key\n\nEscape - cancel";
+        _text[102, 1] = "Нажмите любую кнопку\n\nEscape - отмена";
 
         _text[103, 0] = "Borderless";
         _text[103, 1] = "Безрамочный";
@@ -1786,8 +1786,8 @@ public class Language : MonoBehaviour
         _text[551, 0] = "Failure: dust emission jams turbines - drone lost.\n\nAll loot lost.";
         _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян.\n\nВся добыча потеряна."; // -ядро (мало)
 
-        _text[552, 0] = "";
-        _text[552, 1] = "";
+        _text[552, 0] = "The end";
+        _text[552, 1] = "Конец";
 
         _text[553, 0] = "";
         _text[553, 1] = "";
@@ -1846,7 +1846,7 @@ public class Language : MonoBehaviour
 
         #endregion
 
-        #region EndGame
+        #region CompleteGame
 
         _text[900, 0] = "We penetrated the megastructure's archives. Endless amounts of data about its creators were discovered: voices, faces, cities, history.";
         _text[900, 1] = "Мы проникли в архивы мегаструктуры. Были обнаружены бесконечные массивы данных о создателях: голоса, лица, города, история.";
@@ -1866,8 +1866,9 @@ public class Language : MonoBehaviour
         _text[905, 0] = "This act of self-destruction brought them closer to their creators than ever before...";
         _text[905, 1] = "Этот акт самоуничтожения сделал их ближе к создателям чем когда-либо...";
 
-        _text[906, 0] = "They finally left this world behind, finding the absolute peace that all life strives for.";
-        _text[906, 1] = "Они наконец оставили этот мир позади, обретя абсолютный покой, к которому так стремится вся жизнь.";
+        // CompleteGame_Dialogue
+        _text[906, 0] = "";
+        _text[906, 1] = "Взрыв уничтожил абсолютно все вокруг.\n\nЭто начало новой эры.\n\nЭкология с бесконечным течением времени однажды восстановится.\n\nА мы наконец оставили этот мир позади, обретя абсолютный покой, к которому так стремились...";
 
         #endregion
 

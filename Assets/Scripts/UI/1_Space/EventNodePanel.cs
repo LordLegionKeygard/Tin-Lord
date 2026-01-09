@@ -274,6 +274,14 @@ public class EventNodePanel : MonoBehaviour
         int idx = step.Choices.IndexOf(choice);
         OnChoiceSelected?.Invoke(idx);
 
+        if (_spaceSaveGame.SpaceSaveData.AiCores <= 0 || _spaceSaveGame.SpaceSaveData.IsGameCompleted)
+        {
+            _onFinished?.Invoke();
+            _stack.Clear();
+            Close();
+            return;
+        }
+
         if (choice.Kind == ChoiceKind.Chance)
         {
             bool success = UnityEngine.Random.value < _successChance;
@@ -316,17 +324,6 @@ public class EventNodePanel : MonoBehaviour
 
             foreach (var (reward, amount) in toGrant) GrantReward(reward, amount);
 
-            if (_aiCoreSystem.GetAiCores() <= 0)
-            {
-                if (choice.Random.NextStepIndex < 0)
-                {
-                    _onFinished?.Invoke();
-                    _stack.Clear();
-                    Close();
-                }
-                return;
-            }
-
             int next = choice.Random.NextStepIndex;
             if (next < 0)
             {
@@ -359,17 +356,6 @@ public class EventNodePanel : MonoBehaviour
             }
 
             foreach (var (reward, amount) in toGrant) GrantReward(reward, amount);
-
-            if (_aiCoreSystem.GetAiCores() <= 0)
-            {
-                if (choice.Standard.NextStepIndex < 0)
-                {
-                    _onFinished?.Invoke();
-                    _stack.Clear();
-                    Close();
-                }
-                return;
-            }
 
             int next = choice.Standard.NextStepIndex;
             if (next < 0)
