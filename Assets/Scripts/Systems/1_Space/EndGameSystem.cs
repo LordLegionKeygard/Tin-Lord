@@ -15,9 +15,9 @@ public class EndGameSystem : MonoBehaviour
     [SerializeField] private GameObject _explosionVfx;
     [SerializeField] private GameObject[] _falseObjects;
     [SerializeField] private DialogueSequence _completeGameDialogue;
-    public void CheckCompleteGame(bool comleteGame)
+    public void CheckCompleteGame(bool completeGame)
     {
-        if (!comleteGame) return;
+        if (!completeGame || WorldGameInfo.IsDemo) return;
 
         foreach (var item in _falseObjects)
         {
