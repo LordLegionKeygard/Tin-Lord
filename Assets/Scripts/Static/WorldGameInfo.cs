@@ -66,7 +66,7 @@ public class WorldGameInfo
     public const int StartSpawnEventsDay = 10;
     public const int DayEventChance = 30;
     public const int OilReleaseChance = 30;
-    public const int EarthQuakeChance = 70;
+    public const int EarthQuakeChance = 60;
 
     [Header("Duration")]
     public const int AcidRainTicks = 24;
