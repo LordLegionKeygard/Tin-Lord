@@ -19,7 +19,7 @@ public class SteamAchievements : MonoBehaviour
 
     public void UnlockAchievement(string achName)
     {
-        if (!SteamManager.Initialized || WorldGameInfo.IsDemo) return;
+        if (!SteamManager.Initialized) return;
 
         SteamUserStats.SetAchievement(achName);
         SteamUserStats.StoreStats();
