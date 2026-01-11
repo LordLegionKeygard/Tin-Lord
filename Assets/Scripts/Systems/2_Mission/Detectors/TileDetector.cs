@@ -66,9 +66,13 @@ public class TileDetector : MonoBehaviour
                     {
                         return;
                     }
+                    else if (TrySelectSameTileForUpgradeRarity(raycastHit.transform.gameObject))
+                    {
+                        return;
+                    }
                     else
                     {
-                        SelectEmptyTile(raycastHit.transform.gameObject);
+                        TrySelectEmptyTile(raycastHit.transform.gameObject);
                     }
                 }
             }
@@ -170,7 +174,7 @@ public class TileDetector : MonoBehaviour
 
                     }
 
-                    _currentTileObject.GroundTileObject().SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+                    _currentTileObject.GroundTileObject().SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.CanSetTile);
                     return true;
                 }
                 else
@@ -183,12 +187,63 @@ public class TileDetector : MonoBehaviour
         else return false;
     }
 
+    private bool CanUpgradeRarityTile(GroundTileViewEnum cardView, GroundTileViewEnum tileView)
+    {
+        if(cardView == tileView) return true;
 
-    private void SelectEmptyTile(GameObject gameObject)
+        switch (cardView)
+        {
+            case GroundTileViewEnum.Plain: return tileView == GroundTileViewEnum.Meadow;
+            case GroundTileViewEnum.Forest: return tileView is GroundTileViewEnum.DeadForest or GroundTileViewEnum.Grove or GroundTileViewEnum.Oasis or GroundTileViewEnum.DriedOasis;
+            case GroundTileViewEnum.Mountain: return tileView is GroundTileViewEnum.Volcano or GroundTileViewEnum.OvergrownMountain;
+            case GroundTileViewEnum.Desert: return tileView is GroundTileViewEnum.Oasis or GroundTileViewEnum.DriedOasis or GroundTileViewEnum.BlackDesert;
+            case GroundTileViewEnum.Ground: return tileView is GroundTileViewEnum.Barrenland or GroundTileViewEnum.CoalDeposits or GroundTileViewEnum.ScarceCoalDeposits;
+            case GroundTileViewEnum.Highland: return tileView is GroundTileViewEnum.IronDeposits or GroundTileViewEnum.CopperDeposits;
+            case GroundTileViewEnum.River: return tileView is GroundTileViewEnum.PollutedRiver or GroundTileViewEnum.DesertRiver; 
+        }
+
+        return false;
+    }
+
+    private bool TrySelectSameTileForUpgradeRarity(GameObject gameObject)
+    {
+        _currentTileObject = gameObject.GetComponent<TileObject>();
+        UnselectLastTile(true);
+
+        var groundTile = _currentTileObject.GroundTileObject();
+        var cardView = _cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView;
+
+        if (groundTile.IsHaveTile() && CanUpgradeRarityTile(cardView, groundTile.CurrentGroundTile().GroundTileView))
+        {
+            if (_currentTileObject.GetRarity() >= _cardHolderSystem.GetCurrentSelectCardObjectRarity())
+            {
+                groundTile.SelectTile(true, SelectTileEnum.ErrorSelect);
+                _canSetTile = false;
+                return false;
+            }
+            else
+            {
+                groundTile.SelectTile(true, SelectTileEnum.UpgradeTile);
+                _canSetTile = true;
+                return true;
+            }
+        }
+        else
+        {
+            groundTile.SelectTile(true, SelectTileEnum.ErrorSelect);
+            _canSetTile = false;
+            return false;
+        }
+    }
+
+
+    private void TrySelectEmptyTile(GameObject gameObject)
     {
         var newTileObject = gameObject.GetComponent<TileObject>();
 
         if (newTileObject.IsGroundDestroyedNow()) return;
+
+        var groundTile = _currentTileObject.GroundTileObject();
 
         if (_cardHolderSystem.CheckCurrentCardHolderSelectedTileIsFourTile())
         {
@@ -196,7 +251,6 @@ public class TileDetector : MonoBehaviour
 
             _currentTileObject = newTileObject;
 
-            var groundTile = _currentTileObject.GroundTileObject();
             var haveNeighbours = groundTile.HaveNeighbour(0) && groundTile.HaveNeighbour(1) && groundTile.HaveNeighbour(2);
             var neighboursHaveGroundTile = groundTile.NeighbourHaveGroundTile(0) || groundTile.NeighbourHaveGroundTile(1) || groundTile.NeighbourHaveGroundTile(2);
 
@@ -210,10 +264,10 @@ public class TileDetector : MonoBehaviour
                                     (groundTile.HaveNeighbour(2) && neighboursTwoToxicGasActive);
 
 
-            groundTile.SelectTile(true, _currentTileObject.GroundTileObject().IsHaveTile() || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(true, groundTile.NeighbourHaveGroundTile(0) || !haveNeighbours || neighboursZeroToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(true, groundTile.NeighbourHaveGroundTile(1) || !haveNeighbours || neighboursOneToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
-            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(true, groundTile.NeighbourHaveGroundTile(2) || !haveNeighbours || neighboursTwoToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+            groundTile.SelectTile(true, groundTile.IsHaveTile() || !haveNeighbours ? SelectTileEnum.ErrorSelect : SelectTileEnum.CanSetTile);
+            if (groundTile.HaveNeighbour(0)) groundTile.NeighbourGroundTile(0).SelectTile(true, groundTile.NeighbourHaveGroundTile(0) || !haveNeighbours || neighboursZeroToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.CanSetTile);
+            if (groundTile.HaveNeighbour(1)) groundTile.NeighbourGroundTile(1).SelectTile(true, groundTile.NeighbourHaveGroundTile(1) || !haveNeighbours || neighboursOneToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.CanSetTile);
+            if (groundTile.HaveNeighbour(2)) groundTile.NeighbourGroundTile(2).SelectTile(true, groundTile.NeighbourHaveGroundTile(2) || !haveNeighbours || neighboursTwoToxicGasActive ? SelectTileEnum.ErrorSelect : SelectTileEnum.CanSetTile);
 
 
             _canSetTile = !groundTile.IsHaveTile() && !neighboursHaveGroundTile && haveNeighbours && !haveToxicGasEvent;
@@ -226,14 +280,14 @@ public class TileDetector : MonoBehaviour
 
             if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
             {
-                _currentTileObject.GroundTileObject().SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+                groundTile.SelectTile(true, !CanSetRiver() ? SelectTileEnum.ErrorSelect : SelectTileEnum.CanSetTile);
             }
             else
             {
-                _currentTileObject.GroundTileObject().SelectTile(true, newTileObject.GroundTileObject().IsHaveTile() || newTileObject.GetTileObjectEvents().IsToxicGasActive() ? SelectTileEnum.ErrorSelect : SelectTileEnum.EmptyTileSelect);
+                groundTile.SelectTile(true, newTileObject.GroundTileObject().IsHaveTile() || newTileObject.GetTileObjectEvents().IsToxicGasActive() ? SelectTileEnum.ErrorSelect : SelectTileEnum.CanSetTile);
             }
 
-            _canSetTile = !_currentTileObject.GroundTileObject().IsHaveTile() && !newTileObject.GetTileObjectEvents().IsToxicGasActive();
+            _canSetTile = !groundTile.IsHaveTile() && !newTileObject.GetTileObjectEvents().IsToxicGasActive();
         }
     }
 

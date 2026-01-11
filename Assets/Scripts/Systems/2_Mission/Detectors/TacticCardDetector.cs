@@ -152,7 +152,7 @@ public class TacticCardDetector : MonoBehaviour
         var card = TacticCard;
 
         bool valid = IsValidTarget(card, _currentTileObject);
-        _currentTileObject.GroundTileObject().SelectTile(true, valid ? SelectTileEnum.EmptyTileSelect : SelectTileEnum.ErrorSelect);
+        _currentTileObject.GroundTileObject().SelectTile(true, valid ? SelectTileEnum.CanSetTile : SelectTileEnum.ErrorSelect);
     }
 
     private bool IsValidTarget(TacticCard upgrade, TileObject tileObject)
@@ -162,6 +162,9 @@ public class TacticCardDetector : MonoBehaviour
         var buildingTileObject = tileObject.BuildingTileObject();
         var isHaveBuildingTile = buildingTileObject.IsHaveTile();
         var isConstructionNow = buildingTileObject.IsConstructionNow();
+
+        if(isHaveGroundTile && groundTileObject.CheckTileView(GroundTileViewEnum.Road)) return false;
+        
         switch (upgrade.CardType)
         {
             case TacticCardType.IncreaseDamage:

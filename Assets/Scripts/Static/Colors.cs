@@ -114,7 +114,8 @@ public class Colors : MonoBehaviour
 
 public enum SelectTileEnum
 {
-    EmptyTileSelect = 0,
+    CanSetTile = 0,
     TileSelect = 1,
     ErrorSelect = 2,
+    UpgradeTile = 3,
 }
