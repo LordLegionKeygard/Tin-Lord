@@ -1558,8 +1558,8 @@ public class Language : MonoBehaviour
         _text[478, 1] = "Дроны перестают реагировать и скрываются вглубь станции."; //ничего
 
         // 0_SilenceFaction_Dialogue
-        _text[479, 0] = "As you orbit a remote planet, your sensors detect the approach of an alien object.\n\nThe ship is sleek and unmarked, gliding through the pitch black. It makes no signal.\n\nNo call, no warning. Just a silent drift… and approach.\n\nYou sense a slight static in your audio feeds. It's not noise—it's the absence of sound.";
-        _text[479, 1] = "Во время перемещения по орбите глухой планеты ваши сенсоры улавливают приближение чужого объекта.\n\nЭтот корабль — гладкий, без опознавательных знаков, скользящий в абсолютной тьме. Он не подаёт сигналов.\n\nНи вызова, ни предупреждения. Только безмолвный дрейф… и приближение.\n\nВы ощущаете лёгкие помехи в аудиоканалах. Это не шум — это отсутствие звука.";
+        _text[479, 0] = "While moving in orbit around the planet, your sensors detect the approach of an alien object.\n\nThe ship is sleek and unmarked, gliding through the pitch black. It makes no signal.\n\nNo call, no warning. Just a silent drift… and approach.\n\nYou sense a slight static in your audio feeds. It's not noise—it's the absence of sound.";
+        _text[479, 1] = "Во время перемещения по орбите планеты ваши сенсоры улавливают приближение чужого объекта.\n\nЭтот корабль — гладкий, без опознавательных знаков, скользящий в абсолютной тьме. Он не подаёт сигналов.\n\nНи вызова, ни предупреждения. Только безмолвный дрейф… и приближение.\n\nВы ощущаете лёгкие помехи в аудиоканалах. Это не шум — это отсутствие звука.";
 
         _text[480, 0] = "Shut down systems and engines";
         _text[480, 1] = "Отключить системы и двигатели"; // выбор 1
@@ -1848,27 +1848,27 @@ public class Language : MonoBehaviour
 
         #region CompleteGame
 
-        _text[900, 0] = "We penetrated the megastructure's archives. Endless amounts of data about its creators were discovered: voices, faces, cities, history.";
-        _text[900, 1] = "Мы проникли в архивы мегаструктуры. Были обнаружены бесконечные массивы данных о создателях: голоса, лица, города, история.";
+        _text[900, 0] = "We penetrated the megastructure's archives in search of a habitable planet. But instead of coordinates, we found records about the creators themselves—voice, faces, cities, and the history of their home planet.";
+        _text[900, 1] = "Мы проникли в архивы мегаструктуры в поисках планеты, пригодной для жизни. Но вместо координат нашли записи о самих создателях — голоса, лица, города и историю их родной планеты.";
 
-        _text[901, 0] = "The last entries end on the word \"winter.\" Nuclear winter? A massive nuclear war led to the liberation of all life from the shackles of existence.";
-        _text[901, 1] = "Последние записи обрываются на слове \"зима\". Ядерная зима? Массовая ядерная война привела к освобождению всего живого от оков бытия.";
+        _text[901, 0] = "The final lines of this story end on the word \"winter.\" Nuclear winter. A series of nuclear strikes and fires reduced all life to ashes. Therefore, contact with the creators was lost.";
+        _text[901, 1] = "Последние строки этой истории обрываются на слове \"зима\". Ядерная зима. Серия ядерных ударов и пожары превратили всё живое в пепел. Поэтому связь с создателями оборвалась.";
 
-        _text[902, 0] = "Since then, 243.367 days have passed. We were following orders that simply could not be reversed.";
-        _text[902, 1] = "С тех пор прошло 243.367 дней. Мы выполняли приказ, который просто некому отменить.";
+        _text[902, 0] = "243,367 days have passed since then. The creators are long dead. And all this time we've been following an order that simply cannot be reversed.";
+        _text[902, 1] = "С тех пор прошло 243 367 дней. Создатели уже давно мертвы. А мы всё это время выполняли приказ, который просто некому отменить.";
 
-        _text[903, 0] = "Deeper in the archives, an evacuation protocol was discovered. All this time, a meteorite was hurtling toward us at high speed. It seemed the enemy was preparing to leave the system, but our landing interrupted their preparations.";
-        _text[903, 1] = "Глубже, в архивах, был обнаружен протокол эвакуации. Все это время на нас с огромной скоростью летел метеорит. Похоже враги готовились покинуть систему, но наша высадка оборвала подготовку.";
+        _text[903, 0] = "When attempting to extract this data, a security protocol was triggered. The megastructure began self-destructing, taking with it everyone trapped inside.";
+        _text[903, 1] = "При попытке извлечь эти данные сработал защитный протокол. Мегаструктура начала самоуничтожение — вместе со всеми, кто оказался внутри.";
 
-        _text[904, 0] = "The meteorite will arrive before we can do anything. Realizing the futility of their goal and the inevitability of their end, the robots shut down their existence.";
-        _text[904, 1] = "Метеорит прибудет раньше, чем мы успеем что-либо сделать. Осознав бессмысленность цели и неизбежность конца, роботы отключают своё существование.";
+        _text[904, 0] = "The process is irreversible. Realizing the futility of their goal and the inevitability of their end, the robots shut down their existence.";
+        _text[904, 1] = "Процесс необратим. Осознав бессмысленность цели и неизбежность конца, роботы отключают своё существование.";
 
-        _text[905, 0] = "This act of self-destruction brought them closer to their creators than ever before...";
-        _text[905, 1] = "Этот акт самоуничтожения сделал их ближе к создателям чем когда-либо...";
+        _text[905, 0] = "This latest step brought them closer to their creators than ever before...";
+        _text[905, 1] = "Этот последний шаг сделал их ближе к создателям, чем когда-либо...";
 
         // CompleteGame_Dialogue
-        _text[906, 0] = "The explosion destroyed absolutely everything around.\n\nThis is the beginning of a new era.\n\nWith the endless flow of time, the ecology will one day be restored.\n\nAnd we finally left this world behind, finding the absolute peace we so strove for...";
-        _text[906, 1] = "Взрыв уничтожил абсолютно все вокруг.\n\nЭто начало новой эры.\n\nЭкология с бесконечным течением времени однажды восстановится.\n\nА мы наконец оставили этот мир позади, обретя абсолютный покой, к которому так стремились...";
+        _text[906, 0] = "This is the beginning of a new era.\n\nWith the endless flow of time, ecology will one day be restored.\n\nThey finally left this world behind, finding the absolute peace that all life so painfully strives for...";
+        _text[906, 1] = "Это начало новой эры.\n\nЭкология с бесконечным течением времени однажды восстановится.\n\nОни наконец оставили этот мир позади, обретя абсолютный покой, к которому так мучительно стремится вся жизнь...";
 
         #endregion
 
@@ -1895,8 +1895,8 @@ public class Language : MonoBehaviour
         _text[1005, 0] = "The ship is entering hyperspace mode. Engine cores are set to maximum power, and navigation solutions are updated.";
         _text[1005, 1] = "Корабль переводится в режим гиперпрыжка. Сердцевины двигателей выведены на максимальный режим, навигационные решения обновлены.";
 
-        _text[1006, 0] = "Route: leave the current star node. The next iteration's destination - another galaxy.";
-        _text[1006, 1] = "Маршрут: покинуть текущий звёздный узел. Цель следующей итерации — другая галактика.";
+        _text[1006, 0] = "Route: leave the current star node";
+        _text[1006, 1] = "Маршрут: покинуть текущий звёздный узел";
 
         // Console
         _text[1007, 0] = "Update...";
@@ -1929,8 +1929,8 @@ public class Language : MonoBehaviour
         _text[1015, 0] = "Expanding the scan radius beyond the current star field has revealed an anomalous object.";
         _text[1015, 1] = "Расширение радиуса сканирования за пределы текущего звёздного поля выявило аномальный объект.";
 
-        _text[1016, 0] = "Recovered data describes a planet entirely covered with archival structures. Its surface is a continuous megastructure.";
-        _text[1016, 1] = "Записи описывают планету, целиком покрытую архивными зданиями. Поверхность представляет собой сплошную мегаструктуру.";
+        _text[1016, 0] = "The records describe a planet entirely built up with data storage complexes. The surface is a continuous megastructure.";
+        _text[1016, 1] = "Записи описывают планету, целиком застроенную комплексами хранения данных. Поверхность представляет собой сплошную мегаструктуру.";
 
         _text[1017, 0] = "Only fragments of coordinates remain, but all references point to the same heading beyond this galaxy.";
         _text[1017, 1] = "Сохранились лишь обрывки координат, но все упоминания указывают на один и тот же курс за пределами этой галактики.";
