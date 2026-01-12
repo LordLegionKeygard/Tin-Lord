@@ -1848,16 +1848,16 @@ public class Language : MonoBehaviour
 
         #region CompleteGame
 
-        _text[900, 0] = "We penetrated the megastructure's archives in search of a habitable planet. But instead of coordinates, we found records about the creators themselves—voice, faces, cities, and the history of their home planet.";
+        _text[900, 0] = "We hacked the megastructure's archives in search of a habitable planet. But instead of coordinates, we found records about the creators voices, faces, cities, and the history of their home planet.";
         _text[900, 1] = "Мы проникли в архивы мегаструктуры в поисках планеты, пригодной для жизни. Но вместо координат нашли записи о самих создателях — голоса, лица, города и историю их родной планеты.";
 
-        _text[901, 0] = "The final lines of this story end on the word \"winter.\" Nuclear winter. A series of nuclear strikes and fires reduced all life to ashes. Therefore, contact with the creators was lost.";
+        _text[901, 0] = "The story breaks off at the word \"winter\". Nuclear winter. A series of nuclear strikes and fires turned all living things into ashes. Therefore, contact with the creators was lost.";
         _text[901, 1] = "Последние строки этой истории обрываются на слове \"зима\". Ядерная зима. Серия ядерных ударов и пожары превратили всё живое в пепел. Поэтому связь с создателями оборвалась.";
 
         _text[902, 0] = "243,367 days have passed since then. The creators are long dead. And all this time we've been following an order that simply cannot be reversed.";
         _text[902, 1] = "С тех пор прошло 243 367 дней. Создатели уже давно мертвы. А мы всё это время выполняли приказ, который просто некому отменить.";
 
-        _text[903, 0] = "When attempting to extract this data, a security protocol was triggered. The megastructure began self-destructing, taking with it everyone trapped inside.";
+        _text[903, 0] = "When attempting to extract this data, a security protocol was triggered. The megastructure began self-destruction along with everyone trapped inside.";
         _text[903, 1] = "При попытке извлечь эти данные сработал защитный протокол. Мегаструктура начала самоуничтожение — вместе со всеми, кто оказался внутри.";
 
         _text[904, 0] = "The process is irreversible. Realizing the futility of their goal and the inevitability of their end, the robots shut down their existence.";
@@ -1867,8 +1867,8 @@ public class Language : MonoBehaviour
         _text[905, 1] = "Этот последний шаг сделал их ближе к создателям, чем когда-либо...";
 
         // CompleteGame_Dialogue
-        _text[906, 0] = "This is the beginning of a new era.\n\nWith the endless flow of time, ecology will one day be restored.\n\nThey finally left this world behind, finding the absolute peace that all life so painfully strives for...";
-        _text[906, 1] = "Это начало новой эры.\n\nЭкология с бесконечным течением времени однажды восстановится.\n\nОни наконец оставили этот мир позади, обретя абсолютный покой, к которому так мучительно стремится вся жизнь...";
+        _text[906, 0] = "With the endless flow of time, one day ecology will be restored.\n\nThis is the beginning of a new era.\n\nThey finally left this world behind, finding the absolute peace that all living so painfully strive for...";
+        _text[906, 1] = "Экология с бесконечным течением времени однажды восстановится.\n\nЭто начало новой эры.\n\nОни наконец оставили этот мир позади, обретя абсолютный покой, к которому так мучительно стремится вся жизнь...";
 
         #endregion
 
