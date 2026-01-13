@@ -189,7 +189,7 @@ public class TileDetector : MonoBehaviour
 
     private bool CanUpgradeRarityTile(GroundTileViewEnum cardView, GroundTileViewEnum tileView)
     {
-        if(cardView == tileView) return true;
+        if (cardView == tileView) return true;
 
         switch (cardView)
         {
@@ -199,7 +199,7 @@ public class TileDetector : MonoBehaviour
             case GroundTileViewEnum.Desert: return tileView is GroundTileViewEnum.Oasis or GroundTileViewEnum.DriedOasis or GroundTileViewEnum.BlackDesert;
             case GroundTileViewEnum.Ground: return tileView is GroundTileViewEnum.Barrenland or GroundTileViewEnum.CoalDeposits or GroundTileViewEnum.ScarceCoalDeposits;
             case GroundTileViewEnum.Highland: return tileView is GroundTileViewEnum.IronDeposits or GroundTileViewEnum.CopperDeposits;
-            case GroundTileViewEnum.River: return tileView is GroundTileViewEnum.PollutedRiver or GroundTileViewEnum.DesertRiver; 
+            case GroundTileViewEnum.River: return tileView is GroundTileViewEnum.PollutedRiver or GroundTileViewEnum.DesertRiver;
         }
 
         return false;
@@ -207,6 +207,8 @@ public class TileDetector : MonoBehaviour
 
     private bool TrySelectSameTileForUpgradeRarity(GameObject gameObject)
     {
+        if (_cardHolderSystem.CheckCurrentCardHolderSelectedTileIsFourTile()) return false;
+
         _currentTileObject = gameObject.GetComponent<TileObject>();
         UnselectLastTile(true);
 
@@ -243,7 +245,6 @@ public class TileDetector : MonoBehaviour
 
         if (newTileObject.IsGroundDestroyedNow()) return;
 
-        var groundTile = _currentTileObject.GroundTileObject();
 
         if (_cardHolderSystem.CheckCurrentCardHolderSelectedTileIsFourTile())
         {
@@ -251,6 +252,7 @@ public class TileDetector : MonoBehaviour
 
             _currentTileObject = newTileObject;
 
+            var groundTile = _currentTileObject.GroundTileObject();
             var haveNeighbours = groundTile.HaveNeighbour(0) && groundTile.HaveNeighbour(1) && groundTile.HaveNeighbour(2);
             var neighboursHaveGroundTile = groundTile.NeighbourHaveGroundTile(0) || groundTile.NeighbourHaveGroundTile(1) || groundTile.NeighbourHaveGroundTile(2);
 
@@ -277,6 +279,7 @@ public class TileDetector : MonoBehaviour
             UnselectLastTile(true);
 
             _currentTileObject = newTileObject;
+            var groundTile = _currentTileObject.GroundTileObject();
 
             if (_cardHolderSystem.CurrentCardHolderSelectedTile().GroundTileView is GroundTileViewEnum.River or GroundTileViewEnum.PollutedRiver)
             {

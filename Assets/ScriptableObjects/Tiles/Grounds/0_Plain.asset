@@ -28,6 +28,7 @@ MonoBehaviour:
   CanBuildMachineProduction: 1
   BuildingTypes:
   - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - {fileID: 11400000, guid: 3fbd9e5df08784a45993d1293bb6ab60, type: 2}
   - {fileID: 11400000, guid: 2a6e5ea87cd8f04448bcf8887c8981e0, type: 2}
   - {fileID: 11400000, guid: 2030307a75a13f34798f72c4951e49e8, type: 2}
   - {fileID: 11400000, guid: 9689564738aacee4f9bdcbade4fb180a, type: 2}
@@ -57,6 +58,9 @@ MonoBehaviour:
       type: 2}
     ProductionOnGroundResourceModifier: 1
   - ProductionOnGroundResource: {fileID: 11400000, guid: 072a407d58b15cb429cb3ba64d09eb1b,
+      type: 2}
+    ProductionOnGroundResourceModifier: 1
+  - ProductionOnGroundResource: {fileID: 11400000, guid: 92fe97efe15e89d4cac1a9960bb83098,
       type: 2}
     ProductionOnGroundResourceModifier: 1
   BuildingTileView: -1

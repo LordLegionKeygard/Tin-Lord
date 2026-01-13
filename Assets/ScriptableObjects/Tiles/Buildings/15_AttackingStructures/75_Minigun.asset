@@ -26,7 +26,7 @@ MonoBehaviour:
   CanRotateBuilding: 0
   ResourcesForBuild:
   - ResourceEnum: 11
-    RecourceAmount: 10
+    RecourceAmount: 15
   - ResourceEnum: 17
     RecourceAmount: 5
   - ResourceEnum: 12
@@ -38,7 +38,7 @@ MonoBehaviour:
     type: 3}
   ConstructionPrefab: {fileID: 4797518309121871739, guid: 0b10a2b91181be6469794d3bcd37873a,
     type: 3}
-  Damage: 0.5
+  Damage: 1
   AttackSpeed: 0.1
   AttackRadius: 55
   RotationSpeed: 0.5

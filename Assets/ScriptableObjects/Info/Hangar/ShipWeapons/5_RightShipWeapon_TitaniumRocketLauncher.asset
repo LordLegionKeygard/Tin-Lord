@@ -23,9 +23,12 @@ MonoBehaviour:
   SpreadDeg: 0
   LifeTime: 3
   BulletsPerShot: 1
-  Damage: 6
+  Damage: 4
   DamageFactor: 2
   BulletsCount: 10
   ExplosionPrefab: {fileID: 1892133220914832, guid: d0425cdc5a3b1054ea3074c0ac89bff0,
     type: 3}
   ImpactYOffset: 0
+  DotPrefab: {fileID: 0}
+  DotDamageFactor: 0
+  DotDurationTicks: 0

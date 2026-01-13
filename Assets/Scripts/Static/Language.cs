@@ -1848,7 +1848,7 @@ public class Language : MonoBehaviour
 
         #region CompleteGame
 
-        _text[900, 0] = "We hacked the megastructure's archives in search of a habitable planet. But instead of coordinates, we found records about the creators voices, faces, cities, and the history of their home planet.";
+        _text[900, 0] = "In search of a habitable planet we hacked the megastructure's archives. But instead of coordinates, we found records about the creators voices, faces, cities, and the history of their home planet.";
         _text[900, 1] = "Мы проникли в архивы мегаструктуры в поисках планеты, пригодной для жизни. Но вместо координат нашли записи о самих создателях — голоса, лица, города и историю их родной планеты.";
 
         _text[901, 0] = "The story breaks off at the word \"winter\". Nuclear winter. A series of nuclear strikes and fires turned all living things into ashes. Therefore, contact with the creators was lost.";

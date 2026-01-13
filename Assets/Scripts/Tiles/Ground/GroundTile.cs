@@ -62,7 +62,6 @@ public class GroundTile : MonoBehaviour
     public Tile CurrentGroundTile() => _currentGroundTile;
     public GroundTile NeighbourGroundTile(int number) => _tileObject.GetNeighbourGroundTile(number);
     public void TurnOffTileCollider() => _tileView.TurnOffCollider();
-    public void SetId(int id) => _tileObject.SetId(id);
 
     private void Awake()
     {
@@ -139,7 +138,7 @@ public class GroundTile : MonoBehaviour
 
     public void LoadGroundTile(TileDataWrapper tileDataWrapper)
     {
-        _currentGroundTile = _tilesSystem.GetGroundTileForId(tileDataWrapper.GroundData.GroundTileId);
+        _currentGroundTile = _tilesSystem.GetGroundTileForEnum((GroundTileViewEnum)tileDataWrapper.GroundData.GroundTileId);
 
         _currentGroundTileObject = _diContainer.InstantiatePrefab(_currentGroundTile.TileObject, _groundParent.position, Quaternion.identity, null);
         _currentGroundTileObject.transform.SetParent(_groundParent);

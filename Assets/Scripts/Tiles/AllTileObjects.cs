@@ -59,7 +59,7 @@ public class AllTileObjects : MonoBehaviour
             {
                 GroundData = new GroundData
                 {
-                    GroundTileId = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTile().Id : -1,
+                    GroundTileId = groundHaveTile ? (int)tileObject.GroundTileObject().CurrentGroundTile().GroundTileView : -1,
                     GroundTileRotation = groundHaveTile ? tileObject.GroundTileObject().CurrentGroundTileObject().transform.eulerAngles.y : 0,
                     GroundModelRotation = groundHaveTile ? tileObject.GroundTileObject().GroundModelRotation() : 0,
                     IsForwardRoad = groundHaveTile ? tileObject.GroundTileObject().IsForwardRoad() : false,

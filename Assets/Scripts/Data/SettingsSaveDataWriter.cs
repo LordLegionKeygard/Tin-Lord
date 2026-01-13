@@ -5,7 +5,7 @@ using UnityEngine;
 public class SettingsSaveDataWriter
 {
     public string SaveSettingsDataDirectoryPath = "";
-    private string _settingsDataSaveFileName => WorldGameInfo.IsDemo ? "DemoSettingsSave.txt" : "SettingsSave.txt";
+    private string _settingsDataSaveFileName => WorldGameInfo.IsDemo ? "DemoSettingsSave0.txt" : "SettingsSave.txt";
 
     public SettingsSaveDataWriter(string SaveSettingsDataDirectoryPath)
     {
