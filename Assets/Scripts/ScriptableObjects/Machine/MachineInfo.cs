@@ -12,7 +12,6 @@ public class MachineInfo : ScriptableObject
     public ResourceWrapper[] ResourcesForBuild; // кол-во ресурсов для строительства
 
     public float GetDurability(int level) => MachineLevelInfo.StartDurability + MachineLevelInfo.FactorDurability * level;
-    public int GetMeleeDamage(int level) => (int)(MachineLevelInfo.StartMeleeDamage + MachineLevelInfo.FactorMeleeDamage * level);
     public int GetRangeDamage(int level) => (int)(MachineLevelInfo.StartRangeDamage + MachineLevelInfo.FactorRangeDamage * level);
 }
 
@@ -21,11 +20,9 @@ public class MachineLevelInfo
 {
     [Header("StartParams")]
     public int StartDurability;
-    public int StartMeleeDamage;
     public int StartRangeDamage;
 
     [Header("Factor")]
     public int FactorDurability;
-    public float FactorMeleeDamage;
     public float FactorRangeDamage;
 }

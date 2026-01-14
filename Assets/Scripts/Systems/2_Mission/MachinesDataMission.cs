@@ -14,7 +14,6 @@ public class MachinesDataMission : MonoBehaviour
     //Current
     public int GetCurrentLevel() => _machineLevel;
     public MachineInfo GetMachineInformation() => _machineInfo[(int)_currentMachineSystem.GetMachineType()];
-    public int GetCurrentMeleeDamage() => GetMachineInformation().GetMeleeDamage(GetCurrentLevel());
     public int GetCurrentRangeDamage() => GetMachineInformation().GetRangeDamage(GetCurrentLevel());
     public float GetCurrentDurability() => GetMachineInformation().GetDurability(GetCurrentLevel());
     public float GetDetectionRadius() => GetMachineInformation().DetectionRadius;

@@ -84,11 +84,11 @@ public class Language : MonoBehaviour
         _text[18, 0] = "Durability";
         _text[18, 1] = "Прочность";
 
-        _text[19, 0] = "Melee damage";
-        _text[19, 1] = "Урон в ближнем бою";
+        _text[19, 0] = "";
+        _text[19, 1] = "";
 
-        _text[20, 0] = "Range damage";
-        _text[20, 1] = "Урон в дальнем бою";
+        _text[20, 0] = "";
+        _text[20, 1] = "";
 
         _text[21, 0] = "Machines";
         _text[21, 1] = "Машины";

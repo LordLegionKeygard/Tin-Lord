@@ -17,7 +17,6 @@ public class MachinePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private TextMeshProUGUI _experienceText;
     [SerializeField] private TextMeshProUGUI _durabilityText;
-    [SerializeField] private TextMeshProUGUI _meleeDamageText;
     [SerializeField] private TextMeshProUGUI _rangeDamageText;
     [SerializeField] private Slider _expSlider;
 
@@ -125,15 +124,12 @@ public class MachinePanel : MonoBehaviour
 
         var durability = haveAliveMachine ? $"{(int)currentMachineHealth} / {_currentSelectMachineInfo.GetDurability(level)}" : "-";
 
-        var _meleeDamage = haveAliveMachine ? $"{_currentSelectMachineInfo.GetMeleeDamage(level)}" : "-";
         var rangeDamage = haveAliveMachine ? $"{_currentSelectMachineInfo.GetRangeDamage(level)}" : "-";
 
         var durabilityText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[18]}:</color>";
-        var meleeDamageText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[19]}:</color>";
-        var rangeDamageText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[20]}:</color>";
+        var rangeDamageText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[98]}:</color>";
 
         _durabilityText.text = $"{durabilityText} {durability}";
-        _meleeDamageText.text = $"{meleeDamageText} {_meleeDamage}";
         _rangeDamageText.text = $"{rangeDamageText} {rangeDamage}";
     }
 

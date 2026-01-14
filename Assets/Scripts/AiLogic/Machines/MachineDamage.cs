@@ -7,12 +7,6 @@ public class MachineDamage : BaseDamage
     [SerializeField] private BulletEnum[] _bulletTypes;
     [SerializeField] private Transform[] _firePoints;
 
-    public override void Attack(int attackNumber)
-    {  
-        if (CurrentTargetBaseHealth == null) return;
-        CurrentTargetBaseHealth.CalculateDamage(MachinesDataMission.Instance.GetCurrentMeleeDamage(), 0); 
-    }
-
     public override void Shoot(int fireNumber)
     {
         if (BaseAttackVFX != null) BaseAttackVFX.PlayAttackVFX(fireNumber);
