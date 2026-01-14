@@ -20,11 +20,9 @@ MonoBehaviour:
   DetectionRadius: 65
   RequiredBuildingLevel: 3
   MachineLevelInfo:
-    StartDurability: 270
-    StartMeleeDamage: 0
+    StartDurability: 200
     StartRangeDamage: 10
-    FactorDurability: 30
-    FactorMeleeDamage: 0
+    FactorDurability: 20
     FactorRangeDamage: 0.5
   ResourcesForBuild:
   - ResourceEnum: 11

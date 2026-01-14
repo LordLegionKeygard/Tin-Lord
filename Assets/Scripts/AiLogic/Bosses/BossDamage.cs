@@ -7,6 +7,7 @@ public class BossDamage : BaseDamage
     [Inject] private readonly DiContainer _diContainer;
     [Inject] readonly BulletsPool _bulletsPool;
     [SerializeField] private float _defaultDamage;
+    [SerializeField] private float _shootDamage;
     [SerializeField] private BulletFromPoolWrapper _bulletFromPoolWrapper;
     [SerializeField] private CreatureSkillsWrapper[] _creatureSkillsWrapper;
     private EnemyAttacks _attacks;
@@ -47,7 +48,7 @@ public class BossDamage : BaseDamage
         if (bullet.TryGetComponent<Bullet>(out var bulletScript))
         {
             bulletScript.SetTarget(CurrentTargetBaseHealth, CurrentTargetTransform);
-            bulletScript.SetDamage(Damage, 0);
+            bulletScript.SetDamage(_shootDamage, 0);
             bulletScript.SetBulletPool(_bulletsPool, _bulletFromPoolWrapper.BulletType);
         }
     }

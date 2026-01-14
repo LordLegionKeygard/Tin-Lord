@@ -36,9 +36,9 @@ public class TurretPatrolState : TurretState
                 SetTarget(aiDestinationSetter, targetHealth);
                 return _turretCombatState;
             }
-
-            RotateTowardsTarget();
         }
+
+        RotateTowardsTarget();
 
 
         return this;
