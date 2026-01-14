@@ -31,6 +31,16 @@ public class EnemyIdleState : EnemyState
                 return _pursueTargetState;
             }
 
+            if (!HasReachableBasePoint())
+            {
+                var fallbackTarget = FindNearestBuildingTargetGlobal();
+                if (fallbackTarget != null)
+                {
+                    SetTargetAndStartPursuit(fallbackTarget, attacks, aiPath);
+                    return _pursueTargetState;
+                }
+            }
+
             if (_aiDestinationSetter.CurrentTarget == null)
             {
                 SetBaseTarget();
@@ -99,14 +109,9 @@ public class EnemyIdleState : EnemyState
         int rndIndex = randomInts[0];
         var target = allTargets[rndIndex];
 
-        var startNode = AstarPath.active.GetNearest(transform.position).node;
-        if (startNode != null)
+        if (IsReachable(target))
         {
-            var endNode = AstarPath.active.GetNearest(target.transform.position).node;
-            if (endNode != null && PathUtilities.IsPathPossible(startNode, endNode))
-            {
-                return target;
-            }
+            return target;
         }
 
         var reachableTarget = GetRandomReachableTarget(allTargets, allTargets);
@@ -115,7 +120,7 @@ public class EnemyIdleState : EnemyState
             return reachableTarget;
         }
 
-        return target;
+        return GetNearestTarget(allTargets);
     }
 
     private BaseHealth GetRandomReachableTarget(List<BaseHealth> needTargets, List<BaseHealth> allTargets)
@@ -138,7 +143,8 @@ public class EnemyIdleState : EnemyState
         for (int i = 0; i < checks; i++)
         {
             var candidate = needTargets[indices[i]];
-            var endNode = AstarPath.active.GetNearest(candidate.transform.position).node;
+            var destination = GetDestinationTransform(candidate);
+            var endNode = destination != null ? AstarPath.active.GetNearest(destination.position).node : null;
             if (endNode != null && PathUtilities.IsPathPossible(startNode, endNode))
             {
                 reachable.Add(candidate);
@@ -160,7 +166,9 @@ public class EnemyIdleState : EnemyState
                     continue;
                 }
 
-                float sqr = (target.transform.position - transform.position).sqrMagnitude;
+                var destination = GetDestinationTransform(target);
+                var targetPosition = destination != null ? destination.position : target.transform.position;
+                float sqr = (targetPosition - transform.position).sqrMagnitude;
                 if (sqr < minSqr)
                 {
                     minSqr = sqr;
@@ -180,9 +188,7 @@ public class EnemyIdleState : EnemyState
     private void SetTargetAndStartPursuit(BaseHealth targetHealth, EnemyAttacks attacks, AIPath aiPath)
     {
         var buildingTile = targetHealth.BuildingTile();
-        var destinationTarget = buildingTile != null
-            ? (buildingTile.IsFourTile ? targetHealth.GetFoutTileTransform() : targetHealth.gameObject.transform)
-            : targetHealth.gameObject.transform;
+        var destinationTarget = GetDestinationTransform(targetHealth);
 
         attacks.UpdateCreatureAttackDistance(buildingTile);
         aiPath.endReachedDistance = attacks.MaxMeleeAtkRange();
@@ -202,5 +208,104 @@ public class EnemyIdleState : EnemyState
             return;
         }
         _aiDestinationSetter.CurrentTarget = BasePoint.Instance.GetRandomBasePoint();
+    }
+
+    private Transform GetDestinationTransform(BaseHealth targetHealth)
+    {
+        if (targetHealth == null) return null;
+
+        var buildingTile = targetHealth.BuildingTile();
+        return buildingTile != null
+            ? (buildingTile.IsFourTile ? targetHealth.GetFoutTileTransform() : targetHealth.transform)
+            : targetHealth.transform;
+    }
+
+    private bool IsReachable(BaseHealth targetHealth)
+    {
+        if (AstarPath.active == null) return false;
+
+        var destination = GetDestinationTransform(targetHealth);
+        if (destination == null) return false;
+
+        return IsReachable(destination);
+    }
+
+    private bool IsReachable(Transform destination)
+    {
+        if (AstarPath.active == null || destination == null) return false;
+
+        var startNode = AstarPath.active.GetNearest(transform.position).node;
+        if (startNode == null) return false;
+
+        var endNode = AstarPath.active.GetNearest(destination.position).node;
+        return endNode != null && PathUtilities.IsPathPossible(startNode, endNode);
+    }
+
+    private bool HasReachableBasePoint()
+    {
+        if (AstarPath.active == null || BasePoint.Instance == null) return false;
+
+        var basePoints = BasePoint.Instance.GetBasePoints();
+        if (basePoints == null || basePoints.Length == 0) return false;
+
+        foreach (var point in basePoints)
+        {
+            if (point != null && IsReachable(point))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private BaseHealth FindNearestBuildingTargetGlobal()
+    {
+        var buildings = FindObjectsOfType<BuildingHealth>();
+        if (buildings == null || buildings.Length == 0) return null;
+
+        BaseHealth nearestTarget = null;
+        float minSqr = float.MaxValue;
+
+        foreach (var building in buildings)
+        {
+            if (building == null || building.IsDeath()) continue;
+
+            var tile = building.BuildingTile();
+            if (tile == null || tile.BuildingTileView == BuildingTileViewEnum.Traps) continue;
+
+            var destination = GetDestinationTransform(building);
+            var targetPosition = destination != null ? destination.position : building.transform.position;
+            float sqr = (targetPosition - transform.position).sqrMagnitude;
+            if (sqr < minSqr)
+            {
+                minSqr = sqr;
+                nearestTarget = building;
+            }
+        }
+
+        return nearestTarget;
+    }
+
+    private BaseHealth GetNearestTarget(List<BaseHealth> targets)
+    {
+        if (targets == null || targets.Count == 0) return null;
+
+        BaseHealth nearestTarget = null;
+        float minSqr = float.MaxValue;
+
+        foreach (var target in targets)
+        {
+            var destination = GetDestinationTransform(target);
+            var targetPosition = destination != null ? destination.position : target.transform.position;
+            float sqr = (targetPosition - transform.position).sqrMagnitude;
+            if (sqr < minSqr)
+            {
+                minSqr = sqr;
+                nearestTarget = target;
+            }
+        }
+
+        return nearestTarget;
     }
 }
