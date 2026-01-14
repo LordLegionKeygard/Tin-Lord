@@ -122,6 +122,12 @@ public class EnemyIdleState : EnemyState
             return reachableTarget;
         }
 
+        var nearestReachable = GetNearestReachableTarget(allTargets);
+        if (nearestReachable != null)
+        {
+            return nearestReachable;
+        }
+
         return GetNearestTarget(allTargets);
     }
 
@@ -266,9 +272,7 @@ public class EnemyIdleState : EnemyState
         var buildings = FindObjectsOfType<BuildingHealth>();
         if (buildings == null || buildings.Length == 0) return null;
 
-        BaseHealth nearestTarget = null;
-        float minSqr = float.MaxValue;
-
+        List<BaseHealth> candidates = new();
         foreach (var building in buildings)
         {
             if (building == null || building.IsDeath()) continue;
@@ -277,17 +281,16 @@ public class EnemyIdleState : EnemyState
             if (tile == null || tile.BuildingTileView == BuildingTileViewEnum.Traps) continue;
             if (ShouldSkipBaseForBoss(building, allowBaseTarget)) continue;
 
-            var destination = GetDestinationTransform(building);
-            var targetPosition = destination != null ? destination.position : building.transform.position;
-            float sqr = (targetPosition - transform.position).sqrMagnitude;
-            if (sqr < minSqr)
-            {
-                minSqr = sqr;
-                nearestTarget = building;
-            }
+            candidates.Add(building);
         }
 
-        return nearestTarget;
+        var nearestReachable = GetNearestReachableTarget(candidates);
+        if (nearestReachable != null)
+        {
+            return nearestReachable;
+        }
+
+        return GetNearestTarget(candidates);
     }
 
     private bool ShouldSkipBaseForBoss(BaseHealth targetHealth, bool allowBaseTarget)
@@ -343,6 +346,30 @@ public class EnemyIdleState : EnemyState
 
         foreach (var target in targets)
         {
+            var destination = GetDestinationTransform(target);
+            var targetPosition = destination != null ? destination.position : target.transform.position;
+            float sqr = (targetPosition - transform.position).sqrMagnitude;
+            if (sqr < minSqr)
+            {
+                minSqr = sqr;
+                nearestTarget = target;
+            }
+        }
+
+        return nearestTarget;
+    }
+
+    private BaseHealth GetNearestReachableTarget(List<BaseHealth> targets)
+    {
+        if (targets == null || targets.Count == 0) return null;
+
+        BaseHealth nearestTarget = null;
+        float minSqr = float.MaxValue;
+
+        foreach (var target in targets)
+        {
+            if (target == null || !IsReachable(target)) continue;
+
             var destination = GetDestinationTransform(target);
             var targetPosition = destination != null ? destination.position : target.transform.position;
             float sqr = (targetPosition - transform.position).sqrMagnitude;
