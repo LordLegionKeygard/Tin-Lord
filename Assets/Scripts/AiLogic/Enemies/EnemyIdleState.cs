@@ -8,6 +8,7 @@ public class EnemyIdleState : EnemyState
     [SerializeField] private EnemyPursueTargetState _pursueTargetState;
     [SerializeField] private AIDestinationSetter _aiDestinationSetter;
     [SerializeField] private BaseDamage _creatureDamage;
+    [SerializeField] private bool _isBoss;
     private float _nextTargetScan;
 
     private void Start()
@@ -23,8 +24,9 @@ public class EnemyIdleState : EnemyState
         if (Time.time >= _nextTargetScan)
         {
             _nextTargetScan = Time.time + WorldGameInfo.TargetScanInterval;
+            bool allowBaseTarget = CanBossTargetBase();
 
-            BaseHealth foundTarget = FindTargetWithExtendedRadius(stateChanger);
+            BaseHealth foundTarget = FindTargetWithExtendedRadius(stateChanger, allowBaseTarget);
             if (foundTarget != null)
             {
                 SetTargetAndStartPursuit(foundTarget, attacks, aiPath);
@@ -33,7 +35,7 @@ public class EnemyIdleState : EnemyState
 
             if (!HasReachableBasePoint())
             {
-                var fallbackTarget = FindNearestBuildingTargetGlobal();
+                var fallbackTarget = FindNearestBuildingTargetGlobal(allowBaseTarget);
                 if (fallbackTarget != null)
                 {
                     SetTargetAndStartPursuit(fallbackTarget, attacks, aiPath);
@@ -51,7 +53,7 @@ public class EnemyIdleState : EnemyState
     }
 
 
-    private BaseHealth FindTargetWithExtendedRadius(EnemyStateChanger stateChanger)
+    private BaseHealth FindTargetWithExtendedRadius(EnemyStateChanger stateChanger, bool allowBaseTarget)
     {
         // Поиск в начальном радиусе
         Collider[] smallColliders = Physics.OverlapSphere(transform.position, WorldGameInfo.EnemiesSmallDetectionRadius, stateChanger.DetectionLayer());
@@ -69,7 +71,7 @@ public class EnemyIdleState : EnemyState
         {
             var baseHealth = collider.GetComponent<BaseHealth>();
             var trap = baseHealth != null && baseHealth.BuildingTile() != null && baseHealth.BuildingTile().BuildingTileView == BuildingTileViewEnum.Traps;
-            if (baseHealth != null && !baseHealth.IsDeath() && !trap)
+            if (baseHealth != null && !baseHealth.IsDeath() && !trap && !ShouldSkipBaseForBoss(baseHealth, allowBaseTarget))
             {
                 allTargets.Add(baseHealth);
             }
@@ -259,7 +261,7 @@ public class EnemyIdleState : EnemyState
         return false;
     }
 
-    private BaseHealth FindNearestBuildingTargetGlobal()
+    private BaseHealth FindNearestBuildingTargetGlobal(bool allowBaseTarget)
     {
         var buildings = FindObjectsOfType<BuildingHealth>();
         if (buildings == null || buildings.Length == 0) return null;
@@ -273,6 +275,7 @@ public class EnemyIdleState : EnemyState
 
             var tile = building.BuildingTile();
             if (tile == null || tile.BuildingTileView == BuildingTileViewEnum.Traps) continue;
+            if (ShouldSkipBaseForBoss(building, allowBaseTarget)) continue;
 
             var destination = GetDestinationTransform(building);
             var targetPosition = destination != null ? destination.position : building.transform.position;
@@ -285,6 +288,50 @@ public class EnemyIdleState : EnemyState
         }
 
         return nearestTarget;
+    }
+
+    private bool ShouldSkipBaseForBoss(BaseHealth targetHealth, bool allowBaseTarget)
+    {
+        if (!_isBoss) return false;
+        if (allowBaseTarget) return false;
+        return IsBaseBuilding(targetHealth);
+    }
+
+    private bool IsBaseBuilding(BaseHealth targetHealth)
+    {
+        if (targetHealth == null) return false;
+        var tile = targetHealth.BuildingTile();
+        return tile != null && tile.BuildingTileView == BuildingTileViewEnum.Base;
+    }
+
+    private bool CanBossTargetBase()
+    {
+        if (!_isBoss) return true;
+        return IsOnlyBaseBuildingLeft();
+    }
+
+    private bool IsOnlyBaseBuildingLeft()
+    {
+        var buildings = FindObjectsOfType<BuildingHealth>();
+        if (buildings == null || buildings.Length == 0) return false;
+
+        int aliveCount = 0;
+        bool hasBase = false;
+
+        foreach (var building in buildings)
+        {
+            if (building == null || building.IsDeath()) continue;
+
+            var tile = building.BuildingTile();
+            if (tile == null || tile.BuildingTileView == BuildingTileViewEnum.Traps) continue;
+
+            aliveCount++;
+            if (tile.BuildingTileView == BuildingTileViewEnum.Base) hasBase = true;
+
+            if (aliveCount > 1) return false;
+        }
+
+        return aliveCount == 1 && hasBase;
     }
 
     private BaseHealth GetNearestTarget(List<BaseHealth> targets)
