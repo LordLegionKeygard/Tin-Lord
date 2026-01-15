@@ -25,11 +25,13 @@ public class ShardsCalculateSystem : MonoBehaviour
 
         _bossesCompleted = saveData.Map.Nodes.Count(n => n.IsCompleted && n.NodeType == NodeType.Boss);
 
-        _calculatedShards =
+        var actNumber = Mathf.Max(1, saveData.Act + 1);
+        var baseShards =
         _missionsCompleted * _missionsCompleted +
         _eventsCompleted +
         _tradersCompleted +
         _bossesCompleted * _bossShardReward;
+        _calculatedShards = baseShards * actNumber;
 
         return _calculatedShards;
     }
