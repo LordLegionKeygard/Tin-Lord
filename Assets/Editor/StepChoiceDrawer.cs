@@ -111,12 +111,7 @@ public class StepChoiceDrawer : PropertyDrawer
                             {
                                 using (new EditorGUI.IndentLevelScope())
                                 {
-                                    var amountProp = rcProp.FindPropertyRelative(nameof(RewardCount.RewardAmountEnum));
                                     var signProp = rcProp.FindPropertyRelative(nameof(RewardCount.PlusMinusEnum));
-
-                                    EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
-                                                            amountProp, new GUIContent("Reward Amount Enum"));
-                                    y += EditorGUIUtility.singleLineHeight + PadY;
 
                                     EditorGUI.PropertyField(new Rect(pos.x, y, pos.width, EditorGUIUtility.singleLineHeight),
                                                             signProp, new GUIContent("Plus / Minus"));
@@ -184,7 +179,7 @@ public class StepChoiceDrawer : PropertyDrawer
                     if (rcProp.isExpanded)
                     {
                         // две строки (AmountEnum + Sign)
-                        h += PadY + EditorGUIUtility.singleLineHeight * 2;
+                        h += PadY + EditorGUIUtility.singleLineHeight;
                     }
                     break;
                 }

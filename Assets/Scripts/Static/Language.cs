@@ -1786,56 +1786,57 @@ public class Language : MonoBehaviour
         _text[551, 0] = "Failure: dust emission jams turbines - drone lost.\n\nAll loot lost.";
         _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян.\n\nВся добыча потеряна."; // -ядро (мало)
 
-        _text[552, 0] = "";
-        _text[552, 1] = "";
+        // 5_ResourceDialogue
+        _text[552, 0] = "Your sensors catch a shimmer in the dust: a broken solar array field tumbling in slow orbit.\n\nPanels are still charged. The cabling looks brittle, but intact in places.";
+        _text[552, 1] = "Сенсоры улавливают мерцание в пыли: поле сломанных солнечных панелей медленно вращается на орбите.\n\nПанели всё ещё заряжены. Кабели хрупкие, но местами целы.";
 
-        _text[553, 0] = "";
-        _text[553, 1] = "";
+        _text[553, 0] = "Cut power lines and harvest cells";
+        _text[553, 1] = "Перерезать линии питания и снять ячейки"; // выбор 1
 
-        _text[554, 0] = "";
-        _text[554, 1] = "";
+        _text[554, 0] = "Success: your drones isolate the charge and pull out usable cells.\n\nYou store the power modules for later conversion.";
+        _text[554, 1] = "Успех: дроны изолируют заряд и извлекают пригодные ячейки.\n\nВы отправляете силовые модули в хранилище."; // +электричество
 
-        _text[555, 0] = "";
-        _text[555, 1] = "";
+        _text[555, 0] = "Failure: a trapped capacitor discharges.\n\nA burst arcs across the harness — one of the core circuits overheats.";
+        _text[555, 1] = "Провал: скрытый конденсатор разряжается.\n\nДуга пробивает жгут — одна из цепей ядра перегревается."; // -ядро
 
-        _text[556, 0] = "";
-        _text[556, 1] = "";
+        _text[556, 0] = "Tow the whole frame to the ship";
+        _text[556, 1] = "Притащить каркас целиком к кораблю"; // выбор 2
 
-        _text[557, 0] = "";
-        _text[557, 1] = "";
+        _text[557, 0] = "The array is heavier than telemetry suggested.\n\nSuccess: you secure the frame and strip it safely — plenty of usable metal.";
+        _text[557, 1] = "Поле панелей тяжелее, чем показывала телеметрия.\n\nУспех: вы фиксируете каркас и разбираете его без риска — много пригодного металла."; // +железные слитки
 
-        _text[558, 0] = "";
-        _text[558, 1] = "";
+        _text[558, 0] = "Failure: the frame twists under thrust.\n\nA shard scrapes the hull — emergency patches consume spare materials.";
+        _text[558, 1] = "Провал: каркас выкручивает под тягой.\n\nОсколок царапает обшивку — аварийные заплаты съедают запас материалов."; // - случайный ресурс
 
-        _text[559, 0] = "";
-        _text[559, 1] = "";
+        _text[559, 0] = "Leave it and move on";
+        _text[559, 1] = "Оставить и продолжить путь"; // выбор 3 // ничего
 
-        _text[560, 0] = "";
-        _text[560, 1] = "";
+        // 6_ResourceDialogue (Ice Comet Water) - revised logic
 
-        _text[561, 0] = "";
-        _text[561, 1] = "";
+        _text[560, 0] = "A small comet fragment drifts across your route.\n\nIts surface is cracked, venting thin plumes of ice dust.\n\nThe scanner confirms: a water-rich core.";
+        _text[560, 1] = "Небольшой осколок кометы пересекает ваш маршрут.\n\nПоверхность треснута и выпускает тонкие струи ледяной пыли.\n\nСканер подтверждает: водонасыщенное ядро.";
 
-        _text[562, 0] = "";
-        _text[562, 1] = "";
+        _text[561, 0] = "Feed the heaters and melt the core";
+        _text[561, 1] = "Запитать нагреватели и расплавить ядро"; // выбор 1
 
-        _text[563, 0] = "";
-        _text[563, 1] = "";
+        _text[562, 0] = "You route power into the heating contours.\n\nThe ice yields, and clean water is pumped into sealed tanks.\n\nThe power grid sags — systems run on reserve for a while.";
+        _text[562, 1] = "Вы подаёте мощность в контуры нагрева.\n\nЛёд поддаётся, и чистая вода перекачивается в герметичные баки.\n\nСеть проседает — некоторое время системы работают на резерве."; // + Water, - Electricity
 
-        _text[564, 0] = "";
-        _text[564, 1] = "";
+        _text[564, 0] = "Capture the vent and compress it into steam canisters";
+        _text[564, 1] = "Перехватить выброс и сжать в паровые баллоны"; // выбор 2
 
-        _text[565, 0] = "";
-        _text[565, 1] = "";
+        _text[565, 0] = "You deploy intake nets in the plume.\n\nCompressors seal the collected vapor into pressure canisters.\n\nStable. Clean. No risk to the hull.";
+        _text[565, 1] = "Вы раскрываете сети забора на струе выброса.\n\nКомпрессоры запечатывают собранный пар в баллоны под давлением.\n\nСтабильно. Чисто. Без риска для корпуса."; // + Steam
 
-        _text[566, 0] = "";
-        _text[566, 1] = "";
+        _text[566, 0] = "Crack the fragment with a kinetic shot";
+        _text[566, 1] = "Расколоть осколок кинетическим выстрелом"; // выбор 3
 
-        _text[567, 0] = "";
-        _text[567, 1] = "";
+        _text[567, 0] = "Success: the crust splits open.\n\nYou scoop up water — and notice a sealed data capsule lodged inside the ice.\n\nIts core still holds fragments of old navigation logs.";
+        _text[567, 1] = "Успех: корка раскрывается.\n\nВы собираете воду — и замечаете во льду герметичную капсулу с данными.\n\nЕё ядро всё ещё хранит фрагменты старых навигационных логов."; // + Water, + Memory
 
-        _text[568, 0] = "";
-        _text[568, 1] = "";
+        _text[568, 0] = "Failure: the shot turns the fragment into a chaotic hail.\n\nIce shards rake the shielding — you burn supplies on emergency repairs.";
+        _text[568, 1] = "Провал: выстрел превращает осколок в хаотический град.\n\nЛедяные осколки бьют по щитам — на аварийный ремонт уходят запасы."; // - RandomResource
+
 
         _text[569, 0] = "";
         _text[569, 1] = "";

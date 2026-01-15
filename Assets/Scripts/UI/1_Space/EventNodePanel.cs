@@ -176,8 +176,8 @@ public class EventNodePanel : MonoBehaviour
         // Особый случай
         if (type == RewardType.Shard) return _shardsCalculateSystem.GetCalculatedShards();
 
-        int min = _dialogue.GetRewardAmount(rewardCount, true);
-        int max = _dialogue.GetRewardAmount(rewardCount, false);
+        int min = _dialogue.GetRewardAmount(rewardCount, type, _spaceSaveGame.SpaceSaveData.Act, true);
+        int max = _dialogue.GetRewardAmount(rewardCount, type, _spaceSaveGame.SpaceSaveData.Act, false);
         int raw = UnityEngine.Random.Range(min, max + 1);
 
         // Явно применяем знак из настроек (и страхуемся Abs'ом)

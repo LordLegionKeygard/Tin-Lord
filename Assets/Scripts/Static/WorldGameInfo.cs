@@ -157,7 +157,6 @@ public class WorldGameInfo
 
     [Header("Rewards")]
     public const int AiCoreLow = 1;
-    public const int AiCoreMedium = 2;
     public const int QuantsLowMin = 10;
     public const int QuantsLowMax = 30;
     public const int QuantsMediumMin = 30;

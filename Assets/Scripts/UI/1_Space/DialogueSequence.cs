@@ -6,70 +6,101 @@ public class DialogueSequence : ScriptableObject
 {
     public List<DialogueStep> Steps;
 
-    public int GetRewardAmount(RewardCount rewardCount, bool isMin)
+    public int GetRewardAmount(RewardCount rewardCount, RewardType rewardType, int act, bool isMin)
     {
-        var amount = 0;
-        switch (rewardCount.RewardAmountEnum)
-        {
-            case RewardAmountEnum.AiCoreLow:
-                amount = WorldGameInfo.AiCoreLow;
-                break;
-            case RewardAmountEnum.AiCoreMedium:
-                amount = WorldGameInfo.AiCoreMedium;
-                break;
-            case RewardAmountEnum.AiCoreLowOrMedium:
-                amount = isMin ? WorldGameInfo.AiCoreLow : WorldGameInfo.AiCoreMedium;
-                break;
+        if (rewardCount == null || rewardType == RewardType.None) return 0;
 
-            case RewardAmountEnum.QuantsLow:
-                amount = isMin ? WorldGameInfo.QuantsLowMin : WorldGameInfo.QuantsLowMax;
-                break;
-            case RewardAmountEnum.QuantsMedium:
-                amount = isMin ? WorldGameInfo.QuantsMediumMin : WorldGameInfo.QuantsMediumMax;
-                break;
-            case RewardAmountEnum.QuantsHight:
-                amount = isMin ? WorldGameInfo.QuantsHightMin : WorldGameInfo.QuantsHightMax;
-                break;
-
-            case RewardAmountEnum.MemoryLow:
-                amount = isMin ? WorldGameInfo.MemoryLowMin : WorldGameInfo.MemoryLowMax;
-                break;
-            case RewardAmountEnum.MemoryMedium:
-                amount = isMin ? WorldGameInfo.MemoryMediumMin : WorldGameInfo.MemoryMediumMax;
-                break;
-            case RewardAmountEnum.MemoryHight:
-                amount = isMin ? WorldGameInfo.MemoryHightMin : WorldGameInfo.MemoryHightMax;
-                break;
-
-            case RewardAmountEnum.ResourceLow:
-                amount = isMin ? WorldGameInfo.ResourceLowMin : WorldGameInfo.ResourceLowMax;
-                break;
-            case RewardAmountEnum.ResourceMedium:
-                amount = isMin ? WorldGameInfo.ResourceMediumMin : WorldGameInfo.ResourceMediumMax;
-                break;
-            case RewardAmountEnum.ResourceHight:
-                amount = isMin ? WorldGameInfo.ResourceHightMin : WorldGameInfo.ResourceHightMax;
-                break;
-
-            case RewardAmountEnum.MaterialLow:
-                amount = isMin ? WorldGameInfo.MaterialLowMin : WorldGameInfo.MaterialLowMax;
-                break;
-            case RewardAmountEnum.MaterialMedium:
-                amount = isMin ? WorldGameInfo.MaterialMediumMin : WorldGameInfo.MaterialMediumMax;
-                break;
-            case RewardAmountEnum.MaterialHight:
-                amount = isMin ? WorldGameInfo.MaterialHightMin : WorldGameInfo.MaterialHightMax;
-                break;
-        }
-
+        var amount = GetAmountByAct(rewardType, act, isMin);
         return rewardCount.PlusMinusEnum == PlusMinusEnum.Plus ? amount : -amount;
+    }
+
+    private int GetAmountByAct(RewardType rewardType, int act, bool isMin)
+    {
+        var tier = Mathf.Clamp(act, 0, 2); // 0=low, 1=medium, 2+=hight
+
+        switch (rewardType)
+        {
+            case RewardType.AiCore:
+                return WorldGameInfo.AiCoreLow;
+            case RewardType.Quants:
+                return GetQuantsAmount(tier, isMin);
+            case RewardType.Memory:
+                return GetMemoryAmount(tier, isMin);
+
+            case RewardType.Wood:
+            case RewardType.Stone:
+            case RewardType.IronOre:
+            case RewardType.CopperOre:
+            case RewardType.Coal:
+            case RewardType.Oil:
+            case RewardType.Water:
+            case RewardType.Sand:
+            case RewardType.Electricity:
+            case RewardType.RandomResource:
+                return GetResourceAmount(tier, isMin);
+
+            case RewardType.StoneBlock:
+            case RewardType.IronIngot:
+            case RewardType.SteelIngot:
+            case RewardType.CopperPlate:
+            case RewardType.Concrete:
+            case RewardType.Steam:
+            case RewardType.Glass:
+            case RewardType.CopperWire:
+            case RewardType.GearWheel:
+            case RewardType.ElectronicCircuit:
+            case RewardType.Processor:
+            case RewardType.Engine:
+            case RewardType.ElectricEngine:
+            case RewardType.RandomMaterial:
+            case RewardType.RandomComponent:
+                return GetMaterialAmount(tier, isMin);
+
+            default:
+                return 0;
+        }
+    }
+
+    private int GetQuantsAmount(int tier, bool isMin)
+    {
+        return tier == 0
+            ? (isMin ? WorldGameInfo.QuantsLowMin : WorldGameInfo.QuantsLowMax)
+            : tier == 1
+                ? (isMin ? WorldGameInfo.QuantsMediumMin : WorldGameInfo.QuantsMediumMax)
+                : (isMin ? WorldGameInfo.QuantsHightMin : WorldGameInfo.QuantsHightMax);
+    }
+
+    private int GetMemoryAmount(int tier, bool isMin)
+    {
+        return tier == 0
+            ? (isMin ? WorldGameInfo.MemoryLowMin : WorldGameInfo.MemoryLowMax)
+            : tier == 1
+                ? (isMin ? WorldGameInfo.MemoryMediumMin : WorldGameInfo.MemoryMediumMax)
+                : (isMin ? WorldGameInfo.MemoryHightMin : WorldGameInfo.MemoryHightMax);
+    }
+
+    private int GetResourceAmount(int tier, bool isMin)
+    {
+        return tier == 0
+            ? (isMin ? WorldGameInfo.ResourceLowMin : WorldGameInfo.ResourceLowMax)
+            : tier == 1
+                ? (isMin ? WorldGameInfo.ResourceMediumMin : WorldGameInfo.ResourceMediumMax)
+                : (isMin ? WorldGameInfo.ResourceHightMin : WorldGameInfo.ResourceHightMax);
+    }
+
+    private int GetMaterialAmount(int tier, bool isMin)
+    {
+        return tier == 0
+            ? (isMin ? WorldGameInfo.MaterialLowMin : WorldGameInfo.MaterialLowMax)
+            : tier == 1
+                ? (isMin ? WorldGameInfo.MaterialMediumMin : WorldGameInfo.MaterialMediumMax)
+                : (isMin ? WorldGameInfo.MaterialHightMin : WorldGameInfo.MaterialHightMax);
     }
 }
 
 [System.Serializable]
 public class RewardCount
 {
-    public RewardAmountEnum RewardAmountEnum;
     public PlusMinusEnum PlusMinusEnum;
 }
 
@@ -78,30 +109,6 @@ public enum PlusMinusEnum
 {
     Plus = 0,
     Minus = 1,
-}
-
-[System.Serializable]
-public enum RewardAmountEnum
-{
-    AiCoreLow = 0, // -1
-    AiCoreMedium = 1, // -2
-    AiCoreLowOrMedium = 14,
-
-    QuantsLow = 2, // 10 - 30
-    QuantsMedium = 3, // 30 -50
-    QuantsHight = 4, // 50 - 100
-
-    MemoryLow = 5, // 10 - 30
-    MemoryMedium = 6, // 30 -50
-    MemoryHight = 7, // 50 - 100
-
-    ResourceLow = 8, // 5 - 10
-    ResourceMedium = 9, // 10 -15
-    ResourceHight = 10, // 15 - 20
-
-    MaterialLow = 11, // 2 - 5
-    MaterialMedium = 12, // 5 -10
-    MaterialHight = 13, // 10 - 15
 }
 
 [System.Serializable]
