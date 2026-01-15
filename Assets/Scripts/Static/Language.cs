@@ -1786,8 +1786,8 @@ public class Language : MonoBehaviour
         _text[551, 0] = "Failure: dust emission jams turbines - drone lost.\n\nAll loot lost.";
         _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян.\n\nВся добыча потеряна."; // -ядро (мало)
 
-        _text[552, 0] = "The end";
-        _text[552, 1] = "Конец";
+        _text[552, 0] = "";
+        _text[552, 1] = "";
 
         _text[553, 0] = "";
         _text[553, 1] = "";
@@ -1869,6 +1869,9 @@ public class Language : MonoBehaviour
         // CompleteGame_Dialogue
         _text[906, 0] = "With the endless flow of time, one day ecology will be restored.\n\nThis is the beginning of a new era.\n\nThey finally left this world behind, finding the absolute peace that all living so painfully strive for...";
         _text[906, 1] = "Экология с бесконечным течением времени однажды восстановится.\n\nЭто начало новой эры.\n\nОни наконец оставили этот мир позади, обретя абсолютный покой, к которому так мучительно стремится вся жизнь...";
+
+        _text[907, 0] = "The end";
+        _text[907, 1] = "Конец";
 
         #endregion
 
