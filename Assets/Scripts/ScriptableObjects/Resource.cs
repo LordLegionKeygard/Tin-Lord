@@ -24,23 +24,23 @@ public enum ResourceType
 public enum ResourceEnum
 {
     None = -1,
-    Wood = 0,
-    Stone = 1,
-    IronOre = 2,
-    CopperOre = 3,
-    Coal = 4,
+    Wood = 0, // 1_ResourceDialogue
+    Stone = 1, // 4_ResourceDialogue
+    IronOre = 2, // 3_ResourceDialogue
+    CopperOre = 3, // 8_ResourceDialogue
+    Coal = 4, // 9_ResourceDialogue
     Oil = 5,
-    Water = 6,
-    Sand = 7,
-    Electricity = 8,
+    Water = 6, // 6_ResourceDialogue
+    Sand = 7, // 7_ResourceDialogue
+    Electricity = 8, // 5_ResourceDialogue
     StoneBlock = 9,
     IronIngot = 10,
     SteelIngot = 11,
     CopperPlate = 12,
     Concrete = 13,
     Steam = 14,
-    Glass = 15,
-    CopperWire = 16,
+    Glass = 15, // 7_ResourceDialogue
+    CopperWire = 16, // 8_ResourceDialogue
     GearWheel = 17,
     ElectronicCircuit = 18,
     Processor = 19,

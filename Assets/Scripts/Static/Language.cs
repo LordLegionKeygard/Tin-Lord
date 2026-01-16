@@ -1766,13 +1766,13 @@ public class Language : MonoBehaviour
         _text[544, 1] = "Отправить роботов с резаками"; // выбор 1
 
         _text[545, 0] = "Robots make shallow cuts, separate the blocks, forklifts carry the containers to the shuttle.\n\nYou extract a modest batch of stone and leave before the shifts begin.";
-        _text[545, 1] = "Роботы делают неглубокие пропилы, отделяют блоки, погрузчики уносят контейнеры к шаттлу.\n\nВы добываете скромную партию камня и уходите до начала смещений."; // +камень (мало)
+        _text[545, 1] = "Роботы делают неглубокие пропилы, отделяют блоки, погрузчики уносят контейнеры к шаттлу.\n\nВы добываете скромную партию камня и уходите до начала смещений."; // +камень
 
         _text[546, 0] = "Start the drill";
         _text[546, 1] = "Запустить бур"; // выбор 2
 
         _text[547, 0] = "Success: resonant cracks open a rich vein. You haul away a large shipment of stone.";
-        _text[547, 1] = "Успех: резонансные трещины открывают богатую жилу. Вы вывозите крупную партию камня."; // +камень (много)
+        _text[547, 1] = "Успех: резонансные трещины открывают богатую жилу. Вы вывозите крупную партию камня."; // +камень
 
         _text[548, 0] = "Failure: the edge of the quarry caves in. The safety rope breaks, the drilling frame is pulled into the hole, the loaders drop pallets to avoid falling.\n\nThe spoils are lost.";
         _text[548, 1] = "Провал: край карьера проседает. Рвётся страховочный трос, буровую раму тянет в провал, погрузчики сбрасывают паллеты, чтобы не сорваться.\n\nДобыча утрачена."; // ничего
@@ -1781,10 +1781,10 @@ public class Language : MonoBehaviour
         _text[549, 1] = "Запустить разведовательный дрон"; // выбор 3
 
         _text[550, 0] = "Success: the drone finds a stable cavity under the crust.\n\nYou mine a stable medium batch.";
-        _text[550, 1] = "Успех: дрон находит стабильную полость под коркой.\n\nВы добываете стабильную среднюю партию."; // +камень (средне)
+        _text[550, 1] = "Успех: дрон находит стабильную полость под коркой.\n\nВы добываете стабильную среднюю партию."; // +камень
 
         _text[551, 0] = "Failure: dust emission jams turbines - drone lost.\n\nAll loot lost.";
-        _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян.\n\nВся добыча потеряна."; // -ядро (мало)
+        _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян.\n\nВся добыча потеряна."; // -ядро
 
         // 5_ResourceDialogue
         _text[552, 0] = "Your sensors catch a shimmer in the dust: a broken solar array field tumbling in slow orbit.\n\nPanels are still charged. The cabling looks brittle, but intact in places.";
@@ -1811,7 +1811,7 @@ public class Language : MonoBehaviour
         _text[559, 0] = "Leave it and move on";
         _text[559, 1] = "Оставить и продолжить путь"; // выбор 3 // ничего
 
-        // 6_ResourceDialogue (Ice Comet Water) - revised logic
+        // 6_ResourceDialogue
 
         _text[560, 0] = "A small comet fragment drifts across your route.\n\nIts surface is cracked, venting thin plumes of ice dust.\n\nThe scanner confirms: a water-rich core.";
         _text[560, 1] = "Небольшой осколок кометы пересекает ваш маршрут.\n\nПоверхность треснута и выпускает тонкие струи ледяной пыли.\n\nСканер подтверждает: водонасыщенное ядро.";
@@ -1837,12 +1837,102 @@ public class Language : MonoBehaviour
         _text[568, 0] = "Failure: the shot turns the fragment into a chaotic hail.\n\nIce shards rake the shielding — you burn supplies on emergency repairs.";
         _text[568, 1] = "Провал: выстрел превращает осколок в хаотический град.\n\nЛедяные осколки бьют по щитам — на аварийный ремонт уходят запасы."; // - RandomResource
 
+        // 7_ResourceDialogue
+        _text[569, 0] = "Scans detect the ruins of an ancient glassworks facility on the planet's surface.\n\nThe production bay is half-buried in sand. The roof is cracked, the workshop is silent — but the silicate vats are intact.\n\nSand is everywhere. So are stacks of half-finished panes.";
+        _text[569, 1] = "Сканы фиксируют руины древнего стекольного производства на поверхности планеты.\n\nПроизводственный отсек наполовину занесён песком. Крыша треснула, цех молчит — но силликатные ванны целы.\n\nПесок повсюду. И пачки полуготовых стеклянных панелей тоже.";
 
-        _text[569, 0] = "";
-        _text[569, 1] = "";
+        _text[570, 0] = "Scoop sand into containers";
+        _text[570, 1] = "Набрать песок в контейнеры"; // выбор 1
 
-        _text[570, 0] = "";
-        _text[570, 1] = "";
+        _text[571, 0] = "You load dry silicate sand into sealed bins.\n\nNo alarms. No movement. Only windless dust and dead machinery.";
+        _text[571, 1] = "Вы загружаете сухой кремнезёмный песок в герметичные контейнеры.\n\nНикаких тревог. Никакого движения. Только безветренная пыль и мёртвые механизмы."; // + Sand
+
+        _text[572, 0] = "Restart the furnace cycle";
+        _text[572, 1] = "Перезапустить цикл печи"; // выбор 2
+
+        _text[573, 0] = "Success: the old heaters respond.\n\nThe temperature rises slowly. The line completes one last cycle — and a batch of tempered glass panes slides out of the bay.";
+        _text[573, 1] = "Успех: древние нагреватели откликаются.\n\nТемпература медленно растёт. Линия завершает ещё один цикл — и из отсека выходит партия закалённых стеклянных панелей."; // + Glass
+
+        _text[574, 0] = "Failure: a sealed pressure pocket bursts.\n\nA hot jet scorches the drones and floods the bay with abrasive dust.\n\nYou cut power and retreat — one of the ship's cores burns out under overload.";
+        _text[574, 1] = "Провал: взрывается запечатанный карман давления.\n\nРаскалённая струя обжигает дронов и забивает отсек абразивной пылью.\n\nВы обрубаете питание и отходите — одно из ядер корабля перегорает от перегрузки."; // - AiCore
+
+        _text[575, 0] = "Take only finished panes and leave";
+        _text[575, 1] = "Забрать готовые панели и уйти"; // выбор 3
+
+        _text[576, 0] = "You choose the safest cargo: sealed stacks with intact markings.\n\nA small, clean haul — no need to wake the dead factory.";
+        _text[576, 1] = "Вы выбираете самое безопасное: запечатанные пачки с целыми маркировками.\n\nНебольшая, но чистая добыча — без попыток оживить мёртвое производство."; // + Glass
+
+        // 8_ResourceDialogue
+        _text[577, 0] = "A dead relay station floats ahead, wrapped in a spiderweb of conduits.\n\nMost lines are cut, but the main trunk still holds copper — and signal-grade insulation.";
+        _text[577, 1] = "Впереди дрейфует мёртвая ретрансляторная станция, опутанная паутиной магистралей.\n\nБольшинство линий перерезано, но основной ствол всё ещё держит медь — и изоляцию сигнального класса.";
+
+        _text[578, 0] = "Strip the conduits for copper";
+        _text[578, 1] = "Сорвать магистрали на медь"; // выбор 1
+
+        _text[579, 0] = "Success: heavy copper bundles are cut free and secured.";
+        _text[579, 1] = "Успех: тяжёлые медные жгуты срезаны и закреплены."; // + CopperOre
+
+        _text[580, 0] = "Failure: an energized line lashes back.\n\nThe station wakes for a second — auto-lock clamps your drone. You cut it loose.";
+        _text[580, 1] = "Провал: под напряжением линия бьёт обратно.\n\nСтанция на секунду оживает — автофиксатор зажимает дрона. Вы рубите его и уходите."; // - ядро
+
+        _text[581, 0] = "Harvest insulation and coil it";
+        _text[581, 1] = "Снять изоляцию и смотать"; // выбор 2
+
+        _text[582, 0] = "You collect clean insulation and intact copper strands.\n\nPerfect for wiring and delicate assemblies.";
+        _text[582, 1] = "Вы собираете чистую изоляцию и целые медные жилы.\n\nИдеально для проводки и точных сборок."; // + CopperWire
+
+        _text[583, 0] = "Leave a beacon and mark the site";
+        _text[583, 1] = "Оставить маяк и отметить место"; // выбор 3
+
+        _text[584, 0] = "You log the coordinates.\n\nNo loot now — but the memory is stored.";
+        _text[584, 1] = "Вы фиксируете координаты.\n\nДобычи сейчас нет — но память сохранена."; // + фрагменты данных
+
+        // 9_ResourceDialogue
+        _text[585, 0] = "A mining capsule spins near the asteroid belt edge.\n\nIts scanner tag reads: \"THERMAL FUEL\".\n\nInside — compacted coal bricks, vacuum-sealed.";
+        _text[585, 1] = "Добывающая капсула вращается у края астероидного пояса.\n\nМетка сканера: «ТЕПЛОВОЕ ТОПЛИВО».\n\nВнутри — прессованные угольные брикеты, в вакуумной упаковке.";
+
+        _text[586, 0] = "Match rotation and dock";
+        _text[586, 1] = "Согласовать вращение и пристыковаться"; // выбор 1
+
+        _text[587, 0] = "Success: you stabilize the spin and unload the coal.";
+        _text[587, 1] = "Успех: вы стабилизируете вращение и выгружаете уголь."; // + Coal
+
+        _text[588, 0] = "Failure: the lock misses by centimeters.\n\nThe capsule scrapes the hull — you lose some stored materials in emergency patching.";
+        _text[588, 1] = "Провал: захват промахивается на сантиметры.\n\nКапсула царапает обшивку — на аварийный ремонт уходит часть запасов."; // - случайный ресурс
+
+        _text[589, 0] = "Shoot the latch and pull with tractor";
+        _text[589, 1] = "Сбить замок и вытянуть тягачом"; // выбор 2
+
+        _text[590, 0] = "Success: the latch breaks cleanly.";
+        _text[590, 1] = "Успех: замок срывается чисто."; // + Coal
+
+        _text[591, 0] = "Failure: the shot punctures a fuel canister.\n\nCoal dust floods the bay — half the cargo is spoiled.";
+        _text[591, 1] = "Провал: выстрел пробивает канистру.\n\nУгольная пыль заливает отсек — половина груза испорчена."; // ничего
+
+        // 10_ResourceDialogue
+        _text[592, 0] = "Scanners detect a wrecked fuel depot on the surface of a desert planet.\n\nHalf-buried tanks and pipelines stretch under the sand.\n\nOne reservoir still shows pressure — there is usable machine fuel inside.";
+        _text[592, 1] = "Сканеры фиксируют разрушенный топливный склад на поверхности пустынной планеты.\n\nПолузасыпанные резервуары и трубопроводы тянутся под песком.\n\nОдин бак всё ещё держит давление — внутри есть пригодное топливо для машин.";
+
+        _text[593, 0] = "Connect sealed pumps and siphon fuel";
+        _text[593, 1] = "Подключить гермопомпы и откачать топливо"; // выбор 1 + Oil, - Electricity
+
+        _text[594, 0] = "Cut into the pressurized pipe";
+        _text[594, 1] = "Врезаться в трубу под давлением"; // выбор 2 Success + Oil, Failure - RandomResource
+
+        _text[595, 0] = "Filter sludge from the bottom tanks";
+        _text[595, 1] = "Отфильтровать шлам из нижних баков"; // выбор 3 + Oil, - Water
+
+        _text[596, 0] = "You connect sealed hoses and start the pumps.\n\nFuel flows into protected containers.\n\nThe pumps draw a lot of power — the ship's energy reserve drops for a while.";
+        _text[596, 1] = "Вы подключаете гермошланги и запускаете помпы.\n\nТопливо уходит в защищённые контейнеры.\n\nПомпы прожорливы — запас энергии корабля на время проседает."; // + Oil, - Electricity
+
+        _text[597, 0] = "Success: the pipe holds.\n\nA clean fuel stream rushes into the collectors.\n\nYou shut the valve and pull back before the pressure jumps.";
+        _text[597, 1] = "Успех: труба выдерживает.\n\nЧистая струя топлива уходит в сборники.\n\nВы перекрываете клапан и отходите до того, как давление подпрыгнет."; // + Oil
+
+        _text[598, 0] = "Failure: the pipe ruptures.\n\nFuel mist floods the site. You vent the bay and spend supplies on emergency sealing.\n\nExtraction is aborted.";
+        _text[598, 1] = "Провал: трубу разрывает.\n\nТопливный туман накрывает площадку. Вы продуваете отсек и тратите запасы на аварийную герметизацию.\n\nОткачка сорвана."; // - RandomResource
+
+        _text[599, 0] = "You collect thick sludge from the bottom tanks and run it through filters.\n\nIt takes water to cool and wash the system.\n\nThe output is rough, but it burns.";
+        _text[599, 1] = "Вы собираете густой шлам со дна баков и прогоняете его через фильтры.\n\nНужна вода, чтобы охлаждать и промывать систему.\n\nТопливо получается грубым, но оно горит."; // + Oil, - Water
 
 
         #endregion
