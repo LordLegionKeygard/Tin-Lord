@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043b2baa39c66b3458497ac75327445a, type: 3}
+  m_Name: 5_MaterialDialogue
+  m_EditorClassIdentifier: 
+  Steps:
+  - TextNumber: 631
+    Choices:
+    - ChoiseTextNumber: 632
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+      Chance:
+        SuccessTextNumber: 633
+        FailureTextNumber: 634
+        SuccessRewards:
+        - Type: 17
+          RewardCount:
+            PlusMinusEnum: 0
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
+        RewardCount:
+          PlusMinusEnum: 0
+    - ChoiseTextNumber: 635
+      Kind: 0
+      Standard:
+        NextStepIndex: 1
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
+        RewardCount:
+          PlusMinusEnum: 0
+  - TextNumber: 636
+    Choices:
+    - ChoiseTextNumber: 637
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+      Chance:
+        SuccessTextNumber: 638
+        FailureTextNumber: 639
+        SuccessRewards:
+        - Type: 17
+          RewardCount:
+            PlusMinusEnum: 0
+        FailureRewards:
+        - Type: 1
+          RewardCount:
+            PlusMinusEnum: 1
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
+        RewardCount:
+          PlusMinusEnum: 0
+    - ChoiseTextNumber: 640
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+      Chance:
+        SuccessTextNumber: 641
+        FailureTextNumber: 642
+        SuccessRewards:
+        - Type: 17
+          RewardCount:
+            PlusMinusEnum: 0
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
+        RewardCount:
+          PlusMinusEnum: 0

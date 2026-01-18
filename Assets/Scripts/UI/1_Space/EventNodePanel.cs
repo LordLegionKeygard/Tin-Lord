@@ -113,6 +113,7 @@ public class EventNodePanel : MonoBehaviour
             case RewardType.Water: res = ResourceEnum.Water; return true;
             case RewardType.Sand: res = ResourceEnum.Sand; return true;
             case RewardType.Electricity: res = ResourceEnum.Electricity; return true;
+            case RewardType.BeamEnergy: res = ResourceEnum.BeamEnergy; return true;
 
             // Материалы
             case RewardType.StoneBlock: res = ResourceEnum.StoneBlock; return true;
@@ -581,13 +582,23 @@ public class EventNodePanel : MonoBehaviour
 
     private int GetCurrent(RewardType type)
     {
-        return type switch
+        switch (type)
         {
-            RewardType.Quants => _quantsSystem.GetQuants(),
-            RewardType.AiCore => _aiCoreSystem.GetAiCores(),
-            RewardType.Memory => (int)_mainResources.GetResourceAmountForEnum(ResourceEnum.DataFragment),
-            _ => 0
-        };
+            case RewardType.Quants:
+                return _quantsSystem.GetQuants();
+            case RewardType.AiCore:
+                return _aiCoreSystem.GetAiCores();
+            case RewardType.Memory:
+                return (int)_mainResources.GetResourceAmountForEnum(ResourceEnum.DataFragment);
+            case RewardType.RandomResource:
+            case RewardType.RandomMaterial:
+            case RewardType.RandomComponent:
+                return 0;
+            default:
+                if (TryMapRewardTypeToResourceEnum(type, out var resEnum))
+                    return Mathf.FloorToInt(_mainResources.GetResourceAmountForEnum(resEnum));
+                return 0;
+        }
     }
 
     private bool RequirementMet(StandardChoiceData std)
@@ -597,7 +608,14 @@ public class EventNodePanel : MonoBehaviour
         var req = std.ChoiceRequired;
         if (req.RequiredType == RewardType.None) return true;
 
-        return GetCurrent(req.RequiredType) >= req.Amount;
+        int requiredAmount = GetRequiredAmount(req.RequiredType);
+        return GetCurrent(req.RequiredType) >= requiredAmount;
+    }
+
+    private int GetRequiredAmount(RewardType type)
+    {
+        var rc = new RewardCount { PlusMinusEnum = PlusMinusEnum.Plus };
+        return _dialogue.GetRewardAmount(rc, type, _spaceSaveGame.SpaceSaveData.Act, false);
     }
 
     public void PlayerInputSelectNumber(int n)

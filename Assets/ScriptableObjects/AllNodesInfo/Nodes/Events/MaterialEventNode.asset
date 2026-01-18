@@ -26,6 +26,15 @@ MonoBehaviour:
     SkyboxRotation: 0
     LightRotation: {x: 0, y: 0, z: 0}
     Temperature: 0
+    EnvironmentPrefab: {fileID: 0}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}
   Dialogue:
   - {fileID: 11400000, guid: e0392d2d9df17294899cb8b05494518f, type: 2}
+  - {fileID: 11400000, guid: 4c0e16d6d030403f99e1a2da639a2d45, type: 2}
+  - {fileID: 11400000, guid: 1a90c3d286c6496aba38891d95e1e8bf, type: 2}
+  - {fileID: 11400000, guid: 082d0070acfc45c2b18a3a04744ad7cf, type: 2}
+  - {fileID: 11400000, guid: cb4511890def4685b36765027fb43b77, type: 2}
+  - {fileID: 11400000, guid: 39b5efd821874cef971dda76151f890f, type: 2}
+  - {fileID: 11400000, guid: 6661bc7cf7e24e269ef2cf3cc7a9c79e, type: 2}
   EachCosmosForEachDialogue: 0

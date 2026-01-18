@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043b2baa39c66b3458497ac75327445a, type: 3}
+  m_Name: 8_ResourceComponentDialogue
+  m_EditorClassIdentifier: 
+  Steps:
+  - TextNumber: 577
+    Choices:
+    - ChoiseTextNumber: 578
+      Kind: 1
+      Standard:
+        NextStepIndex: 0
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 579
+        FailureTextNumber: 580
+        SuccessRewards:
+        - Type: 7
+          RewardCount:
+            PlusMinusEnum: 0
+        FailureRewards:
+        - Type: 1
+          RewardCount:
+            PlusMinusEnum: 1
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
+        RewardCount:
+          PlusMinusEnum: 0
+    - ChoiseTextNumber: 581
+      Kind: 0
+      Standard:
+        NextStepIndex: 1
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
+        RewardCount:
+          PlusMinusEnum: 0
+    - ChoiseTextNumber: 583
+      Kind: 0
+      Standard:
+        NextStepIndex: 2
+        Rewards: []
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
+        RewardCount:
+          PlusMinusEnum: 0
+  - TextNumber: 582
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 20
+          RewardCount:
+            PlusMinusEnum: 0
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
+        RewardCount:
+          PlusMinusEnum: 0
+  - TextNumber: 584
+    Choices:
+    - ChoiseTextNumber: 33
+      Kind: 0
+      Standard:
+        NextStepIndex: -1
+        Rewards:
+        - Type: 3
+          RewardCount:
+            PlusMinusEnum: 0
+        ChoiceRequired:
+          RequiredType: 0
+          Amount: 0
+      Chance:
+        SuccessTextNumber: 0
+        FailureTextNumber: 0
+        SuccessRewards: []
+        FailureRewards: []
+      Random:
+        NextStepIndex: 0
+        PossibleRewards: 
+        RewardCount:
+          PlusMinusEnum: 0

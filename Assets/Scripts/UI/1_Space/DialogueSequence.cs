@@ -166,7 +166,6 @@ public class RandomChoiceData
 public struct ChoiceRequired
 {
     public RewardType RequiredType;
-    public int Amount;
 }
 
 [System.Serializable]

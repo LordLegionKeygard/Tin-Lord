@@ -39,10 +39,13 @@ MonoBehaviour:
     MaxOnMap: 1
     RepeatOneEventSameTime: 0
   - Node: {fileID: 11400000, guid: 7d24b654d865d3a4e9fae8efdfeba349, type: 2}
-    MaxOnMap: 6
+    MaxOnMap: 7
     RepeatOneEventSameTime: 0
   - Node: {fileID: 11400000, guid: 73f4b5f587254c34f8766e337abc99ab, type: 2}
     MaxOnMap: 2
+    RepeatOneEventSameTime: 0
+  - Node: {fileID: 11400000, guid: 03d2d9799c53d8e4d8ec180affbd9dcc, type: 2}
+    MaxOnMap: 1
     RepeatOneEventSameTime: 0
   ResourceTraders:
   - {fileID: 11400000, guid: 989e931db47d8a1458374d10dbde8b7c, type: 2}
