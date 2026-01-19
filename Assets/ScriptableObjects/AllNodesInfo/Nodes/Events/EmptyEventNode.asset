@@ -26,6 +26,9 @@ MonoBehaviour:
     SkyboxRotation: 0
     LightRotation: {x: 0, y: 0, z: 0}
     Temperature: 0
+    EnvironmentPrefab: {fileID: 0}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}
   Dialogue:
   - {fileID: 11400000, guid: 8511c8132a2526f46ae51b6c1743391d, type: 2}
   - {fileID: 11400000, guid: 5261cb82807fc044b9a02b81a3980790, type: 2}
@@ -34,4 +37,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d0a764c2e0b29e74eaec79116c81b64c, type: 2}
   - {fileID: 11400000, guid: 0cf2da606ea78e04f897e2c4b483b82f, type: 2}
   - {fileID: 11400000, guid: 9e13769fbd2999847a2cb5425d66bcfd, type: 2}
+  - {fileID: 11400000, guid: 25d0688f8f984681b5db2cdbd4c78fe8, type: 2}
+  - {fileID: 11400000, guid: 6826c1d69cf54e27beda2ca2f30ea4a6, type: 2}
+  - {fileID: 11400000, guid: 7c615f1ef6f44f71881f13c2935d9541, type: 2}
+  - {fileID: 11400000, guid: 382af0eece68494cb37dbc0c1c14bdcb, type: 2}
+  - {fileID: 11400000, guid: 8dabb7fe663541c2a97c620dbe0b2281, type: 2}
+  - {fileID: 11400000, guid: 73a85c5243d14d5facd7688f3b6de529, type: 2}
+  - {fileID: 11400000, guid: bee525ead3614f428f8f84fc40ff5500, type: 2}
+  - {fileID: 11400000, guid: af9b2f5c9b424e6caa1df46e400caa86, type: 2}
+  - {fileID: 11400000, guid: d67bfe93a8984d84ac1c15c0ec1c4c7b, type: 2}
+  - {fileID: 11400000, guid: 6cc119c634b7424d813c7e513b0889d5, type: 2}
+  - {fileID: 11400000, guid: 618f4d88c7fb482396dad1dcf2b5f686, type: 2}
+  - {fileID: 11400000, guid: ad0da4d8c2b04885a8aa583aedd42f2b, type: 2}
   EachCosmosForEachDialogue: 0
