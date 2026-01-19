@@ -45,7 +45,7 @@ public enum ResourceEnum
     ElectronicCircuit = 18, // 1_ComponentDialogue
     Processor = 19, // 2_ComponentDialogue
     Engine = 20, // 3_ComponentDialogue
-    ElectricEngine = 21,
+    ElectricEngine = 21, // 4_ComponentDialogue
     DataFragment = 22,
     BeamEnergy = 23,
 }
