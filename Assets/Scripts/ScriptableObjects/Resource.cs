@@ -43,8 +43,8 @@ public enum ResourceEnum
     CopperWire = 16, // 8_ResourceComponentDialogue
     GearWheel = 17, // 0_ComponentDialogue
     ElectronicCircuit = 18, // 1_ComponentDialogue
-    Processor = 19,
-    Engine = 20,
+    Processor = 19, // 2_ComponentDialogue
+    Engine = 20, // 3_ComponentDialogue
     ElectricEngine = 21,
     DataFragment = 22,
     BeamEnergy = 23,
