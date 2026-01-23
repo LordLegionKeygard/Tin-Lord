@@ -77,6 +77,7 @@ public class SelectTilePanel : MonoBehaviour
         CustomEvents.OnBuildingTakeDamage += RefreshInfoAfterTakeDamage;
         CustomEvents.OnToxicGasEventActive += RefreshInfoAfterSpawnToxicGas;
         CustomEvents.OnRobotFullRepairBuilding += CheckBuildingFullRepairFromRobot;
+        CustomEvents.OnChangeEcology += RefreshInfoAfterChangeEcology;
     }
 
     public void RefreshInfoAfterTakeDamage(int tileId)
@@ -90,6 +91,12 @@ public class SelectTilePanel : MonoBehaviour
     {
         if (_tileObject == null || _tileObject.GetId() != tileId) return;
         RefreshInfo();
+    }
+
+    private void RefreshInfoAfterChangeEcology(float amount, int tileId, bool remove)
+    {
+        if (!_isOpen || _tileObject == null || _tileObject.GetId() != tileId) return;
+        SetEcologyTexts(_tileObject);
     }
 
     public void PanelViewToggle(bool state)
@@ -554,5 +561,6 @@ public class SelectTilePanel : MonoBehaviour
         CustomEvents.OnBuildingTakeDamage -= RefreshInfoAfterTakeDamage;
         CustomEvents.OnToxicGasEventActive -= RefreshInfoAfterSpawnToxicGas;
         CustomEvents.OnRobotFullRepairBuilding -= CheckBuildingFullRepairFromRobot;
+        CustomEvents.OnChangeEcology -= RefreshInfoAfterChangeEcology;
     }
 }
