@@ -137,6 +137,11 @@ public class BuildingItem : MonoBehaviour
     public void BuildOrUpgrade()
     {
         if (!_tutorialSystem.CanBuildOrUpgrade()) return;
+        if (_currentBuildingState == BuildingState.Repair && !_tutorialSystem.CanRepair())
+        {
+            AudioManager.Instance.PlayerOneShot(FMODEvents.Instance.UiClick[(int)UiClickEnum.Error], transform.position);
+            return;
+        }
 
         if (!_resourcesEnough || !_haveRequiredLevel)
         {

@@ -450,6 +450,14 @@ public class TutorialSystem : MonoBehaviour
         return true;
     }
 
+    public bool CanRepair()
+    {
+        if (IsCompleteMissionTutorial()) return true;
+
+        if (_currentStep.TutorialStepEnum < TutorialStepEnum.MissionRepairBuilding_59) return false;
+        return true;
+    }
+
     public bool CanInputOnTile()
     {
         if (IsCompleteMissionTutorial()) return true;

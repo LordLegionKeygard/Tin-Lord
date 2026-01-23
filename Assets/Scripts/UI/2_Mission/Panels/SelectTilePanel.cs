@@ -203,8 +203,12 @@ public class SelectTilePanel : MonoBehaviour
 
         var rarity = tileObject.GetRarity();
         var rarityModifier = _tileObject.CurrentModifier() - _tileObject.GetBaseModifier();
+        var baseModifierText = FormatModifierValue(tileObject.GetBaseModifier());
+        var rarityModifierText = FormatModifierValue(rarityModifier);
 
-        var productionModifier = rarity == 1 ? $"<color={color}>x{tileObject.GetBaseModifier()}</color>" : $"<color={color}>x{tileObject.GetBaseModifier()}</color> <color={Colors.GetRarityHexColor(rarity)}>+ {rarityModifier}</color>";
+        var productionModifier = rarity == 1
+            ? $"<color={color}>x{baseModifierText}</color>"
+            : $"<color={color}>x{baseModifierText}</color> <color={Colors.GetRarityHexColor(rarity)}>+ {rarityModifierText}</color>";
 
         _productionModifierText.text = haveProduction ? $"{productionModifierText} {productionModifier}" : $"{productionModifierText} -";
     }
@@ -212,6 +216,11 @@ public class SelectTilePanel : MonoBehaviour
     private static string FormatHealthValue(float value)
     {
         return Mathf.Approximately(value % 1f, 0f) ? value.ToString("F0") : value.ToString("F1");
+    }
+
+    private static string FormatModifierValue(float value)
+    {
+        return value.ToString("F2");
     }
 
 
