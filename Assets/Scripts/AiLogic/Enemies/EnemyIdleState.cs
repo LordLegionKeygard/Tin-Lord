@@ -33,9 +33,9 @@ public class EnemyIdleState : EnemyState
                 return _pursueTargetState;
             }
 
-            if (!HasReachableBasePoint())
+            if (_aiDestinationSetter.CurrentTarget == null && !HasReachableBasePoint())
             {
-                var fallbackTarget = FindNearestBuildingTargetGlobal(allowBaseTarget);
+                var fallbackTarget = FindRandomBuildingTargetGlobal(allowBaseTarget);
                 if (fallbackTarget != null)
                 {
                     SetTargetAndStartPursuit(fallbackTarget, attacks, aiPath);
@@ -267,12 +267,13 @@ public class EnemyIdleState : EnemyState
         return false;
     }
 
-    private BaseHealth FindNearestBuildingTargetGlobal(bool allowBaseTarget)
+    private BaseHealth FindRandomBuildingTargetGlobal(bool allowBaseTarget)
     {
         var buildings = FindObjectsOfType<BuildingHealth>();
         if (buildings == null || buildings.Length == 0) return null;
 
         List<BaseHealth> candidates = new();
+        List<BaseHealth> reachable = new();
         foreach (var building in buildings)
         {
             if (building == null || building.IsDeath()) continue;
@@ -282,15 +283,22 @@ public class EnemyIdleState : EnemyState
             if (ShouldSkipBaseForBoss(building, allowBaseTarget)) continue;
 
             candidates.Add(building);
+            if (IsReachable(building))
+            {
+                reachable.Add(building);
+            }
         }
 
-        var nearestReachable = GetNearestReachableTarget(candidates);
-        if (nearestReachable != null)
+        if (reachable.Count > 0)
         {
-            return nearestReachable;
+            var rndIndex = TRManager.Instance.GenerateIntegerPRNG(0, reachable.Count - 1)[0];
+            return reachable[rndIndex];
         }
 
-        return GetNearestTarget(candidates);
+        if (candidates.Count == 0) return null;
+
+        var rnd = TRManager.Instance.GenerateIntegerPRNG(0, candidates.Count - 1)[0];
+        return candidates[rnd];
     }
 
     private bool ShouldSkipBaseForBoss(BaseHealth targetHealth, bool allowBaseTarget)

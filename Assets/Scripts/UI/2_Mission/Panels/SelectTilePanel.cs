@@ -220,7 +220,7 @@ public class SelectTilePanel : MonoBehaviour
 
     private static string FormatModifierValue(float value)
     {
-        return value.ToString("F2");
+        return value.ToString("0.##");
     }
 
 
