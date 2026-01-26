@@ -21,7 +21,7 @@ public class BaseSlider : MonoBehaviour
         _slider.gameObject.SetActive(false);
     }
 
-    public virtual void SetValue(float value)
+    public virtual void SetHealth(float value)
     {
         _slider.value = value;
         CheckSliderActive();

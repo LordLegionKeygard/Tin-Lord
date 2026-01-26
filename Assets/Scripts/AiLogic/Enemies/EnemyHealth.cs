@@ -1,8 +1,6 @@
 using UnityEngine;
-using Pathfinding;
 using Zenject;
 using System.Collections;
-using Pathfinding.RVO;
 
 
 public class EnemyHealth : BaseHealth
@@ -51,11 +49,11 @@ public class EnemyHealth : BaseHealth
         if (_healthSliderObject == null)
         {
             var isMiniBoss = _enemyInfo.IsMiniBoss();
-            var sliderHeightOfsset = isMiniBoss ? _sliderHeightOffset * WorldGameInfo.MiniBossScale : _sliderHeightOffset;
+            var sliderHeightOffset = isMiniBoss ? _sliderHeightOffset * WorldGameInfo.MiniBossScale : _sliderHeightOffset;
             _healthSliderObject = _diContainer.InstantiatePrefab(_healthSliderPrefab, _healthCanvas.transform);
             _healthSlider = _healthSliderObject.GetComponent<EnemySlider>();
             _healthSlider.SetupAllHealthValue(_maxHealth);
-            _healthSlider.SetHeightOffset(sliderHeightOfsset);
+            _healthSlider.SetHeightOffset(sliderHeightOffset);
             _healthSlider.SetObjectTransform(transform);
             _healthSlider.SetLevel(_enemyLevel.GetLevel().ToString());
             _healthSlider.SetEnemySliderView(isMiniBoss);
