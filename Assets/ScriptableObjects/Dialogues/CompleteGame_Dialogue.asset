@@ -13,20 +13,18 @@ MonoBehaviour:
   m_Name: CompleteGame_Dialogue
   m_EditorClassIdentifier: 
   Steps:
-  - TextNumber: 906
+  - TextNumber: 909
     Choices:
-    - ChoiseTextNumber: 907
+    - ChoiseTextNumber: 910
       Kind: 0
       Standard:
         NextStepIndex: -1
         Rewards:
         - Type: 27
           RewardCount:
-            RewardAmountEnum: 0
             PlusMinusEnum: 0
         ChoiceRequired:
           RequiredType: 0
-          Amount: 0
       Chance:
         SuccessTextNumber: 0
         FailureTextNumber: 0
@@ -36,5 +34,4 @@ MonoBehaviour:
         NextStepIndex: -1
         PossibleRewards: 
         RewardCount:
-          RewardAmountEnum: 0
           PlusMinusEnum: 0

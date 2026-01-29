@@ -13,12 +13,16 @@ public class EndStorySystem : MonoBehaviour
     [SerializeField] private StudioEventEmitter _endGameMusic;
     [SerializeField] private Image _image;
     [SerializeField] private Image _blackImage;
-    [SerializeField] private TextMeshProUGUI _text;
+    [SerializeField] private TextMeshProUGUI[] _texts;
     [SerializeField] private RectTransform _textPanel;
     [SerializeField] private GameObject[] _falseObjects;
     [SerializeField] private PageData[] _pagesData;
     private float _pageAnimationDuration = 12;
-    private float _blackFadeDuration = 3;
+    private float _blackFadeDuration = 2;
+    private float _lineInterval = 3f;
+    private float _lineFadeDuration = 1f;
+    private float _lastInterval = 6f;
+    private float _lastBlackHold = 4f;
     private int _currentPageIndex;
     private Sequence _pageSequence;
     private bool _fadeOutAtStart;
@@ -56,8 +60,8 @@ public class EndStorySystem : MonoBehaviour
         CacheTextPanelDefault();
 
         _currentPageIndex = 0;
-        _fadeOutAtStart = false;
-        SetBlackAlpha(0f);
+        _fadeOutAtStart = true;
+        SetBlackAlpha(1f);
         PlayCurrentPage();
     }
 
@@ -66,8 +70,14 @@ public class EndStorySystem : MonoBehaviour
         var page = _pagesData[_currentPageIndex];
         SetupPage(page);
 
+        bool isLastPage = _currentPageIndex == _pagesData.Length - 1;
+        int linesToReveal = GetLinesToRevealCount(page);
+        float lineRevealDuration = GetLineRevealDuration(linesToReveal);
+        float baseDuration = Mathf.Max(_pageAnimationDuration, lineRevealDuration);
+        float sequenceDuration = isLastPage ? baseDuration + _lastInterval + _blackFadeDuration + _lastBlackHold : baseDuration;
+
         _pageSequence = DOTween.Sequence().SetUpdate(true);
-        _pageSequence.AppendInterval(_pageAnimationDuration);
+        _pageSequence.AppendInterval(sequenceDuration);
 
         if (_fadeOutAtStart && _blackImage != null)
         {
@@ -77,9 +87,9 @@ public class EndStorySystem : MonoBehaviour
         _fadeOutAtStart = false;
 
         AddAnimationTweens(_pageSequence, page);
+        AddTextRevealTweens(_pageSequence, linesToReveal);
 
-        bool hasNextPage = _currentPageIndex < _pagesData.Length - 1;
-        if (hasNextPage)
+        if (!isLastPage)
         {
             if (_blackImage != null)
             {
@@ -95,9 +105,17 @@ public class EndStorySystem : MonoBehaviour
         }
         else
         {
+            if (_blackImage != null)
+            {
+                float lastFadeStart = Mathf.Max(0f, baseDuration + _lastInterval);
+                _pageSequence.Insert(lastFadeStart, _blackImage.DOFade(1f, _blackFadeDuration).SetEase(Ease.Linear).SetUpdate(true));
+                _pageSequence.InsertCallback(lastFadeStart, () =>
+                {
+                    CustomEvents.FireControlFadeMusic(false, MusicType.EndStory);
+                });
+            }
             _pageSequence.OnComplete(() =>
             {
-                CustomEvents.FireControlFadeMusic(false, MusicType.EndStory);
                 _endMissionSystem.EndGameStory();
             });
         }
@@ -126,7 +144,7 @@ public class EndStorySystem : MonoBehaviour
     private void SetupPage(PageData page)
     {
         _image.sprite = page.Sprite;
-        _text.text = Language.TextStatic[page.LanguageNumber];
+        SetupText(page);
 
         var rectTransform = _image.rectTransform;
         rectTransform.anchoredPosition = page.StartPosition;
@@ -192,6 +210,80 @@ public class EndStorySystem : MonoBehaviour
             _textPanel.localScale = _textPanelDefault.LocalScale;
         }
     }
+
+    private void SetupText(PageData page)
+    {
+        if (_texts == null || _texts.Length == 0) return;
+        if (page.LanguageNumbers == null || page.LanguageNumbers.Length == 0)
+        {
+            for (int i = 0; i < _texts.Length; i++)
+            {
+                _texts[i].gameObject.SetActive(false);
+                _texts[i].text = string.Empty;
+                SetTextAlpha(_texts[i], 0f);
+            }
+            return;
+        }
+
+        if (page.LanguageNumbers.Length > 1)
+        {
+            for (int i = 0; i < _texts.Length; i++)
+            {
+                bool hasLine = i < page.LanguageNumbers.Length;
+                _texts[i].gameObject.SetActive(hasLine);
+                _texts[i].text = hasLine ? Language.TextStatic[page.LanguageNumbers[i]] : string.Empty;
+                SetTextAlpha(_texts[i], 0f);
+            }
+        }
+        else
+        {
+            _texts[0].gameObject.SetActive(true);
+            _texts[0].text = Language.TextStatic[page.LanguageNumbers[0]];
+            SetTextAlpha(_texts[0], 1f);
+
+            for (int i = 1; i < _texts.Length; i++)
+            {
+                _texts[i].gameObject.SetActive(false);
+                _texts[i].text = string.Empty;
+                SetTextAlpha(_texts[i], 0f);
+            }
+        }
+    }
+
+    private void AddTextRevealTweens(Sequence sequence, int linesToReveal)
+    {
+        if (linesToReveal <= 1) return;
+
+        float startTime = 0f;
+        for (int i = 0; i < linesToReveal; i++)
+        {
+            TextMeshProUGUI text = _texts[i];
+            if (text == null) continue;
+            sequence.Insert(startTime, text.DOFade(1f, _lineFadeDuration).SetEase(Ease.Linear).SetUpdate(true));
+            startTime += _lineInterval;
+        }
+    }
+
+    private int GetLinesToRevealCount(PageData page)
+    {
+        if (_texts == null) return 1;
+        if (page.LanguageNumbers == null || page.LanguageNumbers.Length <= 1) return 1;
+        return Mathf.Min(_texts.Length, page.LanguageNumbers.Length);
+    }
+
+    private float GetLineRevealDuration(int linesToReveal)
+    {
+        if (linesToReveal <= 1) return 0f;
+        return (linesToReveal - 1) * _lineInterval + _lineFadeDuration;
+    }
+
+    private void SetTextAlpha(TextMeshProUGUI text, float alpha)
+    {
+        if (text == null) return;
+        Color color = text.color;
+        color.a = alpha;
+        text.color = color;
+    }
 }
 
 public struct TextPanelLayout
@@ -208,15 +300,9 @@ public struct TextPanelLayout
 public class PageData
 {
     public Sprite Sprite;
-    public int LanguageNumber;
+    public int[] LanguageNumbers;
     public Vector2 StartPosition;
     public Vector2 EndPosition;
     public Vector3 StartScale = Vector3.one;
     public Vector3 EndScale = Vector3.one;
-}
-
-[System.Serializable]
-public enum PageAnimation
-{
-
 }

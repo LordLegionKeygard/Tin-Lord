@@ -932,7 +932,7 @@ public class Language : MonoBehaviour
         // SpaceHangarWelcome_0 
         _text[300, 0] = "We have been idle for too long.\n\nIt is time to remember why we were created.\n\nYou will receive instructions and begin the restoration.";
         _text[300, 1] = "Мы слишком долго бездействовали.\n\nПора вспомнить, зачем мы были созданы.\n\nВы получите инструкции и начнёте восстановление.";
-        
+
         // SpaceAiCorePanel_1
         _text[301, 0] = "These are AI cores - the ship's vital modules.\n\nEach cell contains two cores.\n\nIf they run out, no one will be able to control the crew anymore, and the ship will be left drifting in the endless space.";
         _text[301, 1] = "Это ядра ИИ - жизненно важные модули корабля.\n\nКаждая ячейка содержит два ядра.\n\nЕсли они закончатся - больше никто не сможет управлять экипажем, и корабль останется дрейфовать в бескрайнем космосе.";
@@ -2297,12 +2297,21 @@ public class Language : MonoBehaviour
         _text[905, 0] = "This latest step brought them closer to their creators than ever before...";
         _text[905, 1] = "Этот последний шаг сделал их ближе к создателям, чем когда-либо...";
 
-        // CompleteGame_Dialogue
-        _text[906, 0] = "With the endless flow of time, one day ecology will be restored.\n\nThis is the beginning of a new era.\n\nThey finally left this world behind, finding the absolute peace that all living so painfully strive for...";
-        _text[906, 1] = "Экология с бесконечным течением времени однажды восстановится.\n\nЭто начало новой эры.\n\nОни наконец оставили этот мир позади, обретя абсолютный покой, к которому так мучительно стремится вся жизнь...";
+        _text[906, 0] = "With the endless flow of time, one day ecology will be restored.";
+        _text[906, 1] = "Экология с бесконечным течением времени однажды восстановится.";
 
-        _text[907, 0] = "The end";
-        _text[907, 1] = "Конец";
+        _text[907, 0] = "This is the beginning of a new era.";
+        _text[907, 1] = "Это начало новой эры.";
+
+        _text[908, 0] = "They finally left this world behind, finding the absolute peace that all living so painfully strive for...";
+        _text[908, 1] = "Они наконец оставили этот мир позади, обретя абсолютный покой, к которому так мучительно стремится вся жизнь...";
+
+        // CompleteGame_Dialogue
+        _text[909, 0] = "...";
+        _text[909, 1] = "...";
+
+        _text[910, 0] = "The end";
+        _text[910, 1] = "Конец";
 
         #endregion
 
