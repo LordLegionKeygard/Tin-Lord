@@ -21,10 +21,12 @@ public class EndStorySystem : MonoBehaviour
     private float _blackFadeDuration = 2;
     private float _lineInterval = 3f;
     private float _lineFadeDuration = 1f;
+    private float _imageExtraDuration = 2f;
     private float _lastInterval = 6f;
     private float _lastBlackHold = 4f;
     private int _currentPageIndex;
     private Sequence _pageSequence;
+    private Sequence _imageSequence;
     private bool _fadeOutAtStart;
     private TextPanelLayout _textPanelDefault;
     private bool _hasTextPanelDefault;
@@ -68,12 +70,14 @@ public class EndStorySystem : MonoBehaviour
     private void PlayCurrentPage()
     {
         var page = _pagesData[_currentPageIndex];
+        KillImageSequence();
         SetupPage(page);
 
         bool isLastPage = _currentPageIndex == _pagesData.Length - 1;
         int linesToReveal = GetLinesToRevealCount(page);
         float lineRevealDuration = GetLineRevealDuration(linesToReveal);
         float baseDuration = Mathf.Max(_pageAnimationDuration, lineRevealDuration);
+        float imageDuration = baseDuration + _imageExtraDuration;
         float sequenceDuration = isLastPage ? baseDuration + _lastInterval + _blackFadeDuration + _lastBlackHold : baseDuration;
 
         _pageSequence = DOTween.Sequence().SetUpdate(true);
@@ -86,14 +90,14 @@ public class EndStorySystem : MonoBehaviour
         }
         _fadeOutAtStart = false;
 
-        AddAnimationTweens(_pageSequence, page);
+        StartImageTweens(page, imageDuration);
         AddTextRevealTweens(_pageSequence, linesToReveal);
 
         if (!isLastPage)
         {
             if (_blackImage != null)
             {
-                float fadeStartTime = Mathf.Max(0f, _pageAnimationDuration - _blackFadeDuration);
+                float fadeStartTime = Mathf.Max(0f, baseDuration - _blackFadeDuration);
                 _pageSequence.Insert(fadeStartTime, _blackImage.DOFade(1f, _blackFadeDuration).SetEase(Ease.Linear).SetUpdate(true));
             }
             _pageSequence.OnComplete(() =>
@@ -121,23 +125,24 @@ public class EndStorySystem : MonoBehaviour
         }
     }
 
-    private void AddAnimationTweens(Sequence sequence, PageData page)
+    private void StartImageTweens(PageData page, float duration)
     {
         var rectTransform = _image.rectTransform;
+        _imageSequence = DOTween.Sequence().SetUpdate(true);
 
         if (page.StartScale != page.EndScale)
         {
-            sequence.Join(rectTransform.DOScale(page.EndScale, _pageAnimationDuration).SetUpdate(true));
+            _imageSequence.Join(rectTransform.DOScale(page.EndScale, duration).SetEase(Ease.Linear).SetUpdate(true));
         }
 
         if (!Mathf.Approximately(page.StartPosition.x, page.EndPosition.x))
         {
-            sequence.Join(rectTransform.DOAnchorPosX(page.EndPosition.x, _pageAnimationDuration).SetUpdate(true));
+            _imageSequence.Join(rectTransform.DOAnchorPosX(page.EndPosition.x, duration).SetEase(Ease.Linear).SetUpdate(true));
         }
 
         if (!Mathf.Approximately(page.StartPosition.y, page.EndPosition.y))
         {
-            sequence.Join(rectTransform.DOAnchorPosY(page.EndPosition.y, _pageAnimationDuration).SetUpdate(true));
+            _imageSequence.Join(rectTransform.DOAnchorPosY(page.EndPosition.y, duration).SetEase(Ease.Linear).SetUpdate(true));
         }
     }
 
@@ -168,6 +173,16 @@ public class EndStorySystem : MonoBehaviour
         {
             _pageSequence.Kill();
             _pageSequence = null;
+        }
+        KillImageSequence();
+    }
+
+    private void KillImageSequence()
+    {
+        if (_imageSequence != null && _imageSequence.IsActive())
+        {
+            _imageSequence.Kill();
+            _imageSequence = null;
         }
     }
 
