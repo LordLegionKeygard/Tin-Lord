@@ -41,10 +41,10 @@ public class MissionPanel : MonoBehaviour
         UnactiveAll();
 
         var descriptionWrapper = _currentNode.Landscape.DescriptionWrappers[Language.LanguageNumber];
-        _missionNameHeaderText.text = _currentNode.Landscape.Name[Language.LanguageNumber];
+        _missionNameHeaderText.text = Language.TextStatic[_currentNode.Landscape.NameLanguageNumber];
         _ecologyLevelText.text = $"{Language.TextStatic[34]}: {_currentNode.Landscape.StartEcology}";
         _objectiveText.text = $"{Language.TextStatic[36]}: ";
-        _descriptionText.text = descriptionWrapper.Description;
+        _descriptionText.text = Language.TextStatic[descriptionWrapper.DescriptionLanguageNumber];
         _descriptionPanel.sizeDelta = new Vector2(_descriptionPanel.sizeDelta.x, descriptionWrapper.PanelHeight);
 
         var objectives = _currentNode.Objective.Objectives;

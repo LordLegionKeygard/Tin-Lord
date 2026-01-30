@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Card : ScriptableObject
 {
-    public string[] Name; // 0 eng, 1 rus
+    public int NameLanguageNumber;
     public Sprite Icon;
     public CardKind Kind;
     public int Id;

@@ -31,17 +31,6 @@ public class EndStorySystem : MonoBehaviour
     private TextPanelLayout _textPanelDefault;
     private bool _hasTextPanelDefault;
 
-    private void Start()
-    {
-        StartCoroutine(StartWithDelay());
-    }
-
-    private IEnumerator StartWithDelay()
-    {
-        yield return new WaitForSeconds(5f);
-        ShowEndGameStory();
-    }
-
     public void ShowEndGameStory()
     {
         foreach (var item in _falseObjects)

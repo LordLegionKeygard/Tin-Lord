@@ -8,7 +8,7 @@ public class BuildingTypeTooltipListener : MonoBehaviour, IPointerEnterHandler, 
     public void OnPointerEnter(PointerEventData eventData)
     {
         CustomEvents.FireTooltipToggle(true, 0);
-        CustomEvents.FireUpdateToolTipTransform(transform.position.x, transform.position.y, _buildingType.CurrentTile().Name[Language.LanguageNumber], 0.5f, WorldGameInfo.BuildinTypePivot);
+        CustomEvents.FireUpdateToolTipTransform(transform.position.x, transform.position.y, Language.TextStatic[_buildingType.CurrentTile().NameLanguageNumber], 0.5f, WorldGameInfo.BuildinTypePivot);
     }
 
     public void OnPointerExit(PointerEventData eventData)

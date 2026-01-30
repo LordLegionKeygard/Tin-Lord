@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007799264, g: 0.00009619239, b: 0.000115817726,
+  m_IndirectSpecularColor: {r: 0.000077872275, g: 0.00009605586, b: 0.00011563383,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -6238,7 +6238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &158255176
@@ -13588,7 +13588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -25309,7 +25309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514
@@ -66211,7 +66211,7 @@ MonoBehaviour:
   _steps:
   - TutorialStepEnum: 0
     ClickView: {fileID: 0}
-    TextNumber: 300
+    TextNumber: 1100
     TutorialTextPanelPos: 0
     ArrowObject: 0
     JustContinue: 1
@@ -66220,7 +66220,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 1
     ClickView: {fileID: 126485018}
-    TextNumber: 301
+    TextNumber: 1101
     TutorialTextPanelPos: 2
     ArrowObject: 0
     JustContinue: 1
@@ -66229,7 +66229,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 2
     ClickView: {fileID: 699430007}
-    TextNumber: 302
+    TextNumber: 1102
     TutorialTextPanelPos: 0
     ArrowObject: 0
     JustContinue: 1
@@ -66238,7 +66238,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 3
     ClickView: {fileID: 718196032}
-    TextNumber: 303
+    TextNumber: 1103
     TutorialTextPanelPos: 0
     ArrowObject: 0
     JustContinue: 0
@@ -66247,7 +66247,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 4
     ClickView: {fileID: 0}
-    TextNumber: 304
+    TextNumber: 1104
     TutorialTextPanelPos: 0
     ArrowObject: 0
     JustContinue: 1
@@ -66256,7 +66256,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 5
     ClickView: {fileID: 599929487}
-    TextNumber: 305
+    TextNumber: 1105
     TutorialTextPanelPos: 0
     ArrowObject: 0
     JustContinue: 0
@@ -66265,7 +66265,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 6
     ClickView: {fileID: 0}
-    TextNumber: 306
+    TextNumber: 1106
     TutorialTextPanelPos: 4
     ArrowObject: 0
     JustContinue: 1
@@ -66274,7 +66274,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 7
     ClickView: {fileID: 0}
-    TextNumber: 307
+    TextNumber: 1107
     TutorialTextPanelPos: 4
     ArrowObject: 0
     JustContinue: 0
@@ -66283,7 +66283,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 8
     ClickView: {fileID: 582753780}
-    TextNumber: 308
+    TextNumber: 1108
     TutorialTextPanelPos: 0
     ArrowObject: 0
     JustContinue: 0
@@ -66292,7 +66292,7 @@ MonoBehaviour:
     WaitRunStep: 1
   - TutorialStepEnum: 67
     ClickView: {fileID: 1551924889}
-    TextNumber: 367
+    TextNumber: 1167
     TutorialTextPanelPos: 0
     ArrowObject: 0
     JustContinue: 0
@@ -66301,7 +66301,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 68
     ClickView: {fileID: 0}
-    TextNumber: 368
+    TextNumber: 1168
     TutorialTextPanelPos: 6
     ArrowObject: 0
     JustContinue: 0
@@ -66310,7 +66310,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 69
     ClickView: {fileID: 1319380895}
-    TextNumber: 369
+    TextNumber: 1169
     TutorialTextPanelPos: 6
     ArrowObject: 0
     JustContinue: 0
@@ -66319,7 +66319,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 70
     ClickView: {fileID: 0}
-    TextNumber: 370
+    TextNumber: 1170
     TutorialTextPanelPos: 6
     ArrowObject: 0
     JustContinue: 1
@@ -66328,7 +66328,7 @@ MonoBehaviour:
     WaitRunStep: 0
   - TutorialStepEnum: 71
     ClickView: {fileID: 0}
-    TextNumber: 371
+    TextNumber: 1171
     TutorialTextPanelPos: 6
     ArrowObject: 0
     JustContinue: 1

@@ -257,7 +257,7 @@ public class CardHolderSystem : MonoBehaviour
         for (int i = 0; i < _availableTileCards.Length; i++)
         {
             var t = _availableTileCards[i];
-            if (t != null && t.Name != except.Name)
+            if (t != null && t.NameLanguageNumber != except.NameLanguageNumber)
             {
                 pool.Add(t);
             }

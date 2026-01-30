@@ -15,6 +15,7 @@ MonoBehaviour:
   Name:
   - Ice Lake
   - "\u041B\u0435\u0434\u044F\u043D\u043E\u0435 \u041E\u0437\u0435\u0440\u043E"
+  NameLanguageNumber: 958
   LandscapeEnum: 4
   MonsterType: 1
   MissionView:
@@ -57,6 +58,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c4f345cffdaadb241bd1fd6ae12cd0ba, type: 2}
   DescriptionWrappers:
   - PanelHeight: 240
+    DescriptionLanguageNumber: 959
     Description: "In the middle of a snowy wasteland lies a lake, bound by thick
       ice. Winds roam the icy expanse, howling ancient songs of a forgotten era.
       \n\nUnder the thickness of the ice, something breathes, cracks, as if the planet
@@ -64,6 +66,7 @@ MonoBehaviour:
       is to upset the fragile balance, risking awakening something that has slept
       in the depths for centuries."
   - PanelHeight: 260
+    DescriptionLanguageNumber: 959
     Description: "\u041F\u043E\u0441\u0440\u0435\u0434\u0438 \u0437\u0430\u0441\u043D\u0435\u0436\u0435\u043D\u043D\u043E\u0439
       \u043F\u0443\u0441\u0442\u043E\u0448\u0438 \u0440\u0430\u0441\u043A\u0438\u043D\u0443\u043B\u043E\u0441\u044C
       \u043E\u0437\u0435\u0440\u043E, \u0441\u043A\u043E\u0432\u0430\u043D\u043D\u043E\u0435
@@ -92,3 +95,6 @@ MonoBehaviour:
     SkyboxRotation: 0
     LightRotation: {x: 0, y: -506.9, z: 0}
     Temperature: 8667
+    EnvironmentPrefab: {fileID: 0}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}

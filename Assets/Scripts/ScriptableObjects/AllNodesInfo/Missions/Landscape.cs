@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Landscape", menuName = "TinLord/Missions/Landscape")]
 public class Landscape : ScriptableObject
 {
-    public string[] Name; //0 eng, 1 rus
+    public int NameLanguageNumber;
     public LandscapeEnum LandscapeEnum;
     public MonsterType MonsterType;
     public MissionView MissionView;
@@ -49,7 +49,7 @@ public class MissionLight
 public class DescriptionWrapper
 {
     public int PanelHeight;
-    [TextArea(1, 10)] public string Description;
+    public int DescriptionLanguageNumber;
 }
 
 [System.Serializable]

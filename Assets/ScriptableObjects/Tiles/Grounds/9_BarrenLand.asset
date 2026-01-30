@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 9_BarrenLand
   m_EditorClassIdentifier: 
-  Name:
-  - Barren Land
-  - "\u0411\u0435\u0441\u043F\u043B\u043E\u0434\u043D\u0430\u044F \u0417\u0435\u043C\u043B\u044F"
+  NameLanguageNumber: 253
   Icon: {fileID: 21300000, guid: ea3942927fcdbb24a98b46cc25b41218, type: 3}
   Kind: 0
   Id: 9
@@ -29,7 +27,6 @@ MonoBehaviour:
   BuildingTypes:
   - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
   - {fileID: 11400000, guid: 3fbd9e5df08784a45993d1293bb6ab60, type: 2}
-  - {fileID: 11400000, guid: 360ba803cdf366645bb2f8117c48d8b3, type: 2}
   - {fileID: 11400000, guid: cdbffb5dfa5bbfd4bb5e438e328df5e4, type: 2}
   - {fileID: 11400000, guid: 0201f24a41783a74b835b447a2b63c8c, type: 2}
   - {fileID: 11400000, guid: f75a197b363f67549bc847eb987e8084, type: 2}

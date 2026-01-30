@@ -15,6 +15,7 @@ MonoBehaviour:
   Name:
   - Canyon
   - "\u041A\u0430\u043D\u044C\u043E\u043D"
+  NameLanguageNumber: 950
   LandscapeEnum: 0
   MonsterType: 0
   MissionView:
@@ -63,10 +64,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c4f345cffdaadb241bd1fd6ae12cd0ba, type: 2}
   DescriptionWrappers:
   - PanelHeight: 140
+    DescriptionLanguageNumber: 951
     Description: "Deep cracks in the earth, sun-baked rocks and narrow passages where
       every sound echoes. \n\nOnce rivers flowed here and life seethed, but now it
       is a labyrinth of stone and shadow, the perfect place for ambushes."
   - PanelHeight: 160
+    DescriptionLanguageNumber: 951
     Description: "\u0413\u043B\u0443\u0431\u043E\u043A\u0438\u0435 \u0442\u0440\u0435\u0449\u0438\u043D\u044B
       \u0432 \u0437\u0435\u043C\u043B\u0435, \u0432\u044B\u0436\u0436\u0435\u043D\u043D\u044B\u0435
       \u0441\u043E\u043B\u043D\u0446\u0435\u043C \u0441\u043A\u0430\u043B\u044B \u0438
@@ -88,6 +91,9 @@ MonoBehaviour:
     SkyboxRotation: 0
     LightRotation: {x: 20.599998, y: -11.3, z: 0}
     Temperature: 7000
+    EnvironmentPrefab: {fileID: 0}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}
   - PlanetPrefab: {fileID: 3737507109534531556, guid: 53b4ec9a9f9e83942aa7cc42fe485f21,
       type: 3}
     PlanetPosition: {x: 0, y: 0, z: 71.09}
@@ -96,6 +102,9 @@ MonoBehaviour:
     SkyboxRotation: 177
     LightRotation: {x: 20.6, y: -145.3, z: 0}
     Temperature: 4936
+    EnvironmentPrefab: {fileID: 0}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}
   - PlanetPrefab: {fileID: 3737507109534531556, guid: 53b4ec9a9f9e83942aa7cc42fe485f21,
       type: 3}
     PlanetPosition: {x: -9.7, y: 5.3, z: 58.2}
@@ -104,3 +113,6 @@ MonoBehaviour:
     SkyboxRotation: 0
     LightRotation: {x: 20.599998, y: 208.30002, z: 0}
     Temperature: 20000
+    EnvironmentPrefab: {fileID: 0}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}

@@ -57,7 +57,7 @@ public class ChangeLanguageSpace : MonoBehaviour
 
         for (int i = 0; i < _buildingTypesNameTexts.Length; i++)
         {
-            _buildingTypesNameTexts[i].text = _buildingTypesTiles[i].Name[Language.LanguageNumber];
+            _buildingTypesNameTexts[i].text = Language.TextStatic[_buildingTypesTiles[i].NameLanguageNumber];
         }
 
         _escapeTexts[0].text = Language.TextStatic[33];

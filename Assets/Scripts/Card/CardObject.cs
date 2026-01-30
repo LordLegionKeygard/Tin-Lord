@@ -95,9 +95,9 @@ public class CardObject : MonoBehaviour
         _rarity = rarity;
         _cardHolderSystem = holder;
 
-        gameObject.name = _card.Name[0];
+        gameObject.name = Language.TextStatic[_card.NameLanguageNumber];
         _image.sprite = _card.Icon;
-        _text.text = _card.Name[Language.LanguageNumber];
+        _text.text = Language.TextStatic[_card.NameLanguageNumber];
         _text.color = Colors.GetRarityColor(_rarity);
     }
 

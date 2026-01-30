@@ -75,7 +75,7 @@ public class BuildingType : MonoBehaviour
         _buildsPanel.SpawnBuildingItemsInScrollView(_currentTileObject, _selectTilePanel, _currentBuildingTypeTile); //спавним список зданий этого типа
         _buildTypesPanel.UnselectAllTypes();
         ToggleSelectView(true);
-        _buildTypesPanel.SetBuildingTypeText(_currentBuildingTypeTile.Name[Language.LanguageNumber]);
+        _buildTypesPanel.SetBuildingTypeText(Language.TextStatic[_currentBuildingTypeTile.NameLanguageNumber]);
     }
 
     public void ToggleSelectView(bool state)

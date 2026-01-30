@@ -15,14 +15,18 @@ MonoBehaviour:
   Name:
   - 'Mining: Coal'
   - "\u0414\u043E\u0431\u044B\u0447\u0430: \u0423\u0433\u043B\u044F"
+  NameLanguageNumber: 274
+  Icon: {fileID: 21300000, guid: a0d145c824ad64d42965636a67a0ea68, type: 3}
+  Kind: 0
+  Id: 0
   TileObject: {fileID: 8169984115598653667, guid: eb5dff98f4cb81c4f9e1cf30a0da01aa,
     type: 3}
-  Icon: {fileID: 21300000, guid: a0d145c824ad64d42965636a67a0ea68, type: 3}
   TileTypeEnum: 1
   GroundTileView: 0
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
+  CanBuildMachineProduction: 0
   BuildingTypes: []
   ProductionOnGroundResources: []
   BuildingTileView: 2
@@ -31,3 +35,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 987ddc11cfbdd0e46ae3d7c3b38ed280, type: 2}
   - {fileID: 11400000, guid: 29147c6f0afae6643aed6ca0ab678038, type: 2}
   - {fileID: 11400000, guid: 06c830efc9d686243a74a7a33e0d028d, type: 2}
+  MaterialForRift: {fileID: 0}

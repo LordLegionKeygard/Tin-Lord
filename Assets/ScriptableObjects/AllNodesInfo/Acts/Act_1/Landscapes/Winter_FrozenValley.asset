@@ -15,6 +15,7 @@ MonoBehaviour:
   Name:
   - Frozen Valley
   - "\u0417\u0430\u043C\u0451\u0440\u0437\u0448\u0430\u044F \u0414\u043E\u043B\u0438\u043D\u0430"
+  NameLanguageNumber: 956
   LandscapeEnum: 3
   MonsterType: 1
   MissionView:
@@ -57,6 +58,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c4f345cffdaadb241bd1fd6ae12cd0ba, type: 2}
   DescriptionWrappers:
   - PanelHeight: 260
+    DescriptionLanguageNumber: 957
     Description: "A deadly cold has gripped this valley. Everything is covered in
       ice, from the ridges and pines to the remains of long-destroyed buildings.
       \n\nOnce there might have been pastures or small settlements here, but now
@@ -64,6 +66,7 @@ MonoBehaviour:
       trees. \n\nThe frost penetrates not only metal, but also consciousness, erasing
       the line between life and oblivion."
   - PanelHeight: 260
+    DescriptionLanguageNumber: 957
     Description: "\u041C\u0451\u0440\u0442\u0432\u044B\u0439 \u0445\u043E\u043B\u043E\u0434
       \u0441\u043A\u043E\u0432\u0430\u043B \u044D\u0442\u0443 \u0434\u043E\u043B\u0438\u043D\u0443.
       \u0412\u0441\u0451 \u043F\u043E\u043A\u0440\u044B\u0442\u043E \u043B\u044C\u0434\u043E\u043C
@@ -91,3 +94,6 @@ MonoBehaviour:
     SkyboxRotation: 110
     LightRotation: {x: 30.43, y: -30.13, z: 0}
     Temperature: 6500
+    EnvironmentPrefab: {fileID: 0}
+    EnvironmentPosition: {x: 0, y: 0, z: 0}
+    EnvironmentRotation: {x: 0, y: 0, z: 0}

@@ -15,14 +15,18 @@ MonoBehaviour:
   Name:
   - Bridge
   - "\u041C\u043E\u0441\u0442"
+  NameLanguageNumber: 305
+  Icon: {fileID: 21300000, guid: 22daa5f6ee956b249aa517ee13595071, type: 3}
+  Kind: 0
+  Id: 0
   TileObject: {fileID: 5746593528593359528, guid: bf19e07097995bc419c72f91c09a364a,
     type: 3}
-  Icon: {fileID: 21300000, guid: 22daa5f6ee956b249aa517ee13595071, type: 3}
   TileTypeEnum: 1
   GroundTileView: 0
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
+  CanBuildMachineProduction: 0
   BuildingTypes: []
   ProductionOnGroundResources: []
   BuildingTileView: 9
@@ -30,3 +34,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 212e073f90156b349b4eb8b9fb6303ae, type: 2}
   - {fileID: 11400000, guid: bb5e3ca6e55b01b43bddf823c0798edf, type: 2}
   - {fileID: 11400000, guid: 426e9dd51417a474593fe387bbe11ce8, type: 2}
+  MaterialForRift: {fileID: 0}

@@ -15,9 +15,12 @@ MonoBehaviour:
   Name:
   - Base
   - "\u0411\u0430\u0437\u0430"
+  NameLanguageNumber: 272
+  Icon: {fileID: 21300000, guid: 8bfa89c103c052e42973686700e9590b, type: 3}
+  Kind: 0
+  Id: 0
   TileObject: {fileID: 5128493445474986613, guid: b7c3523c33644b844b511999ac783763,
     type: 3}
-  Icon: {fileID: 21300000, guid: 8bfa89c103c052e42973686700e9590b, type: 3}
   TileTypeEnum: 1
   GroundTileView: 0
   GroundEcology: 0
@@ -32,3 +35,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8de35bc0743254a48937facc71192557, type: 2}
   - {fileID: 11400000, guid: 7998d41a9b182d54f8dcd25fbce37042, type: 2}
   - {fileID: 11400000, guid: 8800b49efcb16174eb142005c1eb6423, type: 2}
+  MaterialForRift: {fileID: 0}

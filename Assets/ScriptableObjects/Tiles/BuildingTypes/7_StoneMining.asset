@@ -15,14 +15,18 @@ MonoBehaviour:
   Name:
   - 'Mining: Stone'
   - "\u0414\u043E\u0431\u044B\u0447\u0430: \u041A\u0430\u043C\u043D\u044F"
+  NameLanguageNumber: 303
+  Icon: {fileID: 21300000, guid: 319b1894f3fdb9d48939c7a65fc188f3, type: 3}
+  Kind: 0
+  Id: 0
   TileObject: {fileID: 4665257176694420121, guid: 5e30e2df1b2e9d742af6532be5b4e33a,
     type: 3}
-  Icon: {fileID: 21300000, guid: 319b1894f3fdb9d48939c7a65fc188f3, type: 3}
   TileTypeEnum: 1
   GroundTileView: 0
   GroundEcology: 0
   IsWater: 0
   IsFourTile: 0
+  CanBuildMachineProduction: 0
   BuildingTypes: []
   ProductionOnGroundResources: []
   BuildingTileView: 7
@@ -31,3 +35,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9fffabc0de0b5dc42a568fa2eefecd34, type: 2}
   - {fileID: 11400000, guid: b2fa7beec3198414cb5091f409b77d2c, type: 2}
   - {fileID: 11400000, guid: 1e03d1367f7652e4bb61b66994bfecfc, type: 2}
+  MaterialForRift: {fileID: 0}

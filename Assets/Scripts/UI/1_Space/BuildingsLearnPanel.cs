@@ -170,7 +170,7 @@ public class BuildingsLearnPanel : MonoBehaviour
 
             foreach (var b in tile.Buildings)
                 if (b == target)
-                    return tile.Name[Language.LanguageNumber];
+                    return Language.TextStatic[tile.NameLanguageNumber];
         }
         return string.Empty;
     }

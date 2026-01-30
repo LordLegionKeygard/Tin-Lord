@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04524e5c4757af649a4c7030d62c8dd7, type: 3}
   m_Name: 0_Plain
   m_EditorClassIdentifier: 
-  Name:
-  - Plain
-  - "\u0420\u0430\u0432\u043D\u0438\u043D\u0430"
+  NameLanguageNumber: 72
   Icon: {fileID: 21300000, guid: 49c6f36c52c4fce46ac4ae0af893ad65, type: 3}
   Kind: 0
   Id: 0
@@ -28,6 +26,7 @@ MonoBehaviour:
   CanBuildMachineProduction: 1
   BuildingTypes:
   - {fileID: 11400000, guid: 768ff2b4e871a794a9a597c7b853e1f1, type: 2}
+  - {fileID: 11400000, guid: 360ba803cdf366645bb2f8117c48d8b3, type: 2}
   - {fileID: 11400000, guid: 3fbd9e5df08784a45993d1293bb6ab60, type: 2}
   - {fileID: 11400000, guid: 2a6e5ea87cd8f04448bcf8887c8981e0, type: 2}
   - {fileID: 11400000, guid: 2030307a75a13f34798f72c4951e49e8, type: 2}

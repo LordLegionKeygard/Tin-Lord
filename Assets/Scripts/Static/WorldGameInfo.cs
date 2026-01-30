@@ -4,7 +4,7 @@ public class WorldGameInfo
 {
     [Header("Build")]
     public static bool IsSteam = true;
-    public static bool IsDemo = false;
+    public static bool IsDemo = true;
 
     [Header("Ai Performance")]
     public static float TargetScanInterval = 0.5f;
@@ -111,7 +111,7 @@ public class WorldGameInfo
 
     [Header("Settings")]
     public static bool StaticBlood = true;
-    public static int LanguageLength = 1100;
+    public static int LanguageLength = 1200;
 
     [Header("VideoSettings")]
     public const int ScreenMode = 1;

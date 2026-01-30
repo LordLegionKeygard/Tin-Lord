@@ -10,14 +10,20 @@ public class TileEcology : MonoBehaviour
     }
     public float GetEcology(GetEcologyEnum getEcologyEnum)
     {
+        if (_tileObject == null)
+        {
+            return 0;
+        }
+
         var haveBuildingTile = _tileObject.BuildingTileObject().IsHaveTile();
         var isConstructionNow = haveBuildingTile && _tileObject.BuildingTileObject().IsConstructionNow();
 
         float buildingEcology = 0;
 
 
-        var groundEcology = _tileObject.GroundTileObject().CurrentGroundTile().GroundEcology;
-        var rarityBonusEcology = _tileObject.GetRarity();
+        var currentGroundTile = _tileObject.GroundTileObject().CurrentGroundTile();
+        var groundEcology = currentGroundTile != null ? currentGroundTile.GroundEcology : 0f;
+        var rarityBonusEcology = currentGroundTile != null ? _tileObject.GetRarity() : 0;
 
         if (haveBuildingTile && !isConstructionNow)
         {
