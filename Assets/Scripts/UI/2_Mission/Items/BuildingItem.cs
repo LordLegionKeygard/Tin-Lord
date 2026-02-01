@@ -86,7 +86,7 @@ public class BuildingItem : MonoBehaviour
         var building = _currentTile.Buildings[_buildingIndex - 1];
         _haveRequiredLevel = requiredLevel <= _tilesSystem.GetBaseLevel();
 
-        _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[297], requiredLevel)}"; ;
+        _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? Language.TextStatic[building.NameLanguageNumber] : $"{string.Format(Language.TextStatic[297], requiredLevel)}"; ;
         _icon.sprite = building.BuildingSprite;
     }
 
@@ -97,7 +97,7 @@ public class BuildingItem : MonoBehaviour
         _haveRequiredLevel = building.RequiredBaseLevel <= _tilesSystem.GetBaseLevel();
 
         _resourcesEnough = _missionResources.ResourcesEnough(GetResources());
-        _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? building.Name[Language.LanguageNumber] : $"{string.Format(Language.TextStatic[297], requiredLevel)}"; ;
+        _nameText.text = _currentBuildingState == BuildingState.Repair ? _missionHangarSystem.GetRepairText() : _haveRequiredLevel ? Language.TextStatic[building.NameLanguageNumber] : $"{string.Format(Language.TextStatic[297], requiredLevel)}"; ;
         _nameText.color = _resourcesEnough && _haveRequiredLevel ? _isSelect ? Color.white : Colors.GreyEight : _isSelect ? Colors.WarningYellow : Colors.FadedYellow;
         _icon.color = _isSelect ? Color.white : Colors.GreyEight;
         _backImage.color = _isSelect ? Color.white : Colors.GreyEight;

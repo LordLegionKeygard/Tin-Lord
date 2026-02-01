@@ -54,7 +54,7 @@ public class LearnBuildingItem : MonoBehaviour
         var canLearn = _previousLearnBuildingItem == null || _previousLearnBuildingItem.IsLearn();
 
         _icon.sprite = _building.BuildingSprite;
-        _nameText.text = canLearn ? _building.Name[Language.LanguageNumber] : "?";
+        _nameText.text = canLearn ? Language.TextStatic[_building.NameLanguageNumber] : "?";
         _priceText.text = _building.Price.ToString();
 
         _priceObject.SetActive(!_isLearn && canLearn);

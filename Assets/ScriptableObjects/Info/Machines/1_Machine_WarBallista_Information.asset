@@ -15,16 +15,15 @@ MonoBehaviour:
   Name:
   - War Ballista
   - "\u0411\u043E\u0435\u0432\u0430\u044F \u0411\u0430\u043B\u043B\u0438\u0441\u0442\u0430"
+  NameLanguageNumber: 318
   MachineSprite: {fileID: 21300000, guid: 40808547dda269f42b8793e2217cb6cc, type: 3}
   MachineType: 0
   DetectionRadius: 55
   RequiredBuildingLevel: 1
   MachineLevelInfo:
     StartDurability: 90
-    StartMeleeDamage: 0
     StartRangeDamage: 2
     FactorDurability: 10
-    FactorMeleeDamage: 0
     FactorRangeDamage: 0.5
   ResourcesForBuild:
   - ResourceEnum: 0

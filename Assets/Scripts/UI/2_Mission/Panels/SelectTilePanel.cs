@@ -198,7 +198,7 @@ public class SelectTilePanel : MonoBehaviour
 
         _groundTileNameText.text = Language.TextStatic[tileObject.GroundTileObject().CurrentGroundTile().NameLanguageNumber];
         _groundTileNameText.color = Colors.GetRarityColor(tileObject.GetRarity());
-        _buildingNameText.text = haveBuildingTile ? $"{buildindText} {building.Name[Language.LanguageNumber]}" : $"{buildindText} -";
+        _buildingNameText.text = haveBuildingTile ? $"{buildindText} {Language.TextStatic[building.NameLanguageNumber]}" : $"{buildindText} -";
         var buildingCurrentHealth = FormatHealthValue(tileObject.BuildingHealth().GetCurrentHealth());
         _buildingHealthText.text = haveBuildingTile ? $"{buildingHealthText} {buildingCurrentHealth}/{buildingMaxHealth}" : $"{buildingHealthText} -";
         _buildingLevelText.text = haveBuildingTile ? $"{buildindLevelText} {tileObject.BuildingTileObject().GetCurrentBuildingLevel()}" : $"{buildindLevelText} -";

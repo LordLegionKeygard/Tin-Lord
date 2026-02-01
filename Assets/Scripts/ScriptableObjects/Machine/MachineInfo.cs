@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MachineInfo", menuName = "TinLord/Info/MachineInfo")]
 public class MachineInfo : ScriptableObject
 {
-    public string[] Name; //0 eng, 1 rus
+    public int NameLanguageNumber;
     public Sprite MachineSprite;
     public MachineType MachineType;
     public float DetectionRadius;

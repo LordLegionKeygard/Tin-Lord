@@ -57,7 +57,7 @@ public class MachineItem : MonoBehaviour
 
     public void UpdateView()
     {
-        _nameText.text = CanRepair() ? _missionHangarSystem.GetRepairText() : machineInfo.Name[Language.LanguageNumber];
+        _nameText.text = CanRepair() ? _missionHangarSystem.GetRepairText() : Language.TextStatic[machineInfo.NameLanguageNumber];
         _icon.sprite = machineInfo.MachineSprite;
         if (_isSelect)
         {

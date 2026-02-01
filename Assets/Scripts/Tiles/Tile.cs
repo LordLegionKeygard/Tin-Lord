@@ -4,8 +4,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Tile", menuName = "TinLord/Tile")]
 public class Tile : Card
 {
-    [Header("TextInfo")]
-
     [Header("Base")]
     public GameObject TileObject;
     public TileTypeEnum TileTypeEnum;

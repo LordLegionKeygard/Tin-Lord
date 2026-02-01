@@ -120,7 +120,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     private void SetMainPanel(Building building)
     {
         _ecologicalRestorationText.gameObject.SetActive(building.BuildingEcologicalRestoration > 0);
-        _buildingNameText.text = building.Name[Language.LanguageNumber];
+        _buildingNameText.text = Language.TextStatic[building.NameLanguageNumber];
         var buildingEcologyText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[16]}:</color>";
         var buildingHealthText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[97]}:</color>";
         var buildindLevelText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[3]}:</color>";
@@ -237,7 +237,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         else
         {
             var machineText = $"<color={Colors.HexGreySeven}>{Language.TextStatic[243]}:</color>";
-            _machineText.text = $"{machineText} {building.MachineInfo.Name[Language.LanguageNumber]}";
+            _machineText.text = $"{machineText} {Language.TextStatic[building.MachineInfo.NameLanguageNumber]}";
             _machineResourcesText.text = Language.TextStatic[244];
             _machinePanelObject.SetActive(true);
             _machinePanelLine.SetActive(true);
@@ -298,11 +298,11 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     private string GetNeedOpenText(LearnBuildingItem item)
     {
         string needOpen = Language.TextStatic[43];  // "Вам нужно открыть"
-        string buildingNm = item.GetBuilding().Name[Language.LanguageNumber];
+        string buildingName = Language.TextStatic[item.GetBuilding().NameLanguageNumber];
         string inText = Language.TextStatic[75];  // "в"
         string typeNumber = _buildingLearnPanel.GetParentTileName(item, _allBuildingTypes);
 
-        return $"{needOpen} \"{buildingNm}\" {inText} \"{typeNumber}\"";
+        return $"{needOpen} \"{buildingName}\" {inText} \"{typeNumber}\"";
     }
 
     private void PrepareGoButton()

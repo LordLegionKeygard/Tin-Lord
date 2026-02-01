@@ -981,14 +981,14 @@ public class Language : MonoBehaviour
         _text[317, 0] = "Gates";
         _text[317, 1] = "Ворота";
 
-        _text[318, 0] = "";
-        _text[318, 1] = "";
+        _text[318, 0] = "War Ballista";
+        _text[318, 1] = "Боевая Баллиста";
 
-        _text[319, 0] = "";
-        _text[319, 1] = "";
+        _text[319, 0] = "Tank";
+        _text[319, 1] = "Танк";
 
-        _text[320, 0] = "";
-        _text[320, 1] = "";
+        _text[320, 0] = "Mecha";
+        _text[320, 1] = "Меха";
 
         _text[321, 0] = "";
         _text[321, 1] = "";

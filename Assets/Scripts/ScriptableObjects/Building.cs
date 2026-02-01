@@ -4,6 +4,7 @@ using UnityEngine;
 public class Building : ScriptableObject
 {
     public string[] Name; //0 eng, 1 rus
+    public int NameLanguageNumber;
     public Sprite BuildingSprite;
     public int Id;
     public int BuildingLevel;
