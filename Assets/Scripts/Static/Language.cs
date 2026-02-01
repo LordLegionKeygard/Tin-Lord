@@ -970,7 +970,7 @@ public class Language : MonoBehaviour
         _text[313, 1] = "Очистка Экологии";
 
         _text[314, 0] = "Radio Communication";
-        _text[314, 1] = "Радиосвязь";;
+        _text[314, 1] = "Радиосвязь";
 
         _text[315, 0] = "Machine Production";
         _text[315, 1] = "Производство Машин";
@@ -2197,7 +2197,6 @@ public class Language : MonoBehaviour
         _text[704, 0] = "One of the drones returns from a routine patrol with an extra mark on its hull.\n\nA small scorched circle.\n\nNo tool marks. No impact marks.\n\nThe drone's log is empty.";
         _text[704, 1] = "Один из дронов возвращается с планового обхода с лишней отметкой на корпусе.\n\nМаленький выжженный круг.\n\nНи следов инструмента. Ни следов удара.\n\nЛог дрона пуст.";
 
-
         #endregion
 
         #region CompleteGame
@@ -2685,6 +2684,271 @@ public class Language : MonoBehaviour
         // SpaceExploreSpace_71.
         _text[1171, 0] = "Return to the map and explore space.\n\nTo find a habitable planet...";
         _text[1171, 1] = "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...";
+
+        #endregion
+
+        #region Buildings
+
+        _text[1200, 0] = "Settlement";
+        _text[1200, 1] = "Поселение";
+
+        _text[1201, 0] = "Town";
+        _text[1201, 1] = "Город";
+
+        _text[1202, 0] = "Industrial City";
+        _text[1202, 1] = "Промышленный Город";
+
+        _text[1203, 0] = "Megapolis";
+        _text[1203, 1] = "Мегаполис";
+
+        _text[1204, 0] = "Wind Generator";
+        _text[1204, 1] = "Ветряной Генератор";
+
+        _text[1205, 0] = "Steam Engine";
+        _text[1205, 1] = "Паровой Двигатель";
+
+        _text[1206, 0] = "Solar Panel";
+        _text[1206, 1] = "Солнечная Панель";
+
+        _text[1207, 0] = "Thermal Power Plant";
+        _text[1207, 1] = "Теплоэлектростанция";
+
+        _text[1208, 0] = "Manual Mining";
+        _text[1208, 1] = "Ручная Добыча";
+
+        _text[1209, 0] = "Coal Mine";
+        _text[1209, 1] = "Угольная Шахта";
+
+        _text[1210, 0] = "Steam Rig";
+        _text[1210, 1] = "Паровая Установка";
+
+        _text[1211, 0] = "Drilling Rig";
+        _text[1211, 1] = "Буровая Установка";
+
+        _text[1212, 0] = "Manual Mining";
+        _text[1212, 1] = "Ручная Добыча";
+
+        _text[1213, 0] = "Mine";
+        _text[1213, 1] = "Рудник";
+
+        _text[1214, 0] = "Steam-Powered Drill";
+        _text[1214, 1] = "Паровой Бур";
+
+        _text[1215, 0] = "Bucket-wheel Excavator";
+        _text[1215, 1] = "Многоковшовый Экскаватор";
+
+        _text[1216, 0] = "Manual Mining";
+        _text[1216, 1] = "Ручная Добыча";
+
+        _text[1217, 0] = "Table Saw";
+        _text[1217, 1] = "Распилочный Стол";
+
+        _text[1218, 0] = "Steam Sawmill";
+        _text[1218, 1] = "Паровая Лесопилка";
+
+        _text[1219, 0] = "Electro Sawmill";
+        _text[1219, 1] = "Электролесопилка";
+
+        _text[1220, 0] = "Manual Mining";
+        _text[1220, 1] = "Ручная Добыча";
+
+        _text[1221, 0] = "Steam Rig";
+        _text[1221, 1] = "Паровая Установка";
+
+        _text[1222, 0] = "Excavator";
+        _text[1222, 1] = "Экскаватор";
+
+        _text[1223, 0] = "Bucket-wheel Excavator";
+        _text[1223, 1] = "Многоковшовый Экскаватор";
+
+        _text[1224, 0] = "Hand Pump";
+        _text[1224, 1] = "Ручной Насос";
+
+        _text[1225, 0] = "Steam Pump";
+        _text[1225, 1] = "Паровой Насос";
+
+        _text[1226, 0] = "Pumpjack";
+        _text[1226, 1] = "Насосный Домкрат";
+
+        _text[1227, 0] = "Oil Rig";
+        _text[1227, 1] = "Нефтяная Вышка";
+
+        _text[1228, 0] = "Manual Mining";
+        _text[1228, 1] = "Ручная Добыча";
+
+        _text[1229, 0] = "Stone Mine";
+        _text[1229, 1] = "Каменный Рудник";
+
+        _text[1230, 0] = "Steam-Powered Drill";
+        _text[1230, 1] = "Паровой Бур";
+
+        _text[1231, 0] = "Drilling Rig";
+        _text[1231, 1] = "Буровая Установка";
+
+        _text[1232, 0] = "Well";
+        _text[1232, 1] = "Колодец";
+
+        _text[1233, 0] = "Wind Pump";
+        _text[1233, 1] = "Ветряной Насос";
+
+        _text[1234, 0] = "Steam Pump";
+        _text[1234, 1] = "Паровой Насос";
+
+        _text[1235, 0] = "Electric Pump";
+        _text[1235, 1] = "Электрический Насос";
+
+        _text[1236, 0] = "Wooden Bridge";
+        _text[1236, 1] = "Деревянный Мост";
+
+        _text[1237, 0] = "Stone Bridge";
+        _text[1237, 1] = "Каменный Мост";
+
+        _text[1238, 0] = "Metal Bridge";
+        _text[1238, 1] = "Металлический Мост";
+
+        _text[1239, 0] = "Stone Cutting Table";
+        _text[1239, 1] = "Камнетесный Стол";
+
+        _text[1240, 0] = "Stone Cutting Workbrench";
+        _text[1240, 1] = "Верстак Резки Камня";
+
+        _text[1241, 0] = "Stone Cutting Factory";
+        _text[1241, 1] = "Завод Резки Камня";
+
+        _text[1242, 0] = "Clay Furnace";
+        _text[1242, 1] = "Глиняная Печь";
+
+        _text[1243, 0] = "Stone Smeltery";
+        _text[1243, 1] = "Каменная Плавильня";
+
+        _text[1244, 0] = "Smelting Furnace";
+        _text[1244, 1] = "Плавильная Печь";
+
+        _text[1245, 0] = "Blast Furnace";
+        _text[1245, 1] = "Доменная Печь";
+
+        _text[1246, 0] = "Manual Mixing";
+        _text[1246, 1] = "Ручное Перемешивание";
+
+        _text[1247, 0] = "Automixer";
+        _text[1247, 1] = "Автомешалка";
+
+        _text[1248, 0] = "Concrete Factory";
+        _text[1248, 1] = "Бетонный Завод";
+
+        _text[1249, 0] = "Boiler";
+        _text[1249, 1] = "Котел";
+
+        _text[1250, 0] = "Big Boiler";
+        _text[1250, 1] = "Большой Котел";
+
+        _text[1251, 0] = "Steam Generator Complex";
+        _text[1251, 1] = "Парогенераторный Комплекс";
+        
+        _text[1252, 0] = "Components Workbench";
+        _text[1252, 1] = "Верстак Компонентов";
+
+        _text[1253, 0] = "Components Workshop";
+        _text[1253, 1] = "Цех Компонентов";
+
+        _text[1254, 0] = "Components Factory";
+        _text[1254, 1] = "Фабрика Компонентов";
+
+        _text[1255, 0] = "Bioseptic";
+        _text[1255, 1] = "Биосептик";
+
+        _text[1256, 0] = "Aerogenerator";
+        _text[1256, 1] = "Аэрогенератор";
+
+        _text[1257, 0] = "Waste Neutralizer";
+        _text[1257, 1] = "Нейтрализатор Отходов";
+
+        _text[1258, 0] = "Radio Transmitter ";
+        _text[1258, 1] = "Радиопередатчик";
+
+        _text[1259, 0] = "Radio Tower ";
+        _text[1259, 1] = "Радиовышка";
+
+        _text[1260, 0] = "Satellite Dish";
+        _text[1260, 1] = "Спутниковая Антенна";
+
+        _text[1261, 0] = "Wooden Wall";
+        _text[1261, 1] = "Деревянная Стена";
+
+        _text[1262, 0] = "Sandbag Wall";
+        _text[1262, 1] = "Песчаная Стена";
+
+        _text[1263, 0] = "Stone Wall";
+        _text[1263, 1] = "Каменная Стена";
+
+        _text[1264, 0] = "Concrete Wall";
+        _text[1264, 1] = "Бетонная Стена";
+
+        _text[1265, 0] = "Steel Wall";
+        _text[1265, 1] = "Стальная Стена";
+
+        _text[1266, 0] = "Wooden Gate";
+        _text[1266, 1] = "Деревянные Ворота";
+
+        _text[1267, 0] = "Sandbag Gate";
+        _text[1267, 1] = "Песчаные Ворота";
+
+        _text[1268, 0] = "Stone Gate";
+        _text[1268, 1] = "Каменные Ворота";
+
+        _text[1269, 0] = "Concrete Gate";
+        _text[1269, 1] = "Бетонные Ворота";
+
+        _text[1270, 0] = "Steel Gate";
+        _text[1270, 1] = "Стальные Ворота";
+
+        _text[1271, 0] = "Ballista";
+        _text[1271, 1] = "Баллиста";
+
+        _text[1272, 0] = "Cannon";
+        _text[1272, 1] = "Пушка";
+
+        _text[1273, 0] = "Howitzer";
+        _text[1273, 1] = "Гаубица";
+
+        _text[1274, 0] = "Turret Gun";
+        _text[1274, 1] = "Турельная Пушка";
+
+        _text[1275, 0] = "Minigun";
+        _text[1275, 1] = "Миниган";
+
+        _text[1276, 0] = "Rocket Launcher";
+        _text[1276, 1] = "Ракетная Установка";
+
+        _text[1277, 0] = "Laser Cannon";
+        _text[1277, 1] = "Лазерная Пушка";
+
+        _text[1278, 0] = "Battleship Tower";
+        _text[1278, 1] = "Башня Линкора";
+
+        _text[1279, 0] = "Mechanic's Tent";
+        _text[1279, 1] = "Палатка Механика";
+
+        _text[1280, 0] = "Mechanical Workshop";
+        _text[1280, 1] = "Механический Цех";
+
+        _text[1281, 0] = "Automaton Factory";
+        _text[1281, 1] = "Фабрика Автоматонов";
+
+        _text[1282, 0] = "Wooden Spikes";
+        _text[1282, 1] = "Деревянные Шипы";
+
+        _text[1283, 0] = "Glass Shards";
+        _text[1283, 1] = "Осколки Стекла";
+
+        _text[1284, 0] = "Iron Spikes";
+        _text[1284, 1] = "Железные Шипы";
+
+        _text[1285, 0] = "Steel Saws";
+        _text[1285, 1] = "Стальные Пилы";
+
+        _text[1286, 0] = "Electrical Barrier";
+        _text[1286, 1] = "Электрический барьер";
 
         #endregion
 

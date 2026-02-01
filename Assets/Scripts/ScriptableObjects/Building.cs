@@ -3,7 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Building", menuName = "TinLord/Building")]
 public class Building : ScriptableObject
 {
-    public string[] Name; //0 eng, 1 rus
     public int NameLanguageNumber;
     public Sprite BuildingSprite;
     public int Id;

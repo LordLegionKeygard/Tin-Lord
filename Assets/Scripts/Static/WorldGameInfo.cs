@@ -111,7 +111,7 @@ public class WorldGameInfo
 
     [Header("Settings")]
     public static bool StaticBlood = true;
-    public static int LanguageLength = 1200;
+    public static int LanguageLength = 1300;
 
     [Header("VideoSettings")]
     public const int ScreenMode = 1;
