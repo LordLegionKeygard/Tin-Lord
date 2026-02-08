@@ -1,0 +1,8 @@
+1)Открываем PowerShell
+2)Вводим команду 
+
+cd e:\LegionProjects\Tin-Lord
+powershell -ExecutionPolicy Bypass -Command ".\\tools\\export_ru.ps1 -InputPath 'Assets\\Scripts\\Static\\Language.cs' -OutputPath 'tools\\ru.json'"
+
+3)Он создаст файл ru.json
+4)Далее кодекс просит разбить его на чанки по 200 строк

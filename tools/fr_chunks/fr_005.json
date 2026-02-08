@@ -1,0 +1,607 @@
+﻿[
+  {
+    "id": 1138,
+    "ru": "Необходимо выйти из паузы, чтобы запустить процесс строительства здания.",
+    "fr": "Vous devez quitter la pause pour lancer la construction du bâtiment."
+  },
+  {
+    "id": 1139,
+    "ru": "Отлично, у вас есть постоянная добыча дерева.\n\nТеперь самостоятельно установите тайл \"Гора\" и постройте здание ручной добычи камня.",
+    "fr": "Parfait, vous disposez désormais d'une production permanente de bois.\n\nÀ présent, placez vous-même la tuile \"Montagne\" et construisez un bâtiment d'extraction manuelle de pierre."
+  },
+  {
+    "id": 1140,
+    "ru": "На данный момент вы добываете два основных ресурса.\n\nНо теперь настало время защитить базу.",
+    "fr": "Pour l'instant, vous produisez deux ressources principales.\n\nMais il est maintenant temps de défendre la base."
+  },
+  {
+    "id": 1141,
+    "ru": "Вам необходимо поставить тайл ландшафта на котором будет доступен тип здания \"Сооружения: Атакующие\".\n\nЗатем постройте на нем здание - \"Баллиста\".",
+    "fr": "Vous devez placer une tuile de paysage sur laquelle le type de bâtiment \"Structures: offensives\" est disponible.\n\nPuis construisez-y le bâtiment - \"Baliste\"."
+  },
+  {
+    "id": 1142,
+    "ru": "У атакующих сооружений ограниченный радиус атаки.\n\nСтарайтесь размещать их возле базы и добывающих зданий, чтобы враги не смогли беспрепятственно атаковать их.",
+    "fr": "Les structures offensives ont une portée d'attaque limitée.\n\nEssayez de les placer près de la base et des bâtiments de production, afin que les ennemis ne puissent pas les attaquer librement."
+  },
+  {
+    "id": 1143,
+    "ru": "Теперь когда база защищена, включите работу в здании \"Поселение\".\n\nОчень важно начать добывать фрагменты данных.",
+    "fr": "Maintenant que la base est protégée, réactivez le bâtiment \"Colonie\".\n\nIl est très important de commencer à produire des fragments de données."
+  },
+  {
+    "id": 1144,
+    "ru": "Когда вы устанавливаете любой тайл ландшафта, то вы получаете ресурс - энергия луча.\n\nОна требуется для замены карты в руке на случайную и для уничтожения уже установленных тайлов ландшафта.\n\nТак же ее можно получить, если лишние карты начинают исчезать, когда колода переполняется.",
+    "fr": "Lorsque vous placez n'importe quelle tuile de paysage, vous obtenez une ressource - l'énergie de rayon.\n\nElle est nécessaire pour remplacer une carte en main par une carte aléatoire et pour détruire des tuiles de paysage déjà placées.\n\nVous pouvez aussi en obtenir lorsque des cartes en trop commencent à disparaître, si la pioche est saturée."
+  },
+  {
+    "id": 1145,
+    "ru": "Правильная установка тайлов ландшафта - ключ к успешному прохождению миссии.\n\nВы можете комбинировать их между собой, создавая новые тайлы.",
+    "fr": "Le placement correct des tuiles de paysage est la clé pour réussir une mission.\n\nVous pouvez les combiner entre elles pour créer de nouvelles tuiles."
+  },
+  {
+    "id": 1146,
+    "ru": "Например, если поставить равнину вплотную к горе.\n\nТайл равнины превратится в луг.\n\nНа нем вы сможете создавать другие типы зданий и повысите экологию.",
+    "fr": "Par exemple, si vous placez une plaine juste à côté d'une montagne.\n\nLa tuile de plaine se transformera en prairie.\n\nVous pourrez y construire d'autres types de bâtiments et vous améliorerez l'écologie."
+  },
+  {
+    "id": 1147,
+    "ru": "Но будьте осторожны в установке пустыни возле леса.\n\nТаким образом лес превратится в оазис и добыча дерева уменьшится.",
+    "fr": "Mais soyez prudent lorsque vous placez le désert près de la forêt.\n\nAinsi, la forêt se transformera en oasis et la production de bois diminuera."
+  },
+  {
+    "id": 1148,
+    "ru": "Нажмите на тайл, где происходит добыча ресурса.",
+    "fr": "Cliquez sur la tuile où la ressource est extraite."
+  },
+  {
+    "id": 1149,
+    "ru": "Посмотрите на модификатор производства ресурсов.\n\nНа разных тайлах модификатор может отличаться.\n\nТаким образом есть выгодные и не выгодные тайлы для добычи того, или иного ресурса.",
+    "fr": "Regardez le modificateur de production des ressources.\n\nSelon la tuile, ce modificateur peut varier.\n\nAinsi, certaines tuiles sont avantageuses, d'autres non, pour extraire telle ou telle ressource."
+  },
+  {
+    "id": 1150,
+    "ru": "Это панель событий.\n\nВ ней периодически вы будете замечать иконки событий.\n\nДлина шкалы равна 3 дням.\n\nЗа 1 день до события вам будет приходить уведомление с информацией о нем.",
+    "fr": "Ceci est le panneau des événements.\n\nVous y verrez périodiquement des icônes d'événements.\n\nLa longueur de la barre correspond à 3 jours.\n\nUn jour avant l'événement, vous recevrez une notification avec des informations à son sujet."
+  },
+  {
+    "id": 1151,
+    "ru": "Откройте панель умений.",
+    "fr": "Ouvrez le panneau des compétences."
+  },
+  {
+    "id": 1152,
+    "ru": "Здесь находятся доступные для использования умения.\n\nИх можно приобрести у торговцев или купить за \"Осколок\" в ангаре при старте новой игры.",
+    "fr": "Voici les compétences disponibles.\n\nVous pouvez les acheter auprès des marchands ou les acheter contre un \"Éclat\" dans le hangar au démarrage d'une nouvelle partie."
+  },
+  {
+    "id": 1153,
+    "ru": "Осколки - это все, что остается у вас после окончания игры.\n\nИспользуйте их для покупки предметов в ангаре, с помощью которых вы сможете путешествовать все дальше, и дальше.",
+    "fr": "Les Éclats, c'est tout ce qu'il vous reste à la fin d'une partie.\n\nUtilisez-les pour acheter des objets dans le hangar, ce qui vous permettra d'aller toujours plus loin."
+  },
+  {
+    "id": 1154,
+    "ru": "На 7 день ожидается первая группа врагов.\n\nПодготовьте вашу базу к битве.\n\nНапример построив дополнительные баллисты.",
+    "fr": "Au 7e jour, le premier groupe d'ennemis est attendu.\n\nPréparez votre base au combat.\n\nPar exemple en construisant des balistes supplémentaires."
+  },
+  {
+    "id": 1155,
+    "ru": "Вы можете ускорить игру в 2 или 3 раза, если хотите быстро накопить ресурсы или переждать некоторое время.",
+    "fr": "Vous pouvez accélérer le jeu x2 ou x3 si vous voulez accumuler rapidement des ressources ou simplement attendre un moment."
+  },
+  {
+    "id": 1156,
+    "ru": "После того как ваше здание атакуют.\n\nУ него отобразится слайдер здоровья.",
+    "fr": "Une fois qu'un bâtiment est attaqué.\n\nUne jauge de santé s'affiche."
+  },
+  {
+    "id": 1157,
+    "ru": "Вы можете починить здание.\n\nНажмите на него, чтобы открыть панель с информацией о тайле.",
+    "fr": "Vous pouvez réparer un bâtiment.\n\nCliquez dessus pour ouvrir le panneau d'information de la tuile."
+  },
+  {
+    "id": 1158,
+    "ru": "В панеле нажмите кнопку \"Построить\".",
+    "fr": "Dans le panneau, cliquez sur le bouton \"Construire\"."
+  },
+  {
+    "id": 1159,
+    "ru": "Перед вами сразу открылась панель с картой починки текущего здания.\n\nПочините здание.",
+    "fr": "Un panneau s'est ouvert immédiatement avec la carte de réparation du bâtiment actuel.\n\nRéparez le bâtiment."
+  },
+  {
+    "id": 1160,
+    "ru": "Если у вас уже есть здание на тайле и изучены другие здания такого же типа.\n\nТогда при нажатии на кнопку \"Построить\", помимо ремонта текущего здания, рядом вы обнаружите карточки зданий в которые вы можете улучшить текущее здание.",
+    "fr": "Si vous avez déjà un bâtiment sur la tuile et que d'autres bâtiments du même type ont été étudiés.\n\nAlors, en cliquant sur le bouton \"Construire\", en plus de la réparation du bâtiment actuel, vous verrez à côté des cartes des bâtiments vers lesquels vous pouvez améliorer le bâtiment."
+  },
+  {
+    "id": 1161,
+    "ru": "При улучшении здания, вы автоматически получаете часть ресурсов затраченных на ранее стоящее здание.\n\nПоэтому не обязательно уничтожать здание перед постройкой его улучшенной версии.",
+    "fr": "Lors de l'amélioration d'un bâtiment, vous récupérez automatiquement une partie des ressources dépensées pour le bâtiment précédent.\n\nIl n'est donc pas nécessaire de détruire le bâtiment avant de construire sa version améliorée."
+  },
+  {
+    "id": 1162,
+    "ru": "Если вы не справляетесь с врагами, просто включите режим корабля, чтобы активировать оружие.",
+    "fr": "Si vous n'arrivez pas à gérer les ennemis, passez simplement en mode vaisseau pour activer les armes."
+  },
+  {
+    "id": 1163,
+    "ru": "Боеприпасы оружия выдаются в начале каждой миссии и имею ограниченный запас.\n\nИспользуйте их только в экстренных ситуациях.\n\nЧтобы улучшить урон оружия, вам необходимо посетить инженера на звездной карте.",
+    "fr": "Les munitions des armes sont fournies au début de chaque mission et le stock est limité.\n\nNe les utilisez que dans des situations d'urgence.\n\nPour améliorer les dégâts des armes, vous devez rendre visite à l'ingénieur sur la carte stellaire."
+  },
+  {
+    "id": 1164,
+    "ru": "Левая кнопка мыши отвечает за выстрелы левым оружие, правая кнопка мыши за правым.\n\nОружие не может стрелять, пока игра находится на паузе.\n\nНа данный момент лучше сэкономить патроны.\n\nВыйдите из режима корабля, обратно в режим планеты.",
+    "fr": "Le bouton gauche de la souris tire avec l'arme gauche, le bouton droit avec l'arme droite.\n\nLes armes ne peuvent pas tirer tant que le jeu est en pause.\n\nIl vaut mieux économiser les munitions pour l'instant.\n\nQuittez le mode vaisseau et revenez au mode planète."
+  },
+  {
+    "id": 1165,
+    "ru": "Если ваша база будет уничтожена, то миссия будет считаться проваленной.\n\nВы потеряете 1 ядро ИИ.\n\nНо сможете начинать миссию сначала до тех пор, пока не закончатся все ядра.",
+    "fr": "Si votre base est détruite, la mission sera considérée comme échouée.\n\nVous perdrez 1 noyau d'IA.\n\nMais vous pourrez recommencer la mission autant de fois que nécessaire, jusqu'à ce que tous les noyaux soient épuisés."
+  },
+  {
+    "id": 1166,
+    "ru": "Выполните все цели, чтобы успешно завершить миссию.\n\nНесмотря на поставленные цели, старайтесь накопить за миссию как можно больше фрагментов данных.\n\nЕсли вы не будете поспевать за прогрессом в технологиях, ваше путешествие закончится быстро...",
+    "fr": "Accomplissez tous les objectifs pour réussir la mission.\n\nMalgré les objectifs, essayez d'accumuler autant de fragments de données que possible pendant la mission.\n\nSi vous ne suivez pas les progrès technologiques, votre voyage s'achèvera rapidement..."
+  },
+  {
+    "id": 1167,
+    "ru": "Вы прошли миссию и заработали фрагменты данных.\n\nТеперь откройте панель изучений",
+    "fr": "Vous avez terminé la mission et gagné des fragments de données.\n\nMaintenant, ouvrez le panneau de recherches"
+  },
+  {
+    "id": 1168,
+    "ru": "Здесь вы можете увидеть все типы зданий доступные для изучения.\n\nПосмотрите сколько фрагментов данных вы добыли и выберите любое не изученное здание.",
+    "fr": "Ici, vous pouvez voir tous les types de bâtiments disponibles à l'étude.\n\nVérifiez combien de fragments de données vous avez obtenus et choisissez n'importe quel bâtiment non étudié."
+  },
+  {
+    "id": 1169,
+    "ru": "Если фрагментов данных достаточно, начните изучение, нажав на кнопку.\n\nВыберите другое сооружение, если ресурсов не хватает или требуется предварительное исследование другого здания.",
+    "fr": "Si vous avez assez de fragments de données, commencez la recherche en cliquant sur le bouton.\n\nChoisissez une autre structure si les ressources manquent ou si une recherche préalable d'un autre bâtiment est requise."
+  },
+  {
+    "id": 1170,
+    "ru": "Отлично, вы изучили новое здание.\n\nТеперь оно станет доступно для постройки на миссиях.",
+    "fr": "Parfait, vous avez étudié un nouveau bâtiment.\n\nIl sera désormais disponible à la construction pendant les missions."
+  },
+  {
+    "id": 1171,
+    "ru": "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...",
+    "fr": "Retournez sur la carte et explorez l'espace.\n\nPour trouver une planète habitable..."
+  },
+  {
+    "id": 1200,
+    "ru": "Поселение",
+    "fr": "Colonie"
+  },
+  {
+    "id": 1201,
+    "ru": "Город",
+    "fr": "Ville"
+  },
+  {
+    "id": 1202,
+    "ru": "Промышленный Город",
+    "fr": "Ville industrielle"
+  },
+  {
+    "id": 1203,
+    "ru": "Мегаполис",
+    "fr": "Mégalopole"
+  },
+  {
+    "id": 1204,
+    "ru": "Ветряной Генератор",
+    "fr": "Générateur éolien"
+  },
+  {
+    "id": 1205,
+    "ru": "Паровой Двигатель",
+    "fr": "Moteur à vapeur"
+  },
+  {
+    "id": 1206,
+    "ru": "Солнечная Панель",
+    "fr": "Panneau solaire"
+  },
+  {
+    "id": 1207,
+    "ru": "Теплоэлектростанция",
+    "fr": "Centrale thermique"
+  },
+  {
+    "id": 1208,
+    "ru": "Ручная Добыча",
+    "fr": "Extraction manuelle"
+  },
+  {
+    "id": 1209,
+    "ru": "Угольная Шахта",
+    "fr": "Mine de charbon"
+  },
+  {
+    "id": 1210,
+    "ru": "Паровая Установка",
+    "fr": "Installation à vapeur"
+  },
+  {
+    "id": 1211,
+    "ru": "Буровая Установка",
+    "fr": "Plateforme de forage"
+  },
+  {
+    "id": 1212,
+    "ru": "Ручная Добыча",
+    "fr": "Extraction manuelle"
+  },
+  {
+    "id": 1213,
+    "ru": "Рудник",
+    "fr": "Mine"
+  },
+  {
+    "id": 1214,
+    "ru": "Паровой Бур",
+    "fr": "Foreuse à vapeur"
+  },
+  {
+    "id": 1215,
+    "ru": "Многоковшовый Экскаватор",
+    "fr": "Excavatrice à roue-pelles"
+  },
+  {
+    "id": 1216,
+    "ru": "Ручная Добыча",
+    "fr": "Extraction manuelle"
+  },
+  {
+    "id": 1217,
+    "ru": "Распилочный Стол",
+    "fr": "Table de sciage"
+  },
+  {
+    "id": 1218,
+    "ru": "Паровая Лесопилка",
+    "fr": "Scierie à vapeur"
+  },
+  {
+    "id": 1219,
+    "ru": "Электролесопилка",
+    "fr": "Scierie électrique"
+  },
+  {
+    "id": 1220,
+    "ru": "Ручная Добыча",
+    "fr": "Extraction manuelle"
+  },
+  {
+    "id": 1221,
+    "ru": "Паровая Установка",
+    "fr": "Installation à vapeur"
+  },
+  {
+    "id": 1222,
+    "ru": "Экскаватор",
+    "fr": "Excavatrice"
+  },
+  {
+    "id": 1223,
+    "ru": "Многоковшовый Экскаватор",
+    "fr": "Excavatrice à roue-pelles"
+  },
+  {
+    "id": 1224,
+    "ru": "Ручной Насос",
+    "fr": "Pompe manuelle"
+  },
+  {
+    "id": 1225,
+    "ru": "Паровой Насос",
+    "fr": "Pompe à vapeur"
+  },
+  {
+    "id": 1226,
+    "ru": "Насосный Домкрат",
+    "fr": "Pompe à balancier"
+  },
+  {
+    "id": 1227,
+    "ru": "Нефтяная Вышка",
+    "fr": "Derrick pétrolier"
+  },
+  {
+    "id": 1228,
+    "ru": "Ручная Добыча",
+    "fr": "Extraction manuelle"
+  },
+  {
+    "id": 1229,
+    "ru": "Каменный Рудник",
+    "fr": "Carrière de pierre"
+  },
+  {
+    "id": 1230,
+    "ru": "Паровой Бур",
+    "fr": "Foreuse à vapeur"
+  },
+  {
+    "id": 1231,
+    "ru": "Буровая Установка",
+    "fr": "Plateforme de forage"
+  },
+  {
+    "id": 1232,
+    "ru": "Колодец",
+    "fr": "Puits"
+  },
+  {
+    "id": 1233,
+    "ru": "Ветряной Насос",
+    "fr": "Pompe éolienne"
+  },
+  {
+    "id": 1234,
+    "ru": "Паровой Насос",
+    "fr": "Pompe à vapeur"
+  },
+  {
+    "id": 1235,
+    "ru": "Электрический Насос",
+    "fr": "Pompe électrique"
+  },
+  {
+    "id": 1236,
+    "ru": "Деревянный Мост",
+    "fr": "Pont en bois"
+  },
+  {
+    "id": 1237,
+    "ru": "Каменный Мост",
+    "fr": "Pont en pierre"
+  },
+  {
+    "id": 1238,
+    "ru": "Металлический Мост",
+    "fr": "Pont métallique"
+  },
+  {
+    "id": 1239,
+    "ru": "Камнетесный Стол",
+    "fr": "Table de tailleur de pierre"
+  },
+  {
+    "id": 1240,
+    "ru": "Верстак Резки Камня",
+    "fr": "Établi de découpe de pierre"
+  },
+  {
+    "id": 1241,
+    "ru": "Завод Резки Камня",
+    "fr": "Usine de découpe de pierre"
+  },
+  {
+    "id": 1242,
+    "ru": "Глиняная Печь",
+    "fr": "Four en argile"
+  },
+  {
+    "id": 1243,
+    "ru": "Каменная Плавильня",
+    "fr": "Fonderie en pierre"
+  },
+  {
+    "id": 1244,
+    "ru": "Плавильная Печь",
+    "fr": "Four de fusion"
+  },
+  {
+    "id": 1245,
+    "ru": "Доменная Печь",
+    "fr": "Haut fourneau"
+  },
+  {
+    "id": 1246,
+    "ru": "Ручное Перемешивание",
+    "fr": "Mélange manuel"
+  },
+  {
+    "id": 1247,
+    "ru": "Автомешалка",
+    "fr": "Mélangeur automatique"
+  },
+  {
+    "id": 1248,
+    "ru": "Бетонный Завод",
+    "fr": "Usine à béton"
+  },
+  {
+    "id": 1249,
+    "ru": "Котел",
+    "fr": "Chaudière"
+  },
+  {
+    "id": 1250,
+    "ru": "Большой Котел",
+    "fr": "Grande chaudière"
+  },
+  {
+    "id": 1251,
+    "ru": "Парогенераторный Комплекс",
+    "fr": "Complexe de génération de vapeur"
+  },
+  {
+    "id": 1252,
+    "ru": "Верстак Компонентов",
+    "fr": "Établi de composants"
+  },
+  {
+    "id": 1253,
+    "ru": "Цех Компонентов",
+    "fr": "Atelier de composants"
+  },
+  {
+    "id": 1254,
+    "ru": "Фабрика Компонентов",
+    "fr": "Usine de composants"
+  },
+  {
+    "id": 1255,
+    "ru": "Биосептик",
+    "fr": "Fosse septique biologique"
+  },
+  {
+    "id": 1256,
+    "ru": "Аэрогенератор",
+    "fr": "Aérogénérateur"
+  },
+  {
+    "id": 1257,
+    "ru": "Нейтрализатор Отходов",
+    "fr": "Neutraliseur de déchets"
+  },
+  {
+    "id": 1258,
+    "ru": "Радиопередатчик",
+    "fr": "Émetteur radio"
+  },
+  {
+    "id": 1259,
+    "ru": "Радиовышка",
+    "fr": "Tour radio"
+  },
+  {
+    "id": 1260,
+    "ru": "Спутниковая Антенна",
+    "fr": "Antenne satellite"
+  },
+  {
+    "id": 1261,
+    "ru": "Деревянная Стена",
+    "fr": "Mur en bois"
+  },
+  {
+    "id": 1262,
+    "ru": "Песчаная Стена",
+    "fr": "Mur de sable"
+  },
+  {
+    "id": 1263,
+    "ru": "Каменная Стена",
+    "fr": "Mur en pierre"
+  },
+  {
+    "id": 1264,
+    "ru": "Бетонная Стена",
+    "fr": "Mur en béton"
+  },
+  {
+    "id": 1265,
+    "ru": "Стальная Стена",
+    "fr": "Mur en acier"
+  },
+  {
+    "id": 1266,
+    "ru": "Деревянные Ворота",
+    "fr": "Portail en bois"
+  },
+  {
+    "id": 1267,
+    "ru": "Песчаные Ворота",
+    "fr": "Portail de sable"
+  },
+  {
+    "id": 1268,
+    "ru": "Каменные Ворота",
+    "fr": "Portail en pierre"
+  },
+  {
+    "id": 1269,
+    "ru": "Бетонные Ворота",
+    "fr": "Portail en béton"
+  },
+  {
+    "id": 1270,
+    "ru": "Стальные Ворота",
+    "fr": "Portail en acier"
+  },
+  {
+    "id": 1271,
+    "ru": "Баллиста",
+    "fr": "Baliste"
+  },
+  {
+    "id": 1272,
+    "ru": "Пушка",
+    "fr": "Canon"
+  },
+  {
+    "id": 1273,
+    "ru": "Гаубица",
+    "fr": "Obusier"
+  },
+  {
+    "id": 1274,
+    "ru": "Турельная Пушка",
+    "fr": "Canon de tourelle"
+  },
+  {
+    "id": 1275,
+    "ru": "Миниган",
+    "fr": "Minigun"
+  },
+  {
+    "id": 1276,
+    "ru": "Ракетная Установка",
+    "fr": "Lance-roquettes"
+  },
+  {
+    "id": 1277,
+    "ru": "Лазерная Пушка",
+    "fr": "Canon laser"
+  },
+  {
+    "id": 1278,
+    "ru": "Башня Линкора",
+    "fr": "Tourelle de cuirassé"
+  },
+  {
+    "id": 1279,
+    "ru": "Палатка Механика",
+    "fr": "Tente du mécanicien"
+  },
+  {
+    "id": 1280,
+    "ru": "Механический Цех",
+    "fr": "Atelier mécanique"
+  },
+  {
+    "id": 1281,
+    "ru": "Фабрика Автоматонов",
+    "fr": "Usine d'automates"
+  },
+  {
+    "id": 1282,
+    "ru": "Деревянные Шипы",
+    "fr": "Pieux en bois"
+  },
+  {
+    "id": 1283,
+    "ru": "Осколки Стекла",
+    "fr": "Éclats de verre"
+  },
+  {
+    "id": 1284,
+    "ru": "Железные Шипы",
+    "fr": "Pieux en fer"
+  },
+  {
+    "id": 1285,
+    "ru": "Стальные Пилы",
+    "fr": "Scies en acier"
+  },
+  {
+    "id": 1286,
+    "ru": "Электрический барьер",
+    "fr": "Barrière électrique"
+  }
+]
