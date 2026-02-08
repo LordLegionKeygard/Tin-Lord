@@ -3,6 +3,14 @@ using Steamworks;
 
 // 0 - English						en
 // 1 - Russian						ru
+// 2 - French						fr
+// 3 - Italian						it
+// 4 - German						de
+// 5 - Spanish (Spain)				es-ES
+// 6 - Polish						pl
+// 7 - Portuguese (Brazil)			pt-BR
+// 8 - Japanese						ja
+// 9 - Chinese (Simplified)			zh-Hans
 
 public class Language : MonoBehaviour
 {
