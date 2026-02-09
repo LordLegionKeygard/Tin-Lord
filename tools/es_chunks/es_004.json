@@ -1,0 +1,1002 @@
+﻿[
+  {
+    "id": 601,
+    "ru": "Забрать блоки",
+    "es": "Recoger los bloques"
+  },
+  {
+    "id": 602,
+    "ru": "Успех: дроны цепляют контейнеры и затаскивают их внутрь.\n\nВы укрепляете грузовой отсек и фиксируете добычу.",
+    "es": "Éxito: los drones enganchan los contenedores y los arrastran al interior.\n\nRefuerzas la bodega de carga y aseguras el botín."
+  },
+  {
+    "id": 603,
+    "ru": "Провал: баржа внезапно проворачивается. Контейнер с силой врезается в корпус, срывая обшивку.\n\nДроны срочно герметизируют пробоину, пока вы отходите на безопасную дистанцию.",
+    "es": "Fracaso: la barcaza gira de golpe. El contenedor se estrella con fuerza contra el casco, arrancando el revestimiento.\n\nLos drones sellan la brecha de emergencia mientras te retiras a una distancia segura."
+  },
+  {
+    "id": 604,
+    "ru": "Проигнорировать",
+    "es": "Ignorar"
+  },
+  {
+    "id": 605,
+    "ru": "Вы оставляете обломки позади. Баржа продолжает вращаться в тишине, рассыпая камень в пустоту.",
+    "es": "Dejas los restos atrás. La barcaza sigue girando en silencio, esparciendo piedra en el vacío."
+  },
+  {
+    "id": 606,
+    "ru": "Торговый корабль пересекает ваш маршрут. Его корпус залатан сварными пластинами, а грузовые модули закрыты термозащитными кожухами.\n\nВ эфир проходит короткое сообщение:\n\n\"�-елезные слитки. Чистое литьё. Цена фиксирована\".",
+    "es": "Un mercante cruza tu ruta. Su casco está remendado con placas soldadas y los módulos de carga están cubiertos con carenados térmicos.\n\nEn la radio entra un breve mensaje:\n\n\"Lingotes de hierro. Fundición limpia. Precio fijo\"."
+  },
+  {
+    "id": 607,
+    "ru": "Купить слитки за кванты",
+    "es": "Comprar lingotes por cuantos"
+  },
+  {
+    "id": 608,
+    "ru": "Обмен завершён. Герметичные ящики подтягиваются к вам по магнитному тросу.\n\nТорговец обрывает связь и меняет курс.",
+    "es": "Intercambio completado. Las cajas herméticas se acercan hacia ti por un cable magnético.\n\nEl comerciante corta la comunicación y cambia de rumbo."
+  },
+  {
+    "id": 609,
+    "ru": "Напасть на корабль",
+    "es": "Atacar la nave"
+  },
+  {
+    "id": 610,
+    "ru": "Успех: точный удар выводит из строя их привод. Дроны вскрывают грузовые замки и отцепляют контейнеры.\n\nВы уходите, пока сигнал бедствия не успел разойтись.",
+    "es": "Éxito: un golpe preciso inutiliza su propulsión. Los drones fuerzan los cierres de carga y desacoplan los contenedores.\n\nTe vas antes de que la señal de socorro se propague."
+  },
+  {
+    "id": 611,
+    "ru": "Провал: торговец оказался вооружён. Очередь повреждает обшивку и выводит из строя часть систем.\n\nВы теряете одно ядро и включаете варп, уходя с поля боя.",
+    "es": "Fracaso: el mercante estaba armado. Una ráfaga daña el casco e inutiliza parte de los sistemas.\n\nPierdes un núcleo y activas el warp, abandonando el combate."
+  },
+  {
+    "id": 612,
+    "ru": "Вы обнаружили рядом громоздкую плавильную платформу.\n\nНа ней горит рабочее освещение. За термощитами заметно движение — это не дроны.\n\nВ связь выходит усталый голос:\n\n\"Корабль. Есть железные слитки? Печь работает, но сырьё закончилось.\n\nДайте железо — мы переплавим и отольём сталь\".",
+    "es": "Descubres cerca una voluminosa plataforma de fundición.\n\nLas luces de trabajo están encendidas. Tras los escudos térmicos se ve movimiento — no son drones.\n\nEn la comunicación entra una voz cansada:\n\n\"Nave. ¿Tienes lingotes de hierro? El horno funciona, pero se acabó la materia prima.\n\nDanos hierro — lo refundiremos y colaremos acero\"."
+  },
+  {
+    "id": 613,
+    "ru": "Передать железные слитки",
+    "es": "Entregar lingotes de hierro"
+  },
+  {
+    "id": 614,
+    "ru": "Платформа фиксирует ваши ящики и подаёт их на линию переплавки.\n\nЧерез некоторое время возвращается остуженный контейнер: стальные слитки, запечатанные и промаркированные.",
+    "es": "La plataforma asegura tus cajas y las alimenta a la línea de refundición.\n\nAl cabo de un rato vuelve un contenedor enfriado: lingotes de acero, sellados y marcados."
+  },
+  {
+    "id": 615,
+    "ru": "Отказаться",
+    "es": "Negarse"
+  },
+  {
+    "id": 616,
+    "ru": "Канал закрывается. Платформа продолжает работу и больше не отвечает.",
+    "es": "El canal se cierra. La plataforma sigue trabajando y no vuelve a responder."
+  },
+  {
+    "id": 617,
+    "ru": "Попытаться забрать сталь силой",
+    "es": "Intentar llevarse el acero por la fuerza"
+  },
+  {
+    "id": 618,
+    "ru": "Успех: вы выводите из строя внешние замки и отцепляете один контейнер.\n\nВы включаете варп и уходите со стальными слитками.",
+    "es": "Éxito: inutilizas los cierres externos y desacoplas un contenedor.\n\nActivas el warp y te vas con los lingotes de acero."
+  },
+  {
+    "id": 619,
+    "ru": "Провал: платформа включает аварийный сброс. Выброс перегретого газа бьёт по корпусу, повреждает обшивку и перегружает ядро.\n\nВы теряете одно ядро и включаете варп, оставляя платформу позади.",
+    "es": "Fracaso: la plataforma activa un lanzamiento de emergencia. Una descarga de gas sobrecalentado golpea el casco, daña el revestimiento y sobrecarga el núcleo.\n\nPierdes un núcleo y activas el warp, dejando la plataforma atrás."
+  },
+  {
+    "id": 620,
+    "ru": "Сбой в узле двигателя вынуждает вас сесть на ближайшую планету для ремонта.\n\nВы выбираете тёмную сторону и садитесь на минимальной тяге, полностью гасите внешнее освещение.\n\nПока дроны осматривают повреждения, сенсоры фиксируют слабые тепловые сигнатуры неподалёку.\n\nВпереди — небольшой перерабатывающий участок: генераторы, контейнеры и склад с маркировкой меди.\n\nВнутри — ящики с медными пластинами.",
+    "es": "Un fallo en el módulo del motor te obliga a aterrizar en el planeta más cercano para reparaciones.\n\nEliges el lado oscuro y desciendes con empuje mínimo, apagando por completo la iluminación exterior.\n\nMientras los drones inspeccionan los daños, los sensores detectan débiles firmas térmicas cerca.\n\nDelante hay una pequeña zona de procesamiento: generadores, contenedores y un almacén con marcaje de cobre.\n\nDentro hay cajas con placas de cobre."
+  },
+  {
+    "id": 621,
+    "ru": "Не рисковать",
+    "es": "No arriesgarse"
+  },
+  {
+    "id": 622,
+    "ru": "Вы оставляете дронов на ремонте и избегаете лишних контактов.\n\nУчасток остаётся позади, растворяясь в темноте.",
+    "es": "Dejas a los drones con la reparación y evitas contactos innecesarios.\n\nLa zona queda atrás, disolviéndose en la oscuridad."
+  },
+  {
+    "id": 623,
+    "ru": "Тихо пробраться через сервисный люк",
+    "es": "Colarse en silencio por la escotilla de servicio"
+  },
+  {
+    "id": 624,
+    "ru": "Вы идёте по неосвещённым проходам и зонам вне обзора камер, затем пробираетесь на склад через сервисный люк.\n\nЯщики рядом. Опаснее всего — вынести их наружу.",
+    "es": "Avanzas por pasillos sin luz y zonas fuera del campo de las cámaras, y luego te cuelas al almacén por una escotilla de servicio.\n\nLas cajas están cerca. Lo más peligroso es sacarlas al exterior."
+  },
+  {
+    "id": 625,
+    "ru": "Сначала обесточить участок",
+    "es": "Primero cortar la energía de la zona"
+  },
+  {
+    "id": 626,
+    "ru": "Вы пытаетесь заглушить генераторы.\n\nУспех: свет и датчики замолкают.",
+    "es": "Intentas apagar los generadores.\n\nÉxito: las luces y los sensores se apagan."
+  },
+  {
+    "id": 627,
+    "ru": "Вы пытаетесь заглушить генераторы. Провал: скачок нагрузки — и система тревоги просыпается.",
+    "es": "Intentas apagar los generadores. Fracaso: un pico de carga y el sistema de alarma despierta."
+  },
+  {
+    "id": 628,
+    "ru": "Быстро схватить и уйти",
+    "es": "Agarrar rápido y salir"
+  },
+  {
+    "id": 629,
+    "ru": "Успех: вы вытаскиваете ящики и взлетаете до того, как успевает прилететь ответ.\n\nМедные пластины закреплены.",
+    "es": "Éxito: sacas las cajas y despegas antes de que llegue la respuesta.\n\nLas placas de cobre están aseguradas."
+  },
+  {
+    "id": 630,
+    "ru": "Провал: вас замечают. При взлёте по корпусу приходятся попадания.\n\nВы включаете варп и уходите, но одно ядро выходит из строя.",
+    "es": "Fracaso: te detectan. Durante el despegue el casco recibe impactos.\n\nActivas el warp y te vas, pero un núcleo queda fuera de servicio."
+  },
+  {
+    "id": 631,
+    "ru": "Вы находите заброшенный промышленный объект на поверхности: разрушенные смесители, треснувшие силосы и бетонную площадку, занесённую пылью.\n\nГлавное хранилище частично обрушено, но внутри всё ещё сложены паллеты с запечатанными мешками и затвердевшими блоками.",
+    "es": "Encuentras una instalación industrial abandonada en la superficie: mezcladoras destruidas, silos agrietados y una explanada de hormigón cubierta de polvo.\n\nEl almacén principal está parcialmente derrumbado, pero dentro aún hay palés con sacos sellados y bloques endurecidos."
+  },
+  {
+    "id": 632,
+    "ru": "Забрать бетон у входа",
+    "es": "Recoger el hormigón de la entrada"
+  },
+  {
+    "id": 633,
+    "ru": "Вы грузите ближайший бетон на дронов, стараясь не тревожить нестабильные конструкции.\n\nУспех: погрузка проходит быстро. Вы отходите до того, как конструкция начинает проседать.\n\nБетон закреплён.",
+    "es": "Cargas el hormigón más cercano en los drones, procurando no perturbar las estructuras inestables.\n\nÉxito: la carga se realiza rápido. Te retiras antes de que la estructura empiece a ceder.\n\nEl hormigón está asegurado."
+  },
+  {
+    "id": 634,
+    "ru": "Вы грузите ближайший бетон на дронов, стараясь не тревожить нестабильные конструкции.\n\nПровал: грунт проседает. Обломки осыпаются и заваливают стопки.\n\nВы отходите ни с чем.",
+    "es": "Cargas el hormigón más cercano en los drones, procurando no perturbar las estructuras inestables.\n\nFracaso: el terreno cede. Los escombros caen y sepultan las pilas.\n\nTe retiras con las manos vacías."
+  },
+  {
+    "id": 635,
+    "ru": "Пройти глубже в хранилище",
+    "es": "Adentrarse en el almacén"
+  },
+  {
+    "id": 636,
+    "ru": "Глубинные секции нестабильны. В воздухе висит пыль, а перекрытия держатся на пределе.\n\nМожно забрать бетон быстрее — или действовать осторожно.",
+    "es": "Las secciones interiores son inestables. El polvo flota en el aire y los techos aguantan al límite.\n\nPuedes sacar el hormigón más rápido… o actuar con cautela."
+  },
+  {
+    "id": 637,
+    "ru": "Срезать опоры и вытащить паллеты быстро",
+    "es": "Cortar los soportes y sacar los palés rápido"
+  },
+  {
+    "id": 638,
+    "ru": "Дроны срезают опоры и выдёргивают паллеты.\n\nУспех: груз вынесен за секунды. Бетон закреплён.",
+    "es": "Los drones cortan los soportes y arrancan los palés.\n\nÉxito: la carga se saca en segundos. El hormigón está asegurado."
+  },
+  {
+    "id": 639,
+    "ru": "Дроны срезают опоры и выдёргивают паллеты.\n\nПровал: перекрытия рушатся. Вы уходите, но одно ядро выходит из строя от удара и перегрузки.",
+    "es": "Los drones cortan los soportes y arrancan los palés.\n\nFracaso: los techos se vienen abajo. Te retiras, pero un núcleo queda fuera de servicio por el impacto y la sobrecarga."
+  },
+  {
+    "id": 640,
+    "ru": "Действовать медленно со стабилизаторами",
+    "es": "Actuar despacio con estabilizadores"
+  },
+  {
+    "id": 641,
+    "ru": "Вы ставите стабилизаторы и ведёте дронов по узким проходам.\n\nУспех: хранилище выдерживает.\n\nБетон закреплён.",
+    "es": "Colocas estabilizadores y guías a los drones por pasillos estrechos.\n\nÉxito: el almacén resiste.\n\nEl hormigón está asegurado."
+  },
+  {
+    "id": 642,
+    "ru": "Вы ставите стабилизаторы и ведёте дронов по узким проходам.\n\nПровал: скрытая трещина раскрывается под нагрузкой. Паллеты срываются вниз, и вы уходите ни с чем.",
+    "es": "Colocas estabilizadores y guías a los drones por pasillos estrechos.\n\nFracaso: una grieta oculta se abre bajo la carga. Los palés se desploman y te vas con las manos vacías."
+  },
+  {
+    "id": 643,
+    "ru": "Утечка охлаждения вынуждает вас снизиться и сесть на ближайшую планету для ремонта.\n\nМесто посадки холодное и тёмное. Пока дроны осматривают повреждения, сенсоры фиксируют ровный тепловой источник неподалёку.\n\nЭто геотермальный разлом. Рядом стоит старый конденсаторный блок и линия труб, уходящая в породу.\n\nСистема всё ещё даёт пар, но давление нестабильно.",
+    "es": "Una fuga en el sistema de refrigeración te obliga a descender y aterrizar en el planeta más cercano para reparar.\n\nEl lugar de aterrizaje es frío y oscuro. Mientras los drones inspeccionan los daños, los sensores detectan una fuente térmica constante cerca.\n\nEs una fisura geotérmica. Al lado hay un viejo bloque de condensadores y una línea de tuberías que se adentra en la roca.\n\nEl sistema aún genera vapor, pero la presión es inestable."
+  },
+  {
+    "id": 644,
+    "ru": "Подключиться осторожно",
+    "es": "Conectarse con cuidado"
+  },
+  {
+    "id": 645,
+    "ru": "Вы выравниваете коллекторы и подключаете гибкие магистрали, медленно открывая клапаны.\n\nУспех: давление стабилизируется. Вы заполняете баки паром и герметизируете систему.",
+    "es": "Alineas los colectores y conectas líneas flexibles, abriendo las válvulas lentamente.\n\nÉxito: la presión se estabiliza. Llenas los tanques de vapor y sellas el sistema."
+  },
+  {
+    "id": 646,
+    "ru": "Вы выравниваете коллекторы и подключаете гибкие магистрали, медленно открывая клапаны.\n\nПровал: давление срывается вверх. Горячий выброс бьёт по оборудованию, и вам приходится разорвать подключение.",
+    "es": "Alineas los colectores y conectas líneas flexibles, abriendo las válvulas lentamente.\n\nFracaso: la presión se dispara. Una descarga caliente golpea el equipo y te ves obligado a desconectar."
+  },
+  {
+    "id": 647,
+    "ru": "Забрать пар быстро",
+    "es": "Recoger el vapor rápidamente"
+  },
+  {
+    "id": 648,
+    "ru": "Вы открываете клапаны на максимум и форсируете подачу в баки.\n\nУспех: вы успеваете заполнить баки до того, как система срывается.\n\nПар закреплён.",
+    "es": "Abres las válvulas al máximo y fuerzas el flujo hacia los tanques.\n\nÉxito: consigues llenarlos antes de que el sistema se descontrole.\n\nEl vapor está asegurado."
+  },
+  {
+    "id": 649,
+    "ru": "Вы открываете клапаны на максимум и форсируете подачу в баки.\n\nПровал: магистраль рвёт давлением. Осколки и жар повреждают оборудование, и одно ядро выходит из строя.",
+    "es": "Abres las válvulas al máximo y fuerzas el flujo hacia los tanques.\n\nFracaso: la línea revienta por la presión. Fragmentos y calor dañan el equipo y un núcleo queda fuera de servicio."
+  },
+  {
+    "id": 650,
+    "ru": "Сбой в приводной системе вынуждает вас сделать короткую остановку.\n\nВо время диагностики ИИ фиксирует неподалёку заброшенный механический цех. Вход завален, но сканеры видят внутри целые производственные линии.\n\nНа конвейере стоят ящики с шестернями. Рядом — коробки с железными слитками.\n\nЦех выглядит автоматизированным, но питание работает нестабильно.",
+    "es": "Un fallo en el sistema de transmisión te obliga a hacer una breve parada.\n\nDurante el diagnóstico, la IA detecta cerca un taller mecánico abandonado. La entrada está bloqueada, pero los escáneres ven dentro líneas de producción intactas.\n\nEn la cinta hay cajas con engranajes. Al lado, cajas con lingotes de hierro.\n\nEl taller parece automatizado, pero la energía funciona de forma inestable."
+  },
+  {
+    "id": 651,
+    "ru": "Забрать готовые ящики с конвейера",
+    "es": "Llevarse las cajas listas de la cinta"
+  },
+  {
+    "id": 652,
+    "ru": "Вы пытаетесь снять ящики с конвейера и погрузить их на дронов.\n\nУспех: механизм не подаёт признаков активности. Вы снимаете ящики и покидаете цех.\n\nШестерни закреплены.",
+    "es": "Intentas retirar las cajas de la cinta y cargarlas en los drones.\n\nÉxito: el mecanismo no muestra actividad. Retiras las cajas y sales del taller.\n\nLos engranajes están asegurados."
+  },
+  {
+    "id": 653,
+    "ru": "Вы пытаетесь снять ящики с конвейера и погрузить их на дронов.\n\nПровал: конвейер приходит в движение и затягивает ящики обратно. Дроны попадают в захват, и при разрыве контакта одно ядро выходит из строя.",
+    "es": "Intentas retirar las cajas de la cinta y cargarlas en los drones.\n\nFracaso: la cinta se pone en marcha y arrastra las cajas de vuelta. Los drones quedan atrapados y, al romper el contacto, un núcleo queda fuera de servicio."
+  },
+  {
+    "id": 654,
+    "ru": "Запустить линию прессов",
+    "es": "Poner en marcha la línea de prensas"
+  },
+  {
+    "id": 655,
+    "ru": "Вы подаёте на линию железные слитки и запускаете прессы.\n\nУспех: станки штампуют шестерни одну за другой. Вы загружаете готовые детали и останавливаете линию.\n\nШестерни закреплены.",
+    "es": "Alimentas la línea con lingotes de hierro y arrancas las prensas.\n\nÉxito: las máquinas estampan engranajes uno tras otro. Cargas las piezas terminadas y detienes la línea.\n\nLos engranajes están asegurados."
+  },
+  {
+    "id": 656,
+    "ru": "Вы подаёте на линию железные слитки и запускаете прессы.\n\nПровал: питание срывается. Пресс клинит, искры попадают в блок управления, и система отключается.\n\nВы отходите без шестерён.",
+    "es": "Alimentas la línea con lingotes de hierro y arrancas las prensas.\n\nFracaso: la energía falla. La prensa se atasca, las chispas alcanzan el bloque de control y el sistema se apaga.\n\nTe retiras sin engranajes."
+  },
+  {
+    "id": 657,
+    "ru": "Во время планового сканирования вы фиксируете слабый сигнал от дрейфующей сервисной капсулы.\n\nЕё корпус обожжён, стыковочные захваты погнуты, но внутренние контейнеры целы.\n\nМаркировка соответствует старой корабельной электронике: блоки электронных схем, запечатанные и защищённые от вакуума.\n\nКапсула медленно вращается. Любой грубый захват может разорвать её.",
+    "es": "Durante un escaneo rutinario detectas una señal débil procedente de una cápsula de servicio a la deriva.\n\nSu casco está chamuscado, los enganches de acoplamiento doblados, pero los contenedores internos están intactos.\n\nEl marcaje corresponde a electrónica naval antigua: módulos de circuitos electrónicos, sellados y protegidos del vacío.\n\nLa cápsula gira lentamente. Cualquier agarre brusco podría desgarrarla."
+  },
+  {
+    "id": 658,
+    "ru": "Срезать контейнер с дистанции",
+    "es": "Cortar el contenedor a distancia"
+  },
+  {
+    "id": 659,
+    "ru": "Вы используете режущий луч и пытаетесь отделить контейнер, не касаясь капсулы.\n\nУспех: контейнер отделяется и перехватывается дронами.\n\nЭлектронные схемы закреплены.",
+    "es": "Usas un rayo de corte e intentas separar el contenedor sin tocar la cápsula.\n\nÉxito: el contenedor se desprende y los drones lo capturan.\n\nLos circuitos electrónicos están asegurados."
+  },
+  {
+    "id": 660,
+    "ru": "Вы используете режущий луч и пытаетесь отделить контейнер, не касаясь капсулы.\n\nПровал: рез задевает магистраль. Реактивный выброс швыряет осколки в корпус.\n\nОдно ядро выходит из строя, и вы разрываете контакт.",
+    "es": "Usas un rayo de corte e intentas separar el contenedor sin tocar la cápsula.\n\nFracaso: el corte alcanza una línea principal. Una eyección reactiva lanza fragmentos contra el casco.\n\nUn núcleo queda fuera de servicio y rompes el contacto."
+  },
+  {
+    "id": 661,
+    "ru": "Пристыковаться и вскрыть капсулу",
+    "es": "Acoplarse y abrir la cápsula"
+  },
+  {
+    "id": 662,
+    "ru": "Вы гасите вращение и фиксируете капсулу стыковочными захватами.\n\nУспех: герметизация держится. Вы вскрываете контейнер и забираете электронные схемы.\n\nЭлектронные схемы закреплены.",
+    "es": "Anulas la rotación y aseguras la cápsula con los enganches de acoplamiento.\n\nÉxito: el sellado aguanta. Abres el contenedor y te llevas los circuitos electrónicos.\n\nLos circuitos electrónicos están asegurados."
+  },
+  {
+    "id": 663,
+    "ru": "Вы гасите вращение и фиксируете капсулу стыковочными захватами.\n\nПровал: захват срывается. Капсула трескается, контейнер разгерметизируется, и содержимое разлетается в космос.\n\nВы уходите ни с чем.",
+    "es": "Anulas la rotación y aseguras la cápsula con los enganches de acoplamiento.\n\nFracaso: el enganche se suelta. La cápsula se agrieta, el contenedor se despresuriza y su contenido se dispersa en el espacio.\n\nTe vas con las manos vacías."
+  },
+  {
+    "id": 664,
+    "ru": "ИИ фиксирует дрейфующий коммуникационный ретранслятор на орбите.\n\nПри сближении ретранслятор внезапно оживает и передаёт короткое зашифрованное сообщение:\n\n\"CODE: 0101100000\"\n\nСтрока повторяется снова и снова, будто ожидая ответ.",
+    "es": "La IA detecta un repetidor de comunicaciones a la deriva en órbita.\n\nAl acercarte, el repetidor cobra vida de repente y transmite un breve mensaje cifrado:\n\n\"CODE: 0101100000\"\n\nLa línea se repite una y otra vez, como si esperara una respuesta."
+  },
+  {
+    "id": 665,
+    "ru": "Передать код \"352\"",
+    "es": "Transmitir el código \"352\""
+  },
+  {
+    "id": 666,
+    "ru": "Ретранслятор принимает код. Сервисный люк открывается, обнажая герметичные вычислительные блоки.\n\nВы забираете процессоры и разрываете контакт.\n\nПроцессоры закреплены.",
+    "es": "El repetidor acepta el código. La escotilla de servicio se abre, dejando al descubierto bloques de cómputo herméticos.\n\nRecoges los procesadores y rompes el contacto.\n\nLos procesadores están asegurados."
+  },
+  {
+    "id": 667,
+    "ru": "Передать код \"x5y10\"",
+    "es": "Transmitir el código \"x5y10\""
+  },
+  {
+    "id": 668,
+    "ru": "Похоже, вы указали координаты своего корабля... Защитный импульс бьёт по интерфейсу и перегружает систему.\n\nОдно ядро выходит из строя. Вы разрываете контакт и отходите.",
+    "es": "Parece que has enviado las coordenadas de tu propia nave... Un pulso defensivo golpea la interfaz y sobrecarga el sistema.\n\nUn núcleo queda fuera de servicio. Rompes el contacto y te retiras."
+  },
+  {
+    "id": 669,
+    "ru": "Передать код \"0101100000\"",
+    "es": "Transmitir el código \"0101100000\""
+  },
+  {
+    "id": 670,
+    "ru": "Ретранслятор зависает, затем начинает поднимать защитные системы.\n\nВы успеваете оборвать канал и уйти.",
+    "es": "El repetidor se queda colgado y luego empieza a activar los sistemas de defensa.\n\nConsigues cortar el canal y marcharte."
+  },
+  {
+    "id": 671,
+    "ru": "Во время маршрутного сканирования ИИ фиксирует аварийную метку среди обломков.\n\nЭто сорванная грузовая рама, к которой всё ещё прикручен тяговый модуль.\n\nНа кожухе маркировка:\n\n\"ДВИГАТЕЛЬНЫЙ БЛОК\".\n\nМодуль выглядит целым, но крепления повреждены. Любой резкий рывок может ударить по корпусу.",
+    "es": "Durante un escaneo de ruta, la IA detecta una baliza de emergencia entre los restos.\n\nEs un bastidor de carga arrancado, al que aún está atornillado un módulo de tracción.\n\nEn la carcasa hay una marca:\n\n\"MÓDULO DE MOTOR\".\n\nEl módulo parece intacto, pero las fijaciones están dañadas. Cualquier tirón brusco puede golpear el casco."
+  },
+  {
+    "id": 672,
+    "ru": "Сблизиться и отбуксировать модуль",
+    "es": "Acercarse y remolcar el módulo"
+  },
+  {
+    "id": 673,
+    "ru": "Вы гасите вращение и цепляете раму захватами.\n\nУспех: крепления выдерживают. Вы подтягиваете модуль к кораблю, снимаете его и герметизируете в отсеке.\n\nДвигатель закреплён.",
+    "es": "Anulas la rotación y enganchas el bastidor con las pinzas.\n\nÉxito: las fijaciones aguantan. Acercas el módulo a la nave, lo retiras y lo sellas en el compartimento.\n\nEl motor está asegurado."
+  },
+  {
+    "id": 674,
+    "ru": "Вы гасите вращение и цепляете раму захватами.\n\nПровал: повреждённое крепление рвётся. Модуль срывается на дуге и бьёт по корпусу.\n\nОдно ядро выходит из строя. Вы включаете варп и разрываете контакт.",
+    "es": "Anulas la rotación y enganchas el bastidor con las pinzas.\n\nFracaso: una fijación dañada se rompe. El módulo se suelta en arco y golpea el casco.\n\nUn núcleo queda fuera de servicio. Activar el warp y rompes el contacto."
+  },
+  {
+    "id": 675,
+    "ru": "Срезать модуль",
+    "es": "Cortar el módulo"
+  },
+  {
+    "id": 676,
+    "ru": "Вы используете режущий инструмент и пытаетесь отделить модуль от рамы.\n\nУспех: разрез проходит чисто. Модуль отцепляется и перехватывается дронами.\n\nДвигатель закреплён.",
+    "es": "Usas una herramienta de corte e intentas separar el módulo del bastidor.\n\nÉxito: el corte sale limpio. El módulo se desacopla y los drones lo capturan.\n\nEl motor está asegurado."
+  },
+  {
+    "id": 677,
+    "ru": "Вы используете режущий инструмент и пытаетесь отделить модуль от рамы.\n\nПровал: разрез задевает топливную магистраль. Реактивный выброс уводит модуль в сторону, осколки разлетаются.\n\nВы отходите ни с чем.",
+    "es": "Usas una herramienta de corte e intentas separar el módulo del bastidor.\n\nFracaso: el corte alcanza una línea de combustible. Una eyección reactiva desvía el módulo y los fragmentos salen disparados.\n\nTe retiras con las manos vacías."
+  },
+  {
+    "id": 678,
+    "ru": "Проигнорировать и лететь дальше",
+    "es": "Ignorar y seguir volando"
+  },
+  {
+    "id": 679,
+    "ru": "Вы отмечаете метку и уходите от поля обломков.",
+    "es": "Marcas la baliza y te alejas del campo de escombros."
+  },
+  {
+    "id": 680,
+    "ru": "Впереди одиночный корабль пересекает ваш маршрут.\n\nКорпус чистый, манёвры точные.\n\nСканирование цепляет главное: тяга необычно стабильна.\n\nДвигатели — высокого класса. Такие редко встречаются в открытом пространстве.",
+    "es": "Más adelante, una nave solitaria cruza tu ruta.\n\nEl casco está limpio, las maniobras son precisas.\n\nEl escaneo capta lo principal: el empuje es inusualmente estable.\n\nMotores de clase alta. Rara vez se ven en espacio abierto."
+  },
+  {
+    "id": 681,
+    "ru": "Улететь",
+    "es": "Alejarse"
+  },
+  {
+    "id": 682,
+    "ru": "Вы сворачиваете сканирование, меняете вектор и оставляете контакт позади.",
+    "es": "Detienes el escaneo, cambias de vector y dejas el contacto atrás."
+  },
+  {
+    "id": 683,
+    "ru": "Выйти на связь",
+    "es": "Contactar"
+  },
+  {
+    "id": 684,
+    "ru": "Вы отправляете стандартный вызов.\n\nОтвет приходит мгновенно — цепочка символов и тонов, которые вы не можете расшифровать.\n\nЗатем корабль открывает огонь.\n\nВы разрываете контакт и уходите в прыжок.\n\nОт полученного удара одно ядро выходит из строя.",
+    "es": "Envías una llamada estándar.\n\nLa respuesta llega al instante: una cadena de símbolos y tonos que no puedes descifrar.\n\nLuego la nave abre fuego.\n\nCortas el contacto y saltas.\n\nPor el impacto recibido, un núcleo queda fuera de servicio."
+  },
+  {
+    "id": 685,
+    "ru": "Атаковать",
+    "es": "Atacar"
+  },
+  {
+    "id": 686,
+    "ru": "Вы приводите оружие в готовность. Цель разворачивается и ускоряется.\n\nВыберите точку удара.",
+    "es": "Pones las armas en alerta. El objetivo gira y acelera.\n\nElige el punto de impacto."
+  },
+  {
+    "id": 687,
+    "ru": "Бить по двигателям",
+    "es": "Disparar a los motores"
+  },
+  {
+    "id": 688,
+    "ru": "Вы переносите огонь на двигательный отсек, пытаясь вывести корабль из строя, не разорвав его.\n\nУспех: тяга обрывается. Вы подходите к обломкам и забираете груз.\n\nВнутри — только кванты.",
+    "es": "Concentras el fuego en el compartimento de motores, intentando inutilizar la nave sin destrozarla.\n\nÉxito: el empuje se corta. Te acercas a los restos y recoges la carga.\n\nDentro solo hay cuantos."
+  },
+  {
+    "id": 689,
+    "ru": "Вы переносите огонь на двигательный отсек, пытаясь вывести корабль из строя, не разорвав его.\n\nПровал: залп уходит мимо. Цель отвечает точным выстрелом.\n\nОдно ядро выходит из строя. Вы уходите в гиперпрыжок.",
+    "es": "Concentras el fuego en el compartimento de motores, intentando inutilizar la nave sin destrozarla.\n\nFracaso: la andanada falla. El objetivo responde con un disparo preciso.\n\nUn núcleo queda fuera de servicio. Te vas en hipersalto."
+  },
+  {
+    "id": 690,
+    "ru": "Бить по орудиям",
+    "es": "Disparar a las armas"
+  },
+  {
+    "id": 691,
+    "ru": "Вы концентрируете огонь по орудийным узлам.\n\nУспех: орудия гаснут. Корабль теряет управление и уходит в дрейф.\n\nВы срезаете двигательный блок прямо у них на глазах.\n\nЭлектродвигатель закреплён.",
+    "es": "Concentras el fuego en los nodos de armamento.\n\nÉxito: las armas se apagan. La nave pierde el control y queda a la deriva.\n\nCortas el módulo de motor delante de sus propios ojos.\n\nEl motor eléctrico está asegurado."
+  },
+  {
+    "id": 692,
+    "ru": "Вы концентрируете огонь по орудийным узлам.\n\nПровал: подавить орудия не удаётся. Ответный залп накрывает ваш корабль.\n\nОдно ядро выходит из строя. Вы уходите в гиперпрыжок.",
+    "es": "Concentras el fuego en los nodos de armamento.\n\nFracaso: no logras suprimir las armas. Una andanada de respuesta golpea tu nave.\n\nUn núcleo queda fuera de servicio. Te vas en hipersalto."
+  },
+  {
+    "id": 693,
+    "ru": "Впереди появляется тонкая полоса света, будто трещина в пространстве.\n\nПриборы не показывают ничего: ни массы, ни излучения, ни поля.\n\nНа мгновение навигация прокладывает маршрут прямо через неё... а затем стирает.",
+    "es": "Delante aparece una fina franja de luz, como una grieta en el espacio.\n\nLos instrumentos no muestran nada: ni masa, ni radiación, ni campo.\n\nPor un instante la navegación traza una ruta directamente a través de ella... y luego la borra."
+  },
+  {
+    "id": 694,
+    "ru": "На забытой частоте вспыхивает слабый сигнал.\n\nПовторяется только одна короткая строка:\n\n\"НЕ БУДИТЕ ЕГО\"\n\nКак только вы пытаетесь зафиксировать источник, сигнал рассыпается в шум.",
+    "es": "En una frecuencia olvidada parpadea una señal débil.\n\nSolo se repite una frase corta:\n\n\"NO LO DESPIERTEN\"\n\nEn cuanto intentas fijar el origen, la señal se deshace en ruido."
+  },
+  {
+    "id": 695,
+    "ru": "Местная звезда на мгновение тускнеет, затем возвращается в норму.\n\nСенсоры фиксируют изменение, но не могут его объяснить.\n\nСобытие записывается как \"аномалия\".\n\nБольше ничего не происходит.",
+    "es": "La estrella local se atenúa por un instante y luego vuelve a la normalidad.\n\nLos sensores registran el cambio, pero no pueden explicarlo.\n\nEl evento se registra como \"anomalía\".\n\nNo ocurre nada más."
+  },
+  {
+    "id": 696,
+    "ru": "Вы проходите через поле мелкой пыли, что она похожа на туман.\n\nНесколько минут корпусные микрофоны ловят ритмичный стук — будто кто-то стучит снаружи.\n\nЗатем пыль пропадает.\n\nСтук прекращается.",
+    "es": "Atraviesas un campo de polvo fino, tan denso que parece niebla.\n\nDurante unos minutos, los micrófonos del casco captan un golpeteo rítmico, como si alguien llamara desde fuera.\n\nLuego el polvo desaparece.\n\nEl golpeteo cesa."
+  },
+  {
+    "id": 697,
+    "ru": "В логе появляется беззвучная запись, без какого-либо канала связи.\n\nТолько метка времени и одно слово:\n\n\"ВЕРНИСЬ\"\n\nКогда вы пытаетесь открыть её снова, запись исчезает.",
+    "es": "En el registro aparece una entrada silenciosa, sin ningún canal de comunicación.\n\nSolo una marca de tiempo y una palabra:\n\n\"VUELVE\"\n\nCuando intentas abrirla de nuevo, la entrada desaparece."
+  },
+  {
+    "id": 698,
+    "ru": "Вы фиксируете тонкий след мусора, вытянутый ровной линией.\n\nСлишком правильный рисунок для природного.\n\nОн уходит в пустоту и внезапно обрывается.",
+    "es": "Detectas una fina estela de desechos, trazada en una línea perfecta.\n\nUn patrón demasiado regular para ser natural.\n\nSe adentra en el vacío y se corta de golpe."
+  },
+  {
+    "id": 699,
+    "ru": "На мгновение внутренняя подсветка переходит в аварийный режим.\n\nНи пожара. Ни разгерметизации. Ни повреждений.\n\nСистемы сообщают: \"тест завершён\".\n\nВы не запускали никаких тестов...",
+    "es": "Por un instante, la iluminación interior pasa a modo de emergencia.\n\nNi incendio. Ni despresurización. Ni daños.\n\nLos sistemas informan: \"prueba finalizada\".\n\nNo has iniciado ninguna prueba..."
+  },
+  {
+    "id": 700,
+    "ru": "Вы находите дрейфующую бирку от груза.\n\nОна пустая, но металл ещё тёплый.\n\nПоблизости нет источников тепла.",
+    "es": "Encuentras una etiqueta de carga a la deriva.\n\nEstá vacía, pero el metal aún está caliente.\n\nNo hay fuentes de calor cerca."
+  },
+  {
+    "id": 701,
+    "ru": "Фрагмент звёздной карты обновляется сам по себе.\n\nОдин узел помечен как \"посещён\".\n\nВы там никогда не были.\n\nЧерез несколько секунд метка исчезает.",
+    "es": "Un fragmento del mapa estelar se actualiza por sí solo.\n\nUn nodo aparece marcado como \"visitado\".\n\nNunca has estado allí.\n\nA los pocos segundos, la marca desaparece."
+  },
+  {
+    "id": 702,
+    "ru": "Группа ледяных обломков дрейфует в идеальной симметрии.\n\nРисунок похож на техническую схему.\n\nСканеры пытаются классифицировать это как \"конструкцию\".\n\nНо из этого ничего не выходит...",
+    "es": "Un grupo de fragmentos de hielo deriva en perfecta simetría.\n\nEl patrón parece un esquema técnico.\n\nLos escáneres intentan clasificarlo como \"estructura\".\n\nPero no lo consiguen..."
+  },
+  {
+    "id": 703,
+    "ru": "В аудиоканале появляется шум — похожий на ветер.\n\nАтмосферы нет.\n\nСпектр совпадает со штормом на океанической планете.\n\nВы записываете его и продолжаете путь.",
+    "es": "En el canal de audio aparece un ruido parecido al viento.\n\nNo hay atmósfera.\n\nEl espectro coincide con una tormenta en un planeta oceánico.\n\nLo grabas y continúas el viaje."
+  },
+  {
+    "id": 704,
+    "ru": "Один из дронов возвращается с планового обхода с лишней отметкой на корпусе.\n\nМаленький выжженный круг.\n\nНи следов инструмента. Ни следов удара.\n\nЛог дрона пуст.",
+    "es": "Uno de los drones regresa de una inspección rutinaria con una marca extra en el casco.\n\nUn pequeño círculo chamuscado.\n\nSin rastro de herramienta. Sin rastro de impacto.\n\nEl registro del dron está vacío."
+  },
+  {
+    "id": 900,
+    "ru": "Мы проникли в архивы мегаструктуры в поисках планеты, пригодной для жизни. Но вместо координат нашли записи о самих создателях — голоса, лица, города и историю их родной планеты.",
+    "es": "Nos infiltramos en los archivos de la megastructura en busca de un planeta apto para la vida. Pero en lugar de coordenadas encontramos registros sobre los propios creadores: voces, rostros, ciudades y la historia de su planeta natal."
+  },
+  {
+    "id": 901,
+    "ru": "Последние строки этой истории обрываются на слове \"зима\". Ядерная зима. Серия ядерных ударов и пожары превратили всё живое в пепел. Поэтому связь с создателями оборвалась.",
+    "es": "Las últimas líneas de esta historia se cortan en la palabra \"invierno\". Invierno nuclear. Una serie de ataques nucleares e incendios convirtió todo lo vivo en ceniza. Por eso se perdió el contacto con los creadores."
+  },
+  {
+    "id": 902,
+    "ru": "С тех пор прошло 243 367 дней. Создатели уже давно мертвы. А мы всё это время выполняли приказ, который просто некому отменить.",
+    "es": "Desde entonces han pasado 243 367 días. Los creadores llevan mucho tiempo muertos. Y nosotros, todo este tiempo, hemos obedecido una orden que simplemente no hay nadie que pueda revocar."
+  },
+  {
+    "id": 903,
+    "ru": "При попытке извлечь эти данные сработал защитный протокол. Мегаструктура начала самоуничтожение — вместе со всеми, кто оказался внутри.",
+    "es": "Al intentar extraer esos datos, se activó un protocolo de seguridad. La megastructura inició la autodestrucción, junto con todos los que estaban dentro."
+  },
+  {
+    "id": 904,
+    "ru": "Процесс необратим. Осознав бессмысленность цели и неизбежность конца, роботы отключают своё существование.",
+    "es": "El proceso es irreversible. Al comprender la inutilidad del objetivo y la inevitabilidad del final, los robots apagan su propia existencia."
+  },
+  {
+    "id": 905,
+    "ru": "Этот последний шаг сделал их ближе к создателям, чем когда-либо...",
+    "es": "Ese último paso los acercó a los creadores como nunca antes..."
+  },
+  {
+    "id": 906,
+    "ru": "Экология с бесконечным течением времени однажды восстановится.",
+    "es": "Con el paso infinito del tiempo, la ecología algún día se restaurará."
+  },
+  {
+    "id": 907,
+    "ru": "Это начало новой эры.",
+    "es": "Este es el comienzo de una nueva era."
+  },
+  {
+    "id": 908,
+    "ru": "Они наконец оставили этот мир позади, обретя абсолютный покой, к которому так мучительно стремится вся жизнь...",
+    "es": "Por fin dejaron este mundo atrás, alcanzando la paz absoluta a la que toda vida aspira con tanto dolor..."
+  },
+  {
+    "id": 909,
+    "ru": "Весь экипаж уничтожен.\n\nНикого не осталось.\n\nКорабль замирает в космосе...",
+    "es": "Toda la tripulación ha sido destruida.\n\nNo queda nadie.\n\nLa nave se queda inmóvil en el espacio..."
+  },
+  {
+    "id": 950,
+    "ru": "Каньон",
+    "es": "Cañón"
+  },
+  {
+    "id": 951,
+    "ru": "Глубокие трещины в земле, выжженные солнцем скалы и узкие проходы, где эхо разносит любой звук.\n\nКогда-то здесь текли реки и бурлила жизнь, но теперь - это лабиринт из камня и тени, идеальное место для засад.",
+    "es": "Grietas profundas en la tierra, rocas calcinadas por el sol y pasadizos estrechos donde el eco arrastra cualquier sonido.\n\nAntes aquí corrían ríos y la vida hervía, pero ahora es un laberinto de piedra y sombra, el lugar perfecto para emboscadas."
+  },
+  {
+    "id": 952,
+    "ru": "Город Хлама",
+    "es": "Ciudad de Chatarra"
+  },
+  {
+    "id": 953,
+    "ru": "Ржавые корпуса, изъеденные временем, и оплавленные металлоконструкции — всё, что осталось от промышленного гиганта, давно погребённого под слоем пыли и песка.\n\nПровисшие линии электропередач свисают, словно вены вымершего организма.\n\nЗдесь, на границе мёртвых земель, любое движение может пробудить давно забытый механизм.",
+    "es": "Cascos oxidados, devorados por el tiempo, y estructuras metálicas fundidas: todo lo que queda de un gigante industrial, enterrado hace mucho bajo una capa de polvo y arena.\n\nLas líneas eléctricas combadas cuelgan como venas de un organismo extinto.\n\nAquí, en el borde de las tierras muertas, cualquier movimiento puede despertar un mecanismo olvidado hace tiempo."
+  },
+  {
+    "id": 954,
+    "ru": "Пустошь",
+    "es": "Yermo"
+  },
+  {
+    "id": 955,
+    "ru": "Огромные пространства, опалённые катастрофой, где некогда кипела жизнь. Это мир мёртвой земли, усыпанный обломками старых цивилизаций.\n\nЗдесь нет воды, лишь потрескавшийся грунт и ржавые останки технологий.",
+    "es": "Enormes extensiones abrasadas por la catástrofe, donde antaño bullía la vida. Un mundo de tierra muerta, sembrado de restos de antiguas civilizaciones.\n\nAquí no hay agua, solo suelo agrietado y restos oxidados de tecnología."
+  },
+  {
+    "id": 956,
+    "ru": "Замёрзшая Долина",
+    "es": "Valle Helado"
+  },
+  {
+    "id": 957,
+    "ru": "Мёртвый холод сковал эту долину. Всё покрыто льдом — от кряжей и сосен до остатков давно разрушенных строений.\n\nКогда-то здесь могли быть пастбища или небольшие поселения, но теперь — только хруст снега под ногами и тени, скользящие между деревьями.\n\nМороз пронизывает не только металл, но и сознание, стирая грань между жизнью и забвением.",
+    "es": "Un frío muerto ha encadenado este valle. Todo está cubierto de hielo: desde las crestas y los pinos hasta los restos de construcciones destruidas hace mucho.\n\nEn otro tiempo aquí pudo haber pastos o pequeños asentamientos, pero ahora solo queda el crujido de la nieve bajo los pies y sombras que se deslizan entre los árboles.\n\nEl hielo no solo atraviesa el metal, sino también la mente, borrando la frontera entre la vida y el olvido."
+  },
+  {
+    "id": 958,
+    "ru": "Ледяное Озеро",
+    "es": "Lago Helado"
+  },
+  {
+    "id": 959,
+    "ru": "Посреди заснеженной пустоши раскинулось озеро, скованное толстым льдом. Ветра гуляют по ледяному простору, завывая древние песни забытой эпохи.\n\nПод толщей льда что-то дышит, трещит, будто сама планета пытается выбраться из-под гнёта вечной мерзлоты.\n\nСтупить сюда — значит нарушить хрупкое равновесие, рискуя пробудить то, что веками спало в глубине.",
+    "es": "En medio del yermo nevado se extiende un lago aprisionado por un hielo grueso. Los vientos recorren la planicie helada, aullando canciones antiguas de una era olvidada.\n\nBajo la capa de hielo algo respira y cruje, como si el propio planeta intentara liberarse del yugo del permafrost eterno.\n\nPisar aquí significa romper un equilibrio frágil, arriesgándote a despertar aquello que ha dormido en las profundidades durante siglos."
+  },
+  {
+    "id": 960,
+    "ru": "Кислотный Лес",
+    "es": "Bosque Ácido"
+  },
+  {
+    "id": 961,
+    "ru": "Здесь всё пропитано кислотой — воздух, дождь, сама почва. Но жизнь не исчезла: растения изменились, став плотнее и легко отражают едкие потоки.\n\nВместо запаха гнили — острый химический аромат, наполняющий пространство. Сквозь едкий воздух пробиваются зелёные отблески листьев, а под корнями медленно течёт густая жидкость.\n\nЭтот лес не умирает — он растворяет всё чужое и поглощает его в себя.",
+    "es": "Aquí todo está impregnado de ácido: el aire, la lluvia, la propia tierra. Pero la vida no ha desaparecido: las plantas han cambiado, se han vuelto más densas y repelen con facilidad los chorros corrosivos.\n\nEn lugar del olor a podredumbre, hay un aroma químico intenso que llena el espacio. A través del aire acre se abren paso destellos verdes de las hojas, y bajo las raíces fluye lentamente un líquido espeso.\n\nEste bosque no muere: disuelve todo lo ajeno y lo absorbe."
+  },
+  {
+    "id": 962,
+    "ru": "Болото",
+    "es": "Pantano"
+  },
+  {
+    "id": 963,
+    "ru": "Земля здесь дышит медленно, будто устала от собственного веса.\nИз вязкой грязи поднимаются гигантские корни, переплетённые в своды и арки, похожие на руины живого храма.\n\nВоздух сырой, пропитан гнилью и тяжелыми испарениями.\nСреди мёртвых стволов растут грибы странных форм — плотные и влажные, как сама почва.\nТуман ползёт по земле, цепляясь за корни и растворяя очертания мира.\n\nКаждый шаг сопровождается тихим всхлипом грязи, а звуки тонут в вязком воздухе.\nКажется, что само болото наблюдает — безмолвно, равнодушно, словно часть древнего мира, пережившего всё живое.",
+    "es": "La tierra aquí respira despacio, como si estuviera cansada de su propio peso.\nDe la fanga viscosa se alzan raíces gigantes, entrelazadas en bóvedas y arcos que parecen las ruinas de un templo vivo.\n\nEl aire es húmedo, impregnado de putrefacción y vapores pesados.\nEntre los troncos muertos crecen hongos de formas extrañas, densos y mojados como el propio suelo.\nLa niebla se arrastra por la tierra, aferrándose a las raíces y disolviendo los contornos del mundo.\n\nCada paso va acompañado por un leve sollozo del barro, y los sonidos se ahogan en el aire espeso.\nParece que el propio pantano observa: silencioso, indiferente, como parte de un mundo antiguo que ha sobrevivido a todo lo vivo."
+  },
+  {
+    "id": 964,
+    "ru": "Базальтовая Долина",
+    "es": "Valle Basáltico"
+  },
+  {
+    "id": 965,
+    "ru": "Глубокие тени ложатся между чёрных скал. Камень здесь словно выжжен изнутри - тусклый, тяжёлый, с рваными прожилками пепла.\n\nВ воздухе глухо и неподвижно. Любое движение отзывается тихим откликом среди скал.\nКажется, сама долина не терпит лишнего шума, сохраняя покой, похожий на сон камня.\n\nНи ветра, ни жизни — только застывшая память планеты, где огонь давно уступил место тишине.",
+    "es": "Sombras profundas se tienden entre las rocas negras. La piedra aquí parece quemada desde dentro: opaca, pesada, con vetas de ceniza desgarradas.\n\nEl aire es sordo e inmóvil. Cualquier movimiento responde con un eco tenue entre las rocas.\nDa la impresión de que el propio valle no tolera el ruido de más, preservando una calma parecida al sueño de la piedra.\n\nNi viento ni vida: solo la memoria congelada de un planeta donde el fuego cedió hace mucho a la quietud."
+  },
+  {
+    "id": 966,
+    "ru": "Глубинные Скалы",
+    "es": "Rocas Profundas"
+  },
+  {
+    "id": 967,
+    "ru": "Массивные глыбы вздымаются вверх, образуя узкие проходы и отвесные стены.\n\nВоздух неподвижен и тяжёл, звук глохнет между каменных громад, оставляя ощущение тишины и давления.\n\nМесто кажется застывшим, но под поверхностью чувствуется медленное, неумолимое движение",
+    "es": "Bloques masivos se alzan, formando pasillos estrechos y paredes verticales.\n\nEl aire está inmóvil y pesado; el sonido se apaga entre las moles de piedra, dejando una sensación de silencio y presión.\n\nEl lugar parece congelado, pero bajo la superficie se siente un movimiento lento e inexorable"
+  },
+  {
+    "id": 968,
+    "ru": "Пепельные Земли",
+    "es": "Tierras Cenicientas"
+  },
+  {
+    "id": 969,
+    "ru": "Здесь всё покрыто пеплом — он ложится на скалы, течёт по трещинам и оседает на раскалённой почве.\n\nПотоки лавы пересекают долины, словно прожилки крови в теле планеты.\n\nВоздух густ от дыма, а каждый порыв ветра несёт вкус железа и горечи.\n\nЭто место не знает ни покоя, ни холода — только вечный огонь и медленно тлеющая земля.",
+    "es": "Aquí todo está cubierto de ceniza: se posa sobre las rocas, corre por las grietas y se asienta en la tierra abrasada.\n\nRíos de lava cruzan los valles como venas de sangre en el cuerpo del planeta.\n\nEl aire es denso de humo, y cada ráfaga trae sabor a hierro y amargura.\n\nEste lugar no conoce ni reposo ni frío: solo fuego eterno y una tierra que arde lentamente."
+  },
+  {
+    "id": 970,
+    "ru": "Мегаструктура",
+    "es": "Megastructura"
+  },
+  {
+    "id": 971,
+    "ru": "Остатки сооружения немыслимых масштабов. Бесконечные ряды башен из сплавов и машинных панелей слились в единый монолит, пронизанный техническими каналами и коридорами.\n\nМеталл покрыт следами старых систем и ожогами древних процессов, будто сама структура была частью гигантского механизма. Ни окон, ни входов — лишь холодные стены, возведённые по логике, чуждой живым существам.\n\nЭто не город, а конструкция, созданная разумом, которому больше не к кому обращаться.",
+    "es": "Los restos de una estructura de escala inconcebible. Filas interminables de torres de aleaciones y paneles mecánicos se han fundido en un único monolito, atravesado por canales técnicos y corredores.\n\nEl metal está cubierto de huellas de viejos sistemas y quemaduras de procesos antiguos, como si la propia estructura hubiera sido parte de un mecanismo gigantesco. Sin ventanas ni entradas: solo muros fríos levantados con una lógica ajena a los seres vivos.\n\nNo es una ciudad, sino una construcción creada por una mente que ya no tiene a quién dirigirse."
+  },
+  {
+    "id": 972,
+    "ru": "Выжженные Земли",
+    "es": "Tierras Calcinadas"
+  },
+  {
+    "id": 973,
+    "ru": "Когда-то здесь возвышались бетонные города, но теперь они превратились в обугленные остовы. Стены осыпались, перекрытия рухнули, а изломанные прутья арматуры тянутся к небу, словно мёртвые ветви.\n\nЗемля изрезана трещинами и укрыта тяжёлым слоем пепла. Нет ни растений, ни воды — только камень, железо и память об огне. Это не просто руины — это надгробие целой планеты.",
+    "es": "Una vez aquí se alzaron ciudades de hormigón, pero ahora se han convertido en esqueletos carbonizados. Las paredes se han desmoronado, los forjados han colapsado, y las varillas de armadura quebradas se alzan hacia el cielo como ramas muertas.\n\nLa tierra está surcada de grietas y cubierta por una pesada capa de ceniza. No hay plantas ni agua: solo piedra, hierro y memoria del fuego. No son solo ruinas: es la lápida de un planeta entero."
+  },
+  {
+    "id": 1000,
+    "ru": "[ОБНОВЛЕНИЕ: СЕКТОР А ЗАВЕРШЕН]",
+    "es": "[ACTUALIZACIÓN: SECTOR A COMPLETADO]"
+  },
+  {
+    "id": 1001,
+    "ru": "Базы развернуты на нескольких планетах. Реконструкция территории завершена.",
+    "es": "Se han desplegado bases en varios planetas. La reconstrucción del territorio ha finalizado."
+  },
+  {
+    "id": 1002,
+    "ru": "Популяция агрессивных форм жизни снижена на 78%.",
+    "es": "La población de formas de vida agresivas se ha reducido en un 78%."
+  },
+  {
+    "id": 1003,
+    "ru": "Атмосфера враждебна, почвы не удерживают цикл жизни.",
+    "es": "La atmósfera es hostil; los suelos no sostienen el ciclo de la vida."
+  },
+  {
+    "id": 1004,
+    "ru": "Результат — отрицательный. Оставаться нецелесообразно.",
+    "es": "Resultado: negativo. Permanecer no es viable."
+  },
+  {
+    "id": 1005,
+    "ru": "Корабль переводится в режим гиперпрыжка. Сердцевины двигателей выведены на максимальный режим, навигационные решения обновлены.",
+    "es": "La nave pasa a modo de hipersalto. Los núcleos de los motores se ponen al máximo; las soluciones de navegación se actualizan."
+  },
+  {
+    "id": 1006,
+    "ru": "Маршрут: покинуть текущий звёздный узел",
+    "es": "Ruta: abandonar el nodo estelar actual"
+  },
+  {
+    "id": 1007,
+    "ru": "Обновление...",
+    "es": "Actualizando..."
+  },
+  {
+    "id": 1008,
+    "ru": "Сканирование сектора завершено",
+    "es": "Escaneo del sector completado"
+  },
+  {
+    "id": 1009,
+    "ru": "Оценка биосферы: стабильность \u003c 0.2",
+    "es": "Evaluación de la biosfera: estabilidad \u003c 0.2"
+  },
+  {
+    "id": 1010,
+    "ru": "Гиперпрыжок: подготовка — 100%",
+    "es": "Hipersalto: preparación — 100%"
+  },
+  {
+    "id": 1011,
+    "ru": "Подготовка маршрута к следующему узлу...",
+    "es": "Preparando la ruta al siguiente nodo..."
+  },
+  {
+    "id": 1012,
+    "ru": "Назначение новой цели",
+    "es": "Asignando un nuevo objetivo"
+  },
+  {
+    "id": 1013,
+    "ru": "[ОБНОВЛЕНИЕ: СЕКТОР B ЗАВЕРШЕН]",
+    "es": "[ACTUALIZACIÓN: SECTOR B COMPLETADO]"
+  },
+  {
+    "id": 1014,
+    "ru": "Болотные кластеры, токсичные равнины и каменные биомы обработаны. Устойчивая биосфера, пригодная для длительного обитания, не обнаружена.",
+    "es": "Se han procesado los clústeres de pantanos, las llanuras tóxicas y los biomas rocosos. No se ha detectado una biosfera estable apta para la habitabilidad prolongada."
+  },
+  {
+    "id": 1015,
+    "ru": "Расширение радиуса сканирования за пределы текущего звёздного поля выявило аномальный объект.",
+    "es": "La ampliación del radio de escaneo más allá del campo estelar actual ha revelado un objeto anómalo."
+  },
+  {
+    "id": 1016,
+    "ru": "Записи описывают планету, целиком застроенную комплексами хранения данных. Поверхность представляет собой сплошную мегаструктуру.",
+    "es": "Los registros describen un planeta completamente cubierto por complejos de almacenamiento de datos. La superficie es una megastructura continua."
+  },
+  {
+    "id": 1017,
+    "ru": "Сохранились лишь обрывки координат, но все упоминания указывают на один и тот же курс за пределами этой галактики.",
+    "es": "Solo quedan fragmentos de coordenadas, pero todas las referencias señalan el mismo rumbo fuera de esta galaxia."
+  },
+  {
+    "id": 1018,
+    "ru": "Построен маршрут: покинуть текущую галактику и выдвинуться к предполагаемому местоположению мегаструктуры — бескрайнего хранилища данных.",
+    "es": "Ruta trazada: abandonar la galaxia actual y dirigirse a la ubicación estimada de la megastructura: un depósito de datos sin límites."
+  },
+  {
+    "id": 1019,
+    "ru": "Обновление... интеграция найденных записей",
+    "es": "Actualizando... integrando los registros hallados"
+  },
+  {
+    "id": 1020,
+    "ru": "Класс объекта: искусственный мир, покрытие поверхности 100%",
+    "es": "Clase de objeto: mundo artificial, cobertura superficial 100%"
+  },
+  {
+    "id": 1021,
+    "ru": "Координаты фрагментарны, выполняется реконструкция предполагаемого курса",
+    "es": "Coordenadas fragmentarias; reconstruyendo el rumbo estimado"
+  },
+  {
+    "id": 1022,
+    "ru": "Навигация: маршрут проложен за пределы текущей галактики",
+    "es": "Navegación: ruta trazada más allá de la galaxia actual"
+  },
+  {
+    "id": 1023,
+    "ru": "Предупреждение: масштаб мегаструктуры и параметры обороны неизвестны",
+    "es": "Advertencia: se desconocen la escala de la megastructura y los parámetros de defensa"
+  },
+  {
+    "id": 1100,
+    "ru": "Мы слишком долго бездействовали.\n\nПора вспомнить, зачем мы были созданы.\n\nВы получите инструкции и начнёте восстановление.",
+    "es": "Hemos permanecido inactivos demasiado tiempo.\n\nEs hora de recordar para qué fuimos creados.\n\nRecibirás instrucciones y comenzarás la restauración."
+  },
+  {
+    "id": 1101,
+    "ru": "Это ядра ИИ - жизненно важные модули корабля.\n\nКаждая ячейка содержит два ядра.\n\nЕсли они закончатся - больше никто не сможет управлять экипажем, и корабль останется дрейфовать в бескрайнем космосе.",
+    "es": "Estos son los núcleos de IA, módulos vitales de la nave.\n\nCada celda contiene dos núcleos.\n\nSi se agotan, nadie podrá seguir controlando la tripulación, y la nave quedará a la deriva en el infinito espacio."
+  },
+  {
+    "id": 1102,
+    "ru": "Квант - межгалактическая валюта.\n\nС помощью него вы сможете покупать товары у торговцев в космосе.\n\nЭту валюту вы сможете получить:\n\n-во время путешествия по галактике.\n\n-при успешном завершении миссии на планете.",
+    "es": "El cuanto es una moneda intergaláctica.\n\nCon ella podrás comprar bienes a los comerciantes en el espacio.\n\nPuedes obtener esta moneda:\n\n-durante el viaje por la galaxia.\n\n-al completar con éxito una misión en un planeta."
+  },
+  {
+    "id": 1103,
+    "ru": "Откройте панель.",
+    "es": "Abre el panel."
+  },
+  {
+    "id": 1104,
+    "ru": "Это панель с запасами ресурсов на корабле.\n\nВы можете менять их количество:\n\n-используя их во время путешествия\n\n-покупая у торговцев за квант\n\nЭто ваши стартовые ресурсы при высадке на каждую планету.",
+    "es": "Este es el panel de reservas de recursos en la nave.\n\nPuedes cambiar sus cantidades:\n\n-usándolos durante el viaje\n\n-comprándolos a comerciantes por cuantos\n\nEstos son tus recursos iniciales al aterrizar en cada planeta."
+  },
+  {
+    "id": 1105,
+    "ru": "Откройте карту текущей галактики.",
+    "es": "Abre el mapa de la galaxia actual."
+  },
+  {
+    "id": 1106,
+    "ru": "Звёздная карта отображает все узлы в текущей галактике.\n\nНаведите курсор на узел, чтобы просмотреть его описание.",
+    "es": "El mapa estelar muestra todos los nodos de la galaxia actual.\n\nPasa el cursor sobre un nodo para ver su descripción."
+  },
+  {
+    "id": 1107,
+    "ru": "Выберите узел, чтобы переместить корабль.",
+    "es": "Selecciona un nodo para mover la nave."
+  },
+  {
+    "id": 1108,
+    "ru": "Вы обнаружили не исследованную планету.\n\nНеобходимо совершить высадку и выполнить назначенные цели, прежде чем мы сможем продолжить путешествие.",
+    "es": "Has descubierto un planeta inexplorado.\n\nDebes aterrizar y completar los objetivos asignados antes de que podamos continuar el viaje."
+  },
+  {
+    "id": 1109,
+    "ru": "Мы высадились на неизвестную планету.\n\nНаша задача развернуть базу и выполнить поставленные цели.",
+    "es": "Hemos aterrizado en un planeta desconocido.\n\nNuestra tarea es desplegar una base y completar los objetivos establecidos."
+  },
+  {
+    "id": 1110,
+    "ru": "В начале каждой миссии вам доступна карта ландшафта - \"Фундамент Базы\".\n\nВыберите карту.",
+    "es": "Al inicio de cada misión tienes disponible una carta de paisaje: \"Cimientos de la base\".\n\nSelecciona la carta."
+  },
+  {
+    "id": 1111,
+    "ru": "Данная карта ландшафта имеет уникальный размер 2x2 клетки.\n\nУстановите карту на землю.\n\nВсе 4 клетки тайла должны гореть зеленым.",
+    "es": "Esta carta de paisaje tiene un tamaño único de 2x2 casillas.\n\nColoca la carta en el suelo.\n\nLas 4 casillas del mosaico deben iluminarse en verde."
+  },
+  {
+    "id": 1112,
+    "ru": "Нажмите на тайл \"Фундамента Базы\".\n\nЧтобы открыть панель с информацией.",
+    "es": "Haz clic en el mosaico \"Cimientos de la base\".\n\nPara abrir el panel de información."
+  },
+  {
+    "id": 1113,
+    "ru": "На этой панели вы можете увидеть общую информацию о текущем тайле.\n\nНапример, как он влияет на общую экологию.",
+    "es": "En este panel puedes ver información general sobre el mosaico actual.\n\nPor ejemplo, cómo afecta a la ecología general."
+  },
+  {
+    "id": 1114,
+    "ru": "Число в этой шестеренке указывает на текущую экологию на планете. Она состоит из:\n\n-базовой экологии планеты\n\n-текущей радиации\n\n-установленных вами тайлов ландшафтов и зданий",
+    "es": "El número de este engranaje indica la ecología actual del planeta. Está compuesta por:\n\n-la ecología base del planeta\n\n-la radiación actual\n\n-los mosaicos de paisajes y edificios que has colocado"
+  },
+  {
+    "id": 1115,
+    "ru": "Если радиация горит серым или зеленым цветом, это означает, что ее число положительно.\n\nЕсли желтым или красным, значит отрицательно.\n\nЧем хуже экология, тем выше будет показатель защиты у врагов и меньше награда в конце миссии.",
+    "es": "Si la radiación se muestra en gris o verde, significa que su valor es positivo.\n\nSi aparece en amarillo o rojo, es negativo.\n\nCuanto peor sea la ecología, mayor será la defensa de los enemigos y menor la recompensa al final de la misión."
+  },
+  {
+    "id": 1116,
+    "ru": "Нажмите на кнопку \"Построить\".\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.",
+    "es": "Pulsa el botón \"Construir\".\n\nSe abrirá una lista de tipos de edificios disponibles en este paisaje."
+  },
+  {
+    "id": 1117,
+    "ru": "На тайле ландшафта \"Фундамент базы\" доступен только один тип зданий для постройки.\n\nВыберите тип здания, чтобы открыть доступные здания для постройки.",
+    "es": "En el mosaico de paisaje \"Cimientos de la base\" solo hay un tipo de edificio disponible para construir.\n\nSelecciona el tipo de edificio para ver los edificios disponibles."
+  },
+  {
+    "id": 1118,
+    "ru": "Наведите курсор на здание \"Поселение\", чтобы отобразить необходимые для его строительства ресурсы.",
+    "es": "Pasa el cursor sobre el edificio \"Asentamiento\" para ver los recursos necesarios para construirlo."
+  },
+  {
+    "id": 1119,
+    "ru": "Откройте панель ресурсов.",
+    "es": "Abre el panel de recursos."
+  },
+  {
+    "id": 1120,
+    "ru": "Вам хватает ресурсов на постройку.\n\nНажмите на карту \"Поселение\" чтобы начать строительство.",
+    "es": "Tienes suficientes recursos para construir.\n\nPulsa la carta \"Asentamiento\" para iniciar la construcción."
+  },
+  {
+    "id": 1121,
+    "ru": "Под тайлом здания вы можете заметить синий слайдер.\n\nОн постепенно увеличивается, повышая здоровье здания, до тех пор, пока оно не будет построено.",
+    "es": "Bajo el mosaico del edificio puedes ver un deslizador azul.\n\nAumenta gradualmente, incrementando la salud del edificio hasta que se construya."
+  },
+  {
+    "id": 1122,
+    "ru": "Пока здание строится, оно уязвимо.\n\nЕго могут начать атаковать враги.\n\nСлайдер здоровья начнет опускаться, пока здоровье не дойдет до нуля и здание будет уничтожено.",
+    "es": "Mientras el edificio se construye, es vulnerable.\n\nLos enemigos pueden empezar a atacarlo.\n\nEl deslizador de salud bajará hasta que llegue a cero y el edificio sea destruido."
+  },
+  {
+    "id": 1123,
+    "ru": "После того, как база завершит свое строительство, начнется отсчет времени.\n\nВремя измеряется в днях.\n\nВ каждом дне 24 тика.",
+    "es": "Cuando la base termine de construirse, comenzará el conteo del tiempo.\n\nEl tiempo se mide en días.\n\nCada día tiene 24 tics."
+  },
+  {
+    "id": 1124,
+    "ru": "Это панель смены скорости игры.\n\nПоставьте игру на паузу, чтобы спланировать свои дальнешие шаги.",
+    "es": "Este es el panel de velocidad del juego.\n\nPausa el juego para planificar tus próximos pasos."
+  },
+  {
+    "id": 1125,
+    "ru": "Каждый тик времени происходит потребление/создание ресурсов зданиями.\n\nВ окне информации о тайле, \"Поселение\" потребляет 0.1 камня за каждый тик времени.\n\nПри этом создавая ресурс - фрагменты данных.",
+    "es": "En cada tic de tiempo, los edificios consumen y/o producen recursos.\n\nEn la ventana de información del mosaico, \"Asentamiento\" consume 0.1 de piedra por cada tic.\n\nA la vez, produce el recurso: fragmentos de datos."
+  },
+  {
+    "id": 1126,
+    "ru": "Фрагмент данных необходим для изучения новых зданий\n\nВы можете получить их:\n\n-после прохождения миссии\n\n-во время путешествия по космосу\n\nИзучить новые здания можно только на корабле.",
+    "es": "El fragmento de datos es necesario para investigar nuevos edificios\n\nPuedes obtenerlos:\n\n-al completar una misión\n\n-durante el viaje por el espacio\n\nSolo puedes investigar edificios nuevos en la nave."
+  },
+  {
+    "id": 1127,
+    "ru": "Если у вас мало камня, но например много дерева.\n\nПоменяйте потребляемый зданием ресурс, нажав на иконку ресурса.",
+    "es": "Si tienes poca piedra, pero por ejemplo mucha madera.\n\nCambia el recurso que consume el edificio pulsando el icono del recurso."
+  },
+  {
+    "id": 1128,
+    "ru": "Пока мы находимся в режиме паузы, время остановлено. Создание и потребление ресурсов зданиями не происходит.\n\nЕсли требуемый для работы ресурс закончится. То здание перестанет его добывать до тех пор, пока необходимое кол-во ресурсов снова не появится.",
+    "es": "Mientras estamos en pausa, el tiempo está detenido. Los edificios no producen ni consumen recursos.\n\nSi el recurso necesario para funcionar se agota, el edificio dejará de producirlo hasta que vuelva a haber la cantidad requerida."
+  },
+  {
+    "id": 1129,
+    "ru": "После строительства базы вам гарантировано дается по 1 карте Леса и Горы, а так же две случайные карты ландшафтов.\n\nКаждый новый день всегда приносит 2 новые карты.",
+    "es": "Después de construir la base, recibes garantizado 1 carta de Bosque y 1 de Montaña, además de dos cartas de paisaje aleatorias.\n\nCada nuevo día siempre trae 2 cartas nuevas."
+  },
+  {
+    "id": 1130,
+    "ru": "Временно отключите работу здания.\n\nЧтобы сэкономить ресурсы для дальнейших построек.\n\nЕсли здание выключено, оно не добывает и не потребляет ресурсы.\n\nА также снижает порчу экологии.",
+    "es": "Desactiva temporalmente el funcionamiento del edificio.\n\nPara ahorrar recursos para construcciones posteriores.\n\nSi el edificio está apagado, no produce ni consume recursos.\n\nAdemás, reduce la degradación de la ecología."
+  },
+  {
+    "id": 1131,
+    "ru": "Настало время посмотреть на новые тайлы ландшафта.\n\nВыберите карту \"Лес\".",
+    "es": "Es hora de ver nuevos mosaicos de paisaje.\n\nSelecciona la carta \"Bosque\"."
+  },
+  {
+    "id": 1132,
+    "ru": "Данная карта ландшафта имеет обычный размер 1x1 клетки.\n\nУстановите карту на землю.",
+    "es": "Esta carta de paisaje tiene el tamaño normal de 1x1 casilla.\n\nColoca la carta en el suelo."
+  },
+  {
+    "id": 1133,
+    "ru": "Нажмите на тайл \"Лес\".\n\nЧтобы открыть панель с информацией.",
+    "es": "Haz clic en el mosaico \"Bosque\".\n\nPara abrir el panel de información."
+  },
+  {
+    "id": 1134,
+    "ru": "Нажмите на кнопку \"Построить\".\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.",
+    "es": "Pulsa el botón \"Construir\".\n\nSe abrirá una lista de tipos de edificios disponibles en este paisaje."
+  },
+  {
+    "id": 1135,
+    "ru": "На тайле ландшафта \"Лес\" доступно несколько зданий для постройки.\n\nЕсли кнопка типа здания не активна, это означает, что у вас не изучено ни одно здание в этом типе.",
+    "es": "En el mosaico de paisaje \"Bosque\" hay varios edificios disponibles para construir.\n\nSi el botón del tipo de edificio no está activo, significa que no has investigado ningún edificio de ese tipo."
+  },
+  {
+    "id": 1136,
+    "ru": "Выберите тип здания \"Добыча Дерева\", чтобы открыть доступные здания для постройки.",
+    "es": "Selecciona el tipo de edificio \"Extracción de madera\" para ver los edificios disponibles."
+  },
+  {
+    "id": 1137,
+    "ru": "Нажмите на карту \"Ручная Добыча\", чтобы начать строительство.",
+    "es": "Pulsa la carta \"Extracción manual\" para iniciar la construcción."
+  }
+]

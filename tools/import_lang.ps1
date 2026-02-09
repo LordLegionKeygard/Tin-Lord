@@ -50,9 +50,9 @@ foreach ($line in $lines) {
         2 { $value = $t.fr }
         3 { $value = $t.it }
         4 { $value = $t.de }
-        5 { $value = $t.'es-ES' }
+        5 { $value = $t.'es-ES'; if ($null -eq $value) { $value = $t.es } }
         6 { $value = $t.pl }
-        7 { $value = $t.'pt-BR' }
+        7 { $value = $t.'pt-BR'; if ($null -eq $value) { $value = $t.pt } }
         8 { $value = $t.ja }
         9 { $value = $t.'zh-Hans' }
       }
@@ -83,9 +83,9 @@ foreach ($line in $lines) {
         2 { $value = $t.fr }
         3 { $value = $t.it }
         4 { $value = $t.de }
-        5 { $value = $t.'es-ES' }
+        5 { $value = $t.'es-ES'; if ($null -eq $value) { $value = $t.es } }
         6 { $value = $t.pl }
-        7 { $value = $t.'pt-BR' }
+        7 { $value = $t.'pt-BR'; if ($null -eq $value) { $value = $t.pt } }
         8 { $value = $t.ja }
         9 { $value = $t.'zh-Hans' }
       }
