@@ -14,7 +14,7 @@ using Steamworks;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 6;
+    public static int LanguageNumber = 1;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 10];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 
@@ -1941,11 +1941,11 @@ public class Language : MonoBehaviour
         _text[172, 1] = "Процессор";
         _text[172, 2] = "Processeur";
         _text[172, 3] = "Processore";
-        _text[172, 4] = "CPU";
+        _text[172, 4] = "Prozessor";
         _text[172, 5] = "Procesador";
         _text[172, 6] = "Procesor";
-        _text[172, 7] = "CPU";
-        _text[172, 8] = "CPU";
+        _text[172, 7] = "Processador";
+        _text[172, 8] = "プロセッサ";
         _text[172, 9] = "中央处理器";
 
         _text[173, 0] = "Engine";
