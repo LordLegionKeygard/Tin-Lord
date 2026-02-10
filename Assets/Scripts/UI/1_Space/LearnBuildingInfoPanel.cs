@@ -299,10 +299,9 @@ public class LearnBuildingInfoPanel : MonoBehaviour
     {
         string needOpen = Language.TextStatic[43];  // "Вам нужно открыть"
         string buildingName = Language.TextStatic[item.GetBuilding().NameLanguageNumber];
-        string inText = Language.TextStatic[75];  // "в"
         string typeNumber = _buildingLearnPanel.GetParentTileName(item, _allBuildingTypes);
 
-        return $"{needOpen} \"{buildingName}\" {inText} \"{typeNumber}\"";
+        return $"{needOpen} \"{buildingName}\" => \"{typeNumber}\"";
     }
 
     private void PrepareGoButton()
