@@ -9,12 +9,12 @@ using Steamworks;
 // 5 - Spanish (Spain)				es-ES
 // 6 - Polish						pl
 // 7 - Portuguese (Brazil)			pt-BR
-//+ 8 - Japanese						ja
-//+ 9 - Chinese (Simplified)			zh-Hans
+//+ 8 - Japanese					ja
+//+ 9 - Chinese (Simplified)		zh-Hans
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 1;
+    public static int LanguageNumber = 4;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 10];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 
@@ -8528,7 +8528,7 @@ public class Language : MonoBehaviour
         _text[1101, 1] = "Это ядра ИИ - жизненно важные модули корабля.\n\nКаждая ячейка содержит два ядра.\n\nЕсли они закончатся - больше никто не сможет управлять экипажем, и корабль останется дрейфовать в бескрайнем космосе.";
         _text[1101, 2] = "Ce sont des cœurs d'IA, les modules vitaux du vaisseau.\n\nChaque cellule contient deux cœurs.\n\nS'ils viennent à manquer, personne ne pourra plus contrôler l'équipage et le vaisseau dérivera dans l'immensité de l'espace.";
         _text[1101, 3] = "Questi sono i nuclei IA: moduli vitali della nave.\n\nOgni cella contiene due nuclei.\n\nSe finiscono, nessuno potrà più comandare l'equipaggio e la nave resterà a vagare nell'immensità dello spazio.";
-        _text[1101, 4] = "Kerne der KI.\n\nDeine Kernressource.\n\nWenn sie enden - enden wir.\n\nWir müssen sie bewahren.";
+        _text[1101, 4] = "Kerne der KI. Deine Kernressource.\n\nWenn sie enden - enden wir.\n\nWir müssen sie bewahren.";
         _text[1101, 5] = "Estos son los núcleos de IA, módulos vitales de la nave.\n\nCada celda contiene dos núcleos.\n\nSi se agotan, nadie podrá seguir controlando la tripulación, y la nave quedará a la deriva en el infinito espacio.";
         _text[1101, 6] = "To rdzenie SI - kluczowe moduły statku.\n\nKażda komórka zawiera dwa rdzenie.\n\nJeśli się skończą - nikt nie będzie w stanie kontrolować załogi, a statek pozostanie dryfować w bezkresnym kosmosie.";
         _text[1101, 7] = "Estes são os núcleos de IA - módulos vitais do navio.\n\nCada célula contém dois núcleos.\n\nSe eles acabarem, ninguém mais сможет controlar a tripulação, e o navio ficará à deriva no espaço infinito.";
@@ -8540,7 +8540,7 @@ public class Language : MonoBehaviour
         _text[1102, 1] = "Квант - межгалактическая валюта.\n\nС помощью него вы сможете покупать товары у торговцев в космосе.\n\nЭту валюту вы сможете получить:\n\n-во время путешествия по галактике.\n\n-при успешном завершении миссии на планете.";
         _text[1102, 2] = "Le quantum est une monnaie intergalactique.\n\nVous pouvez l'utiliser pour acheter des biens auprès de marchands de l'espace.\n\nVous pouvez gagner cette monnaie:\n\n-en voyageant à travers la galaxie.\n\n-en menant à bien une mission sur une planète.";
         _text[1102, 3] = "Il quant è una valuta intergalattica.\n\nCon essa potrai acquistare merci dai mercanti nello spazio.\n\nQuesta valuta si ottiene:\n\n-durante il viaggio nella galassia.\n\n-al completamento con successo di una missione sul pianeta.";
-        _text[1102, 4] = "Quant.\n\nWährung des Schiffs.\n\nDu erhältst quant:\n\n- während Missionen\n\n- in Raumereignissen\n\n- im Kampf gegen Gegner\n\nWird für Handel und Verbesserungen verwendet.";
+        _text[1102, 4] = "Quant. Währung des Schiffs.\n\nDu erhältst quant:\n\n- während Missionen\n\n- in Raumereignissen\n\n- im Kampf gegen Gegner\n\nWird für Handel und Verbesserungen verwendet.";
         _text[1102, 5] = "El quant es una moneda intergaláctica.\n\nCon ella podrás comprar bienes a los comerciantes en el espacio.\n\nPuedes obtener esta moneda:\n\n-durante el viaje por la galaxia.\n\n-al completar con éxito una misión en un planeta.";
         _text[1102, 6] = "Quant - międzygalaktyczna waluta.\n\nDzięki niej możesz kupować towary u handlarzy w kosmosie.\n\nWalutę tę możesz zdobyć:\n\n- podczas podróży po galaktyce.\n\n- za pomyślne ukończenie misji na planecie.";
         _text[1102, 7] = "Quant é uma moeda intergaláctica.\n\nCom ela, você poderá comprar mercadorias de comerciantes no espaço.\n\nVocê pode obter esta moeda:\n\n-durante a viagem pela galáxia.\n\n-ao concluir com sucesso uma missão no planeta.";

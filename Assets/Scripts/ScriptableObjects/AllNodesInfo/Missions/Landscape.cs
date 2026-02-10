@@ -16,7 +16,7 @@ public class Landscape : ScriptableObject
     public GameEventInfo[] MissionEvents;
     public Card[] Cards;
     public Card[] TacticCards;
-    public DescriptionWrapper[] DescriptionWrappers;
+    public int DescriptionLanguageNumber;
 
     [Header("Cosmos")]
     public CosmosVariations[] CosmosVariations;

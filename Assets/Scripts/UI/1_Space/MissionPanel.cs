@@ -9,9 +9,9 @@ public class MissionPanel : MonoBehaviour
     [Inject] private SpaceSaveGame _save;
     [Inject] private readonly SpaceSaveGame _spaceSaveGame;
     [Inject] private readonly MissionSaveGame _missionSaveGame;
+    [SerializeField] private RectTransform _descriptionLayoutRoot;
     [SerializeField] private ActInfo[] _actsInfo;
     [SerializeField] private AiCoreSystem _aiCoreSystem;
-    [SerializeField] private RectTransform _descriptionPanel;
     [SerializeField] private TextMeshProUGUI _missionNameHeaderText;
     [SerializeField] private TextMeshProUGUI _ecologyLevelText;
     [SerializeField] private TextMeshProUGUI _objectiveText;
@@ -40,12 +40,18 @@ public class MissionPanel : MonoBehaviour
 
         UnactiveAll();
 
-        var descriptionWrapper = _currentNode.Landscape.DescriptionWrappers[Language.LanguageNumber];
         _missionNameHeaderText.text = Language.TextStatic[_currentNode.Landscape.NameLanguageNumber];
         _ecologyLevelText.text = $"{Language.TextStatic[34]}: {_currentNode.Landscape.StartEcology}";
         _objectiveText.text = $"{Language.TextStatic[36]}: ";
-        _descriptionText.text = Language.TextStatic[descriptionWrapper.DescriptionLanguageNumber];
-        _descriptionPanel.sizeDelta = new Vector2(_descriptionPanel.sizeDelta.x, descriptionWrapper.PanelHeight);
+        _descriptionText.text = Language.TextStatic[_currentNode.Landscape.DescriptionLanguageNumber];
+
+        _descriptionText.ForceMeshUpdate();
+
+        if (_descriptionLayoutRoot != null)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(_descriptionLayoutRoot);
+        }
+
 
         var objectives = _currentNode.Objective.Objectives;
         for (int i = 0; i < objectives.Length; i++)
