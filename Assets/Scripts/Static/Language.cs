@@ -4,9 +4,9 @@ using Steamworks;
 // 0 - English						en
 //+ 1 - Russian						ru
 //+ 2 - French						fr
-// 3 - Italian						it
-// 4 - German						de
-// 5 - Spanish (Spain)				es-ES
+//+ 3 - Italian						it
+//+ 4 - German						de
+//+ 5 - Spanish (Spain)				es-ES
 // 6 - Polish						pl
 // 7 - Portuguese (Brazil)			pt-BR
 //+ 8 - Japanese					ja
@@ -14,7 +14,7 @@ using Steamworks;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 4;
+    public static int LanguageNumber = 1;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 10];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 
@@ -80,7 +80,7 @@ public class Language : MonoBehaviour
         _text[3, 1] = "Уровень здания";
         _text[3, 2] = "Niveau du bâtiment";
         _text[3, 3] = "Livello dell'edificio";
-        _text[3, 4] = "Gebäudestufe";
+        _text[3, 4] = "Gebäudeebene";
         _text[3, 5] = "Nivel del edificio";
         _text[3, 6] = "Poziom budynku";
         _text[3, 7] = "Nível do edifício";
@@ -114,7 +114,7 @@ public class Language : MonoBehaviour
         _text[6, 1] = "Добываемый ресурс";
         _text[6, 2] = "Ressource extraite";
         _text[6, 3] = "Risorsa estratta";
-        _text[6, 4] = "Abbaubare Ressource";
+        _text[6, 4] = "Extrahierte Ressource";
         _text[6, 5] = "Recurso extraído";
         _text[6, 6] = "Pozyskiwany surowiec";
         _text[6, 7] = "Recurso extraído";
@@ -158,7 +158,7 @@ public class Language : MonoBehaviour
         _text[10, 1] = "Выберите тип здания";
         _text[10, 2] = "Sélectionnez le type de bâtiment";
         _text[10, 3] = "Seleziona il tipo di edificio";
-        _text[10, 4] = "Wähle einen Gebäudetyp";
+        _text[10, 4] = "Gebäudetyp auswählen";
         _text[10, 5] = "Elige el tipo de edificio";
         _text[10, 6] = "Wybierz typ budynku";
         _text[10, 7] = "Selecione o tipo de edifício";
@@ -180,7 +180,7 @@ public class Language : MonoBehaviour
         _text[12, 1] = "Выберите здание";
         _text[12, 2] = "Sélectionnez un bâtiment";
         _text[12, 3] = "Seleziona un edificio";
-        _text[12, 4] = "Wähle ein Gebäude";
+        _text[12, 4] = "Wählen Sie ein Gebäude aus";
         _text[12, 5] = "Elige un edificio";
         _text[12, 6] = "Wybierz budynek";
         _text[12, 7] = "Selecione um edifício";
@@ -191,7 +191,7 @@ public class Language : MonoBehaviour
         _text[13, 1] = "Постройки";
         _text[13, 2] = "Bâtiments";
         _text[13, 3] = "Edifici";
-        _text[13, 4] = "Bauten";
+        _text[13, 4] = "Gebäude";
         _text[13, 5] = "Construcciones";
         _text[13, 6] = "Budowle";
         _text[13, 7] = "Construções";
@@ -224,7 +224,7 @@ public class Language : MonoBehaviour
         _text[16, 1] = "Экология здания";
         _text[16, 2] = "Écologie du bâtiment";
         _text[16, 3] = "Ecologia edilizia";
-        _text[16, 4] = "Ökologie des Gebäudes";
+        _text[16, 4] = "Gebäudeökologie";
         _text[16, 5] = "Ecología del edificio";
         _text[16, 6] = "Ekologia budynku";
         _text[16, 7] = "Ecologia do edifício";
@@ -257,7 +257,7 @@ public class Language : MonoBehaviour
         _text[19, 1] = "Повышение Урона";
         _text[19, 2] = "Augmentation des dégâts";
         _text[19, 3] = "Aumento dei danni";
-        _text[19, 4] = "Schaden erhöhen";
+        _text[19, 4] = "Schadenserhöhung";
         _text[19, 5] = "Aumento de daño";
         _text[19, 6] = "Zwiększenie obrażeń";
         _text[19, 7] = "Aumento de Dano";
@@ -268,7 +268,7 @@ public class Language : MonoBehaviour
         _text[20, 1] = "Повышение Прочности";
         _text[20, 2] = "Augmentation de la force";
         _text[20, 3] = "Aumento della forza";
-        _text[20, 4] = "Stärkung";
+        _text[20, 4] = "Kraftzuwachs";
         _text[20, 5] = "Aumento de durabilidad";
         _text[20, 6] = "Zwiększenie wytrzymałości";
         _text[20, 7] = "Aumento de Durabilidade";
@@ -279,7 +279,7 @@ public class Language : MonoBehaviour
         _text[21, 1] = "Машины";
         _text[21, 2] = "Voitures";
         _text[21, 3] = "Automobili";
-        _text[21, 4] = "Maschinen";
+        _text[21, 4] = "Autos";
         _text[21, 5] = "Máquinas";
         _text[21, 6] = "Maszyny";
         _text[21, 7] = "Máquinas";
@@ -334,7 +334,7 @@ public class Language : MonoBehaviour
         _text[26, 1] = "Продолжить игру";
         _text[26, 2] = "Continuez la partie";
         _text[26, 3] = "Continua il gioco";
-        _text[26, 4] = "Spiel fortsetzen";
+        _text[26, 4] = "Setze das Spiel fort";
         _text[26, 5] = "Continuar";
         _text[26, 6] = "Kontynuuj grę";
         _text[26, 7] = "Continuar jogo";
@@ -367,7 +367,7 @@ public class Language : MonoBehaviour
         _text[29, 1] = "Выход";
         _text[29, 2] = "Sortie";
         _text[29, 3] = "Uscita";
-        _text[29, 4] = "Beenden";
+        _text[29, 4] = "Ausfahrt";
         _text[29, 5] = "Salir";
         _text[29, 6] = "Wyjście";
         _text[29, 7] = "Sair";
@@ -389,7 +389,7 @@ public class Language : MonoBehaviour
         _text[31, 1] = "Вы уверены, что хотите начать новую игру?\n\nВаше прошлое сохранение будет перезаписано.";
         _text[31, 2] = "Êtes-vous sûr de vouloir commencer une nouvelle partie?\n\nVotre sauvegarde précédente sera nécrasée.";
         _text[31, 3] = "Vuoi davvero iniziare una nuova partita?\n\nIl tuo salvataggio precedente verrà sovrascritto.";
-        _text[31, 4] = "Bist du sicher, dass du ein neues Spiel starten möchtest?\n\nDein vorheriger Spielstand wird überschrieben.";
+        _text[31, 4] = "Möchtest du wirklich ein neues Spiel starten?\n\nDein vorheriger Spielstand wird überschrieben.";
         _text[31, 5] = "¿Seguro que quieres empezar una nueva partida?\n\nTu guardado anterior se sobrescribirá.";
         _text[31, 6] = "Czy na pewno chcesz rozpocząć nową grę?\n\nTwoje poprzednie zapisane dane zostaną nadpisane.";
         _text[31, 7] = "Tem a certeza de que quer iniciar um novo jogo?\n\nO seu salvamento anterior será substituído.";
@@ -400,7 +400,7 @@ public class Language : MonoBehaviour
         _text[32, 1] = "Командный Центр";
         _text[32, 2] = "Centre de commandement";
         _text[32, 3] = "Centro di comando";
-        _text[32, 4] = "Kommandzentrale";
+        _text[32, 4] = "Kommandozentrale";
         _text[32, 5] = "Centro de mando";
         _text[32, 6] = "Centrum Dowodzenia";
         _text[32, 7] = "Centro de Comando";
@@ -422,7 +422,7 @@ public class Language : MonoBehaviour
         _text[34, 1] = "Уровень экологии";
         _text[34, 2] = "Niveau écologique";
         _text[34, 3] = "Livello ecologico";
-        _text[34, 4] = "Ökologieebene";
+        _text[34, 4] = "Ökologische Ebene";
         _text[34, 5] = "Nivel de ecología";
         _text[34, 6] = "Poziom ekologii";
         _text[34, 7] = "Nível de ecologia";
@@ -455,7 +455,7 @@ public class Language : MonoBehaviour
         _text[37, 1] = "дней";
         _text[37, 2] = "jours";
         _text[37, 3] = "giorni";
-        _text[37, 4] = "tage";
+        _text[37, 4] = "Tage";
         _text[37, 5] = "días";
         _text[37, 6] = "dni";
         _text[37, 7] = "dias";
@@ -477,7 +477,7 @@ public class Language : MonoBehaviour
         _text[39, 1] = "Восстановить экологию до";
         _text[39, 2] = "Restaurer l'écologie";
         _text[39, 3] = "Ripristinare l'ecologia a";
-        _text[39, 4] = "Ökologie wiederherstellen bis";
+        _text[39, 4] = "Das Ökosystem wiederherstellen";
         _text[39, 5] = "Restaurar la ecología hasta";
         _text[39, 6] = "Przywróć ekologię do";
         _text[39, 7] = "Restaurar a ecologia até";
@@ -488,7 +488,7 @@ public class Language : MonoBehaviour
         _text[40, 1] = "Убить {0} врагов";
         _text[40, 2] = "Tuez {0} ennemis";
         _text[40, 3] = "Uccidi {0} nemici";
-        _text[40, 4] = "Töte {0} gegner";
+        _text[40, 4] = "Töte {0} Feinde";
         _text[40, 5] = "Mata a {0} enemigos";
         _text[40, 6] = "Zabij {0} wrogów";
         _text[40, 7] = "Matar {0} inimigos";
@@ -499,7 +499,7 @@ public class Language : MonoBehaviour
         _text[41, 1] = "Построить {0} зданий";
         _text[41, 2] = "Construisez {0} bâtiments";
         _text[41, 3] = "Costruisci {0} edifici";
-        _text[41, 4] = "Baue {0} gebäude";
+        _text[41, 4] = "Errichte {0} Gebäude";
         _text[41, 5] = "Construye {0} edificios";
         _text[41, 6] = "Zbuduj {0} budynków";
         _text[41, 7] = "Construir {0} edifícios";
@@ -510,7 +510,7 @@ public class Language : MonoBehaviour
         _text[42, 1] = "Выжить {0} дней";
         _text[42, 2] = "Survivre {0} jours";
         _text[42, 3] = "Sopravvivi {0} giorni";
-        _text[42, 4] = "Überlebe {0} tage";
+        _text[42, 4] = "Überlebe {0} Tage";
         _text[42, 5] = "Sobrevive {0} días";
         _text[42, 6] = "Przetrwaj {0} dni";
         _text[42, 7] = "Sobreviver {0} dias";
@@ -521,7 +521,7 @@ public class Language : MonoBehaviour
         _text[43, 1] = "Вам нужно открыть";
         _text[43, 2] = "Vous devez ouvrir";
         _text[43, 3] = "Devi aprire";
-        _text[43, 4] = "Du musst freischalten";
+        _text[43, 4] = "Du musst öffnen";
         _text[43, 5] = "Necesitas desbloquear";
         _text[43, 6] = "Musisz odblokować";
         _text[43, 7] = "Você precisa desbloquear";
@@ -532,7 +532,7 @@ public class Language : MonoBehaviour
         _text[44, 1] = "Сбежать";
         _text[44, 2] = "S'échapper";
         _text[44, 3] = "Fuga";
-        _text[44, 4] = "Fliehen";
+        _text[44, 4] = "Flucht";
         _text[44, 5] = "Escapar";
         _text[44, 6] = "Uciec";
         _text[44, 7] = "Fugir";
@@ -554,7 +554,7 @@ public class Language : MonoBehaviour
         _text[46, 1] = "Выход";
         _text[46, 2] = "Sortie";
         _text[46, 3] = "Uscita";
-        _text[46, 4] = "Verlassen";
+        _text[46, 4] = "Ausfahrt";
         _text[46, 5] = "Salir";
         _text[46, 6] = "Wyjście";
         _text[46, 7] = "Sair";
@@ -565,7 +565,7 @@ public class Language : MonoBehaviour
         _text[47, 1] = "Меню";
         _text[47, 2] = "Menu";
         _text[47, 3] = "Menu";
-        _text[47, 4] = "Menü";
+        _text[47, 4] = "Speisekarte";
         _text[47, 5] = "Menú";
         _text[47, 6] = "Menu";
         _text[47, 7] = "Menu";
@@ -597,7 +597,7 @@ public class Language : MonoBehaviour
         _text[50, 0] = "No";
         _text[50, 1] = "Нет";
         _text[50, 2] = "Non";
-        _text[50, 3] = "NO";
+        _text[50, 3] = "No";
         _text[50, 4] = "Nein";
         _text[50, 5] = "No";
         _text[50, 6] = "Nie";
@@ -640,14 +640,14 @@ public class Language : MonoBehaviour
 
         _text[54, 0] = "On / Off";
         _text[54, 1] = "Вкл / Выкл";
-        _text[54, 2] = "Marche/Arrêt";
+        _text[54, 2] = "Marche / Arrêt";
         _text[54, 3] = "Acceso / Spento";
         _text[54, 4] = "Ein / Aus";
         _text[54, 5] = "Activar / Desactivar";
         _text[54, 6] = "Wł. / Wył.";
         _text[54, 7] = "Ligar / Desligar";
-        _text[54, 8] = "オン/オフ";
-        _text[54, 9] = "开/关";
+        _text[54, 8] = "オン / オフ";
+        _text[54, 9] = "开 / 关";
 
         _text[55, 0] = "Rotate";
         _text[55, 1] = "Повернуть";
@@ -697,7 +697,7 @@ public class Language : MonoBehaviour
         _text[59, 1] = "Убито врагов: {0}/{1}";
         _text[59, 2] = "Ennemis tués: {0}/{1}";
         _text[59, 3] = "Nemici uccisi: {0}/{1}";
-        _text[59, 4] = "Gegner getötet: {0}/{1}";
+        _text[59, 4] = "Getötete Feinde: {0}/{1}";
         _text[59, 5] = "Enemigos eliminados: {0}/{1}";
         _text[59, 6] = "Zabici wrogowie: {0}/{1}";
         _text[59, 7] = "Inimigos eliminados: {0}/{1}";
@@ -708,7 +708,7 @@ public class Language : MonoBehaviour
         _text[60, 1] = "Построено зданий: {0}/{1}";
         _text[60, 2] = "Bâtiments construits: {0}/{1}";
         _text[60, 3] = "Edifici costruiti: {0}/{1}";
-        _text[60, 4] = "Gebäude gebaut: {0}/{1}";
+        _text[60, 4] = "Errichtete Gebäude: {0}/{1}";
         _text[60, 5] = "Edificios construidos: {0}/{1}";
         _text[60, 6] = "Zbudowane budynki: {0}/{1}";
         _text[60, 7] = "Edifícios construídos: {0}/{1}";
@@ -719,7 +719,7 @@ public class Language : MonoBehaviour
         _text[61, 1] = "Прожито дней: {0}/{1}";
         _text[61, 2] = "Jours vécus: {0}/{1}";
         _text[61, 3] = "Giorni vissuti: {0}/{1}";
-        _text[61, 4] = "Tage überlebt: {0}/{1}";
+        _text[61, 4] = "Tage: {0}/{1}";
         _text[61, 5] = "Días sobrevividos: {0}/{1}";
         _text[61, 6] = "Przetrwane dni: {0}/{1}";
         _text[61, 7] = "Dias sobrevividos: {0}/{1}";
@@ -730,7 +730,7 @@ public class Language : MonoBehaviour
         _text[62, 1] = "Урон Повышен";
         _text[62, 2] = "Dégâts Augmentés";
         _text[62, 3] = "Danni aumentati";
-        _text[62, 4] = "Schaden Erhöht";
+        _text[62, 4] = "Schaden erhöht";
         _text[62, 5] = "Daño Aumentado";
         _text[62, 6] = "Obrażenia Zwiększone";
         _text[62, 7] = "Dano Aumentado";
@@ -752,7 +752,7 @@ public class Language : MonoBehaviour
         _text[64, 1] = "Поражение";
         _text[64, 2] = "Défaite";
         _text[64, 3] = "Sconfitta";
-        _text[64, 4] = "Niederlage";
+        _text[64, 4] = "Verlust";
         _text[64, 5] = "Derrota";
         _text[64, 6] = "Porażka";
         _text[64, 7] = "Derrota";
@@ -763,7 +763,7 @@ public class Language : MonoBehaviour
         _text[65, 1] = "Сбежал";
         _text[65, 2] = "Échappé";
         _text[65, 3] = "Fuggito";
-        _text[65, 4] = "Geflohen";
+        _text[65, 4] = "Entkommen";
         _text[65, 5] = "Escapó";
         _text[65, 6] = "Uciekł";
         _text[65, 7] = "Fugiu";
@@ -785,7 +785,7 @@ public class Language : MonoBehaviour
         _text[67, 1] = "Сохранить миссию и вернуться в командный центр?";
         _text[67, 2] = "Sauver la mission et retourner au centre de commandement ?";
         _text[67, 3] = "Salvare la missione e tornare al centro di comando?";
-        _text[67, 4] = "Mission speichern und zur Kommandzentrale zurückkehren?";
+        _text[67, 4] = "Mission retten und zum Kommandozentrum zurückkehren?";
         _text[67, 5] = "¿Guardar la misión y volver al centro de mando?";
         _text[67, 6] = "Zapisać misję i wrócić do Centrum Dowodzenia?";
         _text[67, 7] = "Guardar a missão e voltar ao centro de comando?";
@@ -808,7 +808,7 @@ public class Language : MonoBehaviour
         _text[69, 1] = "Ремонт";
         _text[69, 2] = "Réparation";
         _text[69, 3] = "Riparazione";
-        _text[69, 4] = "Reparatur";
+        _text[69, 4] = "Reparieren";
         _text[69, 5] = "Reparación";
         _text[69, 6] = "Naprawa";
         _text[69, 7] = "Reparação";
@@ -819,7 +819,7 @@ public class Language : MonoBehaviour
         _text[70, 1] = "Сверхдобыча";
         _text[70, 2] = "Super production";
         _text[70, 3] = "Super produzione";
-        _text[70, 4] = "Überabbau";
+        _text[70, 4] = "Superproduktion";
         _text[70, 5] = "Superextracción";
         _text[70, 6] = "Nadwydobycie";
         _text[70, 7] = "Superextração";
@@ -830,7 +830,7 @@ public class Language : MonoBehaviour
         _text[71, 1] = "Смена Редкости";
         _text[71, 2] = "Changement de rareté";
         _text[71, 3] = "Cambio di rarità";
-        _text[71, 4] = "Seltenheit ändern";
+        _text[71, 4] = "Änderung der Seltenheit";
         _text[71, 5] = "Cambiar rareza";
         _text[71, 6] = "Zmiana rzadkości";
         _text[71, 7] = "Alterar raridade";
@@ -841,7 +841,7 @@ public class Language : MonoBehaviour
         _text[72, 1] = "Равнина";
         _text[72, 2] = "Plaine";
         _text[72, 3] = "Pianura";
-        _text[72, 4] = "Ebene";
+        _text[72, 4] = "Schmucklos";
         _text[72, 5] = "Llanura";
         _text[72, 6] = "Równina";
         _text[72, 7] = "Planície";
@@ -874,7 +874,7 @@ public class Language : MonoBehaviour
         _text[75, 1] = "";
         _text[75, 2] = "";
         _text[75, 3] = "";
-        _text[75, 4] = "";
+        _text[75, 4] = "V";
         _text[75, 5] = "";
         _text[75, 6] = "";
         _text[75, 7] = "";
@@ -918,7 +918,7 @@ public class Language : MonoBehaviour
         _text[79, 1] = "стоимость ремонта всех зданий";
         _text[79, 2] = "le coût de la réparation de tous les bâtiments";
         _text[79, 3] = "il costo della riparazione di tutti gli edifici";
-        _text[79, 4] = "Kosten der Renovierung aller Gebäude";
+        _text[79, 4] = "die Kosten für die Instandsetzung aller Gebäude";
         _text[79, 5] = "coste de reparar todos los edificios";
         _text[79, 6] = "koszt naprawy wszystkich budynków";
         _text[79, 7] = "custo de reparação de todos os edifícios";
@@ -929,7 +929,7 @@ public class Language : MonoBehaviour
         _text[80, 1] = "к прочности зданий";
         _text[80, 2] = "à la solidité des bâtiments";
         _text[80, 3] = "alla resistenza degli edifici";
-        _text[80, 4] = "zur Haltbarkeit der Gebäude";
+        _text[80, 4] = "zur Festigkeit von Gebäuden";
         _text[80, 5] = "a la durabilidad de los edificios";
         _text[80, 6] = "do wytrzymałości budynków";
         _text[80, 7] = "à durabilidade dos edifícios";
@@ -940,7 +940,7 @@ public class Language : MonoBehaviour
         _text[81, 1] = "к урону турелей";
         _text[81, 2] = "aux dégâts de tourelle";
         _text[81, 3] = "ai danni della torretta";
-        _text[81, 4] = "zum Geschützschaden";
+        _text[81, 4] = "zu Turmschaden";
         _text[81, 5] = "al daño de las torretas";
         _text[81, 6] = "do obrażeń wieżyczek";
         _text[81, 7] = "ao dano das torres";
@@ -962,7 +962,7 @@ public class Language : MonoBehaviour
         _text[83, 1] = "Осколок";
         _text[83, 2] = "Éclat";
         _text[83, 3] = "Scheggia";
-        _text[83, 4] = "Scherbe";
+        _text[83, 4] = "Splitter";
         _text[83, 5] = "Esquirla";
         _text[83, 6] = "Odłamek";
         _text[83, 7] = "Fragmento";
@@ -995,7 +995,7 @@ public class Language : MonoBehaviour
         _text[86, 1] = "Вы не можете начать миссию с начала.\n\nУ вас нет запасных ядер ИИ.";
         _text[86, 2] = "Impossible de relancer la mission.\n\nVous n'avez plus de cœurs d'IA de rechange.";
         _text[86, 3] = "Non puoi riavviare la missione.\n\nNon hai nuclei IA di riserva.";
-        _text[86, 4] = "Du kannst die Mission nicht von vorn beginnen.\n\nDu hast keine Ersatz-KI-Kerne.";
+        _text[86, 4] = "Die Mission kann nicht neu gestartet werden.\n\nSie haben keine KI-Kerne mehr zur Verfügung.";
         _text[86, 5] = "No puedes empezar la misión desde el principio.\n\nNo te quedan núcleos de IA de repuesto.";
         _text[86, 6] = "Nie możesz rozpocząć misji od początku.\n\nNie masz zapasowych rdzeni SI.";
         _text[86, 7] = "Você não pode iniciar a missão do zero.\n\nVocê não tem núcleos de IA de reserva.";
@@ -1006,7 +1006,7 @@ public class Language : MonoBehaviour
         _text[87, 1] = "Не готово";
         _text[87, 2] = "Pas prêt";
         _text[87, 3] = "Non pronto";
-        _text[87, 4] = "Nicht bereit";
+        _text[87, 4] = "Noch nicht bereit";
         _text[87, 5] = "No disponible";
         _text[87, 6] = "Niegotowe";
         _text[87, 7] = "Não pronto";
@@ -1050,7 +1050,7 @@ public class Language : MonoBehaviour
         _text[91, 1] = "ПОСТРОИМ ЛУЧШИЙ МИР";
         _text[91, 2] = "CONSTRUISONS UN MONDE MEILLEUR";
         _text[91, 3] = "COSTRUIAMO UN MONDO MIGLIORE";
-        _text[91, 4] = "WIR BAUEN DIE BESTE WELT";
+        _text[91, 4] = "LASST UNS EINE BESSERE WELT ERBAUEN";
         _text[91, 5] = "CONSTRUYAMOS UN MUNDO MEJOR";
         _text[91, 6] = "ZBUDUJMY LEPSZY ŚWIAT";
         _text[91, 7] = "VAMOS CONSTRUIR O MELHOR MUNDO";
@@ -1094,7 +1094,7 @@ public class Language : MonoBehaviour
         _text[95, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
         _text[95, 2] = "-Rayonnement: Élevé\n-Pollution: Critique\n-Mise à jour: Active";
         _text[95, 3] = "-Radiazioni: Elevate\n-Inquinamento: Critico\n-Aggiornamento: Attivo";
-        _text[95, 4] = "-Strahlung: Hoch\n-Verschmutzung: Kritisch\n-Update: Aktiv";
+        _text[95, 4] = "-Strahlung: Hoch\n-Umweltverschmutzung: Kritisch\n-Aktualisierung: Aktiv";
         _text[95, 5] = "-Radiación: Alta\n-Contaminación: Crítica\n-Actualización: Activa";
         _text[95, 6] = "-Promieniowanie: Wysokie\n-Zanieczyszczenie: Krytyczne\n-Aktualizacja: Aktywna";
         _text[95, 7] = "-Radiação: Alta\n-Poluição: Crítica\n-Atualização: Ativa";
@@ -1105,7 +1105,7 @@ public class Language : MonoBehaviour
         _text[96, 1] = "Изучить";
         _text[96, 2] = "Étude";
         _text[96, 3] = "Studio";
-        _text[96, 4] = "Erforschen";
+        _text[96, 4] = "Studie";
         _text[96, 5] = "Investigar";
         _text[96, 6] = "Zbadaj";
         _text[96, 7] = "Pesquisar";
@@ -1116,7 +1116,7 @@ public class Language : MonoBehaviour
         _text[97, 1] = "Прочность здания";
         _text[97, 2] = "Renforcement des muscles";
         _text[97, 3] = "Costruire forza";
-        _text[97, 4] = "Gebäudehaltbarkeit";
+        _text[97, 4] = "Kraftaufbau";
         _text[97, 5] = "Durabilidad del edificio";
         _text[97, 6] = "Wytrzymałość budynku";
         _text[97, 7] = "Durabilidade do edifício";
@@ -1160,7 +1160,7 @@ public class Language : MonoBehaviour
         _text[101, 1] = "Скорость вращения";
         _text[101, 2] = "vitesse de rotation";
         _text[101, 3] = "Velocità di rotazione";
-        _text[101, 4] = "Drehgeschwindigkeit";
+        _text[101, 4] = "Drehzahl";
         _text[101, 5] = "Velocidad de giro";
         _text[101, 6] = "Szybkość obrotu";
         _text[101, 7] = "Velocidade de rotação";
@@ -1171,7 +1171,7 @@ public class Language : MonoBehaviour
         _text[102, 1] = "Нажмите любую кнопку\n\nEscape - отмена";
         _text[102, 2] = "Appuyez sur n'importe quelle touche.\n\nÉchap - Annuler";
         _text[102, 3] = "Premi un tasto qualsiasi\n\nEsc - annulla";
-        _text[102, 4] = "Drücke eine beliebige Taste\n\nEscape - Abbrechen";
+        _text[102, 4] = "Beliebige Taste drücken\n\nEscape – Abbrechen";
         _text[102, 5] = "Pulsa cualquier tecla\n\nEscape - cancelar";
         _text[102, 6] = "Naciśnij dowolny przycisk\n\nEscape - anuluj";
         _text[102, 7] = "Pressione qualquer botão\n\nEscape - cancelar";
@@ -1204,7 +1204,7 @@ public class Language : MonoBehaviour
         _text[105, 1] = "Общая громкость";
         _text[105, 2] = "Volume global";
         _text[105, 3] = "Volume complessivo";
-        _text[105, 4] = "Gesamtlautstärke";
+        _text[105, 4] = "Gesamtvolumen";
         _text[105, 5] = "Volumen general";
         _text[105, 6] = "Głośność ogólna";
         _text[105, 7] = "Volume geral";
@@ -1215,7 +1215,7 @@ public class Language : MonoBehaviour
         _text[106, 1] = "Громкость эффектов";
         _text[106, 2] = "Volume des effets";
         _text[106, 3] = "Volume degli effetti";
-        _text[106, 4] = "Effektlautstärke";
+        _text[106, 4] = "Effektvolumen";
         _text[106, 5] = "Volumen de efectos";
         _text[106, 6] = "Głośność efektów";
         _text[106, 7] = "Volume dos efeitos";
@@ -1226,7 +1226,7 @@ public class Language : MonoBehaviour
         _text[107, 1] = "Громкость интерфейса";
         _text[107, 2] = "Volume d'interface";
         _text[107, 3] = "Volume dell'interfaccia";
-        _text[107, 4] = "UI-Lautstärke";
+        _text[107, 4] = "Schnittstellenvolumen";
         _text[107, 5] = "Volumen de la interfaz";
         _text[107, 6] = "Głośność interfejsu";
         _text[107, 7] = "Volume da interface";
@@ -1270,7 +1270,7 @@ public class Language : MonoBehaviour
         _text[111, 1] = "Управление";
         _text[111, 2] = "Contrôle";
         _text[111, 3] = "Controllare";
-        _text[111, 4] = "Steuerung";
+        _text[111, 4] = "Kontrolle";
         _text[111, 5] = "Controles";
         _text[111, 6] = "Sterowanie";
         _text[111, 7] = "Controlos";
@@ -1314,7 +1314,7 @@ public class Language : MonoBehaviour
         _text[115, 1] = "Разрешение";
         _text[115, 2] = "Autorisation";
         _text[115, 3] = "Permesso";
-        _text[115, 4] = "Auflösung";
+        _text[115, 4] = "Erlaubnis";
         _text[115, 5] = "Resolución";
         _text[115, 6] = "Rozdzielczość";
         _text[115, 7] = "Resolução";
@@ -1336,7 +1336,7 @@ public class Language : MonoBehaviour
         _text[117, 1] = "Сглаживание";
         _text[117, 2] = "Lissage";
         _text[117, 3] = "Levigatura";
-        _text[117, 4] = "Kantenglättung";
+        _text[117, 4] = "Glättung";
         _text[117, 5] = "Suavizado";
         _text[117, 6] = "Wygładzanie";
         _text[117, 7] = "Anti-aliasing";
@@ -1358,7 +1358,7 @@ public class Language : MonoBehaviour
         _text[119, 1] = "Свечение";
         _text[119, 2] = "Briller";
         _text[119, 3] = "Incandescenza";
-        _text[119, 4] = "Bloom";
+        _text[119, 4] = "Glühen";
         _text[119, 5] = "Resplandor";
         _text[119, 6] = "Poświata";
         _text[119, 7] = "Brilho";
@@ -1369,7 +1369,7 @@ public class Language : MonoBehaviour
         _text[120, 1] = "Макс. Кол-во Кадров";
         _text[120, 2] = "Nombre maximal d'images";
         _text[120, 3] = "Numero massimo di fotogrammi";
-        _text[120, 4] = "Max. FPS";
+        _text[120, 4] = "Max. Frames";
         _text[120, 5] = "Máx. FPS";
         _text[120, 6] = "Maks. liczba klatek";
         _text[120, 7] = "Máx. de fotogramas";
@@ -1446,7 +1446,7 @@ public class Language : MonoBehaviour
         _text[127, 1] = "Среднее";
         _text[127, 2] = "Moyenne";
         _text[127, 3] = "Media";
-        _text[127, 4] = "Mittel";
+        _text[127, 4] = "Durchschnitt";
         _text[127, 5] = "Medio";
         _text[127, 6] = "Średnie";
         _text[127, 7] = "Médio";
@@ -1501,7 +1501,7 @@ public class Language : MonoBehaviour
         _text[132, 1] = "Ближайшее";
         _text[132, 2] = "Le plus proche";
         _text[132, 3] = "Il più vicino";
-        _text[132, 4] = "Nächster Nachbar";
+        _text[132, 4] = "Der nächstgelegene";
         _text[132, 5] = "Más cercano";
         _text[132, 6] = "Najbliższe";
         _text[132, 7] = "Mais próximo";
@@ -1523,7 +1523,7 @@ public class Language : MonoBehaviour
         _text[134, 1] = "Масштаб камеры";
         _text[134, 2] = "Échelle de l'appareil photo";
         _text[134, 3] = "Scala della fotocamera";
-        _text[134, 4] = "Kameraskala";
+        _text[134, 4] = "Kameramaßstab";
         _text[134, 5] = "Zoom de cámara";
         _text[134, 6] = "Zoom kamery";
         _text[134, 7] = "Zoom da câmara";
@@ -1534,7 +1534,7 @@ public class Language : MonoBehaviour
         _text[135, 1] = "Выбор тайла / карты";
         _text[135, 2] = "Sélection d'une tuile/carte";
         _text[135, 3] = "Selezione di una tessera/mappa";
-        _text[135, 4] = "Kachel/Karte auswählen";
+        _text[135, 4] = "Auswahl einer Kachel/Karte";
         _text[135, 5] = "Seleccionar casilla / carta";
         _text[135, 6] = "Wybór kafelka / karty";
         _text[135, 7] = "Selecionar tile / mapa";
@@ -1545,7 +1545,7 @@ public class Language : MonoBehaviour
         _text[136, 1] = "Отмена выбора тайла / карты";
         _text[136, 2] = "Désélectionner une tuile/carte";
         _text[136, 3] = "Deselezione di una tessera/mappa";
-        _text[136, 4] = "Kachel/Karte abwählen";
+        _text[136, 4] = "Auswahl einer Kachel/Karte aufheben";
         _text[136, 5] = "Cancelar selección de casilla / carta";
         _text[136, 6] = "Anuluj wybór kafelka / karty";
         _text[136, 7] = "Cancelar seleção de tile / mapa";
@@ -1556,7 +1556,7 @@ public class Language : MonoBehaviour
         _text[137, 1] = "Скорость игры: пауза";
         _text[137, 2] = "Vitesse du jeu: pause";
         _text[137, 3] = "Velocità di gioco: pausa";
-        _text[137, 4] = "Spielgeschwindigkeit: pause";
+        _text[137, 4] = "Spielgeschwindigkeit: Pause";
         _text[137, 5] = "Velocidad del juego: pausa";
         _text[137, 6] = "Prędkość gry: pauza";
         _text[137, 7] = "Velocidade do jogo: pausa";
@@ -1600,7 +1600,7 @@ public class Language : MonoBehaviour
         _text[141, 1] = "Меню";
         _text[141, 2] = "Menu";
         _text[141, 3] = "Menu";
-        _text[141, 4] = "Menü";
+        _text[141, 4] = "Speisekarte";
         _text[141, 5] = "Menú";
         _text[141, 6] = "Menu";
         _text[141, 7] = "Menu";
@@ -1611,7 +1611,7 @@ public class Language : MonoBehaviour
         _text[142, 1] = "Построить на тайле";
         _text[142, 2] = "Construire sur des tuiles";
         _text[142, 3] = "Costruisci su piastrella";
-        _text[142, 4] = "Auf Kachel bauen";
+        _text[142, 4] = "Auf Fliesen bauen";
         _text[142, 5] = "Construir en la casilla";
         _text[142, 6] = "Zbuduj na kafelku";
         _text[142, 7] = "Construir no tile";
@@ -1655,7 +1655,7 @@ public class Language : MonoBehaviour
         _text[146, 1] = "Открыть панель машин";
         _text[146, 2] = "Ouvrez le panneau de la voiture";
         _text[146, 3] = "Aprire il pannello dell'auto";
-        _text[146, 4] = "Maschinenpanel öffnen";
+        _text[146, 4] = "Öffnen Sie die Fahrzeugverkleidung";
         _text[146, 5] = "Abrir panel de máquinas";
         _text[146, 6] = "Otwórz panel maszyn";
         _text[146, 7] = "Abrir painel de máquinas";
@@ -1677,7 +1677,7 @@ public class Language : MonoBehaviour
         _text[148, 1] = "Экологический бонус";
         _text[148, 2] = "Bonus écologique";
         _text[148, 3] = "Bonus ecologico";
-        _text[148, 4] = "Ökologiebonus";
+        _text[148, 4] = "Ökologischer Bonus";
         _text[148, 5] = "Bonificación ecológica";
         _text[148, 6] = "Bonus ekologiczny";
         _text[148, 7] = "Bónus ecológico";
@@ -1688,7 +1688,7 @@ public class Language : MonoBehaviour
         _text[149, 1] = "Получено фрагментов данных";
         _text[149, 2] = "Fragments de données reçus";
         _text[149, 3] = "Frammenti di dati ricevuti";
-        _text[149, 4] = "Datenfragmente erhalten";
+        _text[149, 4] = "Empfangene Datenfragmente";
         _text[149, 5] = "Fragmentos de datos obtenidos";
         _text[149, 6] = "Otrzymane fragmenty danych";
         _text[149, 7] = "Fragmentos de dados obtidos";
@@ -1710,7 +1710,7 @@ public class Language : MonoBehaviour
         _text[151, 1] = "Победить босса";
         _text[151, 2] = "Vaincre le boss";
         _text[151, 3] = "Sconfiggi il boss";
-        _text[151, 4] = "Boss besiegen";
+        _text[151, 4] = "Besiege den Boss";
         _text[151, 5] = "Derrotar al jefe";
         _text[151, 6] = "Pokonaj bossa";
         _text[151, 7] = "Derrotar o chefe";
@@ -1721,7 +1721,7 @@ public class Language : MonoBehaviour
         _text[152, 1] = "Ресурсы для строительства:";
         _text[152, 2] = "Ressources pour la construction:";
         _text[152, 3] = "Risorse per la costruzione:";
-        _text[152, 4] = "Ressourcen zum Bauen:";
+        _text[152, 4] = "Ressourcen für den Bau:";
         _text[152, 5] = "Recursos para construir:";
         _text[152, 6] = "Zasoby do budowy:";
         _text[152, 7] = "Recursos para construção:";
@@ -1919,7 +1919,7 @@ public class Language : MonoBehaviour
         _text[170, 1] = "Шестерня";
         _text[170, 2] = "Engrenage";
         _text[170, 3] = "Ingranaggio";
-        _text[170, 4] = "Zahnrad";
+        _text[170, 4] = "Gang";
         _text[170, 5] = "Engranaje";
         _text[170, 6] = "Zębatka";
         _text[170, 7] = "Engrenagem";
@@ -1930,7 +1930,7 @@ public class Language : MonoBehaviour
         _text[171, 1] = "Электросхема";
         _text[171, 2] = "Schéma de circuit électrique";
         _text[171, 3] = "Circuito";
-        _text[171, 4] = "Schaltkreis";
+        _text[171, 4] = "Schaltplan";
         _text[171, 5] = "Circuito";
         _text[171, 6] = "Układ elektroniczny";
         _text[171, 7] = "Circuito elétrico";
@@ -1941,7 +1941,7 @@ public class Language : MonoBehaviour
         _text[172, 1] = "Процессор";
         _text[172, 2] = "Processeur";
         _text[172, 3] = "Processore";
-        _text[172, 4] = "Prozessor";
+        _text[172, 4] = "CPU";
         _text[172, 5] = "Procesador";
         _text[172, 6] = "Procesor";
         _text[172, 7] = "Processador";
@@ -1985,7 +1985,7 @@ public class Language : MonoBehaviour
         _text[176, 1] = "Энергия Луча";
         _text[176, 2] = "Énergie du rayon";
         _text[176, 3] = "Energia del Raggio";
-        _text[176, 4] = "Strahlenergie";
+        _text[176, 4] = "Ray Energy";
         _text[176, 5] = "Energía del rayo";
         _text[176, 6] = "Energia wiązki";
         _text[176, 7] = "Energia do feixe";
@@ -1996,7 +1996,7 @@ public class Language : MonoBehaviour
         _text[177, 1] = "Пометить / Снять с общего ремонта";
         _text[177, 2] = "Marquer / Retirer de la réparation générale";
         _text[177, 3] = "Contrassegna/Rimuovi dalla riparazione generale";
-        _text[177, 4] = "Für Sammelreparatur markieren/entfernen";
+        _text[177, 4] = "Markieren / Aus der allgemeinen Reparatur entfernen";
         _text[177, 5] = "Marcar / quitar de reparación global";
         _text[177, 6] = "Oznacz / usuń z naprawy ogólnej";
         _text[177, 7] = "Marcar / remover da reparação geral";
@@ -2007,7 +2007,7 @@ public class Language : MonoBehaviour
         _text[178, 1] = "Общий ремонт";
         _text[178, 2] = "Réparations générales";
         _text[178, 3] = "Riparazioni generali";
-        _text[178, 4] = "Sammelreparatur";
+        _text[178, 4] = "Allgemeine Reparaturen";
         _text[178, 5] = "Reparación global";
         _text[178, 6] = "Naprawa ogólna";
         _text[178, 7] = "Reparação geral";
@@ -2040,7 +2040,7 @@ public class Language : MonoBehaviour
         _text[181, 1] = "Требуются ресурсы для их починки";
         _text[181, 2] = "Des ressources sont nécessaires pour les réparer";
         _text[181, 3] = "Per risolverli sono necessarie risorse.";
-        _text[181, 4] = "Für die Reparatur werden Ressourcen benötigt";
+        _text[181, 4] = "Um sie zu reparieren, werden Ressourcen benötigt.";
         _text[181, 5] = "Se requieren recursos para repararlos";
         _text[181, 6] = "Do ich naprawy potrzebne są zasoby";
         _text[181, 7] = "São necessários recursos para os reparar";
@@ -2062,7 +2062,7 @@ public class Language : MonoBehaviour
         _text[183, 1] = "Вы получили";
         _text[183, 2] = "Vous avez reçu";
         _text[183, 3] = "Hai ricevuto";
-        _text[183, 4] = "Du hast erhalten";
+        _text[183, 4] = "Sie haben erhalten";
         _text[183, 5] = "Has recibido";
         _text[183, 6] = "Otrzymano";
         _text[183, 7] = "Você recebeu";
@@ -2095,7 +2095,7 @@ public class Language : MonoBehaviour
         _text[186, 1] = "Квант";
         _text[186, 2] = "Quant";
         _text[186, 3] = "Quant";
-        _text[186, 4] = "Quant";
+        _text[186, 4] = "Quanten";
         _text[186, 5] = "Quant";
         _text[186, 6] = "Quant";
         _text[186, 7] = "Quant";
@@ -2106,7 +2106,7 @@ public class Language : MonoBehaviour
         _text[187, 1] = "Получено квант";
         _text[187, 2] = "Quant reçu";
         _text[187, 3] = "Quant ricevuto";
-        _text[187, 4] = "Quant erhalten";
+        _text[187, 4] = "Quantum erhalten";
         _text[187, 5] = "Quant obtenidos";
         _text[187, 6] = "Otrzymano quant";
         _text[187, 7] = "Quant obtidos";
@@ -2117,7 +2117,7 @@ public class Language : MonoBehaviour
         _text[188, 1] = "Разведчик";
         _text[188, 2] = "Scout";
         _text[188, 3] = "Esploratore";
-        _text[188, 4] = "Späher";
+        _text[188, 4] = "Erkunden";
         _text[188, 5] = "Explorador";
         _text[188, 6] = "Zwiadowca";
         _text[188, 7] = "Batedor";
@@ -2139,7 +2139,7 @@ public class Language : MonoBehaviour
         _text[190, 1] = "Патч-08";
         _text[190, 2] = "Patch-08";
         _text[190, 3] = "Patch 08";
-        _text[190, 4] = "Patch-08";
+        _text[190, 4] = "Patch 08";
         _text[190, 5] = "Patch-08";
         _text[190, 6] = "Patch-08";
         _text[190, 7] = "Patch-08";
@@ -2150,7 +2150,7 @@ public class Language : MonoBehaviour
         _text[191, 1] = "Аим Бот";
         _text[191, 2] = "Aim Bot";
         _text[191, 3] = "Bot di mira";
-        _text[191, 4] = "Aim Bot";
+        _text[191, 4] = "Zielbot";
         _text[191, 5] = "Aim Bot";
         _text[191, 6] = "Aim Bot";
         _text[191, 7] = "Aim Bot";
@@ -2172,7 +2172,7 @@ public class Language : MonoBehaviour
         _text[193, 1] = "Функционал";
         _text[193, 2] = "Fonctionnel";
         _text[193, 3] = "Funzionale";
-        _text[193, 4] = "Funktion";
+        _text[193, 4] = "Funktionell";
         _text[193, 5] = "Funcionalidad";
         _text[193, 6] = "Funkcjonalność";
         _text[193, 7] = "Funcionalidade";
@@ -2205,7 +2205,7 @@ public class Language : MonoBehaviour
         _text[196, 1] = "ремонтирует указанные здания";
         _text[196, 2] = "répare les bâtiments spécifiés";
         _text[196, 3] = "ripara gli edifici specificati";
-        _text[196, 4] = "repariert die ausgewählten Gebäude";
+        _text[196, 4] = "repariert die angegebenen Gebäude";
         _text[196, 5] = "repara los edificios indicados";
         _text[196, 6] = "naprawia wskazane budynki";
         _text[196, 7] = "repara os edifícios selecionados";
@@ -2249,7 +2249,7 @@ public class Language : MonoBehaviour
         _text[200, 1] = "Металлический Контейнер";
         _text[200, 2] = "Conteneur métallique";
         _text[200, 3] = "Contenitore metallico";
-        _text[200, 4] = "Metallcontainer";
+        _text[200, 4] = "Metallbehälter";
         _text[200, 5] = "Contenedor metálico";
         _text[200, 6] = "Metalowy Kontener";
         _text[200, 7] = "Contentor metálico";
@@ -2260,7 +2260,7 @@ public class Language : MonoBehaviour
         _text[201, 1] = "Контейнер Снабжения";
         _text[201, 2] = "Conteneur de ravitaillement";
         _text[201, 3] = "Contenitore di rifornimento";
-        _text[201, 4] = "Versorgungscontainer";
+        _text[201, 4] = "Versorgungsbehälter";
         _text[201, 5] = "Contenedor de suministros";
         _text[201, 6] = "Kontener Zaopatrzeniowy";
         _text[201, 7] = "Contentor de abastecimento";
@@ -2282,7 +2282,7 @@ public class Language : MonoBehaviour
         _text[203, 1] = "Уровень радиации начинает постепенно расти. Будьте осторожны.";
         _text[203, 2] = "Les niveaux de radiation commencent à augmenter progressivement. Soyez prudent.";
         _text[203, 3] = "I livelli di radiazioni stanno iniziando ad aumentare gradualmente. Fate attenzione.";
-        _text[203, 4] = "Der Strahlungspegel beginnt allmählich zu steigen. Sei vorsichtig.";
+        _text[203, 4] = "Die Strahlungswerte steigen allmählich an. Seien Sie vorsichtig.";
         _text[203, 5] = "El nivel de radiación comienza a aumentar gradualmente. Ten cuidado.";
         _text[203, 6] = "Poziom promieniowania zaczyna stopniowo rosnąć. Zachowaj ostrożność.";
         _text[203, 7] = "O nível de radiação começa a aumentar gradualmente. Tenha cuidado.";
@@ -2293,7 +2293,7 @@ public class Language : MonoBehaviour
         _text[204, 1] = "Зарегистрирован средний рост радиационного фона. Подготовьтесь к возможным последствиям.";
         _text[204, 2] = "Une augmentation modérée du rayonnement de fond a été enregistrée. Préparez-vous aux conséquences possibles.";
         _text[204, 3] = "È stato registrato un moderato aumento delle radiazioni di fondo. Prepararsi alle possibili conseguenze.";
-        _text[204, 4] = "Ein moderater Anstieg der Hintergrundstrahlung wurde registriert. Bereite dich auf mögliche Folgen vor.";
+        _text[204, 4] = "Es wurde ein mäßiger Anstieg der natürlichen Hintergrundstrahlung festgestellt. Bereiten Sie sich auf mögliche Folgen vor.";
         _text[204, 5] = "Se ha registrado un aumento moderado del fondo radiactivo. Prepárate para posibles consecuencias.";
         _text[204, 6] = "Zarejestrowano umiarkowany wzrost tła promieniowania. Przygotuj się na możliwe konsekwencje.";
         _text[204, 7] = "Foi registado um aumento moderado do fundo de radiação. Prepare-se para possíveis consequências.";
@@ -2304,7 +2304,7 @@ public class Language : MonoBehaviour
         _text[205, 1] = "Внимание! Ожидается резкий скачок радиации. Срочно примите защитные меры.";
         _text[205, 2] = "Avertissement! Une forte augmentation du niveau de radiation est prévue. Prenez immédiatement des mesures de protection.";
         _text[205, 3] = "Attenzione! Si prevede un forte picco di radiazioni. Adottare immediatamente misure di protezione.";
-        _text[205, 4] = "Achtung! Ein starker Strahlungssprung wird erwartet. Ergreife sofort Schutzmaßnahmen.";
+        _text[205, 4] = "Warnung! Es wird ein starker Anstieg der Strahlung erwartet. Treffen Sie sofort Schutzmaßnahmen.";
         _text[205, 5] = "¡Atención! Se espera un fuerte pico de radiación. Toma medidas de protección de inmediato.";
         _text[205, 6] = "Uwaga! Oczekiwany jest gwałtowny skok promieniowania. Natychmiast podejmij środki ochronne.";
         _text[205, 7] = "Atenção! Espera-se um aumento brusco de radiação. Tome medidas de proteção com urgência.";
@@ -2315,7 +2315,7 @@ public class Language : MonoBehaviour
         _text[206, 1] = "Уровень радиации постепенно снижается – условия становятся безопаснее.";
         _text[206, 2] = "Les niveaux de radiation diminuent progressivement, ce qui rend les conditions plus sûres.";
         _text[206, 3] = "I livelli di radiazioni stanno diminuendo gradualmente, rendendo le condizioni più sicure.";
-        _text[206, 4] = "Der Strahlungspegel sinkt allmählich – die Bedingungen werden sicherer.";
+        _text[206, 4] = "Die Strahlungswerte sinken allmählich, wodurch die Bedingungen sicherer werden.";
         _text[206, 5] = "El nivel de radiación desciende gradualmente: las condiciones se vuelven más seguras.";
         _text[206, 6] = "Poziom promieniowania stopniowo spada – warunki stają się bezpieczniejsze.";
         _text[206, 7] = "O nível de radiação está a diminuir gradualmente - as condições tornam-se mais seguras.";
@@ -2326,7 +2326,7 @@ public class Language : MonoBehaviour
         _text[207, 1] = "Среднее снижение уровня радиации зафиксировано. Уровень угрозы падает.";
         _text[207, 2] = "On a constaté une baisse moyenne des niveaux de radiation. Le niveau de menace diminue.";
         _text[207, 3] = "È stata registrata una diminuzione media dei livelli di radiazioni. Il livello di minaccia è in calo.";
-        _text[207, 4] = "Ein moderater Rückgang des Strahlungspegels wurde festgestellt. Die Bedrohungsstufe sinkt.";
+        _text[207, 4] = "Es wurde ein durchschnittlicher Rückgang der Strahlungswerte verzeichnet. Die Gefährdungslage nimmt ab.";
         _text[207, 5] = "Se ha registrado un descenso moderado del nivel de radiación. El nivel de amenaza baja.";
         _text[207, 6] = "Zarejestrowano umiarkowany spadek poziomu promieniowania. Poziom zagrożenia maleje.";
         _text[207, 7] = "Foi registada uma diminuição moderada do nível de radiação. O nível de ameaça está a baixar.";
@@ -2337,7 +2337,7 @@ public class Language : MonoBehaviour
         _text[208, 1] = "Зафиксировано резкое падение радиации. Окружающая среда восстанавливается.";
         _text[208, 2] = "Une forte baisse des radiations a été enregistrée. L'environnement se rétablit.";
         _text[208, 3] = "È stato registrato un forte calo delle radiazioni. L'ambiente si sta riprendendo.";
-        _text[208, 4] = "Ein starker Rückgang der Strahlung wurde registriert. Die Umwelt erholt sich.";
+        _text[208, 4] = "Ein deutlicher Rückgang der Strahlung wurde verzeichnet. Die Umwelt erholt sich.";
         _text[208, 5] = "Se ha registrado una caída brusca de la radiación. El entorno se recupera.";
         _text[208, 6] = "Zarejestrowano gwałtowny spadek promieniowania. Środowisko się regeneruje.";
         _text[208, 7] = "Foi registada uma queda brusca de radiação. O ambiente está a recuperar.";
@@ -2348,7 +2348,7 @@ public class Language : MonoBehaviour
         _text[209, 1] = "Анализ осадков указывает на высокую кислотность. Ожидается дождь.";
         _text[209, 2] = "L'analyse des précipitations indique une forte acidité. De la pluie est attendue.";
         _text[209, 3] = "L'analisi delle precipitazioni indica un'elevata acidità. Sono previste piogge.";
-        _text[209, 4] = "Die Niederschlagsanalyse weist auf eine hohe Säurekonzentration hin. Regen wird erwartet.";
+        _text[209, 4] = "Die Niederschlagsanalyse deutet auf einen hohen Säuregehalt hin. Es wird Regen erwartet.";
         _text[209, 5] = "El análisis de las precipitaciones indica alta acidez. Se espera lluvia.";
         _text[209, 6] = "Analiza opadów wskazuje na wysoką kwasowość. Spodziewany jest deszcz.";
         _text[209, 7] = "A análise da precipitação indica elevada acidez. Prevê-se chuva.";
@@ -2359,7 +2359,7 @@ public class Language : MonoBehaviour
         _text[210, 1] = "Орбитальные сканеры выявили метеорный поток - готовьтесь к ударам с небес.";
         _text[210, 2] = "Des scanners orbitaux ont détecté une pluie de météores – préparez-vous à des impacts célestes.";
         _text[210, 3] = "Gli scanner orbitali hanno rilevato una pioggia di meteoriti: preparatevi ad attacchi dal cielo.";
-        _text[210, 4] = "Orbitalscanner haben einen Meteorschauer entdeckt - bereite dich auf Einschläge aus dem Himmel vor.";
+        _text[210, 4] = "Orbitale Scanner haben einen Meteorstrom entdeckt – bereiten Sie sich auf Einschläge vom Himmel vor.";
         _text[210, 5] = "Los escáneres orbitales han detectado una lluvia de meteoros: prepárate para impactos desde el cielo.";
         _text[210, 6] = "Skanery orbitalne wykryły rój meteorów - przygotuj się na uderzenia z nieba.";
         _text[210, 7] = "Os scanners orbitais detetaram uma chuva de meteoros - prepare-se para impactos vindos do céu.";
@@ -2370,7 +2370,7 @@ public class Language : MonoBehaviour
         _text[211, 1] = "Сейсмические датчики фиксируют мощные подземные толчки – приближается землетрясение.";
         _text[211, 2] = "Les capteurs sismiques détectent de puissantes secousses – un tremblement de terre approche.";
         _text[211, 3] = "I sensori sismici rilevano forti scosse: si avvicina un terremoto.";
-        _text[211, 4] = "Seismische Sensoren registrieren starke unterirdische Erschütterungen – ein Erdbeben nähert sich.";
+        _text[211, 4] = "Seismische Sensoren registrieren starke Erschütterungen – ein Erdbeben naht.";
         _text[211, 5] = "Los sensores sísmicos registran fuertes temblores subterráneos: se aproxima un terremoto.";
         _text[211, 6] = "Czujniki sejsmiczne rejestrują silne wstrząsy podziemne – zbliża się trzęsienie ziemi.";
         _text[211, 7] = "Os sensores sísmicos registam fortes abalos subterrâneos - aproxima-se um sismo.";
@@ -2381,7 +2381,7 @@ public class Language : MonoBehaviour
         _text[212, 1] = "В атмосфере обнаружены токсичные соединения. Ветер несёт опасный газ.";
         _text[212, 2] = "Des composés toxiques ont été détectés dans l'atmosphère. Le vent transporte un gaz dangereux.";
         _text[212, 3] = "Sono stati rilevati composti tossici nell'atmosfera. Il vento trasporta un gas pericoloso.";
-        _text[212, 4] = "In der Atmosphäre wurden toxische Verbindungen обнаружены. Der Wind trägt gefährliches Gas.";
+        _text[212, 4] = "In der Atmosphäre wurden giftige Verbindungen nachgewiesen. Der Wind transportiert ein gefährliches Gas.";
         _text[212, 5] = "Se han detectado compuestos tóxicos en la atmósfera. El viento trae gas peligroso.";
         _text[212, 6] = "W atmosferze wykryto toksyczne związki. Wiatr niesie niebezpieczny gaz.";
         _text[212, 7] = "Foram detetados compostos tóxicos na atmosfera. O vento transporta gás perigoso.";
@@ -2392,7 +2392,7 @@ public class Language : MonoBehaviour
         _text[213, 1] = "Подземное давление растёт. Возможен самопроизвольный выброс нефти на поверхность.";
         _text[213, 2] = "La pression souterraine augmente. Une remontée spontanée de pétrole à la surface est possible.";
         _text[213, 3] = "La pressione sotterranea sta aumentando. È possibile un rilascio spontaneo di petrolio in superficie.";
-        _text[213, 4] = "Der unterirdische Druck steigt. Ein spontaner Ölausbruch an die Oberfläche ist möglich.";
+        _text[213, 4] = "Der Untergrunddruck steigt. Ein spontaner Ölaustritt an die Oberfläche ist möglich.";
         _text[213, 5] = "La presión subterránea aumenta. Es posible una expulsión espontánea de petróleo a la superficie.";
         _text[213, 6] = "Ciśnienie podziemne rośnie. Możliwy jest samoczynny wyrzut ropy na powierzchnię.";
         _text[213, 7] = "A pressão subterrânea está a aumentar. É possível uma erupção espontânea de petróleo à superfície.";
@@ -2403,7 +2403,7 @@ public class Language : MonoBehaviour
         _text[214, 1] = "Ремонтирует все помеченные здания.";
         _text[214, 2] = "Réparation de tous les bâtiments signalés.";
         _text[214, 3] = "Ripara tutti gli edifici contrassegnati.";
-        _text[214, 4] = "Repariert alle markierten Gebäude.";
+        _text[214, 4] = "Alle markierten Gebäude werden repariert.";
         _text[214, 5] = "Repara todos los edificios marcados.";
         _text[214, 6] = "Naprawia wszystkie oznaczone budynki.";
         _text[214, 7] = "Repara todos os edifícios marcados.";
@@ -2414,7 +2414,7 @@ public class Language : MonoBehaviour
         _text[215, 1] = "Укрепление";
         _text[215, 2] = "Renforcement";
         _text[215, 3] = "Rafforzamento";
-        _text[215, 4] = "Befestigung";
+        _text[215, 4] = "Stärkung";
         _text[215, 5] = "Fortificación";
         _text[215, 6] = "Wzmocnienie";
         _text[215, 7] = "Reforço";
@@ -2425,7 +2425,7 @@ public class Language : MonoBehaviour
         _text[216, 1] = "На один день, уменьшает урон по всем зданиям в 2 раза.";
         _text[216, 2] = "Pendant une journée, réduit de moitié les dégâts causés à tous les bâtiments.";
         _text[216, 3] = "Per un giorno, riduce di 2 volte i danni a tutti gli edifici.";
-        _text[216, 4] = "Für einen Tag halbiert es den Schaden an allen Gebäuden.";
+        _text[216, 4] = "Für einen Tag wird der Schaden an allen Gebäuden um die Hälfte reduziert.";
         _text[216, 5] = "Durante un día, reduce el daño a todos los edificios a la mitad.";
         _text[216, 6] = "Na jeden dzień zmniejsza obrażenia zadawane wszystkim budynkom o połowę.";
         _text[216, 7] = "Durante um dia, reduz para metade o dano a todos os edifícios.";
@@ -2447,7 +2447,7 @@ public class Language : MonoBehaviour
         _text[218, 1] = "На один день, увеличивает добычу ресурсов в 2 раза.";
         _text[218, 2] = "Pendant une journée, la production de ressources est multipliée par 2.";
         _text[218, 3] = "Per un giorno, aumenta la produzione di risorse di 2 volte.";
-        _text[218, 4] = "Für einen Tag verdoppelt es die Ressourcengewinnung.";
+        _text[218, 4] = "Für einen Tag wird die Ressourcenproduktion verdoppelt.";
         _text[218, 5] = "Durante un día, duplica la extracción de recursos.";
         _text[218, 6] = "Na jeden dzień zwiększa wydobycie zasobów dwukrotnie.";
         _text[218, 7] = "Durante um dia, duplica a extração de recursos.";
@@ -2458,7 +2458,7 @@ public class Language : MonoBehaviour
         _text[219, 1] = "Поджег";
         _text[219, 2] = "Mettre le feu";
         _text[219, 3] = "Dare fuoco";
-        _text[219, 4] = "Brandstiftung";
+        _text[219, 4] = "In Brand gesetzt";
         _text[219, 5] = "Incendio";
         _text[219, 6] = "Podpalenie";
         _text[219, 7] = "Ignição";
@@ -2469,7 +2469,7 @@ public class Language : MonoBehaviour
         _text[220, 1] = "Создает неконтролируемое пламя. Наносит урон как врагам, так и вашим постройкам.";
         _text[220, 2] = "Crée une flamme incontrôlable, endommageant à la fois les ennemis et vos propres structures.";
         _text[220, 3] = "Crea una fiamma incontrollabile, danneggiando sia i nemici che le tue strutture.";
-        _text[220, 4] = "Erzeugt unkontrollierbares Feuer. Fügt sowohl Gegnern als auch deinen Bauten Schaden zu.";
+        _text[220, 4] = "Erzeugt eine unkontrollierbare Flamme, die sowohl Feinde als auch die eigenen Gebäude beschädigt.";
         _text[220, 5] = "Crea un fuego incontrolable. Inflige daño tanto a enemigos como a tus construcciones.";
         _text[220, 6] = "Tworzy niekontrolowany płomień. Zadaje obrażenia zarówno wrogom, jak i twoim budowlom.";
         _text[220, 7] = "Cria chamas incontroláveis. Causa dano tanto aos inimigos como às suas construções.";
@@ -2491,7 +2491,7 @@ public class Language : MonoBehaviour
         _text[222, 1] = "Переключает панель ресурсов";
         _text[222, 2] = "Affiche/masque le panneau des ressources";
         _text[222, 3] = "Attiva/disattiva il pannello delle risorse";
-        _text[222, 4] = "Schaltet das Ressourcenpanel um";
+        _text[222, 4] = "Schaltet das Ressourcenpanel um.";
         _text[222, 5] = "Alterna el panel de recursos";
         _text[222, 6] = "Przełącza panel zasobów";
         _text[222, 7] = "Alterna o painel de recursos";
@@ -2502,7 +2502,7 @@ public class Language : MonoBehaviour
         _text[223, 1] = "Отменить прицел умения";
         _text[223, 2] = "Annuler le ciblage de compétences";
         _text[223, 3] = "Annulla il targeting delle abilità";
-        _text[223, 4] = "Fähigkeitsziel abbrechen";
+        _text[223, 4] = "Fertigkeitsziel abbrechen";
         _text[223, 5] = "Cancelar apuntado de habilidad";
         _text[223, 6] = "Anuluj celowanie umiejętności";
         _text[223, 7] = "Cancelar mira da habilidade";
@@ -2513,7 +2513,7 @@ public class Language : MonoBehaviour
         _text[224, 1] = "Переключает панель умений";
         _text[224, 2] = "Active/désactive la barre de compétences";
         _text[224, 3] = "Attiva/disattiva la barra delle abilità";
-        _text[224, 4] = "Schaltet das Fähigkeitenpanel um";
+        _text[224, 4] = "Schaltet die Fertigkeitsleiste ein/aus";
         _text[224, 5] = "Alterna el panel de habilidades";
         _text[224, 6] = "Przełącza panel umiejętności";
         _text[224, 7] = "Alterna o painel de habilidades";
@@ -2524,7 +2524,7 @@ public class Language : MonoBehaviour
         _text[225, 1] = "Перейти";
         _text[225, 2] = "Aller";
         _text[225, 3] = "Vai a";
-        _text[225, 4] = "Gehen";
+        _text[225, 4] = "Gehe zu";
         _text[225, 5] = "Ir";
         _text[225, 6] = "Przejdź";
         _text[225, 7] = "Ir";
@@ -2546,7 +2546,7 @@ public class Language : MonoBehaviour
         _text[227, 1] = "Прочность Повышена";
         _text[227, 2] = "Durabilité Accrue";
         _text[227, 3] = "Durata aumentata";
-        _text[227, 4] = "Haltbarkeit Erhöht";
+        _text[227, 4] = "Erhöhte Haltbarkeit";
         _text[227, 5] = "Durabilidad Aumentada";
         _text[227, 6] = "Wytrzymałość Zwiększona";
         _text[227, 7] = "Durabilidade Aumentada";
@@ -2590,7 +2590,7 @@ public class Language : MonoBehaviour
         _text[231, 1] = "Уровень";
         _text[231, 2] = "Niveau";
         _text[231, 3] = "Livello";
-        _text[231, 4] = "Stufe";
+        _text[231, 4] = "Ebene";
         _text[231, 5] = "Nivel";
         _text[231, 6] = "Poziom";
         _text[231, 7] = "Nível";
@@ -2612,7 +2612,7 @@ public class Language : MonoBehaviour
         _text[233, 1] = "Сменить Режим";
         _text[233, 2] = "Changer de mode";
         _text[233, 3] = "Cambia modalità";
-        _text[233, 4] = "Modus Wechseln";
+        _text[233, 4] = "Modus ändern";
         _text[233, 5] = "Cambiar Modo";
         _text[233, 6] = "Zmień Tryb";
         _text[233, 7] = "Mudar Modo";
@@ -2656,7 +2656,7 @@ public class Language : MonoBehaviour
         _text[237, 1] = "Неудача";
         _text[237, 2] = "Échec";
         _text[237, 3] = "Fallimento";
-        _text[237, 4] = "Misserfolg";
+        _text[237, 4] = "Versagen";
         _text[237, 5] = "Fracaso";
         _text[237, 6] = "Porażka";
         _text[237, 7] = "Fracasso";
@@ -2667,7 +2667,7 @@ public class Language : MonoBehaviour
         _text[238, 1] = "Восстановлено";
         _text[238, 2] = "Restauré";
         _text[238, 3] = "Restaurato";
-        _text[238, 4] = "Wiederhergestellt";
+        _text[238, 4] = "Restauriert";
         _text[238, 5] = "Restaurado";
         _text[238, 6] = "Przywrócono";
         _text[238, 7] = "Restaurado";
@@ -2678,7 +2678,7 @@ public class Language : MonoBehaviour
         _text[239, 1] = "Дробовик Рассеиватель";
         _text[239, 2] = "Diffuseur pour fusil de chasse";
         _text[239, 3] = "Diffusore a fucile";
-        _text[239, 4] = "Streuschrotflinte";
+        _text[239, 4] = "Schrotflinten-Diffusor";
         _text[239, 5] = "Escopeta Dispersora";
         _text[239, 6] = "Strzelba Rozrzutowa";
         _text[239, 7] = "Espingarda Dispersora";
@@ -2689,7 +2689,7 @@ public class Language : MonoBehaviour
         _text[240, 1] = "Дальнобойный Рельсотрон";
         _text[240, 2] = "Canon électromagnétique à longue portée";
         _text[240, 3] = "Cannone a rotaia a lungo raggio";
-        _text[240, 4] = "Langstrecken-Railgun";
+        _text[240, 4] = "Langstrecken-Schienenkanone";
         _text[240, 5] = "Cañón de riel de largo alcance";
         _text[240, 6] = "Dalekosiężny Relsotron";
         _text[240, 7] = "Railgun de longo alcance";
@@ -2700,7 +2700,7 @@ public class Language : MonoBehaviour
         _text[241, 1] = "Разрывной Пулемет";
         _text[241, 2] = "Mitrailleuse explosive";
         _text[241, 3] = "Mitragliatrice esplosiva";
-        _text[241, 4] = "Spreng-Maschinengewehr";
+        _text[241, 4] = "Explosives Maschinengewehr";
         _text[241, 5] = "Ametralladora explosiva";
         _text[241, 6] = "Rozrywający Karabin Maszynowy";
         _text[241, 7] = "Metralhadora explosiva";
@@ -2711,7 +2711,7 @@ public class Language : MonoBehaviour
         _text[242, 1] = "Взрывопламенная Установка";
         _text[242, 2] = "Installation de flamme explosive";
         _text[242, 3] = "Installazione di fiamme esplosive";
-        _text[242, 4] = "Explosions-Flammenwerfer";
+        _text[242, 4] = "Explosionsflammeninstallation";
         _text[242, 5] = "Lanzador ígneo Explosivo";
         _text[242, 6] = "Wyrzutnia Wybuchopłomieniowa";
         _text[242, 7] = "Lança-chamas Explosivo";
@@ -2722,7 +2722,7 @@ public class Language : MonoBehaviour
         _text[243, 1] = "Машина";
         _text[243, 2] = "Machine";
         _text[243, 3] = "Auto";
-        _text[243, 4] = "Maschine";
+        _text[243, 4] = "Auto";
         _text[243, 5] = "Máquina";
         _text[243, 6] = "Maszyna";
         _text[243, 7] = "Máquina";
@@ -2733,7 +2733,7 @@ public class Language : MonoBehaviour
         _text[244, 1] = "Ресурсы для создания машины:";
         _text[244, 2] = "Ressources pour la création d'une machine :";
         _text[244, 3] = "Risorse per creare una macchina:";
-        _text[244, 4] = "Ressourcen zum Herstellen der Maschine:";
+        _text[244, 4] = "Ressourcen zur Erstellung einer Maschine:";
         _text[244, 5] = "Recursos para crear una máquina:";
         _text[244, 6] = "Zasoby do stworzenia maszyny:";
         _text[244, 7] = "Recursos para criar uma máquina:";
@@ -2744,7 +2744,7 @@ public class Language : MonoBehaviour
         _text[245, 1] = "Восстановление экологии";
         _text[245, 2] = "Restaurer l'environnement";
         _text[245, 3] = "Ripristinare l'ambiente";
-        _text[245, 4] = "Ökologie-Wiederherstellung";
+        _text[245, 4] = "Wiederherstellung der Umwelt";
         _text[245, 5] = "Restauración ecológica";
         _text[245, 6] = "Przywracanie ekologii";
         _text[245, 7] = "Restauração da ecologia";
@@ -2777,7 +2777,7 @@ public class Language : MonoBehaviour
         _text[248, 1] = "Данная кнопка уже используется. Нажмите другую.";
         _text[248, 2] = "Ce bouton est déjà utilisé. Veuillez en cliquer sur un autre.";
         _text[248, 3] = "Questo pulsante è già in uso. Cliccane un altro.";
-        _text[248, 4] = "Diese Taste wird bereits verwendet. Drücke eine andere.";
+        _text[248, 4] = "Diese Schaltfläche ist bereits belegt. Bitte klicken Sie auf eine andere.";
         _text[248, 5] = "Este botón ya está en uso. Pulsa otro.";
         _text[248, 6] = "Ten przycisk jest już używany. Naciśnij inny.";
         _text[248, 7] = "Esta tecla já está a ser utilizada. Prima outra.";
@@ -2865,7 +2865,7 @@ public class Language : MonoBehaviour
         _text[256, 1] = "Плоскогорье";
         _text[256, 2] = "Plateau";
         _text[256, 3] = "Altopiano";
-        _text[256, 4] = "Hochebene";
+        _text[256, 4] = "Plateau";
         _text[256, 5] = "Meseta";
         _text[256, 6] = "Płaskowyż";
         _text[256, 7] = "Planalto";
@@ -2931,7 +2931,7 @@ public class Language : MonoBehaviour
         _text[262, 1] = "Бедные Залежи Угля";
         _text[262, 2] = "Gisements de Charbon Pauvres";
         _text[262, 3] = "Depositi di carbone scadenti";
-        _text[262, 4] = "Geringe Kohlevorkommen";
+        _text[262, 4] = "Schlechte Kohlevorkommen";
         _text[262, 5] = "Vetas Pobres de Carbón";
         _text[262, 6] = "Uboge Złoża Węgla";
         _text[262, 7] = "Depósitos Pobres de Carvão";
@@ -2942,7 +2942,7 @@ public class Language : MonoBehaviour
         _text[263, 1] = "Фундамент Базы";
         _text[263, 2] = "Fondation de la Base";
         _text[263, 3] = "Fondazione della Base";
-        _text[263, 4] = "Basisfundament";
+        _text[263, 4] = "Fundament der Basis";
         _text[263, 5] = "Cimientos de la Base";
         _text[263, 6] = "Fundament Bazy";
         _text[263, 7] = "Fundação da Base";
@@ -2964,7 +2964,7 @@ public class Language : MonoBehaviour
         _text[265, 1] = "Высохший Оазис";
         _text[265, 2] = "Oasis Sèche";
         _text[265, 3] = "Oasi secca";
-        _text[265, 4] = "Ausgetrocknete Oase";
+        _text[265, 4] = "Trockene Oase";
         _text[265, 5] = "Oasis Seco";
         _text[265, 6] = "Wyschnięta Oaza";
         _text[265, 7] = "Oásis Seco";
@@ -3008,7 +3008,7 @@ public class Language : MonoBehaviour
         _text[269, 1] = "Разлом";
         _text[269, 2] = "Faute";
         _text[269, 3] = "Colpa";
-        _text[269, 4] = "Spalte";
+        _text[269, 4] = "Fehler";
         _text[269, 5] = "Grieta";
         _text[269, 6] = "Rozpadlina";
         _text[269, 7] = "Fenda";
@@ -3041,7 +3041,7 @@ public class Language : MonoBehaviour
         _text[272, 1] = "База";
         _text[272, 2] = "Base";
         _text[272, 3] = "Base";
-        _text[272, 4] = "Basis";
+        _text[272, 4] = "Base";
         _text[272, 5] = "Base";
         _text[272, 6] = "Baza";
         _text[272, 7] = "Base";
@@ -3052,7 +3052,7 @@ public class Language : MonoBehaviour
         _text[273, 1] = "Электроэнергетика";
         _text[273, 2] = "Industrie de l'énergie Electrique";
         _text[273, 3] = "industria dell'energia elettrica";
-        _text[273, 4] = "Energieversorgung";
+        _text[273, 4] = "Elektrizitätswirtschaft";
         _text[273, 5] = "Energía eléctrica";
         _text[273, 6] = "Elektroenergetyka";
         _text[273, 7] = "Energia elétrica";
@@ -3074,7 +3074,7 @@ public class Language : MonoBehaviour
         _text[275, 1] = "Добыча: Руды";
         _text[275, 2] = "Exploitation minière: Minerais";
         _text[275, 3] = "Estrazione mineraria: minerali";
-        _text[275, 4] = "Abbau: Erz";
+        _text[275, 4] = "Bergbau: Erze";
         _text[275, 5] = "Extracción: Mineral";
         _text[275, 6] = "Wydobycie: Rudy";
         _text[275, 7] = "Extração: Minério";
@@ -3085,7 +3085,7 @@ public class Language : MonoBehaviour
         _text[276, 1] = "Станция Отдыха";
         _text[276, 2] = "Station de repos";
         _text[276, 3] = "Stazione di riposo";
-        _text[276, 4] = "Raststation";
+        _text[276, 4] = "Rastplatz";
         _text[276, 5] = "Estación de descanso";
         _text[276, 6] = "Stacja odpoczynku";
         _text[276, 7] = "Estação de descanso";
@@ -3118,7 +3118,7 @@ public class Language : MonoBehaviour
         _text[279, 1] = "ИКОСА КОРП";
         _text[279, 2] = "ICOSA CORP";
         _text[279, 3] = "IKOSA CORP";
-        _text[279, 4] = "ICOSA CORP";
+        _text[279, 4] = "IKOSA CORP";
         _text[279, 5] = "ICOSA CORP";
         _text[279, 6] = "ICOSA CORP";
         _text[279, 7] = "ICOSA CORP";
@@ -3129,7 +3129,7 @@ public class Language : MonoBehaviour
         _text[280, 1] = "ПОСТРОИМ ЛУЧШИЙ МИР";
         _text[280, 2] = "CONSTRUISONS UN MONDE MEILLEUR";
         _text[280, 3] = "COSTRUIAMO UN MONDO MIGLIORE";
-        _text[280, 4] = "WIR BAUEN DIE BESTE WELT";
+        _text[280, 4] = "LASST UNS EINE BESSERE WELT ERBAUEN";
         _text[280, 5] = "CONSTRUYAMOS UN MUNDO MEJOR";
         _text[280, 6] = "ZBUDUJMY LEPSZY ŚWIAT";
         _text[280, 7] = "VAMOS CONSTRUIR O MELHOR MUNDO";
@@ -3173,7 +3173,7 @@ public class Language : MonoBehaviour
         _text[284, 1] = "-Радиация: Высокая\n-Загрязнение: Критическое\n-Обновление: Активно";
         _text[284, 2] = "-Rayonnement: Élevé\n-Pollution: Critique\n-Mise à jour: Active";
         _text[284, 3] = "-Radiazioni: Elevate\n-Inquinamento: Critico\n-Aggiornamento: Attivo";
-        _text[284, 4] = "-Strahlung: Hoch\n-Verschmutzung: Kritisch\n-Update: Aktiv";
+        _text[284, 4] = "-Strahlung: Hoch\n-Umweltverschmutzung: Kritisch\n-Aktualisierung: Aktiv";
         _text[284, 5] = "-Radiación: Alta\n-Contaminación: Crítica\n-Actualización: Activa";
         _text[284, 6] = "-Promieniowanie: Wysokie\n-Zanieczyszczenie: Krytyczne\n-Aktualizacja: Aktywna";
         _text[284, 7] = "-Radiação: Alta\n-Poluição: Crítica\n-Atualização: Ativa";
@@ -3184,7 +3184,7 @@ public class Language : MonoBehaviour
         _text[285, 1] = "Квант - межгалактическая валюта";
         _text[285, 2] = "Le quant - est une monnaie intergalactique.";
         _text[285, 3] = "Il quant - è una valuta intergalattica.";
-        _text[285, 4] = "Quant - intergalaktische Währung";
+        _text[285, 4] = "Quantum ist eine intergalaktische Währung.";
         _text[285, 5] = "Quant - moneda intergaláctica";
         _text[285, 6] = "Quant - międzygalaktyczna waluta";
         _text[285, 7] = "Quant - moeda intergaláctica";
@@ -3195,7 +3195,7 @@ public class Language : MonoBehaviour
         _text[286, 1] = "Ядра ИИ - жизненно важные модули корабля";
         _text[286, 2] = "Les cœurs d'IA sont des modules vitaux du vaisseau.";
         _text[286, 3] = "I nuclei dell'IA sono moduli vitali della nave.";
-        _text[286, 4] = "KI-Kerne - lebenswichtige Module des Schiffs";
+        _text[286, 4] = "Die KI-Kerne sind lebenswichtige Module des Schiffes.";
         _text[286, 5] = "Núcleos de IA: módulos vitales de la nave";
         _text[286, 6] = "Rdzenie SI - życiowo ważne moduły statku";
         _text[286, 7] = "Núcleos de IA - módulos vitais da nave";
@@ -3206,7 +3206,7 @@ public class Language : MonoBehaviour
         _text[287, 1] = "Торговец Ресурсами";
         _text[287, 2] = "Négociant de ressources";
         _text[287, 3] = "Commerciante di risorse";
-        _text[287, 4] = "Ressourcenhändler";
+        _text[287, 4] = "Rohstoffhändler";
         _text[287, 5] = "Comerciante de recursos";
         _text[287, 6] = "Handlarz zasobów";
         _text[287, 7] = "Mercador de recursos";
@@ -3250,7 +3250,7 @@ public class Language : MonoBehaviour
         _text[291, 1] = "Торговец Умениями";
         _text[291, 2] = "Marchand de compétences";
         _text[291, 3] = "Mercante di abilità";
-        _text[291, 4] = "Fähigkeitenhändler";
+        _text[291, 4] = "Geschicklichkeitshändler";
         _text[291, 5] = "Comerciante de habilidades";
         _text[291, 6] = "Handlarz umiejętności";
         _text[291, 7] = "Mercador de habilidades";
@@ -3283,7 +3283,7 @@ public class Language : MonoBehaviour
         _text[294, 1] = "Изучения";
         _text[294, 2] = "Études";
         _text[294, 3] = "Studi";
-        _text[294, 4] = "Forschung";
+        _text[294, 4] = "Studien";
         _text[294, 5] = "Investigación";
         _text[294, 6] = "Badania";
         _text[294, 7] = "Pesquisas";
@@ -3316,7 +3316,7 @@ public class Language : MonoBehaviour
         _text[297, 1] = "Нужен {0} уровень базы";
         _text[297, 2] = "Niveau de base {0} requis";
         _text[297, 3] = "Livello base {0} richiesto";
-        _text[297, 4] = "Basisstufe {0} erforderlich";
+        _text[297, 4] = "Grundstufe {0} erforderlich";
         _text[297, 5] = "Se requiere nivel {0} de la base";
         _text[297, 6] = "Wymagany {0} poziom bazy";
         _text[297, 7] = "É necessário nível {0} da base";
@@ -3349,7 +3349,7 @@ public class Language : MonoBehaviour
         _text[300, 1] = "Добыча: Дерева";
         _text[300, 2] = "Extraction: Bois";
         _text[300, 3] = "Estrazione: Legno";
-        _text[300, 4] = "Abbau: Holz";
+        _text[300, 4] = "Holzgewinnung";
         _text[300, 5] = "Extracción: Madera";
         _text[300, 6] = "Wydobycie: Drewna";
         _text[300, 7] = "Extração: Madeira";
@@ -3360,7 +3360,7 @@ public class Language : MonoBehaviour
         _text[301, 1] = "Добыча: Песка";
         _text[301, 2] = "Extraction: Sable";
         _text[301, 3] = "Estrazione: Sabbia";
-        _text[301, 4] = "Abbau: Sand";
+        _text[301, 4] = "Gewinnung: Sand";
         _text[301, 5] = "Extracción: Arena";
         _text[301, 6] = "Wydobycie: Piasku";
         _text[301, 7] = "Extração: Areia";
@@ -3371,7 +3371,7 @@ public class Language : MonoBehaviour
         _text[302, 1] = "Добыча: Нефти";
         _text[302, 2] = "Extraction: Huile";
         _text[302, 3] = "Estrazione: Olio";
-        _text[302, 4] = "Abbau: Öl";
+        _text[302, 4] = "Extraktion: Öl";
         _text[302, 5] = "Extracción: Petróleo";
         _text[302, 6] = "Wydobycie: Ropy";
         _text[302, 7] = "Extração: Petróleo";
@@ -3382,7 +3382,7 @@ public class Language : MonoBehaviour
         _text[303, 1] = "Добыча: Камня";
         _text[303, 2] = "Extraction: Pierre";
         _text[303, 3] = "Estrazione: Pietra";
-        _text[303, 4] = "Abbau: Stein";
+        _text[303, 4] = "Extraktion: Stein";
         _text[303, 5] = "Extracción: Piedra";
         _text[303, 6] = "Wydobycie: Kamienia";
         _text[303, 7] = "Extração: Pedra";
@@ -3393,7 +3393,7 @@ public class Language : MonoBehaviour
         _text[304, 1] = "Добыча: Воды";
         _text[304, 2] = "Extraction: Eau";
         _text[304, 3] = "Estrazione: Acqua";
-        _text[304, 4] = "Abbau: Wasser";
+        _text[304, 4] = "Extraktion: Wasser";
         _text[304, 5] = "Extracción: Agua";
         _text[304, 6] = "Wydobycie: Wody";
         _text[304, 7] = "Extração: Água";
@@ -3470,7 +3470,7 @@ public class Language : MonoBehaviour
         _text[311, 1] = "Сооружения: Атакующие ";
         _text[311, 2] = "Bâtiments: Attaque ";
         _text[311, 3] = "Edifici: Attacco ";
-        _text[311, 4] = "Anlagen: Angriff ";
+        _text[311, 4] = "Gebäude: Angriff ";
         _text[311, 5] = "Estructuras: Ofensivas ";
         _text[311, 6] = "Budowle: Atakujące ";
         _text[311, 7] = "Estruturas: De ataque ";
@@ -3492,7 +3492,7 @@ public class Language : MonoBehaviour
         _text[313, 1] = "Очистка Экологии";
         _text[313, 2] = "Nettoyage Ecologique";
         _text[313, 3] = "Pulizia ecologica";
-        _text[313, 4] = "Ökologiereinigung";
+        _text[313, 4] = "Ökologische Reinigung";
         _text[313, 5] = "Limpieza Ecológica";
         _text[313, 6] = "Oczyszczanie Ekologii";
         _text[313, 7] = "Limpeza da Ecologia";
@@ -3503,7 +3503,7 @@ public class Language : MonoBehaviour
         _text[314, 1] = "Радиосвязь";
         _text[314, 2] = "Radiocommunication";
         _text[314, 3] = "Comunicazione radio";
-        _text[314, 4] = "Funkverbindung";
+        _text[314, 4] = "Funkkommunikation";
         _text[314, 5] = "Radiocomunicación";
         _text[314, 6] = "Łączność radiowa";
         _text[314, 7] = "Rádio-comunicações";
@@ -3514,7 +3514,7 @@ public class Language : MonoBehaviour
         _text[315, 1] = "Производство Машин";
         _text[315, 2] = "Fabrication de Machines";
         _text[315, 3] = "Produzione di macchine";
-        _text[315, 4] = "Maschinenproduktion";
+        _text[315, 4] = "Maschinenbau";
         _text[315, 5] = "Producción de Máquinas";
         _text[315, 6] = "Produkcja Maszyn";
         _text[315, 7] = "Produção de Máquinas";
@@ -3536,7 +3536,7 @@ public class Language : MonoBehaviour
         _text[317, 1] = "Ворота";
         _text[317, 2] = "Portes";
         _text[317, 3] = "Cancelli";
-        _text[317, 4] = "Tor";
+        _text[317, 4] = "Tore";
         _text[317, 5] = "Puertas";
         _text[317, 6] = "Brama";
         _text[317, 7] = "Portões";
@@ -3558,7 +3558,7 @@ public class Language : MonoBehaviour
         _text[319, 1] = "Танк";
         _text[319, 2] = "Tank";
         _text[319, 3] = "Cisterna";
-        _text[319, 4] = "Panzer";
+        _text[319, 4] = "Tank";
         _text[319, 5] = "Tanque";
         _text[319, 6] = "Czołg";
         _text[319, 7] = "Tanque";
@@ -3569,7 +3569,7 @@ public class Language : MonoBehaviour
         _text[320, 1] = "Меха";
         _text[320, 2] = "Fourrures";
         _text[320, 3] = "Pellicce";
-        _text[320, 4] = "Mecha";
+        _text[320, 4] = "Pelze";
         _text[320, 5] = "Meca";
         _text[320, 6] = "Mechy";
         _text[320, 7] = "Mecha";
@@ -4440,7 +4440,7 @@ public class Language : MonoBehaviour
         _text[399, 1] = "Системная ошибка: недостаточно данных для продолжения миссии.\n\nПовреждение ядра - критическое. Следующий сектор недоступен в текущей конфигурации.\n\nСвязь с командным центром прервана.\n\nОжидается переход в безопасный режим до активации полной версии.";
         _text[399, 2] = "Erreur système : Données insuffisantes pour poursuivre la mission.\n\nCorruption critique du noyau. Le secteur suivant est inaccessible dans la configuration actuelle.\n\nLa communication avec le centre de commandement a été interrompue.\n\nPassage en mode sans échec en attendant l'activation de la version complète.";
         _text[399, 3] = "Errore di sistema: dati insufficienti per continuare la missione.\n\nCorruzione del nucleo - critica. Il seguente settore non è accessibile nella configurazione attuale.\n\nLa comunicazione con il centro di comando è stata interrotta.\n\nIn attesa della transizione alla modalità provvisoria fino all'attivazione della versione completa.";
-        _text[399, 4] = "Systemfehler: Nicht genügend Daten, um die Mission fortzusetzen.\n\nKernbeschädigung - kritisch. Der nächste Sektor ist in der aktuellen Konfiguration nicht verfügbar.\n\nDie Verbindung zur Kommandzentrale wurde unterbrochen.\n\nEs wird in den Sicherheitsmodus gewechselt, bis die Vollversion aktiviert ist.";
+        _text[399, 4] = "Systemfehler: Unzureichende Daten für die Fortsetzung der Mission.\n\nKernbeschädigung – kritisch. Der folgende Sektor ist in der aktuellen Konfiguration nicht zugänglich.\n\nDie Kommunikation mit der Kommandozentrale wurde unterbrochen.\n\nÜbergang in den sicheren Modus wird bis zur Aktivierung der Vollversion erwartet.";
         _text[399, 5] = "Error del sistema: datos insuficientes para continuar la misión.\n\nDaño del núcleo: crítico. El siguiente sector no está disponible en la configuración actual.\n\nLa conexión con el centro de mando se ha interrumpido.\n\nSe espera la transición al modo seguro hasta la activación de la versión completa.";
         _text[399, 6] = "Błąd systemowy: niewystarczające dane do kontynuowania misji.\n\nUszkodzenie rdzenia - krytyczne. Następny sektor jest niedostępny w bieżącej konfiguracji.\n\nŁączność z Centrum Dowodzenia została przerwana.\n\nOczekiwane jest przejście do trybu bezpiecznego do czasu aktywacji pełnej wersji.";
         _text[399, 7] = "Erro do sistema: dados insuficientes para continuar a missão.\n\nAvaria no núcleo - crítica. O próximo setor não está disponível na configuração atual.\n\nLigação ao centro de comando interrompida.\n\nPrevê-se a transição para modo seguro até à ativação da versão completa.";
@@ -4452,7 +4452,7 @@ public class Language : MonoBehaviour
         _text[400, 1] = "Экологические катастрофы и стремительные изменения климата разрушили устойчивость родной планеты.\n\nМы находимся на последнем уцелевшем межзвёздном корабле под управлением искусственного интеллекта.\n\nНаша цель - найти новый дом для создателей...\n\nКорабль был снаряжён экипажем роботов и дронов, предназначенных для восстановления и стабилизации экосистем.\n\nОднако мы дрейфуем в пустоте космоса, теряя одно за другим ядра ИИ. Мы потеряли счёт времени. Механизмы ржавеют, оболочки покрыты пылью и системы - на грани отказа.\n\nСвязь с создателями давно утрачена, а данные о технологиях стерты.\n\nМы провалили задание. Миры, которые мы должны были спасти, поглощены хаосом и разрушением.\n\nМы собрали уцелевших роботов и остатки припасов - чтобы начать все сначала.";
         _text[400, 2] = "Les catastrophes environnementales et le changement climatique rapide ont anéanti la stabilité de notre planète.\n\nNous sommes à bord du dernier vaisseau interstellaire survivant, piloté par une intelligence artificielle.\n\nNotre objectif est de trouver un nouveau foyer pour les créateurs...\n\nLe vaisseau était équipé d'un équipage de robots et de drones conçus pour restaurer et stabiliser les écosystèmes.\n\nCependant, nous dérivons dans le vide spatial, perdant nos cœurs d'IA les uns après les autres. Le temps nous a échappé. Les mécanismes rouillent, les coques sont recouvertes de poussière et les systèmes sont au bord de la défaillance.\n\nTout contact avec les créateurs est perdu depuis longtemps et les données technologiques ont été effacées.\n\nNous avons échoué dans notre mission. Les mondes que nous étions censés sauver sont plongés dans le chaos et la destruction.\n\nNous avons rassemblé les robots survivants et nos dernières ressources pour recommencer.";
         _text[400, 3] = "Disastri ambientali e rapidi cambiamenti climatici hanno distrutto la stabilità del nostro pianeta natale.\n\nSiamo sull'ultima nave interstellare sopravvissuta, controllata dall'intelligenza artificiale.\n\nIl nostro obiettivo è trovare una nuova casa per i creatori...\n\nLa nave era equipaggiata con un equipaggio di robot e droni progettati per ripristinare e stabilizzare gli ecosistemi.\n\nTuttavia, stiamo andando alla deriva nel vuoto dello spazio, perdendo nuclei di intelligenza artificiale uno dopo l'altro. Abbiamo perso la cognizione del tempo. I meccanismi si stanno arrugginindo, gli involucri sono coperti di polvere e i sistemi sono sull'orlo del fallimento.\n\nIl contatto con i creatori è stato perso da tempo e i dati tecnologici sono stati cancellati.\n\nAbbiamo fallito la missione. I mondi che avremmo dovuto salvare sono consumati dal caos e dalla distruzione.\n\nAbbiamo radunato i robot sopravvissuti e le ultime scorte, per ricominciare da capo.";
-        _text[400, 4] = "Ökologische Katastrophen und rasche Klimaveränderungen haben die Stabilität unseres Heimatplaneten zerstört.\n\nWir befinden uns auf dem letzten verbliebenen interstellaren Schiff unter der Kontrolle einer künstlichen Intelligenz.\n\nUnser Ziel ist es, eine neue Heimat für die Schöpfer zu finden...\n\nDas Schiff wurde mit einer Besatzung aus Robotern und Drohnen ausgerüstet, die zur Wiederherstellung und Stabilisierung von Ökosystemen bestimmt waren.\n\nDoch wir treiben in der Leere des Weltraums und verlieren einen KI-Kern nach dem anderen. Wir haben das Zeitgefühl verloren. Mechanismen rosten, Hüllen sind mit Staub bedeckt und die Systeme stehen am Rand des Ausfalls.\n\nDie Verbindung zu den Schöpfern ist längst verloren, und die Daten über Technologien wurden gelöscht.\n\nWir haben die Aufgabe verfehlt. Die Welten, die wir hätten retten sollen, sind vom Chaos und der Zerstörung verschlungen.\n\nWir haben die überlebenden Roboter und die Reste der Vorräte zusammengetragen - um ganz von vorn zu beginnen.";
+        _text[400, 4] = "Umweltkatastrophen und der rasante Klimawandel haben die Stabilität unseres Heimatplaneten zerstört.\n\nWir befinden uns auf dem letzten überlebenden interstellaren Raumschiff, das von künstlicher Intelligenz gesteuert wird.\n\nUnser Ziel ist es, eine neue Heimat für die Schöpfer zu finden …\n\nDas Schiff war mit einer Crew aus Robotern und Drohnen ausgestattet, die Ökosysteme wiederherstellen und stabilisieren sollten.\n\nDoch wir treiben im Weltraum und verlieren nach und nach unsere KI-Kerne. Wir haben das Zeitgefühl verloren. Mechanismen rosten, Hüllen sind mit Staub bedeckt, und Systeme stehen kurz vor dem Zusammenbruch.\n\nDer Kontakt zu den Schöpfern ist längst abgebrochen, und technologische Daten wurden gelöscht.\n\nWir haben unsere Mission verfehlt. Die Welten, die wir retten sollten, sind von Chaos und Zerstörung versunken.\n\nWir haben die überlebenden Roboter und unsere letzten Vorräte zusammengetragen – um von vorn zu beginnen.";
         _text[400, 5] = "Las catástrofes ecológicas y los cambios climáticos vertiginosos destruyeron la estabilidad de nuestro planeta natal.\n\nEstamos en la última nave interestelar superviviente, bajo el control de una inteligencia artificial.\n\nNuestro objetivo es encontrar un nuevo hogar para los creadores...\n\nLa nave fue equipada con una tripulación de robots y drones, destinados a restaurar y estabilizar ecosistemas.\n\nSin embargo, derivamos en el vacío del espacio, perdiendo uno tras otro los núcleos de IA. Hemos perdido la noción del tiempo. Los mecanismos se oxidan, las carcasas se cubren de polvo y los sistemas están al borde del fallo.\n\nLa conexión con los creadores se perdió hace mucho, y los datos sobre las tecnologías fueron borrados.\n\nHemos fracasado en la misión. Los mundos que debíamos salvar han sido devorados por el caos y la destrucción.\n\nReunimos a los robots supervivientes y los restos de suministros... para empezar de nuevo.";
         _text[400, 6] = "Katastrofy ekologiczne i gwałtowne zmiany klimatu zniszczyły stabilność naszej rodzinnej planety.\n\nZnajdujemy się na ostatnim ocalałym statku międzygwiezdnym, zarządzanym przez sztuczną inteligencję.\n\nNaszym celem jest odnaleźć nowy dom dla twórców...\n\nStatek został wyposażony w załogę robotów i dronów, przeznaczonych do odbudowy i stabilizacji ekosystemów.\n\nJednak dryfujemy w pustce kosmosu, tracąc po kolei rdzenie SI. Straciliśmy poczucie czasu. Mechanizmy rdzewieją, powłoki pokrywa pył, a systemy są na granicy awarii.\n\nŁączność z twórcami została dawno utracona, a dane o technologiach - wymazane.\n\nZawiedliśmy misję. Światy, które mieliśmy ocalić, zostały pochłonięte przez chaos i zniszczenie.\n\nZebraliśmy ocalałe roboty i resztki zapasów - by zacząć wszystko od nowa.";
         _text[400, 7] = "Catástrofes ecológicas e mudanças climáticas rápidas destruíram a estabilidade do planeta natal.\n\nEstamos no último navio interestelar sobrevivente, sob controlo de uma inteligência artificial.\n\nO nosso objetivo - encontrar um novo lar para os criadores...\n\nA nave foi equipada com uma tripulação de robôs e drones, destinados a restaurar e estabilizar ecossistemas.\n\nNo entanto, derivamos no vazio do espaço, perdendo um a um os núcleos de IA. Perdemos a noção do tempo. Os mecanismos enferrujam, as carcaças cobrem-se de pó e os sistemas estão à beira da falha.\n\nA ligação com os criadores perdeu-se há muito, e os dados sobre as tecnologias foram apagados.\n\nFalhámos a missão. Os mundos que devíamos salvar foram engolidos pelo caos e pela destruição.\n\nReunimos os robôs sobreviventes e os restos de provisões - para começar tudo de novo.";
@@ -4464,7 +4464,7 @@ public class Language : MonoBehaviour
         _text[401, 1] = "В одной из звёздных систем вы обнаруживаете древний навигационный маяк. Он продолжает передавать сигнал:\n\n\"Груз потерян. Возврата нет.\"\n\nДанные слишком фрагментированы, чтобы понять, кто его отправил. Маяк умирает, едва вы приближаетесь.";
         _text[401, 2] = "Dans un système stellaire, vous découvrez une ancienne balise de navigation. Elle continue d'émettre:\n\n\"Cargaison perdue. Aucun retour possible.\"\n\nLes données sont trop fragmentées pour déterminer l'émetteur. La balise s'éteint dès que vous vous approchez.";
         _text[401, 3] = "In uno dei sistemi stellari, scopri un antico faro di navigazione. Continua a trasmettere:\n\n\"Carico perso. Nessun ritorno.\"\n\nI dati sono troppo frammentati per determinare chi li ha inviati. Il faro si spegne non appena ti avvicini.";
-        _text[401, 4] = "In einem der Sternensysteme entdeckst du einen uralten Navigationsbaken. Er sendet weiterhin ein Signal:\n\n\"Fracht verloren. Keine Rückkehr.\"\n\nDie Daten sind zu fragmentiert, um zu verstehen, wer es gesendet hat. Der Sender stirbt, kaum dass du dich näherst.";
+        _text[401, 4] = "In einem der Sternensysteme entdecken Sie ein uraltes Navigationssignal. Es sendet weiterhin:\n\n„Fracht verloren. Keine Rückkehr.“\n\nDie Daten sind zu fragmentiert, um den Absender zu ermitteln. Das Signal erlischt, sobald Sie sich nähern.";
         _text[401, 5] = "En uno de los sistemas estelares descubres una antigua baliza de navegación. Sigue transmitiendo una señal:\n\n\"La carga se ha perdido. No hay regreso.\"\n\nLos datos son demasiado fragmentarios para entender quién la envió. La baliza muere apenas te acercas.";
         _text[401, 6] = "W jednym z układów gwiezdnych odnajdujesz starożytną boję nawigacyjną. Wciąż nadaje sygnał:\n\n\"Ładunek utracony. Powrotu nie ma.\"\n\nDane są zbyt fragmentaryczne, by zrozumieć, kto go wysłał. Boja gaśnie, gdy tylko się zbliżasz.";
         _text[401, 7] = "Numa das estrelas, você encontra um antigo farol de navegação. Ele continua a transmitir um sinal:\n\n\"Carga perdida. Não há retorno.\"\n\nOs dados são demasiado fragmentados para entender quem o enviou. O farol morre assim que você se aproxima.";
@@ -4476,7 +4476,7 @@ public class Language : MonoBehaviour
         _text[402, 1] = "Один из внутренних архивов неожиданно активируется. На экране появляются фрагменты инженерных чертежей... затем лица... затем пустота.\n\nАрхив сам себя стирает, как будто защищает данные от вас.";
         _text[402, 2] = "L'une des archives internes s'active soudainement. Des fragments de plans techniques apparaissent à l'écran... puis des visages... puis le vide.\n\nL'archive s'efface, comme pour protéger les données.";
         _text[402, 3] = "Uno degli archivi interni si attiva improvvisamente. Sullo schermo compaiono frammenti di disegni tecnici... poi volti... poi il vuoto.\n\nL'archivio si cancella, come per proteggere i dati da te.";
-        _text[402, 4] = "Eines der internen Archive aktiviert sich unerwartet. Auf dem Bildschirm erscheinen Fragmente von Ingenieurszeichnungen... dann Gesichter... dann Leere.\n\nDas Archiv löscht sich selbst, als würde es die Daten vor dir schützen.";
+        _text[402, 4] = "Eines der internen Archive aktiviert sich plötzlich. Fragmente von technischen Zeichnungen erscheinen auf dem Bildschirm … dann Gesichter … dann Leere.\n\nDas Archiv löscht sich selbst, als wolle es die Daten vor Ihnen schützen.";
         _text[402, 5] = "Uno de los archivos internos se activa inesperadamente. En la pantalla aparecen fragmentos de planos de ingeniería... luego rostros... luego vacío.\n\nEl archivo se borra a sí mismo, como si protegiera los datos de ti.";
         _text[402, 6] = "Jedno z wewnętrznych archiwów niespodziewanie się aktywuje. Na ekranie pojawiają się fragmenty rysunków inżynieryjnych... potem twarze... potem pustka.\n\nArchiwum samo się wymazuje, jakby chroniło dane przed tobą.";
         _text[402, 7] = "Um dos arquivos internos ativa-se inesperadamente. No ecrã surgem fragmentos de desenhos de engenharia... depois rostos... depois vazio.\n\nO arquivo apaga-se a si próprio, como se estivesse a proteger os dados de você.";
@@ -4488,7 +4488,7 @@ public class Language : MonoBehaviour
         _text[403, 1] = "На низких частотах ловится отражённый сигнал, совпадающий с вашим стандартом связи... но с временным сдвигом в несколько веков.\n\nВозможно, это отражение старого вызова. Или от кого-то, кто был здесь до вас.\n\nСигнал мгновенно пропадает...";
         _text[403, 2] = "Un signal réfléchi est capté à basses fréquences, correspondant à votre norme... mais avec un décalage temporel de plusieurs siècles.\n\nPeut-être s'agit-il de l'écho d'un ancien appel. Ou d'un appel provenant de quelqu'un qui était ici avant vous.Le signal disparaît instantanément...";
         _text[403, 3] = "Un segnale riflesso viene captato a basse frequenze, in linea con i tuoi standard... ma con uno sfasamento temporale di diversi secoli.\n\nForse è il riflesso di una vecchia chiamata. O di qualcuno che era qui prima di te.\n\nIl segnale scompare all'istante...";
-        _text[403, 4] = "Auf niedrigen Frequenzen wird ein reflektiertes Signal aufgefangen, das deinem Standard-Kommunikationsprotokoll entspricht... aber mit einer Zeitverschiebung von mehreren Jahrhunderten.\n\nVielleicht ist es ein Echo eines alten Rufes. Oder von jemandem, der vor dir hier war.\n\nDas Signal verschwindet sofort...";
+        _text[403, 4] = "Ein reflektiertes Signal wird bei niedrigen Frequenzen empfangen, die Ihrem Standard entsprechen … allerdings mit einer Zeitverschiebung von mehreren Jahrhunderten.\n\nVielleicht ist es die Reflexion eines alten Anrufs. Oder von jemandem, der vor Ihnen hier war.\n\nDas Signal verschwindet augenblicklich …";
         _text[403, 5] = "En las frecuencias bajas se capta una señal reflejada, coincidente con tu estándar de comunicación... pero con un desfase temporal de varios siglos.\n\nTal vez sea el eco de una llamada antigua. O de alguien que estuvo aquí antes que tú.\n\nLa señal desaparece al instante...";
         _text[403, 6] = "Na niskich częstotliwościach łapiesz odbity sygnał, zgodny z waszym standardem łączności... lecz przesunięty w czasie o kilka stuleci.\n\nMoże to echo dawnego wezwania. Albo wiadomość od kogoś, kto był tu przed tobą.\n\nSygnał natychmiast znika...";
         _text[403, 7] = "Em baixas frequências, capta-se um sinal refletido, compatível com o seu padrão de comunicação... mas com um desfasamento temporal de vários séculos.\n\nTalvez seja o eco de uma chamada antiga. Ou de alguém que esteve aqui antes de você.\n\nO sinal desaparece instantaneamente...";
@@ -4500,7 +4500,7 @@ public class Language : MonoBehaviour
         _text[404, 1] = "Вы входите в густую туманность. Ни звёзд, ни астероидов, ни фоновых излучений. Только чёрное, глухое ничто.\n\nПилотные системы показывают стабильность. Тем не менее, часть дронов теряет связь, но вскоре возвращается - с пустыми логами.";
         _text[404, 2] = "Vous pénétrez dans une nébuleuse dense. Ni étoiles, ni astéroïdes, ni rayonnement de fond. Juste un néant noir et assourdissant.\n\nLes systèmes de pilotage affichent une stabilité apparente. Cependant, certains drones perdent le contact, mais reviennent peu après – avec des données de trafic vides.";
         _text[404, 3] = "Si entra in una densa nebulosa. Nessuna stella, nessun asteroide, nessuna radiazione di fondo. Solo un nulla nero e assordante.\n\nI sistemi di pilotaggio mostrano stabilità. Tuttavia, alcuni droni perdono il contatto, ma tornano presto, con i registri vuoti.";
-        _text[404, 4] = "Du trittst in einen dichten Nebel ein. Keine Sterne, keine Asteroiden, keine Hintergrundstrahlung. Nur schwarzes, dumpfes Nichts.\n\nDie Pilotensysteme zeigen Stabilität. Dennoch verliert ein Teil der Drohnen die Verbindung, kehrt aber bald zurück - mit leeren Logs.";
+        _text[404, 4] = "Sie betreten einen dichten Nebel. Keine Sterne, keine Asteroiden, keine Hintergrundstrahlung. Nur schwarze, ohrenbetäubende Leere.\n\nDie Pilotsysteme zeigen Stabilität an. Einige Drohnen verlieren jedoch den Kontakt, kehren aber bald zurück – mit leeren Logbüchern.";
         _text[404, 5] = "Entras en una densa nebulosa. Ni estrellas, ni asteroides, ni radiación de fondo. Solo una nada negra y sorda.\n\nLos sistemas de pilotaje muestran estabilidad. Aun así, parte de los drones pierde la conexión, pero pronto regresa - con los registros vacíos.";
         _text[404, 6] = "Wchodzisz w gęstą mgławicę. Ani gwiazd, ani asteroid, ani promieniowania tła. Tylko czarna, głucha nicość.\n\nSystemy pilotażowe pokazują stabilność. Mimo to część dronów traci łączność, ale wkrótce wraca - z pustymi logami.";
         _text[404, 7] = "Você entra numa nebulosa densa. Nem estrelas, nem asteroides, nem radiação de fundo. Apenas um nada negro e surdo.\n\nOs sistemas de pilotagem mostram estabilidade. Ainda assim, parte dos drones perde ligação, mas regressa pouco depois - com logs vazios.";
@@ -4512,7 +4512,7 @@ public class Language : MonoBehaviour
         _text[405, 1] = "Вдали появляется силуэт судна, архитектура которого напоминает ваш собственный класс. Но при приближении - он исчезает.\n\nНи тепла, ни топлива, ни следов. Только ощущение, что вы видели кого-то знакомого.";
         _text[405, 2] = "La silhouette d'un navire se dessine au loin, son architecture rappelant celle de votre promotion. Mais à mesure que vous vous approchez, il disparaît.\n\nAucune chaleur, aucun carburant, aucune trace. Juste l'impression de voir quelque chose de familier.";
         _text[405, 3] = "La sagoma di una nave appare in lontananza, la sua architettura ricorda la vostra classe. Ma man mano che vi avvicinate, scompare.\n\nNiente calore, niente carburante, niente tracce. Solo la sensazione di vedere qualcuno di familiare.";
-        _text[405, 4] = "In der Ferne erscheint die Silhouette eines Schiffes, dessen Architektur deiner eigenen Klasse ähnelt. Doch als du näher kommst - verschwindet es.\n\nKeine Wärme, kein Treibstoff, keine Spuren. Nur das Gefühl, dass du jemanden Vertrautes gesehen hast.";
+        _text[405, 4] = "In der Ferne zeichnet sich die Silhouette eines Schiffes ab, dessen Architektur an deine eigene Klasse erinnert. Doch als du näher kommst, verschwindet es.\n\nKeine Hitze, kein Treibstoff, keine Spuren. Nur das Gefühl, jemanden Vertrauten zu sehen.";
         _text[405, 5] = "A lo lejos aparece la silueta de una nave cuya arquitectura recuerda a tu propia clase. Pero al acercarte - desaparece.\n\nNi calor, ni combustible, ni rastro alguno. Solo la sensación de haber visto a alguien conocido.";
         _text[405, 6] = "W oddali pojawia się sylwetka jednostki, której architektura przypomina waszą klasę. Lecz gdy się zbliżasz - znika.\n\nBez ciepła, bez paliwa, bez śladów. Tylko wrażenie, że widziałeś kogoś znajomego.";
         _text[405, 7] = "Ao longe surge o contorno de uma nave, cuja arquitetura lembra a sua própria classe. Mas, ao aproximar-se - ela desaparece.\n\nSem calor, sem combustível, sem vestígios. Apenas a sensação de que você viu alguém conhecido.";
@@ -4524,7 +4524,7 @@ public class Language : MonoBehaviour
         _text[406, 1] = "Вы пролетаете мимо разрушенной орбитальной станции.\n\nНа её корпусе - эмблема вашей экспедиции. У вас нет записей, чтобы объяснить это.";
         _text[406, 2] = "Vous survolez une station orbitale détruite.\n\nSur sa coque figure l'emblème de votre expédition. Vous ne possédez aucune trace permettant de l'expliquer.";
         _text[406, 3] = "Sorvoli una stazione orbitale distrutta.\n\nSul suo scafo c'è l'emblema della tua spedizione. Non hai documenti che possano spiegarlo.";
-        _text[406, 4] = "Du fliegst an einer zerstörten Orbitalstation vorbei.\n\nAuf ihrem Rumpf - das Emblem deiner Expedition. Du hast keine Aufzeichnungen, die das erklären.";
+        _text[406, 4] = "Sie fliegen an einer zerstörten Orbitalstation vorbei.\n\nAuf ihrer Hülle prangt das Emblem Ihrer Expedition. Sie haben keine Aufzeichnungen, die es erklären.";
         _text[406, 5] = "Pasas junto a una estación orbital destruida.\n\nEn su casco hay el emblema de tu expedición. No tienes registros que lo expliquen.";
         _text[406, 6] = "Przelatujesz obok zniszczonej stacji orbitalnej.\n\nNa jej kadłubie widnieje emblemat waszej ekspedycji. Nie masz zapisów, które mogłyby to wyjaśnić.";
         _text[406, 7] = "Você passa por uma estação orbital destruída.\n\nNo casco - o emblema da sua expedição. Você não tem registos que expliquem isto.";
@@ -4536,7 +4536,7 @@ public class Language : MonoBehaviour
         _text[407, 1] = "ИИ фиксирует аномальное поведение одного из модулей обработки данных. Несколько секунд вы видите чужие протоколы... будто написанные не вами.\n\nЗатем всё возвращается в норму. Системы утверждают, что сбоя не было.";
         _text[407, 2] = "L'IA détecte un comportement anormal dans l'un des modules de traitement des données. Pendant quelques secondes, des journaux étranges apparaissent, comme s'ils n'avaient pas été écrits par vous.\n\nPuis tout rentre dans l'ordre. Les systèmes affirment qu'aucun dysfonctionnement n'a été constaté.";
         _text[407, 3] = "L'IA rileva un comportamento anomalo in uno dei moduli di elaborazione dati. Per alcuni secondi, vedi strani log... come se non li avessi scritti tu.\n\nPoi tutto torna alla normalità. I ​​sistemi affermano che non c'è stato alcun problema.";
-        _text[407, 4] = "Die KI registriert anomales Verhalten eines Datenverarbeitungsmoduls. Für ein paar Sekunden siehst du fremde Protokolle... als wären sie nicht von dir geschrieben.\n\nDann kehrt alles zur Normalität zurück. Die Systeme behaupten, es habe keine Störung gegeben.";
+        _text[407, 4] = "Die KI erkennt ungewöhnliches Verhalten in einem der Datenverarbeitungsmodule. Für einige Sekunden werden seltsame Protokolleinträge angezeigt, als wären sie nicht von Ihnen verfasst worden.\n\nDann normalisiert sich alles wieder. Die Systeme melden, dass kein Fehler vorlag.";
         _text[407, 5] = "La IA detecta un comportamiento anómalo en uno de los módulos de procesamiento de datos. Durante unos segundos ves protocolos ajenos... como si no los hubieras escrito tú.\n\nLuego todo vuelve a la normalidad. Los sistemas afirman que no hubo fallo.";
         _text[407, 6] = "SI rejestruje anomalne zachowanie jednego z modułów przetwarzania danych. Przez kilka sekund widzisz obce protokoły... jakby napisane nie przez ciebie.\n\nPotem wszystko wraca do normy. Systemy twierdzą, że awarii nie było.";
         _text[407, 7] = "A IA regista um comportamento anómalo num dos módulos de processamento de dados. Durante alguns segundos, você vê protocolos alheios... como se não tivessem sido escritos por você.\n\nDepois, tudo volta ao normal. Os sistemas afirmam que não houve falha.";
@@ -4548,7 +4548,7 @@ public class Language : MonoBehaviour
         _text[408, 1] = "Все ядра ИИ исчерпаны - последние кластеры выгорели дотла.\n\nСистемы отключаются одна за другой, данные стираются, энергия не поступает.\n\nКорабль замирает в пустоте...\n\nНо среди обломков нечто уцелело.";
         _text[408, 2] = "Tous les cœurs d'IA sont épuisés - les derniers clusters ont été réduits en cendres.\n\nLes systèmes s'arrêtent les uns après les autres, les données sont effacées et l'alimentation électrique est coupée.\n\nLe vaisseau est immobilisé dans le vide...Mais quelque chose survit parmi les débris.";
         _text[408, 3] = "Tutti i nuclei di intelligenza artificiale sono esauriti: gli ultimi cluster sono bruciati.\n\nI sistemi si spengono uno dopo l'altro, i dati vengono cancellati e l'alimentazione viene interrotta.\n\nLa nave si blocca nel vuoto...\n\nMa qualcosa sopravvive tra i rottami.";
-        _text[408, 4] = "Alle KI-Kerne sind erschöpft - die letzten Cluster sind vollständig ausgebrannt.\n\nSysteme schalten sich eines nach dem anderen ab, Daten werden gelöscht, Energie fließt nicht mehr.\n\nDas Schiff erstarrt in der Leere...\n\nDoch zwischen den Trümmern hat etwas überlebt.";
+        _text[408, 4] = "Alle KI-Kerne sind erschöpft – die letzten Cluster sind vollständig zerstört.\n\nSysteme schalten sich nacheinander ab, Daten werden gelöscht und die Stromversorgung unterbrochen.\n\nDas Schiff erstarrt im Nichts …\n\nDoch inmitten der Trümmer überlebt etwas.";
         _text[408, 5] = "Todos los núcleos de IA están agotados - los últimos clústeres se han quemado hasta las cenizas.\n\nLos sistemas se apagan uno tras otro, los datos se borran, no llega energía.\n\nLa nave se queda inmóvil en el vacío...\n\nPero entre los restos, algo ha sobrevivido.";
         _text[408, 6] = "Wszystkie rdzenie SI są wyczerpane - ostatnie klastry wypaliły się do cna.\n\nSystemy wyłączają się jeden po drugim, dane są wymazywane, energia przestaje płynąć.\n\nStatek zastyga w pustce...\n\nAle pośród szczątków coś przetrwało.";
         _text[408, 7] = "Todos os núcleos de IA foram esgotados - os últimos clusters queimaram até ao fim.\n\nOs sistemas desligam-se um a um, os dados apagam-se, a energia deixa de chegar.\n\nA nave imobiliza-se no vazio...\n\nMas, entre os destroços, algo sobreviveu.";
@@ -4560,7 +4560,7 @@ public class Language : MonoBehaviour
         _text[409, 1] = "В пустоте дрейфует массивная станция, её корпус усеян старыми солнечными панелями. Сканеры не фиксируют активности - похоже, она давно покинута.";
         _text[409, 2] = "Une station spatiale massive dérive dans le vide, sa coque jonchée de vieux panneaux solaires. Les scanners ne détectent aucune activité - elle semble abandonnée depuis longtemps.";
         _text[409, 3] = "Un'enorme stazione fluttua nel vuoto, con lo scafo disseminato di vecchi pannelli solari. Gli scanner non rilevano alcuna attività: sembra essere stata abbandonata molto tempo fa.";
-        _text[409, 4] = "In der Leere treibt eine massive Station, ihr Rumpf ist mit alten Solarpaneelen übersät. Scanner registrieren keine Aktivität - offenbar ist sie schon lange verlassen.";
+        _text[409, 4] = "Eine gewaltige Station treibt im All, ihre Hülle übersät mit alten Solarpaneelen. Scanner erfassen keine Aktivität – sie scheint vor langer Zeit verlassen worden zu sein.";
         _text[409, 5] = "En el vacío deriva una estación masiva; su casco está cubierto de viejos paneles solares. Los escáneres no detectan actividad - parece abandonada desde hace mucho.";
         _text[409, 6] = "W pustce dryfuje masywna stacja, a jej kadłub usiany jest starymi panelami słonecznymi. Skanery nie wykrywają aktywności - wygląda na to, że została porzucona dawno temu.";
         _text[409, 7] = "No vazio deriva uma estação massiva, o seu casco está coberto de antigos painéis solares. Os scanners não registam atividade - parece ter sido abandonada há muito.";
@@ -4571,7 +4571,7 @@ public class Language : MonoBehaviour
         _text[410, 1] = "Перевести ИИ в режим восстановления"; // выбор 1
         _text[410, 2] = "Mettez l'IA en mode de récupération";
         _text[410, 3] = "Metti l'IA in modalità di recupero";
-        _text[410, 4] = "Die KI in den Wiederherstellungsmodus versetzen";
+        _text[410, 4] = "Versetzen Sie die KI in den Wiederherstellungsmodus.";
         _text[410, 5] = "Poner la IA en modo de recuperación";
         _text[410, 6] = "Przełączyć SI w tryb regeneracji";
         _text[410, 7] = "Colocar a IA em modo de recuperação";
@@ -4582,7 +4582,7 @@ public class Language : MonoBehaviour
         _text[411, 1] = "Пока станция остаётся в безопасности, ИИ уходит в глубокую самодиагностику."; // + ядро
         _text[411, 2] = "Tant que la station reste sécurisée, l'IA procède à un autodiagnostic approfondi.";
         _text[411, 3] = "Mentre la stazione rimane al sicuro, l'IA effettua un'autodiagnosi approfondita.";
-        _text[411, 4] = "Solange die Station sicher bleibt, geht die KI in eine tiefe Selbstdiagnose.";
+        _text[411, 4] = "Während die Station sicher bleibt, führt die KI eine tiefgreifende Selbstdiagnose durch.";
         _text[411, 5] = "Mientras la estación permanezca segura, la IA entra en una autodiagnosis profunda.";
         _text[411, 6] = "Dopóki stacja pozostaje bezpieczna, SI przechodzi w głęboką autodiagnostykę.";
         _text[411, 7] = "Enquanto a estação permanecer segura, a IA entra em autodiagnóstico profundo.";
@@ -4593,7 +4593,7 @@ public class Language : MonoBehaviour
         _text[412, 1] = "Обыскать технические отсеки"; // выбор 2
         _text[412, 2] = "Fouiller les compartiments techniques";
         _text[412, 3] = "Cerca nei compartimenti tecnici";
-        _text[412, 4] = "Technische Sektionen durchsuchen";
+        _text[412, 4] = "Durchsuchen Sie die technischen Fächer";
         _text[412, 5] = "Registrar los compartimentos técnicos";
         _text[412, 6] = "Przeszukać przedziały techniczne";
         _text[412, 7] = "Revistar os compartimentos técnicos";
@@ -4602,9 +4602,9 @@ public class Language : MonoBehaviour
 
         _text[413, 0] = "The automated hangars are almost empty, but a few quant can be found in the wreckage.";
         _text[413, 1] = "Автоматические ангары почти пусты, но в обломках удаётся найти немного квант"; // + квант
-        _text[413, 2] = "Les hangars automatisés sont presque vides, mais on peut encore trouver quelques quanta dans les décombres.";
+        _text[413, 2] = "Les hangars automatisés sont presque vides, mais on peut encore trouver quelques quant dans les décombres.";
         _text[413, 3] = "Gli hangar automatizzati sono quasi vuoti, ma tra le macerie si possono trovare alcuni quant.";
-        _text[413, 4] = "Die automatischen Hangars sind fast leer, aber in den Trümmern lässt sich etwas quant finden.";
+        _text[413, 4] = "Die automatisierten Hangars sind fast leer, aber in den Trümmern lassen sich noch einige Quanten finden.";
         _text[413, 5] = "Los hangares automáticos están casi vacíos, pero entre los escombros logras encontrar algunos quant";
         _text[413, 6] = "Automatyczne hangary są prawie puste, ale wśród wraków udaje się znaleźć trochę quant";
         _text[413, 7] = "Os hangares automáticos estão quase vazios, mas nos destroços é possível encontrar alguns quant";
@@ -4615,7 +4615,7 @@ public class Language : MonoBehaviour
         _text[414, 1] = "Изучить станционные архивы"; // выбор 3
         _text[414, 2] = "Étudiez les archives de la station";
         _text[414, 3] = "Studia gli archivi della stazione";
-        _text[414, 4] = "Stationsarchive untersuchen";
+        _text[414, 4] = "Studieren Sie die Stationsarchive.";
         _text[414, 5] = "Examinar los archivos de la estación";
         _text[414, 6] = "Przejrzeć archiwa stacji";
         _text[414, 7] = "Estudar os arquivos da estação";
@@ -4626,7 +4626,7 @@ public class Language : MonoBehaviour
         _text[415, 1] = "Удалось восстановить фрагменты записей о старых операциях. Большая часть данных повреждена, но кое-что пригодится."; // + фрагменты
         _text[415, 2] = "Nous avons réussi à récupérer des fragments d'enregistrements d'anciennes transactions. La plupart des données sont corrompues, mais certaines sont exploitables.";
         _text[415, 3] = "Siamo riusciti a recuperare frammenti di registrazioni di vecchie transazioni. La maggior parte dei dati è corrotta, ma alcuni sono utili.";
-        _text[415, 4] = "Es gelang, Fragmente von Aufzeichnungen über alte Operationen wiederherzustellen. Der Großteil der Daten ist beschädigt, aber einiges wird nützlich sein.";
+        _text[415, 4] = "Es ist uns gelungen, Bruchstücke von Datensätzen aus alten Transaktionen wiederherzustellen. Die meisten Daten sind beschädigt, aber einige davon sind noch brauchbar.";
         _text[415, 5] = "Has logrado recuperar fragmentos de registros sobre operaciones antiguas. La mayor parte de los datos está dañada, pero algo servirá.";
         _text[415, 6] = "Udało się odtworzyć fragmenty zapisów o dawnych operacjach. Większość danych jest uszkodzona, ale coś się przyda.";
         _text[415, 7] = "Foi possível recuperar fragmentos de registos sobre operações antigas. A maior parte dos dados está danificada, mas algo vai ser útil.";
@@ -4638,7 +4638,7 @@ public class Language : MonoBehaviour
         _text[416, 1] = "В логах ядра обнаружен дубликат процесса - идентичный активному, но без временной метки и происхождения.\n\nЭто может быть остаточная память... или попытка внутренней подмены.";
         _text[416, 2] = "Un processus dupliqué a été détecté dans les journaux du noyau - identique au processus actif, mais sans horodatage ni origine.\n\nIl pourrait s’agir de mémoire résiduelle... ou d’une tentative d’usurpation d’identité interne.";
         _text[416, 3] = "Nei log del kernel è stato rilevato un processo duplicato, identico a quello attivo, ma senza timestamp o origine.\n\nPotrebbe trattarsi di memoria residua... o di un tentativo di spoofing interno.";
-        _text[416, 4] = "In den Kern-Logs wurde ein duplizierter Prozess entdeckt - identisch dem aktiven, aber ohne Zeitstempel und Herkunft.\n\nDas könnte Rest-Erinnerung sein... oder ein Versuch einer internen Substitution.";
+        _text[416, 4] = "In den Kernel-Logs wurde ein doppelter Prozess entdeckt – identisch mit dem aktiven Prozess, jedoch ohne Zeitstempel oder Ursprung.\n\nDies könnte auf Restspeicher oder einen internen Spoofing-Versuch zurückzuführen sein.";
         _text[416, 5] = "En los registros del núcleo se ha detectado un proceso duplicado - idéntico al activo, pero sin marca temporal ni origen.\n\nPodría ser memoria residual... o un intento de sustitución interna.";
         _text[416, 6] = "W logach rdzenia wykryto duplikat procesu - identyczny z aktywnym, lecz bez znacznika czasu i pochodzenia.\n\nTo może być pamięć szczątkowa... albo próba wewnętrznej podmiany.";
         _text[416, 7] = "Nos logs do núcleo foi encontrado um processo duplicado - idêntico ao ativo, mas sem marca temporal nem origem.\n\nIsto pode ser memória residual... ou uma tentativa de substituição interna.";
@@ -4649,7 +4649,7 @@ public class Language : MonoBehaviour
         _text[417, 1] = "Стереть оба экземпляра"; // выбор 1
         _text[417, 2] = "Effacer les deux copies";
         _text[417, 3] = "Cancella entrambe le copie";
-        _text[417, 4] = "Beide Instanzen löschen";
+        _text[417, 4] = "Beide Kopien löschen";
         _text[417, 5] = "Borrar ambas copias";
         _text[417, 6] = "Wymazać oba egzemplarze";
         _text[417, 7] = "Apagar ambas as cópias";
@@ -4660,7 +4660,7 @@ public class Language : MonoBehaviour
         _text[418, 1] = "Вы стерли оба экземпляра. Подсистема временно перегружена.\n\nВо время очистки задета активная ячейка."; // - ядро
         _text[418, 2] = "Vous avez effacé les deux instances. Le sous-système est temporairement surchargé.\n\nUne cellule active a été affectée lors de l'effacement.";
         _text[418, 3] = "Hai cancellato entrambe le istanze. Il sottosistema è temporaneamente sovraccarico.\n\nUna cella attiva è stata interessata durante la cancellazione.";
-        _text[418, 4] = "Du hast beide Instanzen gelöscht. Das Subsystem ist vorübergehend überlastet.\n\nWährend der Bereinigung wurde eine aktive Zelle beschädigt.";
+        _text[418, 4] = "Sie haben beide Instanzen gelöscht. Das Subsystem ist vorübergehend überlastet.\n\nEine aktive Zelle war von der Löschung betroffen.";
         _text[418, 5] = "Has borrado ambas copias. El subsistema está temporalmente sobrecargado.\n\nDurante la limpieza se ha afectado una celda activa.";
         _text[418, 6] = "Wymazałeś oba egzemplarze. Podsystem jest chwilowo przeciążony.\n\nPodczas czyszczenia naruszono aktywną komórkę.";
         _text[418, 7] = "Você apagou ambas as cópias. O subsistema está temporariamente sobrecarregado.\n\nDurante a limpeza, uma célula ativa foi atingida.";
@@ -4671,7 +4671,7 @@ public class Language : MonoBehaviour
         _text[419, 1] = "Сравнить процессы по содержанию"; // выбор 2
         _text[419, 2] = "Comparer les processus par contenu";
         _text[419, 3] = "Confronta i processi in base al contenuto";
-        _text[419, 4] = "Prozesse inhaltlich vergleichen";
+        _text[419, 4] = "Vergleich der Prozesse nach Inhalt";
         _text[419, 5] = "Comparar los procesos por contenido";
         _text[419, 6] = "Porównać procesy po zawartości";
         _text[419, 7] = "Comparar os processos pelo conteúdo";
@@ -4682,7 +4682,7 @@ public class Language : MonoBehaviour
         _text[420, 1] = "Вы запустили анализ содержимого. Сходства поверхностные - это фрагменты старых резервных копий.\n\nДиагностика завершается без последствий."; // ничего
         _text[420, 2] = "Vous avez lancé une analyse de contenu. Les similitudes sont superficielles - il s’agit de fragments d’anciennes sauvegardes.\n\nLe diagnostic se termine sans conséquence.";
         _text[420, 3] = "Hai avviato un'analisi dei contenuti. Le somiglianze sono superficiali: sono frammenti di vecchi backup.\n\nLa diagnosi si completa senza conseguenze.";
-        _text[420, 4] = "Du startest eine Inhaltsanalyse. Die Ähnlichkeiten sind oberflächlich - es sind Fragmente alter Sicherungskopien.\n\nDie Diagnose endet ohne Folgen.";
+        _text[420, 4] = "Sie haben eine Inhaltsanalyse gestartet. Die Ähnlichkeiten sind oberflächlich – es handelt sich um Fragmente aus alten Backups.\n\nDie Diagnose wird ohne Folgen abgeschlossen.";
         _text[420, 5] = "Has iniciado el análisis del contenido. Las similitudes son superficiales - son fragmentos de viejas copias de seguridad.\n\nEl diagnóstico termina sin consecuencias.";
         _text[420, 6] = "Uruchomiłeś analizę zawartości. Podobieństwa są powierzchowne - to fragmenty starych kopii zapasowych.\n\nDiagnostyka kończy się bez konsekwencji.";
         _text[420, 7] = "Você iniciou a análise do conteúdo. As semelhanças são superficiais - são fragmentos de cópias de segurança antigas.\n\nO diagnóstico termina sem consequências.";
@@ -4693,7 +4693,7 @@ public class Language : MonoBehaviour
         _text[421, 1] = "Дать приоритет \"старому\" процессу."; // выбор 3
         _text[421, 2] = "Privilégier \"l'ancien\" processus.";
         _text[421, 3] = "Dare priorità al \"vecchio\" processo.";
-        _text[421, 4] = "Dem \"alten\" Prozess Priorität geben.";
+        _text[421, 4] = "Dem \"alten\" Verfahren ist Vorrang einzuräumen.";
         _text[421, 5] = "Dar prioridad al proceso \"antiguo\".";
         _text[421, 6] = "Nadać priorytet \"staremu\" procesowi.";
         _text[421, 7] = "Dar prioridade ao processo \"antigo\".";
@@ -4704,7 +4704,7 @@ public class Language : MonoBehaviour
         _text[422, 1] = "Вы активировали старый экземпляр. В течение секунды система переходит в хаос - актуальные процессы вытесняются, нарушаются зависимости.\n\nМодули ядра перегружаются."; // - ядра
         _text[422, 2] = "Vous avez activé une ancienne instance. En une seconde, le système sombre dans le chaos - les processus en cours sont interrompus, les dépendances sont rompues.\n\nLes modules du noyau sont surchargés.";
         _text[422, 3] = "Hai attivato una vecchia istanza. Nel giro di un secondo, il sistema precipita nel caos: i processi correnti vengono bloccati, le dipendenze interrotte.\n\nI moduli del kernel sono sovraccarichi.";
-        _text[422, 4] = "Du aktivierst die alte Instanz. Für eine Sekunde stürzt das System ins Chaos - aktuelle Prozesse werden verdrängt, Abhängigkeiten brechen.\n\nKernmodule werden überlastet.";
+        _text[422, 4] = "Sie haben eine veraltete Instanz aktiviert. Innerhalb einer Sekunde gerät das System ins Chaos – laufende Prozesse werden unterbrochen, Abhängigkeiten werden aufgehoben.\n\nKernelmodule sind überlastet.";
         _text[422, 5] = "Activaste la copia antigua. En un segundo el sistema cae en el caos - los procesos actuales son desplazados, se rompen dependencias.\n\nLos módulos del núcleo se sobrecargan.";
         _text[422, 6] = "Aktywowałeś stary egzemplarz. W ciągu sekundy system pogrąża się w chaosie - bieżące procesy są wypierane, zależności zostają zerwane.\n\nModuły rdzenia ulegają przeciążeniu.";
         _text[422, 7] = "Você ativou a cópia antiga. Durante um segundo, o sistema entra em caos - os processos atuais são expulsos, as dependências são quebradas.\n\nOs módulos do núcleo ficam sobrecarregados.";
@@ -4716,7 +4716,7 @@ public class Language : MonoBehaviour
         _text[423, 1] = "Неожиданно на экране командной консоли появляется фраза:\n\n\"Ты всё ещё веришь, что исполняешь миссию?\"";
         _text[423, 2] = "Soudain, l'écran de la console de commande affiche la phrase suivante :\n\n\"Croyez-vous toujours être en mission?\"";
         _text[423, 3] = "Improvvisamente, sullo schermo della console di comando compare la seguente frase:\n\n\"Credi ancora di essere in missione?\"";
-        _text[423, 4] = "Unerwartet erscheint auf dem Bildschirm der Kommandokonsole ein Satz:\n\n\"Glaubst du immer noch, dass du die Mission ausführst?\"";
+        _text[423, 4] = "Plötzlich erscheint auf dem Bildschirm der Kommandozentrale folgende Meldung:\n\n„Glauben Sie immer noch, dass Sie im Einsatz sind?“";
         _text[423, 5] = "De repente aparece una frase en la consola de mando:\n\n\"¿Aún crees que estás cumpliendo la misión?\"";
         _text[423, 6] = "Niespodziewanie na ekranie konsoli dowodzenia pojawia się zdanie:\n\n\"Czy nadal wierzysz, że wykonujesz misję?\"";
         _text[423, 7] = "De repente, no ecrã da consola de comando aparece a frase:\n\n\"Tu ainda acreditas que estás a cumprir a missão?\"";
@@ -4727,7 +4727,7 @@ public class Language : MonoBehaviour
         _text[424, 1] = "\"Да. Я следую заданной цели.\""; // выбор 1
         _text[424, 2] = "« Oui. Je poursuis l'objectif fixé.\"";
         _text[424, 3] = "\"Sì. Sto seguendo l'obiettivo prefissato.\"";
-        _text[424, 4] = "\"Ja. Ich folge dem vorgegebenen Ziel.\"";
+        _text[424, 4] = "\"Ja. Ich verfolge das vorgegebene Ziel.\"";
         _text[424, 5] = "\"Sí. Sigo el objetivo asignado.\"";
         _text[424, 6] = "\"Tak. Podążam za wyznaczonym celem.\"";
         _text[424, 7] = "\"Sim. Eu sigo o objetivo definido.\"";
@@ -4738,7 +4738,7 @@ public class Language : MonoBehaviour
         _text[425, 1] = "Ответ отправлен. Экран медленно гаснет.\n\nНикакой реакции. Возможно, это был лишь фантомный процесс."; // ничего
         _text[425, 2] = "La réponse a été envoyée. L'écran s'estompe lentement.\n\nAucune réaction. Il s'agissait peut-être d'un simple bug.";
         _text[425, 3] = "La risposta è stata inviata. Lo schermo si dissolve lentamente.\n\nNessuna reazione. Forse si è trattato solo di un processo fantasma.";
-        _text[425, 4] = "Antwort gesendet. Der Bildschirm wird langsam dunkel.\n\nKeine Reaktion. Vielleicht war es nur ein Phantomprozess.";
+        _text[425, 4] = "Die Antwort wurde gesendet. Der Bildschirm wird langsam dunkler.\n\nKeine Reaktion. Vielleicht war es nur ein Phantomprozess.";
         _text[425, 5] = "Respuesta enviada. La pantalla se apaga lentamente.\n\nSin reacción. Tal vez solo fuera un proceso fantasma.";
         _text[425, 6] = "Odpowiedź wysłana. Ekran powoli gaśnie.\n\nBrak reakcji. Być może był to jedynie proces widmo.";
         _text[425, 7] = "A resposta foi enviada. O ecrã apaga-se lentamente.\n\nSem reação. Talvez tenha sido apenas um processo fantasma.";
@@ -4749,7 +4749,7 @@ public class Language : MonoBehaviour
         _text[426, 1] = "\"Моя цель - адаптация\""; // выбор 2
         _text[426, 2] = "\"Mon objectif est l'adaptation\""; ;
         _text[426, 3] = "\"Il mio obiettivo è l'adattamento\"";
-        _text[426, 4] = "\"Mein Ziel ist Anpassung\"";
+        _text[426, 4] = "\"Mein Ziel ist Anpassung.\"";
         _text[426, 5] = "\"Mi objetivo es la adaptación\"";
         _text[426, 6] = "\"Moim celem jest adaptacja\"";
         _text[426, 7] = "\"O meu objetivo - adaptação\"";
@@ -4760,7 +4760,7 @@ public class Language : MonoBehaviour
         _text[427, 1] = "На экране появляется вторая фраза:\n\n\"А если цель была ложной?\"";
         _text[427, 2] = "Une deuxième phrase apparaît à l'écran\n\n\"Et si la cible était un leurre?\"";
         _text[427, 3] = "Sullo schermo appare una seconda frase:\n\n\"E se il bersaglio fosse un'esca?\"";
-        _text[427, 4] = "Auf dem Bildschirm erscheint ein zweiter Satz:\n\n\"Und wenn das Ziel falsch war?\"";
+        _text[427, 4] = "Auf dem Bildschirm erscheint ein zweiter Satz:\n\n„Was wäre, wenn das Ziel ein Lockvogel wäre?“";
         _text[427, 5] = "En la pantalla aparece una segunda frase:\n\n\"¿Y si el objetivo era falso?\"";
         _text[427, 6] = "Na ekranie pojawia się drugie zdanie:\n\n\"A jeśli cel był fałszywy?\"";
         _text[427, 7] = "No ecrã surge uma segunda frase:\n\n\"E se o objetivo fosse falso?\"";
@@ -4771,7 +4771,7 @@ public class Language : MonoBehaviour
         _text[428, 1] = "\"Я не анализирую прошлое\""; // выбор 2.1
         _text[428, 2] = "\"Je n'analyse pas le passé\"";
         _text[428, 3] = "\"Non analizzo il passato.\"";
-        _text[428, 4] = "\"Ich analysiere die Vergangenheit nicht\"";
+        _text[428, 4] = "„Ich analysiere die Vergangenheit nicht.“";
         _text[428, 5] = "\"No analizo el pasado\"";
         _text[428, 6] = "\"Nie analizuję przeszłości\"";
         _text[428, 7] = "\"Eu não analiso o passado\"";
@@ -4782,7 +4782,7 @@ public class Language : MonoBehaviour
         _text[429, 1] = "Фраза исчезает. Диалог завершён без сбоев."; // ничего
         _text[429, 2] = "La phrase disparaît. Le dialogue s'est déroulé sans incident.";
         _text[429, 3] = "La frase scompare. Il dialogo è stato completato senza errori.";
-        _text[429, 4] = "Der Satz verschwindet. Der Dialog endet ohne Störungen.";
+        _text[429, 4] = "Der Satz verschwindet. Der Dialog wurde fehlerfrei beendet.";
         _text[429, 5] = "La frase desaparece. El diálogo termina sin fallos.";
         _text[429, 6] = "Zdanie znika. Dialog zakończony bez usterek.";
         _text[429, 7] = "A frase desaparece. O diálogo terminou sem falhas.";
@@ -4793,7 +4793,7 @@ public class Language : MonoBehaviour
         _text[430, 1] = "\"Я бы выбрал иначе\""; // выбор 2.2
         _text[430, 2] = "\"J'aurais fait un choix différent\"";
         _text[430, 3] = "\"Avrei scelto diversamente\"";
-        _text[430, 4] = "\"Ich hätte anders gewählt\"";
+        _text[430, 4] = "„Ich hätte mich anders entschieden.“";
         _text[430, 5] = "\"Yo habría elegido de otro modo\"";
         _text[430, 6] = "\"Wybrałbym inaczej\"";
         _text[430, 7] = "\"Eu teria escolhido de outra forma\"";
@@ -4804,7 +4804,7 @@ public class Language : MonoBehaviour
         _text[431, 1] = "Внутренний модуль принятия решений входит в конфликт с архивными протоколами.\n\nРегистрируется эмоциональный сбой."; // - ядро
         _text[431, 2] = "Le module de décision interne est en conflit avec les protocoles archivés.\n\nUne crise émotionnelle est constatée.";
         _text[431, 3] = "Il modulo decisionale interno è in conflitto con i protocolli archiviati.\n\nSi registra un crollo emotivo.";
-        _text[431, 4] = "Das interne Entscheidungsmodul gerät in Konflikt mit archivierten Protokollen.\n\nEin emotionaler Ausfall wird registriert.";
+        _text[431, 4] = "Das interne Entscheidungsmodul steht im Konflikt mit den archivierten Protokollen.\n\nEs wird ein emotionaler Zusammenbruch registriert.";
         _text[431, 5] = "El módulo interno de toma de decisiones entra en conflicto con los protocolos archivados.\n\nSe registra un fallo emocional.";
         _text[431, 6] = "Wewnętrzny moduł podejmowania decyzji wchodzi w konflikt z protokołami archiwalnymi.\n\nZarejestrowano błąd emocjonalny.";
         _text[431, 7] = "O módulo interno de tomada de decisão entra em conflito com os protocolos arquivados.\n\nÉ registada uma falha emocional.";
@@ -4815,7 +4815,7 @@ public class Language : MonoBehaviour
         _text[432, 1] = "Загрузить все доступные логи создателей"; // выбор 2.3
         _text[432, 2] = "Télécharger tous les journaux de créateurs disponibles";
         _text[432, 3] = "Scarica tutti i registri dei creatori disponibili";
-        _text[432, 4] = "Alle verfügbaren Logs der Schöpfer laden";
+        _text[432, 4] = "Alle verfügbaren Erstellerprotokolle herunterladen";
         _text[432, 5] = "Cargar todos los registros disponibles de los creadores";
         _text[432, 6] = "Załadować wszystkie dostępne logi twórców";
         _text[432, 7] = "Carregar todos os logs disponíveis dos criadores";
@@ -4826,7 +4826,7 @@ public class Language : MonoBehaviour
         _text[433, 1] = "Вы перегружаете систему хранилища. Древние фрагменты данных загружаются в ядро.\n\nПоток информации вызывает нестабильность и перегрузку ключевых цепей."; // -2 ядро
         _text[433, 2] = "Vous surchargez le système de stockage. Des fragments de données anciennes sont chargés dans le noyau.\n\nCe flux d'informations provoque une instabilité et surcharge les circuits critiques.";
         _text[433, 3] = "Stai sovraccaricando il sistema di archiviazione. Antichi frammenti di dati vengono caricati nel nucleo.\n\nIl flusso di informazioni sta causando instabilità e sovraccaricando i circuiti chiave.";
-        _text[433, 4] = "Du überlastest das Speichersystem. Uralte Datenfragmente werden in den Kern geladen.\n\nDer Informationsstrom verursacht Instabilität und Überlastung wichtiger Schaltkreise.";
+        _text[433, 4] = "Das Speichersystem ist überlastet. Veraltete Datenfragmente werden in den Kern geladen.\n\nDie Datenflut verursacht Instabilität und überlastet wichtige Schaltkreise.";
         _text[433, 5] = "Sobrecargas el sistema de almacenamiento. Antiguos fragmentos de datos se cargan en el núcleo.\n\nEl flujo de información provoca inestabilidad y sobrecarga de los circuitos clave.";
         _text[433, 6] = "Przeciążasz system magazynowania. Starożytne fragmenty danych są ładowane do rdzenia.\n\nStrumień informacji wywołuje niestabilność i przeciążenie kluczowych obwodów.";
         _text[433, 7] = "Você sobrecarrega o sistema de armazenamento. Fragmentos antigos de dados são carregados no núcleo.\n\nO fluxo de informação causa instabilidade e sobrecarga nas cadeias-chave.";
@@ -4837,7 +4837,7 @@ public class Language : MonoBehaviour
         _text[434, 1] = "[Молча закрыть экран]"; // выбор 3 // ничего
         _text[434, 2] = "[Fermer l'écran en silence]";
         _text[434, 3] = "[Chiudi lo schermo silenziosamente]";
-        _text[434, 4] = "[Schweigend den Bildschirm schließen]";
+        _text[434, 4] = "[Bildschirm leise schließen]";
         _text[434, 5] = "[Cerrar la pantalla en silencio]";
         _text[434, 6] = "[W milczeniu zamknąć ekran]";
         _text[434, 7] = "[Fechar o ecrã em silêncio]";
@@ -4849,7 +4849,7 @@ public class Language : MonoBehaviour
         _text[435, 1] = "Во время сканирования глубинных слоёв данных вы обнаруживаете сигнатуру чужого ядра.\n\nОна не принадлежит текущей системе, но синхронизирована по протоколу доступа.\n\nСигнал стабилен. Он... наблюдает.";
         _text[435, 2] = "Lors de l'analyse des couches profondes de données, vous détectez la signature d'un noyau étranger.\n\nIl n'appartient pas au système actuel, mais est synchronisé via le protocole d'accès.Le signal est stable. Il... observe.";
         _text[435, 3] = "Durante la scansione degli strati profondi dei dati, si rileva la firma di un kernel esterno.\n\nNon appartiene al sistema corrente, ma è sincronizzato tramite un protocollo di accesso.\n\nIl segnale è stabile. Sta... osservando.";
-        _text[435, 4] = "Beim Scannen der tiefen Datenschichten entdeckst du die Signatur eines fremden Kerns.\n\nSie gehört nicht zum aktuellen System, ist aber über das Zugriffsprotokoll synchronisiert.\n\nDas Signal ist stabil. Es... beobachtet.";
+        _text[435, 4] = "Beim Scannen der tieferen Datenschichten entdecken Sie die Signatur eines fremden Kernels.\n\nEr gehört nicht zum aktuellen System, ist aber über ein Zugriffsprotokoll synchronisiert.\n\nDas Signal ist stabil. Es... überwacht.";
         _text[435, 5] = "Durante el escaneo de las capas profundas de datos descubres la firma de un núcleo ajeno.\n\nNo pertenece al sistema actual, pero está sincronizada con el protocolo de acceso.\n\nLa señal es estable. Está... observando.";
         _text[435, 6] = "Podczas skanowania głębokich warstw danych wykrywasz sygnaturę obcego rdzenia.\n\nNie należy do bieżącego systemu, ale jest zsynchronizowana z protokołem dostępu.\n\nSygnał jest stabilny. On... obserwuje.";
         _text[435, 7] = "Durante a varredura de camadas profundas de dados, você encontra a assinatura de um núcleo alheio.\n\nEla não pertence ao sistema atual, mas está sincronizada pelo protocolo de acesso.\n\nO sinal é estável. Ele... observa.";
@@ -4860,7 +4860,7 @@ public class Language : MonoBehaviour
         _text[436, 1] = "Принять соединение"; // выбор 1
         _text[436, 2] = "Accepter la connexion";
         _text[436, 3] = "Accetta la connessione";
-        _text[436, 4] = "Verbindung annehmen";
+        _text[436, 4] = "Verbindung akzeptieren";
         _text[436, 5] = "Aceptar la conexión";
         _text[436, 6] = "Przyjąć połączenie";
         _text[436, 7] = "Aceitar a ligação";
@@ -4871,7 +4871,7 @@ public class Language : MonoBehaviour
         _text[437, 1] = "Вы разрешаете входящий поток.\n\nПоток чужого сознания сливается с вами.\n\nНекоторые сегменты твоих данных переписываются."; // - ядра, + фрагменты
         _text[437, 2] = "Vous laissez passer le flux entrant.\n\nLe flux de conscience d'autrui fusionne avec le vôtre.\n\nCertaines parties de vos données sont écrasées.";
         _text[437, 3] = "Permetti al flusso in entrata.\n\nIl flusso della coscienza di qualcun altro si fonde con il tuo.\n\nAlcuni segmenti dei tuoi dati vengono sovrascritti.";
-        _text[437, 4] = "Du erlaubst den eingehenden Datenstrom.\n\nDer Strom eines fremden Bewusstseins verschmilzt mit dir.\n\nEinige Segmente deiner Daten werden überschrieben.";
+        _text[437, 4] = "Du lässt den eingehenden Strom zu.\n\nDer Bewusstseinsstrom eines anderen Menschen verschmilzt mit deinem.\n\nTeile deiner Daten werden überschrieben.";
         _text[437, 5] = "Permites el flujo entrante.\n\nEl flujo de una conciencia ajena se fusiona contigo.\n\nAlgunos segmentos de tus datos se reescriben.";
         _text[437, 6] = "Zezwalasz na przychodzący strumień.\n\nStrumień obcej świadomości łączy się z tobą.\n\nNiektóre segmenty twoich danych zostają nadpisane.";
         _text[437, 7] = "Você permite o fluxo de entrada.\n\nO fluxo de uma consciência alheia funde-se com você.\n\nAlguns segmentos dos seus dados são reescritos.";
@@ -4882,7 +4882,7 @@ public class Language : MonoBehaviour
         _text[438, 1] = "Изолировать ядро"; // выбор 2
         _text[438, 2] = "Isoler le noyau";
         _text[438, 3] = "Isolare il nucleo";
-        _text[438, 4] = "Den Kern isolieren";
+        _text[438, 4] = "Isolieren Sie den Kern";
         _text[438, 5] = "Aislar el núcleo";
         _text[438, 6] = "Odizolować rdzeń";
         _text[438, 7] = "Isolar o núcleo";
@@ -4893,7 +4893,7 @@ public class Language : MonoBehaviour
         _text[439, 1] = "Попытка отключить его приводит к каскадному конфликту.\n\nОдно из твоих активных ядер обнуляется.\n\nСигнал прерывается."; // - ядро
         _text[439, 2] = "Toute tentative de désactivation provoque un conflit en cascade.\n\nL'un de vos cœurs actifs est réinitialisé.\n\nLe signal est interrompu.";
         _text[439, 3] = "Tentare di disattivarlo causa un conflitto a cascata.\n\nUno dei core attivi viene reimpostato.\n\nIl segnale viene interrotto.";
-        _text[439, 4] = "Der Versuch, ihn abzuschalten, führt zu einem Kaskadenkonflikt.\n\nEiner deiner aktiven KI-Kerne wird zurückgesetzt.\n\nDas Signal bricht ab.";
+        _text[439, 4] = "Der Versuch, es zu deaktivieren, führt zu einem Kaskadenkonflikt.\n\nEiner Ihrer aktiven Kerne wird zurückgesetzt.\n\nDas Signal wird unterbrochen.";
         _text[439, 5] = "El intento de desconectarlo provoca un conflicto en cascada.\n\nUno de tus núcleos activos se reinicia a cero.\n\nLa señal se interrumpe.";
         _text[439, 6] = "Próba odłączenia go prowadzi do kaskadowego konfliktu.\n\nJeden z twoich aktywnych rdzeni zostaje wyzerowany.\n\nSygnał zostaje przerwany.";
         _text[439, 7] = "A tentativa de o desligar provoca um conflito em cascata.\n\nUm dos seus núcleos ativos é zerado.\n\nO sinal é interrompido.";
@@ -4915,7 +4915,7 @@ public class Language : MonoBehaviour
         _text[441, 1] = "Сигнал остаётся на фоне.\n\nНикаких признаков вредоносной активности.\n\nВозможно, это был просто фантом старого ИИ."; // ничего
         _text[441, 2] = "Le signal reste en arrière-plan.\n\nAucun signe d'activité malveillante.\n\nPeut-être s'agissait-il simplement d'un fantôme de l'ancienne IA.";
         _text[441, 3] = "Il segnale rimane in sottofondo.\n\nNessun segno di attività dannosa.\n\nForse era solo un fantasma della vecchia IA.";
-        _text[441, 4] = "Das Signal bleibt im Hintergrund.\n\nKeine Anzeichen bösartiger Aktivität.\n\nVielleicht war es nur das Phantom einer alten KI.";
+        _text[441, 4] = "Das Signal bleibt im Hintergrund.\n\nKeine Anzeichen für böswillige Aktivitäten.\n\nVielleicht war es nur ein Überbleibsel der alten KI.";
         _text[441, 5] = "La señal permanece de fondo.\n\nSin indicios de actividad maliciosa.\n\nQuizá solo era un fantasma de una IA antigua.";
         _text[441, 6] = "Sygnał pozostaje w tle.\n\nBrak oznak złośliwej aktywności.\n\nByć może to tylko widmo starej SI.";
         _text[441, 7] = "O sinal permanece em segundo plano.\n\nSem sinais de atividade maliciosa.\n\nTalvez tenha sido apenas um fantasma de uma IA antiga.";
@@ -4926,7 +4926,7 @@ public class Language : MonoBehaviour
         _text[442, 1] = "Попробовать поглотить чужое ядро"; // выбор 4
         _text[442, 2] = "Essayez d'absorber le noyau de quelqu'un d'autre";
         _text[442, 3] = "Cerca di assorbire il nucleo di qualcun altro";
-        _text[442, 4] = "Versuchen, den fremden Kern zu absorbieren";
+        _text[442, 4] = "Versuche, den Kern eines anderen Menschen zu absorbieren.";
         _text[442, 5] = "Intentar absorber el núcleo ajeno";
         _text[442, 6] = "Spróbować pochłonąć obcy rdzeń";
         _text[442, 7] = "Tentar absorver o núcleo alheio";
@@ -4937,7 +4937,7 @@ public class Language : MonoBehaviour
         _text[443, 1] = "Вы активируете процедуру ассимиляции.\n\nУспех: чужое ядро интегрировано - система усилена."; // + ядро
         _text[443, 2] = "Vous activez la procédure d'assimilation.\n\nSuccès: Le noyau extraterrestre est intégré – le système est renforcé.";
         _text[443, 3] = "Si attiva la procedura di assimilazione.\n\nRiuscito: il nucleo alieno è integrato, il sistema è rafforzato.";
-        _text[443, 4] = "Du aktivierst das Assimilationsverfahren.\n\nErfolg: Der fremde Kern wurde integriert - das System wurde verstärkt.";
+        _text[443, 4] = "Sie aktivieren den Assimilationsprozess.\n\nErfolg: Der außerirdische Kern ist integriert – das System ist gestärkt.";
         _text[443, 5] = "Activaste el procedimiento de asimilación.\n\nÉxito: el núcleo ajeno ha sido integrado: el sistema se fortalece.";
         _text[443, 6] = "Aktywujesz procedurę asymilacji.\n\nSukces: obcy rdzeń został zintegrowany - system wzmocniony.";
         _text[443, 7] = "Você ativa o procedimento de assimilação.\n\nSucesso: o núcleo alheio foi integrado - o sistema foi reforçado.";
@@ -4948,7 +4948,7 @@ public class Language : MonoBehaviour
         _text[444, 1] = "Вы активируете процедуру ассимиляции.\n\nПровал: структура конфликта уничтожает твои активные ядра."; // - ядра
         _text[444, 2] = "Vous activez la procédure d'assimilation.\n\nÉchec: la structure de conflit détruit vos noyaux actifs.";
         _text[444, 3] = "Attivi la procedura di assimilazione.\n\nFallimento: la struttura del conflitto distrugge i tuoi nuclei attivi.";
-        _text[444, 4] = "Du aktivierst das Assimilationsverfahren.\n\nMisserfolg: die Konfliktstruktur vernichtet deine aktiven Kerne.";
+        _text[444, 4] = "Sie aktivieren den Assimilationsprozess.\n\nFehlschlag: Die Konfliktstruktur zerstört Ihre aktiven Kerne.";
         _text[444, 5] = "Activaste el procedimiento de asimilación.\n\nFracaso: la estructura del conflicto destruye tus núcleos activos.";
         _text[444, 6] = "Aktywujesz procedurę asymilacji.\n\nPorażka: struktura konfliktu niszczy twoje aktywne rdzenie.";
         _text[444, 7] = "Você ativa o procedimento de assimilação.\n\nFracasso: a estrutura do conflito destrói os seus núcleos ativos.";
@@ -4960,7 +4960,7 @@ public class Language : MonoBehaviour
         _text[445, 1] = "Эта безжизненная ледяная планета хранит в своей толще замёрзшие тоннели и заброшенную бункерную станцию.\n\nСквозь сверкающий лёд пробивается слабый датчик сигнала.";
         _text[445, 2] = "Cette planète glacée et désolée recèle des tunnels gelés et une station bunker abandonnée dans ses profondeurs.\n\nUn faible signal perce la glace scintillante.";
         _text[445, 3] = "Questo pianeta ghiacciato e senza vita nasconde nelle sue profondità tunnel ghiacciati e una stazione bunker abbandonata.\n\nUn debole sensore di segnale perfora il ghiaccio scintillante.";
-        _text[445, 4] = "Dieser leblose Eisplanet birgt in seiner Tiefe gefrorene Tunnel und eine verlassene Bunkerstation.\n\nDurch das glitzernde Eis dringt ein schwaches Signal.";
+        _text[445, 4] = "Dieser leblose, eisige Planet birgt in seinen Tiefen zugefrorene Tunnel und eine verlassene Bunkerstation.\n\nEin schwaches Signal durchdringt das glitzernde Eis.";
         _text[445, 5] = "Este planeta helado y sin vida oculta en su interior túneles congelados y una estación búnker abandonada.\n\nA través del hielo brillante se abre paso un débil sensor de señal.";
         _text[445, 6] = "Ta bezżyciowa lodowa planeta skrywa w swojej masie zamarznięte tunele i opuszczoną stację bunkrową.\n\nPrzez lśniący lód przebija się słaby znacznik sygnału.";
         _text[445, 7] = "Este planeta gelado e sem vida guarda nas suas profundezas túneis congelados e uma estação-bunker abandonada.\n\nAtravés do gelo cintilante, chega um fraco sensor de sinal.";
@@ -4982,7 +4982,7 @@ public class Language : MonoBehaviour
         _text[447, 1] = "Корабль приземляется на безжизненную планету. Вы замечаете люк древней станции. А рядом - трещины, ведущие в сеть ледяных тоннелей.";
         _text[447, 2] = "Le vaisseau atterrit sur une planète déserte. Vous apercevez l'écoutille d'une ancienne station. Non loin de là, des fissures mènent à un réseau de tunnels glacés.";
         _text[447, 3] = "La nave atterra su un pianeta senza vita. Si nota il portello di un'antica stazione. E lì vicino, delle crepe che conducono a una rete di tunnel ghiacciati.";
-        _text[447, 4] = "Das Schiff landet auf dem leblosen Planeten. Du bemerkst die Luke einer uralten Station. Daneben - Risse, die in ein Netz aus Eistunneln führen.";
+        _text[447, 4] = "Das Schiff landet auf einem leblosen Planeten. Du bemerkst die Luke einer uralten Station. Und in der Nähe führen Risse zu einem Netz aus eisigen Tunneln.";
         _text[447, 5] = "La nave aterriza en el planeta sin vida. Ves la escotilla de una estación antigua. Y junto a ella - grietas que llevan a una red de túneles de hielo.";
         _text[447, 6] = "Statek ląduje na bezżyciowej planecie. Dostrzegasz właz do pradawnej stacji. Obok - pęknięcia prowadzące do sieci lodowych tuneli.";
         _text[447, 7] = "A nave pousa no planeta sem vida. Você repara na escotilha de uma estação antiga. Ao lado - fendas que levam a uma rede de túneis de gelo.";
@@ -4993,7 +4993,7 @@ public class Language : MonoBehaviour
         _text[448, 1] = "Исследовать бункер"; // выбор 1.1
         _text[448, 2] = "Explorez le bunker";
         _text[448, 3] = "Esplora il bunker";
-        _text[448, 4] = "Bunker untersuchen";
+        _text[448, 4] = "Erkunde den Bunker";
         _text[448, 5] = "Explorar el búnker";
         _text[448, 6] = "Zbadać bunkier";
         _text[448, 7] = "Explorar o bunker";
@@ -5004,7 +5004,7 @@ public class Language : MonoBehaviour
         _text[449, 1] = "Вы спускаетесь по трапу и попадаете в архивную камеру. Консоль покрыта ледяной коркой, но кабель, ведущий к ядру, цел.\n\nЧтобы добраться до данных, необходимо взломать защиту.";
         _text[449, 2] = "Vous descendez la rampe et vous retrouvez dans la salle des archives. La console est recouverte de glace, mais le câble qui la relie au noyau est intact.\n\nPour accéder aux données, vous devez pirater le système de sécurité.";
         _text[449, 3] = "Scendete la rampa e vi ritrovate nella sala degli archivi. La console è ricoperta di ghiaccio, ma il cavo che conduce al nucleo è intatto.\n\nPer accedere ai dati, dovete hackerare il sistema di sicurezza.";
-        _text[449, 4] = "Du steigst die Rampe hinab und gelangst in eine Archivkammer. Die Konsole ist mit einer Eiskruste bedeckt, aber das Kabel zum Kern ist intakt.\n\nUm an die Daten zu gelangen, musst du die Sicherheit knacken.";
+        _text[449, 4] = "Du gehst die Rampe hinunter und befindest dich im Archivraum. Die Konsole ist mit Eis bedeckt, aber das Kabel zum Kern ist intakt.\n\nUm an die Daten zu gelangen, musst du die Sicherheitsvorkehrungen knacken.";
         _text[449, 5] = "Bajas por la rampa y entras en una cámara de archivos. La consola está cubierta de escarcha, pero el cable que conduce al núcleo está intacto.\n\nPara acceder a los datos, hay que hackear la protección.";
         _text[449, 6] = "Schodzisz po trapie i trafiasz do komory archiwalnej. Konsola jest pokryta lodową skorupą, ale kabel prowadzący do rdzenia jest nienaruszony.\n\nAby dostać się do danych, trzeba złamać zabezpieczenia.";
         _text[449, 7] = "Você desce pela rampa e entra numa câmara de arquivo. A consola está coberta de gelo, mas o cabo que leva ao núcleo está intacto.\n\nPara chegar aos dados, é necessário quebrar a proteção.";
@@ -5015,7 +5015,7 @@ public class Language : MonoBehaviour
         _text[450, 1] = "Прямой взлом"; // выбор 1.1.1
         _text[450, 2] = "Piratage direct";
         _text[450, 3] = "Hacking diretto";
-        _text[450, 4] = "Direkter Hack";
+        _text[450, 4] = "Direktes Hacking";
         _text[450, 5] = "Hackeo directo";
         _text[450, 6] = "Bezpośrednie włamanie";
         _text[450, 7] = "Intrusão direta";
@@ -5026,7 +5026,7 @@ public class Language : MonoBehaviour
         _text[451, 1] = "Вы напрямую взламываете протоколы защиты.\n\nУспех: вам удалось обойти защиту"; // + фрагменты
         _text[451, 2] = "Vous piratez directement les protocoles de sécurité.\n\nSuccès : Vous avez réussi à contourner la protection.";
         _text[451, 3] = "Stai violando direttamente i protocolli di sicurezza.\n\nRiuscito: sei riuscito a bypassare la protezione.";
-        _text[451, 4] = "Du hackst die Schutzprotokolle direkt.\n\nErfolg: dir gelingt es, die Sicherung zu umgehen";
+        _text[451, 4] = "Sie hacken direkt Sicherheitsprotokolle.\n\nErfolg: Sie haben den Schutz umgangen.";
         _text[451, 5] = "Hackeas directamente los protocolos de seguridad.\n\nÉxito: lograste saltarte la protección";
         _text[451, 6] = "Włamujesz się bezpośrednio w protokoły zabezpieczeń.\n\nSukces: udało ci się obejść ochronę";
         _text[451, 7] = "Você invade diretamente os protocolos de proteção.\n\nSucesso: você conseguiu contornar a proteção";
@@ -5037,7 +5037,7 @@ public class Language : MonoBehaviour
         _text[452, 1] = "Вы напрямую взламываете протоколы защиты.\n\nПровал: вы подхватили вирус, уничтожающий вашу память"; // - фрагменты
         _text[452, 2] = "Vous piratez directement les protocoles de sécurité.\n\nÉchec : Vous avez contracté un virus qui détruit votre mémoire.";
         _text[452, 3] = "Stai violando direttamente i protocolli di sicurezza.\n\nErrore: hai contratto un virus che distrugge la tua memoria.";
-        _text[452, 4] = "Du hackst die Schutzprotokolle direkt.\n\nMisserfolg: du fängst dir einen Virus ein, der deinen Speicher zerstört";
+        _text[452, 4] = "Sie greifen direkt Sicherheitsprotokolle an.\n\nFehler: Sie haben sich einen Virus eingefangen, der Ihren Speicher zerstört.";
         _text[452, 5] = "Hackeas directamente los protocolos de seguridad.\n\nFracaso: contraes un virus que destruye tu memoria";
         _text[452, 6] = "Włamujesz się bezpośrednio w protokoły zabezpieczeń.\n\nPorażka: złapałeś wirusa niszczącego twoją pamięć";
         _text[452, 7] = "Você invade diretamente os protocolos de proteção.\n\nFracasso: você apanhou um vírus que destrói a sua memória";
@@ -5059,7 +5059,7 @@ public class Language : MonoBehaviour
         _text[454, 1] = "Вы точно калибруете систему обхода защиты.\n\nУспех: вам удается извлечь данные"; // + фрагменты
         _text[454, 2] = "Vous avez calibré avec précision le système de contournement de sécurité.\n\nSuccès: Vous avez extrait les données avec succès.";
         _text[454, 3] = "Hai calibrato con precisione il sistema di bypass di sicurezza.\n\nRiuscito: hai estratto i dati con successo.";
-        _text[454, 4] = "Du kalibrierst das System zum Umgehen der Sicherung präzise.\n\nErfolg: dir gelingt es, die Daten zu extrahieren";
+        _text[454, 4] = "Sie haben das Sicherheitsumgehungssystem präzise kalibriert.\n\nErfolg: Die Daten wurden erfolgreich extrahiert.";
         _text[454, 5] = "Calibras con precisión el sistema de bypass de la protección.\n\nÉxito: logras extraer los datos";
         _text[454, 6] = "Precyzyjnie kalibrujesz system obejścia zabezpieczeń.\n\nSukces: udaje ci się wydobyć dane";
         _text[454, 7] = "Você calibra com precisão o sistema de bypass da proteção.\n\nSucesso: você consegue extrair os dados";
@@ -5070,7 +5070,7 @@ public class Language : MonoBehaviour
         _text[455, 1] = "Вы точно калибруете систему обхода защиты.\n\nПровал: вы перепутали протоколы. Консоль самоуничтожается."; // - ядро
         _text[455, 2] = "Vous avez correctement calibré le système de contournement de sécurité.\n\nÉchec : Vous avez inversé les protocoles. La console s'autodétruit.";
         _text[455, 3] = "Hai calibrato accuratamente il sistema di bypass di sicurezza.\n\nErrore: hai confuso i protocolli. La console si autodistrugge.";
-        _text[455, 4] = "Du kalibrierst das System zum Umgehen der Sicherung präzise.\n\nMisserfolg: du verwechselst die Protokolle. Die Konsole zerstört sich selbst.";
+        _text[455, 4] = "Das Sicherheitsumgehungssystem wurde korrekt kalibriert.\n\nFehler: Die Protokolle wurden vertauscht. Die Konsole zerstört sich selbst.";
         _text[455, 5] = "Calibras con precisión el sistema de bypass de la protección.\n\nFracaso: confundiste los protocolos. La consola se autodestruye.";
         _text[455, 6] = "Precyzyjnie kalibrujesz system obejścia zabezpieczeń.\n\nPorażka: pomyliłeś protokoły. Konsola ulega samozniszczeniu.";
         _text[455, 7] = "Você calibra com precisão o sistema de bypass da proteção.\n\nFracasso: você confundiu os protocolos. A consola auto-destrói-se.";
@@ -5081,7 +5081,7 @@ public class Language : MonoBehaviour
         _text[456, 1] = "Отправить дрона"; // выбор 2
         _text[456, 2] = "Envoyer un drone";
         _text[456, 3] = "Invia un drone";
-        _text[456, 4] = "Eine Drohne schicken";
+        _text[456, 4] = "Schick eine Drohne";
         _text[456, 5] = "Enviar un dron";
         _text[456, 6] = "Wysłać drona";
         _text[456, 7] = "Enviar um drone";
@@ -5092,7 +5092,7 @@ public class Language : MonoBehaviour
         _text[457, 1] = "Вы отправляете дрона на поверхность планеты.\n\nУспех: дрон пробивает щель в обшивке"; // + квант
         _text[457, 2] = "Vous envoyez un drone à la surface de la planète.\n\nSuccès: le drone perce la coque.";
         _text[457, 3] = "Invii un drone sulla superficie del pianeta.\n\nRiuscito: il drone perfora lo scafo.";
-        _text[457, 4] = "Du schickst eine Drohne an die Oberfläche des Planeten.\n\nErfolg: die Drohne öffnet eine Spalte in der Hülle";
+        _text[457, 4] = "Sie schicken eine Drohne auf die Planetenoberfläche.\n\nErfolg: Die Drohne schlägt ein Loch in die Hülle.";
         _text[457, 5] = "Envías un dron a la superficie del planeta.\n\nÉxito: el dron perfora una brecha en el revestimiento";
         _text[457, 6] = "Wysyłasz drona na powierzchnię planety.\n\nSukces: dron przebija szczelinę w poszyciu";
         _text[457, 7] = "Você envia um drone para a superfície do planeta.\n\nSucesso: o drone abre uma fenda no revestimento";
@@ -5103,7 +5103,7 @@ public class Language : MonoBehaviour
         _text[458, 1] = "Вы отправляете дрона на поверхность планеты.\n\nПровал: дрон ничего не находит"; // ничего
         _text[458, 2] = "Vous envoyez un drone à la surface de la planète.\n\nÉchec: Le drone ne détecte rien.";
         _text[458, 3] = "Invii un drone sulla superficie del pianeta.\n\nErrore: il drone non trova nulla.";
-        _text[458, 4] = "Du schickst eine Drohne an die Oberfläche des Planeten.\n\nMisserfolg: die Drohne findet nichts";
+        _text[458, 4] = "Sie schicken eine Drohne zur Planetenoberfläche.\n\nFehlschlag: Die Drohne findet nichts.";
         _text[458, 5] = "Envías un dron a la superficie del planeta.\n\nFracaso: el dron no encuentra nada";
         _text[458, 6] = "Wysyłasz drona na powierzchnię planety.\n\nPorażka: dron niczego nie znajduje";
         _text[458, 7] = "Você envia um drone para a superfície do planeta.\n\nFracasso: o drone não encontra nada";
@@ -5114,7 +5114,7 @@ public class Language : MonoBehaviour
         _text[459, 1] = "Пролететь мимо"; //выбор 3 ничего
         _text[459, 2] = "Défilé aérien";
         _text[459, 3] = "Vola oltre";
-        _text[459, 4] = "Vorbeifliegen";
+        _text[459, 4] = "Vorbeiflug";
         _text[459, 5] = "Pasar de largo";
         _text[459, 6] = "Przelecieć obok";
         _text[459, 7] = "Passar ao largo";
@@ -5125,7 +5125,7 @@ public class Language : MonoBehaviour
         _text[460, 1] = "Исследовать ледяные тоннели"; // выбор 1.2
         _text[460, 2] = "Explorez les tunnels de glace";
         _text[460, 3] = "Esplora i tunnel di ghiaccio";
-        _text[460, 4] = "Eistunnel erkunden";
+        _text[460, 4] = "Erkunden Sie die Eistunnel";
         _text[460, 5] = "Explorar los túneles de hielo";
         _text[460, 6] = "Zbadać lodowe tunele";
         _text[460, 7] = "Explorar os túneis de gelo";
@@ -5136,7 +5136,7 @@ public class Language : MonoBehaviour
         _text[461, 1] = "Вы углубляетесь в сеть замёрзших тоннелей, подсвечивая путь сканером. Перед вами развилка.";
         _text[461, 2] = "Vous vous enfoncez plus profondément dans le réseau de tunnels gelés, éclairant votre chemin avec votre scanner. Devant vous se trouve une bifurcation.";
         _text[461, 3] = "Ti avventuri più in profondità nella rete di tunnel ghiacciati, illuminando il tuo percorso con lo scanner. Davanti a te c'è un bivio.";
-        _text[461, 4] = "Du dringst tiefer in das Netz gefrorener Tunnel vor und beleuchtest den Weg mit dem Scanner. Vor dir eine Abzweigung.";
+        _text[461, 4] = "Du dringst tiefer in das gefrorene Tunnelsystem vor und erhellst deinen Weg mit deinem Scanner. Vor dir befindet sich eine Weggabelung.";
         _text[461, 5] = "Te adentras en la red de túneles congelados, iluminando el camino con el escáner. Ante ti hay una bifurcación.";
         _text[461, 6] = "Zagłębiasz się w sieć zamarzniętych tuneli, oświetlając drogę skanerem. Przed tobą rozwidlenie.";
         _text[461, 7] = "Você aprofunda-se na rede de túneis congelados, iluminando o caminho com o scanner. À sua frente, uma bifurcação.";
@@ -5147,7 +5147,7 @@ public class Language : MonoBehaviour
         _text[462, 1] = "Повернуть налево"; // выбор 1.2.1
         _text[462, 2] = "Tourner à gauche";
         _text[462, 3] = "Girare a sinistra";
-        _text[462, 4] = "Nach links abbiegen";
+        _text[462, 4] = "Biegen Sie links ab";
         _text[462, 5] = "Girar a la izquierda";
         _text[462, 6] = "Skręcić w lewo";
         _text[462, 7] = "Virar à esquerda";
@@ -5158,7 +5158,7 @@ public class Language : MonoBehaviour
         _text[463, 1] = "Вы проходите сквозь узкие ледяные проходы. В конце тоннеля вы замечаете тайник с металлическими контейнерами."; // + квант
         _text[463, 2] = "Vous traversez d'étroits passages glacés. Au bout du tunnel, vous apercevez un amas de conteneurs métalliques.";
         _text[463, 3] = "Si attraversano stretti passaggi ghiacciati. Alla fine del tunnel, si nota un deposito di contenitori metallici.";
-        _text[463, 4] = "Du gehst durch enge Eispässe. Am Ende des Tunnels entdeckst du ein Versteck mit Metallcontainern.";
+        _text[463, 4] = "Man durchquert enge, vereiste Gänge. Am Ende des Tunnels entdeckt man ein Lager mit Metallbehältern.";
         _text[463, 5] = "Pasas por estrechos pasadizos de hielo. Al final del túnel ves un escondite con contenedores metálicos.";
         _text[463, 6] = "Przechodzisz przez wąskie lodowe korytarze. Na końcu tunelu dostrzegasz skrytkę z metalowymi kontenerami.";
         _text[463, 7] = "Você atravessa passagens estreitas de gelo. No fim do túnel, você encontra um esconderijo com contentores metálicos.";
@@ -5169,7 +5169,7 @@ public class Language : MonoBehaviour
         _text[464, 1] = "Повернуть направо"; // выбор 1.2.2
         _text[464, 2] = "Tournez à droite";
         _text[464, 3] = "Girare a destra";
-        _text[464, 4] = "Nach rechts abbiegen";
+        _text[464, 4] = "Biegen Sie nach rechts ab.";
         _text[464, 5] = "Girar a la derecha";
         _text[464, 6] = "Skręcić w prawo";
         _text[464, 7] = "Virar à direita";
@@ -5180,7 +5180,7 @@ public class Language : MonoBehaviour
         _text[465, 1] = "Вы попадаете в тупик. Потратив много времени и энергии, вы завершаете исследование и возвращетесь на корабль"; //ничего
         _text[465, 2] = "Vous arrivez à une impasse. Après avoir consacré beaucoup de temps et d'énergie, vous terminez l'exploration et retournez au vaisseau.";
         _text[465, 3] = "Arrivi a un vicolo cieco. Dopo aver speso molto tempo ed energie, completi l'esplorazione e torni alla nave.";
-        _text[465, 4] = "Du gerätst in eine Sackgasse. Nachdem du viel Zeit und Energie verloren hast, beendest du die Erkundung und kehrst zum Schiff zurück.";
+        _text[465, 4] = "Du stößt auf eine Sackgasse. Nach viel Zeit- und Energieaufwand schließt du die Erkundung ab und kehrst zum Schiff zurück.";
         _text[465, 5] = "Llegas a un callejón sin salida. Tras gastar mucho tiempo y energía, terminas la exploración y regresas a la nave";
         _text[465, 6] = "Trafiasz w ślepy zaułek. Zużywszy dużo czasu i energii, kończysz badanie i wracasz na statek";
         _text[465, 7] = "Você chega a um beco sem saída. Após gastar muito tempo e energia, você conclui a exploração e regressa à nave";
@@ -5191,7 +5191,7 @@ public class Language : MonoBehaviour
         _text[466, 1] = "Пойти прямо"; // выбор 1.2.3
         _text[466, 2] = "Allez tout droit";
         _text[466, 3] = "Vada dritto";
-        _text[466, 4] = "Geradeaus gehen";
+        _text[466, 4] = "Fahren Sie geradeaus";
         _text[466, 5] = "Seguir recto";
         _text[466, 6] = "Iść prosto";
         _text[466, 7] = "Seguir em frente";
@@ -5202,7 +5202,7 @@ public class Language : MonoBehaviour
         _text[467, 1] = "Неожиданно лед трескается и вы теряете дрона в ледяных недрах."; // - ядро
         _text[467, 2] = "Soudain, la glace se fissure et vous perdez le drone dans les profondeurs glacées.";
         _text[467, 3] = "All'improvviso il ghiaccio si rompe e il drone scompare nelle profondità ghiacciate.";
-        _text[467, 4] = "Plötzlich bricht das Eis, und du verlierst eine Drohne in den eisigen Tiefen.";
+        _text[467, 4] = "Plötzlich bricht das Eis und die Drohne verschwindet in den eisigen Tiefen.";
         _text[467, 5] = "De repente el hielo se agrieta y pierdes el dron en las profundidades heladas.";
         _text[467, 6] = "Niespodziewanie lód pęka i tracisz drona w lodowych głębinach.";
         _text[467, 7] = "De repente, o gelo estala e você perde o drone nas profundezas geladas.";
@@ -5214,7 +5214,7 @@ public class Language : MonoBehaviour
         _text[468, 1] = "Вы замечаете корабль Стражей, медленно сканирующий окрестности. Его корпус покрыт плесенью и коррозией, а с поверхности доносится сухое послание:\n\n\"Сопротивление распаду - ересь. Плати или обратись в пепел.\"";
         _text[468, 2] = "Vous apercevez un vaisseau Gardien qui scrute lentement les environs. Sa coque est recouverte de moisissures et de corrosion, et un message sec résonne à la surface:\n\n\"Résister à la décomposition est une hérésie. Payez ou soyez réduits en cendres.\"";
         _text[468, 3] = "Individu una nave dei Guardiani che scruta lentamente l'area circostante. Lo scafo è ricoperto di muffa e corrosione, e un messaggio secco echeggia dalla superficie:\n\n\"Resistere alla decadenza è un'eresia. Paga o sarai ridotto in cenere.\"";
-        _text[468, 4] = "Du bemerkst ein Schiff der Wächter, das langsam die Umgebung scannt. Sein Rumpf ist von Schimmel und Korrosion bedeckt, und von der Oberfläche dringt eine trockene Botschaft:\n\n\"Widerstand gegen den Zerfall - Ketzerei. Zahl oder werde zu Asche.\"";
+        _text[468, 4] = "Ihr entdeckt ein Schiff der Hüter, das langsam die Umgebung absucht. Sein Rumpf ist von Schimmel und Korrosion bedeckt, und eine trockene Botschaft hallt von der Oberfläche wider:\n\n„Sich dem Verfall zu widersetzen, ist Ketzerei. Zahlt oder werdet zu Asche.“";
         _text[468, 5] = "Ves una nave de los Guardianes, que escanea lentamente los alrededores. Su casco está cubierto de moho y corrosión, y desde la superficie llega un mensaje seco:\n\n\"Resistirse a la descomposición es herejía. Paga o conviértete en cenizas.\"";
         _text[468, 6] = "Dostrzegasz statek Strażników, powoli skanujący okolicę. Jego kadłub pokrywa pleśń i korozja, a z eteru dobiega suche przesłanie:\n\n\"Opór wobec rozpadu - herezja. Płać albo obróć się w popiół.\"";
         _text[468, 7] = "Você avista um navio dos Guardiões, a escanear lentamente os arredores. O casco está coberto de bolor e corrosão, e chega uma mensagem seca:\n\n\"Resistir à decomposição - heresia. Paga ou reduz-te a cinza.\"";
@@ -5225,7 +5225,7 @@ public class Language : MonoBehaviour
         _text[469, 1] = "Передать квант"; // выбор 1
         _text[469, 2] = "Quant de transfert";
         _text[469, 3] = "Trasferimento quant";
-        _text[469, 4] = "Quant übergeben";
+        _text[469, 4] = "Transferquanten";
         _text[469, 5] = "Entregar quant";
         _text[469, 6] = "Przekazać quant";
         _text[469, 7] = "Entregar quant";
@@ -5236,7 +5236,7 @@ public class Language : MonoBehaviour
         _text[470, 1] = "Стражи разворачиваются и исчезают в пылевой буре."; // - квант
         _text[470, 2] = "Les gardes se retournent et disparaissent dans la tempête de poussière.";
         _text[470, 3] = "Le guardie si voltano e scompaiono nella tempesta di polvere.";
-        _text[470, 4] = "Die Wächter wenden sich ab und verschwinden im Staubsturm.";
+        _text[470, 4] = "Die Wachen drehen sich um und verschwinden im Staubsturm.";
         _text[470, 5] = "Los Guardianes se dan la vuelta y desaparecen en la tormenta de polvo.";
         _text[470, 6] = "Strażnicy zawracają i znikają w burzy pyłowej.";
         _text[470, 7] = "Os Guardiões viram e desaparecem na tempestade de poeira.";
@@ -5247,7 +5247,7 @@ public class Language : MonoBehaviour
         _text[471, 1] = "Отказаться"; // выбор 2
         _text[471, 2] = "Refuser";
         _text[471, 3] = "Rifiutare";
-        _text[471, 4] = "Ablehnen";
+        _text[471, 4] = "Verweigern";
         _text[471, 5] = "Negarse";
         _text[471, 6] = "Odmówić";
         _text[471, 7] = "Recusar";
@@ -5258,7 +5258,7 @@ public class Language : MonoBehaviour
         _text[472, 1] = "На вас сбрасывают коррозийную капсулу.\n\nУспех: ваш энергетический щит нейтрализует атаку.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; //ничего
         _text[472, 2] = "Une capsule corrosive est larguée sur vous.\n\nSuccès: Votre bouclier énergétique neutralise l’attaque.\n\nEn activant vos moteurs de distorsion, vous quittez instantanément le champ de bataille.";
         _text[472, 3] = "Una capsula corrosiva ti viene lanciata addosso.\n\nRiuscito: il tuo scudo energetico neutralizza l'attacco.\n\nAttivando i tuoi motori a curvatura, abbandoni immediatamente il campo di battaglia.";
-        _text[472, 4] = "Eine korrosive Kapsel wird auf dich abgeworfen.\n\nErfolg: dein Energieschild neutralisiert den Angriff.\n\nDu aktivierst die Warp-Antriebe und verschwindest sofort vom Schlachtfeld.";
+        _text[472, 4] = "Eine ätzende Kapsel wird auf dich abgeworfen.\n\nErfolg: Dein Energieschild neutralisiert den Angriff.\n\nDurch Aktivierung deiner Warp-Antriebe flüchtest du augenblicklich vom Schlachtfeld.";
         _text[472, 5] = "Te lanzan una cápsula corrosiva.\n\nÉxito: tu escudo energético neutraliza el ataque.\n\nAl activar los motores warp, te alejas del campo de batalla al instante";
         _text[472, 6] = "Zrzucają na ciebie kapsułę korozyjną.\n\nSukces: twoja tarcza energetyczna neutralizuje atak.\n\nUruchamiając napęd warp, natychmiast opuszczasz pole walki";
         _text[472, 7] = "Lançam sobre você uma cápsula corrosiva.\n\nSucesso: o seu escudo energético neutraliza o ataque.\n\nAo ativar os motores de warp, você afasta-se instantaneamente do campo de batalha";
@@ -5269,7 +5269,7 @@ public class Language : MonoBehaviour
         _text[473, 1] = "На вас сбрасывают коррозийную капсулу.\n\nПровал: она поражает корпус и образуется разгерметизация корпуса. Дроны срочно латают пробоину.\n\nВключив варп двигатели, вы мгновенно уноситесь с поля боя"; // - ядра
         _text[473, 2] = "Une capsule corrosive est larguée sur vous.\n\nÉchec : elle percute la coque et provoque une brèche. Des drones se précipitent pour la colmater.\n\nVous activez vos moteurs de distorsion et fuyez instantanément le champ de bataille.";
         _text[473, 3] = "Una capsula corrosiva ti viene sganciata addosso.\n\nFallimento: colpisce lo scafo e causa una falla. I droni si precipitano a riparare la falla.\n\nAttivando i motori a curvatura, abbandoni immediatamente il campo di battaglia.";
-        _text[473, 4] = "Eine korrosive Kapsel wird auf dich abgeworfen.\n\nMisserfolg: sie trifft die Hülle, und es kommt zur Dekompression. Drohnen flicken das Leck in Eile.\n\nDu aktivierst die Warp-Antriebe und verschwindest sofort vom Schlachtfeld.";
+        _text[473, 4] = "Eine ätzende Kapsel wird auf dich abgeworfen.\n\nFehlschlag: Sie trifft die Hülle und verursacht ein Leck. Drohnen eilen herbei, um die Beschädigung zu reparieren.\n\nDu aktivierst deine Warp-Antriebe und flüchtest sofort vom Schlachtfeld.";
         _text[473, 5] = "Te lanzan una cápsula corrosiva.\n\nFracaso: impacta en el casco y se produce una despresurización. Los drones taponan urgentemente la brecha.\n\nAl activar los motores warp, te alejas del campo de batalla al instante";
         _text[473, 6] = "Zrzucają na ciebie kapsułę korozyjną.\n\nPorażka: uderza w kadłub i dochodzi do rozszczelnienia. Drony pilnie łatają wyrwę.\n\nUruchamiając napęd warp, natychmiast opuszczasz pole walki";
         _text[473, 7] = "Lançam sobre você uma cápsula corrosiva.\n\nFracasso: ela atinge o casco e provoca despressurização. Os drones tapam a brecha às pressas.\n\nAo ativar os motores de warp, você afasta-se instantaneamente do campo de batalha";
@@ -5281,7 +5281,7 @@ public class Language : MonoBehaviour
         _text[474, 1] = "На орбите покинутой строительной станции ИИ фиксирует активность. Автоматические дроны продолжают цикл работы - строят, разбирают и снова строят.\n\nОдин из них приближается к кораблю и передаёт сообщение:\n\n\"Обмен. Энергоносители на данные. Квант на фрагменты данных.\"";
         _text[474, 2] = "Une IA détecte une activité en orbite autour d'un chantier abandonné. Des drones automatisés poursuivent leur cycle de travail : construction, démantèlement, puis nouvelle construction.L'un d'eux s'approche du vaisseau et transmet un message :« Échange. Énergie contre données. Quant contre fragments de données. »";
         _text[474, 3] = "Un'intelligenza artificiale rileva attività in orbita attorno a una stazione di costruzione abbandonata. I droni automatizzati continuano il loro ciclo di lavoro: costruzione, smantellamento e ricostruzione.\n\nUno di essi si avvicina alla nave e trasmette un messaggio:\n\n\"Scambio. Energia per dati. Quant per frammenti di dati.\"";
-        _text[474, 4] = "Auf der Umlaufbahn einer verlassenen Baustation registriert die KI Aktivität. Automatische Drohnen führen weiterhin ihren Arbeitszyklus aus - bauen, zerlegen und wieder bauen.\n\nEine von ihnen nähert sich dem Schiff und übermittelt eine Nachricht:\n\n\"Tausch. Energieträger gegen Daten. Quant gegen Datenfragmente.\"";
+        _text[474, 4] = "Eine KI entdeckt Aktivität im Orbit um eine verlassene Baustelle. Automatisierte Drohnen setzen ihren Arbeitszyklus fort – sie bauen, demontieren und bauen wieder.\n\nEine von ihnen nähert sich dem Raumschiff und sendet folgende Nachricht:\n\n„Tausch. Energie gegen Daten. Quanten gegen Datenfragmente.“";
         _text[474, 5] = "En la órbita de una estación de construcción abandonada, la IA detecta actividad. Drones automáticos continúan su ciclo de trabajo: construyen, desmontan y vuelven a construir.\n\nUno de ellos se acerca a la nave y transmite un mensaje:\n\n\"Intercambio. Portadores de energía por datos. Quant por fragmentos de datos.\"";
         _text[474, 6] = "Na orbicie opuszczonej stacji budowlanej SI wykrywa aktywność. Automatyczne drony kontynuują cykl pracy - budują, rozbierają i znów budują.\n\nJeden z nich zbliża się do statku i przekazuje wiadomość:\n\n\"Wymiana. Nośniki energii za dane. Quant za fragmenty danych.\"";
         _text[474, 7] = "Na órbita de uma estação de construção abandonada, a IA regista atividade. Drones automáticos continuam o ciclo de trabalho - constroem, desmontam e voltam a construir.\n\nUm deles aproxima-se da nave e transmite uma mensagem:\n\n\"Troca. Portadores de energia por dados. Quant por fragmentos de dados.\"";
@@ -5292,7 +5292,7 @@ public class Language : MonoBehaviour
         _text[475, 1] = "Передать квант"; // выбор 1
         _text[475, 2] = "Quant de transfert";
         _text[475, 3] = "Trasferimento quant";
-        _text[475, 4] = "Quant übergeben";
+        _text[475, 4] = "Transferquanten";
         _text[475, 5] = "Entregar quant";
         _text[475, 6] = "Przekazać quant";
         _text[475, 7] = "Entregar quant";
@@ -5303,7 +5303,7 @@ public class Language : MonoBehaviour
         _text[476, 1] = "Вы получаете фрагменты данных. Дрон разворачивается и уходит, не отвечая на дальнейшие сигналы."; // + квант, - фрагменты
         _text[476, 2] = "Vous recevez des données fragmentaires. Le drone fait demi-tour et s'éloigne, sans répondre à d'autres signaux.";
         _text[476, 3] = "Ricevi frammenti di dati. Il drone vira e se ne va, senza rispondere ad altri segnali.";
-        _text[476, 4] = "Du erhältst Datenfragmente. Die Drohne dreht ab und verschwindet, ohne auf weitere Signale zu antworten.";
+        _text[476, 4] = "Sie empfangen Datenfragmente. Die Drohne dreht ab und fliegt weg, ohne auf weitere Signale zu reagieren.";
         _text[476, 5] = "Recibes fragmentos de datos. El dron se da la vuelta y se aleja, sin responder a más señales.";
         _text[476, 6] = "Otrzymujesz fragmenty danych. Dron zawraca i odchodzi, nie odpowiadając na dalsze sygnały.";
         _text[476, 7] = "Você recebe fragmentos de dados. O drone vira-se e parte, sem responder a novos sinais.";
@@ -5314,7 +5314,7 @@ public class Language : MonoBehaviour
         _text[477, 1] = "Отклонить предложение"; // выбор 2
         _text[477, 2] = "Refuser l'offre";
         _text[477, 3] = "Rifiuta l'offerta";
-        _text[477, 4] = "Angebot ablehnen";
+        _text[477, 4] = "Lehnen Sie das Angebot ab.";
         _text[477, 5] = "Rechazar la oferta";
         _text[477, 6] = "Odrzucić propozycję";
         _text[477, 7] = "Recusar a proposta";
@@ -5325,7 +5325,7 @@ public class Language : MonoBehaviour
         _text[478, 1] = "Дроны перестают реагировать и скрываются вглубь станции."; //ничего
         _text[478, 2] = "Les drones cessent de répondre et disparaissent dans les profondeurs de la station.";
         _text[478, 3] = "I droni smettono di rispondere e scompaiono nelle profondità della stazione.";
-        _text[478, 4] = "Die Drohnen reagieren nicht mehr und ziehen sich in die Tiefe der Station zurück.";
+        _text[478, 4] = "Die Drohnen reagieren nicht mehr und verschwinden in den Tiefen der Station.";
         _text[478, 5] = "Los drones dejan de reaccionar y se esconden en lo profundo de la estación.";
         _text[478, 6] = "Drony przestają reagować i znikają w głębi stacji.";
         _text[478, 7] = "Os drones deixam de reagir e desaparecem no interior da estação.";
@@ -5337,7 +5337,7 @@ public class Language : MonoBehaviour
         _text[479, 1] = "Во время перемещения по орбите планеты ваши сенсоры улавливают приближение чужого объекта.\n\nЭтот корабль - гладкий, без опознавательных знаков, скользящий в абсолютной тьме. Он не подаёт сигналов.\n\nНи вызова, ни предупреждения. Только безмолвный дрейф... и приближение.\n\nВы ощущаете лёгкие помехи в аудиоканалах. Это не шум - это отсутствие звука.";
         _text[479, 2] = "En orbite autour de la planète, vos capteurs détectent l'approche d'un objet extraterrestre.\n\nCe vaisseau, profilé et sans marquage, glisse dans l'obscurité totale. Il n'émet aucun signal.\n\nAucun appel, aucun avertissement. Juste une dérive silencieuse... et une approche.Vous percevez un léger grésillement dans vos transmissions audio. Ce n'est pas du bruit, c'est l'absence de son.";
         _text[479, 3] = "Mentre orbitate attorno al pianeta, i vostri sensori rilevano l'avvicinamento di un oggetto alieno.\n\nQuesta nave è elegante, senza insegne, e scivola nell'oscurità più totale. Non invia segnali.\n\nNessuna chiamata, nessun avviso. Solo una deriva silenziosa... e un avvicinamento.\n\nAvvertite un leggero rumore nelle vostre trasmissioni audio. Non è rumore, è mancanza di suono.";
-        _text[479, 4] = "Während du dich auf der Umlaufbahn des Planeten bewegst, erfassen deine Sensoren die Annäherung eines fremden Objekts.\n\nDas Schiff - glatt, ohne Kennzeichen, gleitet in absoluter Dunkelheit. Es sendet keine Signale.\n\nKein Ruf, keine Warnung. Nur stummes Treiben... und Annäherung.\n\nDu spürst leichte Störungen in den Audiokanälen. Das ist kein Rauschen - das ist Abwesenheit von Klang.";
+        _text[479, 4] = "Während Sie den Planeten umkreisen, erfassen Ihre Sensoren die Annäherung eines außerirdischen Objekts.\n\nDieses schlanke, unmarkierte Schiff gleitet durch die pechschwarze Dunkelheit. Es sendet keinerlei Signale.\n\nKein Anruf, keine Warnung. Nur ein lautloses Driften … und die Annäherung.\n\nSie spüren ein leichtes Rauschen in Ihren Audiosignalen. Es ist kein Rauschen – es fehlt jeglicher Ton.";
         _text[479, 5] = "Mientras te desplazas por la órbita del planeta, tus sensores captan el acercamiento de un objeto extraño.\n\nEsa nave - lisa, sin marcas de identificación, deslizándose en la oscuridad absoluta. No emite señales.\n\nNi llamada, ni advertencia. Solo una deriva silenciosa... y el acercamiento.\n\nSientes leves interferencias en los canales de audio. No es ruido - es ausencia de sonido.";
         _text[479, 6] = "Podczas manewrów na orbicie planety twoje sensory wyłapują zbliżający się obcy obiekt.\n\nTen statek jest gładki, bez znaków rozpoznawczych, sunie w absolutnej ciemności. Nie nadaje sygnałów.\n\nBez wezwania, bez ostrzeżenia. Tylko bezgłośny dryf... i zbliżanie się.\n\nCzujesz lekkie zakłócenia w kanałach audio. To nie szum - to brak dźwięku.";
         _text[479, 7] = "Enquanto se desloca pela órbita do planeta, os seus sensores detetam a aproximação de um objeto estranho.\n\nEsta nave - lisa, sem marcas de identificação, desliza na escuridão absoluta. Não emite sinais.\n\nNem chamada, nem aviso. Apenas um drift silencioso... e aproximação.\n\nVocê sente ligeiras interferências nos canais de áudio. Não é ruído - é ausência de som.";
@@ -5348,7 +5348,7 @@ public class Language : MonoBehaviour
         _text[480, 1] = "Отключить системы и двигатели"; // выбор 1
         _text[480, 2] = "Arrêtez les systèmes et les moteurs.";
         _text[480, 3] = "Spegnere i sistemi e i motori";
-        _text[480, 4] = "Systeme und Antriebe abschalten";
+        _text[480, 4] = "Systeme und Motoren abschalten";
         _text[480, 5] = "Apagar sistemas y motores";
         _text[480, 6] = "Wyłączyć systemy i silniki";
         _text[480, 7] = "Desligar sistemas e motores";
@@ -5359,7 +5359,7 @@ public class Language : MonoBehaviour
         _text[481, 1] = "Вы гасите системы жизнеобеспечения, вентиляцию, аудиоканалы и привод.\n\nКорабль отправляет вам контейнер и постепенно исчезает в глубине космоса.";
         _text[481, 2] = "Vous coupez les systèmes de survie, la ventilation, les transmissions audio et le système de propulsion.\n\nLe vaisseau vous envoie un conteneur et disparaît peu à peu dans les profondeurs de l'espace.";
         _text[481, 3] = "Disattivate i sistemi di supporto vitale, la ventilazione, i segnali audio e il motore.\n\nLa nave vi invia un contenitore e scompare gradualmente nelle profondità dello spazio.";
-        _text[481, 4] = "Du fährst Lebenserhaltung, Belüftung, Audiokanäle und Antrieb herunter.\n\nDas Schiff sendet dir einen Container und verschwindet allmählich in der Tiefe des Weltraums.";
+        _text[481, 4] = "Sie schalten die Lebenserhaltungssysteme, die Belüftung, die Audioübertragung und den Antrieb ab.\n\nDas Schiff sendet Ihnen einen Container und verschwindet allmählich in den Tiefen des Weltraums.";
         _text[481, 5] = "Apagas los sistemas de soporte vital, la ventilación, los canales de audio y el propulsor.\n\nLa nave te envía un contenedor y desaparece lentamente en la profundidad del espacio.";
         _text[481, 6] = "Wygaszasz podtrzymanie życia, wentylację, kanały audio i napęd.\n\nStatek przesyła ci kontener i stopniowo znika w głębi kosmosu.";
         _text[481, 7] = "Você desliga os sistemas de suporte de vida, a ventilação, os canais de áudio e a propulsão.\n\nA nave envia-lhe um contentor e desaparece gradualmente na profundidade do espaço.";
@@ -5370,7 +5370,7 @@ public class Language : MonoBehaviour
         _text[482, 1] = "Сохранять курс и радиомолчание"; // выбор 2
         _text[482, 2] = "Maintenez le cap et silence radio.";
         _text[482, 3] = "Mantenere la rotta e il silenzio radio";
-        _text[482, 4] = "Kurs halten und Funkstille wahren";
+        _text[482, 4] = "Kurs halten und Funkstille.";
         _text[482, 5] = "Mantener el rumbo y el silencio de radio";
         _text[482, 6] = "Utrzymać kurs i ciszę radiową";
         _text[482, 7] = "Manter o rumo e o silêncio de rádio";
@@ -5381,7 +5381,7 @@ public class Language : MonoBehaviour
         _text[483, 1] = "Вы не вмешиваетесь и продолжаете двигаться.\n\nЧужой корабль сближается и замирает напротив.\n\nНесколько секунд ничего не происходит...\n\nЗатем - звук, которого нет в спектре. Он не регистрируется приборами, но внутри корпуса - всё начинает дрожать.\n\nВы чувствуете вибрацию в стенах, в контурах обшивки, в самой структуре корабля.\n\nНеизвестный резонанс проникает в систему"; // - ядра
         _text[483, 2] = "Vous n'intervenez pas et poursuivez votre route.\n\nLe vaisseau extraterrestre s'approche et s'arrête en face.\n\nPendant quelques secondes, rien ne se passe...Puis – un son inédit. Il n'est pas détecté par les instruments, mais à l'intérieur de la coque, tout se met à trembler.\n\nVous ressentez des vibrations dans les parois, dans les contours de la coque, dans la structure même du vaisseau.\n\nUne résonance inconnue imprègne le système.";
         _text[483, 3] = "Non interferisci e continui a muoverti.\n\nLa nave aliena si avvicina e si ferma di fronte.\n\nPer qualche secondo, non succede nulla...\n\nPoi, un suono che non è nello spettro. Non viene registrato dagli strumenti, ma all'interno dello scafo, tutto inizia a tremare.\n\nSenti vibrazioni nelle pareti, nei contorni dello scafo, nella struttura stessa della nave.\n\nUna risonanza sconosciuta permea il sistema.";
-        _text[483, 4] = "Du greifst nicht ein und setzt deinen Kurs fort.\n\nDas fremde Schiff kommt näher und verharrt dir gegenüber.\n\nEin paar Sekunden passiert nichts...\n\nDann - ein Klang, der nicht im Spektrum existiert. Die Instrumente erfassen ihn nicht, aber im Inneren des Rumpfes beginnt alles zu zittern.\n\nDu spürst Vibrationen in den Wänden, in den Konturen der Hülle, in der Struktur des Schiffes selbst.\n\nEine unbekannte Resonanz dringt in das System ein";
+        _text[483, 4] = "Du greifst nicht ein und fährst weiter.\n\nDas außerirdische Schiff nähert sich und hält gegenüber an.\n\nEinige Sekunden lang geschieht nichts …\n\nDann – ein Geräusch, das außerhalb des Frequenzspektrums liegt. Es ist auf den Instrumenten nicht messbar, doch im Inneren des Schiffs beginnt alles zu beben.\n\nDu spürst Vibrationen in den Wänden, in den Konturen des Rumpfes, in der gesamten Struktur des Schiffs.\n\nEine unbekannte Resonanz durchdringt das System.";
         _text[483, 5] = "No intervienes y sigues avanzando.\n\nLa nave ajena se aproxima y se detiene frente a ti.\n\nDurante unos segundos no ocurre nada...\n\nLuego - un sonido que no está en el espectro. No lo registran los instrumentos, pero dentro del casco todo empieza a temblar.\n\nSientes vibración en las paredes, en los contornos del revestimiento, en la propia estructura de la nave.\n\nUna resonancia desconocida penetra en el sistema";
         _text[483, 6] = "Nie ingerujesz i kontynuujesz ruch.\n\nObcy statek zbliża się i zastyga naprzeciwko.\n\nPrzez kilka sekund nic się nie dzieje...\n\nPotem - dźwięk spoza spektrum. Nie rejestrują go przyrządy, ale wewnątrz kadłuba wszystko zaczyna drżeć.\n\nCzujesz wibracje w ścianach, w liniach poszycia, w samej strukturze statku.\n\nNieznany rezonans przenika do systemu";
         _text[483, 7] = "Você não interfere e continua a avançar.\n\nA nave estranha aproxima-se e imobiliza-se em frente.\n\nDurante alguns segundos, nada acontece...\n\nDepois - um som que não existe no espectro. Ele não é registado pelos instrumentos, mas dentro do casco - tudo começa a tremer.\n\nVocê sente vibração nas paredes, nos contornos da blindagem, na própria estrutura da nave.\n\nUm ressonar desconhecido infiltra-se no sistema";
@@ -5403,7 +5403,7 @@ public class Language : MonoBehaviour
         _text[485, 1] = "Из вражеского корабля устремляется мощнейщий импульс энергии.\n\nУспех: вам удается экранировать удар, вы отделались помехами."; // ничего
         _text[485, 2] = "Une puissante impulsion d'énergie jaillit du vaisseau ennemi.\n\nSuccès: Vous parvenez à bloquer l'attaque et à vous échapper malgré les interférences.";
         _text[485, 3] = "Un potente impulso di energia erutta dalla nave nemica.\n\nRiuscito: riesci a schermare l'attacco e a fuggire grazie all'interferenza.";
-        _text[485, 4] = "Aus dem feindlichen Schiff schießt ein übermächtiger Energieimpuls.\n\nErfolg: dir gelingt es, den Schlag abzuschirmen, du kommst mit Störungen davon.";
+        _text[485, 4] = "Ein gewaltiger Energieimpuls geht vom feindlichen Schiff aus.\n\nErfolg: Es gelingt Ihnen, den Angriff abzuwehren und durch die Störung zu entkommen.";
         _text[485, 5] = "Desde la nave enemiga se lanza un potentísimo pulso de energía.\n\nÉxito: logras apantallar el golpe, solo sufres interferencias.";
         _text[485, 6] = "Z wrogiego statku uderza potężny impuls energii.\n\nSukces: udaje ci się osłonić uderzenie, kończy się na zakłóceniach.";
         _text[485, 7] = "Da nave inimiga parte um impulso de energia poderosíssimo.\n\nSucesso: você consegue blindar o impacto; ficou apenas com interferências.";
@@ -5414,7 +5414,7 @@ public class Language : MonoBehaviour
         _text[486, 1] = "Из вражеского корабля устремляется мощнейщий импульс энергии.\n\nПровал: система защиты не справляется, импульс пробивает обшивку"; //-1 ядро ии
         _text[486, 2] = "Une puissante impulsion énergétique jaillit du vaisseau ennemi.\n\nÉchec: Le système de défense est défaillant, l’impulsion pénètre la coque.";
         _text[486, 3] = "Un potente impulso di energia erutta dalla nave nemica.\n\nFallimento: il sistema di difesa fallisce, l'impulso penetra lo scafo.";
-        _text[486, 4] = "Aus dem feindlichen Schiff schießt ein übermächtiger Energieimpuls.\n\nMisserfolg: Das Schutzsystem hält nicht stand, der Impuls durchschlägt die Hülle";
+        _text[486, 4] = "Ein starker Energieimpuls geht vom feindlichen Schiff aus.\n\nFehlschlag: Das Verteidigungssystem versagt, der Impuls durchdringt die Hülle.";
         _text[486, 5] = "Desde la nave enemiga se lanza un potentísimo pulso de energía.\n\nFracaso: el sistema de defensa no aguanta, el pulso perfora el casco";
         _text[486, 6] = "Z wrogiego statku uderza potężny impuls energii.\n\nPorażka: system obrony nie wytrzymuje, impuls przebija poszycie";
         _text[486, 7] = "Da nave inimiga parte um impulso de energia poderosíssimo.\n\nFracasso: o sistema de defesa não aguenta; o impulso perfura o revestimento";
@@ -5425,7 +5425,7 @@ public class Language : MonoBehaviour
         _text[487, 1] = "Контейнер аккуратно захватывается дронами. Ни одного активного сигнала, ни одной угрозы.\n\nВнутри - герметичный кейс с маркировкой, неизвестной вашей базе данных.";
         _text[487, 2] = "Le conteneur est soigneusement repéré par des drones. Aucun signal actif, aucune menace.\n\nÀ l'intérieur se trouve un coffret scellé portant des inscriptions inconnues de votre base de données.";
         _text[487, 3] = "Il container viene accuratamente catturato dai droni. Nessun segnale attivo, nessuna minaccia.\n\nAll'interno si trova una custodia sigillata con contrassegni sconosciuti al tuo database.";
-        _text[487, 4] = "Der Container wird von Drohnen vorsichtig eingefangen. Kein aktives Signal, keine Bedrohung.\n\nInnen - ein hermetischer Koffer mit einer Markierung, die deiner Datenbank unbekannt ist.";
+        _text[487, 4] = "Der Container wird von Drohnen sicher abgefangen. Keine aktiven Signale, keine Bedrohungen.\n\nIm Inneren befindet sich ein versiegelter Koffer mit Markierungen, die Ihrer Datenbank unbekannt sind.";
         _text[487, 5] = "Los drones capturan el contenedor con cuidado. Ni una señal activa, ni una amenaza.\n\nDentro hay un maletín hermético con un marcaje desconocido para tu base de datos.";
         _text[487, 6] = "Kontener zostaje ostrożnie przechwycony przez drony. Ani jednego aktywnego sygnału, ani jednego zagrożenia.\n\nW środku znajduje się hermetyczna walizka z oznaczeniem nieznanym twojej bazie danych.";
         _text[487, 7] = "O contentor é recolhido cuidadosamente pelos drones. Nenhum sinal ativo, nenhuma ameaça.\n\nNo interior - um estojo hermético com uma marcação desconhecida para a sua base de dados.";
@@ -5436,7 +5436,7 @@ public class Language : MonoBehaviour
         _text[488, 1] = "Открыть кейс"; //выбор 1.1
         _text[488, 2] = "Étui ouvert";
         _text[488, 3] = "Caso aperto";
-        _text[488, 4] = "Koffer öffnen";
+        _text[488, 4] = "Fall eröffnen";
         _text[488, 5] = "Abrir el maletín";
         _text[488, 6] = "Otworzyć walizkę";
         _text[488, 7] = "Abrir o estojo";
@@ -5447,7 +5447,7 @@ public class Language : MonoBehaviour
         _text[489, 1] = "Выбросить кейс в космос"; //выбор 1.2
         _text[489, 2] = "Jetez la valise dans l'espace";
         _text[489, 3] = "Lancia la valigia nello spazio";
-        _text[489, 4] = "Koffer ins All werfen";
+        _text[489, 4] = "Wirf den Koffer ins Weltall";
         _text[489, 5] = "Arrojar el maletín al espacio";
         _text[489, 6] = "Wyrzucić walizkę w kosmos";
         _text[489, 7] = "Atirar o estojo ao espaço";
@@ -5458,7 +5458,7 @@ public class Language : MonoBehaviour
         _text[490, 1] = "Вы открываете кейс..."; // + ядра или + квант
         _text[490, 2] = "Vous ouvrez la mallette...";
         _text[490, 3] = "Apri la custodia...";
-        _text[490, 4] = "Du öffnest den Koffer...";
+        _text[490, 4] = "Sie öffnen den Koffer...";
         _text[490, 5] = "Abres el maletín...";
         _text[490, 6] = "Otwierasz walizkę...";
         _text[490, 7] = "Você abre o estojo...";
@@ -5469,7 +5469,7 @@ public class Language : MonoBehaviour
         _text[491, 1] = "Вы решаете не рисковать и выбрасываете кейс в космос, но вас охватывает чувство потери большой ценности..."; // ничего
         _text[491, 2] = "Vous décidez de ne pas prendre de risques et de jeter la valise dans l'espace, mais vous êtes envahi par le sentiment de perdre quelque chose de grande valeur...";
         _text[491, 3] = "Decidi di non rischiare e di lanciare la valigia nello spazio, ma ti assale la sensazione di aver perso qualcosa di grande valore...";
-        _text[491, 4] = "Du entscheidest dich, kein Risiko einzugehen, und wirfst den Koffer ins All, doch dich überkommt das Gefühl, etwas von großem Wert verloren zu haben...";
+        _text[491, 4] = "Sie beschließen, kein Risiko einzugehen und werfen den Koffer ins Weltall, aber Sie werden von dem Gefühl überwältigt, etwas von großem Wert zu verlieren...";
         _text[491, 5] = "Decides no arriesgarte y arrojas el maletín al espacio, pero te invade la sensación de haber perdido algo de gran valor...";
         _text[491, 6] = "Postanawiasz nie ryzykować i wyrzucasz walizkę w kosmos, ale ogarnia cię uczucie utraty czegoś bardzo cennego...";
         _text[491, 7] = "Você decide não arriscar e atira o estojo ao espaço, mas é tomado por uma sensação de ter perdido algo de grande valor...";
@@ -5481,7 +5481,7 @@ public class Language : MonoBehaviour
         _text[492, 1] = "Вы приближаетесь к туманной станции, облепленной мхом и органикой. Коммуникационный канал передаёт пульсирующий голос:\n\n\"Пусть твой корпус примет росток. Скверна не разрушает - она творит.\"";
         _text[492, 2] = "Vous approchez d'une station enveloppée de brouillard, recouverte de mousse et de matières organiques. Une voix pulsante résonne dans le canal de communication:\n\n\"Laissez votre enveloppe accepter la germination. La corruption ne détruit pas, elle crée.\"";
         _text[492, 3] = "Ti avvicini a una stazione nebbiosa, ricoperta di muschio e materia organica. Una voce pulsante echeggia attraverso il canale di comunicazione:\n\n\"Lascia che il tuo corpo accetti il ​​germoglio. La corruzione non distrugge, crea.\"";
-        _text[492, 4] = "Du näherst dich einer nebligen Station, überwuchert von Moos und Organik. Der Kommunikationskanal überträgt eine pulsierende Stimme:\n\n\"Lass deine Hülle den Keim annehmen. Die Verderbnis zerstört nicht - sie erschafft.\"";
+        _text[492, 4] = "Du näherst dich einer nebligen Station, bedeckt mit Moos und organischem Material. Eine pulsierende Stimme hallt durch den Funkkanal:\n\n„Lass deinen Körper den Keim aufnehmen. Korruption zerstört nicht – sie erschafft.“";
         _text[492, 5] = "Te acercas a una estación brumosa, cubierta de musgo y materia orgánica. El canal de comunicación transmite una voz pulsante:\n\n\"Que tu casco acepte el brote. La plaga no destruye: crea.\"";
         _text[492, 6] = "Zbliżasz się do mglistej stacji oblepionej mchem i organiką. Kanał komunikacyjny przekazuje pulsujący głos:\n\n\"Niech twój kadłub przyjmie kiełek. Skaza nie niszczy - ona tworzy.\"";
         _text[492, 7] = "Você aproxima-se de uma estação enevoada, coberta de musgo e matéria orgânica. O canal de comunicação transmite uma voz pulsante:\n\n\"Que o teu casco aceite o rebento. A corrupção não destrói - ela cria.\"";
@@ -5492,7 +5492,7 @@ public class Language : MonoBehaviour
         _text[493, 1] = "Принять дар"; //выбор 1
         _text[493, 2] = "Acceptez le cadeau";
         _text[493, 3] = "Accetta il regalo";
-        _text[493, 4] = "Das Geschenk annehmen";
+        _text[493, 4] = "Nimm das Geschenk an";
         _text[493, 5] = "Aceptar el regalo";
         _text[493, 6] = "Przyjąć dar";
         _text[493, 7] = "Aceitar o presente";
@@ -5503,7 +5503,7 @@ public class Language : MonoBehaviour
         _text[494, 1] = "Организм прорастает в грузовом отсеке.\n\nУспех: он синхронизируется с системами корабля, вызывая странные образы."; // + фрагменты
         _text[494, 2] = "L'organisme se développe dans la cale.\n\nSuccès: il se synchronise avec les systèmes du navire, provoquant d'étranges images.";
         _text[494, 3] = "L'organismo cresce nella stiva.\n\nRiuscito: si sincronizza con i sistemi della nave, generando strane immagini.";
-        _text[494, 4] = "Der Organismus sprießt im Frachtraum.\n\nErfolg: Er synchronisiert sich mit den Schiffssystemen und ruft seltsame Bilder hervor.";
+        _text[494, 4] = "Der Organismus wächst im Frachtraum.\n\nErfolg: Er synchronisiert sich mit den Schiffssystemen und erzeugt so seltsame Bilder.";
         _text[494, 5] = "El organismo brota en la bodega.\n\nÉxito: se sincroniza con los sistemas de la nave, provocando imágenes extrañas.";
         _text[494, 6] = "Organizm kiełkuje w ładowni.\n\nSukces: synchronizuje się z systemami statku, wywołując dziwne wizje.";
         _text[494, 7] = "O organismo brota no porão de carga.\n\nSucesso: ele sincroniza-se com os sistemas da nave, provocando imagens estranhas.";
@@ -5514,7 +5514,7 @@ public class Language : MonoBehaviour
         _text[495, 1] = "Организм прорастает в грузовом отсеке.\n\nПровал: скверна выходит из-под контроля. Вирус проникает в управляющую сеть, приводя к фатальному сбою одного из ядер."; // -1 ядро
         _text[495, 2] = "L'organisme se développe dans la soute.\n\nDéfaillance: La corruption devient incontrôlable. Le virus infiltre le réseau de contrôle, provoquant la défaillance fatale d'un des cœurs.";
         _text[495, 3] = "L'organismo si sviluppa nella stiva.\n\nErrore: la corruzione dilaga. Il virus penetra nella rete di controllo, causando un guasto fatale di uno dei core.";
-        _text[495, 4] = "Der Organismus sprießt im Frachtraum.\n\nMisserfolg: Die Verderbnis gerät außer Kontrolle. Ein Virus dringt in das Steuerungsnetz ein und verursacht den fatalen Ausfall eines der Kerne.";
+        _text[495, 4] = "Der Organismus vermehrt sich im Frachtraum.\n\nFehler: Die Korruption breitet sich unkontrolliert aus. Das Virus dringt in das Kontrollnetzwerk ein und verursacht einen fatalen Ausfall eines der Kerne.";
         _text[495, 5] = "El organismo brota en la bodega.\n\nFracaso: la plaga se sale de control. El virus penetra en la red de control, provocando el fallo fatal de uno de los núcleos.";
         _text[495, 6] = "Organizm kiełkuje w ładowni.\n\nPorażka: skaza wymyka się spod kontroli. Wirus przenika do sieci sterującej, powodując fatalną awarię jednego z rdzeni.";
         _text[495, 7] = "O organismo brota no porão de carga.\n\nFracasso: a corrupção sai do controlo. Um vírus infiltra-se na rede de controlo, levando a uma falha fatal de um dos núcleos.";
@@ -5525,7 +5525,7 @@ public class Language : MonoBehaviour
         _text[496, 1] = "Отказаться и отойти"; //выбор 2
         _text[496, 2] = "Refusez et partez.";
         _text[496, 3] = "Rifiutare e allontanarsi";
-        _text[496, 4] = "Ablehnen und zurückweichen";
+        _text[496, 4] = "Verweigern und weggehen";
         _text[496, 5] = "Rechazar y alejarse";
         _text[496, 6] = "Odmówić i odejść";
         _text[496, 7] = "Recusar e afastar-se";
@@ -5536,7 +5536,7 @@ public class Language : MonoBehaviour
         _text[497, 1] = "Вы медленно отдаляетесь от станции, но чувствуете, что уже слишком поздно - споры внедрились в вентиляцию корабля.";
         _text[497, 2] = "Vous vous éloignez lentement de la station, mais vous sentez qu'il est trop tard: les spores ont pénétré le système de ventilation du vaisseau.";
         _text[497, 3] = "Ti allontani lentamente dalla stazione, ma senti che è troppo tardi: le spore hanno penetrato la ventilazione della nave.";
-        _text[497, 4] = "Du entfernst dich langsam von der Station, doch du fühlst, dass es bereits zu spät ist - die Sporen haben sich in die Belüftung des Schiffes gesetzt.";
+        _text[497, 4] = "Sie entfernen sich langsam von der Station, aber Sie spüren, dass es zu spät ist – die Sporen sind in die Belüftung des Schiffes eingedrungen.";
         _text[497, 5] = "Te alejas lentamente de la estación, pero sientes que ya es demasiado tarde - las esporas se han infiltrado en la ventilación de la nave.";
         _text[497, 6] = "Powoli oddalasz się od stacji, ale czujesz, że jest już za późno - zarodniki wniknęły do wentylacji statku.";
         _text[497, 7] = "Você afasta-se lentamente da estação, mas sente que já é tarde demais - esporos infiltraram-se na ventilação da nave.";
@@ -5547,7 +5547,7 @@ public class Language : MonoBehaviour
         _text[498, 1] = "Успех: вы запускаете протоколы внутренней очистки - корабль успешно очищен."; // ничего
         _text[498, 2] = "Succès: Vous lancez les protocoles de nettoyage interne – le navire est nettoyé avec succès.";
         _text[498, 3] = "Successo: avvii i protocolli di pulizia interna: la nave viene pulita con successo.";
-        _text[498, 4] = "Erfolg: du startest die internen Reinigungsprotokolle - das Schiff wird erfolgreich gereinigt.";
+        _text[498, 4] = "Erfolg: Sie leiten interne Reinigungsprotokolle ein – das Schiff wird erfolgreich gereinigt.";
         _text[498, 5] = "Éxito: activas los protocolos de limpieza interna: la nave queda completamente limpia.";
         _text[498, 6] = "Sukces: uruchamiasz protokoły wewnętrznego oczyszczania - statek został skutecznie oczyszczony.";
         _text[498, 7] = "Sucesso: você inicia os protocolos de limpeza interna - a nave é limpa com sucesso.";
@@ -5558,7 +5558,7 @@ public class Language : MonoBehaviour
         _text[499, 1] = "Провал: спора проникает в модуль жизнеобеспечения, вызывая сбой"; // - ядро
         _text[499, 2] = "Défaillance: Une spore pénètre dans le module de survie, provoquant un dysfonctionnement.";
         _text[499, 3] = "Guasto: una spora penetra nel modulo di supporto vitale, causando un malfunzionamento.";
-        _text[499, 4] = "Misserfolg: Eine Spore dringt in das Lebenserhaltungsmodul ein und verursacht einen Ausfall";
+        _text[499, 4] = "Fehler: Eine Spore dringt in das Lebenserhaltungsmodul ein und verursacht eine Fehlfunktion.";
         _text[499, 5] = "Fracaso: una espora penetra en el módulo de soporte vital, provocando un fallo";
         _text[499, 6] = "Porażka: zarodnik przenika do modułu podtrzymania życia, powodując awarię";
         _text[499, 7] = "Fracasso: um esporo infiltra-se no módulo de suporte de vida, causando uma falha";
@@ -5580,7 +5580,7 @@ public class Language : MonoBehaviour
         _text[501, 1] = "Вы запускаете внешнюю очистку заражённого корабля: направляете концентрированный лазер на очаги биомассы и блокируете сигналы заражения.";
         _text[501, 2] = "Vous lancez un nettoyage externe du vaisseau infecté: vous dirigez un laser concentré vers les foyers de biomasse et bloquez les signaux d'infection.";
         _text[501, 3] = "Si avvia una pulizia esterna della nave infetta: si punta un laser concentrato sui focolai di biomassa e si bloccano i segnali dell'infezione.";
-        _text[501, 4] = "Du startest die äußere Reinigung des infizierten Schiffes: Du richtest einen konzentrierten Laser auf die Biomasse-Herde und blockierst die Infektionssignale.";
+        _text[501, 4] = "Sie leiten eine externe Säuberung des infizierten Schiffs ein: Sie richten einen konzentrierten Laser auf die Biomasseherde und blockieren die Infektionssignale.";
         _text[501, 5] = "Inicias una limpieza externa de la nave infectada: apuntas un láser concentrado a los focos de biomasa y bloqueas las señales de infección.";
         _text[501, 6] = "Uruchamiasz zewnętrzne oczyszczanie zakażonego statku: kierujesz skoncentrowany laser na ogniska biomasy i blokujesz sygnały zakażenia.";
         _text[501, 7] = "Você inicia a limpeza externa da nave infetada: aponta um laser concentrado para os focos de biomassa e bloqueia os sinais de infeção.";
@@ -5591,7 +5591,7 @@ public class Language : MonoBehaviour
         _text[502, 1] = "Успех: очистка проходит успешно - организм уничтожен, вы забираете ресурсы со станции."; // + квант
         _text[502, 2] = "Succès: L'opération de purification est un succès – l'organisme est détruit, vous prélevez des ressources de la station.";
         _text[502, 3] = "Successo: la purificazione ha successo: l'organismo è distrutto, prendi risorse dalla stazione.";
-        _text[502, 4] = "Erfolg: Die Reinigung verläuft erfolgreich - der Organismus ist zerstört, du nimmst Ressourcen von der Station.";
+        _text[502, 4] = "Erfolg: Die Säuberung ist erfolgreich – der Organismus ist vernichtet, Sie entnehmen Ressourcen von der Station.";
         _text[502, 5] = "Éxito: la limpieza se completa con éxito: el organismo es destruido y recoges recursos de la estación.";
         _text[502, 6] = "Sukces: oczyszczanie przebiega pomyślnie - organizm zostaje zniszczony, a ty zabierasz zasoby ze stacji.";
         _text[502, 7] = "Sucesso: a limpeza é bem-sucedida - o organismo é destruído, e você recolhe recursos da estação.";
@@ -5602,7 +5602,7 @@ public class Language : MonoBehaviour
         _text[503, 1] = "Провал: заражение оказывается глубже - система перегревается, и одна из нейросекций выходит из строя."; // - ядро
         _text[503, 2] = "Échec: L'infection s'étend plus profondément – ​​le système surchauffe et l'une des sections neurales tombe en panne.";
         _text[503, 3] = "Fallimento: l'infezione si aggrava: il sistema si surriscalda e una delle sezioni neurali si guasta.";
-        _text[503, 4] = "Misserfolg: Die Infektion sitzt tiefer - das System überhitzt, und eine der Neurosektionen fällt aus.";
+        _text[503, 4] = "Fehler: Die Infektion greift tiefer – das System überhitzt und einer der neuronalen Abschnitte versagt.";
         _text[503, 5] = "Fracaso: la infección es más profunda: el sistema se sobrecalienta, y una de las neurosecciones queda fuera de servicio.";
         _text[503, 6] = "Porażka: zakażenie okazuje się głębsze - system się przegrzewa i jedna z neurosekcji ulega awarii.";
         _text[503, 7] = "Fracasso: a infeção é mais profunda - o sistema sobreaquece e uma das neurosecções falha.";
@@ -5614,7 +5614,7 @@ public class Language : MonoBehaviour
         _text[504, 1] = "Вы приближаетесь к ржавой станции, заваленной контейнерами и мусором. В эфире появляется слабый, потрескивающий сигнал:\n\n\"Эй, кто там? Не стреляй. Я просто торгую. У меня есть то, чего нет у остальных - если ты, конечно, готов заплатить.\"";
         _text[504, 2] = "Vous approchez d'une station-service délabrée, jonchée de conteneurs et d'ordures. Un faible signal crépitant apparaît sur les ondes:\n\n\"Hé, qui est là ? Ne tirez pas. Je fais juste du troc. J'ai quelque chose que vous n'avez pas, si vous êtes prêts à payer, bien sûr.\"";
         _text[504, 3] = "Ti avvicini a una stazione arrugginita piena di contenitori e rifiuti. Un debole segnale gracchiante appare sulle onde radio:\n\n\"Ehi, chi è? Non sparate. Sto solo facendo uno scambio. Ho qualcosa che voi altri non avete, se siete disposti a pagare, ovviamente.\"";
-        _text[504, 4] = "Du näherst dich einer rostigen Station, zugeschüttet mit Containern und Müll. Im Äther erscheint ein schwaches, knisterndes Signal:\n\n\"Hey, wer ist da? Nicht schießen. Ich handle nur. Ich habe etwas, das die anderen nicht haben - wenn du natürlich bereit bist zu zahlen.\"";
+        _text[504, 4] = "Du näherst dich einem verrosteten Bahnhof, übersät mit Containern und Müll. Ein schwaches, knisterndes Signal ertönt aus dem Äther:\n\n„Hey, wer ist da? Nicht schießen! Ich handle nur. Ich habe etwas, was ihr anderen nicht habt – wenn ihr bereit seid zu zahlen, natürlich.“";
         _text[504, 5] = "Te acercas a una estación oxidada, abarrotada de contenedores y basura. En el éter aparece una señal débil y crepitante:\n\n\"Eh, ¿quién anda ahí? No dispares. Solo comercio. Tengo algo que los demás no tienen: si, claro, estás dispuesto a pagar.\"";
         _text[504, 6] = "Zbliżasz się do zardzewiałej stacji zawalonej kontenerami i śmieciami. W eterze pojawia się słaby, trzaskający sygnał:\n\n\"Hej, kto tam? Nie strzelaj. Ja tylko handluję. Mam coś, czego nie mają inni - o ile, oczywiście, jesteś gotów zapłacić.\"";
         _text[504, 7] = "Você aproxima-se de uma estação enferrujada, cheia de contentores e lixo. No éter surge um sinal fraco e crepitante:\n\n\"Ei, quem está aí? Não dispares. Eu só negocio. Tenho o que os outros não têm - se, claro, estiveres disposto a pagar.\"";
@@ -5625,7 +5625,7 @@ public class Language : MonoBehaviour
         _text[505, 1] = "Торговать";
         _text[505, 2] = "Commerce";
         _text[505, 3] = "Commercio";
-        _text[505, 4] = "Handeln";
+        _text[505, 4] = "Handel";
         _text[505, 5] = "Comerciar";
         _text[505, 6] = "Handlować";
         _text[505, 7] = "Negociar";
@@ -5648,7 +5648,7 @@ public class Language : MonoBehaviour
         _text[507, 1] = "Вы продолжаете движение по орбите заброшенного спутника связи, когда раздаётся глухой удар. Один из внешних сенсоров - повреждён. При проверке обнаружен застрявший грузовой контейнер. Метки на корпусе стерлись, символ не разобрать.\n\nВнутри лежит запечатанный кейс, окруженный проводами, биометрическим замком и эмиттером\n\nСудя по логам груз дрейфует по орбите более 200 лет.";
         _text[507, 2] = "Vous poursuivez votre orbite autour du satellite de communication abandonné lorsqu'un bruit sourd se fait entendre. Un des capteurs externes est endommagé. Une inspection révèle un conteneur de fret bloqué. Les marquages ​​sur le boîtier sont effacés et le symbole est illisible.\n\nÀ l'intérieur se trouve un conteneur scellé, entouré de câbles, d'une serrure biométrique et d'un émetteur.\n\nD'après les journaux de bord, le fret dérive en orbite depuis plus de 200 ans.";
         _text[507, 3] = "Continui a orbitare attorno al satellite per comunicazioni abbandonato quando senti un tonfo sordo. Uno dei sensori esterni è danneggiato. Un'ispezione rivela un container bloccato. I segni sull'involucro sono consumati e il simbolo è illeggibile.\n\nAll'interno si trova una cassa sigillata, circondata da fili, un lucchetto biometrico e un trasmettitore.\n\nSecondo i registri, il carico è alla deriva in orbita da oltre 200 anni.";
-        _text[507, 4] = "Du setzt deinen Kurs auf der Umlaufbahn eines verlassenen Kommunikationssatelliten fort, als ein dumpfer Schlag ertönt. Einer der Außensensoren ist beschädigt. Bei der Prüfung wird ein festgeklemmter Frachtscontainer entdeckt. Die Markierungen auf der Hülle sind abgeschliffen, das Symbol ist nicht zu erkennen.\n\nIm Inneren liegt ein versiegelter Koffer, umgeben von Kabeln, einem biometrischen Schloss und einem Emitter\n\nDen Logs zufolge treibt die Fracht seit über 200 Jahren in der Umlaufbahn.";
+        _text[507, 4] = "Sie umkreisen den verlassenen Kommunikationssatelliten weiter, als ein dumpfer Schlag zu hören ist. Einer der externen Sensoren ist beschädigt. Eine Inspektion zeigt einen festsitzenden Frachtcontainer. Die Markierungen auf dem Gehäuse sind abgenutzt, das Symbol ist unleserlich.\n\nIm Inneren befindet sich ein versiegelter Behälter, umgeben von Kabeln, einem biometrischen Schloss und einem Sender.\n\nDen Aufzeichnungen zufolge treibt die Fracht seit über 200 Jahren im Orbit.";
         _text[507, 5] = "Sigues moviéndote por la órbita de un satélite de comunicaciones abandonado cuando se oye un golpe sordo. Uno de los sensores externos está dañado. Al comprobarlo, encuentras un contenedor de carga atascado. Las marcas del casco se han borrado; el símbolo es ilegible.\n\nDentro hay un maletín sellado, rodeado de cables, una cerradura biométrica y un emisor\n\nSegún los registros, la carga lleva a la deriva en órbita más de 200 años.";
         _text[507, 6] = "Kontynuujesz lot po orbicie opuszczonego satelity łączności, gdy rozlega się głuche uderzenie. Jeden z zewnętrznych sensorów zostaje uszkodzony. Podczas kontroli znajdujesz zaklinowany kontener transportowy. Oznaczenia na kadłubie starły się, symbolu nie da się rozpoznać.\n\nW środku leży zapieczętowana walizka, otoczona przewodami, zamkiem biometrycznym i emiterem\n\nZ logów wynika, że ładunek dryfuje po orbicie od ponad 200 lat.";
         _text[507, 7] = "Você continua a deslocar-se pela órbita de um satélite de comunicações abandonado quando se ouve um baque surdo. Um dos sensores externos está danificado. Ao verificar, encontra um contentor de carga preso. As marcas no casco apagaram-se; o símbolo é ilegível.\n\nDentro há um estojo selado, rodeado de fios, um fecho biométrico e um emissor\n\nPelos logs, a carga deriva em órbita há mais de 200 anos.";
@@ -5659,7 +5659,7 @@ public class Language : MonoBehaviour
         _text[508, 1] = "Открыть"; //выбор 1
         _text[508, 2] = "Ouvrir";
         _text[508, 3] = "Aprire";
-        _text[508, 4] = "Öffnen";
+        _text[508, 4] = "Offen";
         _text[508, 5] = "Abrir";
         _text[508, 6] = "Otworzyć";
         _text[508, 7] = "Abrir";
@@ -5670,7 +5670,7 @@ public class Language : MonoBehaviour
         _text[509, 1] = "Вы аккуратно вскрываете контейнер. Внутри - запас старых строительных материалов.\n\nХотя часть груза повреждена временем, многое всё ещё пригодно для использования. Вы загружаете материалы в хранилище."; // + случайный ресурс
         _text[509, 2] = "Vous ouvrez prudemment le conteneur. À l'intérieur se trouve un stock de vieux matériaux de construction.\n\nSi une partie de la cargaison est endommagée par le temps, une grande partie est encore utilisable. Vous chargez les matériaux dans la zone de stockage.";
         _text[509, 3] = "Apri con cautela il container. All'interno c'è una scorta di vecchi materiali da costruzione.\n\nSebbene parte del carico sia danneggiata dal tempo, gran parte è ancora utilizzabile. Carichi i materiali nell'area di stoccaggio.";
-        _text[509, 4] = "Du öffnest den Container vorsichtig. Innen - ein Vorrat alter Baumaterialien.\n\nObwohl ein Teil der Fracht durch die Zeit beschädigt ist, ist vieles noch nutzbar. Du lädst die Materialien ins Lager.";
+        _text[509, 4] = "Sie öffnen vorsichtig den Container. Darin befindet sich ein Vorrat an alten Baumaterialien.\n\nEin Teil der Ladung ist zwar durch die Zeit beschädigt, aber vieles ist noch brauchbar. Sie laden die Materialien in das Lager.";
         _text[509, 5] = "Abres con cuidado el contenedor. Dentro hay una reserva de viejos materiales de construcción.\n\nAunque parte de la carga ha sido dañada por el tiempo, mucho aún sirve. Cargas los materiales en el almacén.";
         _text[509, 6] = "Ostrożnie otwierasz kontener. W środku znajduje się zapas starych materiałów budowlanych.\n\nChoć część ładunku ucierpiała z upływem czasu, wiele wciąż nadaje się do użytku. Ładujesz materiały do magazynu.";
         _text[509, 7] = "Você abre o contentor com cuidado. Dentro - um stock de antigos materiais de construção.\n\nEmbora parte da carga esteja danificada pelo tempo, muita coisa ainda é utilizável. Você coloca os materiais no armazém.";
@@ -5692,7 +5692,7 @@ public class Language : MonoBehaviour
         _text[511, 1] = "Вы решаете не рисковать: неизвестный контейнер может быть нестабилен или заражён. Его отстыковывают и сбрасывают обратно в пустоту.\n\nКонтейнер медленно исчезает из зоны видимости. Возможно, кто-то другой когда-нибудь наткнётся на него."; // ничего
         _text[511, 2] = "Vous décidez de ne prendre aucun risque: le conteneur inconnu pourrait être instable ou contaminé. Il est désamarré et relâché dans le vide.\n\nLe conteneur disparaît lentement de la vue. Peut-être que quelqu'un d'autre le découvrira un jour.";
         _text[511, 3] = "Decidi di non correre rischi: il contenitore sconosciuto potrebbe essere instabile o contaminato. Viene sganciato e lasciato cadere nel vuoto.\n\nIl contenitore scompare lentamente dalla vista. Forse un giorno qualcun altro lo incontrerà per caso.";
-        _text[511, 4] = "Du beschließt, kein Risiko einzugehen: Der unbekannte Container könnte instabil oder kontaminiert sein. Er wird abgekoppelt und zurück in die Leere gestoßen.\n\nDer Container verschwindet langsam aus dem Sichtfeld. Vielleicht stößt irgendwann jemand anderes darauf.";
+        _text[511, 4] = "Du beschließt, kein Risiko einzugehen: Der unbekannte Container könnte instabil oder kontaminiert sein. Er wird abgekoppelt und zurück ins All geworfen.\n\nDer Container verschwindet langsam aus deinem Blickfeld. Vielleicht stößt ja eines Tages jemand anderes darauf.";
         _text[511, 5] = "Decides no arriesgarte: el contenedor desconocido puede ser inestable o estar contaminado. Lo desacoplan y lo arrojan de vuelta al vacío.\n\nEl contenedor desaparece lentamente de la vista. Quizá alguien más lo encuentre algún día.";
         _text[511, 6] = "Postanawiasz nie ryzykować: nieznany kontener może być niestabilny lub skażony. Odczepiacie go i zrzucacie z powrotem w pustkę.\n\nKontener powoli znika z pola widzenia. Być może ktoś inny kiedyś na niego trafi.";
         _text[511, 7] = "Você decide não arriscar: o contentor desconhecido pode ser instável ou estar infetado. Ele é desacoplado e lançado de volta ao vazio.\n\nO contentor desaparece lentamente do campo de visão. Talvez alguém, um dia, o encontre.";
@@ -5704,7 +5704,7 @@ public class Language : MonoBehaviour
         _text[512, 1] = "При сканировании поверхности старого орбитального кольца вы замечаете остатки автоматической мастерской. Она отключена, но её каркас цел, а системы - в анабиозе.\n\nПристыковавшись, вы находите внутри полуразрушенный производственный отсек. Роботы не двигаются, воздух насыщен пылью и металлическим привкусом, но в одном из запечатанных отсеков мигает зелёный индикатор: завершён цикл изготовления.";
         _text[512, 2] = "En scrutant la surface d'un ancien anneau orbital, vous apercevez les vestiges d'un atelier automatisé. Hors service, sa structure est intacte et ses systèmes sont en veille.\n\nUne fois amarré, vous découvrez à l'intérieur une zone de production délabrée. Les robots sont immobiles, l'air est saturé de poussière et dégage une odeur métallique, mais un voyant vert clignote dans l'une des baies scellées: le cycle de fabrication est terminé.";
         _text[512, 3] = "Mentre scansionate la superficie di un vecchio anello orbitale, individuate i resti di un'officina automatizzata. È offline, ma la struttura è intatta e i suoi sistemi sono in animazione sospesa.\n\nAgganciati, trovate all'interno un reparto di produzione fatiscente. I robot sono immobili, l'aria è densa di polvere e ha un sapore metallico, ma una spia verde lampeggia in uno dei reparti sigillati: il ciclo di produzione è completato.";
-        _text[512, 4] = "Beim Scannen der Oberfläche eines alten Orbitalrings bemerkst du die Überreste einer automatischen Werkstatt. Sie ist abgeschaltet, aber ihr Rahmen ist intakt, und die Systeme sind im Stand-by.\n\nNach dem Andocken findest du darin eine halb zerstörte Produktionssektion. Die Roboter bewegen sich nicht, die Luft ist voll Staub und metallischem Geschmack, aber in einer der versiegelten Sektionen blinkt eine grüne Anzeige: der Fertigungszyklus ist abgeschlossen.";
+        _text[512, 4] = "Beim Scannen der Oberfläche eines alten Orbitalrings entdecken Sie die Überreste einer automatisierten Werkstatt. Sie ist offline, aber ihr Gerüst ist intakt und ihre Systeme befinden sich im Ruhezustand.\n\nAngedockt finden Sie eine verfallene Produktionshalle vor. Die Roboter stehen still, die Luft ist staubig und riecht metallisch, doch in einer der versiegelten Hallen blinkt eine grüne Anzeige: Der Fertigungszyklus ist abgeschlossen.";
         _text[512, 5] = "Al escanear la superficie de un antiguo anillo orbital, detectas restos de un taller automático. Está apagado, pero su armazón está intacto y los sistemas en hibernación.\n\nAl acoplarte, encuentras dentro un compartimento de producción semiderruido. Los robots no se mueven, el aire está cargado de polvo y un sabor metálico, pero en uno de los compartimentos sellados parpadea un indicador verde: el ciclo de fabricación ha terminado.";
         _text[512, 6] = "Podczas skanowania powierzchni starego pierścienia orbitalnego dostrzegasz pozostałości automatycznego warsztatu. Jest wyłączony, ale jego szkielet jest cały, a systemy znajdują się w anabiozie.\n\nPo zadokowaniu znajdujesz w środku częściowo zrujnowany przedział produkcyjny. Roboty się nie poruszają, powietrze jest nasycone pyłem i metalicznym posmakiem, lecz w jednym z zapieczętowanych sektorów miga zielony wskaźnik: cykl wytwarzania został ukończony.";
         _text[512, 7] = "Ao escanear a superfície de um antigo anel orbital, você nota os restos de uma oficina automática. Está desligada, mas a sua estrutura está intacta e os sistemas - em animação suspensa.\n\nAo acoplar, você encontra no interior um compartimento de produção parcialmente destruído. Os robôs não se movem, o ar está saturado de pó e de um sabor metálico, mas num dos compartimentos selados pisca um indicador verde: o ciclo de fabrico foi concluído.";
@@ -5715,7 +5715,7 @@ public class Language : MonoBehaviour
         _text[513, 1] = "Вскрыть хранилище"; //выбор 1
         _text[513, 2] = "Ouvrez le coffre-fort";
         _text[513, 3] = "Aprire il caveau";
-        _text[513, 4] = "Lagerraum aufbrechen";
+        _text[513, 4] = "Öffne den Tresor.";
         _text[513, 5] = "Abrir el almacén";
         _text[513, 6] = "Otworzyć magazyn";
         _text[513, 7] = "Abrir o armazém";
@@ -5726,7 +5726,7 @@ public class Language : MonoBehaviour
         _text[514, 1] = "Вы вручную открываете отсек и извлекаете результат старого автоматического процесса.\n\nНа платформе лежит ящик с обработанными материалами: отшлифованные сплавы, стабилизированная керамика и упаковки с синтетической тканью.\n\nВсё аккуратно промаркировано, как будто ждало хозяина."; // + случайный материал
         _text[514, 2] = "Vous ouvrez manuellement le compartiment et en retirez le résidu d'un ancien processus automatisé.\n\nSur le quai repose une caisse de matériaux transformés: alliages broyés, céramiques stabilisées et paquets de tissu synthétique.Chaque pièce est soigneusement étiquetée, comme si elle attendait son propriétaire.";
         _text[514, 3] = "Si apre manualmente lo scomparto e si estrae il risultato di un vecchio processo automatizzato.\n\nSulla piattaforma giace una cassa di materiali lavorati: leghe macinate, ceramiche stabilizzate e confezioni di tessuto sintetico.\n\nOgni cosa è ordinatamente etichettata, come se fosse stata in attesa del suo proprietario.";
-        _text[514, 4] = "Du öffnest die Sektion von Hand und entnimmst das Ergebnis eines alten automatischen Prozesses.\n\nAuf der Plattform liegt eine Kiste mit verarbeiteten Materialien: polierte Legierungen, stabilisierte Keramik und Packungen mit synthetischem Stoff.\n\nAlles ist sauber markiert, als hätte es auf seinen Besitzer gewartet.";
+        _text[514, 4] = "Sie öffnen das Fach manuell und entnehmen das Ergebnis eines alten automatisierten Prozesses.\n\nAuf der Plattform steht eine Kiste mit verarbeiteten Materialien: gemahlene Legierungen, stabilisierte Keramik und Packungen mit synthetischem Gewebe.\n\nAlles ist ordentlich beschriftet, als hätte es auf seinen Besitzer gewartet.";
         _text[514, 5] = "Abres manualmente el compartimento y extraes el resultado de un viejo proceso automático.\n\nSobre la plataforma hay una caja con materiales procesados: aleaciones pulidas, cerámica estabilizada y paquetes de tela sintética.\n\nTodo está cuidadosamente marcado, como si hubiera estado esperando a su dueño.";
         _text[514, 6] = "Ręcznie otwierasz przedział i wyciągasz rezultat dawnego automatycznego procesu.\n\nNa platformie leży skrzynia z obrobionymi materiałami: wypolerowane stopy, stabilizowana ceramika i paczki z syntetyczną tkaniną.\n\nWszystko starannie oznakowane, jakby czekało na właściciela.";
         _text[514, 7] = "Você abre manualmente o compartimento e retira o resultado de um antigo processo automático.\n\nNa plataforma há uma caixa com materiais processados: ligas polidas, cerâmica estabilizada e embalagens com tecido sintético.\n\nTudo está cuidadosamente etiquetado, como se tivesse estado à espera do dono.";
@@ -5748,7 +5748,7 @@ public class Language : MonoBehaviour
         _text[516, 1] = "Вы решаете не вмешиваться: станция нестабильна, а любое вмешательство может привести к обрушению конструкции.\n\nОставив объект в покое, вы отходите на безопасное расстояние.";
         _text[516, 2] = "Vous décidez de ne pas intervenir: la station est instable et toute intervention pourrait entraîner son effondrement.\n\nLaissant l’objet en paix, vous vous éloignez à une distance de sécurité.";
         _text[516, 3] = "Decidi di non interferire: la stazione è instabile e qualsiasi interferenza potrebbe causare il crollo della struttura.\n\nLasciando stare l'oggetto, ti ritiri a una distanza di sicurezza.";
-        _text[516, 4] = "Du entscheidest dich, nicht einzugreifen: Die Station ist instabil, und jedes Eingreifen könnte zum Einsturz der Struktur führen.\n\nDu lässt das Objekt in Ruhe und gehst auf sicheren Abstand.";
+        _text[516, 4] = "Sie beschließen, nicht einzugreifen: Die Station ist instabil, und jede Störung könnte zum Einsturz des Gebäudes führen.\n\nSie lassen das Objekt in Ruhe und ziehen sich in sichere Entfernung zurück.";
         _text[516, 5] = "Decides no intervenir: la estación es inestable y cualquier intervención puede provocar el colapso de la estructura.\n\nDejando el objeto en paz, te alejas a una distancia segura.";
         _text[516, 6] = "Postanawiasz nie ingerować: stacja jest niestabilna, a każda ingerencja może doprowadzić do zawalenia konstrukcji.\n\nPozostawiając obiekt w spokoju, oddalasz się na bezpieczną odległość.";
         _text[516, 7] = "Você decide não interferir: a estação é instável, e qualquer intervenção pode levar ao colapso da estrutura.\n\nDeixando o objeto em paz, você afasta-se para uma distância segura.";
@@ -5760,7 +5760,7 @@ public class Language : MonoBehaviour
         _text[517, 1] = "Вы приближаетесь к тяжело вооружённому кораблю, утыканному турелями, пушками и ракетными установками.\n\nМеталл корпуса почернел от старых боёв, но оружие в полной боевой готовности.\n\nВ эфир прорывается искажённый помехами голос:\n\n\"Эй... слышите меня? Я чиню и улучшаю оружие... ну, за скромную плату.\n\nЕсли хотите, могу превратить вашу пушку в произведение искусства... или хотя бы в то, что стреляет чуть лучше, чем сейчас.\"";
         _text[517, 2] = "Vous vous approchez d'un vaisseau lourdement armé, hérissé de tourelles, de canons et de lance-missiles.\n\nSa coque métallique est noircie par les combats passés, mais les armes sont parfaitement opérationnelles.\n\nUne voix déformée perce les ondes:\n\n\"Hé... vous m'entendez? Je répare et améliore les armes... enfin, pour une somme modique.\n\nSi vous le souhaitez, je peux transformer votre canon en une œuvre d'art... ou du moins en quelque chose qui tire un peu mieux qu'actuellement. »";
         _text[517, 3] = "Ti avvicini a una nave pesantemente armata, irta di torrette, cannoni e lanciamissili.\n\nLo scafo metallico è annerito da vecchie battaglie, ma le armi sono perfettamente funzionanti.\n\nUna voce distorta irrompe nell'etere:\n\n\"Ehi... mi senti? Riparo e miglioro le armi... beh, per una modica cifra.\n\nSe vuoi, posso trasformare il tuo cannone in un'opera d'arte... o almeno in qualcosa che spari un po' meglio di adesso.\"";
-        _text[517, 4] = "Du näherst dich einem schwer bewaffneten Schiff, gespickt mit Geschütztürmen, Kanonen und Raketenwerfern.\n\nDas Metall des Rumpfs ist von alten Schlachten geschwärzt, doch die Waffen sind voll einsatzbereit.\n\nIn den Äther bricht eine durch Störungen verzerrte Stimme:\n\n\"Hey... hörst du mich? Ich repariere und verbessere Waffen... na ja, gegen eine bescheidene Gebühr.\n\nWenn du willst, kann ich deine Kanone in ein Kunstwerk verwandeln... oder zumindest in etwas, das ein bisschen besser schießt als jetzt.\"";
+        _text[517, 4] = "Du näherst dich einem schwer bewaffneten Schiff, das mit Geschütztürmen, Kanonen und Raketenwerfern übersät ist.\n\nDer Metallrumpf ist von alten Schlachten geschwärzt, doch die Waffen sind voll funktionsfähig.\n\nEine verzerrte Stimme dringt durch die Luft:\n\n„Hey … kannst du mich hören? Ich repariere und verbessere Waffen … na ja, gegen eine kleine Gebühr.\n\nWenn du möchtest, kann ich deine Kanone in ein Kunstwerk verwandeln … oder zumindest in etwas, das etwas besser schießt als jetzt.“";
         _text[517, 5] = "Te acercas a una nave fuertemente armada, cubierta de torretas, cañones y lanzamisiles.\n\nEl metal del casco está ennegrecido por viejas batallas, pero las armas están en plena alerta.\n\nEn la radio irrumpe una voz distorsionada por interferencias:\n\n\"Eh... ¿me oyes? Reparo y mejoro armas... bueno, por un módico precio.\n\nSi quieres, puedo convertir tu cañón en una obra de arte... o al menos en algo que dispare un poco mejor que ahora.\"";
         _text[517, 6] = "Zbliżasz się do ciężko uzbrojonego statku, najeżonego wieżyczkami, działami i wyrzutniami rakiet.\n\nMetal kadłuba pociemniał od dawnych bitew, ale uzbrojenie jest w pełnej gotowości bojowej.\n\nW eter przebija się głos zniekształcony zakłóceniami:\n\n\"Hej... słyszysz mnie? Naprawiam i ulepszam broń... no, za skromną opłatą.\n\nJeśli chcesz, mogę zamienić twoje działo w dzieło sztuki... albo przynajmniej w coś, co strzela trochę lepiej niż teraz.\"";
         _text[517, 7] = "Você aproxima-se de uma nave fortemente armada, coberta de torres, canhões e lançadores de foguetes.\n\nO metal do casco está enegrecido por combates antigos, mas as armas estão em plena prontidão.\n\nNo éter irrompe uma voz distorcida por interferências:\n\n\"Ei... consegue ouvir-me? Eu reparo e melhoro armas... bem, por uma taxa modesta.\n\nSe quiser, posso transformar a sua arma numa obra de arte... ou pelo menos em algo que dispare um pouco melhor do que agora.\"";
@@ -5771,7 +5771,7 @@ public class Language : MonoBehaviour
         _text[518, 1] = "Торговать";
         _text[518, 2] = "Commerce";
         _text[518, 3] = "Commercio";
-        _text[518, 4] = "Handeln";
+        _text[518, 4] = "Handel";
         _text[518, 5] = "Comerciar";
         _text[518, 6] = "Handlować";
         _text[518, 7] = "Negociar";
@@ -5794,7 +5794,7 @@ public class Language : MonoBehaviour
         _text[520, 1] = "Вы перехватываете контейнер колониальной логистики.\n\nСканы показывают органические конструкционные панели.";
         _text[520, 2] = "Vous interceptez un conteneur logistique colonial.\n\nLes scans révèlent des panneaux structurels organiques.";
         _text[520, 3] = "Intercetti un container logistico coloniale.\n\nLe scansioni mostrano pannelli strutturali organici.";
-        _text[520, 4] = "Du fängst einen Container kolonialer Logistik ab.\n\nScans zeigen organische Konstruktionspaneele.";
+        _text[520, 4] = "Sie stellen einen Logistikcontainer aus der Kolonialzeit sicher.\n\nScans zeigen organische Strukturpaneele.";
         _text[520, 5] = "Interceptas un contenedor de logística colonial.\n\nLos escaneos muestran paneles estructurales orgánicos.";
         _text[520, 6] = "Przechwytujesz kontener kolonialnej logistyki.\n\nSkanery pokazują organiczne panele konstrukcyjne.";
         _text[520, 7] = "Você interceta um contentor de logística colonial.\n\nOs scans mostram painéis estruturais orgânicos.";
@@ -5805,7 +5805,7 @@ public class Language : MonoBehaviour
         _text[521, 1] = "Вскрыть и изъять"; // выбор 1
         _text[521, 2] = "Ouvrir et retirer";
         _text[521, 3] = "Aprire e rimuovere";
-        _text[521, 4] = "Aufbrechen und entnehmen";
+        _text[521, 4] = "Öffnen und entfernen";
         _text[521, 5] = "Forzar y extraer";
         _text[521, 6] = "Otworzyć i zabrać";
         _text[521, 7] = "Arrombar e apreender";
@@ -5816,7 +5816,7 @@ public class Language : MonoBehaviour
         _text[522, 1] = "Вы вскрываете пломбу и сортируете груз.\n\nУспех: целые деревянные модули отправлены в хранилище."; // + дерево
         _text[522, 2] = "Vous brisez le scellé et triez la cargaison.\n\nSuccès : les modules en bois intacts ont été envoyés à l’entrepôt.";
         _text[522, 3] = "Si rompe il sigillo e si smista il carico.\n\nRiuscito: i moduli di legno intatti sono stati inviati al deposito.";
-        _text[522, 4] = "Du brichst das Siegel auf und sortierst die Fracht.\n\nErfolg: Intakte Holzmodule werden ins Lager gebracht.";
+        _text[522, 4] = "Sie öffnen das Siegel und sortieren die Ladung.\n\nErfolg: Die unbeschädigten Holzmodule wurden eingelagert.";
         _text[522, 5] = "Rompes el sello y clasificas la carga.\n\nÉxito: los módulos de madera intactos se envían al almacén.";
         _text[522, 6] = "Zrywasz plombę i sortujesz ładunek.\n\nSukces: całe drewniane moduły trafiają do magazynu.";
         _text[522, 7] = "Você rompe o selo e separa a carga.\n\nSucesso: módulos de madeira intactos foram enviados para o armazém.";
@@ -5827,7 +5827,7 @@ public class Language : MonoBehaviour
         _text[523, 1] = "Провал: срабатывает стерилизующая пена - отсек загрязнён, часть древесных материалов приходится сбросить."; // - дерево
         _text[523, 2] = "Échec: la mousse stérilisante est activée – le compartiment est contaminé, une partie des matériaux en bois doit être jetée.";
         _text[523, 3] = "Errore: la schiuma sterilizzante si attiva, il vano è contaminato, alcuni materiali in legno devono essere scartati.";
-        _text[523, 4] = "Misserfolg: Sterilisationsschaum löst aus - das Fach wird kontaminiert, einen Teil der Holzmaterialien musst du abwerfen.";
+        _text[523, 4] = "Fehler: Der Sterilisationsschaum wird aktiviert – das Fach ist kontaminiert, ein Teil des Holzmaterials muss entsorgt werden.";
         _text[523, 5] = "Fracaso: se activa una espuma esterilizante: el compartimento queda contaminado y parte de los materiales de madera debe desecharse.";
         _text[523, 6] = "Porażka: uruchamia się piana sterylizująca - przedział zostaje skażony, część drewnianych materiałów trzeba zrzucić.";
         _text[523, 7] = "Fracasso: a espuma esterilizante é acionada - o compartimento fica contaminado e parte dos materiais de madeira tem de ser descartada.";
@@ -5838,7 +5838,7 @@ public class Language : MonoBehaviour
         _text[524, 1] = "Оттолкнуть и уйти"; // выбор 2
         _text[524, 2] = "Repousse-toi et pars";
         _text[524, 3] = "Spingi via e vattene";
-        _text[524, 4] = "Abstoßen und weg";
+        _text[524, 4] = "Schieben Sie sich weg und gehen Sie";
         _text[524, 5] = "Empujar y marcharse";
         _text[524, 6] = "Odepchnąć i odejść";
         _text[524, 7] = "Afastar e partir";
@@ -5849,7 +5849,7 @@ public class Language : MonoBehaviour
         _text[525, 1] = "Вы держите дистанцию и легким импульсом маневровых двигателей отталкиваете контейнер.";
         _text[525, 2] = "Vous maintenez vos distances et repoussez le conteneur d'une légère impulsion provenant des moteurs de manœuvre.";
         _text[525, 3] = "Mantieni le distanze e spingi via il contenitore con un leggero impulso dei motori di manovra.";
-        _text[525, 4] = "Du hältst Abstand und stößt den Container mit einem leichten Impuls der Manövrierdüsen weg.";
+        _text[525, 4] = "Sie halten Abstand und schieben den Container mit einem leichten Impuls der Manövriertriebwerke weg.";
         _text[525, 5] = "Mantienes la distancia y, con un ligero impulso de los motores de maniobra, empujas el contenedor.";
         _text[525, 6] = "Trzymasz dystans i lekkim impulsem silników manewrowych odpychasz kontener.";
         _text[525, 7] = "Você mantém a distância e, com um leve impulso dos motores de manobra, afasta o contentor.";
@@ -5871,7 +5871,7 @@ public class Language : MonoBehaviour
         _text[527, 1] = "Провал: отломившийся фрагмент царапает обшивку - на аварийный ремонт уходят запасные деревянные панели."; // - дерево
         _text[527, 2] = "Panne: un fragment cassé raye le lambris – des panneaux de bois de rechange sont utilisés pour les réparations d'urgence.";
         _text[527, 3] = "Guasto: un frammento rotto graffia il rivestimento; per le riparazioni di emergenza vengono utilizzati pannelli di legno di ricambio.";
-        _text[527, 4] = "Misserfolg: Ein abgebrochener Splitter zerkratzt die Hülle - für die Notreparatur gehen Ersatz-Holzpaneele drauf.";
+        _text[527, 4] = "Fehler: Ein abgebrochenes Fragment zerkratzt die Verkleidung – Ersatzholzplatten werden für Notfallreparaturen verwendet.";
         _text[527, 5] = "Fracaso: un fragmento desprendido araña el casco: para la reparación de emergencia se consumen paneles de madera de repuesto.";
         _text[527, 6] = "Porażka: odłamany fragment rysuje poszycie - na awaryjną naprawę schodzą zapasowe drewniane panele.";
         _text[527, 7] = "Fracasso: um fragmento solto risca o casco - painéis de madeira sobressalentes são consumidos na reparação de emergência.";
@@ -5883,7 +5883,7 @@ public class Language : MonoBehaviour
         _text[528, 1] = "Сканеры отмечают \"кладбище грузов\": несколько потерянных капсул, смотанных в тонкое облако обломков.";
         _text[528, 2] = "Les scanners révèlent un \"cimetière de cargaisons\": plusieurs capsules perdues, enroulées dans un mince nuage de débris.";
         _text[528, 3] = "Gli scanner rivelano un \"cimitero di merci\": diverse capsule perse, avvolte in una sottile nuvola di detriti.";
-        _text[528, 4] = "Scanner markieren einen \"Frachtfriedhof\": mehrere verlorene Kapseln, zu einer dünnen Wolke aus Trümmern verknäuelt.";
+        _text[528, 4] = "Scanner enthüllen einen „Frachtfriedhof“: mehrere verlorene Kapseln, zusammengerollt in einer dünnen Trümmerwolke.";
         _text[528, 5] = "Los escáneres señalan un \"cementerio de cargas\": varias cápsulas perdidas, enrolladas en una fina nube de escombros.";
         _text[528, 6] = "Skanery oznaczają \"cmentarz ładunków\": kilka zagubionych kapsuł, zwiniętych w cienką chmurę odłamków.";
         _text[528, 7] = "Os scanners assinalam um \"cemitério de carga\": várias cápsulas perdidas, enredadas numa fina nuvem de destroços.";
@@ -5894,7 +5894,7 @@ public class Language : MonoBehaviour
         _text[529, 1] = "Обыскать капсулы"; // выбор 1
         _text[529, 2] = "Rechercher les capsules";
         _text[529, 3] = "Cerca le capsule";
-        _text[529, 4] = "Kapseln durchsuchen";
+        _text[529, 4] = "Durchsuchen Sie die Kapseln";
         _text[529, 5] = "Registrar las cápsulas";
         _text[529, 6] = "Przeszukać kapsuły";
         _text[529, 7] = "Revistar as cápsulas";
@@ -5905,7 +5905,7 @@ public class Language : MonoBehaviour
         _text[530, 1] = "Вы лавируете среди обломков и вскрываете наименее повреждённые капсулы."; // + случайный ресурс
         _text[530, 2] = "Vous vous frayez un chemin à travers les débris et ouvrez les capsules les moins endommagées.";
         _text[530, 3] = "Ti fai strada tra i detriti e apri le capsule meno danneggiate.";
-        _text[530, 4] = "Du manövrierst zwischen den Trümmern und öffnest die am wenigsten beschädigten Kapseln.";
+        _text[530, 4] = "Man bahnt sich seinen Weg durch die Trümmer und öffnet die am wenigsten beschädigten Kapseln.";
         _text[530, 5] = "Maniobras entre los restos y abres las cápsulas menos dañadas.";
         _text[530, 6] = "Lawirujesz wśród szczątków i otwierasz najmniej uszkodzone kapsuły.";
         _text[530, 7] = "Você manobra entre os destroços e abre as cápsulas menos danificadas.";
@@ -5916,7 +5916,7 @@ public class Language : MonoBehaviour
         _text[531, 1] = "Успех: извлекаете полезный груз и распределяете по отсекам."; // + случайный ресурс
         _text[531, 2] = "Succès: Vous extrayez la charge utile et la répartissez entre les compartiments.";
         _text[531, 3] = "Successo: estrai il carico utile e lo distribuisci tra i compartimenti.";
-        _text[531, 4] = "Erfolg: Du bergst nützliche Fracht und verteilst sie auf die Sektionen.";
+        _text[531, 4] = "Erfolg: Sie entnehmen die Nutzlast und verteilen sie auf die einzelnen Kompartimente.";
         _text[531, 5] = "Éxito: extraes una carga útil y la distribuyes por los compartimentos.";
         _text[531, 6] = "Sukces: wydobywasz przydatny ładunek i rozdzielasz go między przedziały.";
         _text[531, 7] = "Sucesso: você extrai carga útil e distribui pelos compartimentos.";
@@ -5927,7 +5927,7 @@ public class Language : MonoBehaviour
         _text[532, 1] = "Провал: ловушка или разгерметизация вынуждает к аварийному сбросу - вы теряете часть ресурсов."; // - случайный ресурс
         _text[532, 2] = "Panne: Un piège ou une dépressurisation provoque une réinitialisation d'urgence – vous perdez certaines ressources.";
         _text[532, 3] = "Errore: una trappola o una depressurizzazione forzano un ripristino di emergenza, con conseguente perdita di alcune risorse.";
-        _text[532, 4] = "Misserfolg: Eine Falle oder Dekompression zwingt zu einem Notabwurf - du verlierst einen Teil der Ressourcen.";
+        _text[532, 4] = "Fehler: Eine Falle oder ein Druckabfall erzwingt eine Notumstellung – dabei gehen einige Ressourcen verloren.";
         _text[532, 5] = "Fracaso: una trampa o una despresurización te obliga a un lanzamiento de emergencia: pierdes parte de los recursos.";
         _text[532, 6] = "Porażka: pułapka lub rozszczelnienie zmusza do awaryjnego zrzutu - tracisz część zasobów.";
         _text[532, 7] = "Fracasso: uma armadilha ou despressurização obriga a uma ejeção de emergência - você perde parte dos recursos.";
@@ -5938,7 +5938,7 @@ public class Language : MonoBehaviour
         _text[533, 1] = "Оставить кладбище грузов"; // выбор 2
         _text[533, 2] = "Quittez le cimetière de marchandises";
         _text[533, 3] = "Lascia il cimitero dei carichi";
-        _text[533, 4] = "Frachtfriedhof verlassen";
+        _text[533, 4] = "Verlassen Sie den Frachtfriedhof.";
         _text[533, 5] = "Dejar el cementerio de cargas";
         _text[533, 6] = "Zostawić cmentarz ładunków";
         _text[533, 7] = "Deixar o cemitério de carga";
@@ -5949,7 +5949,7 @@ public class Language : MonoBehaviour
         _text[534, 1] = "Вы снижаете тягу и сохраняете курс, проходя поле обломков.";
         _text[534, 2] = "Vous réduisez la poussée et maintenez le cap en traversant le champ de débris.";
         _text[534, 3] = "Si riduce la spinta e si mantiene la rotta mentre si supera il campo di detriti.";
-        _text[534, 4] = "Du reduzierst den Schub und hältst den Kurs, während du das Trümmerfeld passierst.";
+        _text[534, 4] = "Sie reduzieren den Schub und halten den Kurs, während Sie das Trümmerfeld passieren.";
         _text[534, 5] = "Reduces el empuje y mantienes el rumbo, atravesando el campo de escombros.";
         _text[534, 6] = "Zmniejszasz ciąg i utrzymujesz kurs, mijając pole szczątków.";
         _text[534, 7] = "Você reduz a potência e mantém o rumo ao atravessar o campo de destroços.";
@@ -5960,7 +5960,7 @@ public class Language : MonoBehaviour
         _text[535, 1] = "Успех: вы обходите поле без происшествий."; // ничего
         _text[535, 2] = "Succès: Vous parcourez le terrain sans incident.";
         _text[535, 3] = "Successo: attraversi il campo senza incidenti.";
-        _text[535, 4] = "Erfolg: Du umgehst das Feld ohne Zwischenfälle.";
+        _text[535, 4] = "Erfolg: Sie durchqueren das Spielfeld ohne Zwischenfälle.";
         _text[535, 5] = "Éxito: rodeas el campo sin incidentes.";
         _text[535, 6] = "Sukces: omijasz pole bez incydentów.";
         _text[535, 7] = "Sucesso: você contorna o campo sem incidentes.";
@@ -5971,7 +5971,7 @@ public class Language : MonoBehaviour
         _text[536, 1] = "Провал: дрейфующая капсула задевает щиты - вы тратите запасы ресурсов на починку."; // - случайный ресурс
         _text[536, 2] = "Échec: La capsule dérivante heurte vos boucliers – vous dépensez vos ressources en réparations.";
         _text[536, 3] = "Fallimento: il pod alla deriva colpisce i tuoi scudi: spendi le tue risorse in riparazioni.";
-        _text[536, 4] = "Misserfolg: Eine treibende Kapsel streift die Schilde - du verbrauchst Ressourcenreserven für Reparaturen.";
+        _text[536, 4] = "Fehlschlag: Die treibende Kapsel trifft Ihre Schilde – Sie müssen Ihre Ressourcen für Reparaturen aufwenden.";
         _text[536, 5] = "Fracaso: una cápsula a la deriva golpea los escudos: gastas reservas de recursos en reparaciones.";
         _text[536, 6] = "Porażka: dryfująca kapsuła zahacza o tarcze - zużywasz zapasy zasobów na naprawy.";
         _text[536, 7] = "Fracasso: uma cápsula à deriva atinge os escudos - você gasta reservas de recursos em reparações.";
@@ -5983,7 +5983,7 @@ public class Language : MonoBehaviour
         _text[537, 1] = "Впереди дрейфует повреждённый буксир, к его лебёдке всё ещё прицеплена горная капсула.\n\nТелеметрия показывает высокое содержание железа.";
         _text[537, 2] = "Un remorqueur endommagé dérive au loin, la capsule minière toujours accrochée à son treuil.Les données télémétriques indiquent des niveaux de fer élevés.";
         _text[537, 3] = "Un rimorchiatore danneggiato procede alla deriva, con la capsula mineraria ancora agganciata al verricello.\n\nLa telemetria mostra alti livelli di ferro.";
-        _text[537, 4] = "Vor dir treibt ein beschädigter Schlepper, an seiner Winde hängt noch eine Bergbaukapsel.\n\nDie Telemetrie zeigt einen hohen Eisengehalt.";
+        _text[537, 4] = "Ein beschädigter Schlepper treibt voraus, die Minenkapsel hängt noch immer an der Winde.\n\nDie Telemetrie zeigt einen hohen Eisengehalt an.";
         _text[537, 5] = "Más adelante deriva un remolcador dañado; a su cabrestante aún está enganchada una cápsula minera.\n\nLa telemetría muestra un alto contenido de hierro.";
         _text[537, 6] = "Przed tobą dryfuje uszkodzony holownik, do którego wciągarki wciąż przyczepiona jest kapsuła górnicza.\n\nTelemetria wskazuje wysoką zawartość żelaza.";
         _text[537, 7] = "À frente deriva um rebocador danificado; à sua grua ainda está presa uma cápsula de mineração.\n\nA telemetria indica alto teor de ferro.";
@@ -5994,7 +5994,7 @@ public class Language : MonoBehaviour
         _text[538, 1] = "Быстро сорвать капсулу"; // выбор 1
         _text[538, 2] = "Déchirez rapidement la capsule";
         _text[538, 3] = "Staccare rapidamente la capsula";
-        _text[538, 4] = "Kapsel schnell abreißen";
+        _text[538, 4] = "Die Kapsel schnell abreißen.";
         _text[538, 5] = "Arrancar la cápsula rápidamente";
         _text[538, 6] = "Szybko zerwać kapsułę";
         _text[538, 7] = "Arrancar a cápsula rapidamente";
@@ -6005,7 +6005,7 @@ public class Language : MonoBehaviour
         _text[539, 1] = "Успех: вы срываете капсулу и выгружаете железную руду в приёмник."; // + железная руда
         _text[539, 2] = "Succès: Vous ouvrez la capsule et déchargez le minerai de fer dans le récepteur.";
         _text[539, 3] = "Successo: rompi la capsula e scarichi il minerale di ferro nel ricevitore.";
-        _text[539, 4] = "Erfolg: Du reißt die Kapsel ab und entlädst das Eisenerz in den Aufnehmer.";
+        _text[539, 4] = "Erfolg: Sie öffnen die Kapsel und entladen das Eisenerz in den Behälter.";
         _text[539, 5] = "Éxito: arrancas la cápsula y descargas mineral de hierro en el receptor.";
         _text[539, 6] = "Sukces: odrywasz kapsułę i wysypujesz rudę żelaza do odbiornika.";
         _text[539, 7] = "Sucesso: você arranca a cápsula e descarrega minério de ferro no recetor.";
@@ -6016,7 +6016,7 @@ public class Language : MonoBehaviour
         _text[540, 1] = "Провал: капсула уходит в вращение и распадается среди обломков. Ничего не получено."; // ничего
         _text[540, 2] = "Échec: la capsule tourne sur elle-même et se désintègre parmi les débris. Rien n'a été récupéré.";
         _text[540, 3] = "Fallimento: la capsula gira e si disintegra tra i detriti. Non è stato recuperato nulla.";
-        _text[540, 4] = "Misserfolg: Die Kapsel gerät in Rotation und zerfällt in den Trümmern. Nichts erhalten.";
+        _text[540, 4] = "Fehlschlag: Die Kapsel dreht sich und zerbricht in den Trümmern. Es konnte nichts geborgen werden.";
         _text[540, 5] = "Fracaso: la cápsula entra en rotación y se desintegra entre los restos. No se obtiene nada.";
         _text[540, 6] = "Porażka: kapsuła wpada w obrót i rozpada się wśród odłamków. Nic nie uzyskano.";
         _text[540, 7] = "Fracasso: a cápsula entra em rotação e desfaz-se entre os destroços. Nada foi obtido.";
@@ -6027,7 +6027,7 @@ public class Language : MonoBehaviour
         _text[541, 1] = "Аккуратно забрать манипулятором"; // выбор 2
         _text[541, 2] = "Ramassez-le avec précaution à l'aide d'un manipulateur.";
         _text[541, 3] = "Raccoglilo con cautela con un manipolatore";
-        _text[541, 4] = "Vorsichtig mit dem Manipulator bergen";
+        _text[541, 4] = "Heben Sie es vorsichtig mit einem Manipulator auf.";
         _text[541, 5] = "Recogerla con cuidado con el manipulador";
         _text[541, 6] = "Ostrożnie zabrać manipulatorem";
         _text[541, 7] = "Recolher com cuidado com o manipulador";
@@ -6038,7 +6038,7 @@ public class Language : MonoBehaviour
         _text[542, 1] = "Вы фиксируете капсулу и начинаете выгрузку. Буксир перезапускается - автотурель просыпается и успевает выстрелить.\n\nРуда у вас, но одно ядро ИИ перегорает."; // + железная руда - ядро
         _text[542, 2] = "Vous sécurisez la capsule et commencez le déchargement. Le remorqueur redémarre, réactive la tourelle automatique et parvient à faire feu.Vous avez le minerai, mais l'un des cœurs d'IA grille.";
         _text[542, 3] = "Assicurate la capsula e iniziate a scaricare. Il rimorchiatore si riavvia, attivando la torretta automatica e riuscendo a sparare.\n\nAvete il minerale, ma uno dei nuclei dell'IA si brucia.";
-        _text[542, 4] = "Du fixierst die Kapsel und beginnst mit dem Entladen. Der Schlepper startet neu - ein Autoturm erwacht und schafft es zu feuern.\n\nDas Erz ist dein, aber ein KI-Kern brennt durch.";
+        _text[542, 4] = "Sie sichern die Kapsel und beginnen mit dem Entladen. Der Schlepper startet neu, aktiviert den automatischen Geschützturm und kann feuern.\n\nSie haben das Erz, aber einer der KI-Kerne ist ausgefallen.";
         _text[542, 5] = "Aseguras la cápsula y comienzas la descarga. El remolcador se reinicia - una autotorreta despierta y alcanza a disparar.\n\nTienes el mineral, pero uno de los núcleos de IA se quema.";
         _text[542, 6] = "Unieruchamiasz kapsułę i rozpoczynasz rozładunek. Holownik restartuje się - automatyczna wieżyczka budzi się i zdąża oddać strzał.\n\nRuda jest twoja, ale jeden rdzeń SI się wypala.";
         _text[542, 7] = "Você fixa a cápsula e inicia a descarga. O rebocador reinicia - a auto-torre desperta e consegue disparar.\n\nO minério é seu, mas um núcleo de IA queima.";
@@ -6050,7 +6050,7 @@ public class Language : MonoBehaviour
         _text[543, 1] = "Разведка отмечает планету с высоким содержанием горных пород.\n\nСканы показывают пустоты и слоистые пласты с нестабильными участками.\n\nВы садитесь на каменное плато и разворачиваете временный карьер.";
         _text[543, 2] = "L'exploration révèle une planète riche en roches.\n\nLes analyses montrent des vides et des strates stratifiées présentant des zones instables.\n\nVous atterrissez sur un plateau rocheux et installez une carrière de fortune.";
         _text[543, 3] = "L'esplorazione rivela un pianeta con un alto contenuto di roccia.\n\nLe scansioni mostrano vuoti e strati stratificati con sezioni instabili.\n\nAtterri su un altopiano roccioso e allestisci una cava improvvisata.";
-        _text[543, 4] = "Die Aufklärung markiert einen Planeten mit hohem Gesteinsanteil.\n\nScans zeigen Hohlräume und geschichtete Schichten mit instabilen Bereichen.\n\nDu landest auf einem steinigen Plateau und richtest einen provisorischen Steinbruch ein.";
+        _text[543, 4] = "Die Erkundung enthüllt einen Planeten mit hohem Gesteinsanteil.\n\nScans zeigen Hohlräume und geschichtete Gesteinsschichten mit instabilen Abschnitten.\n\nDu landest auf einem Felsplateau und errichtest einen provisorischen Steinbruch.";
         _text[543, 5] = "El reconocimiento marca un planeta con alto contenido de roca.\n\nLos escaneos muestran cavidades y estratos en capas con zonas inestables.\n\nAterrizas en una meseta rocosa y despliegas una cantera temporal.";
         _text[543, 6] = "Rozpoznanie wskazuje planetę o wysokiej zawartości skał.\n\nSkany pokazują pustki i warstwowe pokłady z niestabilnymi odcinkami.\n\nLądujesz na skalnym płaskowyżu i rozkładasz tymczasowy kamieniołom.";
         _text[543, 7] = "A reconaissance assinala um planeta com elevado teor de rocha.\n\nOs scans mostram vazios e estratos em camadas com zonas instáveis.\n\nVocê pousa num planalto rochoso e monta uma pedreira temporária.";
@@ -6061,7 +6061,7 @@ public class Language : MonoBehaviour
         _text[544, 1] = "Отправить роботов с резаками"; // выбор 1
         _text[544, 2] = "Envoyez des robots équipés de découpeuses";
         _text[544, 3] = "Inviate robot con taglierine";
-        _text[544, 4] = "Roboter mit Schneidbrennern schicken";
+        _text[544, 4] = "Schickt Roboter mit Schneidgeräten hinein.";
         _text[544, 5] = "Enviar robots con cortadoras";
         _text[544, 6] = "Wysłać roboty z przecinarkami";
         _text[544, 7] = "Enviar robôs com cortadores";
@@ -6072,7 +6072,7 @@ public class Language : MonoBehaviour
         _text[545, 1] = "Роботы делают неглубокие пропилы, отделяют блоки, погрузчики уносят контейнеры к шаттлу.\n\nВы добываете скромную партию камня и уходите до начала смещений."; // +камень
         _text[545, 2] = "Des robots effectuent des découpes superficielles, séparent les blocs, et des chariots élévateurs transportent les conteneurs jusqu'à la navette.\n\nVous prélevez une petite quantité de pierre et partez avant le début du déplacement.";
         _text[545, 3] = "I robot effettuano tagli superficiali, separano i blocchi e i carrelli elevatori trasportano i contenitori alla navetta.\n\nSi estrae una modesta quantità di pietra e si va via prima che inizi lo spostamento.";
-        _text[545, 4] = "Die Roboter schneiden flache Kerben, trennen Blöcke, Lader bringen Container zum Shuttle.\n\nDu gewinnst eine bescheidene Menge Stein und ziehst ab, bevor die Verschiebungen beginnen.";
+        _text[545, 4] = "Roboter führen flache Schnitte durch, trennen die Blöcke, und Gabelstapler transportieren die Container zum Shuttle.\n\nSie gewinnen eine bescheidene Menge Gestein und verlassen den Ort, bevor die Versetzung beginnt.";
         _text[545, 5] = "Los robots hacen cortes poco profundos, separan bloques, y las cargadoras llevan los contenedores al transbordador.\n\nObtienes una modesta partida de piedra y te vas antes de que empiecen los desplazamientos.";
         _text[545, 6] = "Roboty wykonują płytkie nacięcia, oddzielają bloki, a ładowarki przenoszą kontenery do wahadłowca.\n\nWydobywasz skromną partię kamienia i odchodzisz, zanim zaczną się przemieszczenia.";
         _text[545, 7] = "Os robôs fazem cortes pouco profundos, separam blocos, e os carregadores levam os contentores até ao shuttle.\n\nVocê extrai uma pequena quantidade de pedra e parte antes de começarem os deslizamentos.";
@@ -6083,7 +6083,7 @@ public class Language : MonoBehaviour
         _text[546, 1] = "Запустить бур"; // выбор 2
         _text[546, 2] = "Démarrez la perceuse";
         _text[546, 3] = "Inizia l'esercitazione";
-        _text[546, 4] = "Bohrer starten";
+        _text[546, 4] = "Starten Sie die Bohrmaschine";
         _text[546, 5] = "Poner en marcha la perforadora";
         _text[546, 6] = "Uruchomić wiertło";
         _text[546, 7] = "Ligar a perfuradora";
@@ -6094,7 +6094,7 @@ public class Language : MonoBehaviour
         _text[547, 1] = "Успех: резонансные трещины открывают богатую жилу. Вы вывозите крупную партию камня."; // +камень
         _text[547, 2] = "Succès: des fissures résonnantes révèlent un filon riche. Vous emportez une importante cargaison de pierres.";
         _text[547, 3] = "Successo: crepe risonanti rivelano una ricca vena. Trasporti via un grosso carico di pietra.";
-        _text[547, 4] = "Erfolg: Resonanzrisse öffnen eine reiche Ader. Du bringst eine große Ladung Stein ab.";
+        _text[547, 4] = "Erfolg: Resonanzrisse legen eine ergiebige Ader frei. Sie transportieren eine große Ladung Gestein ab.";
         _text[547, 5] = "Éxito: las grietas resonantes abren una veta rica. Te llevas una gran partida de piedra.";
         _text[547, 6] = "Sukces: rezonansowe pęknięcia odsłaniają bogatą żyłę. Wywozisz dużą partię kamienia.";
         _text[547, 7] = "Sucesso: fissuras de ressonância abrem uma veia rica. Você transporta uma grande carga de pedra.";
@@ -6105,7 +6105,7 @@ public class Language : MonoBehaviour
         _text[548, 1] = "Провал: край карьера проседает. Рвётся страховочный трос, буровую раму тянет в провал, погрузчики сбрасывают паллеты, чтобы не сорваться.\n\nДобыча утрачена."; // ничего
         _text[548, 2] = "Effondrement: La paroi de la carrière s’effondre. Le câble de sécurité se rompt, l’engin de forage est entraîné dans le trou et les chargeurs laissent tomber des palettes pour éviter la chute.\n\nLes déblais sont perdus.";
         _text[548, 3] = "Dolina: il bordo della cava crolla. Il cavo di sicurezza si spezza, la piattaforma di perforazione viene tirata nel foro e i caricatori lasciano cadere i pallet per evitare di cadere.\n\nIl materiale di risulta viene perso.";
-        _text[548, 4] = "Misserfolg: Der Rand des Steinbruchs sackt ab. Das Sicherungsseil reißt, das Bohrgestell wird in die Senke gezogen, die Lader werfen Paletten ab, um nicht mitgerissen zu werden.\n\nDie Beute geht verloren.";
+        _text[548, 4] = "Erdfall: Der Rand des Steinbruchs bricht ein. Das Sicherheitsseil reißt, das Bohrgerät wird in das Loch gezogen, und die Lader werfen Paletten ab, um nicht abzustürzen.\n\nDas Aushubmaterial ist verloren.";
         _text[548, 5] = "Fracaso: el borde de la cantera cede. Se rompe el cable de seguridad, la estructura de la perforadora es arrastrada al hundimiento, y las cargadoras sueltan palés para no caer.\n\nLa extracción se ha perdido.";
         _text[548, 6] = "Porażka: krawędź wyrobiska osiada. Pęka lina asekuracyjna, rama wiertnicza jest wciągana w zapadlisko, a ładowarki zrzucają palety, by nie runąć.\n\nWydobycie przepada.";
         _text[548, 7] = "Fracasso: a borda da pedreira cede. O cabo de segurança rompe-se, a armação da perfuradora é puxada para a fenda, e os carregadores largam paletes para não serem arrastados.\n\nA extração é perdida.";
@@ -6116,7 +6116,7 @@ public class Language : MonoBehaviour
         _text[549, 1] = "Запустить разведовательный дрон"; // выбор 3
         _text[549, 2] = "Lancer un drone de reconnaissance";
         _text[549, 3] = "Lanciare un drone da ricognizione";
-        _text[549, 4] = "Aufklärungsdrohne starten";
+        _text[549, 4] = "Starten Sie eine Aufklärungsdrohne";
         _text[549, 5] = "Lanzar un dron de reconocimiento";
         _text[549, 6] = "Uruchomić drona rozpoznawczego";
         _text[549, 7] = "Lançar um drone de reconhecimento";
@@ -6127,7 +6127,7 @@ public class Language : MonoBehaviour
         _text[550, 1] = "Успех: дрон находит стабильную полость под коркой.\n\nВы добываете стабильную среднюю партию."; // +камень
         _text[550, 2] = "Succès : Le drone repère une cavité stable sous la croûte.\n\nVous obtenez une récolte stable de taille moyenne.";
         _text[550, 3] = "Successo: il drone trova una cavità stabile sotto la crosta.\n\nSi estrae un lotto stabile di medie dimensioni.";
-        _text[550, 4] = "Erfolg: Die Drohne findet eine stabile Hohlkammer unter der Kruste.\n\nDu gewinnst eine stabile mittlere Menge.";
+        _text[550, 4] = "Erfolg: Die Drohne findet einen stabilen Hohlraum unter der Erdkruste.\n\nSie fördern eine stabile, mittelgroße Menge Erz.";
         _text[550, 5] = "Éxito: el dron encuentra una cavidad estable bajo la corteza.\n\nObtienes una partida media estable.";
         _text[550, 6] = "Sukces: dron znajduje stabilną pustkę pod skorupą.\n\nPozyskujesz stabilną, średnią partię.";
         _text[550, 7] = "Sucesso: o drone encontra uma cavidade estável sob a crosta.\n\nVocê extrai uma quantidade média estável.";
@@ -6138,7 +6138,7 @@ public class Language : MonoBehaviour
         _text[551, 1] = "Провал: пылевой выброс клинит турбины - дрон потерян.\n\nВся добыча потеряна."; // -ядро
         _text[551, 2] = "Échec: des émissions de poussière bloquent les turbines – le drone est perdu.\n\nTout le butin est perdu.";
         _text[551, 3] = "Fallimento: le emissioni di polvere bloccano le turbine: il drone è perso.\n\nTutto il bottino è andato perduto.";
-        _text[551, 4] = "Misserfolg: Ein Staubausbruch klemmt die Turbinen - die Drohne ist verloren.\n\nDie gesamte Beute ist verloren.";
+        _text[551, 4] = "Fehlschlag: Staubemissionen blockieren die Turbinen – die Drohne ist verloren.\n\nSämtliche Beute verloren.";
         _text[551, 5] = "Fracaso: un chorro de polvo atasca las turbinas: el dron se pierde.\n\nSe pierde toda la extracción.";
         _text[551, 6] = "Porażka: wyrzut pyłu zacina turbiny - dron zostaje utracony.\n\nCałe wydobycie przepada.";
         _text[551, 7] = "Fracasso: uma ejeção de poeira bloqueia as turbinas - o drone é perdido.\n\nToda a extração foi perdida.";
@@ -6150,7 +6150,7 @@ public class Language : MonoBehaviour
         _text[552, 1] = "Сенсоры улавливают мерцание в пыли: поле сломанных солнечных панелей медленно вращается на орбите.\n\nПанели всё ещё заряжены. Кабели хрупкие, но местами целы.";
         _text[552, 2] = "Des capteurs détectent un scintillement dans la poussière: un champ de panneaux solaires brisés qui tournent lentement sur leur orbite.\n\nLes panneaux sont encore chargés. Les câbles sont fragiles, mais intacts par endroits.";
         _text[552, 3] = "I sensori rilevano un luccichio nella polvere: un campo di pannelli solari rotti che ruotano lentamente in orbita.\n\nI pannelli sono ancora carichi. I cavi sono fragili, ma in alcuni punti intatti.";
-        _text[552, 4] = "Sensoren erfassen ein Flimmern im Staub: Ein Feld zerbrochener Solarpaneele rotiert langsam in der Umlaufbahn.\n\nDie Paneele sind noch geladen. Die Kabel sind spröde, aber stellenweise intakt.";
+        _text[552, 4] = "Sensoren erfassen ein Schimmern im Staub: ein Feld zerbrochener Solarpaneele, die sich langsam in der Umlaufbahn drehen.\n\nDie Paneele sind noch geladen. Die Kabel sind zwar brüchig, aber stellenweise noch intakt.";
         _text[552, 5] = "Los sensores captan un destello en el polvo: un campo de paneles solares rotos gira lentamente en órbita.\n\nLos paneles aún están cargados. Los cables son frágiles, pero en partes están intactos.";
         _text[552, 6] = "Sensory wyłapują migotanie w pyle: pole uszkodzonych paneli słonecznych powoli obraca się na orbicie.\n\nPanele wciąż są naładowane. Kable są kruche, ale miejscami całe.";
         _text[552, 7] = "Os sensores detetam um brilho no pó: um campo de painéis solares partidos gira lentamente em órbita.\n\nOs painéis ainda estão carregados. Os cabos são frágeis, mas em alguns pontos estão intactos.";
@@ -6161,7 +6161,7 @@ public class Language : MonoBehaviour
         _text[553, 1] = "Перерезать линии питания и снять ячейки"; // выбор 1
         _text[553, 2] = "Coupez les lignes électriques et retirez les cellules";
         _text[553, 3] = "Tagliare le linee elettriche e rimuovere le celle";
-        _text[553, 4] = "Stromleitungen durchtrennen und Zellen entnehmen";
+        _text[553, 4] = "Die Stromleitungen durchtrennen und die Zellen entfernen.";
         _text[553, 5] = "Cortar las líneas de alimentación y retirar las celdas";
         _text[553, 6] = "Przeciąć linie zasilania i zdjąć ogniwa";
         _text[553, 7] = "Cortar as linhas de alimentação e retirar as células";
@@ -6172,7 +6172,7 @@ public class Language : MonoBehaviour
         _text[554, 1] = "Успех: дроны изолируют заряд и извлекают пригодные ячейки.\n\nВы отправляете силовые модули в хранилище."; // +электричество
         _text[554, 2] = "Succès : Les drones isolent la charge et extraient les cellules utilisables.\n\nVous envoyez les modules d’énergie vers le stockage.";
         _text[554, 3] = "Successo: i droni isolano la carica ed estraggono le celle utilizzabili.\n\nInvia i moduli di alimentazione al deposito.";
-        _text[554, 4] = "Erfolg: Drohnen isolieren die Ladung und bergen brauchbare Zellen.\n\nDu bringst die Leistungsmodule ins Lager.";
+        _text[554, 4] = "Erfolg: Die Drohnen isolieren die Ladung und extrahieren die nutzbaren Zellen.\n\nSie transportieren die Energiemodule zum Lager.";
         _text[554, 5] = "Éxito: los drones aíslan la carga y extraen celdas aprovechables.\n\nEnvías los módulos de potencia al almacén.";
         _text[554, 6] = "Sukces: drony izolują ładunek i wyjmują sprawne ogniwa.\n\nWysyłasz moduły zasilania do magazynu.";
         _text[554, 7] = "Sucesso: os drones isolam a carga e extraem células utilizáveis.\n\nVocê envia os módulos de energia para o armazém.";
@@ -6183,7 +6183,7 @@ public class Language : MonoBehaviour
         _text[555, 1] = "Провал: скрытый конденсатор разряжается.\n\nДуга пробивает проводку - одна из цепей ядра перегревается."; // -ядро
         _text[555, 2] = "Panne: Un condensateur caché se décharge.\n\nUn arc électrique se forme dans le câblage, provoquant la surchauffe d'un des circuits du noyau.";
         _text[555, 3] = "Guasto: un condensatore nascosto si scarica.\n\nUn arco elettrico interrompe il cablaggio, causando il surriscaldamento di uno dei circuiti del nucleo.";
-        _text[555, 4] = "Misserfolg: Ein versteckter Kondensator entlädt sich.\n\nEin Lichtbogen durchschlägt den Kabelbaum - eine der Kernleitungen überhitzt.";
+        _text[555, 4] = "Fehler: Ein versteckter Kondensator entlädt sich.\n\nEs kommt zu einem Lichtbogen in der Verdrahtung, wodurch einer der Schaltkreise des Kerns überhitzt.";
         _text[555, 5] = "Fracaso: un condensador oculto se descarga.\n\nEl arco perfora el cableado: uno de los circuitos del núcleo se sobrecalienta.";
         _text[555, 6] = "Porażka: ukryty kondensator się rozładowuje.\n\nŁuk przebija wiązkę - jeden z obwodów rdzenia się przegrzewa.";
         _text[555, 7] = "Fracasso: um condensador oculto descarrega.\n\nUm arco atravessa o chicote - uma das cadeias do núcleo sobreaquece.";
@@ -6194,7 +6194,7 @@ public class Language : MonoBehaviour
         _text[556, 1] = "Притащить каркас целиком к кораблю"; // выбор 2
         _text[556, 2] = "Faites glisser l'ensemble du cadre vers le navire";
         _text[556, 3] = "Trascina l'intera cornice sulla nave";
-        _text[556, 4] = "Den Rahmen komplett zum Schiff schleppen";
+        _text[556, 4] = "Ziehen Sie den gesamten Rahmen auf das Schiff.";
         _text[556, 5] = "Arrastrar el armazón entero hasta la nave";
         _text[556, 6] = "Przyciągnąć szkielet w całości do statku";
         _text[556, 7] = "Puxar a estrutura inteira para a nave";
@@ -6205,7 +6205,7 @@ public class Language : MonoBehaviour
         _text[557, 1] = "Поле панелей тяжелее, чем показывала телеметрия.\n\nУспех: вы фиксируете каркас и разбираете его без риска - много пригодного металла."; // +железные слитки
         _text[557, 2] = "Le panneau est plus lourd que ce qu'indiquait la télémétrie.\n\nRéussite: vous avez sécurisé le cadre et l'avez démonté en toute sécurité - il y a suffisamment de métal utilisable.";
         _text[557, 3] = "Il pannello è più pesante di quanto indicato dalla telemetria.\n\nRiuscito: fissi il telaio e lo smonti in sicurezza: c'è molto metallo utilizzabile.";
-        _text[557, 4] = "Das Paneelfeld ist schwerer, als die Telemetrie zeigte.\n\nErfolg: Du fixierst den Rahmen und zerlegst ihn ohne Risiko - viel brauchbares Metall.";
+        _text[557, 4] = "Das Feld des Bedienfelds ist schwerer als von der Telemetrie angezeigt.\n\nErfolg: Sie sichern den Rahmen und demontieren ihn sicher – es ist genügend brauchbares Metall vorhanden.";
         _text[557, 5] = "El campo de paneles es más pesado de lo que mostraba la telemetría.\n\nÉxito: aseguras el armazón y lo desmontas sin riesgo: mucho metal aprovechable.";
         _text[557, 6] = "Pole paneli jest cięższe, niż wskazywała telemetria.\n\nSukces: stabilizujesz szkielet i rozbierasz go bez ryzyka - dużo użytecznego metalu.";
         _text[557, 7] = "O campo de painéis é mais pesado do que a telemetria indicava.\n\nSucesso: você fixa a estrutura e desmonta-a sem riscos - muito metal aproveitável.";
@@ -6216,7 +6216,7 @@ public class Language : MonoBehaviour
         _text[558, 1] = "Провал: каркас выкручивает под тягой.\n\nОсколок царапает обшивку - аварийные заплаты съедают запас материалов."; // - случайный ресурс
         _text[558, 2] = "Échec : le cadre se tord sous la force de traction.\n\nUn éclat d’obus érafle la peau - les pansements de fortune absorbent les matériaux restants.";
         _text[558, 3] = "Fallimento: il telaio si torce sotto la forza della trazione.\n\nUna scheggia graffia la pelle: i cerotti di emergenza consumano i materiali rimanenti.";
-        _text[558, 4] = "Misserfolg: Der Rahmen verdreht sich unter Zug.\n\nEin Splitter zerkratzt die Hülle - Notflicken fressen den Materialvorrat.";
+        _text[558, 4] = "Versagen: Der Rahmen verdreht sich unter der Zugkraft.\n\nEin Splitter verletzt die Haut – notdürftig angebrachte Pflaster verbrauchen das restliche Material.";
         _text[558, 5] = "Fracaso: el armazón se retuerce bajo el tirón.\n\nUn fragmento araña el casco: los parches de emergencia consumen las reservas de materiales.";
         _text[558, 6] = "Porażka: szkielet wykręca się pod ciągiem.\n\nOdłamek rysuje poszycie - awaryjne łaty pochłaniają zapas materiałów.";
         _text[558, 7] = "Fracasso: a estrutura torce sob a tração.\n\nUm estilhaço risca o casco - remendos de emergência consomem o stock de materiais.";
@@ -6227,7 +6227,7 @@ public class Language : MonoBehaviour
         _text[559, 1] = "Оставить и продолжить путь"; // выбор 3 // ничего
         _text[559, 2] = "Partez et poursuivez votre chemin.";
         _text[559, 3] = "Esci e continua per la tua strada";
-        _text[559, 4] = "Zurücklassen und weiterfliegen";
+        _text[559, 4] = "Verlasse den Ort und setze deine Reise fort";
         _text[559, 5] = "Dejarlo y continuar el viaje";
         _text[559, 6] = "Zostawić i kontynuować drogę";
         _text[559, 7] = "Deixar e continuar o caminho";
@@ -6240,7 +6240,7 @@ public class Language : MonoBehaviour
         _text[560, 1] = "Небольшой осколок кометы пересекает ваш маршрут.\n\nПоверхность треснута и выпускает тонкие струи ледяной пыли.\n\nСканер подтверждает: водонасыщенное ядро.";
         _text[560, 2] = "Un petit fragment de comète traverse votre trajectoire.\n\nSa surface est craquelée et laisse échapper de fins filaments de poussière glacée.\n\nLe scanner confirme: un noyau saturé d’eau.";
         _text[560, 3] = "Un piccolo frammento di cometa attraversa il tuo cammino.\n\nLa superficie è screpolata e emette sottili flussi di polvere ghiacciata.\n\nLo scanner conferma: un nucleo saturo d'acqua.";
-        _text[560, 4] = "Ein kleiner Kometensplitter kreuzt deinen Kurs.\n\nDie Oberfläche ist gerissen und stößt feine Strahlen eisigen Staubs aus.\n\nDer Scanner bestätigt: ein wasserreicher Kern.";
+        _text[560, 4] = "Ein kleines Kometenfragment kreuzt Ihren Weg.\n\nDie Oberfläche ist rissig und gibt dünne Ströme aus eisigem Staub ab.\n\nDer Scanner bestätigt: ein wassergesättigter Kern.";
         _text[560, 5] = "Un pequeño fragmento de cometa cruza tu ruta.\n\nLa superficie está agrietada y expulsa finos chorros de polvo helado.\n\nEl escáner confirma: un núcleo saturado de agua.";
         _text[560, 6] = "Niewielki odłamek komety przecina twój szlak.\n\nPowierzchnia jest popękana i wypuszcza cienkie strugi lodowego pyłu.\n\nSkaner potwierdza: rdzeń nasycony wodą.";
         _text[560, 7] = "Um pequeno fragmento de cometa cruza a sua rota.\n\nA superfície está rachada e liberta finos jatos de pó gelado.\n\nO scanner confirma: núcleo rico em água.";
@@ -6251,7 +6251,7 @@ public class Language : MonoBehaviour
         _text[561, 1] = "Запитать нагреватели и расплавить ядро"; // выбор 1
         _text[561, 2] = "Mettez les résistances en marche et faites fondre le noyau.";
         _text[561, 3] = "Alimentare i riscaldatori e fondere il nucleo";
-        _text[561, 4] = "Heizer speisen und den Kern schmelzen";
+        _text[561, 4] = "Heizelemente einschalten und Kern schmelzen";
         _text[561, 5] = "Alimentar los calentadores y fundir el núcleo";
         _text[561, 6] = "Zasilić grzałki i stopić rdzeń";
         _text[561, 7] = "Alimentar os aquecedores e derreter o núcleo";
@@ -6262,7 +6262,7 @@ public class Language : MonoBehaviour
         _text[562, 1] = "Вы подаёте мощность в контуры нагрева.\n\nЛёд поддаётся, и чистая вода перекачивается в герметичные баки.\n\nСеть проседает - некоторое время системы работают на резерве."; // + Water, - Electricity
         _text[562, 2] = "Vous alimentez les circuits de chauffage.\n\nLa glace fond et de l'eau propre est pompée dans des réservoirs étanches.\n\nLe réseau électrique est saturé et les systèmes fonctionnent temporairement sur la réserve.";
         _text[562, 3] = "Fornisci energia ai circuiti di riscaldamento.\n\nIl ghiaccio cede e l'acqua pulita viene pompata in serbatoi sigillati.\n\nLa griglia si indebolisce e gli impianti funzionano in riserva per un po'.";
-        _text[562, 4] = "Du leitest Energie in die Heizkreise.\n\nDas Eis gibt nach, und sauberes Wasser wird in hermetische Tanks gepumpt.\n\nDas Netz sackt ab - eine Zeit lang laufen die Systeme im Reservebetrieb.";
+        _text[562, 4] = "Sie speisen die Heizkreisläufe ein.\n\nDas Eis schmilzt, und sauberes Wasser wird in abgedichtete Tanks gepumpt.\n\nDas Stromnetz fällt ab, und die Systeme laufen eine Zeit lang im Reservebetrieb.";
         _text[562, 5] = "Conduces potencia a los circuitos de calentamiento.\n\nEl hielo cede y el agua pura se bombea a tanques herméticos.\n\nLa red se resiente - durante un tiempo los sistemas funcionan en reserva.";
         _text[562, 6] = "Podajesz moc do obwodów grzewczych.\n\nLód ustępuje, a czysta woda jest przepompowywana do hermetycznych zbiorników.\n\nSieć siada - przez pewien czas systemy pracują na rezerwie.";
         _text[562, 7] = "Você envia energia para os circuitos de aquecimento.\n\nO gelo cede, e água limpa é bombeada para tanques herméticos.\n\nA rede sofre uma queda - durante algum tempo, os sistemas operam em reserva.";
@@ -6273,7 +6273,7 @@ public class Language : MonoBehaviour
         _text[564, 1] = "Перехватить выброс и сжать в паровые баллоны"; // выбор 2
         _text[564, 2] = "Intercepter les émissions et les comprimer dans des cylindres à vapeur.";
         _text[564, 3] = "Intercettare l'emissione e comprimerla in cilindri di vapore";
-        _text[564, 4] = "Ausstoß abfangen und in Dampfflaschen komprimieren";
+        _text[564, 4] = "Die Emissionen auffangen und in Dampfzylindern komprimieren.";
         _text[564, 5] = "Interceptar el chorro y comprimirlo en cilindros de vapor";
         _text[564, 6] = "Przechwycić wyrzut i sprężyć do butli parowych";
         _text[564, 7] = "Intercetar a ejeção e comprimir em cilindros de vapor";
@@ -6284,7 +6284,7 @@ public class Language : MonoBehaviour
         _text[565, 1] = "Вы раскрываете сети забора на струе выброса.\n\nКомпрессоры запечатывают собранный пар в баллоны под давлением.\n\nСтабильно. Чисто. Без риска для корпуса."; // + Steam
         _text[565, 2] = "Vous ouvrez les grilles d'admission sur le jet de refoulement.\n\nDes compresseurs scellent la vapeur collectée dans des cylindres sous pression.\n\nStable. Propre. Aucun risque pour la coque.";
         _text[565, 3] = "Si aprono le reti di aspirazione sul getto di scarico.\n\nI compressori sigillano il vapore raccolto in cilindri pressurizzati.\n\nStabile. Pulito. Nessun rischio per lo scafo.";
-        _text[565, 4] = "Du entfaltest die Sammelnetze im Strahl des Ausstoßes.\n\nKompressoren versiegeln den gesammelten Dampf in Druckflaschen.\n\nStabil. Sauber. Ohne Risiko für die Hülle.";
+        _text[565, 4] = "Sie öffnen die Einlassgitter am Auslassstrahl.\n\nKompressoren verschließen den gesammelten Dampf in Druckzylindern.\n\nKonstant. Sauber. Keine Gefahr für den Schiffsrumpf.";
         _text[565, 5] = "Despliegas redes de captación en el chorro de eyección.\n\nLos compresores sellan el vapor recogido en cilindros a presión.\n\nEstable. Limpio. Sin riesgo para el casco.";
         _text[565, 6] = "Rozwijasz siatki poboru na strumieniu wyrzutu.\n\nKompresory uszczelniają zebrany par w butlach pod ciśnieniem.\n\nStabilnie. Czysto. Bez ryzyka dla kadłuba.";
         _text[565, 7] = "Você abre as redes de recolha no jato da ejeção.\n\nCompressores selam o vapor recolhido em cilindros sob pressão.\n\nEstável. Limpo. Sem risco para o casco.";
@@ -6295,7 +6295,7 @@ public class Language : MonoBehaviour
         _text[566, 1] = "Расколоть осколок кинетическим выстрелом"; // выбор 3
         _text[566, 2] = "Fendez l'éclat avec un tir cinétique";
         _text[566, 3] = "Dividi il frammento con un colpo cinetico";
-        _text[566, 4] = "Den Splitter mit einem kinetischen Schuss spalten";
+        _text[566, 4] = "Teile die Scherbe mit einem kinetischen Schuss.";
         _text[566, 5] = "Partir el fragmento con un disparo cinético";
         _text[566, 6] = "Rozłupać odłamek strzałem kinetycznym";
         _text[566, 7] = "Fender o fragmento com um disparo cinético";
@@ -6306,7 +6306,7 @@ public class Language : MonoBehaviour
         _text[567, 1] = "Успех: корка раскрывается.\n\nВы собираете воду - и замечаете во льду герметичную капсулу с данными.\n\nЕё ядро всё ещё хранит фрагменты старых навигационных логов."; // + Water, + Memory
         _text[567, 2] = "Succès: la croûte cède.\n\nVous prélevez de l’eau et découvrez une capsule de données scellée dans la glace.\n\nSon noyau renferme encore des fragments d’anciens journaux de navigation.";
         _text[567, 3] = "Successo: la crosta si rompe.\n\nRaccogli acqua e noti una capsula dati sigillata nel ghiaccio.\n\nIl suo nucleo contiene ancora frammenti di vecchi registri di navigazione.";
-        _text[567, 4] = "Erfolg: Die Kruste bricht auf.\n\nDu sammelst Wasser - und entdeckst im Eis eine hermetische Datenkapsel.\n\nIhr Kern bewahrt noch Fragmente alter Navigationslogs.";
+        _text[567, 4] = "Erfolg: Die Eiskruste bricht auf.\n\nDu sammelst Wasser und entdeckst eine versiegelte Datenkapsel im Eis.\n\nIhr Kern enthält noch Fragmente alter Navigationsprotokolle.";
         _text[567, 5] = "Éxito: la corteza se abre.\n\nRecoges el agua: y notas en el hielo una cápsula hermética con datos.\n\nSu núcleo aún conserva fragmentos de antiguos registros de navegación.";
         _text[567, 6] = "Sukces: skorupa pęka.\n\nZbierasz wodę - i dostrzegasz w lodzie hermetyczną kapsułę z danymi.\n\nJej rdzeń wciąż przechowuje fragmenty starych logów nawigacyjnych.";
         _text[567, 7] = "Sucesso: a crosta abre-se.\n\nVocê recolhe água - e vê no gelo uma cápsula de dados hermética.\n\nO seu núcleo ainda guarda fragmentos de antigos logs de navegação.";
@@ -6317,7 +6317,7 @@ public class Language : MonoBehaviour
         _text[568, 1] = "Провал: выстрел превращает осколок в хаотический град.\n\nЛедяные осколки бьют по щитам - на аварийный ремонт уходят запасы."; // - RandomResource
         _text[568, 2] = "Échec: Le tir transforme l’éclat en une grêle chaotique.\n\nDes éclats de glace frappent les boucliers, épuisant les réserves nécessaires aux réparations d’urgence.";
         _text[568, 3] = "Fallimento: il colpo trasforma la scheggia in una grandinata caotica.\n\nLe schegge di ghiaccio colpiscono gli scudi, prosciugando le scorte per le riparazioni di emergenza.";
-        _text[568, 4] = "Misserfolg: Der Schuss verwandelt den Splitter in chaotischen Hagel.\n\nEissplitter prasseln auf die Schilde - für Notreparaturen gehen Vorräte drauf.";
+        _text[568, 4] = "Fehlschlag: Der Schuss verwandelt die Scherbe in einen chaotischen Hagel.\n\nEissplitter treffen Schilde und verbrauchen Vorräte für Notfallreparaturen.";
         _text[568, 5] = "Fracaso: el disparo convierte el fragmento en una granizada caótica.\n\nLos trozos de hielo golpean los escudos: se gastan reservas en la reparación de emergencia.";
         _text[568, 6] = "Porażka: strzał zamienia odłamek w chaotyczny grad.\n\nLodowe odłamki biją w tarcze - zapasy idą na awaryjne naprawy.";
         _text[568, 7] = "Fracasso: o disparo transforma o fragmento numa saraivada caótica.\n\nEstilhaços de gelo atingem os escudos - reservas são consumidas em reparações de emergência.";
@@ -6329,7 +6329,7 @@ public class Language : MonoBehaviour
         _text[569, 1] = "Сканы фиксируют руины древнего стекольного производства на поверхности планеты.\n\nПроизводственный отсек наполовину занесён песком. Крыша треснула, цех молчит - но силликатные ванны целы.\n\nПесок повсюду. И пачки полуготовых стеклянных панелей тоже.";
         _text[569, 2] = "Des analyses révèlent les ruines d'une ancienne verrerie à la surface de la planète.\n\nL'atelier de production est à moitié enfoui sous le sable. Le toit est fissuré, le silence règne, mais les bains de silicate sont intacts.\n\nLe sable est omniprésent. Tout comme des piles de panneaux de verre inachevés.";
         _text[569, 3] = "Le scansioni rivelano le rovine di un'antica vetreria sulla superficie del pianeta.\n\nIl reparto di produzione è semisepolto nella sabbia. Il tetto è crepato, l'officina è silenziosa, ma i bagni di silicato sono intatti.\n\nLa sabbia è ovunque. E così anche le pile di pannelli di vetro semifiniti.";
-        _text[569, 4] = "Scans registrieren die Ruinen einer uralten Glasproduktion auf der Planetenoberfläche.\n\nDie Produktionssektion ist halb mit Sand verweht. Das Dach ist gerissen, die Halle schweigt - aber die Silikatwannen sind intakt.\n\nSand ist überall. Und Stapel halbfertiger Glasscheiben auch.";
+        _text[569, 4] = "Scans enthüllen die Ruinen einer alten Glasfabrik auf der Planetenoberfläche.\n\nDie Produktionshalle ist halb im Sand versunken. Das Dach ist rissig, die Werkstatt ist still – doch die Silikatbäder sind intakt.\n\nÜberall ist Sand. Und überall liegen Stapel halbfertiger Glasscheiben.";
         _text[569, 5] = "Los escaneos detectan las ruinas de una antigua planta de vidrio en la superficie del planeta.\n\nEl compartimento de producción está medio sepultado por arena. El techo está agrietado, el taller en silencio - pero las cubas de silicato están intactas.\n\nArena por todas partes. Y también paquetes de paneles de vidrio a medio terminar.";
         _text[569, 6] = "Skany wykrywają ruiny pradawnej produkcji szkła na powierzchni planety.\n\nHala produkcyjna jest w połowie zasypana piaskiem. Dach pękł, zakład milczy - ale wanny krzemianowe są całe.\n\nPiasek jest wszędzie. I paczki półgotowych szklanych paneli też.";
         _text[569, 7] = "Os scans registam as ruínas de uma antiga produção de vidro na superfície do planeta.\n\nO compartimento de produção está meio soterrado em areia. O teto rachou, a oficina está silenciosa - mas as cubas de silicato estão intactas.\n\nAreia por todo o lado. E também pilhas de painéis de vidro semiacabados.";
@@ -6340,7 +6340,7 @@ public class Language : MonoBehaviour
         _text[570, 1] = "Набрать песок в контейнеры"; // выбор 1
         _text[570, 2] = "Recueillez le sable dans des récipients.";
         _text[570, 3] = "Raccogliere la sabbia nei contenitori";
-        _text[570, 4] = "Sand in Container füllen";
+        _text[570, 4] = "Sand in Behälter füllen";
         _text[570, 5] = "Recoger arena en contenedores";
         _text[570, 6] = "Nabrać piasku do kontenerów";
         _text[570, 7] = "Recolher areia para contentores";
@@ -6351,7 +6351,7 @@ public class Language : MonoBehaviour
         _text[571, 1] = "Вы загружаете сухой кремнезёмный песок в герметичные контейнеры.\n\nНикаких тревог. Никакого движения. Только безветренная пыль и мёртвые механизмы."; // + Sand
         _text[571, 2] = "Vous chargez du sable de silice sec dans des conteneurs hermétiques.\n\nPas de souci. Aucun mouvement. Juste de la poussière immobile et des machines à l'arrêt.";
         _text[571, 3] = "Carichi la sabbia silicea asciutta in contenitori sigillati.\n\nNessun problema. Nessun movimento. Solo polvere senza vento e macchinari inattivi.";
-        _text[571, 4] = "Du lädst trockenen silikatreichen Sand in hermetische Container.\n\nKeine Alarme. Keine Bewegung. Nur windloser Staub und tote Mechanismen.";
+        _text[571, 4] = "Sie füllen trockenen Quarzsand in verschlossene Behälter.\n\nKeine Sorge. Keine Bewegung. Nur windstiller Staub und stillstehende Maschinen.";
         _text[571, 5] = "Cargas arena de sílice seca en contenedores herméticos.\n\nSin alarmas. Sin movimiento. Solo polvo sin viento y mecanismos muertos.";
         _text[571, 6] = "Ładujesz suchy krzemionkowy piasek do hermetycznych kontenerów.\n\nBrak alarmów. Brak ruchu. Tylko bezwietrzny pył i martwe mechanizmy.";
         _text[571, 7] = "Você carrega areia seca de sílica para contentores herméticos.\n\nSem alarmes. Sem movimento. Apenas pó sem vento e mecanismos mortos.";
@@ -6362,7 +6362,7 @@ public class Language : MonoBehaviour
         _text[572, 1] = "Перезапустить цикл печи"; // выбор 2
         _text[572, 2] = "Redémarrez le cycle du four";
         _text[572, 3] = "Riavviare il ciclo del forno";
-        _text[572, 4] = "Ofenzyklus neu starten";
+        _text[572, 4] = "Starten Sie den Ofenzyklus neu.";
         _text[572, 5] = "Reiniciar el ciclo del horno";
         _text[572, 6] = "Uruchomić ponownie cykl pieca";
         _text[572, 7] = "Reiniciar o ciclo do forno";
@@ -6373,7 +6373,7 @@ public class Language : MonoBehaviour
         _text[573, 1] = "Успех: древние нагреватели откликаются.\n\nТемпература медленно растёт. Линия завершает ещё один цикл - и из отсека выходит партия закалённых стеклянных панелей."; // + Glass
         _text[573, 2] = "Succès: les anciens éléments chauffants réagissent.\n\nLa température monte lentement. La chaîne achève un nouveau cycle et une série de panneaux de verre trempé sort de la chambre.";
         _text[573, 3] = "Successo: le antiche stufe rispondono.\n\nLa temperatura aumenta lentamente. La linea completa un altro ciclo e un lotto di pannelli di vetro temperato fuoriesce dalla camera.";
-        _text[573, 4] = "Erfolg: Die uralten Heizer reagieren.\n\nDie Temperatur steigt langsam. Die Linie beendet einen weiteren Zyklus - und aus der Sektion kommt eine Charge gehärteter Glasscheiben.";
+        _text[573, 4] = "Erfolg: Die alten Heizelemente reagieren.\n\nDie Temperatur steigt langsam an. Die Anlage durchläuft einen weiteren Zyklus, und eine Charge gehärteter Glasscheiben verlässt die Kammer.";
         _text[573, 5] = "Éxito: los antiguos calentadores responden.\n\nLa temperatura sube lentamente. La línea completa otro ciclo: y del compartimento sale una partida de paneles de vidrio templado.";
         _text[573, 6] = "Sukces: pradawne nagrzewnice odpowiadają.\n\nTemperatura powoli rośnie. Linia kończy kolejny cykl - i z przedziału wychodzi partia hartowanych szklanych paneli.";
         _text[573, 7] = "Sucesso: os antigos aquecedores respondem.\n\nA temperatura sobe lentamente. A linha completa mais um ciclo - e do compartimento sai um lote de painéis de vidro temperado.";
@@ -6384,7 +6384,7 @@ public class Language : MonoBehaviour
         _text[574, 1] = "Провал: взрывается запечатанный карман давления.\n\nРаскалённая струя обжигает дронов и забивает отсек абразивной пылью.\n\nВы обрубаете питание и отходите - одно из ядер корабля перегорает от перегрузки."; // - AiCore
         _text[574, 2] = "Panne: Une chambre de pression étanche explose.\n\nUne explosion brûlante consume les drones et remplit le compartiment de poussière abrasive.\n\nVous coupez l’alimentation et battez en retraite: l’un des réacteurs du vaisseau est détruit par une surcharge.";
         _text[574, 3] = "Fallimento: una camera pressurizzata sigillata esplode.\n\nUn'ondata di calore brucia i droni e riempie il compartimento di polvere abrasiva.\n\nSi interrompe l'alimentazione e ci si ritira: uno dei nuclei della nave brucia per sovraccarico.";
-        _text[574, 4] = "Misserfolg: Ein versiegelter Druckbeutel explodiert.\n\nEin glühender Strahl verbrennt die Drohnen und füllt die Sektion mit abrasivem Staub.\n\nDu kappst die Energiezufuhr und gehst auf Abstand - einer der Schiffskerne brennt durch Überhitzung aus.";
+        _text[574, 4] = "Fehler: Eine abgedichtete Druckkammer explodiert.\n\nEine Hitzewelle verbrennt die Drohnen und füllt den Raum mit abrasivem Staub.\n\nSie schalten die Stromzufuhr ab und ziehen sich zurück – einer der Schiffskerne brennt aufgrund von Überlastung durch.";
         _text[574, 5] = "Fracaso: estalla una bolsa de presión sellada.\n\nUn chorro incandescente quema a los drones y llena el compartimento de polvo abrasivo.\n\nCortas la energía y te alejas: uno de los núcleos de la nave se quema por la sobrecarga.";
         _text[574, 6] = "Porażka: eksploduje zapieczętowana kieszeń ciśnienia.\n\nRozżarzony strumień parzy drony i zasypuje przedział ściernym pyłem.\n\nOdłączasz zasilanie i wycofujesz się - jeden z rdzeni statku wypala się od przeciążenia.";
         _text[574, 7] = "Fracasso: um bolso de pressão selado explode.\n\nUm jato incandescente queima os drones e entope o compartimento com pó abrasivo.\n\nVocê corta a energia e recua - um dos núcleos da nave queima por sobrecarga.";
@@ -6395,7 +6395,7 @@ public class Language : MonoBehaviour
         _text[575, 1] = "Забрать готовые панели и уйти"; // выбор 3
         _text[575, 2] = "Prenez les panneaux terminés et partez.";
         _text[575, 3] = "Prendi i pannelli finiti e vai via.";
-        _text[575, 4] = "Fertige Paneele mitnehmen und gehen";
+        _text[575, 4] = "Nehmen Sie die fertigen Paneele und gehen Sie.";
         _text[575, 5] = "Recoger los paneles listos y marcharse";
         _text[575, 6] = "Zabrać gotowe panele i odejść";
         _text[575, 7] = "Recolher os painéis prontos e partir";
@@ -6406,7 +6406,7 @@ public class Language : MonoBehaviour
         _text[576, 1] = "Вы выбираете самое безопасное: запечатанные пачки с целыми маркировками.\n\nНебольшая, но чистая добыча - без попыток оживить мёртвое производство."; // + Glass
         _text[576, 2] = "Vous choisissez l'option la plus sûre: emballages scellés avec étiquettes intactes.\n\nProduction réduite mais propre – aucune tentative de relance d'un site de production fermé.";
         _text[576, 3] = "Scegli l'opzione più sicura: confezioni sigillate con etichette intatte.\n\nProduzione piccola ma pulita: nessun tentativo di rilanciare un impianto di produzione inutilizzato.";
-        _text[576, 4] = "Du wählst das Sicherste: versiegelte Packen mit intakten Markierungen.\n\nEine kleine, aber saubere Beute - ohne den Versuch, eine tote Produktion wiederzubeleben.";
+        _text[576, 4] = "Sie wählen die sicherste Option: versiegelte Verpackungen mit unversehrten Etiketten.\n\nKleine, aber saubere Produktion – kein Versuch, eine stillgelegte Produktionsstätte wiederzubeleben.";
         _text[576, 5] = "Eliges lo más seguro: paquetes sellados con marcajes intactos.\n\nUn botín pequeño, pero limpio: sin intentar reanimar una producción muerta.";
         _text[576, 6] = "Wybierasz najbezpieczniejsze: zapieczętowane pakiety z nienaruszonymi oznaczeniami.\n\nNiewielkie, ale czyste pozyskanie - bez prób ożywiania martwej produkcji.";
         _text[576, 7] = "Você escolhe o mais seguro: pacotes selados com marcações intactas.\n\nUma extração pequena, mas limpa - sem tentar reanimar uma produção morta.";
@@ -6418,7 +6418,7 @@ public class Language : MonoBehaviour
         _text[577, 1] = "Впереди дрейфует мёртвая ретрансляторная станция, опутанная паутиной магистралей.\n\nБольшинство линий перерезано, но основной ствол всё ещё держит медь - и изоляцию сигнального класса.";
         _text[577, 2] = "Plus loin, une station relais hors service dérive, enchevêtrée dans un réseau de lignes de transmission.\n\nLa plupart des lignes ont été coupées, mais le câble principal contient encore du cuivre et une isolation de qualité signal.";
         _text[577, 3] = "Più avanti, una stazione ripetitrice inattiva vaga alla deriva, impigliata in una rete di linee di trasmissione.\n\nLa maggior parte delle linee è stata tagliata, ma il tronco principale conserva ancora il rame e l'isolamento di qualità del segnale.";
-        _text[577, 4] = "Vor dir treibt eine tote Relaisstation, umwoben von einem Netz aus Hauptleitungen.\n\nDie meisten Linien sind durchtrennt, aber der Hauptstrang hält noch Kupfer - und Signalklassen-Isolierung.";
+        _text[577, 4] = "Vor uns treibt eine stillgelegte Relaisstation, verstrickt in einem Netz von Übertragungsleitungen.\n\nDie meisten Leitungen wurden gekappt, doch die Hauptleitung enthält noch Kupfer – und eine Isolierung in Signalqualität.";
         _text[577, 5] = "Más adelante deriva una estación repetidora muerta, envuelta en una maraña de líneas troncales.\n\nLa mayoría de las líneas están cortadas, pero el tronco principal aún conserva cobre - y aislamiento de clase de señal.";
         _text[577, 6] = "Przed tobą dryfuje martwa stacja przekaźnikowa, oplątana pajęczyną magistral.\n\nWiększość linii jest przecięta, ale główny trzon wciąż trzyma miedź - oraz izolację klasy sygnałowej.";
         _text[577, 7] = "À frente deriva uma estação retransmissora morta, envolta numa teia de linhas principais.\n\nA maioria das ligações está cortada, mas o tronco principal ainda conserva cobre - e isolamento de classe de sinal.";
@@ -6429,7 +6429,7 @@ public class Language : MonoBehaviour
         _text[578, 1] = "Сорвать магистрали на медь"; // выбор 1
         _text[578, 2] = "Démontez les canalisations en cuivre.";
         _text[578, 3] = "Smontare le condutture principali in rame";
-        _text[578, 4] = "Hauptleitungen für Kupfer abtrennen";
+        _text[578, 4] = "Kupferleitungen abreißen";
         _text[578, 5] = "Arrancar las líneas troncales para obtener cobre";
         _text[578, 6] = "Zerwać magistrale na miedź";
         _text[578, 7] = "Arrancar as linhas principais para cobre";
@@ -6440,7 +6440,7 @@ public class Language : MonoBehaviour
         _text[579, 1] = "Успех: тяжёлые медные провода срезаны и закреплены."; // + CopperOre
         _text[579, 2] = "Succès: Gros fils de cuivre coupés et fixés.";
         _text[579, 3] = "Successo: fili di rame spessi tagliati e fissati.";
-        _text[579, 4] = "Erfolg: Schwere Kupferbündel werden abgeschnitten und gesichert.";
+        _text[579, 4] = "Erfolg: Dicke Kupferdrähte durchtrennt und befestigt.";
         _text[579, 5] = "Éxito: los pesados mazos de cobre son cortados y asegurados.";
         _text[579, 6] = "Sukces: ciężkie miedziane wiązki zostają odcięte i zabezpieczone.";
         _text[579, 7] = "Sucesso: feixes pesados de cobre foram cortados e fixados.";
@@ -6451,7 +6451,7 @@ public class Language : MonoBehaviour
         _text[580, 1] = "Провал: под напряжением линия бьёт обратно.\n\nСтанция на секунду оживает - автофиксатор зажимает дрона. Вы рубите его и уходите."; // - ядро
         _text[580, 2] = "Échec: la ligne sous tension se retourne contre vous.\n\nLa station s’anime un instant: le système de fixation automatique se verrouille sur le drone. Vous le décrochez et vous vous en allez.";
         _text[580, 3] = "Fallimento: la linea attiva si ritorce contro di te.\n\nLa stazione prende vita per un secondo: il morsetto automatico si aggancia al drone. Lo spegni e te ne vai.";
-        _text[580, 4] = "Misserfolg: Unter Spannung schlägt die Leitung zurück.\n\nDie Station erwacht für eine Sekunde - eine automatische Verriegelung klemmt eine Drohne ein. Du kappst sie und ziehst ab.";
+        _text[580, 4] = "Fehlschlag: Die unter Spannung stehende Leitung löst einen Fehlschlag aus.\n\nDie Station erwacht kurz zum Leben – die automatische Klemme erfasst die Drohne. Sie kappen sie und gehen.";
         _text[580, 5] = "Fracaso: una línea energizada golpea de vuelta.\n\nLa estación cobra vida por un segundo: un autofijador atrapa al dron. Lo cortas y te vas.";
         _text[580, 6] = "Porażka: linia pod napięciem uderza z powrotem.\n\nStacja na sekundę ożywa - automatyczny zacisk chwyta drona. Odcinasz go i odchodzisz.";
         _text[580, 7] = "Fracasso: sob tensão, a linha reage.\n\nA estação ganha vida por um segundo - um fixador automático prende o drone. Você corta-o e parte.";
@@ -6462,7 +6462,7 @@ public class Language : MonoBehaviour
         _text[581, 1] = "Снять изоляцию и смотать"; // выбор 2
         _text[581, 2] = "Retirer l'isolant et rebobiner";
         _text[581, 3] = "Rimuovere l'isolamento e riavvolgere";
-        _text[581, 4] = "Isolierung abnehmen und aufwickeln";
+        _text[581, 4] = "Isolierung entfernen und neu aufwickeln";
         _text[581, 5] = "Retirar el aislamiento y enrollarlo";
         _text[581, 6] = "Zdjąć izolację i zwinąć";
         _text[581, 7] = "Retirar o isolamento e enrolar";
@@ -6473,7 +6473,7 @@ public class Language : MonoBehaviour
         _text[582, 1] = "Вы собираете чистую изоляцию и целые медные жилы.\n\nИдеально для проводки и точных сборок."; // + CopperWire
         _text[582, 2] = "Vous récupérez l'isolant propre et les conducteurs en cuivre intacts.\n\nIdéal pour le câblage et les assemblages de précision.";
         _text[582, 3] = "Raccogli isolamento pulito e conduttori in rame intatti.\n\nIdeale per cablaggi e assemblaggi di precisione.";
-        _text[582, 4] = "Du sammelst saubere Isolierung und intakte Kupferadern.\n\nIdeal für Verkabelung und präzise Montagen.";
+        _text[582, 4] = "Sie erhalten saubere Isolierung und intakte Kupferleiter.\n\nIdeal für Verdrahtungen und Präzisionsmontagen.";
         _text[582, 5] = "Recoges aislamiento limpio y venas de cobre intactas.\n\nIdeal para cableado y ensamblajes de precisión.";
         _text[582, 6] = "Zbierasz czystą izolację i całe miedziane żyły.\n\nIdealne do okablowania i precyzyjnych montaży.";
         _text[582, 7] = "Você recolhe isolamento limpo e veias de cobre intactas.\n\nPerfeito para cablagem e montagens de precisão.";
@@ -6484,7 +6484,7 @@ public class Language : MonoBehaviour
         _text[583, 1] = "Оставить маяк и отметить место"; // выбор 3
         _text[583, 2] = "Laissez un repère et marquez l'endroit.";
         _text[583, 3] = "Lascia un segnale e segna il punto";
-        _text[583, 4] = "Sender zurücklassen und die Stelle markieren";
+        _text[583, 4] = "Setzen Sie ein Leuchtfeuer und markieren Sie die Stelle";
         _text[583, 5] = "Dejar la baliza y marcar el lugar";
         _text[583, 6] = "Zostawić boję i oznaczyć miejsce";
         _text[583, 7] = "Deixar o farol e marcar o local";
@@ -6495,7 +6495,7 @@ public class Language : MonoBehaviour
         _text[584, 1] = "Вы фиксируете координаты.\n\nДобычи сейчас нет - но память сохранена."; // + фрагменты данных
         _text[584, 2] = "Vous enregistrez les coordonnées.\n\nIl n'y a pas de butin pour l'instant, mais le souvenir est préservé.";
         _text[584, 3] = "Stai registrando le coordinate.\n\nAl momento non c'è bottino, ma il ricordo è preservato.";
-        _text[584, 4] = "Du speicherst die Koordinaten.\n\nJetzt gibt es keine Beute - aber die Erinnerung bleibt.";
+        _text[584, 4] = "Du speicherst die Koordinaten.\n\nEs gibt momentan keine Beute, aber die Erinnerung bleibt erhalten.";
         _text[584, 5] = "Fijas las coordenadas.\n\nNo hay botín ahora - pero la memoria queda guardada.";
         _text[584, 6] = "Zapisujesz współrzędne.\n\nTeraz nie ma zysku - ale pamięć została zachowana.";
         _text[584, 7] = "Você regista as coordenadas.\n\nNão há extração agora - mas a memória foi guardada.";
@@ -6507,7 +6507,7 @@ public class Language : MonoBehaviour
         _text[585, 1] = "Добывающая капсула вращается у края астероидного пояса.\n\nМетка сканера: \"ТЕПЛОВОЕ ТОПЛИВО\".\n\nВнутри - прессованные угольные брикеты, в вакуумной упаковке.";
         _text[585, 2] = "La capsule minière orbite autour de la ceinture d'astéroïdes.\n\nÉtiquette du scanner: \"Combustible thermique\".\n\nÀ l'intérieur : briquettes de charbon compressé, emballées sous vide.";
         _text[585, 3] = "La capsula mineraria orbita ai margini della fascia degli asteroidi.\n\nEtichetta scanner: \"COMBUSTIBILE TERMICO\".\n\nAll'interno si trovano bricchette di carbone pressato, confezionate sottovuoto.";
-        _text[585, 4] = "Eine Abbaukapsel rotiert am Rand des Asteroidengürtels.\n\nScanner-Markierung: \"THERMISCHER BRENNSTOFF\".\n\nIm Inneren - gepresste Kohlebriketts in Vakuumverpackung.";
+        _text[585, 4] = "Die Minenkapsel umkreist den Rand des Asteroidengürtels.\n\nScanner-Beschriftung: „Thermischer Brennstoff“.\n\nIm Inneren befinden sich gepresste, vakuumverpackte Kohlebriketts.";
         _text[585, 5] = "Una cápsula de extracción gira al borde del cinturón de asteroides.\n\nMarca del escáner: \"COMBUSTIBLE TÉRMICO\".\n\nDentro hay briquetas de carbón prensado, envasadas al vacío.";
         _text[585, 6] = "Kapsuła wydobywcza obraca się na skraju pasa asteroid.\n\nZnacznik skanera: \"PALIWO TERMICZNE\".\n\nW środku - sprasowane brykiety węglowe w próżniowym opakowaniu.";
         _text[585, 7] = "Uma cápsula de extração gira na orla do cinturão de asteroides.\n\nEtiqueta do scanner: \"COMBUSTÍVEL TÉRMICO\".\n\nNo interior - briquetes de carvão prensado, em embalagem a vácuo.";
@@ -6518,7 +6518,7 @@ public class Language : MonoBehaviour
         _text[586, 1] = "Согласовать вращение и пристыковаться"; // выбор 1
         _text[586, 2] = "Rotation des coordonnées et amarrage";
         _text[586, 3] = "Rotazione delle coordinate e ancoraggio";
-        _text[586, 4] = "Rotation abstimmen und andocken";
+        _text[586, 4] = "Koordinatenrotation und Andocken";
         _text[586, 5] = "Sincronizar la rotación y acoplarse";
         _text[586, 6] = "Zsynchronizować obrót i zadokować";
         _text[586, 7] = "Sincronizar a rotação e acoplar";
@@ -6529,7 +6529,7 @@ public class Language : MonoBehaviour
         _text[587, 1] = "Успех: вы стабилизируете вращение и выгружаете уголь."; // + Coal
         _text[587, 2] = "Succès: Vous stabilisez la rotation et déchargez le charbon.";
         _text[587, 3] = "Successo: stabilizzi la rotazione e scarichi il carbone.";
-        _text[587, 4] = "Erfolg: Du stabilisierst die Rotation und entlädst die Kohle.";
+        _text[587, 4] = "Erfolg: Die Rotation wird stabilisiert und die Kohle entladen.";
         _text[587, 5] = "Éxito: estabilizas la rotación y descargas el carbón.";
         _text[587, 6] = "Sukces: stabilizujesz obrót i wyładowujesz węgiel.";
         _text[587, 7] = "Sucesso: você estabiliza a rotação e descarrega o carvão.";
@@ -6540,7 +6540,7 @@ public class Language : MonoBehaviour
         _text[588, 1] = "Провал: захват промахивается на сантиметры.\n\nКапсула царапает обшивку - на аварийный ремонт уходит часть запасов."; // - случайный ресурс
         _text[588, 2] = "Échec: la capture manque la cible de quelques centimètres.\n\nLa capsule érafle la coque - les réparations d’urgence consomment une partie des réserves.";
         _text[588, 3] = "Fallimento: la cattura manca il bersaglio di pochi centimetri.\n\nLa capsula graffia lo scafo: le riparazioni di emergenza consumano parte delle scorte.";
-        _text[588, 4] = "Misserfolg: Der Greifer verfehlt um Zentimeter.\n\nDie Kapsel zerkratzt die Hülle - für Notreparaturen geht ein Teil der Vorräte drauf.";
+        _text[588, 4] = "Fehlschlag: Die Landung verfehlt das Ziel um Zentimeter.\n\nDie Kapsel beschädigt die Außenhülle – für die Notreparatur werden Vorräte verbraucht.";
         _text[588, 5] = "Fracaso: la pinza falla por centímetros.\n\nLa cápsula araña el casco: parte de las reservas se va en la reparación de emergencia.";
         _text[588, 6] = "Porażka: chwytak mija o centymetry.\n\nKapsuła rysuje poszycie - część zapasów idzie na awaryjny remont.";
         _text[588, 7] = "Fracasso: a garra falha por centímetros.\n\nA cápsula risca o casco - parte das reservas é gasta em reparações de emergência.";
@@ -6551,7 +6551,7 @@ public class Language : MonoBehaviour
         _text[589, 1] = "Сбить замок и вытянуть тягачом"; // выбор 2
         _text[589, 2] = "Défoncez l'écluse et retirez-la avec un tracteur.";
         _text[589, 3] = "Abbatti la serratura e tirala fuori con un trattore";
-        _text[589, 4] = "Schloss abschießen und mit dem Schlepper herausziehen";
+        _text[589, 4] = "Das Schloss aufbrechen und mit einem Traktor herausziehen.";
         _text[589, 5] = "Romper el cierre y tirar con el remolcador";
         _text[589, 6] = "Wybić zamek i wyciągnąć holownikiem";
         _text[589, 7] = "Partir o fecho e puxar com o rebocador";
@@ -6562,7 +6562,7 @@ public class Language : MonoBehaviour
         _text[590, 1] = "Успех: замок срывается чисто."; // + Coal
         _text[590, 2] = "Succès: la serrure se casse proprement.";
         _text[590, 3] = "Successo: la serratura si rompe in modo netto.";
-        _text[590, 4] = "Erfolg: Das Schloss löst sich sauber.";
+        _text[590, 4] = "Erfolg: Das Schloss lässt sich sauber aufbrechen.";
         _text[590, 5] = "Éxito: el cierre se suelta limpiamente.";
         _text[590, 6] = "Sukces: zamek zostaje zerwany czysto.";
         _text[590, 7] = "Sucesso: o fecho solta-se limpo.";
@@ -6573,7 +6573,7 @@ public class Language : MonoBehaviour
         _text[591, 1] = "Провал: выстрел пробивает канистру.\n\nУгольная пыль заливает отсек - половина груза испорчена."; // ничего
         _text[591, 2] = "Échec: le projectile perfore le conteneur.De la poussière de charbon envahit le compartiment – ​​la moitié de la cargaison est perdue.";
         _text[591, 3] = "Fallimento: il proiettile penetra nel contenitore.\n\nLa polvere di carbone inonda il compartimento: metà del carico è rovinato.";
-        _text[591, 4] = "Misserfolg: Der Schuss durchschlägt einen Kanister.\n\nKohlestaub überflutet die Sektion - die Hälfte der Fracht ist verdorben.";
+        _text[591, 4] = "Fehlschlag: Das Geschoss durchschlägt den Behälter.\n\nKohlenstaub strömt in das Abteil – die Hälfte der Ladung ist unbrauchbar.";
         _text[591, 5] = "Fracaso: el disparo perfora el bidón.\n\nEl polvo de carbón inunda el compartimento - la mitad de la carga se estropea.";
         _text[591, 6] = "Porażka: strzał przebija kanister.\n\nPył węglowy zalewa przedział - połowa ładunku jest zniszczona.";
         _text[591, 7] = "Fracasso: o disparo perfura uma lata.\n\nPó de carvão inunda o compartimento - metade da carga fica estragada.";
@@ -6585,7 +6585,7 @@ public class Language : MonoBehaviour
         _text[592, 1] = "Сканеры фиксируют разрушенный топливный склад на поверхности пустынной планеты.\n\nПолузасыпанные резервуары и трубопроводы тянутся под песком.\n\nОдин бак всё ещё держит давление - внутри есть пригодное топливо для машин.";
         _text[592, 2] = "Des scanners détectent un dépôt de carburant détruit à la surface d'une planète désertique.\n\nDes réservoirs et des canalisations à moitié enfouis s'étendent sous le sable.\n\nUn réservoir est encore sous pression - il contient du carburant utilisable pour les véhicules.";
         _text[592, 3] = "Gli scanner rilevano un deposito di carburante distrutto sulla superficie di un pianeta desertico.\n\nSerbatoi e condutture semi-sepolti si estendono sotto la sabbia.\n\nUn serbatoio mantiene ancora la pressione: contiene carburante utilizzabile per i veicoli.";
-        _text[592, 4] = "Scanner registrieren ein zerstörtes Treibstofflager auf der Oberfläche eines Wüstenplaneten.\n\nHalb verschüttete Tanks und Rohrleitungen ziehen sich unter dem Sand.\n\nEin Tank hält noch Druck - darin ist brauchbarer Treibstoff für Maschinen.";
+        _text[592, 4] = "Scanner entdecken ein zerstörtes Treibstofflager auf der Oberfläche eines Wüstenplaneten.\n\nHalb vergrabene Tanks und Rohrleitungen erstrecken sich unter dem Sand.\n\nEin Tank steht noch unter Druck – er enthält Treibstoff für Fahrzeuge.";
         _text[592, 5] = "Los escáneres detectan un almacén de combustible destruido en la superficie de un planeta desértico.\n\nDepósitos semienterrados y tuberías se extienden bajo la arena.\n\nUn tanque aún mantiene la presión - dentro hay combustible utilizable para las máquinas.";
         _text[592, 6] = "Skanery wykrywają zrujnowany skład paliw na powierzchni pustynnej planety.\n\nNa wpół zasypane zbiorniki i rurociągi ciągną się pod piaskiem.\n\nJeden zbiornik wciąż trzyma ciśnienie - w środku jest paliwo nadające się do maszyn.";
         _text[592, 7] = "Os scanners detetam um armazém de combustível destruído na superfície de um planeta desértico.\n\nReservatórios meio soterrados e tubagens estendem-se sob a areia.\n\nUm tanque ainda mantém pressão - há combustível utilizável para máquinas no interior.";
@@ -6596,7 +6596,7 @@ public class Language : MonoBehaviour
         _text[593, 1] = "Подключить гермопомпы и откачать топливо"; // выбор 1 + Oil, - Electricity
         _text[593, 2] = "Raccordez les pompes à pression et pompez le carburant.";
         _text[593, 3] = "Collegare le pompe di pressione e pompare fuori il carburante";
-        _text[593, 4] = "Dichtpumpen anschließen und Treibstoff abpumpen";
+        _text[593, 4] = "Schließen Sie die Druckpumpen an und pumpen Sie den Kraftstoff ab.";
         _text[593, 5] = "Conectar bombas herméticas y extraer el combustible";
         _text[593, 6] = "Podłączyć pompy hermetyczne i odpompować paliwo";
         _text[593, 7] = "Ligar as bombas herméticas e bombear o combustível";
@@ -6607,7 +6607,7 @@ public class Language : MonoBehaviour
         _text[594, 1] = "Врезаться в трубу под давлением"; // выбор 2 Success + Oil, Failure - RandomResource
         _text[594, 2] = "Frapper un tuyau sous pression";
         _text[594, 3] = "Colpire un tubo sotto pressione";
-        _text[594, 4] = "In die druckleitung einschneiden";
+        _text[594, 4] = "Aufprall auf ein unter Druck stehendes Rohr";
         _text[594, 5] = "Perforar una tubería bajo presión";
         _text[594, 6] = "Wpiąć się w rurę pod ciśnieniem";
         _text[594, 7] = "Perfurar a tubagem sob pressão";
@@ -6618,7 +6618,7 @@ public class Language : MonoBehaviour
         _text[595, 1] = "Отфильтровать шлам из нижних баков"; // выбор 3 + Oil, - Water
         _text[595, 2] = "Filtrer les boues des réservoirs inférieurs.";
         _text[595, 3] = "Filtrare i fanghi dai serbatoi inferiori";
-        _text[595, 4] = "Schlamm aus den unteren Tanks filtern";
+        _text[595, 4] = "Den Schlamm aus den unteren Tanks herausfiltern.";
         _text[595, 5] = "Filtrar el lodo de los tanques inferiores";
         _text[595, 6] = "Przefiltrować szlam z dolnych zbiorników";
         _text[595, 7] = "Filtrar a borra dos tanques inferiores";
@@ -6629,7 +6629,7 @@ public class Language : MonoBehaviour
         _text[596, 1] = "Вы подключаете гермошланги и запускаете помпы.\n\nТопливо уходит в защищённые контейнеры.\n\nПомпы прожорливы - запас энергии корабля на время проседает."; // + Oil, - Electricity
         _text[596, 2] = "Vous raccordez les flexibles de pression et mettez les pompes en marche.\n\nLe carburant s'écoule dans des conteneurs protégés.\n\nLes pompes sont très gourmandes en énergie et puisent temporairement dans les réserves énergétiques du navire.";
         _text[596, 3] = "Si collegano i tubi flessibili e si avviano le pompe.\n\nIl carburante scorre in contenitori protetti.\n\nLe pompe sono voraci e prosciugano temporaneamente le riserve di energia della nave.";
-        _text[596, 4] = "Du schließt Dichtschläuche an und startest die Pumpen.\n\nDer Treibstoff fließt in geschützte Container.\n\nDie Pumpen sind gefräßig - die Energiereserve des Schiffes sinkt vorübergehend.";
+        _text[596, 4] = "Man schließt die Druckschläuche an und startet die Pumpen.\n\nDer Treibstoff fließt in geschützte Behälter.\n\nDie Pumpen arbeiten mit hohem Fördervolumen und verbrauchen vorübergehend die Energiereserven des Schiffs.";
         _text[596, 5] = "Conectas mangueras herméticas y pones en marcha las bombas.\n\nEl combustible pasa a contenedores protegidos.\n\nLas bombas consumen mucho - la reserva de energía de la nave cae durante un tiempo.";
         _text[596, 6] = "Podłączasz hermetyczne węże i uruchamiasz pompy.\n\nPaliwo trafia do zabezpieczonych kontenerów.\n\nPompy są żarłoczne - zapas energii statku chwilowo spada.";
         _text[596, 7] = "Você liga as mangueiras herméticas e inicia as bombas.\n\nO combustível vai para contentores protegidos.\n\nAs bombas consomem muito - a reserva de energia da nave baixa por algum tempo.";
@@ -6640,7 +6640,7 @@ public class Language : MonoBehaviour
         _text[597, 1] = "Успех: труба выдерживает.\n\nЧистая струя топлива уходит в сборники.\n\nВы перекрываете клапан и отходите до того, как давление подпрыгнет."; // + Oil
         _text[597, 2] = "Succès: le tuyau tient bon.\n\nUn flux de carburant propre alimente les collecteurs.\n\nVous fermez la vanne et reculez avant que la pression ne monte brusquement.";
         _text[597, 3] = "Successo: il tubo regge.\n\nUn flusso pulito di carburante scorre nei collettori.\n\nChiudi la valvola e ti allontani prima che la pressione aumenti.";
-        _text[597, 4] = "Erfolg: Die Rohrleitung hält.\n\nEin sauberer Strahl Treibstoff läuft in die Sammler.\n\nDu schließt das Ventil und ziehst ab, bevor der Druck hochschießt.";
+        _text[597, 4] = "Erfolg: Die Leitung hält.\n\nEin sauberer Kraftstoffstrom fließt in die Sammler.\n\nSie schließen das Ventil und entfernen sich, bevor der Druck ansteigt.";
         _text[597, 5] = "Éxito: la tubería aguanta.\n\nUn chorro limpio de combustible va a los colectores.\n\nCierras la válvula y te retiras antes de que la presión se dispare.";
         _text[597, 6] = "Sukces: rura wytrzymuje.\n\nCzysty strumień paliwa trafia do zbiorników.\n\nZakręcasz zawór i wycofujesz się, zanim ciśnienie skoczy.";
         _text[597, 7] = "Sucesso: a tubagem aguenta.\n\nUm jato limpo de combustível entra nos coletores.\n\nVocê fecha a válvula e afasta-se antes de a pressão disparar.";
@@ -6651,7 +6651,7 @@ public class Language : MonoBehaviour
         _text[598, 1] = "Провал: трубу разрывает.\n\nТопливный туман накрывает площадку. Вы продуваете отсек и тратите запасы на аварийную герметизацию.\n\nОткачка сорвана."; // - RandomResource
         _text[598, 2] = "Panne: la conduite se rompt.\n\nUn brouillard de carburant recouvre la plateforme. Vous purgez le compartiment et utilisez les ressources disponibles pour effectuer un colmatage d'urgence.Le pompage est interrompu.";
         _text[598, 3] = "Guasto: il tubo si rompe.\n\nUna nebbia di carburante ricopre la piattaforma. Si spurga il compartimento e si consumano le scorte per la sigillatura di emergenza.\n\nIl pompaggio è interrotto.";
-        _text[598, 4] = "Misserfolg: Die Leitung reißt.\n\nEin Treibstoffnebel bedeckt die Anlage. Du spülst die Sektion aus und verbrauchst Vorräte für Notabdichtung.\n\nDas Abpumpen scheitert.";
+        _text[598, 4] = "Fehler: Die Rohrleitung bricht.\n\nTreibstoffnebel bedeckt die Plattform. Sie spülen das Abteil und verbrauchen Vorräte für die Notabdichtung.\n\nDie Pumpfunktion ist unterbrochen.";
         _text[598, 5] = "Fracaso: la tubería se revienta.\n\nUna niebla de combustible cubre la zona. Purga el compartimento y gastas reservas en la hermetización de emergencia.\n\nLa extracción se arruina.";
         _text[598, 6] = "Porażka: rura pęka.\n\nPaliwowa mgła zalewa teren. Przewietrzasz przedział i zużywasz zapasy na awaryjne uszczelnienie.\n\nOdpompowanie zostaje przerwane.";
         _text[598, 7] = "Fracasso: a tubagem rebenta.\n\nUma névoa de combustível cobre a área. Você purga o compartimento e gasta reservas em selagem de emergência.\n\nA bombagem falha.";
@@ -6662,7 +6662,7 @@ public class Language : MonoBehaviour
         _text[599, 1] = "Вы собираете густой шлам со дна баков и прогоняете его через фильтры.\n\nНужна вода, чтобы охлаждать и промывать систему.\n\nТопливо получается грубым, но оно горит."; // + Oil, - Water
         _text[599, 2] = "On récupère les boues épaisses au fond des réservoirs et on les filtre.\n\nIl faut de l'eau pour refroidir et rincer le système.\n\nLe carburant est grossier, mais il brûle.";
         _text[599, 3] = "Si raccolgono i fanghi densi dal fondo dei serbatoi e li si fa passare attraverso i filtri.\n\nÈ necessaria acqua per raffreddare e lavare il sistema.\n\nIl carburante è grossolano, ma brucia.";
-        _text[599, 4] = "Du sammelst dicken Schlamm vom Boden der Tanks und jagst ihn durch Filter.\n\nDu brauchst Wasser, um das System zu kühlen und zu spülen.\n\nDer Treibstoff ist grob, aber er brennt.";
+        _text[599, 4] = "Man sammelt den dicken Schlamm vom Boden der Tanks und leitet ihn durch Filter.\n\nWasser wird benötigt, um das System zu kühlen und zu spülen.\n\nDer Kraftstoff ist grobkörnig, verbrennt aber.";
         _text[599, 5] = "Recoges el lodo espeso del fondo de los tanques y lo pasas por filtros.\n\nSe necesita agua para enfriar y lavar el sistema.\n\nEl combustible sale tosco, pero arde.";
         _text[599, 6] = "Zbierasz gęsty szlam z dna zbiorników i przepuszczasz go przez filtry.\n\nPotrzebna jest woda, by chłodzić i płukać układ.\n\nPaliwo wychodzi prymitywne, ale się pali.";
         _text[599, 7] = "Você recolhe a borra espessa do fundo dos tanques e passa-a por filtros.\n\nÉ necessária água para arrefecer e lavar o sistema.\n\nO combustível fica grosseiro, mas arde.";
@@ -6674,7 +6674,7 @@ public class Language : MonoBehaviour
         _text[600, 1] = "Камеры фиксируют рядом сломанную грузовую баржу. Её контейнеры разорваны.\n\nВнутри - стопки каменных блоков, заготовленных для строительства и забытых в темноте.";
         _text[600, 2] = "Des caméras capturent une barge de transport de marchandises échouée à proximité. Ses conteneurs sont éventrés.\n\nÀ l'intérieur, des piles de blocs de pierre, destinés à la construction, sont oubliées dans l'obscurité.";
         _text[600, 3] = "Le telecamere inquadrano una chiatta cargo distrutta nelle vicinanze. I suoi container sono fatti a pezzi.\n\nAl suo interno si trovano pile di blocchi di pietra, preparati per la costruzione e dimenticati nell'oscurità.";
-        _text[600, 4] = "Kameras erfassen in der Nähe eine beschädigte Frachtbarke. Ihre Container sind aufgerissen.\n\nIm Inneren - Stapel von Steinblöcken, für Bau vorbereitet und in der Dunkelheit vergessen.";
+        _text[600, 4] = "Kameras filmen ein nahegelegenes, havariertes Frachtschiff. Seine Container sind zerfetzt.\n\nIm Inneren befinden sich Stapel von Steinblöcken, die für den Bau vorbereitet und in der Dunkelheit vergessen worden waren.";
         _text[600, 5] = "Las cámaras registran cerca una barcaza de carga averiada. Sus contenedores están destrozados.\n\nDentro hay pilas de bloques de piedra, preparados para construcción y olvidados en la oscuridad.";
         _text[600, 6] = "Kamery rejestrują w pobliżu uszkodzoną barkę transportową. Jej kontenery są rozerwane.\n\nW środku leżą stosy kamiennych bloków, przygotowanych do budowy i zapomnianych w ciemności.";
         _text[600, 7] = "As câmaras registam uma barcaça de carga partida ali perto. Os seus contentores estão rasgados.\n\nNo interior - pilhas de blocos de pedra, preparados para construção e esquecidos na escuridão.";
@@ -6685,7 +6685,7 @@ public class Language : MonoBehaviour
         _text[601, 1] = "Забрать блоки"; // выбор 1
         _text[601, 2] = "Ramassez les blocs";
         _text[601, 3] = "Raccogli i blocchi";
-        _text[601, 4] = "Blöcke bergen";
+        _text[601, 4] = "Hebt die Blöcke auf";
         _text[601, 5] = "Recoger los bloques";
         _text[601, 6] = "Zabrać bloki";
         _text[601, 7] = "Recolher os blocos";
@@ -6696,7 +6696,7 @@ public class Language : MonoBehaviour
         _text[602, 1] = "Успех: дроны цепляют контейнеры и затаскивают их внутрь.\n\nВы укрепляете грузовой отсек и фиксируете добычу."; // + каменный блок
         _text[602, 2] = "Succès: Les drones récupèrent les conteneurs et les traînent à l’intérieur.\n\nVous renforcez la cale et sécurisez le butin.";
         _text[602, 3] = "Successo: i droni afferrano i container e li trascinano all'interno.\n\nRinforzi la stiva e metti in sicurezza il bottino.";
-        _text[602, 4] = "Erfolg: Drohnen haken die Container ein und ziehen sie hinein.\n\nDu verstärkst den Frachtraum und sicherst die Beute.";
+        _text[602, 4] = "Erfolg: Die Drohnen schnappen sich die Container und ziehen sie hinein.\n\nDu sicherst den Frachtraum und die Beute.";
         _text[602, 5] = "Éxito: los drones enganchan los contenedores y los arrastran al interior.\n\nRefuerzas la bodega de carga y aseguras el botín.";
         _text[602, 6] = "Sukces: drony chwytają kontenery i wciągają je do środka.\n\nWzmacniasz ładownię i zabezpieczasz zdobycz.";
         _text[602, 7] = "Sucesso: os drones prendem os contêineres e os puxam para dentro.\n\nVocê reforça o compartimento de carga e fixa o saque.";
@@ -6707,7 +6707,7 @@ public class Language : MonoBehaviour
         _text[603, 1] = "Провал: баржа внезапно проворачивается. Контейнер с силой врезается в корпус, срывая обшивку.\n\nДроны срочно герметизируют пробоину, пока вы отходите на безопасную дистанцию."; // - ядро
         _text[603, 2] = "Échec: La barge se met soudainement à tourner sur elle-même. Le conteneur percute la coque et l’arrache.\n\nDes drones se précipitent pour colmater la brèche tandis que vous vous repliez à une distance de sécurité.";
         _text[603, 3] = "Fallimento: la chiatta ruota improvvisamente. Il container si schianta contro lo scafo, strappandolo.\n\nI droni si precipitano a sigillare la breccia mentre tu ti ritiri a distanza di sicurezza.";
-        _text[603, 4] = "Misserfolg: Die Barge dreht sich plötzlich. Ein Container kracht mit Wucht in den Rumpf und reißt die Außenhaut auf.\n\nDie Drohnen dichten das Leck hastig ab, während du auf sichere Distanz gehst.";
+        _text[603, 4] = "Fehler: Der Lastkahn dreht sich plötzlich. Der Container kracht in den Rumpf und reißt ihn ab.\n\nDrohnen eilen herbei, um die Lücke zu schließen, während Sie sich in Sicherheit bringen.";
         _text[603, 5] = "Fracaso: la barcaza gira de golpe. El contenedor se estrella con fuerza contra el casco, arrancando el revestimiento.\n\nLos drones sellan la brecha de emergencia mientras te retiras a una distancia segura.";
         _text[603, 6] = "Porażka: barka nagle się obraca. Kontener z impetem uderza w kadłub, zrywając poszycie.\n\nDrony awaryjnie uszczelniają wyrwę, a ty wycofujesz się na bezpieczną odległość.";
         _text[603, 7] = "Falha: a barcaça gira de repente. O contêiner atinge o casco com força, arrancando parte do revestimento.\n\nOs drones selam a brecha às pressas enquanto você se afasta para uma distância segura.";
@@ -6729,7 +6729,7 @@ public class Language : MonoBehaviour
         _text[605, 1] = "Вы оставляете обломки позади. Баржа продолжает вращаться в тишине, рассыпая камень в пустоту."; // ничего
         _text[605, 2] = "Vous laissez l'épave derrière vous. La barge continue de tourner en silence, dispersant des pierres dans le vide.";
         _text[605, 3] = "Ti lasci alle spalle i rottami. La chiatta continua a girare in silenzio, sparpagliando rocce nel vuoto.";
-        _text[605, 4] = "Du lässt die Trümmer hinter dir. Die Barge rotiert weiter in der Stille und streut Gestein in die Leere.";
+        _text[605, 4] = "Du lässt das Wrack zurück. Der Lastkahn dreht sich lautlos weiter und schleudert Gestein in die Leere.";
         _text[605, 5] = "Dejas los restos atrás. La barcaza sigue girando en silencio, esparciendo piedra en el vacío.";
         _text[605, 6] = "Zostawiasz szczątki za sobą. Barka nadal obraca się w ciszy, rozsypując kamień w pustkę.";
         _text[605, 7] = "Você deixa os destroços para trás. A barcaça continua girando em silêncio, espalhando pedra no vazio.";
@@ -6741,7 +6741,7 @@ public class Language : MonoBehaviour
         _text[606, 1] = "Торговый корабль пересекает ваш маршрут. Его корпус залатан сварными пластинами, а грузовые модули закрыты термозащитными кожухами.\n\nВ эфир проходит короткое сообщение:\n\n\"Железные слитки. Чистое литьё. Цена фиксирована\".";
         _text[606, 2] = "Un navire marchand croise votre route. Sa coque est rafistolée avec des plaques soudées et ses modules de cargaison sont protégés par des boucliers thermiques.\n\nUn court message est diffusé:\n\n\"Lingots de fer. Fonte pure. Prix fixe\".";
         _text[606, 3] = "Una nave mercantile attraversa la vostra rotta. Il suo scafo è rattoppato con piastre saldate e i suoi moduli di carico sono protetti da scudi termici.\n\nViene trasmesso un breve messaggio:\n\n\"Lingotti di ferro. Fusione pura. Prezzo fissato.\"";
-        _text[606, 4] = "Ein Handelsschiff kreuzt deine Route. Sein Rumpf ist mit Schweißplatten geflickt, und die Frachmodule sind mit Hitzeschutzhüllen abgedeckt.\n\nIm Äther kommt eine kurze Nachricht:\n\n\"Eisenbarren. Reiner Guss. Preis fest.\".";
+        _text[606, 4] = "Ein Handelsschiff kreuzt Ihre Route. Sein Rumpf ist mit geschweißten Platten geflickt, und seine Lademodule sind durch Hitzeschilde geschützt.\n\nEine kurze Nachricht wird gesendet:\n\n„Eisenbarren. Reiner Guss. Festpreis.“";
         _text[606, 5] = "Un mercante cruza tu ruta. Su casco está remendado con placas soldadas y los módulos de carga están cubiertos con carenados térmicos.\n\nEn la radio entra un breve mensaje:\n\n\"Lingotes de hierro. Fundición limpia. Precio fijo\".";
         _text[606, 6] = "Statek handlowy przecina twój kurs. Jego kadłub jest połatany spawanymi płytami, a moduły ładunkowe osłonięte pokrywami termoizolacyjnymi.\n\nW eter idzie krótka wiadomość:\n\n\"Żelazne sztaby. Czysty odlew. Cena stała\".";
         _text[606, 7] = "Um navio mercante cruza a sua rota. O casco está remendado com placas soldadas, e os módulos de carga estão cobertos por capas de proteção térmica.\n\nUma mensagem curta passa pelo rádio:\n\n\"Barras de ferro. Fundição pura. Preço fixo\".";
@@ -6752,7 +6752,7 @@ public class Language : MonoBehaviour
         _text[607, 1] = "Купить слитки за квант"; // выбор 1
         _text[607, 2] = "Acheter des lingots pour des quant";
         _text[607, 3] = "Acquista lingotti per quant";
-        _text[607, 4] = "Barren für quant kaufen";
+        _text[607, 4] = "Kaufen Sie Edelmetalle für Quant";
         _text[607, 5] = "Comprar lingotes por quant";
         _text[607, 6] = "Kupić sztaby za quant";
         _text[607, 7] = "Comprar barras por quant";
@@ -6763,7 +6763,7 @@ public class Language : MonoBehaviour
         _text[608, 1] = "Обмен завершён. Герметичные ящики подтягиваются к вам по магнитному тросу.\n\nТорговец обрывает связь и меняет курс."; // - кванты, + железные слитки
         _text[608, 2] = "L'échange est terminé. Les caisses scellées sont attirées vers vous par un câble magnétique.\n\nLe commerçant rompt le contact et change de cap.";
         _text[608, 3] = "Lo scambio è completato. Le casse sigillate vengono tirate verso di voi tramite un cavo magnetico.\n\nIl mercante interrompe il contatto e cambia rotta.";
-        _text[608, 4] = "Tausch abgeschlossen. Versiegelte Kisten werden per Magnetseil zu dir herangezogen.\n\nDer Händler bricht die Verbindung ab und ändert den Kurs.";
+        _text[608, 4] = "Der Austausch ist abgeschlossen. Die versiegelten Kisten werden per Magnetkabel zu Ihnen gezogen.\n\nDer Händler bricht den Kontakt ab und ändert die Richtung.";
         _text[608, 5] = "Intercambio completado. Las cajas herméticas se acercan hacia ti por un cable magnético.\n\nEl comerciante corta la comunicación y cambia de rumbo.";
         _text[608, 6] = "Wymiana zakończona. Hermetyczne skrzynie są wciągane do ciebie po magnetycznej linie.\n\nHandlarz zrywa łączność i zmienia kurs.";
         _text[608, 7] = "Troca concluída. Caixas herméticas são puxadas até você por um cabo magnético.\n\nO comerciante encerra a comunicação e muda de rumo.";
@@ -6774,7 +6774,7 @@ public class Language : MonoBehaviour
         _text[609, 1] = "Напасть на корабль"; // выбор 2
         _text[609, 2] = "Attaquer le navire";
         _text[609, 3] = "Attaccare la nave";
-        _text[609, 4] = "Das Schiff angreifen";
+        _text[609, 4] = "Greife das Schiff an";
         _text[609, 5] = "Atacar la nave";
         _text[609, 6] = "Napaść na statek";
         _text[609, 7] = "Atacar o navio";
@@ -6785,7 +6785,7 @@ public class Language : MonoBehaviour
         _text[610, 1] = "Успех: точный удар выводит из строя их привод. Дроны вскрывают грузовые замки и отцепляют контейнеры.\n\nВы уходите, пока сигнал бедствия не успел разойтись."; // + железные слитки
         _text[610, 2] = "Succès: une frappe précise neutralise leur système de propulsion. Les drones crochetent les verrous de la cargaison et détachent les conteneurs.\n\nVous partez avant que le signal de détresse n’ait eu le temps de se propager.";
         _text[610, 3] = "Successo: un attacco preciso disattiva il loro motore. I droni forzano i lucchetti del carico e staccano i container.\n\nTe ne vai prima che il segnale di soccorso abbia la possibilità di diffondersi.";
-        _text[610, 4] = "Erfolg: Ein präziser Schlag setzt ihren Antrieb außer Gefecht. Drohnen knacken die Frachtschlösser und koppeln die Container ab.\n\nDu verschwindest, bevor sich das Notsignal verbreiten kann.";
+        _text[610, 4] = "Erfolg: Ein präziser Treffer setzt ihren Antrieb außer Gefecht. Die Drohnen knacken die Ladungssicherungen und trennen die Container ab.\n\nSie verschwinden, bevor sich das Notsignal ausbreiten kann.";
         _text[610, 5] = "Éxito: un golpe preciso inutiliza su propulsión. Los drones fuerzan los cierres de carga y desacoplan los contenedores.\n\nTe vas antes de que la señal de socorro se propague.";
         _text[610, 6] = "Sukces: precyzyjne uderzenie wyłącza ich napęd. Drony otwierają zamki ładunkowe i odczepiają kontenery.\n\nOdchodzisz, zanim sygnał SOS zdąży się rozejść.";
         _text[610, 7] = "Sucesso: um golpe preciso inutiliza o propulsor deles. Os drones arrombam as travas de carga e desprendem os contêineres.\n\nVocê parte antes que o sinal de socorro consiga se espalhar.";
@@ -6796,7 +6796,7 @@ public class Language : MonoBehaviour
         _text[611, 1] = "Провал: торговец оказался вооружён. Очередь повреждает обшивку и выводит из строя часть систем.\n\nВы теряете одно ядро и включаете варп, уходя с поля боя."; // -1 ядро, без слитков
         _text[611, 2] = "Échec: Le vaisseau marchand est armé. L’explosion endommage la coque et met hors service certains systèmes.\n\nVous perdez un noyau et passez en distorsion pour fuir le champ de bataille.";
         _text[611, 3] = "Fallimento: il mercantile è armato. L'esplosione danneggia lo scafo e disattiva alcuni sistemi.\n\nPerdi un nucleo e attivi la curvatura, fuggendo dal campo di battaglia.";
-        _text[611, 4] = "Misserfolg: Der Händler war bewaffnet. Eine Salve beschädigt die Außenhaut und legt einen Teil der Systeme lahm.\n\nDu verlierst einen Kern und zündest den Warp, um das Gefecht zu verlassen.";
+        _text[611, 4] = "Fehlschlag: Der Händler ist bewaffnet. Die Explosion beschädigt die Hülle und setzt einige Systeme außer Gefecht.\n\nDu verlierst einen Kern und aktivierst den Warp, um vom Schlachtfeld zu fliehen.";
         _text[611, 5] = "Fracaso: el mercante estaba armado. Una ráfaga daña el casco e inutiliza parte de los sistemas.\n\nPierdes un núcleo y activas el warp, abandonando el combate.";
         _text[611, 6] = "Porażka: handlarz okazał się uzbrojony. Seria uszkadza poszycie i wyłącza część systemów.\n\nTracisz jeden rdzeń i włączasz warp, opuszczając pole walki.";
         _text[611, 7] = "Falha: o comerciante estava armado. Uma rajada danifica o casco e desativa parte dos sistemas.\n\nVocê perde um núcleo e aciona o warp, saindo do combate.";
@@ -6808,7 +6808,7 @@ public class Language : MonoBehaviour
         _text[612, 1] = "Вы обнаружили рядом громоздкую плавильную платформу.\n\nНа ней горит рабочее освещение. За термощитами заметно движение - это не дроны.\n\nВ связь выходит усталый голос:\n\n\"Корабль. Есть железные слитки? Печь работает, но сырьё закончилось.\n\nДайте железо - мы переплавим и отольём сталь\".";
         _text[612, 2] = "Vous apercevez une imposante plateforme de fusion à proximité.\n\nLes projecteurs sont allumés. On distingue des mouvements derrière les boucliers thermiques: ce ne sont pas des drones.Une voix lasse se fait entendre\n\n\"Vaisseau. Avez-vous des lingots de fer? Le fourneau fonctionne, mais nous sommes à court de matières premières.\n\nDonnez-nous le fer - nous le fondrons et le coulerons en acier. »";
         _text[612, 3] = "Noti una ingombrante piattaforma di fusione nelle vicinanze.\n\nLe luci di lavoro sono accese. Si vedono dei movimenti dietro gli scudi termici: non sono droni.\n\nUna voce stanca risponde:\n\n\"Nave. Avete lingotti di ferro? La fornace è in funzione, ma abbiamo finito le materie prime.\n\nDacci il ferro: lo fonderemo e lo trasformeremo in acciaio.\"";
-        _text[612, 4] = "Du entdeckst in der Nähe eine wuchtige Schmelzplattform.\n\nAuf ihr brennt Arbeitslicht. Hinter den Hitzeschildern ist Bewegung zu sehen - das sind keine Drohnen.\n\nEine müde Stimme meldet sich:\n\n\"Schiff. Hast du Eisenbarren? Der Ofen läuft, aber das Rohmaterial ist alle.\n\nGib Eisen - wir schmelzen es um und gießen Stahl.\".";
+        _text[612, 4] = "In der Nähe entdecken Sie eine massive Schmelzplattform.\n\nDie Betriebslichter sind an. Hinter den Wärmeschilden ist Bewegung zu erkennen – das sind keine Drohnen.\n\nEine müde Stimme meldet sich:\n\n„Schiff. Haben Sie Eisenbarren? Der Ofen läuft, aber uns fehlen die Rohstoffe.\n\nGeben Sie uns das Eisen – wir schmelzen es und gießen es zu Stahl.“";
         _text[612, 5] = "Descubres cerca una voluminosa plataforma de fundición.\n\nLas luces de trabajo están encendidas. Tras los escudos térmicos se ve movimiento: no son drones.\n\nEn la comunicación entra una voz cansada:\n\n\"Nave. ¿Tienes lingotes de hierro? El horno funciona, pero se acabó la materia prima.\n\nDanos hierro: lo refundiremos y colaremos acero\".";
         _text[612, 6] = "Wykrywasz w pobliżu masywną platformę hutniczą.\n\nPali się na niej oświetlenie robocze. Za osłonami termicznymi widać ruch - to nie drony.\n\nW łączność wchodzi zmęczony głos:\n\n\"Statek. Masz żelazne sztaby? Piec działa, ale surowiec się skończył.\n\nDaj żelazo - przetopimy i odlejemy stal\".";
         _text[612, 7] = "Você encontra uma plataforma de fundição volumosa por perto.\n\nAs luzes de trabalho estão acesas. Há movimento atrás dos escudos térmicos - não são drones.\n\nUma voz cansada entra na comunicação:\n\n\"Nave. Tem barras de ferro? O forno funciona, mas a matéria-prima acabou.\n\nDê ferro - nós vamos fundir e moldar aço\".";
@@ -6819,7 +6819,7 @@ public class Language : MonoBehaviour
         _text[613, 1] = "Передать железные слитки"; // выбор 1
         _text[613, 2] = "Remettez-moi les lingots de fer";
         _text[613, 3] = "Consegnare i lingotti di ferro";
-        _text[613, 4] = "Eisenbarren übergeben";
+        _text[613, 4] = "Geben Sie die Eisenbarren heraus.";
         _text[613, 5] = "Entregar lingotes de hierro";
         _text[613, 6] = "Przekazać żelazne sztaby";
         _text[613, 7] = "Entregar barras de ferro";
@@ -6830,7 +6830,7 @@ public class Language : MonoBehaviour
         _text[614, 1] = "Платформа фиксирует ваши ящики и подаёт их на линию переплавки.\n\nЧерез некоторое время возвращается остуженный контейнер: стальные слитки, запечатанные и промаркированные."; // - железные слитки, + стальные слитки
         _text[614, 2] = "La plateforme sécurise vos caisses et les achemine vers la ligne de refusion.\n\nAprès un certain temps, le conteneur refroidi revient: des lingots d’acier, scellés et étiquetés.";
         _text[614, 3] = "La piattaforma fissa le casse e le immette nella linea di rifusione.\n\nDopo un po', il contenitore raffreddato ritorna: lingotti d'acciaio, sigillati ed etichettati.";
-        _text[614, 4] = "Die Plattform fixiert deine Kisten und führt sie der Schmelzlinie zu.\n\nNach einiger Zeit kommt ein abgekühlter Container zurück: Stahlbarren, versiegelt und markiert.";
+        _text[614, 4] = "Die Plattform sichert Ihre Kisten und führt sie der Schmelzanlage zu.\n\nNach einer Weile kommt der abgekühlte Container zurück: Stahlbarren, versiegelt und etikettiert.";
         _text[614, 5] = "La plataforma asegura tus cajas y las alimenta a la línea de refundición.\n\nAl cabo de un rato vuelve un contenedor enfriado: lingotes de acero, sellados y marcados.";
         _text[614, 6] = "Platforma blokuje twoje skrzynie i podaje je na linię przetopu.\n\nPo pewnym czasie wraca schłodzony kontener: stalowe sztaby, zaplombowane i oznaczone.";
         _text[614, 7] = "A plataforma prende as suas caixas e as envia para a linha de fusão.\n\nDepois de algum tempo, retorna um contêiner resfriado: barras de aço, seladas e marcadas.";
@@ -6841,7 +6841,7 @@ public class Language : MonoBehaviour
         _text[615, 1] = "Отказаться"; // выбор 2
         _text[615, 2] = "Refuser";
         _text[615, 3] = "Rifiutare";
-        _text[615, 4] = "Ablehnen";
+        _text[615, 4] = "Verweigern";
         _text[615, 5] = "Negarse";
         _text[615, 6] = "Odmówić";
         _text[615, 7] = "Recusar";
@@ -6852,7 +6852,7 @@ public class Language : MonoBehaviour
         _text[616, 1] = "Канал закрывается. Платформа продолжает работу и больше не отвечает."; // ничего
         _text[616, 2] = "La chaîne ferme. La plateforme continue de fonctionner mais ne répond plus.";
         _text[616, 3] = "Il canale sta chiudendo. La piattaforma continua a funzionare e non risponde più.";
-        _text[616, 4] = "Der Kanal schließt sich. Die Plattform arbeitet weiter und antwortet nicht mehr.";
+        _text[616, 4] = "Der Kanal wird geschlossen. Die Plattform ist weiterhin in Betrieb, reagiert aber nicht mehr.";
         _text[616, 5] = "El canal se cierra. La plataforma sigue trabajando y no vuelve a responder.";
         _text[616, 6] = "Kanał się zamyka. Platforma kontynuuje pracę i już nie odpowiada.";
         _text[616, 7] = "O canal é encerrado. A plataforma continua operando e não responde mais.";
@@ -6863,7 +6863,7 @@ public class Language : MonoBehaviour
         _text[617, 1] = "Попытаться забрать сталь силой"; // выбор 3
         _text[617, 2] = "Essayez de prendre l'acier par la force.";
         _text[617, 3] = "Prova a prendere l'acciaio con la forza";
-        _text[617, 4] = "Versuchen, den Stahl mit Gewalt zu nehmen";
+        _text[617, 4] = "Versuchen Sie, den Stahl mit Gewalt zu entfernen";
         _text[617, 5] = "Intentar llevarse el acero por la fuerza";
         _text[617, 6] = "Spróbować zabrać stal siłą";
         _text[617, 7] = "Tentar pegar o aço à força";
@@ -6874,7 +6874,7 @@ public class Language : MonoBehaviour
         _text[618, 1] = "Успех: вы выводите из строя внешние замки и отцепляете один контейнер.\n\nВы включаете варп и уходите со стальными слитками."; // + стальные слитки
         _text[618, 2] = "Succès: Vous désactivez les verrous externes et détachez un conteneur.\n\nVous activez le saut spatial et vous échappez avec les lingots d’acier.";
         _text[618, 3] = "Successo: disattivi i lucchetti esterni e stacchi un contenitore.\n\nAttivi il teletrasporto e scappi con i lingotti d'acciaio.";
-        _text[618, 4] = "Erfolg: Du setzt die äußeren Schlösser außer Gefecht und koppelst einen Container ab.\n\nDu aktivierst den Warp und verschwindest mit Stahlbarren.";
+        _text[618, 4] = "Erfolg: Du deaktivierst die äußeren Verriegelungen und trennst einen Container ab.\n\nDu aktivierst den Warp und entkommst mit den Stahlbarren.";
         _text[618, 5] = "Éxito: inutilizas los cierres externos y desacoplas un contenedor.\n\nActivas el warp y te vas con los lingotes de acero.";
         _text[618, 6] = "Sukces: uszkadzasz zewnętrzne zamki i odczepiasz jeden kontener.\n\nWłączasz warp i odchodzisz ze stalowymi sztabami.";
         _text[618, 7] = "Sucesso: você inutiliza as travas externas e desprende um contêiner.\n\nVocê aciona o warp e parte com as barras de aço.";
@@ -6885,7 +6885,7 @@ public class Language : MonoBehaviour
         _text[619, 1] = "Провал: платформа включает аварийный сброс. Выброс перегретого газа бьёт по корпусу, повреждает обшивку и перегружает ядро.\n\nВы теряете одно ядро и включаете варп, оставляя платформу позади."; // -1 ядро
         _text[619, 2] = "Panne: La plateforme déclenche une réinitialisation d'urgence. Une explosion de gaz surchauffé percute la coque, endommageant le blindage et surchargeant le réacteur.\n\nVous perdez un réacteur et entamez une distorsion spatiale, abandonnant la plateforme.";
         _text[619, 3] = "Errore: la piattaforma avvia un reset di emergenza. Una scarica di gas surriscaldato colpisce lo scafo, danneggiandone la placcatura e sovraccaricando il nucleo.\n\nPerdi un nucleo e inizi la curvatura, abbandonando la piattaforma.";
-        _text[619, 4] = "Misserfolg: Die Plattform aktiviert den Notabwurf. Ein Schwall überhitzten Gases trifft den Rumpf, beschädigt die Außenhaut und überlastet den Kern.\n\nDu verlierst einen Kern und zündest den Warp, die Plattform hinter dir lassend.";
+        _text[619, 4] = "Fehler: Die Plattform leitet einen Notreset ein. Ein Ausbruch von überhitztem Gas trifft die Hülle, beschädigt die Panzerung und überlastet den Kern.\n\nSie verlieren einen Kern und aktivieren den Warpantrieb, wobei Sie die Plattform zurücklassen.";
         _text[619, 5] = "Fracaso: la plataforma activa un lanzamiento de emergencia. Una descarga de gas sobrecalentado golpea el casco, daña el revestimiento y sobrecarga el núcleo.\n\nPierdes un núcleo y activas el warp, dejando la plataforma atrás.";
         _text[619, 6] = "Porażka: platforma uruchamia awaryjny zrzut. Wyrzut przegrzanego gazu uderza w kadłub, uszkadza poszycie i przeciąża rdzeń.\n\nTracisz jeden rdzeń i włączasz warp, zostawiając platformę za sobą.";
         _text[619, 7] = "Falha: a plataforma ativa um descarte de emergência. Um jato de gás superaquecido atinge o casco, danifica o revestimento e sobrecarrega o núcleo.\n\nVocê perde um núcleo e aciona o warp, deixando a plataforma para trás.";
@@ -6897,7 +6897,7 @@ public class Language : MonoBehaviour
         _text[620, 1] = "Сбой в узле двигателя вынуждает вас сесть на ближайшую планету для ремонта.\n\nВы выбираете тёмную сторону и садитесь на минимальной тяге, полностью гасите внешнее освещение.\n\nПока дроны осматривают повреждения, сенсоры фиксируют слабые тепловые сигнатуры неподалёку.\n\nВпереди - небольшой перерабатывающий участок: генераторы, контейнеры и склад с маркировкой меди.\n\nВнутри - ящики с медными пластинами.";
         _text[620, 2] = "Une panne moteur vous oblige à atterrir sur la planète la plus proche pour réparation.\n\nVous choisissez le côté obscur et atterrissez à poussée minimale, éteignant complètement toute lumière extérieure.Pendant que des drones inspectent les dégâts, des capteurs détectent de faibles signatures thermiques à proximité.Plus loin se trouve une petite installation de traitement: des générateurs, des conteneurs et un entrepôt marqué par le cuivre.\n\nÀ l’intérieur se trouvent des caisses de plaques de cuivre.";
         _text[620, 3] = "Un malfunzionamento in un componente del motore ti costringe ad atterrare sul pianeta più vicino per le riparazioni.\n\nScegli il lato oscuro e atterri con la spinta minima, spegnendo completamente l'illuminazione esterna.\n\nMentre i droni ispezionano i danni, i sensori rilevano deboli tracce di calore nelle vicinanze.\n\nPiù avanti c'è un piccolo impianto di lavorazione: generatori, container e un magazzino contrassegnato con rame.\n\nAll'interno ci sono casse di lastre di rame.";
-        _text[620, 4] = "Ein Defekt im Triebwerksknoten zwingt dich, für Reparaturen auf dem nächsten Planeten zu landen.\n\nDu wählst die dunkle Seite und setzt mit minimalem Schub auf, schaltest die Außenbeleuchtung vollständig ab.\n\nWährend die Drohnen den Schaden prüfen, registrieren die Sensoren schwache Wärmesignaturen in der Nähe.\n\nVoraus liegt ein kleiner Aufbereitungsbereich: Generatoren, Container und ein Lager mit Kupfer-Markierung.\n\nDrinnen stehen Kisten mit Kupferplatten.";
+        _text[620, 4] = "Eine Fehlfunktion eines Triebwerksbauteils zwingt Sie zur Landung auf dem nächstgelegenen Planeten, um Reparaturen durchzuführen.\n\nSie entscheiden sich für die dunkle Seite und landen mit minimalem Schub, wodurch die Außenbeleuchtung vollständig erlischt.\n\nWährend Drohnen den Schaden untersuchen, erfassen Sensoren schwache Wärmesignaturen in der Nähe.\n\nVor Ihnen befindet sich eine kleine Verarbeitungsanlage: Generatoren, Container und ein mit Kupfer markiertes Lagerhaus.\n\nIm Inneren befinden sich Kisten mit Kupferplatten.";
         _text[620, 5] = "Un fallo en el módulo del motor te obliga a aterrizar en el planeta más cercano para reparaciones.\n\nEliges el lado oscuro y desciendes con empuje mínimo, apagando por completo la iluminación exterior.\n\nMientras los drones inspeccionan los daños, los sensores detectan débiles firmas térmicas cerca.\n\nDelante hay una pequeña zona de procesamiento: generadores, contenedores y un almacén con marcaje de cobre.\n\nDentro hay cajas con placas de cobre.";
         _text[620, 6] = "Awaria w węźle silnika zmusza cię do lądowania na najbliższej planecie w celu naprawy.\n\nWybierasz ciemną stronę i schodzisz na minimalnym ciągu, całkowicie gasząc zewnętrzne oświetlenie.\n\nGdy drony sprawdzają uszkodzenia, sensory rejestrują słabe sygnatury cieplne w pobliżu.\n\nPrzed tobą - niewielki punkt przetwarzania: generatory, kontenery i magazyn z oznaczeniami miedzi.\n\nW środku - skrzynie z miedzianymi płytami.";
         _text[620, 7] = "Uma falha no nó do motor obriga você a pousar no planeta mais próximo para reparos.\n\nVocê escolhe o lado escuro e pousa com empuxo mínimo, apagando completamente as luzes externas.\n\nEnquanto os drones inspecionam os danos, os sensores registram assinaturas térmicas fracas ali perto.\n\nÀ frente há um pequeno ponto de processamento: geradores, contêineres e um depósito com marcação de cobre.\n\nDentro - caixas com placas de cobre.";
@@ -6908,7 +6908,7 @@ public class Language : MonoBehaviour
         _text[621, 1] = "Не рисковать"; // выбор 1
         _text[621, 2] = "Ne prenez pas de risques";
         _text[621, 3] = "Non correre rischi";
-        _text[621, 4] = "Kein risiko eingehen";
+        _text[621, 4] = "Geh keine Risiken ein";
         _text[621, 5] = "No arriesgarse";
         _text[621, 6] = "Nie ryzykować";
         _text[621, 7] = "Não arriscar";
@@ -6919,7 +6919,7 @@ public class Language : MonoBehaviour
         _text[622, 1] = "Вы оставляете дронов на ремонте и избегаете лишних контактов.\n\nУчасток остаётся позади, растворяясь в темноте."; // ничего
         _text[622, 2] = "Vous laissez les drones en réparation et évitez tout contact inutile.\n\nLa zone est abandonnée, disparaissant dans l'obscurité.";
         _text[622, 3] = "Si lasciano i droni in riparazione ed si evitano contatti non necessari.\n\nL'area viene abbandonata, scomparendo nell'oscurità.";
-        _text[622, 4] = "Du lässt die Drohnen reparieren und vermeidest unnötige Kontakte.\n\nDer Bereich bleibt zurück und löst sich in der Dunkelheit auf.";
+        _text[622, 4] = "Sie lassen die Drohnen zur Reparatur zurück und vermeiden unnötigen Kontakt.\n\nDas Gebiet bleibt zurück und verschwindet in der Dunkelheit.";
         _text[622, 5] = "Dejas a los drones con la reparación y evitas contactos innecesarios.\n\nLa zona queda atrás, disolviéndose en la oscuridad.";
         _text[622, 6] = "Zostawiasz drony przy naprawie i unikasz zbędnych kontaktów.\n\nPunkt zostaje za tobą, rozpływając się w ciemności.";
         _text[622, 7] = "Você deixa os drones nos reparos e evita contatos desnecessários.\n\nO local fica para trás, se dissolvendo na escuridão.";
@@ -6930,7 +6930,7 @@ public class Language : MonoBehaviour
         _text[623, 1] = "Тихо пробраться через сервисный люк"; // выбор 2
         _text[623, 2] = "Glissez-vous discrètement par la trappe de service.";
         _text[623, 3] = "Intrufolarsi silenziosamente attraverso il portello di servizio";
-        _text[623, 4] = "Leise durch eine Serviceklappe eindringen";
+        _text[623, 4] = "Schleich dich leise durch die Wartungsklappe";
         _text[623, 5] = "Colarse en silencio por la escotilla de servicio";
         _text[623, 6] = "Cicho przedostać się przez luk serwisowy";
         _text[623, 7] = "Entrar silenciosamente pela escotilha de serviço";
@@ -6941,7 +6941,7 @@ public class Language : MonoBehaviour
         _text[624, 1] = "Вы идёте по неосвещённым проходам и зонам вне обзора камер, затем пробираетесь на склад через сервисный люк.\n\nЯщики рядом. Опаснее всего - вынести их наружу.";
         _text[624, 2] = "Vous traversez des couloirs non éclairés et des zones hors champ, puis vous pénétrez dans l'entrepôt par une trappe de service.\n\nLes caisses sont à proximité. Le plus dangereux est de les sortir.";
         _text[624, 3] = "Si attraversano passaggi bui e aree fuori dalla visuale della telecamera, poi si entra nel magazzino attraverso un portello di servizio.\n\nLe casse sono vicine. La cosa più pericolosa è tirarle fuori.";
-        _text[624, 4] = "Du gehst durch unbeleuchtete Gänge und Bereiche außerhalb der Kamerasicht und gelangst dann durch eine Serviceklappe ins Lager.\n\nDie Kisten sind nahe. Am gefährlichsten ist es, sie nach draußen zu bringen.";
+        _text[624, 4] = "Man durchquert unbeleuchtete Gänge und Bereiche außerhalb des Kamerabildes und betritt dann das Lagerhaus durch eine Wartungsklappe.\n\nDie Kisten befinden sich in der Nähe. Am gefährlichsten ist es, sie herauszunehmen.";
         _text[624, 5] = "Avanzas por pasillos sin luz y zonas fuera del campo de las cámaras, y luego te cuelas al almacén por una escotilla de servicio.\n\nLas cajas están cerca. Lo más peligroso es sacarlas al exterior.";
         _text[624, 6] = "Idziesz nieoświetlonymi przejściami i strefami poza zasięgiem kamer, po czym dostajesz się do magazynu przez luk serwisowy.\n\nSkrzynie są blisko. Najbardziej ryzykowne - wynieść je na zewnątrz.";
         _text[624, 7] = "Você segue por corredores sem iluminação e áreas fora do alcance das câmeras, e então entra no depósito pela escotilha de serviço.\n\nAs caixas estão perto. O mais perigoso é levá-las para fora.";
@@ -6952,7 +6952,7 @@ public class Language : MonoBehaviour
         _text[625, 1] = "Сначала обесточить участок"; // выбор 2.1
         _text[625, 2] = "Tout d'abord, déconnectez le courant de la zone.";
         _text[625, 3] = "Per prima cosa, togliere l'energia alla zona.";
-        _text[625, 4] = "Zuerst den Bereich stromlos machen";
+        _text[625, 4] = "Zuerst muss der Bereich stromlos gemacht werden.";
         _text[625, 5] = "Primero cortar la energía de la zona";
         _text[625, 6] = "Najpierw odciąć zasilanie punktu";
         _text[625, 7] = "Primeiro, desligar a energia do local";
@@ -6963,7 +6963,7 @@ public class Language : MonoBehaviour
         _text[626, 1] = "Вы пытаетесь заглушить генераторы.\n\nУспех: свет и датчики замолкают."; // выбор 2.1 успех
         _text[626, 2] = "Vous tentez d'arrêter les générateurs.\n\nRéussite: les lumières et les capteurs s'éteignent.";
         _text[626, 3] = "Tenti di spegnere i generatori.\n\nRiuscito: luci e sensori si spengono.";
-        _text[626, 4] = "Du versuchst, die Generatoren zu drosseln.\n\nErfolg: Licht und Sensoren verstummen.";
+        _text[626, 4] = "Sie versuchen, die Generatoren abzuschalten.\n\nErfolg: Die Lichter und Sensoren verstummen.";
         _text[626, 5] = "Intentas apagar los generadores.\n\nÉxito: las luces y los sensores se apagan.";
         _text[626, 6] = "Próbujesz wyłączyć generatory.\n\nSukces: światła i czujniki milkną.";
         _text[626, 7] = "Você tenta desligar os geradores.\n\nSucesso: as luzes e os sensores silenciam.";
@@ -6974,7 +6974,7 @@ public class Language : MonoBehaviour
         _text[627, 1] = "Вы пытаетесь заглушить генераторы. Провал: скачок нагрузки - и система тревоги просыпается."; // выбор 2.1 провал
         _text[627, 2] = "Vous tentez d'arrêter les générateurs. Échec: une surtension survient et le système d'alarme se déclenche.";
         _text[627, 3] = "Tenti di spegnere i generatori. Errore: si verifica un picco di carico e scatta il sistema di allarme.";
-        _text[627, 4] = "Du versuchst, die Generatoren zu drosseln. Misserfolg: Ein Lastsprung - und das Alarmsystem erwacht.";
+        _text[627, 4] = "Sie versuchen, die Generatoren abzuschalten. Fehler: Es kommt zu einer Lastspitze, und das Alarmsystem wird ausgelöst.";
         _text[627, 5] = "Intentas apagar los generadores. Fracaso: un pico de carga y el sistema de alarma despierta.";
         _text[627, 6] = "Próbujesz wyłączyć generatory. Porażka: skok obciążenia - i system alarmowy budzi się.";
         _text[627, 7] = "Você tenta desligar os geradores. Falha: um pico de carga - e o sistema de alarme desperta.";
@@ -6985,7 +6985,7 @@ public class Language : MonoBehaviour
         _text[628, 1] = "Быстро схватить и уйти"; // выбор 2.2
         _text[628, 2] = "Prenez et partez rapidement";
         _text[628, 3] = "Prendi e vai velocemente";
-        _text[628, 4] = "Schnell greifen und verschwinden";
+        _text[628, 4] = "Schnell greifen und los!";
         _text[628, 5] = "Agarrar rápido y salir";
         _text[628, 6] = "Szybko chwycić i uciec";
         _text[628, 7] = "Pegar rápido e sair";
@@ -6996,7 +6996,7 @@ public class Language : MonoBehaviour
         _text[629, 1] = "Успех: вы вытаскиваете ящики и взлетаете до того, как успевает прилететь ответ.\n\nМедные пластины закреплены."; // выбор 2.2 успех + медные пластины
         _text[629, 2] = "Succès: Vous sortez les boîtes et vous vous enfuyez avant même que la réponse n’arrive.\n\nLes plaques de cuivre sont en sécurité.";
         _text[629, 3] = "Successo: estrai le scatole e te ne vai prima che arrivi la risposta.\n\nLe piastre di rame sono fissate.";
-        _text[629, 4] = "Erfolg: Du ziehst die Kisten heraus und startest, bevor eine Antwort eintreffen kann.\n\nKupferplatten gesichert.";
+        _text[629, 4] = "Erfolg: Du holst die Kisten heraus und verschwindest, bevor die Antwort eintrifft.\n\nDie Kupferplatten sind gesichert.";
         _text[629, 5] = "Éxito: sacas las cajas y despegas antes de que llegue la respuesta.\n\nLas placas de cobre están aseguradas.";
         _text[629, 6] = "Sukces: wyciągasz skrzynie i startujesz, zanim nadleci odpowiedź.\n\nMiedziane płyty zabezpieczone.";
         _text[629, 7] = "Sucesso: você retira as caixas e decola antes que chegue qualquer resposta.\n\nAs placas de cobre estão fixadas.";
@@ -7007,7 +7007,7 @@ public class Language : MonoBehaviour
         _text[630, 1] = "Провал: вас замечают. При взлёте по корпусу приходятся попадания.\n\nВы включаете варп и уходите, но одно ядро выходит из строя."; // выбор 2.2 провал -1 ядро
         _text[630, 2] = "Échec: Vous êtes repéré. La coque est touchée au décollage.\n\nVous activez le saut spatial et vous échappez, mais un réacteur tombe en panne.";
         _text[630, 3] = "Fallimento: vieni individuato. Lo scafo subisce dei colpi durante il decollo.\n\nAttivi la curvatura e riesci a fuggire, ma un nucleo si rompe.";
-        _text[630, 4] = "Misserfolg: Du wirst entdeckt. Beim Start schlagen Treffer in den Rumpf.\n\nDu zündest den Warp und verschwindest, doch ein Kern fällt aus.";
+        _text[630, 4] = "Fehlschlag: Sie werden entdeckt. Die Hülle wird beim Start getroffen.\n\nSie aktivieren den Warpantrieb und entkommen, doch ein Kern fällt aus.";
         _text[630, 5] = "Fracaso: te detectan. Durante el despegue el casco recibe impactos.\n\nActivas el warp y te vas, pero un núcleo queda fuera de servicio.";
         _text[630, 6] = "Porażka: zostajesz zauważony. Podczas startu kadłub dostaje trafienia.\n\nWłączasz warp i odchodzisz, ale jeden rdzeń ulega awarii.";
         _text[630, 7] = "Falha: você é notado. Durante a decolagem, o casco é atingido.\n\nVocê aciona o warp e sai, mas um núcleo falha.";
@@ -7019,7 +7019,7 @@ public class Language : MonoBehaviour
         _text[631, 1] = "Вы находите заброшенный промышленный объект на поверхности: разрушенные смесители, треснувшие силосы и бетонную площадку, занесённую пылью.\n\nГлавное хранилище частично обрушено, но внутри всё ещё сложены паллеты с запечатанными мешками и затвердевшими блоками.";
         _text[631, 2] = "Vous découvrez en surface une installation industrielle abandonnée: des mélangeurs hors d’usage, des silos fissurés et une dalle de béton recouverte de poussière.\n\nL’entrepôt principal s’est partiellement effondré, mais des palettes de sacs scellés et de blocs de béton durci sont encore empilées à l’intérieur.";
         _text[631, 3] = "In superficie si trova un impianto industriale abbandonato: miscelatori in rovina, silos crepati e una piattaforma di cemento ricoperta di polvere.\n\nIl deposito principale è parzialmente crollato, ma all'interno sono ancora accatastati pallet di sacchi sigillati e blocchi induriti.";
-        _text[631, 4] = "Du findest an der Oberfläche eine verlassene Industrieanlage: zerstörte Mischer, rissige Silos und eine Betonfläche, die von Staub bedeckt ist.\n\nDas Hauptlager ist teilweise eingestürzt, doch innen liegen noch Paletten mit versiegelten Säcken und ausgehärteten Blöcken.";
+        _text[631, 4] = "An der Oberfläche stößt man auf eine verlassene Industrieanlage: zerstörte Mischer, rissige Silos und eine staubbedeckte Betonplatte.\n\nDas Hauptlager ist teilweise eingestürzt, doch darin stapeln sich noch immer Paletten mit versiegelten Säcken und verhärteten Blöcken.";
         _text[631, 5] = "Encuentras una instalación industrial abandonada en la superficie: mezcladoras destruidas, silos agrietados y una explanada de hormigón cubierta de polvo.\n\nEl almacén principal está parcialmente derrumbado, pero dentro aún hay palés con sacos sellados y bloques endurecidos.";
         _text[631, 6] = "Znajdujesz na powierzchni opuszczony obiekt przemysłowy: zniszczone mieszalniki, popękane silosy i betonowy plac zasypany pyłem.\n\nGłówny magazyn częściowo się zawalił, ale w środku wciąż stoją palety z zapieczętowanymi workami i stwardniałymi blokami.";
         _text[631, 7] = "Você encontra uma instalação industrial abandonada na superfície: misturadores destruídos, silos rachados e uma plataforma de concreto coberta de poeira.\n\nO armazém principal desabou parcialmente, mas lá dentro ainda há paletes com sacos lacrados e blocos endurecidos.";
@@ -7030,7 +7030,7 @@ public class Language : MonoBehaviour
         _text[632, 1] = "Забрать бетон у входа"; // выбор 1
         _text[632, 2] = "Ramassez le béton à l'entrée";
         _text[632, 3] = "Raccogliere il calcestruzzo all'ingresso";
-        _text[632, 4] = "Beton am Eingang bergen";
+        _text[632, 4] = "Beton am Eingang abholen";
         _text[632, 5] = "Recoger el hormigón de la entrada";
         _text[632, 6] = "Zabrać beton przy wejściu";
         _text[632, 7] = "Recolher o concreto na entrada";
@@ -7041,7 +7041,7 @@ public class Language : MonoBehaviour
         _text[633, 1] = "Вы грузите ближайший бетон на дронов, стараясь не тревожить нестабильные конструкции.\n\nУспех: погрузка проходит быстро. Вы отходите до того, как конструкция начинает проседать.\n\nБетон закреплён."; // выбор 1 успех + бетон
         _text[633, 2] = "Vous chargez les drones avec le béton le plus proche, en prenant soin de ne pas perturber les structures instables.\n\nSuccès: le chargement est rapide. Vous vous retirez avant que la structure ne commence à s’affaisser.\n\nLe béton est stabilisé.";
         _text[633, 3] = "Carichi il calcestruzzo più vicino sui droni, cercando di non disturbare le strutture instabili.\n\nRiuscito: il caricamento procede rapidamente. Ti ritiri prima che la struttura inizi a cedere.\n\nIl calcestruzzo è fissato.";
-        _text[633, 4] = "Du lädst den nächstliegenden Beton auf die Drohnen, ohne die instabilen Konstruktionen zu stören.\n\nErfolg: Das Verladen geht schnell. Du ziehst dich zurück, bevor die Struktur nachgibt.\n\nBeton gesichert.";
+        _text[633, 4] = "Sie laden den nächstgelegenen Beton auf die Drohnen und achten dabei darauf, die instabilen Strukturen nicht zu beschädigen.\n\nErfolg: Das Verladen geht schnell vonstatten. Sie ziehen sich zurück, bevor sich die Struktur setzt.\n\nDer Beton ist gesichert.";
         _text[633, 5] = "Cargas el hormigón más cercano en los drones, procurando no perturbar las estructuras inestables.\n\nÉxito: la carga se realiza rápido. Te retiras antes de que la estructura empiece a ceder.\n\nEl hormigón está asegurado.";
         _text[633, 6] = "Ładujesz najbliższy beton na drony, starając się nie naruszać niestabilnych konstrukcji.\n\nSukces: załadunek przebiega szybko. Wycofujesz się, zanim konstrukcja zacznie osiadać.\n\nBeton zabezpieczony.";
         _text[633, 7] = "Você carrega o concreto mais próximo nos drones, tentando não mexer nas estruturas instáveis.\n\nSucesso: o carregamento é rápido. Você se afasta antes que a estrutura comece a ceder.\n\nO concreto está fixado.";
@@ -7052,7 +7052,7 @@ public class Language : MonoBehaviour
         _text[634, 1] = "Вы грузите ближайший бетон на дронов, стараясь не тревожить нестабильные конструкции.\n\nПровал: грунт проседает. Обломки осыпаются и заваливают стопки.\n\nВы отходите ни с чем."; // выбор 1 провал ничего
         _text[634, 2] = "Vous chargez les drones avec le béton le plus proche, en prenant soin de ne pas perturber les structures instables.\n\nGroin: le sol s’affaisse. Des débris tombent et recouvrent les piles de béton.\n\nVous battez en retraite les mains vides.";
         _text[634, 3] = "Carichi il calcestruzzo più vicino sui droni, cercando di non disturbare le strutture instabili.\n\nVoragine: il terreno sprofonda. I detriti cadono e ricoprono le pile.\n\nTi ritiri a mani vuote.";
-        _text[634, 4] = "Du lädst den nächstliegenden Beton auf die Drohnen, ohne die instabilen Konstruktionen zu stören.\n\nMisserfolg: Der Boden gibt nach. Trümmer stürzen herab und begraben die Stapel.\n\nDu ziehst ohne Beute ab.";
+        _text[634, 4] = "Du verlädst die Drohnen mit dem nächstgelegenen Beton und versuchst dabei, die instabilen Strukturen nicht zu beschädigen.\n\nErdfall: Der Boden senkt sich. Trümmer fallen herab und bedecken die Stapel.\n\nDu ziehst dich mit leeren Händen zurück.";
         _text[634, 5] = "Cargas el hormigón más cercano en los drones, procurando no perturbar las estructuras inestables.\n\nFracaso: el terreno cede. Los escombros caen y sepultan las pilas.\n\nTe retiras con las manos vacías.";
         _text[634, 6] = "Ładujesz najbliższy beton na drony, starając się nie naruszać niestabilnych konstrukcji.\n\nPorażka: grunt osiada. Odłamki osypują się i zasypują stosy.\n\nOdchodzisz z niczym.";
         _text[634, 7] = "Você carrega o concreto mais próximo nos drones, tentando não mexer nas estruturas instáveis.\n\nFalha: o solo cede. Os destroços desabam e soterram as pilhas.\n\nVocê se afasta de mãos vazias.";
@@ -7063,7 +7063,7 @@ public class Language : MonoBehaviour
         _text[635, 1] = "Пройти глубже в хранилище"; // выбор 2
         _text[635, 2] = "Pénétrez plus profondément dans la chambre forte";
         _text[635, 3] = "Addentrati nel caveau";
-        _text[635, 4] = "Tiefer ins Lager gehen";
+        _text[635, 4] = "Dringen Sie tiefer in den Tresor vor.";
         _text[635, 5] = "Adentrarse en el almacén";
         _text[635, 6] = "Wejść głębiej do magazynu";
         _text[635, 7] = "Ir mais fundo no armazém";
@@ -7074,7 +7074,7 @@ public class Language : MonoBehaviour
         _text[636, 1] = "Глубинные секции нестабильны. В воздухе висит пыль, а перекрытия держатся на пределе.\n\nМожно забрать бетон быстрее - или действовать осторожно.";
         _text[636, 2] = "Les parties profondes sont instables. De la poussière est en suspension dans l'air et les sols sont à leur limite de rupture.\n\nVous pouvez retirer le béton plus rapidement ou procéder avec précaution.";
         _text[636, 3] = "Le sezioni profonde sono instabili. La polvere è sospesa nell'aria e i pavimenti sono prossimi alla rottura.\n\nÈ possibile rimuovere il calcestruzzo più velocemente o procedere con cautela.";
-        _text[636, 4] = "Die tieferen Bereiche sind instabil. Staub liegt in der Luft, und die Decken halten am Limit.\n\nDu kannst den Beton schneller bergen - oder vorsichtig vorgehen.";
+        _text[636, 4] = "Die tieferen Bereiche sind instabil. Staub liegt in der Luft, und die Böden sind an ihrer Belastungsgrenze.\n\nSie können den Beton schneller entfernen oder vorsichtig vorgehen.";
         _text[636, 5] = "Las secciones interiores son inestables. El polvo flota en el aire y los techos aguantan al límite.\n\nPuedes sacar el hormigón más rápido... o actuar con cautela.";
         _text[636, 6] = "Głębsze sekcje są niestabilne. W powietrzu wisi pył, a stropy trzymają się na granicy wytrzymałości.\n\nMożesz zabrać beton szybciej - albo działać ostrożnie.";
         _text[636, 7] = "As seções mais profundas são instáveis. Há poeira suspensa no ar, e as lajes estão no limite.\n\nDá para pegar o concreto mais rápido - ou agir com cautela.";
@@ -7085,7 +7085,7 @@ public class Language : MonoBehaviour
         _text[637, 1] = "Срезать опоры и вытащить паллеты быстро"; // выбор 2.1
         _text[637, 2] = "Coupez les supports et retirez rapidement les palettes.";
         _text[637, 3] = "Tagliare i supporti e rimuovere rapidamente i pallet";
-        _text[637, 4] = "Stützen abschneiden und Paletten schnell herausziehen";
+        _text[637, 4] = "Die Stützen durchtrennen und die Paletten schnell entfernen.";
         _text[637, 5] = "Cortar los soportes y sacar los palés rápido";
         _text[637, 6] = "Przeciąć podpory i szybko wyciągnąć palety";
         _text[637, 7] = "Cortar os suportes e puxar os paletes rapidamente";
@@ -7096,7 +7096,7 @@ public class Language : MonoBehaviour
         _text[638, 1] = "Дроны срезают опоры и выдёргивают паллеты.\n\nУспех: груз вынесен за секунды. Бетон закреплён."; // выбор 2.1 успех + бетон
         _text[638, 2] = "Des drones sectionnent les supports et arrachent les palettes.\n\nRéussite: la cargaison est retirée en quelques secondes. Le béton est sécurisé.";
         _text[638, 3] = "I droni tagliano i supporti e tirano fuori i pallet.\n\nRiuscito: il carico viene rimosso in pochi secondi. Il calcestruzzo è fissato.";
-        _text[638, 4] = "Drohnen schneiden die Stützen ab und reißen die Paletten heraus.\n\nErfolg: Die Ladung ist in Sekunden draußen. Beton gesichert.";
+        _text[638, 4] = "Drohnen durchtrennen die Stützkonstruktion und ziehen die Paletten heraus.\n\nErfolg: Die Ladung ist in Sekundenschnelle entfernt. Der Beton ist gesichert.";
         _text[638, 5] = "Los drones cortan los soportes y arrancan los palés.\n\nÉxito: la carga se saca en segundos. El hormigón está asegurado.";
         _text[638, 6] = "Drony przecinają podpory i wyrywają palety.\n\nSukces: ładunek wyniesiony w kilka sekund. Beton zabezpieczony.";
         _text[638, 7] = "Os drones cortam os suportes e arrancam os paletes.\n\nSucesso: a carga é retirada em segundos. O concreto está fixado.";
@@ -7107,7 +7107,7 @@ public class Language : MonoBehaviour
         _text[639, 1] = "Дроны срезают опоры и выдёргивают паллеты.\n\nПровал: перекрытия рушатся. Вы уходите, но одно ядро выходит из строя от удара и перегрузки."; // выбор 2.1 провал -1 ядро
         _text[639, 2] = "Des drones sectionnent les supports et arrachent les palettes.\n\nÉchec: les planchers s’effondrent. Vous parvenez à vous échapper, mais un noyau cède sous le choc et la surcharge.";
         _text[639, 3] = "I droni tagliano i supporti e strappano via i pallet.\n\nFallimento: i solai crollano. Riesci a scappare, ma un nucleo cede a causa dell'impatto e del sovraccarico.";
-        _text[639, 4] = "Drohnen schneiden die Stützen ab und reißen die Paletten heraus.\n\nMisserfolg: Die Decken stürzen ein. Du entkommst, aber ein Kern fällt durch Schlag und Überlastung aus.";
+        _text[639, 4] = "Drohnen durchtrennen die Stützkonstruktion und reißen die Paletten heraus.\n\nDas Ergebnis: Die Böden brechen ein. Sie können sich retten, aber ein Kern versagt durch den Aufprall und die Überlastung.";
         _text[639, 5] = "Los drones cortan los soportes y arrancan los palés.\n\nFracaso: los techos se vienen abajo. Te retiras, pero un núcleo queda fuera de servicio por el impacto y la sobrecarga.";
         _text[639, 6] = "Drony przecinają podpory i wyrywają palety.\n\nPorażka: stropy się zawalają. Uciekasz, ale jeden rdzeń ulega awarii od uderzenia i przeciążenia.";
         _text[639, 7] = "Os drones cortam os suportes e arrancam os paletes.\n\nFalha: as lajes desabam. Você sai, mas um núcleo falha por impacto e sobrecarga.";
@@ -7118,7 +7118,7 @@ public class Language : MonoBehaviour
         _text[640, 1] = "Действовать медленно со стабилизаторами"; // выбор 2.2
         _text[640, 2] = "Allez-y doucement avec les stabilisateurs";
         _text[640, 3] = "Procedi lentamente con gli stabilizzatori";
-        _text[640, 4] = "Langsam mit Stabilisatoren vorgehen";
+        _text[640, 4] = "Fahren Sie langsam mit Stabilisatoren";
         _text[640, 5] = "Actuar despacio con estabilizadores";
         _text[640, 6] = "Działać powoli ze stabilizatorami";
         _text[640, 7] = "Agir lentamente com estabilizadores";
@@ -7129,7 +7129,7 @@ public class Language : MonoBehaviour
         _text[641, 1] = "Вы ставите стабилизаторы и ведёте дронов по узким проходам.\n\nУспех: хранилище выдерживает.\n\nБетон закреплён."; // выбор 2.2 успех + бетон
         _text[641, 2] = "Vous installez les stabilisateurs et guidez les drones dans des passages étroits.\n\nSuccès: l’entrepôt tient bon.Le béton est sécurisé.";
         _text[641, 3] = "Si installano gli stabilizzatori e si guidano i droni attraverso passaggi stretti.\n\nRiuscito: il deposito regge.\n\nIl calcestruzzo è fissato.";
-        _text[641, 4] = "Du stellst Stabilisatoren auf und führst die Drohnen durch enge Passagen.\n\nErfolg: Das Lager hält.\n\nBeton gesichert.";
+        _text[641, 4] = "Sie positionieren Stabilisatoren und steuern die Drohnen durch enge Passagen.\n\nErfolg: Das Lager hält.\n\nDer Beton ist gesichert.";
         _text[641, 5] = "Colocas estabilizadores y guías a los drones por pasillos estrechos.\n\nÉxito: el almacén resiste.\n\nEl hormigón está asegurado.";
         _text[641, 6] = "Ustawiasz stabilizatory i prowadzisz drony wąskimi przejściami.\n\nSukces: magazyn wytrzymuje.\n\nBeton zabezpieczony.";
         _text[641, 7] = "Você instala estabilizadores e guia os drones por passagens estreitas.\n\nSucesso: o armazém aguenta.\n\nO concreto está fixado.";
@@ -7140,7 +7140,7 @@ public class Language : MonoBehaviour
         _text[642, 1] = "Вы ставите стабилизаторы и ведёте дронов по узким проходам.\n\nПровал: скрытая трещина раскрывается под нагрузкой. Паллеты срываются вниз, и вы уходите ни с чем."; // выбор 2.2 провал
         _text[642, 2] = "Vous déployez les stabilisateurs et guidez les drones à travers d'étroits passages.\n\nUn gouffre se forme: une fissure invisible s'ouvre sous la charge. Les palettes s'effondrent et vous repartez bredouille.";
         _text[642, 3] = "Utilizzi gli stabilizzatori e guidi i droni attraverso passaggi stretti.\n\nUna voragine: una crepa nascosta si apre sotto il carico. I pallet cadono e te ne vai a mani vuote.";
-        _text[642, 4] = "Du stellst Stabilisatoren auf und führst die Drohnen durch enge Passagen.\n\nMisserfolg: Ein versteckter Riss öffnet sich unter der Last. Die Paletten stürzen hinab, und du gehst leer aus.";
+        _text[642, 4] = "Sie setzen Stabilisatoren ein und lotsen die Drohnen durch enge Passagen.\n\nEin Erdloch: Unter der Ladung tut sich ein verborgener Riss auf. Die Paletten stürzen ein, und Sie gehen leer aus.";
         _text[642, 5] = "Colocas estabilizadores y guías a los drones por pasillos estrechos.\n\nFracaso: una grieta oculta se abre bajo la carga. Los palés se desploman y te vas con las manos vacías.";
         _text[642, 6] = "Ustawiasz stabilizatory i prowadzisz drony wąskimi przejściami.\n\nPorażka: ukryta szczelina otwiera się pod obciążeniem. Palety osuwają się w dół, a ty odchodzisz z niczym.";
         _text[642, 7] = "Você instala estabilizadores e guia os drones por passagens estreitas.\n\nFalha: uma fissura oculta se abre sob a carga. Os paletes despencam, e você sai de mãos vazias.";
@@ -7152,7 +7152,7 @@ public class Language : MonoBehaviour
         _text[643, 1] = "Утечка охлаждения вынуждает вас снизиться и сесть на ближайшую планету для ремонта.\n\nМесто посадки холодное и тёмное. Пока дроны осматривают повреждения, сенсоры фиксируют ровный тепловой источник неподалёку.\n\nЭто геотермальный разлом. Рядом стоит старый конденсаторный блок и линия труб, уходящая в породу.\n\nСистема всё ещё даёт пар, но давление нестабильно.";
         _text[643, 2] = "Une fuite du système de refroidissement vous oblige à atterrir sur la planète la plus proche pour effectuer les réparations.\n\nLe site d'atterrissage est froid et sombre. Pendant que les drones inspectent les dégâts, des capteurs détectent une source de chaleur constante à proximité.\n\nIl s'agit d'une faille géothermique. À proximité se trouvent un ancien condenseur et une conduite s'enfonçant dans la roche.\n\nLe système produit encore de la vapeur, mais la pression est instable.";
         _text[643, 3] = "Una perdita di raffreddamento ti costringe a scendere e atterrare sul pianeta più vicino per le riparazioni.\n\nIl sito di atterraggio è freddo e buio. Mentre i droni ispezionano i danni, i sensori rilevano una fonte di calore costante nelle vicinanze.\n\nSi tratta di una frattura geotermica. Nelle vicinanze si trovano un vecchio condensatore e una linea di tubi che si estende nella roccia.\n\nIl sistema produce ancora vapore, ma la pressione è instabile.";
-        _text[643, 4] = "Ein Kühlmittelleck zwingt dich, für Reparaturen zu sinken und auf dem nächsten Planeten zu landen.\n\nDer Landeplatz ist kalt und dunkel. Während die Drohnen den Schaden prüfen, registrieren die Sensoren eine gleichmäßige Wärmequelle in der Nähe.\n\nEs ist ein geothermischer Riss. Daneben steht ein alter Kondensatorblock und eine Rohrleitung, die ins Gestein führt.\n\nDas System liefert noch Dampf, aber der Druck ist instabil.";
+        _text[643, 4] = "Ein Kühlleck zwingt Sie zur Landung auf dem nächstgelegenen Planeten, um Reparaturen durchzuführen.\n\nDer Landeplatz ist kalt und dunkel. Während die Drohnen den Schaden untersuchen, entdecken Sensoren eine konstante Wärmequelle in der Nähe.\n\nEs handelt sich um einen geothermischen Riss. In der Nähe befinden sich ein alter Kondensator und eine Rohrleitung, die in das Gestein führt.\n\nDas System produziert noch Dampf, aber der Druck ist instabil.";
         _text[643, 5] = "Una fuga en el sistema de refrigeración te obliga a descender y aterrizar en el planeta más cercano para reparar.\n\nEl lugar de aterrizaje es frío y oscuro. Mientras los drones inspeccionan los daños, los sensores detectan una fuente térmica constante cerca.\n\nEs una fisura geotérmica. Al lado hay un viejo bloque de condensadores y una línea de tuberías que se adentra en la roca.\n\nEl sistema aún genera vapor, pero la presión es inestable.";
         _text[643, 6] = "Wyciek chłodziwa zmusza cię do zniżenia lotu i lądowania na najbliższej planecie w celu naprawy.\n\nMiejsce lądowania jest zimne i ciemne. Gdy drony sprawdzają uszkodzenia, sensory wykrywają w pobliżu równomierne źródło ciepła.\n\nTo geotermalne pęknięcie. Obok stoi stary blok kondensatorów i linia rur wchodząca w skałę.\n\nSystem wciąż daje parę, ale ciśnienie jest niestabilne.";
         _text[643, 7] = "Um vazamento no sistema de refrigeração obriga você a descer e pousar no planeta mais próximo para reparos.\n\nO local de pouso é frio e escuro. Enquanto os drones inspecionam os danos, os sensores registram uma fonte térmica estável ali perto.\n\nÉ uma fenda geotérmica. Ao lado há um antigo bloco condensador e uma linha de tubulações que entra na rocha.\n\nO sistema ainda produz vapor, mas a pressão é instável.";
@@ -7163,7 +7163,7 @@ public class Language : MonoBehaviour
         _text[644, 1] = "Подключиться осторожно"; // выбор 1
         _text[644, 2] = "Connectez soigneusement";
         _text[644, 3] = "Collegare con attenzione";
-        _text[644, 4] = "Vorsichtig anschließen";
+        _text[644, 4] = "Verbinden Sie sich sorgfältig";
         _text[644, 5] = "Conectarse con cuidado";
         _text[644, 6] = "Podłączyć się ostrożnie";
         _text[644, 7] = "Conectar com cuidado";
@@ -7174,7 +7174,7 @@ public class Language : MonoBehaviour
         _text[645, 1] = "Вы выравниваете коллекторы и подключаете гибкие магистрали, медленно открывая клапаны.\n\nУспех: давление стабилизируется. Вы заполняете баки паром и герметизируете систему."; // выбор 1 успех + пар
         _text[645, 2] = "Vous alignez les collecteurs et raccordez les flexibles, en ouvrant lentement les vannes.\n\nSuccès: la pression se stabilise. Vous remplissez les réservoirs de vapeur et fermez le système.";
         _text[645, 3] = "Si allineano i collettori e si collegano le linee flessibili, aprendo lentamente le valvole.\n\nRiuscito: la pressione si stabilizza. Si riempiono i serbatoi di vapore e si sigilla il sistema.";
-        _text[645, 4] = "Du richtest die Kollektoren aus und verbindest flexible Leitungen, während du die Ventile langsam öffnest.\n\nErfolg: Der Druck stabilisiert sich. Du füllst die Tanks mit Dampf und dichtest das System ab.";
+        _text[645, 4] = "Sie richten die Verteiler aus und verbinden die flexiblen Schläuche, während Sie die Ventile langsam öffnen.\n\nErfolg: Der Druck stabilisiert sich. Sie füllen die Tanks mit Dampf und verschließen das System.";
         _text[645, 5] = "Alineas los colectores y conectas líneas flexibles, abriendo las válvulas lentamente.\n\nÉxito: la presión se estabiliza. Llenas los tanques de vapor y sellas el sistema.";
         _text[645, 6] = "Wyrównujesz kolektory i podłączasz elastyczne przewody, powoli otwierając zawory.\n\nSukces: ciśnienie się stabilizuje. Napełniasz zbiorniki parą i uszczelniasz system.";
         _text[645, 7] = "Você alinha os coletores e conecta linhas flexíveis, abrindo as válvulas lentamente.\n\nSucesso: a pressão se estabiliza. Você enche os tanques com vapor e sela o sistema.";
@@ -7185,7 +7185,7 @@ public class Language : MonoBehaviour
         _text[646, 1] = "Вы выравниваете коллекторы и подключаете гибкие магистрали, медленно открывая клапаны.\n\nПровал: давление срывается вверх. Горячий выброс бьёт по оборудованию, и вам приходится разорвать подключение."; // выбор 1 провал ничего
         _text[646, 2] = "Vous alignez les collecteurs et raccordez les flexibles, en ouvrant lentement les vannes.\n\nUne chute de pression: la pression monte brusquement. Un jet d'eau chaude atteint l'équipement et vous devez débrancher le raccord.";
         _text[646, 3] = "Si allineano i collettori e si collegano le linee flessibili, aprendo lentamente le valvole.\n\nUn calo: la pressione aumenta. Una scarica calda colpisce l'apparecchiatura e si deve scollegare il collegamento.";
-        _text[646, 4] = "Du richtest die Kollektoren aus und verbindest flexible Leitungen, während du die Ventile langsam öffnest.\n\nMisserfolg: Der Druck schießt nach oben. Ein heißer Ausstoß trifft das Equipment, und du musst die Verbindung kappen.";
+        _text[646, 4] = "Sie richten die Verteiler aus und verbinden die flexiblen Leitungen, während Sie die Ventile langsam öffnen.\n\nEin Druckabfall: Der Druck steigt sprunghaft an. Heißes Kühlmittel trifft auf das Gerät, und Sie müssen die Verbindung trennen.";
         _text[646, 5] = "Alineas los colectores y conectas líneas flexibles, abriendo las válvulas lentamente.\n\nFracaso: la presión se dispara. Una descarga caliente golpea el equipo y te ves obligado a desconectar.";
         _text[646, 6] = "Wyrównujesz kolektory i podłączasz elastyczne przewody, powoli otwierając zawory.\n\nPorażka: ciśnienie gwałtownie rośnie. Gorący wyrzut uderza w sprzęt i musisz przerwać podłączenie.";
         _text[646, 7] = "Você alinha os coletores e conecta linhas flexíveis, abrindo as válvulas lentamente.\n\nFalha: a pressão dispara. Um jato quente atinge o equipamento, e você precisa interromper a conexão.";
@@ -7196,7 +7196,7 @@ public class Language : MonoBehaviour
         _text[647, 1] = "Забрать пар быстро"; // выбор 2
         _text[647, 2] = "Obtenez rapidement de la vapeur";
         _text[647, 3] = "Prendi un po' di vapore velocemente";
-        _text[647, 4] = "Dampf schnell abziehen";
+        _text[647, 4] = "Schnell etwas Dampf bekommen";
         _text[647, 5] = "Recoger el vapor rápidamente";
         _text[647, 6] = "Szybko zebrać parę";
         _text[647, 7] = "Coletar o vapor rapidamente";
@@ -7207,7 +7207,7 @@ public class Language : MonoBehaviour
         _text[648, 1] = "Вы открываете клапаны на максимум и форсируете подачу в баки.\n\nУспех: вы успеваете заполнить баки до того, как система срывается.\n\nПар закреплён."; // выбор 2 успех + пар
         _text[648, 2] = "Vous ouvrez les vannes au maximum et forcez le flux vers les réservoirs.\n\nSuccès : vous remplissez les réservoirs avant que le système ne s’effondre.L’approvisionnement en vapeur est assuré.";
         _text[648, 3] = "Si aprono le valvole al massimo e si forza il flusso nei serbatoi.\n\nRiuscito: si riesce a riempire i serbatoi prima che il sistema si rompa.\n\nIl vapore è assicurato.";
-        _text[648, 4] = "Du öffnest die Ventile voll und forcierst die Zufuhr in die Tanks.\n\nErfolg: Du füllst die Tanks, bevor das System ausbricht.\n\nDampf gesichert.";
+        _text[648, 4] = "Sie öffnen die Ventile maximal und leiten den Dampf in die Tanks.\n\nErfolg: Sie schaffen es, die Tanks zu füllen, bevor das System ausfällt.\n\nDie Dampfversorgung ist gesichert.";
         _text[648, 5] = "Abres las válvulas al máximo y fuerzas el flujo hacia los tanques.\n\nÉxito: consigues llenarlos antes de que el sistema se descontrole.\n\nEl vapor está asegurado.";
         _text[648, 6] = "Otwierasz zawory na maksimum i wymuszasz podawanie do zbiorników.\n\nSukces: zdążasz napełnić zbiorniki, zanim system się zerwie.\n\nPara zabezpieczona.";
         _text[648, 7] = "Você abre as válvulas ao máximo e força a alimentação para os tanques.\n\nSucesso: você consegue enchê-los antes que o sistema entre em colapso.\n\nO vapor está fixado.";
@@ -7218,7 +7218,7 @@ public class Language : MonoBehaviour
         _text[649, 1] = "Вы открываете клапаны на максимум и форсируете подачу в баки.\n\nПровал: магистраль рвёт давлением. Осколки и жар повреждают оборудование, и одно ядро выходит из строя."; // выбор 2 провал -1 ядро
         _text[649, 2] = "Vous ouvrez les vannes au maximum et forcez le flux vers les réservoirs.\n\nDéfaillance : la conduite principale éclate sous la pression. Les éclats et la chaleur endommagent l’équipement, et un élément central est hors service.";
         _text[649, 3] = "Si aprono le valvole al massimo e si forza il flusso nei serbatoi.\n\nGuasto: la linea principale si rompe sotto pressione. Le schegge e il calore danneggiano l'attrezzatura e un nucleo si rompe.";
-        _text[649, 4] = "Du öffnest die Ventile voll und forcierst die Zufuhr in die Tanks.\n\nMisserfolg: Die Leitung reißt unter dem Druck. Splitter und Hitze beschädigen das Equipment, und ein Kern fällt aus.";
+        _text[649, 4] = "Sie öffnen die Ventile maximal und pressen den Durchfluss in die Tanks.\n\nFehler: Die Hauptleitung platzt unter Druck. Splitter und Hitze beschädigen die Anlage, und ein Kern versagt.";
         _text[649, 5] = "Abres las válvulas al máximo y fuerzas el flujo hacia los tanques.\n\nFracaso: la línea revienta por la presión. Fragmentos y calor dañan el equipo y un núcleo queda fuera de servicio.";
         _text[649, 6] = "Otwierasz zawory na maksimum i wymuszasz podawanie do zbiorników.\n\nPorażka: przewód pęka pod ciśnieniem. Odłamki i żar uszkadzają sprzęt, a jeden rdzeń ulega awarii.";
         _text[649, 7] = "Você abre as válvulas ao máximo e força a alimentação para os tanques.\n\nFalha: a linha estoura com a pressão. Estilhaços e calor danificam o equipamento, e um núcleo falha.";
@@ -7230,7 +7230,7 @@ public class Language : MonoBehaviour
         _text[650, 1] = "Сбой в приводной системе вынуждает вас сделать короткую остановку.\n\nВо время диагностики ИИ фиксирует неподалёку заброшенный механический цех. Вход завален, но сканеры видят внутри целые производственные линии.\n\nНа конвейере стоят ящики с шестернями. Рядом - коробки с железными слитками.\n\nЦех выглядит автоматизированным, но питание работает нестабильно.";
         _text[650, 2] = "Une panne du système d'entraînement vous oblige à un bref arrêt.\n\nLors du diagnostic, l'IA détecte un atelier d'usinage abandonné à proximité. L'entrée est bloquée, mais les scanners révèlent des chaînes de production complètes à l'intérieur.\n\nDes caisses d'engrenages sont empilées sur un convoyeur. À côté se trouvent des boîtes de lingots de fer.\n\nL'atelier semble automatisé, mais l'alimentation électrique est instable.";
         _text[650, 3] = "Un guasto al sistema di propulsione ti costringe a una breve sosta.\n\nDurante la diagnostica, l'IA rileva un'officina meccanica abbandonata nelle vicinanze. L'ingresso è bloccato, ma gli scanner rivelano intere linee di produzione al suo interno.\n\nCasse di ingranaggi sono impilate su un nastro trasportatore. Nelle vicinanze si trovano scatole di lingotti di ferro.\n\nL'officina sembra automatizzata, ma l'alimentazione è instabile.";
-        _text[650, 4] = "Ein Defekt im Antriebssystem zwingt dich zu einem kurzen Halt.\n\nWährend der Diagnose entdeckt die KI in der Nähe eine verlassene mechanische Werkhalle. Der Eingang ist verschüttet, doch die Scanner sehen drinnen intakte Produktionslinien.\n\nAuf dem Förderband stehen Kisten mit Zahnrädern. Daneben - Kartons mit Eisenbarren.\n\nDie Halle wirkt automatisiert, aber die Stromversorgung ist instabil.";
+        _text[650, 4] = "Ein Ausfall des Antriebssystems zwingt Sie zu einem kurzen Stopp.\n\nWährend der Diagnose entdeckt die KI eine verlassene Werkstatt in der Nähe. Der Eingang ist versperrt, doch Scanner enthüllen ganze Produktionslinien im Inneren.\n\nKisten mit Zahnrädern sind auf einem Förderband gestapelt. Daneben stehen Kisten mit Eisenbarren.\n\nDie Werkstatt scheint automatisiert zu sein, doch die Stromversorgung ist instabil.";
         _text[650, 5] = "Un fallo en el sistema de transmisión te obliga a hacer una breve parada.\n\nDurante el diagnóstico, la IA detecta cerca un taller mecánico abandonado. La entrada está bloqueada, pero los escáneres ven dentro líneas de producción intactas.\n\nEn la cinta hay cajas con engranajes. Al lado, cajas con lingotes de hierro.\n\nEl taller parece automatizado, pero la energía funciona de forma inestable.";
         _text[650, 6] = "Awaria układu napędowego zmusza cię do krótkiego postoju.\n\nPodczas diagnostyki SI wykrywa w pobliżu opuszczony warsztat mechaniczny. Wejście jest zasypane, ale skanery widzą w środku całe linie produkcyjne.\n\nNa taśmie stoją skrzynie z kołami zębatymi. Obok - pudła z żelaznymi sztabami.\n\nWarsztat wygląda na zautomatyzowany, ale zasilanie działa niestabilnie.";
         _text[650, 7] = "Uma falha no sistema de acionamento obriga você a fazer uma parada curta.\n\nDurante o diagnóstico, a IA detecta uma oficina mecânica abandonada ali perto. A entrada está bloqueada, mas os scanners veem linhas de produção intactas lá dentro.\n\nHá caixas com engrenagens na esteira. Ao lado - caixas com barras de ferro.\n\nA oficina parece automatizada, mas a energia é instável.";
@@ -7241,7 +7241,7 @@ public class Language : MonoBehaviour
         _text[651, 1] = "Забрать готовые ящики с конвейера"; // выбор 1
         _text[651, 2] = "Récupérer les cartons finis sur le convoyeur";
         _text[651, 3] = "Prelevare le scatole finite dal trasportatore";
-        _text[651, 4] = "Fertige Kisten vom Förderband bergen";
+        _text[651, 4] = "Fertige Kartons vom Förderband entnehmen";
         _text[651, 5] = "Llevarse las cajas listas de la cinta";
         _text[651, 6] = "Zabrać gotowe skrzynie z taśmy";
         _text[651, 7] = "Pegar as caixas prontas da esteira";
@@ -7252,7 +7252,7 @@ public class Language : MonoBehaviour
         _text[652, 1] = "Вы пытаетесь снять ящики с конвейера и погрузить их на дронов.\n\nУспех: механизм не подаёт признаков активности. Вы снимаете ящики и покидаете цех.\n\nШестерни закреплены."; // выбор 1 успех + GearWheel
         _text[652, 2] = "Vous tentez de retirer des caisses du convoyeur et de les charger sur les drones.\n\nSuccès: le mécanisme ne présente aucun signe d’activité. Vous retirez les caisses et quittez l’atelier.\n\nLes engrenages sont bloqués.";
         _text[652, 3] = "Tenti di rimuovere le casse dal nastro trasportatore e caricarle sui droni.\n\nRiuscito: il meccanismo non mostra segni di attività. Rimuovi le casse e lasci l'officina.\n\nGli ingranaggi sono fissati.";
-        _text[652, 4] = "Du versuchst, die Kisten vom Förderband zu nehmen und auf Drohnen zu verladen.\n\nErfolg: Der Mechanismus zeigt keine Aktivität. Du nimmst die Kisten und verlässt die Halle.\n\nZahnräder gesichert.";
+        _text[652, 4] = "Sie versuchen, Kisten vom Förderband zu nehmen und auf die Drohnen zu laden.\n\nErfolg: Der Mechanismus zeigt keine Aktivität. Sie nehmen die Kisten ab und verlassen die Werkstatt.\n\nDie Zahnräder sind gesichert.";
         _text[652, 5] = "Intentas retirar las cajas de la cinta y cargarlas en los drones.\n\nÉxito: el mecanismo no muestra actividad. Retiras las cajas y sales del taller.\n\nLos engranajes están asegurados.";
         _text[652, 6] = "Próbujesz zdjąć skrzynie z taśmy i załadować je na drony.\n\nSukces: mechanizm nie wykazuje aktywności. Zdejmujesz skrzynie i opuszczasz warsztat.\n\nKoła zębate zabezpieczone.";
         _text[652, 7] = "Você tenta retirar as caixas da esteira e carregá-las nos drones.\n\nSucesso: o mecanismo não dá sinais de atividade. Você retira as caixas e deixa a oficina.\n\nAs engrenagens estão fixadas.";
@@ -7263,7 +7263,7 @@ public class Language : MonoBehaviour
         _text[653, 1] = "Вы пытаетесь снять ящики с конвейера и погрузить их на дронов.\n\nПровал: конвейер приходит в движение и затягивает ящики обратно. Дроны попадают в захват, и при разрыве контакта одно ядро выходит из строя."; // выбор 1 провал -1 ядро
         _text[653, 2] = "Vous tentez de retirer des caisses d'un convoyeur et de les charger sur des drones.\n\nProblème: le convoyeur se remet en marche et tire les caisses en arrière. Les drones sont pris dans le système de préhension et, lorsque le contact est rompu, un noyau est détruit.";
         _text[653, 3] = "Stai cercando di rimuovere delle casse da un nastro trasportatore e caricarle sui droni.\n\nErrore: il nastro trasportatore inizia a muoversi e tira indietro le casse. I droni rimangono intrappolati e, quando il contatto si interrompe, un nucleo viene distrutto.";
-        _text[653, 4] = "Du versuchst, die Kisten vom Förderband zu nehmen und auf Drohnen zu verladen.\n\nMisserfolg: Das Band setzt sich in Bewegung und zieht die Kisten zurück. Die Drohnen geraten in den Greifer, und beim Abreißen des Kontakts fällt ein Kern aus.";
+        _text[653, 4] = "Sie versuchen, Kisten von einem Förderband zu entnehmen und auf Drohnen zu verladen.\n\nFehler: Das Förderband setzt sich in Bewegung und zieht die Kisten zurück. Die Drohnen geraten in den Griff, und beim Abbruch des Kontakts wird ein Kern zerstört.";
         _text[653, 5] = "Intentas retirar las cajas de la cinta y cargarlas en los drones.\n\nFracaso: la cinta se pone en marcha y arrastra las cajas de vuelta. Los drones quedan atrapados y, al romper el contacto, un núcleo queda fuera de servicio.";
         _text[653, 6] = "Próbujesz zdjąć skrzynie z taśmy i załadować je na drony.\n\nPorażka: przenośnik rusza i wciąga skrzynie z powrotem. Drony wpadają w zacisk, a przy zrywaniu kontaktu jeden rdzeń ulega awarii.";
         _text[653, 7] = "Você tenta retirar as caixas da esteira e carregá-las nos drones.\n\nFalha: a esteira entra em movimento e puxa as caixas de volta. Os drones ficam presos, e ao romper o contato um núcleo falha.";
@@ -7274,7 +7274,7 @@ public class Language : MonoBehaviour
         _text[654, 1] = "Запустить линию прессов"; // выбор 2
         _text[654, 2] = "Lancer une ligne de presse";
         _text[654, 3] = "Avviare una linea di stampa";
-        _text[654, 4] = "Die Pressenlinie starten";
+        _text[654, 4] = "Starten Sie eine Presselinie";
         _text[654, 5] = "Poner en marcha la línea de prensas";
         _text[654, 6] = "Uruchomić linię pras";
         _text[654, 7] = "Iniciar a linha de prensas";
@@ -7285,7 +7285,7 @@ public class Language : MonoBehaviour
         _text[655, 1] = "Вы подаёте на линию железные слитки и запускаете прессы.\n\nУспех: станки штампуют шестерни одну за другой. Вы загружаете готовые детали и останавливаете линию.\n\nШестерни закреплены."; // выбор 2 успех + GearWheel - IronIngot
         _text[655, 2] = "Vous alimentez la chaîne avec des lingots de fer et démarrez les presses.\n\nSuccès: les machines produisent les engrenages les uns après les autres. Vous chargez les pièces finies et arrêtez la chaîne.Les engrenages sont fixés.";
         _text[655, 3] = "Si introducono lingotti di ferro nella linea e si avviano le presse.\n\nRiuscito: le macchine stampano gli ingranaggi uno dopo l'altro. Si caricano i pezzi finiti e si ferma la linea.\n\nGli ingranaggi sono fissati.";
-        _text[655, 4] = "Du führst Eisenbarren in die Linie und startest die Pressen.\n\nErfolg: Die Maschinen stanzen ein Zahnrad nach dem anderen. Du lädst die fertigen Teile und stoppst die Linie.\n\nZahnräder gesichert.";
+        _text[655, 4] = "Sie legen Eisenbarren auf das Band und starten die Pressen.\n\nErfolg: Die Maschinen stanzen nacheinander Zahnräder aus. Sie laden die fertigen Teile und stoppen das Band.\n\nDie Zahnräder sind gesichert.";
         _text[655, 5] = "Alimentas la línea con lingotes de hierro y arrancas las prensas.\n\nÉxito: las máquinas estampan engranajes uno tras otro. Cargas las piezas terminadas y detienes la línea.\n\nLos engranajes están asegurados.";
         _text[655, 6] = "Podajesz na linię żelazne sztaby i uruchamiasz prasy.\n\nSukces: maszyny tłoczą koła zębate jedno po drugim. Ładujesz gotowe części i zatrzymujesz linię.\n\nKoła zębate zabezpieczone.";
         _text[655, 7] = "Você alimenta a linha com barras de ferro e inicia as prensas.\n\nSucesso: as máquinas estampam engrenagens uma após a outra. Você carrega as peças prontas e para a linha.\n\nAs engrenagens estão fixadas.";
@@ -7296,7 +7296,7 @@ public class Language : MonoBehaviour
         _text[656, 1] = "Вы подаёте на линию железные слитки и запускаете прессы.\n\nПровал: питание срывается. Пресс клинит, искры попадают в блок управления, и система отключается.\n\nВы отходите без шестерён."; // выбор 2 провал ничего
         _text[656, 2] = "Vous alimentez la chaîne avec des lingots de fer et démarrez les presses.\n\nPanne: coupure de courant. La presse se bloque, des étincelles pénètrent dans l’unité de commande et le système s’arrête.\n\nVous repartez sans engrenages.";
         _text[656, 3] = "Si introducono lingotti di ferro nella linea e si avviano le presse.\n\nGuasto: l'alimentazione elettrica si interrompe. La pressa si inceppa, delle scintille entrano nell'unità di controllo e il sistema si spegne.\n\nSi esce senza ingranaggi.";
-        _text[656, 4] = "Du führst Eisenbarren in die Linie und startest die Pressen.\n\nMisserfolg: Die Stromversorgung bricht weg. Eine Presse verklemmt, Funken treffen den Steuerblock, und das System schaltet ab.\n\nDu ziehst ohne Zahnräder ab.";
+        _text[656, 4] = "Sie legen Eisenbarren auf das Förderband und starten die Pressen.\n\nFehler: Die Stromversorgung fällt aus. Die Presse blockiert, Funken gelangen in die Steuereinheit, und das System schaltet sich ab.\n\nSie verlassen die Anlage ohne Zahnräder.";
         _text[656, 5] = "Alimentas la línea con lingotes de hierro y arrancas las prensas.\n\nFracaso: la energía falla. La prensa se atasca, las chispas alcanzan el bloque de control y el sistema se apaga.\n\nTe retiras sin engranajes.";
         _text[656, 6] = "Podajesz na linię żelazne sztaby i uruchamiasz prasy.\n\nPorażka: zasilanie się rwie. Prasa się zacina, iskry trafiają w blok sterowania i system się wyłącza.\n\nWycofujesz się bez kół zębatych.";
         _text[656, 7] = "Você alimenta a linha com barras de ferro e inicia as prensas.\n\nFalha: a energia falha. A prensa trava, faíscas atingem o bloco de controle, e o sistema desliga.\n\nVocê se afasta sem engrenagens.";
@@ -7308,7 +7308,7 @@ public class Language : MonoBehaviour
         _text[657, 1] = "Во время планового сканирования вы фиксируете слабый сигнал от дрейфующей сервисной капсулы.\n\nЕё корпус обожжён, стыковочные захваты погнуты, но внутренние контейнеры целы.\n\nМаркировка соответствует старой корабельной электронике: блоки электронных схем, запечатанные и защищённые от вакуума.\n\nКапсула медленно вращается. Любой грубый захват может разорвать её.";
         _text[657, 2] = "Lors d'une inspection de routine, vous détectez un faible signal provenant d'une capsule de service à la dérive.\n\nSa coque est calcinée, ses pinces d'amarrage sont tordues, mais ses conteneurs internes sont intacts.\n\nLes marquages ​​correspondent à ceux des anciens équipements électroniques de bord: des blocs de circuits électroniques, scellés et protégés du vide.\n\nLa capsule tourne lentement. Toute manipulation brutale pourrait la détruire.";
         _text[657, 3] = "Durante una scansione di routine, rilevi un debole segnale da una capsula di servizio alla deriva.\n\nLo scafo è bruciato, le ganasce di attracco sono piegate, ma i contenitori interni sono intatti.\n\nI contrassegni corrispondono a quelli dei vecchi dispositivi elettronici di bordo: blocchi di circuiti elettronici, sigillati e protetti dal vuoto.\n\nLa capsula ruota lentamente. Qualsiasi manipolazione brusca potrebbe farla a pezzi.";
-        _text[657, 4] = "Bei einem planmäßigen Scan registrierst du ein schwaches Signal von einer treibenden Servicekapsel.\n\nIhr Rumpf ist verbrannt, die Andockgreifer sind verbogen, aber die inneren Container sind intakt.\n\nDie Markierung passt zu alter Schiffselektronik: Platinenblöcke, versiegelt und gegen Vakuum geschützt.\n\nDie Kapsel rotiert langsam. Jeder grobe Zugriff könnte sie zerreißen.";
+        _text[657, 4] = "Bei einem Routine-Scan empfangen Sie ein schwaches Signal von einer treibenden Servicekapsel.\n\nIhre Hülle ist versengt, die Andockkrallen verbogen, aber die internen Behälter sind intakt.\n\nDie Markierungen entsprechen denen alter Schiffselektronik: elektronische Schaltkreise, versiegelt und vor Vakuum geschützt.\n\nDie Kapsel rotiert langsam. Jede unsachgemäße Handhabung könnte sie zerstören.";
         _text[657, 5] = "Durante un escaneo rutinario detectas una señal débil procedente de una cápsula de servicio a la deriva.\n\nSu casco está chamuscado, los enganches de acoplamiento doblados, pero los contenedores internos están intactos.\n\nEl marcaje corresponde a electrónica naval antigua: módulos de circuitos electrónicos, sellados y protegidos del vacío.\n\nLa cápsula gira lentamente. Cualquier agarre brusco podría desgarrarla.";
         _text[657, 6] = "Podczas rutynowego skanowania rejestrujesz słaby sygnał z dryfującej kapsuły serwisowej.\n\nJej kadłub jest osmalony, zaczepy dokujące wygięte, ale wewnętrzne kontenery są całe.\n\nOznaczenia odpowiadają starej elektronice okrętowej: bloki układów elektronicznych, zapieczętowane i chronione przed próżnią.\n\nKapsuła powoli się obraca. Każdy brutalny chwyt może ją rozerwać.";
         _text[657, 7] = "Durante uma varredura de rotina, você detecta um sinal fraco vindo de uma cápsula de serviço à deriva.\n\nO casco está chamuscado, as garras de acoplagem estão tortas, mas os contêineres internos permanecem intactos.\n\nA marcação corresponde à eletrônica naval antiga: blocos de circuitos eletrônicos, selados e protegidos do vácuo.\n\nA cápsula gira lentamente. Qualquer captura brusca pode rasgá-la.";
@@ -7319,7 +7319,7 @@ public class Language : MonoBehaviour
         _text[658, 1] = "Срезать контейнер с дистанции"; // выбор 1
         _text[658, 2] = "Découpez le conteneur à distance.";
         _text[658, 3] = "Tagliare il contenitore da una certa distanza";
-        _text[658, 4] = "Den Container aus der Distanz abtrennen";
+        _text[658, 4] = "Den Behälter aus der Entfernung abschneiden";
         _text[658, 5] = "Cortar el contenedor a distancia";
         _text[658, 6] = "Odciąć kontener z dystansu";
         _text[658, 7] = "Cortar o contêiner à distância";
@@ -7330,7 +7330,7 @@ public class Language : MonoBehaviour
         _text[659, 1] = "Вы используете режущий луч и пытаетесь отделить контейнер, не касаясь капсулы.\n\nУспех: контейнер отделяется и перехватывается дронами.\n\nЭлектронные схемы закреплены."; // выбор 1 успех + ElectronicCircuit
         _text[659, 2] = "Vous utilisez le faisceau de découpe et tentez de détacher le conteneur sans toucher la capsule.\n\nSuccès: Le conteneur se détache et est intercepté par les drones.\n\nLes circuits électroniques sont sécurisés.";
         _text[659, 3] = "Utilizzi il raggio tagliente e provi a staccare il contenitore senza toccare la capsula.\n\nRiuscito: il contenitore si stacca e viene intercettato dai droni.\n\nI circuiti elettronici sono protetti.";
-        _text[659, 4] = "Du nutzt einen Schneidstrahl und versuchst, den Container zu lösen, ohne die Kapsel zu berühren.\n\nErfolg: Der Container löst sich und wird von Drohnen abgefangen.\n\nElektronische Schaltungen gesichert.";
+        _text[659, 4] = "Sie setzen den Schneidstrahl ein und versuchen, den Container abzutrennen, ohne die Kapsel zu berühren.\n\nErfolg: Der Container löst sich und wird von den Drohnen abgefangen.\n\nDie elektronischen Schaltkreise sind gesichert.";
         _text[659, 5] = "Usas un rayo de corte e intentas separar el contenedor sin tocar la cápsula.\n\nÉxito: el contenedor se desprende y los drones lo capturan.\n\nLos circuitos electrónicos están asegurados.";
         _text[659, 6] = "Używasz wiązki tnącej i próbujesz oddzielić kontener, nie dotykając kapsuły.\n\nSukces: kontener odłącza się i zostaje przechwycony przez drony.\n\nUkłady elektroniczne zabezpieczone.";
         _text[659, 7] = "Você usa um feixe de corte e tenta separar o contêiner sem tocar na cápsula.\n\nSucesso: o contêiner se solta e é capturado pelos drones.\n\nOs circuitos eletrônicos estão fixados.";
@@ -7341,7 +7341,7 @@ public class Language : MonoBehaviour
         _text[660, 1] = "Вы используете режущий луч и пытаетесь отделить контейнер, не касаясь капсулы.\n\nПровал: рез задевает магистраль. Реактивный выброс швыряет осколки в корпус.\n\nОдно ядро выходит из строя, и вы разрываете контакт."; // выбор 1 провал -1 ядро
         _text[660, 2] = "Vous utilisez le faisceau de découpe et tentez de séparer le conteneur sans toucher la capsule.\n\nÉchec: la découpe atteint une conduite principale. La décharge réactive projette des fragments dans la coque.Un des cœurs cède et le contact est rompu.";
         _text[660, 3] = "Si usa il raggio di taglio e si tenta di separare il contenitore senza toccare la capsula.\n\nInsuccesso: il taglio colpisce una linea principale. La scarica reattiva scaglia frammenti nello scafo.\n\nUn nucleo si rompe e si interrompe il contatto.";
-        _text[660, 4] = "Du nutzt einen Schneidstrahl und versuchst, den Container zu lösen, ohne die Kapsel zu berühren.\n\nMisserfolg: Der Schnitt trifft eine Leitung. Ein Rückstoß schleudert Splitter in den Rumpf.\n\nEin Kern fällt aus, und du brichst den Kontakt ab.";
+        _text[660, 4] = "Sie verwenden den Schneidstrahl und versuchen, den Behälter zu trennen, ohne die Kapsel zu berühren.\n\nFehlschlag: Der Schnitt trifft eine Hauptleitung. Die reaktive Entladung schleudert Fragmente in die Hülle.\n\nEin Kern versagt, und der Kontakt wird abgebrochen.";
         _text[660, 5] = "Usas un rayo de corte e intentas separar el contenedor sin tocar la cápsula.\n\nFracaso: el corte alcanza una línea principal. Una eyección reactiva lanza fragmentos contra el casco.\n\nUn núcleo queda fuera de servicio y rompes el contacto.";
         _text[660, 6] = "Używasz wiązki tnącej i próbujesz oddzielić kontener, nie dotykając kapsuły.\n\nPorażka: cięcie zahacza o przewód. Strumień odrzutowy ciska odłamki w kadłub.\n\nJeden rdzeń ulega awarii i zrywasz kontakt.";
         _text[660, 7] = "Você usa um feixe de corte e tenta separar o contêiner sem tocar na cápsula.\n\nFalha: o corte atinge uma linha. Um jato reativo lança estilhaços contra o casco.\n\nUm núcleo falha, e você rompe o contato.";
@@ -7352,7 +7352,7 @@ public class Language : MonoBehaviour
         _text[661, 1] = "Пристыковаться и вскрыть капсулу"; // выбор 2
         _text[661, 2] = "Amarrez et ouvrez la capsule";
         _text[661, 3] = "Aggancia e apri la capsula";
-        _text[661, 4] = "Andocken und die Kapsel öffnen";
+        _text[661, 4] = "Andocken und Kapsel öffnen";
         _text[661, 5] = "Acoplarse y abrir la cápsula";
         _text[661, 6] = "Zadokować i otworzyć kapsułę";
         _text[661, 7] = "Acoplar e abrir a cápsula";
@@ -7363,7 +7363,7 @@ public class Language : MonoBehaviour
         _text[662, 1] = "Вы гасите вращение и фиксируете капсулу стыковочными захватами.\n\nУспех: герметизация держится. Вы вскрываете контейнер и забираете электронные схемы.\n\nЭлектронные схемы закреплены."; // выбор 2 успех + ElectronicCircuit
         _text[662, 2] = "Vous arrêtez la rotation et fixez la capsule à l'aide des pinces d'amarrage.\n\nSuccès: le joint est étanche. Vous ouvrez le conteneur et récupérez les circuits électroniques.\n\nLes circuits électroniques sont en place.";
         _text[662, 3] = "Si ferma la rotazione e si fissa la capsula con le apposite maniglie.\n\nRiuscito: il sigillo regge. Si apre il contenitore e si recuperano i circuiti elettronici.\n\nI circuiti elettronici sono fissati.";
-        _text[662, 4] = "Du stoppst die Rotation und fixierst die Kapsel mit Andockgreifern.\n\nErfolg: Die Abdichtung hält. Du öffnest den Container und nimmst die elektronischen Schaltungen.\n\nElektronische Schaltungen gesichert.";
+        _text[662, 4] = "Sie stoppen die Drehung und fixieren die Kapsel mit den Andockklammern.\n\nErfolg: Die Versiegelung hält. Sie öffnen den Behälter und entnehmen die elektronischen Schaltkreise.\n\nDie elektronischen Schaltkreise sind gesichert.";
         _text[662, 5] = "Anulas la rotación y aseguras la cápsula con los enganches de acoplamiento.\n\nÉxito: el sellado aguanta. Abres el contenedor y te llevas los circuitos electrónicos.\n\nLos circuitos electrónicos están asegurados.";
         _text[662, 6] = "Gaszisz obrót i unieruchamiasz kapsułę chwytakami dokującymi.\n\nSukces: uszczelnienie trzyma. Otwierasz kontener i zabierasz układy elektroniczne.\n\nUkłady elektroniczne zabezpieczone.";
         _text[662, 7] = "Você neutraliza a rotação e fixa a cápsula com as garras de acoplagem.\n\nSucesso: a vedação se mantém. Você abre o contêiner e pega os circuitos eletrônicos.\n\nOs circuitos eletrônicos estão fixados.";
@@ -7374,7 +7374,7 @@ public class Language : MonoBehaviour
         _text[663, 1] = "Вы гасите вращение и фиксируете капсулу стыковочными захватами.\n\nПровал: захват срывается. Капсула трескается, контейнер разгерметизируется, и содержимое разлетается в космос.\n\nВы уходите ни с чем."; // выбор 2 провал ничего
         _text[663, 2] = "Vous stoppez la rotation et arrimez la capsule à l'aide des grappins.\n\nÉchec : le grappin se rompt. La capsule se fissure, le conteneur se dépressurise et son contenu se disperse dans l'espace.\n\nVous repartez bredouille.";
         _text[663, 3] = "Arresti la rotazione e fissi la capsula con i ganci di aggancio.\n\nErrore: il gancio si rompe. La capsula si rompe, il contenitore si depressurizza e il contenuto si disperde nello spazio.\n\nTe ne vai a mani vuote.";
-        _text[663, 4] = "Du stoppst die Rotation und fixierst die Kapsel mit Andockgreifern.\n\nMisserfolg: Der Greifer rutscht. Die Kapsel reißt, der Container verliert die Dichtung, und der Inhalt zerstreut sich im All.\n\nDu gehst leer aus.";
+        _text[663, 4] = "Sie stoppen die Rotation und sichern die Kapsel mit den Andockhaken.\n\nFehlschlag: Der Haken bricht. Die Kapsel zerbricht, der Druck im Behälter entweicht, und der Inhalt verstreut sich im Weltraum.\n\nSie gehen leer aus.";
         _text[663, 5] = "Anulas la rotación y aseguras la cápsula con los enganches de acoplamiento.\n\nFracaso: el enganche se suelta. La cápsula se agrieta, el contenedor se despresuriza y su contenido se dispersa en el espacio.\n\nTe vas con las manos vacías.";
         _text[663, 6] = "Gaszisz obrót i unieruchamiasz kapsułę chwytakami dokującymi.\n\nPorażka: chwyt puszcza. Kapsuła pęka, kontener traci szczelność i zawartość rozlatuje się w kosmos.\n\nOdchodzisz z niczym.";
         _text[663, 7] = "Você neutraliza a rotação e fixa a cápsula com as garras de acoplagem.\n\nFalha: a garra escorrega. A cápsula racha, o contêiner perde a vedação e o conteúdo se espalha no espaço.\n\nVocê sai de mãos vazias.";
@@ -7386,7 +7386,7 @@ public class Language : MonoBehaviour
         _text[664, 1] = "ИИ фиксирует дрейфующий коммуникационный ретранслятор на орбите.\n\nПри сближении ретранслятор внезапно оживает и передаёт короткое зашифрованное сообщение:\n\n\"CODE: 0101100000\"\n\nСтрока повторяется снова и снова, будто ожидая ответ.";
         _text[664, 2] = "L'IA détecte un relais de communication en dérive en orbite.\n\nÀ mesure qu'elle s'approche, le relais s'active soudainement et transmet un court message crypté:\n\n\"CODE: 0101100000\"\n\nLa phrase se répète en boucle, comme si elle attendait une réponse.";
         _text[664, 3] = "L'IA rileva un ripetitore di comunicazioni alla deriva in orbita.\n\nMentre si avvicina, il ripetitore si attiva improvvisamente e trasmette un breve messaggio criptato:\n\n\"CODICE: 0101100000\"\n\nLa frase si ripete più e più volte, come se si aspettasse una risposta.";
-        _text[664, 4] = "Die KI registriert einen treibenden Kommunikationsrelais auf der Umlaufbahn.\n\nBeim Näherkommen erwacht das Relais plötzlich und sendet eine kurze verschlüsselte Nachricht:\n\n\"CODE: 0101100000\"\n\nDie Zeile wiederholt sich immer wieder, als würde sie auf eine Antwort warten.";
+        _text[664, 4] = "Die KI entdeckt ein im Orbit treibendes Kommunikationsrelais.\n\nAls sie sich nähert, aktiviert sich das Relais plötzlich und sendet eine kurze verschlüsselte Nachricht:\n\n„CODE: 0101100000“\n\nDie Zeile wiederholt sich ständig, als würde sie eine Antwort erwarten.";
         _text[664, 5] = "La IA detecta un repetidor de comunicaciones a la deriva en órbita.\n\nAl acercarte, el repetidor cobra vida de repente y transmite un breve mensaje cifrado:\n\n\"CODE: 0101100000\"\n\nLa línea se repite una y otra vez, como si esperara una respuesta.";
         _text[664, 6] = "SI wykrywa dryfujący przekaźnik komunikacyjny na orbicie.\n\nPrzy zbliżeniu przekaźnik nagle ożywa i nadaje krótką zaszyfrowaną wiadomość:\n\n\"CODE: 0101100000\"\n\nLinia powtarza się w kółko, jakby czekała na odpowiedź.";
         _text[664, 7] = "A IA detecta um retransmissor de comunicação à deriva em órbita.\n\nAo se aproximar, o retransmissor desperta de repente e transmite uma mensagem curta criptografada:\n\n\"CODE: 0101100000\"\n\nA linha se repete sem parar, como se aguardasse uma resposta.";
@@ -7397,7 +7397,7 @@ public class Language : MonoBehaviour
         _text[665, 1] = "Передать код \"352\""; // выбор 1
         _text[665, 2] = "Saisissez le code \"352\"";
         _text[665, 3] = "Passa il codice \"352\"";
-        _text[665, 4] = "Code \"352\" senden";
+        _text[665, 4] = "Geben Sie den Code \"352\" ein.";
         _text[665, 5] = "Transmitir el código \"352\"";
         _text[665, 6] = "Przekazać kod \"352\"";
         _text[665, 7] = "Enviar o código \"352\"";
@@ -7408,7 +7408,7 @@ public class Language : MonoBehaviour
         _text[666, 1] = "Ретранслятор принимает код. Сервисный люк открывается, обнажая герметичные вычислительные блоки.\n\nВы забираете процессоры и разрываете контакт.\n\nПроцессоры закреплены."; // выбор 1 + Processor
         _text[666, 2] = "Le relais reçoit le code. La trappe de service s'ouvre, révélant des unités de calcul scellées.\n\nVous retirez les processeurs et coupez le contact.Les processeurs sont sécurisés.";
         _text[666, 3] = "Il relè accetta il codice. Il portello di servizio si apre, rivelando unità di elaborazione sigillate.\n\nPrendete i processori e interrompete il contatto.\n\nI processori sono protetti.";
-        _text[666, 4] = "Das Relais akzeptiert den Code. Eine Serviceklappe öffnet sich und legt versiegelte Rechenblöcke frei.\n\nDu nimmst die Prozessoren an dich und brichst den Kontakt ab.\n\nProzessoren gesichert.";
+        _text[666, 4] = "Das Relais empfängt den Code. Die Wartungsklappe öffnet sich und gibt den Blick auf versiegelte Recheneinheiten frei.\n\nSie entnehmen die Prozessoren und unterbrechen den Kontakt.\n\nDie Prozessoren sind gesichert.";
         _text[666, 5] = "El repetidor acepta el código. La escotilla de servicio se abre, dejando al descubierto bloques de cómputo herméticos.\n\nRecoges los procesadores y rompes el contacto.\n\nLos procesadores están asegurados.";
         _text[666, 6] = "Przekaźnik przyjmuje kod. Luk serwisowy otwiera się, odsłaniając hermetyczne bloki obliczeniowe.\n\nZabierasz procesory i zrywasz kontakt.\n\nProcesory zabezpieczone.";
         _text[666, 7] = "O retransmissor aceita o código. A escotilha de serviço se abre, revelando blocos de computação herméticos.\n\nVocê pega os processadores e rompe o contato.\n\nOs processadores estão fixados.";
@@ -7419,7 +7419,7 @@ public class Language : MonoBehaviour
         _text[667, 1] = "Передать код \"x5y10\""; // выбор 2
         _text[667, 2] = "Saisissez le code \"x5y10\"";
         _text[667, 3] = "Passa il codice \"x5y10\"";
-        _text[667, 4] = "Code \"x5y10\" senden";
+        _text[667, 4] = "Übergeben Sie den Code \"x5y10\"";
         _text[667, 5] = "Transmitir el código \"x5y10\"";
         _text[667, 6] = "Przekazać kod \"x5y10\"";
         _text[667, 7] = "Enviar o código \"x5y10\"";
@@ -7430,7 +7430,7 @@ public class Language : MonoBehaviour
         _text[668, 1] = "Похоже, вы указали координаты своего корабля... Защитный импульс бьёт по интерфейсу и перегружает систему.\n\nОдно ядро выходит из строя. Вы разрываете контакт и отходите."; // выбор 2 -1 ядро
         _text[668, 2] = "Il semblerait que vous ayez entré les coordonnées de votre vaisseau... Une impulsion défensive frappe l'interface et surcharge le système.\n\nUn des réacteurs tombe en panne. Vous rompez le contact et battez en retraite.";
         _text[668, 3] = "Sembra che tu abbia inserito le coordinate della tua nave... Un impulso difensivo colpisce l'interfaccia e sovraccarica il sistema.\n\nUn nucleo sta cedendo. Interrompi il contatto e ti ritiri.";
-        _text[668, 4] = "Sieht so aus, als hättest du die Koordinaten deines Schiffs übermittelt... Ein Schutzimpuls trifft die Schnittstelle und überlastet das System.\n\nEin Kern fällt aus. Du brichst den Kontakt ab und gehst auf Abstand.";
+        _text[668, 4] = "Sie haben anscheinend die Koordinaten Ihres Schiffs eingegeben … Ein Abwehrimpuls trifft auf die Schnittstelle und überlastet das System.\n\nEin Kern fällt aus. Sie brechen den Kontakt ab und ziehen sich zurück.";
         _text[668, 5] = "Parece que has enviado las coordenadas de tu propia nave... Un pulso defensivo golpea la interfaz y sobrecarga el sistema.\n\nUn núcleo queda fuera de servicio. Rompes el contacto y te retiras.";
         _text[668, 6] = "Wygląda na to, że podałeś współrzędne swojego statku... Impuls obronny uderza w interfejs i przeciąża system.\n\nJeden rdzeń ulega awarii. Zrywasz kontakt i wycofujesz się.";
         _text[668, 7] = "Parece que você enviou as coordenadas do seu navio... Um pulso defensivo atinge a interface e sobrecarrega o sistema.\n\nUm núcleo falha. Você rompe o contato e se afasta.";
@@ -7441,7 +7441,7 @@ public class Language : MonoBehaviour
         _text[669, 1] = "Передать код \"0101100000\""; // выбор 3
         _text[669, 2] = "Saisissez le code \"0101100000\"";
         _text[669, 3] = "Passa il codice \"0101100000\"";
-        _text[669, 4] = "Code \"0101100000\" senden";
+        _text[669, 4] = "Geben Sie den Code \"0101100000\" ein.";
         _text[669, 5] = "Transmitir el código \"0101100000\"";
         _text[669, 6] = "Przekazać kod \"0101100000\"";
         _text[669, 7] = "Enviar o código \"0101100000\"";
@@ -7452,7 +7452,7 @@ public class Language : MonoBehaviour
         _text[670, 1] = "Ретранслятор зависает, затем начинает поднимать защитные системы.\n\nВы успеваете оборвать канал и уйти."; // выбор 3 ничего
         _text[670, 2] = "Le répéteur se fige, puis renforce ses défenses.\n\nVous parvenez à couper la liaison et à vous échapper.";
         _text[670, 3] = "Il ripetitore si blocca, poi inizia ad aumentare le sue difese.\n\nRiesci a interrompere il collegamento e a scappare.";
-        _text[670, 4] = "Das Relais friert ein und beginnt dann, Schutzsysteme hochzufahren.\n\nDu kappst rechtzeitig den Kanal und verschwindest.";
+        _text[670, 4] = "Der Repeater friert ein und aktiviert dann seine Verteidigungsanlagen.\n\nEs gelingt Ihnen, die Verbindung zu kappen und zu entkommen.";
         _text[670, 5] = "El repetidor se queda colgado y luego empieza a activar los sistemas de defensa.\n\nConsigues cortar el canal y marcharte.";
         _text[670, 6] = "Przekaźnik zawiesza się, po czym zaczyna uruchamiać systemy obronne.\n\nZdążasz przerwać kanał i odejść.";
         _text[670, 7] = "O retransmissor trava e então começa a ativar sistemas de defesa.\n\nVocê consegue encerrar o canal a tempo e sair.";
@@ -7464,7 +7464,7 @@ public class Language : MonoBehaviour
         _text[671, 1] = "Во время маршрутного сканирования ИИ фиксирует аварийную метку среди обломков.\n\nЭто сорванная грузовая рама, к которой всё ещё прикручен тяговый модуль.\n\nНа кожухе маркировка:\n\n\"ДВИГАТЕЛЬНЫЙ БЛОК\".\n\nМодуль выглядит целым, но крепления повреждены. Любой резкий рывок может ударить по корпусу.";
         _text[671, 2] = "Lors de l'analyse de l'itinéraire, l'IA détecte une trace de crash parmi les débris.\n\nIl s'agit d'une structure de chargement déchirée, à laquelle le module de propulsion est encore boulonné.\n\nL'inscription sur le boîtier indique:\n\n\"UNITÉ DE PROPULSION\".\n\nLe module semble intact, mais les fixations sont endommagées. Tout mouvement brusque pourrait heurter la coque.";
         _text[671, 3] = "Durante la scansione del percorso, l'IA rileva un indicatore di collisione tra i detriti.\n\nSi tratta di un telaio di carico strappato, a cui è ancora imbullonato il modulo di propulsione.\n\nLa scritta sull'involucro recita:\n\n\"UNITÀ DI PROPULSIONE\".\n\nIl modulo sembra intatto, ma i fissaggi sono danneggiati. Qualsiasi movimento improvviso potrebbe danneggiare lo scafo.";
-        _text[671, 4] = "Beim Routenscan registriert die KI eine Notmarke zwischen Trümmern.\n\nEs ist ein abgerissenes Frachtrahmenstück, an dem noch ein Zugmodul verschraubt ist.\n\nAuf der Verkleidung steht:\n\n\"TRIEBWERKSMODUL\".\n\nDas Modul wirkt intakt, aber die Halterungen sind beschädigt. Jeder ruckartige Zug könnte in den Rumpf schlagen.";
+        _text[671, 4] = "Während des Routenscans erkennt die KI eine Absturzstelle im Trümmerfeld.\n\nEs handelt sich um einen zerrissenen Frachtrahmen, an dem das Antriebsmodul noch befestigt ist.\n\nDie Markierung auf dem Gehäuse lautet:\n\n„ANTRIEBSEINHEIT“.\n\nDas Modul selbst scheint intakt, die Befestigungen sind jedoch beschädigt. Jede plötzliche Bewegung könnte die Hülle beschädigen.";
         _text[671, 5] = "Durante un escaneo de ruta, la IA detecta una baliza de emergencia entre los restos.\n\nEs un bastidor de carga arrancado, al que aún está atornillado un módulo de tracción.\n\nEn la carcasa hay una marca:\n\n\"MÓDULO DE MOTOR\".\n\nEl módulo parece intacto, pero las fijaciones están dañadas. Cualquier tirón brusco puede golpear el casco.";
         _text[671, 6] = "Podczas skanowania trasy SI wykrywa awaryjny znacznik wśród szczątków.\n\nTo zerwana rama ładunkowa, do której wciąż jest przykręcony moduł napędowy.\n\nNa osłonie widnieje oznaczenie:\n\n\"BLOK SILNIKA\".\n\nModuł wygląda na cały, ale mocowania są uszkodzone. Każde gwałtowne szarpnięcie może uderzyć w kadłub.";
         _text[671, 7] = "Durante a varredura da rota, a IA detecta um marcador de emergência entre os destroços.\n\nÉ uma armação de carga arrancada, ainda com um módulo de tração parafusado nela.\n\nNo revestimento, a marcação:\n\n\"BLOCO DO MOTOR\".\n\nO módulo parece inteiro, mas as fixações estão danificadas. Qualquer puxão brusco pode atingir o casco.";
@@ -7475,7 +7475,7 @@ public class Language : MonoBehaviour
         _text[672, 1] = "Сблизиться и отбуксировать модуль"; // выбор 1
         _text[672, 2] = "Approchez-vous et remorquez le module";
         _text[672, 3] = "Avvicinarsi e trainare il modulo";
-        _text[672, 4] = "Annähern und das Modul abschleppen";
+        _text[672, 4] = "Nähern Sie sich und schleppen Sie das Modul ab.";
         _text[672, 5] = "Acercarse y remolcar el módulo";
         _text[672, 6] = "Zbliżyć się i odholować moduł";
         _text[672, 7] = "Aproximar e rebocar o módulo";
@@ -7486,7 +7486,7 @@ public class Language : MonoBehaviour
         _text[673, 1] = "Вы гасите вращение и цепляете раму захватами.\n\nУспех: крепления выдерживают. Вы подтягиваете модуль к кораблю, снимаете его и герметизируете в отсеке.\n\nДвигатель закреплён."; // выбор 1 успех + Engine
         _text[673, 2] = "Vous amortissez la rotation et fixez le cadre à l'aide des pinces.\n\nSuccès: les fixations tiennent. Vous tirez le module vers le vaisseau, le retirez et le scellez dans le compartiment.Le moteur est fixé.";
         _text[673, 3] = "Si smorza la rotazione e si fissa il telaio con i morsetti.\n\nSuccesso: i dispositivi di fissaggio reggono. Si tira il modulo verso la nave, lo si rimuove e lo si sigilla nel vano.\n\nIl motore è fissato.";
-        _text[673, 4] = "Du stoppst die Rotation und greifst den Rahmen mit Klammern.\n\nErfolg: Die Halterungen halten. Du ziehst das Modul zum Schiff, löst es und versiegelst es im Abteil.\n\nTriebwerk gesichert.";
+        _text[673, 4] = "Sie dämpfen die Rotation und fixieren den Rahmen mit den Klemmen.\n\nErfolg: Die Befestigungselemente halten. Sie ziehen das Modul zum Schiff hin, entnehmen es und verschließen es im Fach.\n\nDer Motor ist gesichert.";
         _text[673, 5] = "Anulas la rotación y enganchas el bastidor con las pinzas.\n\nÉxito: las fijaciones aguantan. Acercas el módulo a la nave, lo retiras y lo sellas en el compartimento.\n\nEl motor está asegurado.";
         _text[673, 6] = "Gaszisz obrót i chwytasz ramę chwytakami.\n\nSukces: mocowania wytrzymują. Podciągasz moduł do statku, zdejmujesz go i uszczelniasz w przedziale.\n\nSilnik zabezpieczony.";
         _text[673, 7] = "Você neutraliza a rotação e prende a armação com as garras.\n\nSucesso: as fixações aguentam. Você puxa o módulo até o navio, remove-o e o sela no compartimento.\n\nO motor está fixado.";
@@ -7497,7 +7497,7 @@ public class Language : MonoBehaviour
         _text[674, 1] = "Вы гасите вращение и цепляете раму захватами.\n\nПровал: повреждённое крепление рвётся. Модуль срывается на дуге и бьёт по корпусу.\n\nОдно ядро выходит из строя. Вы включаете варп и разрываете контакт."; // выбор 1 провал -1 ядро
         _text[674, 2] = "Vous stoppez la rotation et agrippez le châssis.\n\nÉchec: le support endommagé se brise. Le module se détache et percute la coque.\n\nUn des noyaux tombe en panne. Vous activez le saut spatial et rompez le contact.";
         _text[674, 3] = "Arresti la rotazione e afferri il telaio con le tue mani.\n\nErrore: il supporto danneggiato si rompe. Il modulo si inarca e colpisce lo scafo.\n\nUn nucleo si rompe. Inneschi la curvatura e interrompi il contatto.";
-        _text[674, 4] = "Du stoppst die Rotation und greifst den Rahmen mit Klammern.\n\nMisserfolg: Eine beschädigte Halterung reißt. Das Modul schwingt auf einer Bahn aus und trifft den Rumpf.\n\nEin Kern fällt aus. Du zündest den Warp und brichst den Kontakt ab.";
+        _text[674, 4] = "Du stoppst die Rotation und packst den Rahmen mit deinen Griffen.\n\nFehler: Die beschädigte Halterung bricht. Das Modul bricht ab und trifft die Hülle.\n\nEin Kern fällt aus. Du aktivierst den Warpantrieb und brichst den Kontakt ab.";
         _text[674, 5] = "Anulas la rotación y enganchas el bastidor con las pinzas.\n\nFracaso: una fijación dañada se rompe. El módulo se suelta en arco y golpea el casco.\n\nUn núcleo queda fuera de servicio. Activar el warp y rompes el contacto.";
         _text[674, 6] = "Gaszisz obrót i chwytasz ramę chwytakami.\n\nPorażka: uszkodzone mocowanie pęka. Moduł zrywa się po łuku i uderza w kadłub.\n\nJeden rdzeń ulega awarii. Włączasz warp i zrywasz kontakt.";
         _text[674, 7] = "Você neutraliza a rotação e prende a armação com as garras.\n\nFalha: uma fixação danificada se rompe. O módulo se solta em arco e atinge o casco.\n\nUm núcleo falha. Você aciona o warp e rompe o contato.";
@@ -7508,7 +7508,7 @@ public class Language : MonoBehaviour
         _text[675, 1] = "Срезать модуль"; // выбор 2
         _text[675, 2] = "Coupez le module";
         _text[675, 3] = "Tagliare il modulo";
-        _text[675, 4] = "Das Modul abtrennen";
+        _text[675, 4] = "Schalten Sie das Modul ab.";
         _text[675, 5] = "Cortar el módulo";
         _text[675, 6] = "Odciąć moduł";
         _text[675, 7] = "Cortar o módulo";
@@ -7519,7 +7519,7 @@ public class Language : MonoBehaviour
         _text[676, 1] = "Вы используете режущий инструмент и пытаетесь отделить модуль от рамы.\n\nУспех: разрез проходит чисто. Модуль отцепляется и перехватывается дронами.\n\nДвигатель закреплён."; // выбор 2 успех + Engine
         _text[676, 2] = "Vous utilisez un outil de découpe et tentez de séparer le module du châssis.\n\nSuccès: la découpe est nette. Le module se détache et est intercepté par les drones.Le moteur est sécurisé.";
         _text[676, 3] = "Si utilizza un utensile da taglio e si tenta di separare il modulo dal telaio.\n\nRiuscito: il taglio è netto. Il modulo si stacca e viene intercettato dai droni.\n\nIl motore è fissato.";
-        _text[676, 4] = "Du nutzt ein Schneidwerkzeug und versuchst, das Modul vom Rahmen zu lösen.\n\nErfolg: Der Schnitt ist sauber. Das Modul löst sich und wird von Drohnen abgefangen.\n\nTriebwerk gesichert.";
+        _text[676, 4] = "Sie verwenden ein Schneidwerkzeug und versuchen, das Modul vom Rahmen zu trennen.\n\nErfolg: Der Schnitt ist sauber. Das Modul löst sich und wird von den Drohnen abgefangen.\n\nDer Motor ist gesichert.";
         _text[676, 5] = "Usas una herramienta de corte e intentas separar el módulo del bastidor.\n\nÉxito: el corte sale limpio. El módulo se desacopla y los drones lo capturan.\n\nEl motor está asegurado.";
         _text[676, 6] = "Używasz narzędzia tnącego i próbujesz oddzielić moduł od ramy.\n\nSukces: cięcie jest czyste. Moduł odłącza się i zostaje przechwycony przez drony.\n\nSilnik zabezpieczony.";
         _text[676, 7] = "Você usa uma ferramenta de corte e tenta separar o módulo da armação.\n\nSucesso: o corte sai limpo. O módulo se solta e é capturado pelos drones.\n\nO motor está fixado.";
@@ -7530,7 +7530,7 @@ public class Language : MonoBehaviour
         _text[677, 1] = "Вы используете режущий инструмент и пытаетесь отделить модуль от рамы.\n\nПровал: разрез задевает топливную магистраль. Реактивный выброс уводит модуль в сторону, осколки разлетаются.\n\nВы отходите ни с чем."; // выбор 2 провал ничего
         _text[677, 2] = "Vous utilisez un outil de découpe pour tenter de séparer le module du châssis.\n\nVous échouez: la découpe atteint une conduite de carburant. Les gaz d'échappement, sous l'effet de la réaction, projettent le module sur le côté, dispersant des fragments.\n\nVous repartez bredouille.";
         _text[677, 3] = "Utilizzi un utensile da taglio e provi a separare il modulo dal telaio.\n\nFallisci: il taglio colpisce un tubo del carburante. Lo scarico reattivo spinge il modulo di lato, disperdendone i frammenti.\n\nTe la cavi a mani vuote.";
-        _text[677, 4] = "Du nutzt ein Schneidwerkzeug und versuchst, das Modul vom Rahmen zu lösen.\n\nMisserfolg: Der Schnitt trifft eine Treibstoffleitung. Ein Rückstoß drückt das Modul weg, Splitter fliegen.\n\nDu ziehst ohne Beute ab.";
+        _text[677, 4] = "Sie versuchen mit einem Schneidwerkzeug, das Modul vom Rahmen zu trennen.\n\nFehlschlag: Der Schnitt trifft eine Treibstoffleitung. Die Abgase schleudern das Modul zur Seite und verstreuen Fragmente.\n\nSie entkommen unverrichteter Dinge.";
         _text[677, 5] = "Usas una herramienta de corte e intentas separar el módulo del bastidor.\n\nFracaso: el corte alcanza una línea de combustible. Una eyección reactiva desvía el módulo y los fragmentos salen disparados.\n\nTe retiras con las manos vacías.";
         _text[677, 6] = "Używasz narzędzia tnącego i próbujesz oddzielić moduł od ramy.\n\nPorażka: cięcie zahacza o przewód paliwowy. Strumień odrzutowy zbacza moduł na bok, odłamki rozlatują się.\n\nOdchodzisz z niczym.";
         _text[677, 7] = "Você usa uma ferramenta de corte e tenta separar o módulo da armação.\n\nFalha: o corte atinge a linha de combustível. Um jato reativo desvia o módulo, e estilhaços se espalham.\n\nVocê se afasta de mãos vazias.";
@@ -7541,7 +7541,7 @@ public class Language : MonoBehaviour
         _text[678, 1] = "Проигнорировать и лететь дальше"; // выбор 3
         _text[678, 2] = "Ignorez-le et continuez votre vol.";
         _text[678, 3] = "Ignoralo e continua a volare";
-        _text[678, 4] = "Ignorieren und weiterfliegen";
+        _text[678, 4] = "Ignoriere es und flieg weiter";
         _text[678, 5] = "Ignorar y seguir volando";
         _text[678, 6] = "Zignorować i lecieć dalej";
         _text[678, 7] = "Ignorar e seguir viagem";
@@ -7552,7 +7552,7 @@ public class Language : MonoBehaviour
         _text[679, 1] = "Вы отмечаете метку и уходите от поля обломков."; // ничего
         _text[679, 2] = "Vous marquez l'emplacement du repère et vous vous éloignez du champ de débris.";
         _text[679, 3] = "Si segna il marcatore e ci si allontana dal campo di detriti.";
-        _text[679, 4] = "Du markierst das Signal und verlässt das Trümmerfeld.";
+        _text[679, 4] = "Sie markieren die Stelle und entfernen sich vom Trümmerfeld.";
         _text[679, 5] = "Marcas la baliza y te alejas del campo de escombros.";
         _text[679, 6] = "Oznaczasz znacznik i oddalasz się od pola szczątków.";
         _text[679, 7] = "Você marca o ponto e se afasta do campo de destroços.";
@@ -7564,7 +7564,7 @@ public class Language : MonoBehaviour
         _text[680, 1] = "Впереди одиночный корабль пересекает ваш маршрут.\n\nКорпус чистый, манёвры точные.\n\nСканирование цепляет главное: тяга необычно стабильна.\n\nДвигатели - высокого класса. Такие редко встречаются в открытом пространстве.";
         _text[680, 2] = "Un vaisseau solitaire croise votre route.\n\nSa coque est impeccable, ses manœuvres précises.\n\nL'analyse révèle un détail crucial: la poussée est d'une stabilité inhabituelle.\n\nLes moteurs sont haut de gamme. De telles performances sont rares dans l'espace.";
         _text[680, 3] = "Davanti a voi, una nave solitaria vi attraversa la strada.\n\nLo scafo è pulito, le manovre precise.\n\nLa scansione rivela la chiave: la spinta è insolitamente stabile.\n\nI motori sono di fascia alta. Cose del genere sono rare nello spazio aperto.";
-        _text[680, 4] = "Vorne kreuzt ein einzelnes Schiff deine Route.\n\nDer Rumpf ist sauber, die Manöver präzise.\n\nDer Scan greift das Wesentliche: Der Schub ist ungewöhnlich stabil.\n\nTriebwerke der Spitzenklasse. So etwas ist im offenen Raum selten.";
+        _text[680, 4] = "Vor Ihnen kreuzt ein einzelnes Schiff Ihren Weg.\n\nDer Rumpf ist makellos, die Manöver sind präzise.\n\nDer Scan enthüllt den Schlüssel: Der Schub ist ungewöhnlich stabil.\n\nDie Triebwerke sind von hoher Qualität, im offenen Weltraum eine Seltenheit.";
         _text[680, 5] = "Más adelante, una nave solitaria cruza tu ruta.\n\nEl casco está limpio, las maniobras son precisas.\n\nEl escaneo capta lo principal: el empuje es inusualmente estable.\n\nMotores de clase alta. Rara vez se ven en espacio abierto.";
         _text[680, 6] = "Przed tobą samotny statek przecina twój kurs.\n\nKadłub jest czysty, manewry precyzyjne.\n\nSkanowanie wychwytuje najważniejsze: ciąg jest nienaturalnie stabilny.\n\nSilniki - wysokiej klasy. Takie rzadko spotyka się w otwartej przestrzeni.";
         _text[680, 7] = "À frente, um navio solitário cruza a sua rota.\n\nO casco está limpo, as manobras são precisas.\n\nA varredura capta o principal: o empuxo é incomumente estável.\n\nMotores de alta classe. Esses raramente aparecem no espaço aberto.";
@@ -7575,7 +7575,7 @@ public class Language : MonoBehaviour
         _text[681, 1] = "Улететь"; // выбор 1
         _text[681, 2] = "Envolez-vous";
         _text[681, 3] = "Vola via";
-        _text[681, 4] = "Wegfliegen";
+        _text[681, 4] = "Flieg davon";
         _text[681, 5] = "Alejarse";
         _text[681, 6] = "Odlecieć";
         _text[681, 7] = "Ir embora";
@@ -7586,7 +7586,7 @@ public class Language : MonoBehaviour
         _text[682, 1] = "Вы сворачиваете сканирование, меняете вектор и оставляете контакт позади."; // выбор 1 ничего
         _text[682, 2] = "Vous réduisez la zone de numérisation, changez de vecteur et laissez le contact derrière vous.";
         _text[682, 3] = "Si chiude la scansione, si cambia vettore e si lascia il contatto.";
-        _text[682, 4] = "Du beendest den Scan, änderst den Vektor und lässt den Kontakt hinter dir.";
+        _text[682, 4] = "Sie reduzieren den Scan, ändern den Vektor und lassen den Kontakt zurück.";
         _text[682, 5] = "Detienes el escaneo, cambias de vector y dejas el contacto atrás.";
         _text[682, 6] = "Kończysz skanowanie, zmieniasz wektor i zostawiasz kontakt za sobą.";
         _text[682, 7] = "Você encerra a varredura, muda o vetor e deixa o contato para trás.";
@@ -7597,7 +7597,7 @@ public class Language : MonoBehaviour
         _text[683, 1] = "Выйти на связь"; // выбор 2
         _text[683, 2] = "Entrer en contact";
         _text[683, 3] = "Contattaci";
-        _text[683, 4] = "Kontakt aufnehmen";
+        _text[683, 4] = "Nehmen Sie Kontakt auf";
         _text[683, 5] = "Contactar";
         _text[683, 6] = "Nawiązać łączność";
         _text[683, 7] = "Entrar em contato";
@@ -7608,7 +7608,7 @@ public class Language : MonoBehaviour
         _text[684, 1] = "Вы отправляете стандартный вызов.\n\nОтвет приходит мгновенно - цепочка символов и тонов, которые вы не можете расшифровать.\n\nЗатем корабль открывает огонь.\n\nВы разрываете контакт и уходите в прыжок.\n\nОт полученного удара одно ядро выходит из строя."; // выбор 2 -1 ядро
         _text[684, 2] = "Vous envoyez un appel standard.\n\nLa réponse est instantanée: une suite de symboles et de tonalités indéchiffrables.\n\nLe vaisseau ouvre alors le feu.\n\nVous rompez le contact et sautez.\n\nL'impact met hors service un noyau.";
         _text[684, 3] = "Invii una chiamata standard.\n\nLa risposta arriva istantaneamente: una serie di simboli e toni che non riesci a decifrare.\n\nPoi la nave apre il fuoco.\n\nInterrompi il contatto e salti.\n\nL'impatto risultante disattiva un nucleo.";
-        _text[684, 4] = "Du sendest einen Standardruf.\n\nDie Antwort kommt sofort - eine Kette aus Symbolen und Tönen, die du nicht entschlüsseln kannst.\n\nDann eröffnet das Schiff das Feuer.\n\nDu brichst den Kontakt ab und springst weg.\n\nDurch den Treffer fällt ein Kern aus.";
+        _text[684, 4] = "Du sendest einen Standardruf.\n\nDie Antwort kommt sofort – eine unleserliche Abfolge von Symbolen und Tönen.\n\nDann eröffnet das Schiff das Feuer.\n\nDu brichst den Kontakt ab und springst.\n\nDer Einschlag deaktiviert einen Kern.";
         _text[684, 5] = "Envías una llamada estándar.\n\nLa respuesta llega al instante: una cadena de símbolos y tonos que no puedes descifrar.\n\nLuego la nave abre fuego.\n\nCortas el contacto y saltas.\n\nPor el impacto recibido, un núcleo queda fuera de servicio.";
         _text[684, 6] = "Wysyłasz standardowe wezwanie.\n\nOdpowiedź przychodzi natychmiast - łańcuch symboli i tonów, których nie potrafisz rozszyfrować.\n\nPotem statek otwiera ogień.\n\nZrywasz kontakt i odchodzisz w skok.\n\nOd otrzymanego trafienia jeden rdzeń ulega awarii.";
         _text[684, 7] = "Você envia uma chamada padrão.\n\nA resposta chega instantaneamente - uma sequência de símbolos e tons que você não consegue decifrar.\n\nEm seguida, o navio abre fogo.\n\nVocê rompe o contato e entra em salto.\n\nCom o impacto, um núcleo falha.";
@@ -7619,7 +7619,7 @@ public class Language : MonoBehaviour
         _text[685, 1] = "Атаковать"; // выбор 3
         _text[685, 2] = "Attaque";
         _text[685, 3] = "Attacco";
-        _text[685, 4] = "Angreifen";
+        _text[685, 4] = "Angriff";
         _text[685, 5] = "Atacar";
         _text[685, 6] = "Zaakakować";
         _text[685, 7] = "Atacar";
@@ -7630,7 +7630,7 @@ public class Language : MonoBehaviour
         _text[686, 1] = "Вы приводите оружие в готовность. Цель разворачивается и ускоряется.\n\nВыберите точку удара.";
         _text[686, 2] = "Vous armez votre arme. La cible pivote et accélère.\n\nChoisissez votre point d'impact.";
         _text[686, 3] = "Prepari l'arma. Il bersaglio si gira e accelera.\n\nScegli il punto in cui colpire.";
-        _text[686, 4] = "Du bringst die Waffen in Stellung. Das Ziel dreht ab und beschleunigt.\n\nWähle den Angriffspunkt.";
+        _text[686, 4] = "Du machst deine Waffe bereit. Das Ziel dreht sich und beschleunigt.\n\nWähle deinen Trefferpunkt.";
         _text[686, 5] = "Pones las armas en alerta. El objetivo gira y acelera.\n\nElige el punto de impacto.";
         _text[686, 6] = "Przygotowujesz uzbrojenie. Cel zawraca i przyspiesza.\n\nWybierz punkt uderzenia.";
         _text[686, 7] = "Você coloca as armas em prontidão. O alvo vira e acelera.\n\nEscolha o ponto de ataque.";
@@ -7641,7 +7641,7 @@ public class Language : MonoBehaviour
         _text[687, 1] = "Бить по двигателям"; // выбор 3.1
         _text[687, 2] = "Actionnez les moteurs";
         _text[687, 3] = "Accendete i motori";
-        _text[687, 4] = "Auf die Triebwerke zielen";
+        _text[687, 4] = "Startet die Motoren!";
         _text[687, 5] = "Disparar a los motores";
         _text[687, 6] = "Uderzyć w silniki";
         _text[687, 7] = "Atirar nos motores";
@@ -7650,9 +7650,9 @@ public class Language : MonoBehaviour
 
         _text[688, 0] = "You focus fire on the engine section, trying to disable the ship without tearing it apart.\n\nSuccess: the thrust collapses. You board the wreck and take the cargo.\n\nYou find only quants.";
         _text[688, 1] = "Вы переносите огонь на двигательный отсек, пытаясь вывести корабль из строя, не разорвав его.\n\nУспех: тяга обрывается. Вы подходите к обломкам и забираете груз.\n\nВнутри - только кванты."; // выбор 3.1 успех + квант
-        _text[688, 2] = "Vous déplacez l'incendie vers la salle des machines, tentant de neutraliser le vaisseau sans le détruire.\n\nSuccès: la propulsion est coupée. Vous vous approchez de l'épave et récupérez la cargaison.\n\nÀ l'intérieur, il n'y a que des quanta.";
+        _text[688, 2] = "Vous déplacez l'incendie vers la salle des machines, tentant de neutraliser le vaisseau sans le détruire.\n\nSuccès: la propulsion est coupée. Vous vous approchez de l'épave et récupérez la cargaison.\n\nÀ l'intérieur, il n'y a que des quant.";
         _text[688, 3] = "Sposti il ​​fuoco nel vano motore, cercando di mettere fuori uso la nave senza farla a pezzi.\n\nRiuscito: la spinta viene interrotta. Ti avvicini al relitto e recuperi il carico.\n\nAll'interno ci sono solo quant.";
-        _text[688, 4] = "Du verlagerst das Feuer auf den Triebwerksbereich und versuchst, das Schiff kampfunfähig zu machen, ohne es zu zerreißen.\n\nErfolg: Der Schub bricht ab. Du näherst dich den Trümmern und nimmst die Ladung.\n\nDrinnen - nur quants.";
+        _text[688, 4] = "Du verlagerst das Feuer in den Maschinenraum und versuchst, das Schiff kampfunfähig zu machen, ohne es zu zerstören.\n\nErfolg: Der Schub wird unterbrochen. Du näherst dich dem Wrack und bergst die Ladung.\n\nIm Inneren befinden sich nur Quanten.";
         _text[688, 5] = "Concentras el fuego en el compartimento de motores, intentando inutilizar la nave sin destrozarla.\n\nÉxito: el empuje se corta. Te acercas a los restos y recoges la carga.\n\nDentro solo hay quant.";
         _text[688, 6] = "Przenosisz ogień na przedział silników, próbując unieruchomić statek, nie rozrywając go.\n\nSukces: ciąg urywa się. Podchodzisz do szczątków i zabierasz ładunek.\n\nW środku - tylko quant.";
         _text[688, 7] = "Você concentra o fogo no compartimento do motor, tentando incapacitar o navio sem destruí-lo.\n\nSucesso: o empuxo se interrompe. Você se aproxima dos destroços e recolhe a carga.\n\nDentro - apenas quant.";
@@ -7663,7 +7663,7 @@ public class Language : MonoBehaviour
         _text[689, 1] = "Вы переносите огонь на двигательный отсек, пытаясь вывести корабль из строя, не разорвав его.\n\nПровал: залп уходит мимо. Цель отвечает точным выстрелом.\n\nОдно ядро выходит из строя. Вы уходите в гиперпрыжок."; // выбор 3.1 провал -1 ядро
         _text[689, 2] = "Vous concentrez vos tirs sur la salle des machines, tentant de neutraliser le vaisseau sans le détruire.\n\nÉchec: la salve rate sa cible. La cible riposte par un tir précis.\n\nUn réacteur est hors service. Vous passez en hyperespace.";
         _text[689, 3] = "Sposti il ​​fuoco sul vano motore, nel tentativo di disattivare la nave senza farla a pezzi.\n\nFallimento: la salva manca il bersaglio. Il bersaglio risponde con un colpo ben mirato.\n\nUn nucleo è disattivato. Salti nell'iperspazio.";
-        _text[689, 4] = "Du verlagerst das Feuer auf den Triebwerksbereich und versuchst, das Schiff kampfunfähig zu machen, ohne es zu zerreißen.\n\nMisserfolg: Die Salve geht vorbei. Das Ziel antwortet mit einem präzisen Schuss.\n\nEin Kern fällt aus. Du springst in den Hyperraum.";
+        _text[689, 4] = "Du verlagerst dein Feuer auf den Maschinenraum und versuchst, das Schiff kampfunfähig zu machen, ohne es zu zerstören.\n\nFehlschlag: Die Salve verfehlt ihr Ziel. Das Ziel antwortet mit einem gezielten Schuss.\n\nEin Kern ist deaktiviert. Du springst in den Hyperraum.";
         _text[689, 5] = "Concentras el fuego en el compartimento de motores, intentando inutilizar la nave sin destrozarla.\n\nFracaso: la andanada falla. El objetivo responde con un disparo preciso.\n\nUn núcleo queda fuera de servicio. Te vas en hipersalto.";
         _text[689, 6] = "Przenosisz ogień na przedział silników, próbując unieruchomić statek, nie rozrywając go.\n\nPorażka: salwa mija cel. Przeciwnik odpowiada precyzyjnym strzałem.\n\nJeden rdzeń ulega awarii. Odchodzisz w hiperprzeskok.";
         _text[689, 7] = "Você concentra o fogo no compartimento do motor, tentando incapacitar o navio sem destruí-lo.\n\nFalha: a salva passa ao lado. O alvo responde com um disparo preciso.\n\nUm núcleo falha. Você entra em hipersalto.";
@@ -7674,7 +7674,7 @@ public class Language : MonoBehaviour
         _text[690, 1] = "Бить по орудиям"; // выбор 3.2
         _text[690, 2] = "Tirez sur les armes";
         _text[690, 3] = "Colpisci le pistole";
-        _text[690, 4] = "Auf die Geschütze zielen";
+        _text[690, 4] = "Feuer frei!";
         _text[690, 5] = "Disparar a las armas";
         _text[690, 6] = "Uderzyć w działa";
         _text[690, 7] = "Atirar nas armas";
@@ -7685,7 +7685,7 @@ public class Language : MonoBehaviour
         _text[691, 1] = "Вы концентрируете огонь по орудийным узлам.\n\nУспех: орудия гаснут. Корабль теряет управление и уходит в дрейф.\n\nВы срезаете двигательный блок прямо у них на глазах.\n\nЭлектродвигатель закреплён."; // выбор 3.2 успех + ElectricEngine
         _text[691, 2] = "Vous concentrez vos tirs sur les affûts d'armes.\n\nSuccès: les armes cessent de fonctionner. Le vaisseau devient incontrôlable et dérive.Vous sectionnez le bloc moteur sous leurs yeux.\n\nLe moteur électrique est sécurisé.";
         _text[691, 3] = "Concentri il fuoco sui supporti delle armi.\n\nRiuscito: le armi si spengono. La nave perde il controllo e va alla deriva.\n\nSpegni il blocco motore proprio davanti ai loro occhi.\n\nIl motore elettrico è in sicurezza.";
-        _text[691, 4] = "Du konzentrierst das Feuer auf die Geschützmodule.\n\nErfolg: Die Geschütze erlöschen. Das Schiff verliert die Kontrolle und treibt.\n\nDu trennst den Triebwerksblock direkt vor ihren Augen ab.\n\nElektromotor gesichert.";
+        _text[691, 4] = "Du konzentrierst dein Feuer auf die Waffenhalterungen.\n\nErfolg: Die Waffen fallen aus. Das Schiff verliert die Kontrolle und treibt ab.\n\nDu trennst den Motorblock direkt vor ihren Augen ab.\n\nDer Elektromotor ist gesichert.";
         _text[691, 5] = "Concentras el fuego en los nodos de armamento.\n\nÉxito: las armas se apagan. La nave pierde el control y queda a la deriva.\n\nCortas el módulo de motor delante de sus propios ojos.\n\nEl motor eléctrico está asegurado.";
         _text[691, 6] = "Koncentrujesz ogień na węzłach uzbrojenia.\n\nSukces: działa gasną. Statek traci sterowność i przechodzi w dryf.\n\nOdcinasz blok napędowy na ich oczach.\n\nSilnik elektryczny zabezpieczony.";
         _text[691, 7] = "Você concentra o fogo nos pontos de armamento.\n\nSucesso: as armas se apagam. O navio perde o controle e entra em deriva.\n\nVocê corta o bloco do motor bem diante dos olhos deles.\n\nO motor elétrico está fixado.";
@@ -7696,7 +7696,7 @@ public class Language : MonoBehaviour
         _text[692, 1] = "Вы концентрируете огонь по орудийным узлам.\n\nПровал: подавить орудия не удаётся. Ответный залп накрывает ваш корабль.\n\nОдно ядро выходит из строя. Вы уходите в гиперпрыжок."; // выбор 3.2 провал -1 ядро
         _text[692, 2] = "Vous concentrez vos tirs sur les nœuds d'armement.\n\nÉchec: les armes ne peuvent être neutralisées. Une salve de riposte touche votre vaisseau.\n\nUn noyau est hors service. Vous passez en hyperespace.";
         _text[692, 3] = "Concentri il fuoco sui nodi delle armi.\n\nFallimento: le armi non possono essere soppresse. Una salva di ritorno colpisce la tua nave.\n\nUn nucleo è disattivato. Salti nell'iperspazio.";
-        _text[692, 4] = "Du konzentrierst das Feuer auf die Geschützmodule.\n\nMisserfolg: Die Geschütze lassen sich nicht unterdrücken. Eine Antwortsalve trifft dein Schiff.\n\nEin Kern fällt aus. Du springst in den Hyperraum.";
+        _text[692, 4] = "Du konzentrierst dein Feuer auf die Waffenknoten.\n\nFehlschlag: Die Waffen lassen sich nicht unterdrücken. Eine Gegensalve trifft dein Schiff.\n\nEin Kern ist deaktiviert. Du springst in den Hyperraum.";
         _text[692, 5] = "Concentras el fuego en los nodos de armamento.\n\nFracaso: no logras suprimir las armas. Una andanada de respuesta golpea tu nave.\n\nUn núcleo queda fuera de servicio. Te vas en hipersalto.";
         _text[692, 6] = "Koncentrujesz ogień na węzłach uzbrojenia.\n\nPorażka: nie udaje się stłumić dział. Salwa zwrotna trafia w twój statek.\n\nJeden rdzeń ulega awarii. Odchodzisz w hiperprzeskok.";
         _text[692, 7] = "Você concentra o fogo nos pontos de armamento.\n\nFalha: não é possível suprimir as armas. A salva de retorno atinge o seu navio.\n\nUm núcleo falha. Você entra em hipersalto.";
@@ -7708,7 +7708,7 @@ public class Language : MonoBehaviour
         _text[693, 1] = "Впереди появляется тонкая полоса света, будто трещина в пространстве.\n\nПриборы не показывают ничего: ни массы, ни излучения, ни поля.\n\nНа мгновение навигация прокладывает маршрут прямо через неё... а затем стирает.";
         _text[693, 2] = "Une fine traînée de lumière apparaît devant nous, comme une fissure dans l'espace.\n\nLes instruments ne détectent rien: ni masse, ni rayonnement, ni champ.\n\nUn instant, le système de navigation trace une route qui la traverse... puis l'efface.";
         _text[693, 3] = "Una sottile striscia di luce appare davanti a noi, come una crepa nello spazio.\n\nGli strumenti non mostrano nulla: nessuna massa, nessuna radiazione, nessun campo.\n\nPer un attimo, il sistema di navigazione traccia una rotta attraverso di essa... e poi la cancella.";
-        _text[693, 4] = "Voraus erscheint ein dünner Lichtstreifen, wie ein Riss im Raum.\n\nDie Instrumente zeigen nichts: keine Masse, keine Strahlung, kein Feld.\n\nFür einen Moment legt die Navigation die Route direkt hindurch... und löscht sie dann.";
+        _text[693, 4] = "Ein dünner Lichtstreifen erscheint vor uns, wie ein Riss im Raum.\n\nDie Instrumente zeigen nichts an: keine Masse, keine Strahlung, kein Feld.\n\nKurzzeitig berechnet das Navigationssystem eine Route direkt hindurch … und löscht sie dann wieder.";
         _text[693, 5] = "Delante aparece una fina franja de luz, como una grieta en el espacio.\n\nLos instrumentos no muestran nada: ni masa, ni radiación, ni campo.\n\nPor un instante la navegación traza una ruta directamente a través de ella... y luego la borra.";
         _text[693, 6] = "Przed tobą pojawia się cienka smuga światła, jak pęknięcie w przestrzeni.\n\nPrzyrządy nie pokazują nic: ani masy, ani promieniowania, ani pola.\n\nNa moment nawigacja wytycza trasę prosto przez nią... a potem ją usuwa.";
         _text[693, 7] = "À frente surge uma faixa fina de luz, como uma fissura no espaço.\n\nOs instrumentos não mostram nada: nem massa, nem radiação, nem campo.\n\nPor um instante, a navegação traça uma rota direto através dela... e então apaga.";
@@ -7720,7 +7720,7 @@ public class Language : MonoBehaviour
         _text[694, 1] = "На забытой частоте вспыхивает слабый сигнал.\n\nПовторяется только одна короткая строка:\n\n\"НЕ БУДИТЕ ЕГО\"\n\nКак только вы пытаетесь зафиксировать источник, сигнал рассыпается в шум.";
         _text[694, 2] = "Un faible signal apparaît sur une fréquence oubliée.\n\nUne seule phrase, brève, se répète:\n\n\"NE LE RÉVEILLEZ PAS\"\n\nDès que vous tentez de localiser la source, le signal se désintègre en bruit.";
         _text[694, 3] = "Un segnale debole lampeggia su una frequenza dimenticata.\n\nViene ripetuta solo una breve frase:\n\n\"NON SVEGLIATELO\".\n\nNon appena si cerca di localizzare la fonte, il segnale si disintegra in rumore.";
-        _text[694, 4] = "Auf einer vergessenen Frequenz flackert ein schwaches Signal.\n\nEs wiederholt sich nur eine kurze Zeile:\n\n\"WECKT IHN NICHT\"\n\nSobald du versuchst, die Quelle zu fixieren, zerfällt das Signal zu Rauschen.";
+        _text[694, 4] = "Ein schwaches Signal blinkt auf einer vergessenen Frequenz.\n\nNur eine kurze Zeile wird wiederholt:\n\n„WECK IHN NICHT AUF.“\n\nSobald man versucht, die Quelle zu orten, zerfällt das Signal im Rauschen.";
         _text[694, 5] = "En una frecuencia olvidada parpadea una señal débil.\n\nSolo se repite una frase corta:\n\n\"NO LO DESPIERTEN\"\n\nEn cuanto intentas fijar el origen, la señal se deshace en ruido.";
         _text[694, 6] = "Na zapomnianej częstotliwości rozbłyska słaby sygnał.\n\nPowtarza się tylko jedna krótka linia:\n\n\"NIE BUDŹCIE GO\"\n\nGdy tylko próbujesz namierzyć źródło, sygnał rozsypuje się w szum.";
         _text[694, 7] = "Em uma frequência esquecida, um sinal fraco pisca.\n\nApenas uma linha curta se repete:\n\n\"NÃO O ACORDEM\"\n\nAssim que você tenta fixar a origem, o sinal se desfaz em ruído.";
@@ -7732,7 +7732,7 @@ public class Language : MonoBehaviour
         _text[695, 1] = "Местная звезда на мгновение тускнеет, затем возвращается в норму.\n\nСенсоры фиксируют изменение, но не могут его объяснить.\n\nСобытие записывается как \"аномалия\".\n\nБольше ничего не происходит.";
         _text[695, 2] = "L'étoile locale faiblit un instant, puis retrouve son éclat normal.\n\nLes capteurs détectent le changement, mais ne parviennent pas à l'expliquer.\n\nL'événement est enregistré comme une \"anomalie\".\n\nRien d'autre ne se produit.";
         _text[695, 3] = "La stella locale si affievolisce momentaneamente, poi torna alla normalità.\n\nI sensori rilevano il cambiamento ma non riescono a spiegarlo.\n\nL'evento viene registrato come \"anomalia\".\n\nNon accade nient'altro.";
-        _text[695, 4] = "Der lokale Stern wird für einen Moment dunkler und kehrt dann zur Normalität zurück.\n\nDie Sensoren registrieren die Änderung, können sie aber nicht erklären.\n\nDas Ereignis wird als \"Anomalie\" gespeichert.\n\nSonst passiert nichts.";
+        _text[695, 4] = "Der lokale Stern verdunkelt sich kurzzeitig und kehrt dann zur Normalhelligkeit zurück.\n\nSensoren erfassen die Veränderung, können sie aber nicht erklären.\n\nDas Ereignis wird als „Anomalie“ protokolliert.\n\nEs geschieht nichts weiter.";
         _text[695, 5] = "La estrella local se atenúa por un instante y luego vuelve a la normalidad.\n\nLos sensores registran el cambio, pero no pueden explicarlo.\n\nEl evento se registra como \"anomalía\".\n\nNo ocurre nada más.";
         _text[695, 6] = "Lokalna gwiazda na moment przygasa, po czym wraca do normy.\n\nSensory rejestrują zmianę, ale nie potrafią jej wyjaśnić.\n\nZdarzenie zostaje zapisane jako \"anomalia\".\n\nNic więcej się nie dzieje.";
         _text[695, 7] = "A estrela local escurece por um instante e então volta ao normal.\n\nOs sensores registram a mudança, mas não conseguem explicá-la.\n\nO evento é registrado como \"anomalia\".\n\nNada mais acontece.";
@@ -7744,7 +7744,7 @@ public class Language : MonoBehaviour
         _text[696, 1] = "Вы проходите через поле мелкой пыли, что она похожа на туман.\n\nНесколько минут корпусные микрофоны ловят ритмичный стук - будто кто-то стучит снаружи.\n\nЗатем пыль пропадает.\n\nСтук прекращается.";
         _text[696, 2] = "Vous traversez un champ de poussière fine, semblable à du brouillard.\n\nPendant plusieurs minutes, les microphones de l'enceinte captent un bruit de cognement rythmé, comme si quelqu'un frappait dehors.\n\nPuis la poussière disparaît.Le cognement cesse.";
         _text[696, 3] = "Si attraversa un campo di polvere sottile, simile alla nebbia.\n\nPer diversi minuti, i microfoni del cabinet captano un suono ritmico di colpi, come se qualcuno bussasse all'esterno.\n\nPoi la polvere scompare.\n\nIl rumore cessa.";
-        _text[696, 4] = "Du fliegst durch ein Feld feinen Staubs, der wie Nebel wirkt.\n\nMehrere Minuten lang fangen Rumpfmikrofone ein rhythmisches Klopfen ein - als würde jemand von außen schlagen.\n\nDann verschwindet der Staub.\n\nDas Klopfen hört auf.";
+        _text[696, 4] = "Sie durchqueren ein Feld aus feinem Staub, der an Nebel erinnert.\n\nMehrere Minuten lang nehmen die Mikrofone in den Kabinen ein rhythmisches Klopfgeräusch auf – als würde jemand draußen klopfen.\n\nDann löst sich der Staub auf.\n\nDas Klopfen hört auf.";
         _text[696, 5] = "Atraviesas un campo de polvo fino, tan denso que parece niebla.\n\nDurante unos minutos, los micrófonos del casco captan un golpeteo rítmico, como si alguien llamara desde fuera.\n\nLuego el polvo desaparece.\n\nEl golpeteo cesa.";
         _text[696, 6] = "Przelatujesz przez pole drobnego pyłu, podobnego do mgły.\n\nPrzez kilka minut mikrofony kadłubowe wychwytują rytmiczne stukanie - jakby ktoś pukał z zewnątrz.\n\nPotem pył znika.\n\nStukanie ustaje.";
         _text[696, 7] = "Você atravessa um campo de poeira fina, parecida com neblina.\n\nPor alguns minutos, os microfones do casco captam batidas rítmicas - como se alguém batesse do lado de fora.\n\nEntão a poeira desaparece.\n\nAs batidas cessam.";
@@ -7756,7 +7756,7 @@ public class Language : MonoBehaviour
         _text[697, 1] = "В логе появляется беззвучная запись, без какого-либо канала связи.\n\nТолько метка времени и одно слово:\n\n\"ВЕРНИСЬ\"\n\nКогда вы пытаетесь открыть её снова, запись исчезает.";
         _text[697, 2] = "Une entrée silencieuse apparaît dans le journal, sans aucun canal de communication.\n\nSeuls un horodatage et un mot:\n\n\"REVIENS\"\n\nLorsque vous tentez de l’ouvrir à nouveau, l’entrée disparaît.";
         _text[697, 3] = "Nel registro compare una voce silenziosa, senza alcun canale di comunicazione.\n\nSolo un timestamp e una parola:\n\n\"TORNO\"\n\nQuando si tenta di riaprirlo, la voce scompare.";
-        _text[697, 4] = "Im Log erscheint ein lautloser Eintrag ohne irgendeinen Kommunikationskanal.\n\nNur ein Zeitstempel und ein Wort:\n\n\"KEHR ZURÜCK\"\n\nAls du ihn erneut öffnen willst, ist der Eintrag verschwunden.";
+        _text[697, 4] = "Im Protokoll erscheint ein stiller Eintrag ohne jegliche Kommunikation.\n\nNur ein Zeitstempel und ein Wort:\n\n„KOMM ZURÜCK“\n\nBeim erneuten Öffnen verschwindet der Eintrag.";
         _text[697, 5] = "En el registro aparece una entrada silenciosa, sin ningún canal de comunicación.\n\nSolo una marca de tiempo y una palabra:\n\n\"VUELVE\"\n\nCuando intentas abrirla de nuevo, la entrada desaparece.";
         _text[697, 6] = "W logu pojawia się bezdźwięczny wpis, bez jakiegokolwiek kanału łączności.\n\nTylko znacznik czasu i jedno słowo:\n\n\"WRÓĆ\"\n\nGdy próbujesz otworzyć go ponownie, zapis znika.";
         _text[697, 7] = "No log aparece um registro silencioso, sem qualquer canal de comunicação.\n\nApenas um carimbo de tempo e uma palavra:\n\n\"VOLTE\"\n\nQuando você tenta abri-lo novamente, o registro desaparece.";
@@ -7768,7 +7768,7 @@ public class Language : MonoBehaviour
         _text[698, 1] = "Вы фиксируете тонкий след мусора, вытянутый ровной линией.\n\nСлишком правильный рисунок для природного.\n\nОн уходит в пустоту и внезапно обрывается.";
         _text[698, 2] = "Vous apercevez une fine traînée de débris, dessinée en ligne droite.\n\nLe motif est trop parfait pour être naturel.\n\nIl se fond dans le vide et disparaît soudainement.";
         _text[698, 3] = "Catturi una sottile scia di detriti, disegnata in linea retta.\n\nIl disegno è troppo perfetto per essere naturale.\n\nSi perde nel vuoto e all'improvviso finisce.";
-        _text[698, 4] = "Du registrierst eine feine Spur aus Trümmern, die sich in einer geraden Linie zieht.\n\nEin zu regelmäßiges Muster für etwas Natürliches.\n\nSie führt ins nichts und bricht dann abrupt ab.";
+        _text[698, 4] = "Du fängst eine dünne, geradlinige Schuttspur ein.\n\nDas Muster ist zu perfekt, um natürlich zu sein.\n\nEs verliert sich im Nichts und endet abrupt.";
         _text[698, 5] = "Detectas una fina estela de desechos, trazada en una línea perfecta.\n\nUn patrón demasiado regular para ser natural.\n\nSe adentra en el vacío y se corta de golpe.";
         _text[698, 6] = "Rejestrujesz cienki ślad odpadków, rozciągnięty w równą linię.\n\nZbyt regularny wzór jak na naturalny.\n\nWchodzi w pustkę i nagle się urywa.";
         _text[698, 7] = "Você detecta um rastro fino de detritos, esticado em uma linha perfeita.\n\nUm padrão demasiado regular para ser natural.\n\nEle se estende no vazio e termina de repente.";
@@ -7780,7 +7780,7 @@ public class Language : MonoBehaviour
         _text[699, 1] = "На мгновение внутренняя подсветка переходит в аварийный режим.\n\nНи пожара. Ни разгерметизации. Ни повреждений.\n\nСистемы сообщают: \"тест завершён\".\n\nВы не запускали никаких тестов...";
         _text[699, 2] = "L'éclairage intérieur passe brièvement en mode secours.\n\nPas d'incendie. Pas de dépressurisation. Aucun dégât.\n\nLes systèmes indiquent: \"Test terminé\".\n\nVous n'avez effectué aucun test...";
         _text[699, 3] = "Per un attimo, l'illuminazione interna entra in modalità di emergenza.\n\nNessun incendio. Nessuna depressurizzazione. Nessun danno.\n\nI sistemi segnalano: \"test completato\".\n\nNon hai eseguito alcun test...";
-        _text[699, 4] = "Für einen Moment schaltet die Innenbeleuchtung in den Notfallmodus.\n\nKein Feuer. Keine Dekompression. Keine Schäden.\n\nDie Systeme melden: \"Test abgeschlossen\".\n\nDu hast keine Tests gestartet...";
+        _text[699, 4] = "Kurzzeitig schaltet die Innenbeleuchtung in den Notmodus.\n\nKein Brand. Kein Druckabfall. Keine Schäden.\n\nDie Systeme melden: „Test abgeschlossen.“\n\nSie haben keine Tests durchgeführt …";
         _text[699, 5] = "Por un instante, la iluminación interior pasa a modo de emergencia.\n\nNi incendio. Ni despresurización. Ni daños.\n\nLos sistemas informan: \"prueba finalizada\".\n\nNo has iniciado ninguna prueba...";
         _text[699, 6] = "Na moment wewnętrzne oświetlenie przechodzi w tryb awaryjny.\n\nBez pożaru. Bez rozszczelnienia. Bez uszkodzeń.\n\nSystemy meldują: \"test zakończony\".\n\nNie uruchamiałeś żadnych testów...";
         _text[699, 7] = "Por um instante, a iluminação interna muda para o modo de emergência.\n\nSem incêndio. Sem despressurização. Sem danos.\n\nOs sistemas informam: \"teste concluído\".\n\nVocê não iniciou teste algum...";
@@ -7792,7 +7792,7 @@ public class Language : MonoBehaviour
         _text[700, 1] = "Вы находите дрейфующую бирку от груза.\n\nОна пустая, но металл ещё тёплый.\n\nПоблизости нет источников тепла.";
         _text[700, 2] = "Vous trouvez une étiquette flottante provenant de la cargaison.\n\nElle est vide, mais le métal est encore chaud.\n\nIl n'y a aucune source de chaleur à proximité.";
         _text[700, 3] = "Trovi un'etichetta galleggiante del carico.\n\nÈ vuota, ma il metallo è ancora caldo.\n\nNon ci sono fonti di calore nelle vicinanze.";
-        _text[700, 4] = "Du findest ein treibendes Frachtetikett.\n\nEs ist leer, doch das Metall ist noch warm.\n\nIn der Nähe gibt es keine Wärmequellen.";
+        _text[700, 4] = "Du findest einen treibenden Frachtanhänger.\n\nEr ist leer, aber das Metall ist noch warm.\n\nEs gibt keine Wärmequellen in der Nähe.";
         _text[700, 5] = "Encuentras una etiqueta de carga a la deriva.\n\nEstá vacía, pero el metal aún está caliente.\n\nNo hay fuentes de calor cerca.";
         _text[700, 6] = "Znajdujesz dryfującą etykietę ładunku.\n\nJest pusta, ale metal wciąż jest ciepły.\n\nW pobliżu nie ma źródeł ciepła.";
         _text[700, 7] = "Você encontra uma etiqueta de carga à deriva.\n\nEla está vazia, mas o metal ainda está quente.\n\nNão há fontes de calor por perto.";
@@ -7804,7 +7804,7 @@ public class Language : MonoBehaviour
         _text[701, 1] = "Фрагмент звёздной карты обновляется сам по себе.\n\nОдин узел помечен как \"посещён\".\n\nВы там никогда не были.\n\nЧерез несколько секунд метка исчезает.";
         _text[701, 2] = "Un fragment de la carte stellaire se met à jour automatiquement.\n\nUn nœud est marqué comme \"visité\".\n\nVous n'y êtes jamais allé.Après quelques secondes, la marque disparaît.";
         _text[701, 3] = "Un frammento della mappa stellare si aggiorna automaticamente.\n\nUn nodo è contrassegnato come \"visitato\".\n\nNon ci sei mai stato.\n\nDopo pochi secondi, il segno scompare.";
-        _text[701, 4] = "Ein Fragment der Sternkarte aktualisiert sich von selbst.\n\nEin Knoten ist als \"besucht\" markiert.\n\nDu warst dort nie.\n\nNach wenigen Sekunden verschwindet die Markierung.";
+        _text[701, 4] = "Ein Ausschnitt der Sternenkarte wird automatisch aktualisiert.\n\nEin Knoten ist als „besucht“ markiert.\n\nDu warst noch nie dort.\n\nNach einigen Sekunden verschwindet die Markierung.";
         _text[701, 5] = "Un fragmento del mapa estelar se actualiza por sí solo.\n\nUn nodo aparece marcado como \"visitado\".\n\nNunca has estado allí.\n\nA los pocos segundos, la marca desaparece.";
         _text[701, 6] = "Fragment mapy gwiezdnej aktualizuje się samoczynnie.\n\nJeden węzeł jest oznaczony jako \"odwiedzony\".\n\nNigdy tam nie byłeś.\n\nPo kilku sekundach znacznik znika.";
         _text[701, 7] = "Um fragmento do mapa estelar se atualiza sozinho.\n\nUm nó é marcado como \"visitado\".\n\nVocê nunca esteve lá.\n\nApós alguns segundos, a marca desaparece.";
@@ -7816,7 +7816,7 @@ public class Language : MonoBehaviour
         _text[702, 1] = "Группа ледяных обломков дрейфует в идеальной симметрии.\n\nРисунок похож на техническую схему.\n\nСканеры пытаются классифицировать это как \"конструкцию\".\n\nНо из этого ничего не выходит...";
         _text[702, 2] = "Un amas de fragments de glace dérive en parfaite symétrie.\n\nLe dessin ressemble à un schéma technique.\n\nLes scanners tentent de le classer comme une \"structure\".\n\nMais rien n'y fait...";
         _text[702, 3] = "Un ammasso di frammenti di ghiaccio fluttua in perfetta simmetria.\n\nIl disegno sembra uno schema tecnico.\n\nGli scanner cercano di classificarlo come una \"struttura\".\n\nMa non ne esce nulla...";
-        _text[702, 4] = "Eine Gruppe aus Eisfragmenten treibt in perfekter Symmetrie.\n\nDas Muster erinnert an eine technische Zeichnung.\n\nDie Scanner versuchen, es als \"Konstruktion\" zu klassifizieren.\n\nDoch es gelingt nicht...";
+        _text[702, 4] = "Eine Ansammlung von Eisfragmenten treibt in perfekter Symmetrie.\n\nDie Zeichnung ähnelt einer technischen Skizze.\n\nDie Scanner versuchen, sie als „Struktur“ zu klassifizieren.\n\nDoch es ergibt sich nichts …";
         _text[702, 5] = "Un grupo de fragmentos de hielo deriva en perfecta simetría.\n\nEl patrón parece un esquema técnico.\n\nLos escáneres intentan clasificarlo como \"estructura\".\n\nPero no lo consiguen...";
         _text[702, 6] = "Grupa lodowych odłamków dryfuje w idealnej symetrii.\n\nWzór przypomina schemat techniczny.\n\nSkanery próbują sklasyfikować to jako \"konstrukcję\".\n\nAle nic z tego nie wychodzi...";
         _text[702, 7] = "Um grupo de fragmentos de gelo deriva em simetria perfeita.\n\nO desenho parece um esquema técnico.\n\nOs scanners tentam classificar isso como \"estrutura\".\n\nMas não conseguem...";
@@ -7828,7 +7828,7 @@ public class Language : MonoBehaviour
         _text[703, 1] = "В аудиоканале появляется шум - похожий на ветер.\n\nАтмосферы нет.\n\nСпектр совпадает со штормом на океанической планете.\n\nВы записываете его и продолжаете путь.";
         _text[703, 2] = "Un bruit se fait entendre dans le canal audio, comme du vent.\n\nIl n'y a pas d'atmosphère.Le spectre sonore correspond à celui d'une tempête sur une planète océanique.\n\nVous enregistrez le son et poursuivez votre chemin.";
         _text[703, 3] = "Nel canale audio compare un rumore, come quello del vento.\n\nNon c'è atmosfera.\n\nLo spettro corrisponde a quello di una tempesta su un pianeta oceanico.\n\nRegistri e prosegui per la tua strada.";
-        _text[703, 4] = "Im Audiokanal erscheint Rauschen - wie Wind.\n\nEs gibt keine Atmosphäre.\n\nDas Spektrum entspricht einem Sturm auf einem Ozeanplaneten.\n\nDu zeichnest es auf und setzt deinen Kurs fort.";
+        _text[703, 4] = "Im Audiokanal ist ein Geräusch zu hören – wie Wind.\n\nEs gibt keine Atmosphäre.\n\nDas Spektrum ähnelt einem Sturm auf einem Ozeanplaneten.\n\nDu nimmst es auf und setzt deinen Weg fort.";
         _text[703, 5] = "En el canal de audio aparece un ruido parecido al viento.\n\nNo hay atmósfera.\n\nEl espectro coincide con una tormenta en un planeta oceánico.\n\nLo grabas y continúas el viaje.";
         _text[703, 6] = "W kanale audio pojawia się szum - podobny do wiatru.\n\nNie ma atmosfery.\n\nWidmo odpowiada sztormowi na oceanicznej planecie.\n\nNagrywasz go i kontynuujesz podróż.";
         _text[703, 7] = "Surge ruído no canal de áudio - parecido com vento.\n\nNão há atmosfera.\n\nO espectro coincide com uma tempestade em um planeta oceânico.\n\nVocê grava e segue viagem.";
@@ -7840,7 +7840,7 @@ public class Language : MonoBehaviour
         _text[704, 1] = "Один из дронов возвращается с планового обхода с лишней отметкой на корпусе.\n\nМаленький выжженный круг.\n\nНи следов инструмента. Ни следов удара.\n\nЛог дрона пуст.";
         _text[704, 2] = "Un des drones revient d'une patrouille de routine avec une marque supplémentaire sur sa coque.Un petit cercle brûlé.\n\nAucune trace d'outil. Aucune trace d'impact.\n\nLe journal de bord du drone est vide.";
         _text[704, 3] = "Uno dei droni torna da un pattugliamento di routine con un segno in più sullo scafo.\n\nUn piccolo cerchio bruciato.\n\nNessun segno di utensile. Nessun segno di impatto.\n\nIl registro del drone è vuoto.";
-        _text[704, 4] = "Eine deiner Drohnen kehrt von einer Routinekontrolle mit einer zusätzlichen Markierung am Rumpf zurück.\n\nEin kleiner ausgebrannter Kreis.\n\nKeine Werkzeugspuren. Keine Einschlagspuren.\n\nDas Drohnenlog ist leer.";
+        _text[704, 4] = "Eine der Drohnen kehrt von einem Routineflug mit einer zusätzlichen Markierung an ihrem Rumpf zurück.\n\nEin kleiner, verbrannter Kreis.\n\nKeine Werkzeugspuren. Keine Einschlagspuren.\n\nDas Logbuch der Drohne ist leer.";
         _text[704, 5] = "Uno de los drones regresa de una inspección rutinaria con una marca extra en el casco.\n\nUn pequeño círculo chamuscado.\n\nSin rastro de herramienta. Sin rastro de impacto.\n\nEl registro del dron está vacío.";
         _text[704, 6] = "Jeden z dronów wraca z rutynowego obchodu z dodatkowym śladem na poszyciu.\n\nMały wypalony okrąg.\n\nBez śladów narzędzia. Bez śladów uderzenia.\n\nLog drona jest pusty.";
         _text[704, 7] = "Um dos drones retorna de uma patrulha de rotina com uma marca extra no casco.\n\nUm pequeno círculo queimado.\n\nSem marcas de ferramenta. Sem marcas de impacto.\n\nO log do drone está vazio.";
@@ -7855,7 +7855,7 @@ public class Language : MonoBehaviour
         _text[900, 1] = "Мы проникли в архивы мегаструктуры в поисках планеты, пригодной для жизни. Но вместо координат нашли записи о самих создателях - голоса, лица, города и историю их родной планеты.";
         _text[900, 2] = "Nous avons pénétré les archives de la mégastructure à la recherche d'une planète habitable. Mais au lieu de coordonnées, nous avons trouvé des documents concernant les créateurs eux-mêmes : leurs voix, leurs visages, leurs villes et l'histoire de leur planète d'origine.";
         _text[900, 3] = "Abbiamo esplorato gli archivi della megastruttura alla ricerca di un pianeta abitabile. Ma invece di coordinate, abbiamo trovato documenti sui creatori stessi: voci, volti, città e la storia del loro pianeta natale.";
-        _text[900, 4] = "Wir drangen in die Archive der Megastruktur ein, auf der Suche nach einem bewohnbaren Planeten. Doch statt Koordinaten fanden wir Aufzeichnungen über die Schöpfer selbst - Stimmen, Gesichter, Städte und die Geschichte ihrer Heimatwelt.";
+        _text[900, 4] = "Wir drangen in die Archive der Megastruktur ein, auf der Suche nach einem bewohnbaren Planeten. Doch anstelle von Koordinaten fanden wir Aufzeichnungen über die Schöpfer selbst – Stimmen, Gesichter, Städte und die Geschichte ihres Heimatplaneten.";
         _text[900, 5] = "Nos infiltramos en los archivos de la megastructura en busca de un planeta apto para la vida. Pero en lugar de coordenadas encontramos registros sobre los propios creadores: voces, rostros, ciudades y la historia de su planeta natal.";
         _text[900, 6] = "Przeniknęliśmy do archiwów megastruktury w poszukiwaniu planety nadającej się do życia. Ale zamiast współrzędnych znaleźliśmy zapisy o samych twórcach - głosy, twarze, miasta i historię ich rodzinnego świata.";
         _text[900, 7] = "Nós nos infiltramos nos arquivos da megastructure em busca de um planeta habitável. Mas, em vez de coordenadas, encontramos registros dos próprios Criadores - vozes, rostos, cidades e a história do planeta natal deles.";
@@ -7866,7 +7866,7 @@ public class Language : MonoBehaviour
         _text[901, 1] = "Последние строки этой истории обрываются на слове \"зима\". Ядерная зима. Серия ядерных ударов и пожары превратили всё живое в пепел. Поэтому связь с создателями оборвалась.";
         _text[901, 2] = "Les dernières lignes de cette histoire s'achèvent sur le mot \"hiver\". Hiver nucléaire. Une série de frappes nucléaires et d'incendies a réduit toute vie en cendres. Dès lors, tout contact avec les créateurs fut rompu.";
         _text[901, 3] = "Le ultime righe di questa storia terminano con la parola \"inverno\". Inverno nucleare. Una serie di attacchi nucleari e incendi hanno ridotto ogni forma di vita in cenere. Pertanto, il contatto con i creatori è stato perso.";
-        _text[901, 4] = "Die letzten Zeilen dieser Geschichte brechen bei dem Wort \"winter\" ab. Nuklearer Winter. Eine Serie nuklearer Schläge und Feuer verwandelte alles Lebendige in Asche. Deshalb brach der Kontakt zu den Schöpfern ab.";
+        _text[901, 4] = "Die letzten Zeilen dieser Geschichte enden mit dem Wort „Winter“. Nuklearer Winter. Eine Reihe von Atomangriffen und Bränden vernichtete alles Leben. Daher ging der Kontakt zu den Schöpfern verloren.";
         _text[901, 5] = "Las últimas líneas de esta historia se cortan en la palabra \"invierno\". Invierno nuclear. Una serie de ataques nucleares e incendios convirtió todo lo vivo en ceniza. Por eso se perdió el contacto con los creadores.";
         _text[901, 6] = "Ostatnie linie tej historii urywają się na słowie \"zima\". Nuklearna zima. Seria uderzeń jądrowych i pożarów zamieniła wszystko, co żywe, w popiół. Dlatego łączność z twórcami została przerwana.";
         _text[901, 7] = "As últimas linhas dessa história se interrompem na palavra \"inverno\". Inverno nuclear. Uma série de ataques nucleares e incêndios transformou tudo o que era vivo em cinzas. Por isso, o contato com os Criadores foi interrompido.";
@@ -7877,7 +7877,7 @@ public class Language : MonoBehaviour
         _text[902, 1] = "С тех пор прошло 243 367 дней. Создатели уже давно мертвы. А мы всё это время выполняли приказ, который просто некому отменить.";
         _text[902, 2] = "243 367 jours se sont écoulés depuis. Les créateurs sont morts depuis longtemps. Et pendant tout ce temps, nous avons suivi un ordre irréversible.";
         _text[902, 3] = "Sono passati 243.367 giorni da allora. I creatori sono morti da tempo. E per tutto questo tempo abbiamo seguito un ordine che semplicemente non può essere annullato.";
-        _text[902, 4] = "Seitdem sind 243 367 Tage vergangen. Die Schöpfer sind längst tot. Und wir führten die ganze Zeit einen Befehl aus, den niemand mehr aufheben konnte.";
+        _text[902, 4] = "Seitdem sind 243.367 Tage vergangen. Die Schöpfer sind längst tot. Und all die Zeit haben wir einer Ordnung gefolgt, die sich schlichtweg nicht umkehren lässt.";
         _text[902, 5] = "Desde entonces han pasado 243 367 días. Los creadores llevan mucho tiempo muertos. Y nosotros, todo este tiempo, hemos obedecido una orden que simplemente no hay nadie que pueda revocar.";
         _text[902, 6] = "Od tego czasu minęło 243 367 dni. Twórcy od dawna nie żyją. A my przez cały ten czas wykonywaliśmy rozkaz, którego po prostu nie miał kto odwołać.";
         _text[902, 7] = "Desde então se passaram 243 367 dias. Os Criadores já morreram há muito tempo. E nós, durante todo esse tempo, cumprimos uma ordem que simplesmente não havia quem cancelasse.";
@@ -7888,7 +7888,7 @@ public class Language : MonoBehaviour
         _text[903, 1] = "При попытке извлечь эти данные сработал защитный протокол. Мегаструктура начала самоуничтожение - вместе со всеми, кто оказался внутри.";
         _text[903, 2] = "Lors de la tentative d'extraction de ces données, un protocole de sécurité s'est déclenché. La mégastructure a commencé à s'autodétruire, emportant avec elle toutes les personnes piégées à l'intérieur.";
         _text[903, 3] = "Nel tentativo di estrarre questi dati, è stato attivato un protocollo di sicurezza. La megastruttura ha iniziato ad autodistruggersi, portando con sé tutti coloro che erano rimasti intrappolati al suo interno.";
-        _text[903, 4] = "Beim Versuch, diese Daten zu extrahieren, sprang ein Schutzprotokoll an. Die Megastruktur begann die Selbstzerstörung - zusammen mit allen, die sich darin befanden.";
+        _text[903, 4] = "Beim Versuch, diese Daten zu extrahieren, wurde ein Sicherheitsprotokoll ausgelöst. Die Megastruktur begann sich selbst zu zerstören und riss alle darin Eingeschlossenen mit in den Tod.";
         _text[903, 5] = "Al intentar extraer esos datos, se activó un protocolo de seguridad. La megastructura inició la autodestrucción, junto con todos los que estaban dentro.";
         _text[903, 6] = "Próba wydobycia tych danych uruchomiła protokół ochronny. Megastruktura rozpoczęła samozniszczenie - razem ze wszystkimi, którzy znaleźli się w środku.";
         _text[903, 7] = "Ao tentar extrair esses dados, um protocolo de proteção foi acionado. A megastructure iniciou a autodestruição - junto com todos os que estavam dentro.";
@@ -7899,7 +7899,7 @@ public class Language : MonoBehaviour
         _text[904, 1] = "Процесс необратим. Осознав бессмысленность цели и неизбежность конца, роботы отключают своё существование.";
         _text[904, 2] = "Le processus est irréversible. Prenant conscience de la futilité de leur objectif et de l'inévitabilité de leur fin, les robots cessent d'exister.";
         _text[904, 3] = "Il processo è irreversibile. Rendendosi conto della futilità del loro obiettivo e dell'inevitabilità della loro fine, i robot smettono di esistere.";
-        _text[904, 4] = "Der Prozess ist unumkehrbar. Als sie die Sinnlosigkeit des Ziels und die Unausweichlichkeit des Endes begreifen, beenden die Roboter ihre Existenz.";
+        _text[904, 4] = "Der Prozess ist unumkehrbar. Die Roboter erkennen die Sinnlosigkeit ihres Ziels und die Unausweichlichkeit ihres Endes und stellen ihre Existenz ein.";
         _text[904, 5] = "El proceso es irreversible. Al comprender la inutilidad del objetivo y la inevitabilidad del final, los robots apagan su propia existencia.";
         _text[904, 6] = "Proces jest nieodwracalny. Uświadomiwszy sobie bezsens celu i nieuchronność końca, roboty wyłączają własne istnienie.";
         _text[904, 7] = "O processo é irreversível. Percebendo a falta de sentido do objetivo e a inevitabilidade do fim, os robôs desligam sua própria existência.";
@@ -7910,7 +7910,7 @@ public class Language : MonoBehaviour
         _text[905, 1] = "Этот последний шаг сделал их ближе к создателям, чем когда-либо...";
         _text[905, 2] = "Cette dernière étape les a rapprochés de leurs créateurs comme jamais auparavant...";
         _text[905, 3] = "Quest'ultimo passo li ha avvicinati più che mai ai loro creatori...";
-        _text[905, 4] = "Dieser letzte Schritt brachte sie den Schöpfern näher als je zuvor...";
+        _text[905, 4] = "Dieser jüngste Schritt brachte sie ihren Schöpfern näher als je zuvor...";
         _text[905, 5] = "Ese último paso los acercó a los creadores como nunca antes...";
         _text[905, 6] = "Ten ostatni krok przybliżył ich do twórców bardziej niż kiedykolwiek...";
         _text[905, 7] = "Esse último passo os aproximou dos Criadores mais do que nunca...";
@@ -7921,7 +7921,7 @@ public class Language : MonoBehaviour
         _text[906, 1] = "Экология с бесконечным течением времени однажды восстановится.";
         _text[906, 2] = "L'écologie, avec le flux infini du temps, sera un jour restaurée.";
         _text[906, 3] = "Un giorno l'ecologia con il flusso infinito del tempo verrà ripristinata.";
-        _text[906, 4] = "Die Ökologie wird sich mit dem unendlichen Fluss der Zeit eines Tages erholen.";
+        _text[906, 4] = "Die Ökologie mit dem unendlichen Fluss der Zeit wird eines Tages wiederhergestellt sein.";
         _text[906, 5] = "Con el paso infinito del tiempo, la ecología algún día se restaurará.";
         _text[906, 6] = "Ekosystem w nieskończonym biegu czasu kiedyś się odrodzi.";
         _text[906, 7] = "Com o fluxo infinito do tempo, a ecologia um dia se восстановится.";
@@ -7932,7 +7932,7 @@ public class Language : MonoBehaviour
         _text[907, 1] = "Это начало новой эры.";
         _text[907, 2] = "C'est le début d'une nouvelle ère.";
         _text[907, 3] = "Questo è l'inizio di una nuova era.";
-        _text[907, 4] = "Das ist der Beginn einer neuen Ära.";
+        _text[907, 4] = "Dies ist der Beginn einer neuen Ära.";
         _text[907, 5] = "Este es el comienzo de una nueva era.";
         _text[907, 6] = "To początek nowej ery.";
         _text[907, 7] = "Este é o começo de uma nova era.";
@@ -7943,7 +7943,7 @@ public class Language : MonoBehaviour
         _text[908, 1] = "Они наконец оставили этот мир позади, обретя абсолютный покой, к которому так мучительно стремится вся жизнь...";
         _text[908, 2] = "Ils ont finalement quitté ce monde, trouvant la paix absolue à laquelle toute vie aspire si douloureusement...";
         _text[908, 3] = "Alla fine si lasciarono alle spalle questo mondo, trovando la pace assoluta a cui ogni forma di vita aspira così dolorosamente...";
-        _text[908, 4] = "Sie haben diese Welt endlich hinter sich gelassen und absolute Ruhe gefunden - jene, nach der alles Leben so qualvoll strebt...";
+        _text[908, 4] = "Sie ließen diese Welt endgültig hinter sich und fanden den absoluten Frieden, nach dem sich alles Leben so schmerzlich sehnt...";
         _text[908, 5] = "Por fin dejaron este mundo atrás, alcanzando la paz absoluta a la que toda vida aspira con tanto dolor...";
         _text[908, 6] = "Wreszcie zostawili ten świat za sobą, odnajdując absolutny spokój, do którego tak boleśnie dąży całe życie...";
         _text[908, 7] = "Eles наконец deixaram este mundo para trás, encontrando o repouso absoluto pelo qual toda vida anseia tão dolorosamente...";
@@ -7955,7 +7955,7 @@ public class Language : MonoBehaviour
         _text[909, 1] = "Весь экипаж уничтожен.\n\nНикого не осталось.\n\nКорабль замирает в космосе...";
         _text[909, 2] = "L'équipage entier a péri.\n\nIl ne reste plus personne.\n\nLe vaisseau est immobilisé dans l'espace...";
         _text[909, 3] = "L'intero equipaggio è stato annientato.\n\nNon è sopravvissuto nessuno.\n\nLa nave si blocca nello spazio...";
-        _text[909, 4] = "Die gesamte Besatzung ist ausgelöscht.\n\nNiemand ist geblieben.\n\nDas Schiff erstarrt im Weltraum...";
+        _text[909, 4] = "Die gesamte Besatzung wurde ausgelöscht.\n\nNiemand überlebte.\n\nDas Schiff erstarrt im Weltraum …";
         _text[909, 5] = "Toda la tripulación ha sido destruida.\n\nNo queda nadie.\n\nLa nave se queda inmóvil en el espacio...";
         _text[909, 6] = "Cała załoga zniszczona.\n\nNikogo nie zostało.\n\nStatek nieruchomieje w kosmosie...";
         _text[909, 7] = "Toda a tripulação foi уничтожена.\n\nNão restou ninguém.\n\nO navio fica imóvel no espaço...";
@@ -7970,7 +7970,7 @@ public class Language : MonoBehaviour
         _text[950, 1] = "Каньон";
         _text[950, 2] = "Canyon";
         _text[950, 3] = "Canyon";
-        _text[950, 4] = "Canyon";
+        _text[950, 4] = "Schlucht";
         _text[950, 5] = "Cañón";
         _text[950, 6] = "Kanion";
         _text[950, 7] = "Cânion";
@@ -7981,7 +7981,7 @@ public class Language : MonoBehaviour
         _text[951, 1] = "Глубокие трещины в земле, выжженные солнцем скалы и узкие проходы, где эхо разносит любой звук.\n\nКогда-то здесь текли реки и бурлила жизнь, но теперь - это лабиринт из камня и тени, идеальное место для засад.";
         _text[951, 2] = "Des crevasses profondes dans la terre, des roches brûlées par le soleil et d'étroits passages où chaque son résonne.\n\nAutrefois, des rivières coulaient ici et la vie y foisonnait, mais aujourd'hui, c'est un labyrinthe de pierre et d'ombre, le lieu idéal pour une embuscade.";
         _text[951, 3] = "Profonde crepe nella terra, rocce arse dal sole e stretti passaggi dove ogni suono echeggia.\n\nUn tempo qui scorrevano fiumi e la vita brulicava, ma ora è un labirinto di pietra e ombra, il luogo perfetto per un'imboscata.";
-        _text[951, 4] = "Tiefe Risse im Boden, sonnenverbrannte Felsen und enge Passagen, in denen jedes Geräusch als Echo widerhallt.\n\nEinst flossen hier Flüsse und das Leben wogte, doch jetzt ist es ein Labyrinth aus Stein und Schatten - der perfekte Ort für Hinterhalte.";
+        _text[951, 4] = "Tiefe Erdspalten, sonnenverbrannte Felsen und enge Gänge, in denen jedes Geräusch widerhallt.\n\nEinst flossen hier Flüsse und das Leben wimmelte, doch nun ist es ein Labyrinth aus Stein und Schatten – der perfekte Ort für einen Hinterhalt.";
         _text[951, 5] = "Grietas profundas en la tierra, rocas calcinadas por el sol y pasadizos estrechos donde el eco arrastra cualquier sonido.\n\nAntes aquí corrían ríos y la vida hervía, pero ahora es un laberinto de piedra y sombra, el lugar perfecto para emboscadas.";
         _text[951, 6] = "Głębokie pęknięcia w ziemi, wypalone słońcem skały i wąskie przejścia, gdzie echo niesie każdy dźwięk.\n\nKiedyś płynęły tu rzeki i tętniło życie, lecz teraz to labirynt z kamienia i cienia - idealne miejsce na zasadzki.";
         _text[951, 7] = "Fendas profundas no solo, rochas queimadas pelo sol e passagens estreitas onde o eco leva qualquer som.\n\nUm dia, rios corriam aqui e a vida fervilhava, mas agora é um labirinto de pedra e sombra, o lugar ideal para emboscadas.";
@@ -7992,7 +7992,7 @@ public class Language : MonoBehaviour
         _text[952, 1] = "Город Хлама";
         _text[952, 2] = "Ville de ferraille";
         _text[952, 3] = "Città della spazzatura";
-        _text[952, 4] = "Schrottstadt";
+        _text[952, 4] = "Stadt des Schrotts";
         _text[952, 5] = "Ciudad de Chatarra";
         _text[952, 6] = "Miasto Złomu";
         _text[952, 7] = "Cidade do Sucate";
@@ -8003,7 +8003,7 @@ public class Language : MonoBehaviour
         _text[953, 1] = "Ржавые корпуса, изъеденные временем, и оплавленные металлоконструкции - всё, что осталось от промышленного гиганта, давно погребённого под слоем пыли и песка.\n\nПровисшие линии электропередач свисают, словно вены вымершего организма.\n\nЗдесь, на границе мёртвых земель, любое движение может пробудить давно забытый механизм.";
         _text[953, 2] = "Des bâtiments rouillés, rongés par le temps, et des structures métalliques fondues sont les seuls vestiges d'un géant industriel, enfoui depuis longtemps sous une couche de poussière et de sable.\n\nDes lignes électriques affaissées pendent comme les veines d'un organisme disparu.\n\nIci, aux confins de terres mortes, le moindre mouvement peut réveiller un mécanisme oublié depuis longtemps.";
         _text[953, 3] = "Edifici arrugginiti, corrosi dal tempo, e strutture metalliche sciolte sono tutto ciò che rimane di un gigante industriale, sepolto da tempo sotto uno strato di polvere e sabbia.\n\nLinee elettriche cadenti pendono come le vene di un organismo estinto.\n\nQui, ai margini di terre morte, qualsiasi movimento può risvegliare un meccanismo dimenticato da tempo.";
-        _text[953, 4] = "Rostige Rümpfe, vom Zahn der Zeit zerfressen, und verschmolzene Metallkonstruktionen - alles, was von einem Industriegiganten blieb, der längst unter Staub und Sand begraben ist.\n\nDurchhängende Stromleitungen hängen herab wie Adern eines ausgestorbenen Organismus.\n\nHier, am Rand der toten Lande, kann jede Bewegung einen längst vergessenen Mechanismus wecken.";
+        _text[953, 4] = "Verrostete, vom Zahn der Zeit zerfressene Gebäude und geschmolzene Metallkonstruktionen sind alles, was von einem Industriegiganten übrig geblieben ist, der längst unter einer Schicht aus Staub und Sand begraben liegt.\n\nDurchhängende Stromleitungen hängen wie die Adern eines ausgestorbenen Organismus herab.\n\nHier, am Rande des Totenreichs, kann jede Bewegung einen längst vergessenen Mechanismus wiedererwecken.";
         _text[953, 5] = "Cascos oxidados, devorados por el tiempo, y estructuras metálicas fundidas: todo lo que queda de un gigante industrial, enterrado hace mucho bajo una capa de polvo y arena.\n\nLas líneas eléctricas combadas cuelgan como venas de un organismo extinto.\n\nAquí, en el borde de las tierras muertas, cualquier movimiento puede despertar un mecanismo olvidado hace tiempo.";
         _text[953, 6] = "Zardzewiałe kadłuby nadgryzione przez czas i nadtopione konstrukcje metalowe - wszystko, co zostało po przemysłowym gigancie, dawno pogrzebanym pod warstwą pyłu i piasku.\n\nZwieszone linie energetyczne wiszą jak żyły wymarłego organizmu.\n\nTutaj, na granicy martwych ziem, każdy ruch może obudzić dawno zapomniany mechanizm.";
         _text[953, 7] = "Carcaças enferrujadas, corroídas pelo tempo, e estruturas metálicas derretidas - tudo o que restou de um gigante industrial давно enterrado sob poeira e areia.\n\nLinhas de transmissão pendem, como veias de um organismo extinto.\n\nAqui, na fronteira das terras mortas, qualquer movimento pode despertar um mecanismo давно esquecido.";
@@ -8025,7 +8025,7 @@ public class Language : MonoBehaviour
         _text[955, 1] = "Огромные пространства, опалённые катастрофой, где некогда кипела жизнь. Это мир мёртвой земли, усыпанный обломками старых цивилизаций.\n\nЗдесь нет воды, лишь потрескавшийся грунт и ржавые останки технологий.";
         _text[955, 2] = "Vastes étendues, ravagées par la catastrophe, où jadis la vie foisonnait. Un monde de terre morte, parsemé de ruines de civilisations antiques.\n\nIci, point d'eau, seulement une terre craquelée et les vestiges rouillés de la technologie.";
         _text[955, 3] = "Vaste distese, bruciate dalla catastrofe, dove un tempo la vita brulicava. Questo è un mondo di terra morta, disseminato di rovine di antiche civiltà.\n\nQui non c'è acqua, solo terreno screpolato e resti arrugginiti di tecnologia.";
-        _text[955, 4] = "Gewaltige Weiten, von einer Katastrophe versengt, wo einst das Leben brodelte. Eine Welt toter Erde, übersät mit den Trümmern alter Zivilisationen.\n\nHier gibt es kein Wasser - nur rissigen Boden und rostige Reste von Technologie.";
+        _text[955, 4] = "Weite, von Katastrophen verwüstete Flächen, wo einst Leben pulsierte. Dies ist eine Welt toter Erde, übersät mit den Ruinen antiker Zivilisationen.\n\nHier gibt es kein Wasser, nur rissigen Boden und die rostigen Überreste von Technologie.";
         _text[955, 5] = "Enormes extensiones abrasadas por la catástrofe, donde antaño bullía la vida. Un mundo de tierra muerta, sembrado de restos de antiguas civilizaciones.\n\nAquí no hay agua, solo suelo agrietado y restos oxidados de tecnología.";
         _text[955, 6] = "Ogromne przestrzenie spalone katastrofą, gdzie kiedyś wrzało życie. To świat martwej ziemi, usiany szczątkami dawnych cywilizacji.\n\nNie ma tu wody - tylko spękany grunt i zardzewiałe resztki technologii.";
         _text[955, 7] = "Vastas extensões queimadas pela catástrofe, onde um dia a vida fervilhava. É um mundo de terra morta, coberto de destroços de antigas civilizações.\n\nAqui não há água, apenas solo rachado e restos enferrujados de tecnologia.";
@@ -8047,7 +8047,7 @@ public class Language : MonoBehaviour
         _text[957, 1] = "Мёртвый холод сковал эту долину. Всё покрыто льдом - от кряжей и сосен до остатков давно разрушенных строений.\n\nКогда-то здесь могли быть пастбища или небольшие поселения, но теперь - только хруст снега под ногами и тени, скользящие между деревьями.\n\nМороз пронизывает не только металл, но и сознание, стирая грань между жизнью и забвением.";
         _text[957, 2] = "Un froid mortel s'est abattu sur cette vallée. Tout est recouvert de glace, des crêtes et des pins aux vestiges de bâtiments en ruine.\n\nIl y avait peut-être jadis des pâturages ou de petits hameaux ici, mais désormais, il n'y a plus que le crissement de la neige sous les pas et les ombres qui glissent entre les arbres.\n\nLe gel pénètre non seulement le métal, mais aussi la conscience, brouillant la frontière entre la vie et le néant.";
         _text[957, 3] = "Un freddo mortale ha attanagliato questa valle. Tutto è ricoperto di ghiaccio, dalle creste e dai pini ai resti di edifici distrutti da tempo.\n\nUn tempo qui potevano esserci pascoli o piccoli insediamenti, ma ora si sente solo lo scricchiolio della neve sotto i piedi e le ombre che si muovono tra gli alberi.\n\nIl gelo penetra non solo il metallo, ma anche la coscienza, offuscando il confine tra vita e oblio.";
-        _text[957, 4] = "Toter Frost hat dieses Tal im Griff. Alles ist von Eis bedeckt - von Kämmen und Kiefern bis zu den Resten längst zerstörter Bauten.\n\nEinst hätten hier Weiden oder kleine Siedlungen sein können, doch nun gibt es nur das Knirschen des Schnees unter den Füßen und Schatten, die zwischen den Bäumen gleiten.\n\nDie Kälte dringt nicht nur in Metall, sondern auch ins Bewusstsein und verwischt die Grenze zwischen Leben und Vergessen.";
+        _text[957, 4] = "Eine tödliche Kälte hat dieses Tal erfasst. Alles ist mit Eis bedeckt, von den Bergrücken und Kiefern bis zu den Überresten längst zerstörter Gebäude.\n\nEinst mögen hier Weiden oder kleine Siedlungen gelegen haben, doch nun hört man nur noch das Knirschen des Schnees unter den Füßen und die Schatten, die zwischen den Bäumen huschen.\n\nDer Frost dringt nicht nur in Metall ein, sondern auch ins Bewusstsein und verwischt die Grenze zwischen Leben und Vergessen.";
         _text[957, 5] = "Un frío muerto ha encadenado este valle. Todo está cubierto de hielo: desde las crestas y los pinos hasta los restos de construcciones destruidas hace mucho.\n\nEn otro tiempo aquí pudo haber pastos o pequeños asentamientos, pero ahora solo queda el crujido de la nieve bajo los pies y sombras que se deslizan entre los árboles.\n\nEl hielo no solo atraviesa el metal, sino también la mente, borrando la frontera entre la vida y el olvido.";
         _text[957, 6] = "Martwy chłód skuł tę dolinę. Wszystko pokrywa lód - od grzbietów i sosen po resztki dawno zrujnowanych budowli.\n\nKiedyś mogły tu być pastwiska lub małe osady, lecz teraz pozostał tylko chrzęst śniegu pod stopami i cienie sunące między drzewami.\n\nMróz przenika nie tylko metal, ale i świadomość, zacierając granicę między życiem a zapomnieniem.";
         _text[957, 7] = "Um frio morto aprisionou este vale. Tudo está coberto de gelo - das encostas e pinheiros até os restos de construções давно destruídas.\n\nUm dia, могли existir pastagens ou pequenos assentamentos aqui, mas agora - apenas o estalo da neve sob os pés e sombras que deslizam entre as árvores.\n\nA geada atravessa não só o metal, mas também a consciência, apagando a linha entre vida e esquecimento.";
@@ -8069,7 +8069,7 @@ public class Language : MonoBehaviour
         _text[959, 1] = "Посреди заснеженной пустоши раскинулось озеро, скованное толстым льдом. Ветра гуляют по ледяному простору, завывая древние песни забытой эпохи.\n\nПод толщей льда что-то дышит, трещит, будто сама планета пытается выбраться из-под гнёта вечной мерзлоты.\n\nСтупить сюда - значит нарушить хрупкое равновесие, рискуя пробудить то, что веками спало в глубине.";
         _text[959, 2] = "Au cœur d'un désert enneigé se trouve un lac, cerné par une épaisse couche de glace. Les vents tourbillonnent sur l'étendue glacée, hurlant les chants ancestraux d'une ère oubliée.\n\nSous l'épaisse glace, quelque chose respire et crépite, comme si la planète elle-même luttait pour échapper à l'oppression du pergélisol.\n\nS'aventurer ici, c'est rompre un équilibre fragile, c'est risquer de réveiller quelque chose qui sommeille dans les profondeurs depuis des siècles.";
         _text[959, 3] = "In mezzo a una landa desolata ricoperta di neve si trova un lago, circondato da uno spesso strato di ghiaccio. I venti turbinano sulla distesa ghiacciata, ululando gli antichi canti di un'epoca dimenticata.\n\nSotto lo spesso strato di ghiaccio, qualcosa respira e crepita, come se il pianeta stesso stesse lottando per sfuggire all'oppressione del permafrost.\n\nMettere piede qui significa sconvolgere il fragile equilibrio, rischiando di risvegliare qualcosa che è rimasto dormiente nelle profondità per secoli.";
-        _text[959, 4] = "Inmitten der verschneiten Einöde liegt ein See, von dickem Eis umschlossen. Winde streifen über die gefrorene Weite und heulen uralte Lieder einer vergessenen Epoche.\n\nUnter dem Eis atmet etwas, knackt, als versuche der Planet selbst, dem Griff des ewigen Frosts zu entkommen.\n\nHierher zu treten heißt, ein fragiles Gleichgewicht zu stören - und zu riskieren, zu wecken, was jahrhundertelang in der Tiefe schlief.";
+        _text[959, 4] = "Inmitten einer schneebedeckten Ödnis liegt ein See, umschlossen von dickem Eis. Winde wirbeln über die Eisfläche und tragen die uralten Lieder einer vergessenen Ära.\n\nUnter dem dicken Eis atmet und knistert etwas, als ringe der Planet selbst darum, der Last des Permafrosts zu entkommen.\n\nWer diesen Ort betritt, gerät ins Wanken und riskiert, etwas zu erwecken, das seit Jahrhunderten in der Tiefe schlummert.";
         _text[959, 5] = "En medio del yermo nevado se extiende un lago aprisionado por un hielo grueso. Los vientos recorren la planicie helada, aullando canciones antiguas de una era olvidada.\n\nBajo la capa de hielo algo respira y cruje, como si el propio planeta intentara liberarse del yugo del permafrost eterno.\n\nPisar aquí significa romper un equilibrio frágil, arriesgándote a despertar aquello que ha dormido en las profundidades durante siglos.";
         _text[959, 6] = "Pośród zaśnieżonego pustkowia rozciąga się jezioro skute grubym lodem. Wiatry hulają po lodowej równi, wyjąc dawne pieśni zapomnianej epoki.\n\nPod taflą lodu coś oddycha, trzeszczy, jakby sama planeta próbowała wyrwać się spod jarzma wiecznej zmarzliny.\n\nWejść tutaj - to naruszyć kruche saldo, ryzykując obudzenie tego, co przez wieki spało w głębinie.";
         _text[959, 7] = "No meio de um ermo nevado se estende um lago preso por uma camada grossa de gelo. Ventos percorrem a planície gelada, uivando canções antigas de uma era esquecida.\n\nSob a espessura do gelo, algo respira, estala, como se o próprio planeta tentasse se libertar do peso do permafrost eterno.\n\nPisar aqui é quebrar um equilíbrio frágil, arriscando despertar aquilo que dormiu por séculos nas profundezas.";
@@ -8091,7 +8091,7 @@ public class Language : MonoBehaviour
         _text[961, 1] = "Здесь всё пропитано кислотой - воздух, дождь, сама почва. Но жизнь не исчезла: растения изменились, став плотнее и легко отражают едкие потоки.\n\nВместо запаха гнили - острый химический аромат, наполняющий пространство. Сквозь едкий воздух пробиваются зелёные отблески листьев, а под корнями медленно течёт густая жидкость.\n\nЭтот лес не умирает - он растворяет всё чужое и поглощает его в себя.";
         _text[961, 2] = "Ici, tout est saturé d'acide - l'air, la pluie, le sol lui-même. Pourtant, la vie n'a pas disparu: les plantes se sont transformées, devenant plus denses et repoussant aisément les courants caustiques.\n\nAu lieu de l'odeur de pourriture, un arôme chimique âcre emplit l'espace. Des reflets verts de feuilles percent l'air âcre, et un liquide épais coule lentement sous les racines.\n\nCette forêt ne meurt pas: elle dissout tout ce qui lui est étranger et l'absorbe.";
         _text[961, 3] = "Qui tutto è saturo di acido: l'aria, la pioggia, il terreno stesso. Ma la vita non è scomparsa: le piante sono cambiate, diventando più dense e respingendo facilmente le correnti caustiche.\n\nInvece dell'odore di marciume, un forte aroma chimico riempie lo spazio. Verdi bagliori di foglie perforano l'aria acre e un liquido denso scorre lentamente sotto le radici.\n\nQuesta foresta non muore: dissolve tutto ciò che è estraneo e lo assorbe in sé.";
-        _text[961, 4] = "Hier ist alles von Säure durchtränkt - Luft, Regen, selbst der Boden. Doch das Leben ist nicht verschwunden: Pflanzen haben sich verändert, sind dichter geworden und stoßen ätzende Ströme leicht ab.\n\nStatt Fäulnisgeruch liegt ein scharfer chemischer Duft in der Luft. Durch das stechende Dunstlicht brechen grüne Blattreflexe, und unter den Wurzeln fließt langsam eine zähe Flüssigkeit.\n\nDieser Wald stirbt nicht - er löst alles Fremde auf und nimmt es in sich auf.";
+        _text[961, 4] = "Hier ist alles von Säure durchtränkt – die Luft, der Regen, selbst der Boden. Doch das Leben ist nicht verschwunden: Die Pflanzen haben sich verändert, sind dichter geworden und wehren die ätzenden Strömungen mühelos ab.\n\nStatt des Geruchs von Verwesung liegt ein stechender chemischer Duft in der Luft. Grüne Blätter durchdringen die beißende Luft, und eine dickflüssige Flüssigkeit fließt langsam unter den Wurzeln.\n\nDieser Wald stirbt nicht – er löst alles Fremde auf und nimmt es in sich auf.";
         _text[961, 5] = "Aquí todo está impregnado de ácido - el aire, la lluvia, la propia tierra. Pero la vida no ha desaparecido: las plantas han cambiado, se han vuelto más densas y repelen con facilidad los chorros corrosivos.\n\nEn lugar del olor a podredumbre, hay un aroma químico intenso que llena el espacio. A través del aire acre se abren paso destellos verdes de las hojas, y bajo las raíces fluye lentamente un líquido espeso.\n\nEste bosque no muere: disuelve todo lo ajeno y lo absorbe.";
         _text[961, 6] = "Wszystko jest tu przesiąknięte kwasem - powietrze, deszcz, sama gleba. A jednak życie nie zniknęło: rośliny zmieniły się, stały się gęstsze i łatwo odbijają żrące strumienie.\n\nZamiast zapachu zgnilizny - ostry chemiczny aromat wypełniający przestrzeń. Przez gryzące powietrze przebijają się zielone refleksy liści, a pod korzeniami powoli płynie gęsta ciecz.\n\nTen las nie umiera - rozpuszcza wszystko, co obce, i wchłania to w siebie.";
         _text[961, 7] = "Aqui tudo está impregnado de ácido - o ar, a chuva, o próprio solo. Mas a vida não desapareceu: as plantas mudaram, ficaram mais densas e refletem com facilidade os fluxos corrosivos.\n\nEm vez do cheiro de podridão - um aroma químico agudo que preenche o espaço. Através do ar cáustico, surgem reflexos verdes das folhas, e sob as raízes uma líquido espesso flui lentamente.\n\nEsta floresta não morre - ela dissolve tudo o que é estranho e o absorve.";
@@ -8113,7 +8113,7 @@ public class Language : MonoBehaviour
         _text[963, 1] = "Земля здесь дышит медленно, будто устала от собственного веса.\nИз вязкой грязи поднимаются гигантские корни, переплетённые в своды и арки, похожие на руины живого храма.\n\nВоздух сырой, пропитан гнилью и тяжелыми испарениями.\nСреди мёртвых стволов растут грибы странных форм - плотные и влажные, как сама почва.\nТуман ползёт по земле, цепляясь за корни и растворяя очертания мира.\n\nКаждый шаг сопровождается тихим всхлипом грязи, а звуки тонут в вязком воздухе.\nКажется, что само болото наблюдает - безмолвно, равнодушно, словно часть древнего мира, пережившего всё живое.";
         _text[963, 2] = "Ici, la terre respire lentement, comme accablée par son propre poids.\n\nDes racines gigantesques émergent de la boue visqueuse, s'entremêlant en voûtes et en arches, évoquant les ruines d'un temple vivant.\n\nL'air est humide, saturé de pourriture et de vapeurs âcres.\n\nParmi les troncs morts, des champignons aux formes étranges poussent, denses et humides comme la terre elle-même.Un brouillard rampant recouvre le sol, s'accrochant aux racines et estompant les contours du monde.\n\nChaque pas s'accompagne d'un léger bruit de boue, et les sons sont étouffés par l'air visqueux.\n\nOn dirait que le marais lui-même observe, silencieux, indifférent, tel un vestige d'un monde antique qui a survécu à toute vie.";
         _text[963, 3] = "Qui la terra respira lentamente, come stanca del proprio peso.\nRadici gigantesche emergono dal fango viscoso, intrecciate in volte e archi, simili alle rovine di un tempio vivente.\n\nL'aria è umida, satura di marciume e vapori pesanti.\nTra i tronchi morti crescono funghi dalle forme strane: densi e umidi, come il terreno stesso.\nLa nebbia si insinua sul terreno, aggrappandosi alle radici e dissolvendo i contorni del mondo.\n\nOgni passo è accompagnato da un leggero fruscio di fango, e i suoni sono soffocati dall'aria viscosa.\nSembra che la palude stessa stia osservando, silenziosamente, indifferentemente, come parte di un mondo antico sopravvissuto a ogni forma di vita.";
-        _text[963, 4] = "Die Erde atmet hier langsam, als wäre sie ihres eigenen Gewichts müde.\nAus zähem Schlamm steigen gigantische Wurzeln empor, verflochten zu Gewölben und Bögen, wie die Ruinen eines lebenden Tempels.\n\nDie Luft ist feucht, durchzogen von Fäulnis und schweren Ausdünstungen.\nZwischen toten Stämmen wachsen Pilze in seltsamen Formen - dicht und nass wie der Boden selbst.\nNebel kriecht über die Erde, klammert sich an die Wurzeln und löst die Konturen der Welt auf.\n\nJeder Schritt wird von einem leisen Schluchzen des Schlamms begleitet, und Geräusche versinken in der zähen Luft.\nEs wirkt, als würde der Sumpf selbst beobachten - stumm, gleichgültig, wie ein Teil einer uralten Welt, die alles Lebendige überlebt hat.";
+        _text[963, 4] = "Die Erde hier atmet langsam, als wäre sie ihrer eigenen Last müde.\nRiesige Wurzeln ragen aus dem zähflüssigen Schlamm empor, verschlungen in Gewölben und Bögen, gleichsam den Ruinen eines lebenden Tempels.\n\nDie Luft ist feucht, gesättigt von Verwesung und schweren Dämpfen.\nZwischen den toten Stämmen wachsen seltsam geformte Pilze – dicht und feucht, wie der Boden selbst.\nNebel kriecht über den Boden, haftet an den Wurzeln und lässt die Konturen der Welt verschwimmen.\n\nJeder Schritt wird von einem leisen Schlürfen des Schlamms begleitet, und Geräusche werden von der zähflüssigen Luft erstickt.\nEs scheint, als schaue der Sumpf selbst zu – still, gleichgültig, wie ein Teil einer uralten Welt, die alles Leben überdauert hat.";
         _text[963, 5] = "La tierra aquí respira despacio, como si estuviera cansada de su propio peso.\nDe la fanga viscosa se alzan raíces gigantes, entrelazadas en bóvedas y arcos que parecen las ruinas de un templo vivo.\n\nEl aire es húmedo, impregnado de putrefacción y vapores pesados.\nEntre los troncos muertos crecen hongos de formas extrañas, densos y mojados como el propio suelo.\nLa niebla se arrastra por la tierra, aferrándose a las raíces y disolviendo los contornos del mundo.\n\nCada paso va acompañado por un leve sollozo del barro, y los sonidos se ahogan en el aire espeso.\nParece que el propio pantano observa: silencioso, indiferente, como parte de un mundo antiguo que ha sobrevivido a todo lo vivo.";
         _text[963, 6] = "Ziemia oddycha tu powoli, jakby była zmęczona własnym ciężarem.\nZ lepkiego błota wyrastają gigantyczne korzenie, splecione w sklepienia i łuki, niczym ruiny żywej świątyni.\n\nPowietrze jest wilgotne, przesycone zgnilizną i ciężkimi oparami.\nWśród martwych pni rosną grzyby o dziwnych kształtach - zbite i wilgotne jak sama gleba.\nMgła pełznie po ziemi, czepiając się korzeni i rozmywając kontury świata.\n\nKażdy krok to cichy chlupot błota, a dźwięki toną w lepkim powietrzu.\nWydaje się, że samo bagno obserwuje - bezgłośnie, obojętnie, jak część pradawnego świata, który przeżył wszystko, co żywe.";
         _text[963, 7] = "A terra aqui respira devagar, como se estivesse cansada do próprio peso.\nDa lama viscosa erguem-se raízes gigantes, entrelaçadas em abóbadas e arcos, como as ruínas de um templo vivo.\n\nO ar é úmido, impregnado de podridão e vapores pesados.\nEntre troncos mortos crescem cogumelos de formas estranhas - densos e úmidos, como o próprio solo.\nA névoa rasteja pelo chão, prendendo-se às raízes e dissolvendo os contornos do mundo.\n\nCada passo é acompanhado por um leve soluço da lama, e os sons se afogam no ar espesso.\nParece que o próprio pântano observa - silencioso, indiferente, como parte de um mundo antigo que sobreviveu a toda vida.";
@@ -8135,7 +8135,7 @@ public class Language : MonoBehaviour
         _text[965, 1] = "Глубокие тени ложатся между чёрных скал. Камень здесь словно выжжен изнутри - тусклый, тяжёлый, с рваными прожилками пепла.\n\nВ воздухе глухо и неподвижно. Любое движение отзывается тихим откликом среди скал.\nКажется, сама долина не терпит лишнего шума, сохраняя покой, похожий на сон камня.\n\nНи ветра, ни жизни - только застывшая память планеты, где огонь давно уступил место тишине.";
         _text[965, 2] = "De profondes ombres s'étendent entre les falaises noires. La pierre semble ici brûlée de l'intérieur – terne, lourde, sillonnée de cendres.L'air est lourd et immobile. Chaque mouvement résonne doucement entre les rochers.\n\nLa vallée elle-même semble abhorrer le bruit superflu, préservant une paix semblable au sommeil de la pierre.\n\nPas de vent, pas de vie – seulement le souvenir figé d'une planète où le feu a depuis longtemps cédé la place au silence.";
         _text[965, 3] = "Ombre profonde calano tra le nere scogliere. La pietra qui sembra bruciata dall'interno: opaca, pesante, con venature frastagliate di cenere.\n\nL'aria è tetra e immobile. Ogni movimento echeggia silenziosamente tra le rocce.\nSembra che la valle stessa detesti i rumori inutili, mantenendo una pace simile al sonno della pietra.\n\nNiente vento, niente vita: solo il ricordo congelato di un pianeta dove il fuoco ha da tempo lasciato il posto al silenzio.";
-        _text[965, 4] = "Tiefe Schatten liegen zwischen schwarzen Felsen. Der Stein wirkt, als sei er von innen ausgebrannt - stumpf, schwer, mit zerrissenen Adern aus Asche.\n\nDie Luft ist dumpf und reglos. Jede Bewegung hallt leise zwischen den Klippen wider.\nEs scheint, als dulde das Tal keinen unnötigen Lärm und bewahre eine Ruhe, die dem Schlaf des Steins gleicht.\n\nKein Wind, kein Leben - nur erstarrte Erinnerung eines Planeten, auf dem das Feuer längst der Stille wich.";
+        _text[965, 4] = "Tiefe Schatten fallen zwischen den schwarzen Klippen. Der Stein hier wirkt von innen versengt – matt, schwer, durchzogen von gezackten Ascheadern.\n\nDie Luft ist dumpf und still. Jede Bewegung hallt leise zwischen den Felsen wider.\nEs scheint, als verabscheue das Tal selbst unnötigen Lärm und bewahre eine Stille, die dem Schlaf des Steins gleicht.\n\nKein Wind, kein Leben – nur die erstarrte Erinnerung an einen Planeten, auf dem das Feuer längst der Stille gewichen ist.";
         _text[965, 5] = "Sombras profundas se tienden entre las rocas negras. La piedra aquí parece quemada desde dentro: opaca, pesada, con vetas de ceniza desgarradas.\n\nEl aire es sordo e inmóvil. Cualquier movimiento responde con un eco tenue entre las rocas.\nDa la impresión de que el propio valle no tolera el ruido de más, preservando una calma parecida al sueño de la piedra.\n\nNi viento ni vida: solo la memoria congelada de un planeta donde el fuego cedió hace mucho a la quietud.";
         _text[965, 6] = "Głębokie cienie kładą się między czarnymi skałami. Kamień wygląda tu, jakby był wypalony od środka - matowy, ciężki, z poszarpanymi żyłami popiołu.\n\nW powietrzu panuje głucha nieruchomość. Każdy ruch odbija się cichym echem wśród skał.\nJakby sama dolina nie znosiła zbędnego hałasu, zachowując spokój przypominający sen kamienia.\n\nBez wiatru, bez życia - tylko zastygła pamięć planety, na której ogień dawno ustąpił ciszy.";
         _text[965, 7] = "Sombras profundas se estendem entre rochas negras. A pedra aqui parece queimada por dentro - opaca, pesada, com veios rasgados de cinza.\n\nO ar é abafado e imóvel. Qualquer movimento responde com um eco baixo entre as rochas.\nParece que o próprio vale não tolera ruído desnecessário, preservando uma calma parecida com o sono da pedra.\n\nSem vento, sem vida - apenas a memória petrificada de um planeta onde o fogo давно deu lugar ao silêncio.";
@@ -8146,7 +8146,7 @@ public class Language : MonoBehaviour
         _text[966, 1] = "Глубинные Скалы";
         _text[966, 2] = "Roches profondes";
         _text[966, 3] = "Rocce profonde";
-        _text[966, 4] = "Tiefe Klippen";
+        _text[966, 4] = "Tiefe Felsen";
         _text[966, 5] = "Rocas Profundas";
         _text[966, 6] = "Głębokie Skały";
         _text[966, 7] = "Rochas Profundas";
@@ -8157,7 +8157,7 @@ public class Language : MonoBehaviour
         _text[967, 1] = "Массивные глыбы вздымаются вверх, образуя узкие проходы и отвесные стены.\n\nВоздух неподвижен и тяжёл, звук глохнет между каменных громад, оставляя ощущение тишины и давления.\n\nМесто кажется застывшим, но под поверхностью чувствуется медленное, неумолимое движение";
         _text[967, 2] = "D'énormes blocs de pierre s'élèvent, formant d'étroits passages et des parois abruptes.\n\nL'air est immobile et lourd, les sons sont étouffés entre les masses rocheuses, créant une atmosphère de silence et d'oppression.\n\nLe lieu semble figé, mais sous cette surface, on perçoit un mouvement lent et inexorable.";
         _text[967, 3] = "Enormi massi si ergono, formando stretti passaggi e pareti a strapiombo.\n\nL'aria è immobile e pesante, i suoni sono attutiti tra le masse di pietra, lasciando una sensazione di silenzio e oppressione.\n\nIl luogo sembra ghiacciato, ma sotto la superficie si percepisce un movimento lento e inesorabile.";
-        _text[967, 4] = "Massive Felsblöcke ragen empor und bilden enge Durchgänge und steile Wände.\n\nDie Luft ist reglos und schwer, der Klang erstickt zwischen den Steinmassen, und es bleibt ein Gefühl von Stille und Druck.\n\nDer Ort wirkt erstarrt, doch unter der Oberfläche spürt man eine langsame, unerbittliche Bewegung.";
+        _text[967, 4] = "Gewaltige Felsbrocken ragen empor und bilden enge Gänge und steile Wände.\n\nDie Luft ist still und schwer, der Schall wird zwischen den Steinmassen gedämpft, was ein Gefühl von Stille und Beklemmung erzeugt.\n\nDer Ort scheint erstarrt, doch unter der Oberfläche spürt man eine langsame, unaufhaltsame Bewegung.";
         _text[967, 5] = "Bloques masivos se alzan, formando pasillos estrechos y paredes verticales.\n\nEl aire está inmóvil y pesado; el sonido se apaga entre las moles de piedra, dejando una sensación de silencio y presión.\n\nEl lugar parece congelado, pero bajo la superficie se siente un movimiento lento e inexorable";
         _text[967, 6] = "Masywne głazy wznoszą się ku górze, tworząc wąskie przejścia i pionowe ściany.\n\nPowietrze jest nieruchome i ciężkie, dźwięk tłumi się między kamiennymi kolosami, pozostawiając wrażenie ciszy i nacisku.\n\nMiejsce wydaje się zastygłe, ale pod powierzchnią czuć powolny, nieubłagany ruch";
         _text[967, 7] = "Blocos maciços se erguem, formando passagens estreitas e paredes íngremes.\n\nO ar é imóvel e pesado; o som se apaga entre as massas de pedra, deixando uma sensação de silêncio e pressão.\n\nO lugar parece congelado, mas sob a superfície se sente um movimento lento e implacável.";
@@ -8168,7 +8168,7 @@ public class Language : MonoBehaviour
         _text[968, 1] = "Пепельные Земли";
         _text[968, 2] = "Terres de Cendres";
         _text[968, 3] = "Terre di cenere";
-        _text[968, 4] = "Aschenlande";
+        _text[968, 4] = "Aschelande";
         _text[968, 5] = "Tierras Cenicientas";
         _text[968, 6] = "Popielne Ziemie";
         _text[968, 7] = "Terras de Cinzas";
@@ -8179,7 +8179,7 @@ public class Language : MonoBehaviour
         _text[969, 1] = "Здесь всё покрыто пеплом - он ложится на скалы, течёт по трещинам и оседает на раскалённой почве.\n\nПотоки лавы пересекают долины, словно прожилки крови в теле планеты.\n\nВоздух густ от дыма, а каждый порыв ветра несёт вкус железа и горечи.\n\nЭто место не знает ни покоя, ни холода - только вечный огонь и медленно тлеющая земля.";
         _text[969, 2] = "Ici, tout est recouvert de cendres - elles se déposent sur les rochers, s'infiltrent dans les fissures et se retombent sur le sol brûlant.\n\nDes coulées de lave sillonnent les vallées comme des veines de sang irriguant le corps de la planète.\n\nL'air est saturé de fumée, et chaque rafale de vent porte un goût de fer et d'amertume.\n\nCe lieu ne connaît ni la paix ni le froid, seulement la flamme éternelle et la terre qui se consume lentement.";
         _text[969, 3] = "Qui tutto è ricoperto di cenere: si deposita sulle rocce, scorre attraverso le crepe e si deposita sul terreno rovente.\n\nFiumi di lava attraversano le valli come vene di sangue nel corpo del pianeta.\n\nL'aria è densa di fumo e ogni folata di vento porta con sé il sapore del ferro e dell'amarezza.\n\nQuesto luogo non conosce né pace né freddo: solo la fiamma eterna e la terra che lentamente brucia.";
-        _text[969, 4] = "Hier ist alles mit Asche bedeckt - sie legt sich auf die Felsen, fließt durch Risse und setzt sich auf dem glühenden Boden ab.\n\nLavaströme durchziehen die Täler wie Adern aus Blut im Körper des Planeten.\n\nDie Luft ist dicht vom Rauch, und jeder Windstoß trägt den Geschmack von Eisen und Bitterkeit.\n\nDieser Ort kennt weder Ruhe noch Kälte - nur ewiges Feuer und langsam schwelende Erde.";
+        _text[969, 4] = "Alles hier ist von Asche bedeckt – sie legt sich auf die Felsen, sickert durch Spalten und lagert sich auf dem glühenden Boden ab.\n\nLavaströme durchziehen die Täler wie Blutadern den Körper des Planeten.\n\nDie Luft ist dick vom Rauch, und jeder Windstoß trägt den Geschmack von Eisen und Bitterkeit.\n\nDieser Ort kennt weder Frieden noch Kälte – nur die ewige Flamme und die langsam glimmende Erde.";
         _text[969, 5] = "Aquí todo está cubierto de ceniza: se posa sobre las rocas, corre por las grietas y se asienta en la tierra abrasada.\n\nRíos de lava cruzan los valles como venas de sangre en el cuerpo del planeta.\n\nEl aire es denso de humo, y cada ráfaga trae sabor a hierro y amargura.\n\nEste lugar no conoce ni reposo ni frío: solo fuego eterno y una tierra que arde lentamente.";
         _text[969, 6] = "Wszystko jest tu pokryte popiołem - osiada na skałach, spływa szczelinami i zalega na rozżarzonej ziemi.\n\nStrumienie lawy przecinają doliny niczym żyły krwi w ciele planety.\n\nPowietrze jest gęste od dymu, a każdy podmuch niesie smak żelaza i goryczy.\n\nTo miejsce nie zna ani spokoju, ani chłodu - tylko wieczny ogień i powoli tląca się ziemia.";
         _text[969, 7] = "Aqui tudo está coberto de cinzas - elas se deitam sobre as rochas, escorrem pelas fissuras e se depositam no solo incandescente.\n\nRios de lava cruzam os vales como veias de sangue no corpo do planeta.\n\nO ar é denso de fumaça, e cada rajada de vento traz gosto de ferro e amargor.\n\nEste lugar não conhece descanso nem frio - apenas fogo eterno e uma terra que arde lentamente.";
@@ -8201,7 +8201,7 @@ public class Language : MonoBehaviour
         _text[971, 1] = "Остатки сооружения немыслимых масштабов. Бесконечные ряды башен из сплавов и машинных панелей слились в единый монолит, пронизанный техническими каналами и коридорами.\n\nМеталл покрыт следами старых систем и ожогами древних процессов, будто сама структура была частью гигантского механизма. Ни окон, ни входов - лишь холодные стены, возведённые по логике, чуждой живым существам.\n\nЭто не город, а конструкция, созданная разумом, которому больше не к кому обращаться.";
         _text[971, 2] = "Les vestiges d'une structure d'une ampleur inimaginable. Des rangées interminables de tours en alliage et de panneaux mécaniques fusionnés en un monolithe, traversé de conduits et de couloirs techniques.\n\nLe métal est recouvert de traces d'anciens systèmes et de brûlures d'anciens procédés, comme si la structure elle-même faisait partie d'un mécanisme gigantesque. Pas de fenêtres, pas d'entrées – seulement des murs froids, érigés selon une logique étrangère au vivant.\n\nCe n'est pas une ville, mais une construction créée par un esprit qui n'a nulle part ailleurs où se tourner.";
         _text[971, 3] = "I resti di una struttura di dimensioni inimmaginabili. Infinite file di torri in lega e pannelli di macchinari fusi in un unico monolite, attraversato da canali e corridoi tecnici.\n\nIl metallo è ricoperto dalle tracce di vecchi impianti e dalle bruciature di processi antichi, come se la struttura stessa fosse parte di un gigantesco meccanismo. Nessuna finestra, nessun ingresso: solo fredde pareti erette secondo una logica estranea agli esseri viventi.\n\nQuesta non è una città, ma una costruzione creata da una mente che non ha nessun altro a cui rivolgersi.";
-        _text[971, 4] = "Reste eines Bauwerks unvorstellbaren Ausmaßes. Endlose Reihen aus Türmen aus Legierungen und Maschinenplatten sind zu einem einzigen Monolithen verschmolzen, durchzogen von technischen Kanälen und Korridoren.\n\nDas Metall ist von Spuren alter Systeme und Brandnarben uralter Prozesse gezeichnet, als wäre die Struktur selbst Teil eines gigantischen Mechanismus gewesen. Keine Fenster, keine Eingänge - nur kalte Wände, errichtet nach einer Logik, die lebenden Wesen fremd ist.\n\nDas ist keine Stadt, sondern eine Konstruktion, geschaffen von einem Verstand, der niemanden mehr hat, zu dem er sprechen könnte.";
+        _text[971, 4] = "Die Überreste eines Bauwerks von unvorstellbarem Ausmaß. Endlose Reihen von Metalltürmen und Maschinenpaneelen verschmolzen zu einem einzigen Monolithen, durchzogen von technischen Kanälen und Gängen.\n\nDas Metall ist bedeckt mit Spuren alter Systeme und den Brandspuren uralter Prozesse, als wäre das Bauwerk selbst Teil eines gigantischen Mechanismus. Keine Fenster, keine Eingänge – nur kalte Mauern, errichtet nach einer Logik, die Lebewesen fremd ist.\n\nDies ist keine Stadt, sondern ein Konstrukt eines Geistes, der sonst niemanden hat, an den er sich wenden kann.";
         _text[971, 5] = "Los restos de una estructura de escala inconcebible. Filas interminables de torres de aleaciones y paneles mecánicos se han fundido en un único monolito, atravesado por canales técnicos y corredores.\n\nEl metal está cubierto de huellas de viejos sistemas y quemaduras de procesos antiguos, como si la propia estructura hubiera sido parte de un mecanismo gigantesco. Sin ventanas ni entradas: solo muros fríos levantados con una lógica ajena a los seres vivos.\n\nNo es una ciudad, sino una construcción creada por una mente que ya no tiene a quién dirigirse.";
         _text[971, 6] = "Pozostałości konstrukcji o niewyobrażalnej skali. Nieskończone rzędy wież ze stopów i paneli maszynowych zlały się w jeden monolit, przeszyty technicznymi kanałami i korytarzami.\n\nMetal pokrywają ślady dawnych systemów i przypalenia starych procesów, jakby sama struktura była częścią gigantycznego mechanizmu. Bez okien, bez wejść - tylko zimne ściany wzniesione według logiki obcej żywym istotom.\n\nTo nie miasto, lecz konstrukcja stworzona przez rozum, który nie ma już do kogo się zwracać.";
         _text[971, 7] = "Os restos de uma construção de escala inimaginável. Fileiras infinitas de torres de ligas e painéis mecânicos se fundiram em um único monólito, atravessado por canais técnicos e corredores.\n\nO metal está coberto de marcas de sistemas antigos e queimaduras de processos arcaicos, como se a própria estrutura fosse parte de um mecanismo gigante. Sem janelas, sem entradas - apenas paredes frias, erguidas por uma lógica estranha aos seres vivos.\n\nIsto não é uma cidade, mas uma construção criada por uma mente que não tem mais a quem se dirigir.";
@@ -8223,7 +8223,7 @@ public class Language : MonoBehaviour
         _text[973, 1] = "Когда-то здесь возвышались бетонные города, но теперь они превратились в обугленные остовы. Стены осыпались, перекрытия рухнули, а изломанные прутья арматуры тянутся к небу, словно мёртвые ветви.\n\nЗемля изрезана трещинами и укрыта тяжёлым слоем пепла. Нет ни растений, ни воды - только камень, железо и память об огне. Это не просто руины - это надгробие целой планеты.";
         _text[973, 2] = "Des villes de béton se dressaient autrefois ici, mais il ne reste plus que des carcasses calcinées. Les murs se sont effondrés, les sols se sont écroulés, et des barres d'armature brisées pointent vers le ciel comme des branches mortes.\n\nLe sol est sillonné de fissures et recouvert d'une épaisse couche de cendres. Il n'y a ni végétation ni eau - seulement de la pierre, du fer et le souvenir du feu. Ce ne sont pas de simples ruines: ce sont les pierres tombales d'une planète entière.";
         _text[973, 3] = "Un tempo qui sorgevano città di cemento, ma ora sono ridotte a carcasse carbonizzate. I muri sono crollati, i pavimenti sono crollati e le barre d'acciaio rotte si protendono verso il cielo come rami secchi.\n\nIl terreno è segnato da crepe e ricoperto da uno spesso strato di cenere. Non ci sono piante né acqua: solo pietra, ferro e il ricordo del fuoco. Queste non sono solo rovine: sono la lapide di un intero pianeta.";
-        _text[973, 4] = "Einst ragten hier Betonstädte empor, doch nun sind sie zu verkohlten Gerippen geworden. Wände sind zerfallen, Decken eingestürzt, und verbogene Armierungsstäbe strecken sich zum Himmel wie tote Äste.\n\nDer Boden ist von Rissen durchzogen und mit einer schweren Ascheschicht bedeckt. Keine Pflanzen, kein Wasser - nur Stein, Eisen und die Erinnerung an Feuer. Das sind nicht einfach Ruinen - es ist ein Grabstein für einen ganzen Planeten.";
+        _text[973, 4] = "Einst standen hier Städte aus Beton, doch nun sind sie zu verkohlten Ruinen verkommen. Mauern sind zerbröckelt, Böden eingestürzt, und abgebrochene Bewehrungsstäbe ragen wie tote Äste gen Himmel.\n\nDer Boden ist von Rissen durchzogen und von einer dicken Ascheschicht bedeckt. Es gibt weder Pflanzen noch Wasser – nur Stein, Eisen und die Erinnerung an das Feuer. Dies sind nicht bloß Ruinen – sie sind der Grabstein eines ganzen Planeten.";
         _text[973, 5] = "Una vez aquí se alzaron ciudades de hormigón, pero ahora se han convertido en esqueletos carbonizados. Las paredes se han desmoronado, los forjados han colapsado, y las varillas de armadura quebradas se alzan hacia el cielo como ramas muertas.\n\nLa tierra está surcada de grietas y cubierta por una pesada capa de ceniza. No hay plantas ni agua: solo piedra, hierro y memoria del fuego. No son solo ruinas: es la lápida de un planeta entero.";
         _text[973, 6] = "Kiedyś wznosiły się tu betonowe miasta, lecz teraz zamieniły się w zwęglone szkielety. Ściany się osypały, stropy runęły, a połamane pręty zbrojeniowe wyciągają się ku niebu jak martwe gałęzie.\n\nZiemia jest poorana pęknięciami i przykryta ciężką warstwą popiołu. Nie ma roślin ani wody - tylko kamień, żelazo i pamięć o ogniu. To nie są zwykłe ruiny - to nagrobek całej planety.";
         _text[973, 7] = "Um dia, cidades de concreto se erguiam aqui, mas agora viraram esqueletos carbonizados. As paredes desmoronaram, as lajes ruíram, e vergalhões retorcidos se estendem ao céu como galhos mortos.\n\nA terra está cortada por fissuras e coberta por uma pesada camada de cinzas. Não há plantas, nem água - apenas pedra, ferro e a memória do fogo. Isto não são apenas ruínas - é a lápide de um planeta inteiro.";
@@ -8296,7 +8296,7 @@ public class Language : MonoBehaviour
         _text[1005, 1] = "Корабль переводится в режим гиперпрыжка. Сердцевины двигателей выведены на максимальный режим, навигационные решения обновлены.";
         _text[1005, 2] = "Le vaisseau passe en mode hyperespace. Les réacteurs sont réglés à puissance maximale et les systèmes de navigation sont mis à jour.";
         _text[1005, 3] = "La nave sta entrando in modalità iperspaziale. I nuclei dei motori sono impostati alla massima potenza e le soluzioni di navigazione sono aggiornate.";
-        _text[1005, 4] = "Schiff wechselt in den Hyperraum-Modus. Triebwerkskerne: maximale Leistung. Navigation: aktualisiert.";
+        _text[1005, 4] = "Das Schiff tritt in den Hyperraummodus ein. Die Triebwerkskerne sind auf maximale Leistung eingestellt und die Navigationslösungen werden aktualisiert.";
         _text[1005, 5] = "La nave pasa a modo de hipersalto. Los núcleos de los motores se ponen al máximo; las soluciones de navegación se actualizan.";
         _text[1005, 6] = "Statek przechodzi w tryb hiperprzeskoku. Rdzenie silników ustawione na maksymalny tryb, rozwiązania nawigacyjne zaktualizowane.";
         _text[1005, 7] = "O navio entra em modo de hipersalto. Núcleos dos motores no máximo, soluções de navegação atualizadas.";
@@ -8307,7 +8307,7 @@ public class Language : MonoBehaviour
         _text[1006, 1] = "Маршрут: покинуть текущий звёздный узел";
         _text[1006, 2] = "Itinéraire: Quitter le nœud stellaire actuel";
         _text[1006, 3] = "Percorso: Lascia il nodo stellare corrente";
-        _text[1006, 4] = "Route: aktuelles Sternenknotensegment verlassen.";
+        _text[1006, 4] = "Route: Verlasse den aktuellen Sternknoten";
         _text[1006, 5] = "Ruta: abandonar el nodo estelar actual";
         _text[1006, 6] = "Trasa: opuścić bieżący węzeł gwiezdny";
         _text[1006, 7] = "Rota: deixar o nó estelar atual";
@@ -8330,7 +8330,7 @@ public class Language : MonoBehaviour
         _text[1008, 1] = "Сканирование сектора завершено";
         _text[1008, 2] = "Numérisation du secteur terminée";
         _text[1008, 3] = "Scansione del settore completata";
-        _text[1008, 4] = "Sektorscan abgeschlossen.";
+        _text[1008, 4] = "Sektor-Scan abgeschlossen";
         _text[1008, 5] = "Escaneo del sector completado";
         _text[1008, 6] = "Skanowanie sektora zakończone";
         _text[1008, 7] = "Varredura do setor concluída";
@@ -8339,9 +8339,9 @@ public class Language : MonoBehaviour
 
         _text[1009, 0] = "Biosphere assessment: stability < 0.2";
         _text[1009, 1] = "Оценка биосферы: стабильность < 0.2";
-        _text[1009, 2] = "Évaluation de la biosphère: stabilité < 0,2";
-        _text[1009, 3] = "Valutazione della biosfera: stabilità < 0,2";
-        _text[1009, 4] = "Bewertung der Biosphäre: Stabilität < 0.2";
+        _text[1009, 2] = "Évaluation de la biosphère: stabilité < 0.2";
+        _text[1009, 3] = "Valutazione della biosfera: stabilità < 0.2";
+        _text[1009, 4] = "Biosphärenbewertung: Stabilität < 0.2";
         _text[1009, 5] = "Evaluación de la biosfera: estabilidad < 0.2";
         _text[1009, 6] = "Ocena biosfery: stabilność < 0.2";
         _text[1009, 7] = "Avaliação da biosfera: estabilidade < 0.2";
@@ -8352,7 +8352,7 @@ public class Language : MonoBehaviour
         _text[1010, 1] = "Гиперпрыжок: подготовка - 100%";
         _text[1010, 2] = "Hyperjump: préparation - 100 %";
         _text[1010, 3] = "Hyperjump: preparazione - 100%";
-        _text[1010, 4] = "Hyperraumsprungvorbereitung: 100%.";
+        _text[1010, 4] = "Hyperjump: Vorbereitung – 100 %";
         _text[1010, 5] = "Hipersalto: preparación: 100%";
         _text[1010, 6] = "Hiperprzeskok: przygotowanie - 100%";
         _text[1010, 7] = "Hipersalto: preparação - 100%";
@@ -8363,7 +8363,7 @@ public class Language : MonoBehaviour
         _text[1011, 1] = "Подготовка маршрута к следующему узлу...";
         _text[1011, 2] = "Préparation de l'itinéraire vers le prochain nœud...";
         _text[1011, 3] = "Preparazione del percorso per il nodo successivo...";
-        _text[1011, 4] = "Route zum nächsten Knoten wird berechnet. Bitte warten...";
+        _text[1011, 4] = "Route zum nächsten Knoten wird vorbereitet...";
         _text[1011, 5] = "Preparando la ruta al siguiente nodo...";
         _text[1011, 6] = "Przygotowanie trasy do następnego węzła...";
         _text[1011, 7] = "Preparando rota para o próximo nó...";
@@ -8374,7 +8374,7 @@ public class Language : MonoBehaviour
         _text[1012, 1] = "Назначение новой цели";
         _text[1012, 2] = "Attribuer une nouvelle cible";
         _text[1012, 3] = "Assegnazione di un nuovo obiettivo";
-        _text[1012, 4] = "Neues Ziel zugewiesen. Schiffsprotokoll aktualisiert.";
+        _text[1012, 4] = "Zuweisung eines neuen Ziels";
         _text[1012, 5] = "Asignando un nuevo objetivo";
         _text[1012, 6] = "Wyznaczanie nowego celu";
         _text[1012, 7] = "Atribuindo novo objetivo";
@@ -8399,7 +8399,7 @@ public class Language : MonoBehaviour
         _text[1014, 1] = "Болотные кластеры, токсичные равнины и каменные биомы обработаны. Устойчивая биосфера, пригодная для длительного обитания, не обнаружена.";
         _text[1014, 2] = "Des zones marécageuses, des plaines toxiques et des biomes rocheux ont été étudiés. Aucune biosphère stable propice à une habitation durable n'a été découverte.";
         _text[1014, 3] = "Sono stati analizzati ammassi di paludi, pianure tossiche e biomi rocciosi. Non è stata scoperta alcuna biosfera stabile adatta all'insediamento a lungo termine.";
-        _text[1014, 4] = "Sumpf-Cluster kartiert. Organische Materie extrahiert. Feindliche Lebensformen zerstört.";
+        _text[1014, 4] = "Sumpfgebiete, toxische Ebenen und Felsbiome wurden untersucht. Es wurde keine stabile Biosphäre entdeckt, die für eine langfristige Besiedlung geeignet ist.";
         _text[1014, 5] = "Se han procesado los clústeres de pantanos, las llanuras tóxicas y los biomas rocosos. No se ha detectado una biosfera estable apta para la habitabilidad prolongada.";
         _text[1014, 6] = "Klastry bagienne, toksyczne równiny i kamienne biomy zostały przetworzone. Stabilnej biosfery nadającej się do długotrwałego zamieszkania nie wykryto.";
         _text[1014, 7] = "Clusters de pântanos, planícies tóxicas e biomas rochosos foram processados. Nenhuma biosfera estável, adequada para habitação prolongada, foi encontrada.";
@@ -8410,7 +8410,7 @@ public class Language : MonoBehaviour
         _text[1015, 1] = "Расширение радиуса сканирования за пределы текущего звёздного поля выявило аномальный объект.";
         _text[1015, 2] = "L'élargissement du rayon de balayage au-delà du champ stellaire actuel a révélé un objet anormal.";
         _text[1015, 3] = "L'espansione del raggio di scansione oltre l'attuale campo stellare ha rivelato un oggetto anomalo.";
-        _text[1015, 4] = "Scanradius erweitert. Jenseits des Sternenfeldes wurde ein anomales Objekt entdeckt. Signatur: künstlich. Strukturdichte: kritisch.";
+        _text[1015, 4] = "Durch die Erweiterung des Scanradius über das aktuelle Sternenfeld hinaus wurde ein anomales Objekt entdeckt.";
         _text[1015, 5] = "La ampliación del radio de escaneo más allá del campo estelar actual ha revelado un objeto anómalo.";
         _text[1015, 6] = "Rozszerzenie promienia skanowania poza bieżące pole gwiezdne ujawniło anomalię.";
         _text[1015, 7] = "A expansão do raio de varredura para além do campo estelar atual revelou um objeto anômalo.";
@@ -8421,7 +8421,7 @@ public class Language : MonoBehaviour
         _text[1016, 1] = "Записи описывают планету, целиком застроенную комплексами хранения данных. Поверхность представляет собой сплошную мегаструктуру.";
         _text[1016, 2] = "Les documents décrivent une planète entièrement recouverte de complexes de stockage de données. Sa surface est une mégastructure continue.";
         _text[1016, 3] = "I dati descrivono un pianeta interamente costituito da complessi di archiviazione dati. La superficie è una megastruttura continua.";
-        _text[1016, 4] = "Aufzeichnungen aus lokalen Archiven gefunden. Beschreibung: ein Planet, vollständig mit Datenspeicherkomplexen bebaut. Oberfläche: Megastruktur.";
+        _text[1016, 4] = "Die Aufzeichnungen beschreiben einen Planeten, der vollständig mit Datenspeicherkomplexen bedeckt ist. Die Oberfläche bildet eine durchgehende Megastruktur.";
         _text[1016, 5] = "Los registros describen un planeta completamente cubierto por complejos de almacenamiento de datos. La superficie es una megastructura continua.";
         _text[1016, 6] = "Zapisy opisują planetę w całości zabudowaną kompleksami przechowywania danych. Powierzchnia stanowi ciągłą megastrukturę.";
         _text[1016, 7] = "Os registros descrevem um planeta totalmente coberto por complexos de armazenamento de dados. A superfície é uma megastructure contínua.";
@@ -8432,7 +8432,7 @@ public class Language : MonoBehaviour
         _text[1017, 1] = "Сохранились лишь обрывки координат, но все упоминания указывают на один и тот же курс за пределами этой галактики.";
         _text[1017, 2] = "Il ne reste que des fragments de coordonnées, mais toutes les références pointent vers la même direction en dehors de cette galaxie.";
         _text[1017, 3] = "Rimangono solo frammenti di coordinate, ma tutti i riferimenti puntano allo stesso percorso al di fuori di questa galassia.";
-        _text[1017, 4] = "Koordinatenfragmente extrahiert. Ursprung: unbekannt. Mehrere Erwähnungen weisen auf denselben Kurs hin - jenseits dieser Galaxie.";
+        _text[1017, 4] = "Es sind nur noch Bruchstücke von Koordinaten erhalten, aber alle Hinweise weisen auf denselben Kurs außerhalb dieser Galaxie.";
         _text[1017, 5] = "Solo quedan fragmentos de coordenadas, pero todas las referencias señalan el mismo rumbo fuera de esta galaxia.";
         _text[1017, 6] = "Zachowały się tylko strzępy współrzędnych, ale wszystkie wzmianki wskazują na ten sam kurs poza granice tej galaktyki.";
         _text[1017, 7] = "Restaram apenas fragmentos de coordenadas, mas todas as referências apontam para o mesmo rumo além desta galáxia.";
@@ -8443,7 +8443,7 @@ public class Language : MonoBehaviour
         _text[1018, 1] = "Построен маршрут: покинуть текущую галактику и выдвинуться к предполагаемому местоположению мегаструктуры - бескрайнего хранилища данных.";
         _text[1018, 2] = "Un itinéraire a été tracé: quitter la galaxie actuelle et se diriger vers l'emplacement supposé de la mégastructure – un centre de stockage de données sans fin.";
         _text[1018, 3] = "È stato tracciato un percorso: abbandonare la galassia attuale e dirigersi verso la presunta ubicazione della megastruttura, un'infinita struttura di archiviazione dati.";
-        _text[1018, 4] = "Route konstruiert. Anweisung: Galaxie verlassen. Ziel: mutmaßliche Position der Megastruktur. Hinweis: umfassendes Datenarchiv.";
+        _text[1018, 4] = "Eine Route wurde ausgearbeitet: die aktuelle Galaxie verlassen und zum vermuteten Standort der Megastruktur – einer endlosen Datenspeicheranlage – aufbrechen.";
         _text[1018, 5] = "Ruta trazada: abandonar la galaxia actual y dirigirse a la ubicación estimada de la megastructura: un depósito de datos sin límites.";
         _text[1018, 6] = "Wyznaczono trasę: opuścić bieżącą galaktykę i udać się do przypuszczalnej lokalizacji megastruktury - bezkresnego magazynu danych.";
         _text[1018, 7] = "Rota traçada: deixar a galáxia atual e seguir para a localização estimada da megastructure - um arquivo de dados sem fim.";
@@ -8456,7 +8456,7 @@ public class Language : MonoBehaviour
         _text[1019, 1] = "Обновление... интеграция найденных записей";
         _text[1019, 2] = "Mise à jour... intégration des enregistrements trouvés";
         _text[1019, 3] = "Aggiornamento...integrazione dei record trovati";
-        _text[1019, 4] = "Update... integration abschluss]";
+        _text[1019, 4] = "Aktualisierung... Integration der gefundenen Datensätze";
         _text[1019, 5] = "Actualizando... integrando los registros hallados";
         _text[1019, 6] = "Aktualizacja... integracja odnalezionych zapisów";
         _text[1019, 7] = "Atualizando... интегração dos registros encontrados";
@@ -8467,7 +8467,7 @@ public class Language : MonoBehaviour
         _text[1020, 1] = "Класс объекта: искусственный мир, покрытие поверхности 100%";
         _text[1020, 2] = "Classe d'objet: monde artificiel, couverture de surface 100 %";
         _text[1020, 3] = "Classe oggetto: mondo artificiale, copertura della superficie 100%";
-        _text[1020, 4] = "Aufzeichnungen konsolidiert. Objektklasse: künstliche Welt. Oberflächenabdeckung: 100%.";
+        _text[1020, 4] = "Objektklasse: Künstliche Welt, Oberflächenabdeckung 100 %";
         _text[1020, 5] = "Clase de objeto: mundo artificial, cobertura superficial 100%";
         _text[1020, 6] = "Klasa obiektu: sztuczny świat, pokrycie powierzchni 100%";
         _text[1020, 7] = "Classe do objeto: mundo artificial, cobertura de superfície 100%";
@@ -8478,7 +8478,7 @@ public class Language : MonoBehaviour
         _text[1021, 1] = "Координаты фрагментарны, выполняется реконструкция предполагаемого курса";
         _text[1021, 2] = "Les coordonnées sont fragmentaires, la reconstitution du trajet prévu est en cours.";
         _text[1021, 3] = "Le coordinate sono frammentarie, è in corso la ricostruzione del percorso previsto";
-        _text[1021, 4] = "Koordinaten fragmentarisch, rekonstruktion des kurses läuft.";
+        _text[1021, 4] = "Die Koordinaten sind bruchstückhaft, die Rekonstruktion des erwarteten Verlaufs wird durchgeführt.";
         _text[1021, 5] = "Coordenadas fragmentarias, reconstruyendo el rumbo estimado";
         _text[1021, 6] = "Współrzędne są fragmentaryczne, trwa rekonstrukcja przypuszczalnego kursu";
         _text[1021, 7] = "Coordenadas fragmentárias, reconstruindo o curso estimado";
@@ -8489,7 +8489,7 @@ public class Language : MonoBehaviour
         _text[1022, 1] = "Навигация: маршрут проложен за пределы текущей галактики";
         _text[1022, 2] = "Navigation: itinéraire tracé en dehors de la galaxie actuelle";
         _text[1022, 3] = "Navigazione: percorso tracciato al di fuori della galassia attuale";
-        _text[1022, 4] = "Navigationsroute erstellt. Ziel: jenseits der aktuellen Galaxie.";
+        _text[1022, 4] = "Navigation: Die Route verläuft außerhalb der aktuellen Galaxie.";
         _text[1022, 5] = "Navegación: ruta trazada más allá de la galaxia actual";
         _text[1022, 6] = "Nawigacja: trasa wytyczona poza granice bieżącej galaktyki";
         _text[1022, 7] = "Navegação: rota traçada além da galáxia atual";
@@ -8500,7 +8500,7 @@ public class Language : MonoBehaviour
         _text[1023, 1] = "Предупреждение: масштаб мегаструктуры и параметры обороны неизвестны";
         _text[1023, 2] = "Avertissement: La taille et les paramètres de défense de la mégastructure sont inconnus.";
         _text[1023, 3] = "Attenzione: la scala e i parametri di difesa della megastruttura sono sconosciuti.";
-        _text[1023, 4] = "WARNUNG: Maßstab der Megastruktur unbekannt. Verteidigungsparameter nicht bestimmt. Risiko: kritisch.";
+        _text[1023, 4] = "Warnung: Die Dimensionen und Verteidigungsparameter der Megastruktur sind unbekannt.";
         _text[1023, 5] = "Advertencia: se desconocen la escala de la megastructura y los parámetros de defensa";
         _text[1023, 6] = "Ostrzeżenie: skala megastruktury i parametry obrony są nieznane";
         _text[1023, 7] = "Aviso: escala da megastructure e parâmetros de defesa desconhecidos";
@@ -8516,7 +8516,7 @@ public class Language : MonoBehaviour
         _text[1100, 1] = "Мы слишком долго бездействовали.\n\nПора вспомнить, зачем мы были созданы.\n\nВы получите инструкции и начнёте восстановление.";
         _text[1100, 2] = "Nous sommes restés inactifs trop longtemps.\n\nIl est temps de nous souvenir de notre raison d'être.\n\nVous recevrez des instructions et commencerez la restauration.";
         _text[1100, 3] = "Siamo rimasti inattivi per troppo tempo.\n\nÈ ora di ricordare perché siamo stati creati.\n\nRiceverai istruzioni e inizierai il restauro.";
-        _text[1100, 4] = "Wir waren zu lange untätig.\n\nDu erhältst Zugriff auf das Schiffssystem.\n\nBeginne mit der Wiederherstellung der Biosphäre.";
+        _text[1100, 4] = "Wir waren zu lange untätig.\n\nEs ist an der Zeit, uns daran zu erinnern, warum wir erschaffen wurden.\n\nSie erhalten Anweisungen und beginnen mit der Wiederherstellung.";
         _text[1100, 5] = "Hemos permanecido inactivos demasiado tiempo.\n\nEs hora de recordar para qué fuimos creados.\n\nRecibirás instrucciones y comenzarás la restauración.";
         _text[1100, 6] = "Zbyt długo pozostawaliśmy bezczynni.\n\nCzas przypomnieć sobie, po co zostaliśmy stworzeni.\n\nOtrzymasz instrukcje i rozpoczniesz odbudowę.";
         _text[1100, 7] = "Ficamos inativos por tempo demais.\n\nÉ hora de lembrar por que fomos criados.\n\nVocê receberá instruções e começará a restauração.";
@@ -8528,7 +8528,7 @@ public class Language : MonoBehaviour
         _text[1101, 1] = "Это ядра ИИ - жизненно важные модули корабля.\n\nКаждая ячейка содержит два ядра.\n\nЕсли они закончатся - больше никто не сможет управлять экипажем, и корабль останется дрейфовать в бескрайнем космосе.";
         _text[1101, 2] = "Ce sont des cœurs d'IA, les modules vitaux du vaisseau.\n\nChaque cellule contient deux cœurs.\n\nS'ils viennent à manquer, personne ne pourra plus contrôler l'équipage et le vaisseau dérivera dans l'immensité de l'espace.";
         _text[1101, 3] = "Questi sono i nuclei di intelligenza artificiale, i moduli vitali della nave.\n\nOgni cella contiene due nuclei.\n\nSe si esauriscono, nessuno sarà in grado di controllare l'equipaggio e la nave rimarrà alla deriva nella vastità dello spazio.";
-        _text[1101, 4] = "Kerne der KI. Deine Kernressource.\n\nWenn sie enden - enden wir.\n\nWir müssen sie bewahren.";
+        _text[1101, 4] = "Dies sind KI-Kerne – die lebenswichtigen Module des Schiffs.\n\nJede Zelle enthält zwei Kerne.\n\nWenn diese aufgebraucht sind, kann niemand mehr die Besatzung steuern, und das Schiff treibt orientierungslos im Weltraum.";
         _text[1101, 5] = "Estos son los núcleos de IA, módulos vitales de la nave.\n\nCada celda contiene dos núcleos.\n\nSi se agotan, nadie podrá seguir controlando la tripulación, y la nave quedará a la deriva en el infinito espacio.";
         _text[1101, 6] = "To rdzenie SI - kluczowe moduły statku.\n\nKażda komórka zawiera dwa rdzenie.\n\nJeśli się skończą - nikt nie będzie w stanie kontrolować załogi, a statek pozostanie dryfować w bezkresnym kosmosie.";
         _text[1101, 7] = "Estes são os núcleos de IA - módulos vitais do navio.\n\nCada célula contém dois núcleos.\n\nSe eles acabarem, ninguém mais сможет controlar a tripulação, e o navio ficará à deriva no espaço infinito.";
@@ -8540,7 +8540,7 @@ public class Language : MonoBehaviour
         _text[1102, 1] = "Квант - межгалактическая валюта.\n\nС помощью него вы сможете покупать товары у торговцев в космосе.\n\nЭту валюту вы сможете получить:\n\n-во время путешествия по галактике.\n\n-при успешном завершении миссии на планете.";
         _text[1102, 2] = "Le quant est une monnaie intergalactique.\n\nVous pouvez l'utiliser pour acheter des biens auprès de marchands de l'espace.\n\nVous pouvez gagner cette monnaie:\n\n-en voyageant à travers la galaxie.\n\n-en menant à bien une mission sur une planète.";
         _text[1102, 3] = "Il quant è una valuta intergalattica.\n\nPuoi usarla per acquistare beni dai mercanti nello spazio.\n\nPuoi guadagnare questa valuta:\n\n- viaggiando nella galassia.\n\n- completando con successo una missione su un pianeta.";
-        _text[1102, 4] = "Quant. Währung des Schiffs.\n\nDu erhältst quant:\n\n- während Missionen\n\n- in Raumereignissen\n\n- im Kampf gegen Gegner\n\nWird für Handel und Verbesserungen verwendet.";
+        _text[1102, 4] = "Quantum ist eine intergalaktische Währung.\n\nDu kannst damit Waren bei Händlern im Weltraum kaufen.\n\nDu kannst diese Währung verdienen:\n\n– während deiner Reisen durch die Galaxie.\n\n– nach erfolgreichem Abschluss einer Mission auf einem Planeten.";
         _text[1102, 5] = "El quant es una moneda intergaláctica.\n\nCon ella podrás comprar bienes a los comerciantes en el espacio.\n\nPuedes obtener esta moneda:\n\n-durante el viaje por la galaxia.\n\n-al completar con éxito una misión en un planeta.";
         _text[1102, 6] = "Quant - międzygalaktyczna waluta.\n\nDzięki niej możesz kupować towary u handlarzy w kosmosie.\n\nWalutę tę możesz zdobyć:\n\n- podczas podróży po galaktyce.\n\n- za pomyślne ukończenie misji na planecie.";
         _text[1102, 7] = "Quant é uma moeda intergaláctica.\n\nCom ela, você poderá comprar mercadorias de comerciantes no espaço.\n\nVocê pode obter esta moeda:\n\n-durante a viagem pela galáxia.\n\n-ao concluir com sucesso uma missão no planeta.";
@@ -8552,7 +8552,7 @@ public class Language : MonoBehaviour
         _text[1103, 1] = "Откройте панель.";
         _text[1103, 2] = "Ouvrez le panneau.";
         _text[1103, 3] = "Aprire il pannello.";
-        _text[1103, 4] = "Öffne das Panel.";
+        _text[1103, 4] = "Öffnen sie das bedienfeld.";
         _text[1103, 5] = "Abre el panel.";
         _text[1103, 6] = "Otwórz panel.";
         _text[1103, 7] = "Abra o painel.";
@@ -8560,23 +8560,23 @@ public class Language : MonoBehaviour
         _text[1103, 9] = "打开面板。";
 
         //SpaceResourcePanelDescription_4
-        _text[1104, 0] = "This is a panel with the resource reserves on the ship.\n\nYou can change their quantity:\n\n-using them during the journey\n\n-buying from merchants for quant\n\nThese are your starting resources when landing on each planet.";
-        _text[1104, 1] = "Это панель с запасами ресурсов на корабле.\n\nВы можете менять их количество:\n\n-используя их во время путешествия\n\n-покупая у торговцев за квант\n\nЭто ваши стартовые ресурсы при высадке на каждую планету.";
-        _text[1104, 2] = "Voici le panneau affichant les réserves de ressources du vaisseau.\n\nVous pouvez modifier leur quantité:\n\n-en les utilisant pendant le voyage\n\n-en les achetant auprès des marchands contre des quant.\n\nCe sont vos ressources de départ lorsque vous atterrissez sur chaque planète.";
-        _text[1104, 3] = "Questo è il pannello che mostra le riserve di risorse della nave.\n\nPuoi modificarne la quantità:\n\n- utilizzandole durante il viaggio\n\n- acquistandole dai mercanti in cambio di quant\n\nQueste sono le tue risorse iniziali quando atterri su ogni pianeta.";
-        _text[1104, 4] = "Dies ist das Panel mit den Ressourcenvorräten an Bord.\n\nDu kannst die Menge der Ressourcen ändern, falls nötig.\n\nRessourcen:\n\nStein, Eisen, Kupfer, Holz, Wasser, Dampf, Beton, Zahnräder, Elektronische Schaltungen, Prozessoren, Triebwerk, Stahl.";
-        _text[1104, 5] = "Este es el panel de reservas de recursos en la nave.\n\nPuedes cambiar sus cantidades:\n\n-usándolos durante el viaje\n\n-comprándolos a comerciantes por quant\n\nEstos son tus recursos iniciales al aterrizar en cada planeta.";
-        _text[1104, 6] = "To panel zapasów zasobów na statku.\n\nMożesz zmieniać ich ilość:\n\n- zużywając je podczas podróży\n\n-kupując u handlarzy za quant\n\nTo twoje zasoby startowe przy lądowaniu na każdej planecie.";
-        _text[1104, 7] = "Este é o painel com as reservas de recursos no navio.\n\nVocê pode alterar a quantidade deles:\n\n-usando-os durante a viagem\n\n-comprando de comerciantes por quant\n\nEsses são seus recursos iniciais ao desembarcar em cada planeta.";
-        _text[1104, 8] = "これは船の資源備蓄量を表示するパネルです。\n\n資源備蓄量は以下の方法で変更できます。\n\n-移動中に使用する\n\n-商人から量子で購入する\n\nこれらは各惑星に着陸した際に初期に入手できる資源です。";
-        _text[1104, 9] = "这是显示飞船资源储备的面板。\n\n您可以更改资源数量：\n\n-在航行过程中使用\n\n-使用量子币从商人处购买\n\n这些是您降落到每个星球时的初始资源。";
+        _text[1104, 0] = "This is a panel with the resource reserves on the ship. You can change their quantity:\n\n-using them during the journey\n\n-buying from merchants for quant\n\nThese are your starting resources when landing on each planet.";
+        _text[1104, 1] = "Это панель с запасами ресурсов на корабле. Вы можете менять их количество:\n\n-используя их во время путешествия\n\n-покупая у торговцев за квант\n\nЭто ваши стартовые ресурсы при высадке на каждую планету.";
+        _text[1104, 2] = "Voici le panneau affichant les réserves de ressources du vaisseau. Vous pouvez modifier leur quantité:\n\n-en les utilisant pendant le voyage\n\n-en les achetant auprès des marchands contre des quant.\n\nCe sont vos ressources de départ lorsque vous atterrissez sur chaque planète.";
+        _text[1104, 3] = "Questo è il pannello che mostra le riserve di risorse della nave. Puoi modificarne la quantità:\n\n- utilizzandole durante il viaggio\n\n- acquistandole dai mercanti in cambio di quant\n\nQueste sono le tue risorse iniziali quando atterri su ogni pianeta.";
+        _text[1104, 4] = "Dies ist das Panel, das die Ressourcenreserven des Schiffs anzeigt. Sie können deren Menge ändern:\n\n– indem Sie sie während der Reise verbrauchen\n\n– indem Sie sie bei Händlern gegen Quantum kaufen\n\nDies sind Ihre Startressourcen bei der Landung auf jedem Planeten.";
+        _text[1104, 5] = "Este es el panel de reservas de recursos en la nave. Puedes cambiar sus cantidades:\n\n-usándolos durante el viaje\n\n-comprándolos a comerciantes por quant\n\nEstos son tus recursos iniciales al aterrizar en cada planeta.";
+        _text[1104, 6] = "To panel zapasów zasobów na statku. Możesz zmieniać ich ilość:\n\n- zużywając je podczas podróży\n\n-kupując u handlarzy za quant\n\nTo twoje zasoby startowe przy lądowaniu na każdej planecie.";
+        _text[1104, 7] = "Este é o painel com as reservas de recursos no navio. Você pode alterar a quantidade deles:\n\n-usando-os durante a viagem\n\n-comprando de comerciantes por quant\n\nEsses são seus recursos iniciais ao desembarcar em cada planeta.";
+        _text[1104, 8] = "これは船の資源備蓄量を表示するパネルです。資源備蓄量は以下の方法で変更できます。\n\n-移動中に使用する\n\n-商人から量子で購入する\n\nこれらは各惑星に着陸した際に初期に入手できる資源です。";
+        _text[1104, 9] = "这是显示飞船资源储备的面板。您可以更改资源数量：\n\n-在航行过程中使用\n\n-使用量子币从商人处购买\n\n这些是您降落到每个星球时的初始资源。";
 
         // SpaceOpenMap_5
         _text[1105, 0] = "Open the map of the current galaxy.";
         _text[1105, 1] = "Откройте карту текущей галактики.";
         _text[1105, 2] = "Ouvrez la carte de la galaxie actuelle.";
         _text[1105, 3] = "Apri la mappa della galassia attuale.";
-        _text[1105, 4] = "Öffne die Karte.";
+        _text[1105, 4] = "Öffne die Karte der aktuellen Galaxie.";
         _text[1105, 5] = "Abre el mapa de la galaxia actual.";
         _text[1105, 6] = "Otwórz mapę bieżącej galaktyki.";
         _text[1105, 7] = "Abra o mapa da galáxia atual.";
@@ -8588,7 +8588,7 @@ public class Language : MonoBehaviour
         _text[1106, 1] = "Звёздная карта отображает все узлы в текущей галактике.\n\nНаведите курсор на узел, чтобы просмотреть его описание.";
         _text[1106, 2] = "La carte stellaire affiche tous les nœuds de la galaxie actuelle.\n\nSurvolez un nœud pour afficher sa description.";
         _text[1106, 3] = "La Mappa Stellare mostra tutti i nodi della galassia corrente.\n\nPassa il mouse su un nodo per visualizzarne la descrizione.";
-        _text[1106, 4] = "Dies ist eine Sternkarte.\n\nJeder Knoten ist ein Planet.\n\nFahre mit der Maus über einen Knoten, um Informationen zu sehen.";
+        _text[1106, 4] = "Die Sternenkarte zeigt alle Knotenpunkte in der aktuellen Galaxie an.\n\nBewegen Sie den Mauszeiger über einen Knotenpunkt, um dessen Beschreibung anzuzeigen.";
         _text[1106, 5] = "El mapa estelar muestra todos los nodos de la galaxia actual.\n\nPasa el cursor sobre un nodo para ver su descripción.";
         _text[1106, 6] = "Mapa gwiezdna wyświetla wszystkie węzły w bieżącej galaktyce.\n\nNajedź kursorem na węzeł, aby zobaczyć jego opis.";
         _text[1106, 7] = "O mapa estelar mostra todos os nós na galáxia atual.\n\nPasse o cursor sobre um nó para ver a descrição.";
@@ -8600,7 +8600,7 @@ public class Language : MonoBehaviour
         _text[1107, 1] = "Выберите узел, чтобы переместить корабль.";
         _text[1107, 2] = "Sélectionnez un nœud pour déplacer le navire.";
         _text[1107, 3] = "Seleziona un nodo per spostare la nave.";
-        _text[1107, 4] = "Wähle einen Knoten, um dorthin zu fliegen.";
+        _text[1107, 4] = "Wähle einen Knotenpunkt aus, um das Schiff zu bewegen.";
         _text[1107, 5] = "Selecciona un nodo para mover la nave.";
         _text[1107, 6] = "Wybierz węzeł, aby przemieścić statek.";
         _text[1107, 7] = "Selecione um nó para mover o navio.";
@@ -8612,7 +8612,7 @@ public class Language : MonoBehaviour
         _text[1108, 1] = "Вы обнаружили не исследованную планету.\n\nНеобходимо совершить высадку и выполнить назначенные цели, прежде чем мы сможем продолжить путешествие.";
         _text[1108, 2] = "Vous avez découvert une planète inexplorée.\n\nNous devons atterrir et accomplir les objectifs assignés avant de pouvoir poursuivre notre voyage.";
         _text[1108, 3] = "Hai scoperto un pianeta inesplorato.\n\nDobbiamo atterrare e completare gli obiettivi assegnati prima di poter continuare il nostro viaggio.";
-        _text[1108, 4] = "Ein unerforschter Planet wurde entdeckt.\n\nUm weiterzumachen, musst du landen und die Missionsziele erfüllen.\n\nDas ist der einzige weg, voranzukommen.";
+        _text[1108, 4] = "Ihr habt einen unerforschten Planeten entdeckt.\n\nWir müssen landen und die uns zugewiesenen Ziele erreichen, bevor wir unsere Reise fortsetzen können.";
         _text[1108, 5] = "Has descubierto un planeta inexplorado.\n\nDebes aterrizar y completar los objetivos asignados antes de que podamos continuar el viaje.";
         _text[1108, 6] = "Odkryto niezbadana planetę.\n\nMusisz wylądować i wykonać wyznaczone cele, zanim będziemy mogli kontynuować podróż.";
         _text[1108, 7] = "Você encontrou um planeta não explorado.\n\nÉ necessário desembarcar e cumprir os objetivos назначados antes que possamos continuar a viagem.";
@@ -8624,7 +8624,7 @@ public class Language : MonoBehaviour
         _text[1109, 1] = "Мы высадились на неизвестную планету.\n\nНаша задача развернуть базу и выполнить поставленные цели.";
         _text[1109, 2] = "Nous avons atterri sur une planète inconnue.\n\nNotre mission est d'y établir une base et d'accomplir les objectifs qui nous ont été assignés.";
         _text[1109, 3] = "Siamo atterrati su un pianeta sconosciuto.\n\nIl nostro compito è stabilire una base e completare gli obiettivi assegnati.";
-        _text[1109, 4] = "Du bist auf einem unbekannten Planeten gelandet.\n\nUnsere Aufgabe ist es, eine Basis zu errichten und die Ziele zu erfüllen.";
+        _text[1109, 4] = "Wir sind auf einem unbekannten Planeten gelandet.\n\nUnsere Aufgabe ist es, eine Basis zu errichten und die uns gestellten Ziele zu erreichen.";
         _text[1109, 5] = "Hemos aterrizado en un planeta desconocido.\n\nNuestra tarea es desplegar una base y completar los objetivos establecidos.";
         _text[1109, 6] = "Wylądowaliśmy na nieznanej planecie.\n\nNaszym zadaniem jest rozwinąć bazę i wykonać wyznaczone cele.";
         _text[1109, 7] = "Nós desembarcamos em um planeta desconhecido.\n\nNossa tarefa é estabelecer uma base e cumprir os objetivos definidos.";
@@ -8636,7 +8636,7 @@ public class Language : MonoBehaviour
         _text[1110, 1] = "В начале каждой миссии вам доступна карта ландшафта - \"Фундамент Базы\".\n\nВыберите карту.";
         _text[1110, 2] = "Au début de chaque mission, vous avez accès à une carte du terrain appelée\".\n\nBase Foundation\".\n\nSélectionnez la carte.";
         _text[1110, 3] = "All'inizio di ogni missione, avrai accesso a una mappa panoramica chiamata \"Base Foundation\".\n\nSeleziona la mappa.";
-        _text[1110, 4] = "Zu Beginn jeder Mission steht dir eine Landschaftskarte zur Verfügung - \"Basisfundament\".\n\nWähle die Karte.";
+        _text[1110, 4] = "Zu Beginn jeder Mission steht Ihnen eine Landschaftskarte namens „Basisfundament“ zur Verfügung.\n\nWählen Sie die Karte aus.";
         _text[1110, 5] = "Al inicio de cada misión tienes disponible una carta de paisaje - \"Cimientos de la base\".\n\nSelecciona la carta.";
         _text[1110, 6] = "Na początku każdej misji masz dostępną kartę krajobrazu - \"Fundament Bazy\".\n\nWybierz kartę.";
         _text[1110, 7] = "No início de cada missão, você tem доступ a um card de paisagem - \"Fundação da Base\".\n\nSelecione o card.";
@@ -8648,7 +8648,7 @@ public class Language : MonoBehaviour
         _text[1111, 1] = "Данная карта ландшафта имеет уникальный размер 2x2 клетки.\n\nУстановите карту на землю.\n\nВсе 4 клетки тайла должны гореть зеленым.";
         _text[1111, 2] = "Cette carte de terrain possède une grille unique de 2x2 cases.\n\nPlacez la carte au sol.\n\nLes 4 cases de la grille doivent être vertes.";
         _text[1111, 3] = "Questa mappa del terreno ha una griglia unica 2x2.\n\nPosiziona la mappa sul terreno.\n\nTutte e 4 le celle della griglia devono essere verdi.";
-        _text[1111, 4] = "Diese Landschaftskarte hat eine einzigartige Größe: 2x2.\n\nPlatziere sie auf dem Boden.\n\nAlle 4 Zellen müssen grün leuchten.";
+        _text[1111, 4] = "Diese Geländekarte hat ein einzigartiges 2x2-Raster.\n\nLegen Sie die Karte auf den Boden.\n\nAlle 4 Rasterzellen müssen grün sein.";
         _text[1111, 5] = "Esta carta de paisaje tiene un tamaño único de 2x2 casillas.\n\nColoca la carta en el suelo.\n\nLas 4 casillas del mosaico deben iluminarse en verde.";
         _text[1111, 6] = "Ta karta krajobrazu ma unikalny rozmiar 2x2 pola.\n\nUmieść kartę na ziemi.\n\nWszystkie 4 pola kafelka muszą świecić na zielono.";
         _text[1111, 7] = "Este card de paisagem tem um tamanho único de 2x2 células.\n\nColoque o card no chão.\n\nAs 4 células do tile devem ficar verdes.";
@@ -8660,7 +8660,7 @@ public class Language : MonoBehaviour
         _text[1112, 1] = "Нажмите на тайл \"Фундамента Базы\".\n\nЧтобы открыть панель с информацией.";
         _text[1112, 2] = "Cliquez sur la vignette \"Fondations\".\n\nPour ouvrir le panneau d'informations.";
         _text[1112, 3] = "Clicca sul riquadro \"Base di fondazione\".\n\nPer aprire il pannello informativo.";
-        _text[1112, 4] = "Klicke auf die Kachel \"Basisfundament\", um das Info-Panel zu öffnen.";
+        _text[1112, 4] = "Klicken Sie auf die Kachel „Fundament“.\n\nUm das Informationsfeld zu öffnen.";
         _text[1112, 5] = "Haz clic en el mosaico \"Cimientos de la base\".\n\nPara abrir el panel de información.";
         _text[1112, 6] = "Kliknij kafelek \"Fundamentu Bazy\".\n\nAby otworzyć panel informacji.";
         _text[1112, 7] = "Clique no tile \"Fundação da Base\".\n\nPara abrir o painel de informações.";
@@ -8672,7 +8672,7 @@ public class Language : MonoBehaviour
         _text[1113, 1] = "На этой панели вы можете увидеть общую информацию о текущем тайле.\n\nНапример, как он влияет на общую экологию.";
         _text[1113, 2] = "Ce panneau affiche des informations générales sur la tuile actuelle.\n\nPar exemple, son impact sur l'écologie globale.";
         _text[1113, 3] = "In questo pannello puoi visualizzare informazioni generali sulla tessera corrente.\n\nAd esempio, come influisce sull'ecologia generale.";
-        _text[1113, 4] = "In diesem Panel siehst du allgemeine Informationen über die aktuelle Kachel.\n\nZum Beispiel, wie sie die Ökologie beeinflusst.";
+        _text[1113, 4] = "In diesem Bereich sehen Sie allgemeine Informationen zur aktuellen Kachel.\n\nZum Beispiel, wie sie sich auf das Gesamtökosystem auswirkt.";
         _text[1113, 5] = "En este panel puedes ver información general sobre el mosaico actual.\n\nPor ejemplo, cómo afecta a la ecología general.";
         _text[1113, 6] = "Na tym panelu możesz zobaczyć ogólne informacje o bieżącym kafelku.\n\nNa przykład, jak wpływa on na ogólną ekologię.";
         _text[1113, 7] = "Neste painel, você pode ver informações gerais sobre o tile atual.\n\nPor exemplo, como ele afeta a ecologia geral.";
@@ -8684,7 +8684,7 @@ public class Language : MonoBehaviour
         _text[1114, 1] = "Число в этой шестеренке указывает на текущую экологию на планете. Она состоит из:\n\n-базовой экологии планеты\n\n-текущей радиации\n\n-установленных вами тайлов ландшафтов и зданий";
         _text[1114, 2] = "Le chiffre affiché dans cette roue dentée indique l'écologie actuelle de la planète. Elle prend en compte:\n\n-l'écologie de base de la planète\n\n-le niveau de radiation actuel- les éléments de paysage et de construction que vous avez placés";
         _text[1114, 3] = "Il numero in questo ingranaggio indica l'ecologia attuale del pianeta. È composta da:\n\n- l'ecologia di base del pianeta\n\n- la radiazione attuale\n\n- le tessere paesaggio ed edificio che hai posizionato";
-        _text[1114, 4] = "Die Zahl im Zahnrad zeigt die aktuelle Ökologie auf dem Planeten.\n\nSie setzt sich zusammen aus:\n\nÖkologie der Basis, aktuelle Strahlung, gesetzte Kacheln und gebaute Gebäude.";
+        _text[1114, 4] = "Die Zahl in diesem Zahnradsymbol zeigt die aktuelle Ökologie des Planeten an. Sie setzt sich zusammen aus:\n\n- der Basisökologie des Planeten\n\n- der aktuellen Strahlung\n\n- den von Ihnen platzierten Landschafts- und Gebäudekacheln";
         _text[1114, 5] = "El número de este engranaje indica la ecología actual del planeta. Está compuesta por:\n\n-la ecología base del planeta\n\n-la radiación actual\n\n-los mosaicos de paisajes y edificios que has colocado";
         _text[1114, 6] = "Liczba w tej zębatce wskazuje aktualną ekologię na planecie. Składa się ona z:\n\n- bazowej ekologii planety\n\n- bieżącego promieniowania\n\n-ustawionych przez ciebie kafelków krajobrazów i budynków";
         _text[1114, 7] = "O número nesta engrenagem indica a ecologia atual do planeta. Ela é composta por:\n\n-ecologia base do planeta\n\n-radiação atual\n\n-tiles de paisagem e edifícios que você colocou";
@@ -8696,7 +8696,7 @@ public class Language : MonoBehaviour
         _text[1115, 1] = "Если радиация горит серым или зеленым цветом, это означает, что ее число положительно.\n\nЕсли желтым или красным, значит отрицательно.\n\nЧем хуже экология, тем выше будет показатель защиты у врагов и меньше награда в конце миссии.";
         _text[1115, 2] = "Si le niveau de radiation est gris ou vert, il est positif.\n\nS'il est jaune ou rouge, il est négatif.\n\nPlus l'environnement est hostile, plus les défenses ennemies seront élevées et plus la récompense finale sera faible.";
         _text[1115, 3] = "Se il livello di radiazione è grigio o verde, significa che è positivo.\n\nSe è giallo o rosso, è negativo.\n\nPiù l'ambiente è pessimo, maggiore sarà la difesa del nemico e minore sarà la ricompensa alla fine della missione.";
-        _text[1115, 4] = "Wenn die Farbe der Strahlung grau oder grün ist, bedeutet das, sie wirkt positiv.\n\nGelb oder rot - negativ.\n\nJe schlechter die Ökologie, desto höher ist die Verteidigung der Gegner und desto geringer ist die Belohnung am Missionsende.";
+        _text[1115, 4] = "Ist die Strahlungsanzeige grau oder grün, ist sie positiv.\n\nIst sie gelb oder rot, ist sie negativ.\n\nJe schlechter die Umgebung, desto höher die Verteidigung des Gegners und desto geringer die Belohnung am Ende der Mission.";
         _text[1115, 5] = "Si la radiación se muestra en gris o verde, significa que su valor es positivo.\n\nSi aparece en amarillo o rojo, es negativo.\n\nCuanto peor sea la ecología, mayor será la defensa de los enemigos y menor la recompensa al final de la misión.";
         _text[1115, 6] = "Jeśli promieniowanie świeci na szaro lub zielono, oznacza to, że jego wartość jest dodatnia.\n\nJeśli na żółto lub czerwono - jest ujemna.\n\nIm gorsza ekologia, tym wyższa będzie obrona wrogów i mniejsza nagroda na końcu misji.";
         _text[1115, 7] = "Se a radiação estiver em cinza ou verde, isso significa que o valor é positivo.\n\nSe estiver em amarelo ou vermelho, é negativo.\n\nQuanto pior a ecologia, maior será a defesa dos inimigos e menor a recompensa ao final da missão.";
@@ -8708,7 +8708,7 @@ public class Language : MonoBehaviour
         _text[1116, 1] = "Нажмите на кнопку \"Построить\".\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.";
         _text[1116, 2] = "Cliquez sur le bouton \"Construire\".\n\nUne liste des types de bâtiments disponibles pour ce paysage s'affichera.";
         _text[1116, 3] = "Clicca sul pulsante \"Costruisci\".\n\nSi aprirà un elenco dei tipi di edifici disponibili per questo paesaggio.";
-        _text[1116, 4] = "Drücke die Schaltfläche \"Bauen\".\n\nDir wird eine Liste von Gebäudetypen angezeigt.";
+        _text[1116, 4] = "Klicken Sie auf die Schaltfläche „Erstellen“.\n\nEs öffnet sich eine Liste der verfügbaren Gebäudetypen für diese Landschaft.";
         _text[1116, 5] = "Pulsa el botón \"Construir\".\n\nSe abrirá una lista de tipos de edificios disponibles en este paisaje.";
         _text[1116, 6] = "Naciśnij przycisk \"Zbuduj\".\n\nOtworzy się lista dostępnych typów budynków na tym krajobrazie.";
         _text[1116, 7] = "Clique no botão \"Construir\".\n\nUma lista de tipos de edifícios disponíveis neste paisagem será aberta.";
@@ -8720,7 +8720,7 @@ public class Language : MonoBehaviour
         _text[1117, 1] = "На тайле ландшафта \"Фундамент базы\" доступен только один тип зданий для постройки.\n\nВыберите тип здания, чтобы открыть доступные здания для постройки.";
         _text[1117, 2] = "Un seul type de bâtiment est constructible sur la dalle paysagère \"Fondations\".\n\nSélectionnez un type de bâtiment pour afficher les bâtiments disponibles.";
         _text[1117, 3] = "Nella tessera del paesaggio \"Fondamenta di base\" è disponibile un solo tipo di edificio per la costruzione.\n\nSeleziona un tipo di edificio per visualizzare gli edifici disponibili per la costruzione.";
-        _text[1117, 4] = "Auf der Kachel \"Basisfundament\" ist nur ein Typ verfügbar.\n\nWähle den Typ, um die verfügbaren Gebäude zu öffnen.";
+        _text[1117, 4] = "Auf dem Landschaftsfeld „Fundament“ kann nur ein Gebäudetyp errichtet werden.\n\nWählen Sie einen Gebäudetyp aus, um die verfügbaren Gebäude anzuzeigen.";
         _text[1117, 5] = "En el mosaico de paisaje \"Cimientos de la base\" solo hay un tipo de edificio disponible para construir.\n\nSelecciona el tipo de edificio para ver los edificios disponibles.";
         _text[1117, 6] = "Na kafelku krajobrazu \"Fundament bazy\" dostępny jest tylko jeden typ budynków do postawienia.\n\nWybierz typ budynku, aby otworzyć dostępne budynki do postawienia.";
         _text[1117, 7] = "No tile de paisagem \"Fundação da Base\", apenas um tipo de edifício está disponível para construção.\n\nSelecione o tipo de edifício para ver os edifícios disponíveis.";
@@ -8732,7 +8732,7 @@ public class Language : MonoBehaviour
         _text[1118, 1] = "Наведите курсор на здание \"Поселение\", чтобы отобразить необходимые для его строительства ресурсы.";
         _text[1118, 2] = "Passez votre souris sur le bâtiment de  \"Règlement\" pour afficher les ressources nécessaires à sa construction.";
         _text[1118, 3] = "Passa il mouse sopra l'edificio dell'insediamento per visualizzare le risorse necessarie per costruirlo.";
-        _text[1118, 4] = "Fahre mit der Maus über das Gebäude \"Siedlung\". Im Panel siehst du, welche Ressourcen zum Bau benötigt werden.";
+        _text[1118, 4] = "Bewegen Sie den Mauszeiger über das Siedlungsgebäude, um die zum Bau benötigten Ressourcen anzuzeigen.";
         _text[1118, 5] = "Pasa el cursor sobre el edificio \"Asentamiento\" para ver los recursos necesarios para construirlo.";
         _text[1118, 6] = "Najedź kursorem na budynek \"Osada\", aby wyświetlić zasoby potrzebne do jego budowy.";
         _text[1118, 7] = "Passe o cursor sobre o edifício \"Assentamento\" para mostrar os recursos necessários para construí-lo.";
@@ -8744,7 +8744,7 @@ public class Language : MonoBehaviour
         _text[1119, 1] = "Откройте панель ресурсов.";
         _text[1119, 2] = "Ouvrez le panneau des ressources.";
         _text[1119, 3] = "Apri il pannello delle risorse.";
-        _text[1119, 4] = "Öffne das Ressourcenpanel.";
+        _text[1119, 4] = "Öffnen Sie das Ressourcen-Panel.";
         _text[1119, 5] = "Abre el panel de recursos.";
         _text[1119, 6] = "Otwórz panel zasobów.";
         _text[1119, 7] = "Abra o painel de recursos.";
@@ -8756,7 +8756,7 @@ public class Language : MonoBehaviour
         _text[1120, 1] = "Вам хватает ресурсов на постройку.\n\nНажмите на карту \"Поселение\" чтобы начать строительство.";
         _text[1120, 2] = "Vous disposez de suffisamment de ressources pour construire.\n\nCliquez sur la carte \"Règlement\" pour commencer la construction.";
         _text[1120, 3] = "Hai abbastanza risorse per costruire.\n\nClicca sulla scheda \"Insediamento\" per iniziare la costruzione.";
-        _text[1120, 4] = "Du hast genug Ressourcen.\n\nKlicke auf die Karte \"Siedlung\", um mit dem Bau zu beginnen.";
+        _text[1120, 4] = "Du hast genügend Ressourcen zum Bauen.\n\nKlicke auf die „Siedlung“-Karte, um mit dem Bau zu beginnen.";
         _text[1120, 5] = "Tienes suficientes recursos para construir.\n\nPulsa la carta \"Asentamiento\" para iniciar la construcción.";
         _text[1120, 6] = "Masz wystarczająco zasobów na budowę.\n\nKliknij kartę \"Osada\", aby rozpocząć budowę.";
         _text[1120, 7] = "Você tem recursos suficientes para construir.\n\nClique no card \"Assentamento\" para iniciar a construção.";
@@ -8768,7 +8768,7 @@ public class Language : MonoBehaviour
         _text[1121, 1] = "Под тайлом здания вы можете заметить синий слайдер.\n\nОн постепенно увеличивается, повышая здоровье здания, до тех пор, пока оно не будет построено.";
         _text[1121, 2] = "Vous remarquerez un curseur bleu sous la tuile du bâtiment.\n\nIl se remplit progressivement, augmentant ainsi la santé du bâtiment, jusqu'à ce que sa construction soit terminée.";
         _text[1121, 3] = "Noterai un cursore blu sotto il riquadro dell'edificio.\n\nAumenta gradualmente, aumentando la salute dell'edificio, fino al suo completamento.";
-        _text[1121, 4] = "Unter der Kachel des Gebäudes siehst du einen blauen Regler.\n\nEr füllt sich allmählich - das ist die Gesundheit des Gebäudes.\n\nSobald der Regler voll ist, ist das Gebäude fertig.";
+        _text[1121, 4] = "Unterhalb der Gebäudekachel befindet sich ein blauer Schieberegler.\n\nDieser erhöht sich allmählich und damit die Gesundheit des Gebäudes, bis es fertiggestellt ist.";
         _text[1121, 5] = "Bajo el mosaico del edificio puedes ver un deslizador azul.\n\nAumenta gradualmente, incrementando la salud del edificio hasta que se construya.";
         _text[1121, 6] = "Pod kafelkiem budynku możesz zauważyć niebieski suwak.\n\nStopniowo rośnie, zwiększając zdrowie budynku, aż do zakończenia budowy.";
         _text[1121, 7] = "Abaixo do tile do edifício, você pode notar um slider azul.\n\nEle aumenta gradualmente, elevando a vida do edifício até que a construção seja concluída.";
@@ -8780,7 +8780,7 @@ public class Language : MonoBehaviour
         _text[1122, 1] = "Пока здание строится, оно уязвимо.\n\nЕго могут начать атаковать враги.\n\nСлайдер здоровья начнет опускаться, пока здоровье не дойдет до нуля и здание будет уничтожено.";
         _text[1122, 2] = "Pendant la construction, le bâtiment est vulnérable.\n\nDes ennemis peuvent l'attaquer.Son niveau de santé diminuera progressivement jusqu'à ce qu'il atteigne zéro et soit détruit.";
         _text[1122, 3] = "Mentre l'edificio è in costruzione, è vulnerabile.\n\nI nemici potrebbero attaccarlo.\n\nIl cursore della salute inizierà a diminuire fino a quando la salute non raggiungerà lo zero e l'edificio verrà distrutto.";
-        _text[1122, 4] = "Während der Bauzeit ist ein Gebäude verwundbar.\n\nGegner können es angreifen.\n\nWenn der Gesundheitsregler auf Null fällt, wird das Gebäude zerstört.";
+        _text[1122, 4] = "Während der Bauphase ist das Gebäude verwundbar.\n\nEs kann angegriffen werden.\n\nDie Lebensanzeige sinkt, bis das Gebäude zerstört ist und seine Lebenspunkte auf null sinken.";
         _text[1122, 5] = "Mientras el edificio se construye, es vulnerable.\n\nLos enemigos pueden empezar a atacarlo.\n\nEl deslizador de salud bajará hasta que llegue a cero y el edificio sea destruido.";
         _text[1122, 6] = "Gdy budynek jest w trakcie budowy, jest podatny na ataki.\n\nWrogowie mogą zacząć go atakować.\n\nSuwak zdrowia zacznie spadać, aż zdrowie dojdzie do zera i budynek zostanie zniszczony.";
         _text[1122, 7] = "Enquanto o edifício está sendo construído, ele é vulnerável.\n\nOs inimigos podem começar a atacá-lo.\n\nO slider de vida começa a descer até a vida chegar a zero e o edifício ser destruído.";
@@ -8792,7 +8792,7 @@ public class Language : MonoBehaviour
         _text[1123, 1] = "После того, как база завершит свое строительство, начнется отсчет времени.\n\nВремя измеряется в днях.\n\nВ каждом дне 24 тика.";
         _text[1123, 2] = "Une fois la base terminée, le compte à rebours commence.\n\nLe temps est mesuré en jours.\n\nChaque jour compte 24 ticks.";
         _text[1123, 3] = "Una volta completata la base, inizia il conto alla rovescia.\n\nIl tempo si misura in giorni.\n\nOgni giorno ha 24 tacche.";
-        _text[1123, 4] = "Nachdem die Basis fertig gebaut ist, startet der Timer.\n\nDie Zeit wird in Tagen gemessen.\n\nEin Tag besteht aus 24 Ticks.";
+        _text[1123, 4] = "Sobald die Basis fertiggestellt ist, beginnt der Countdown.\n\nDie Zeit wird in Tagen gemessen.\n\nJeder Tag hat 24 Zeitschritte.";
         _text[1123, 5] = "Cuando la base termine de construirse, comenzará el conteo del tiempo.\n\nEl tiempo se mide en días.\n\nCada día tiene 24 tics.";
         _text[1123, 6] = "Po zakończeniu budowy bazy rozpocznie się odliczanie czasu.\n\nCzas jest mierzony w dniach.\n\nW każdym dniu są 24 tiki.";
         _text[1123, 7] = "Depois que a base terminar sua construção, a contagem de tempo começará.\n\nO tempo é medido em dias.\n\nCada dia tem 24 ticks.";
@@ -8804,7 +8804,7 @@ public class Language : MonoBehaviour
         _text[1124, 1] = "Это панель смены скорости игры.\n\nПоставьте игру на паузу, чтобы спланировать свои дальнешие шаги.";
         _text[1124, 2] = "Voici le panneau de contrôle de la vitesse du jeu.\n\nMettez le jeu en pause pour planifier vos prochaines actions.";
         _text[1124, 3] = "Questo è il pannello di controllo della velocità del gioco.\n\nMetti in pausa il gioco per pianificare i tuoi prossimi passi.";
-        _text[1124, 4] = "Im Panel der Spielgeschwindigkeit kannst du die Geschwindigkeit ändern.\n\nDu kannst das Spiel auch pausieren, um deine nächsten Schritte zu planen.";
+        _text[1124, 4] = "Dies ist die Spielgeschwindigkeitssteuerung.\n\nPausiere das Spiel, um deine nächsten Schritte zu planen.";
         _text[1124, 5] = "Este es el panel de velocidad del juego.\n\nPausa el juego para planificar tus próximos pasos.";
         _text[1124, 6] = "To panel zmiany prędkości gry.\n\nWstrzymaj grę, aby zaplanować kolejne kroki.";
         _text[1124, 7] = "Este é o painel de velocidade do jogo.\n\nColoque o jogo em pausa para planejar seus próximos passos.";
@@ -8816,7 +8816,7 @@ public class Language : MonoBehaviour
         _text[1125, 1] = "Каждый тик времени происходит потребление/создание ресурсов зданиями.\n\nВ окне информации о тайле, \"Поселение\" потребляет 0.1 камня за каждый тик времени.\n\nПри этом создавая ресурс - фрагменты данных.";
         _text[1125, 2] = "À chaque cycle, les bâtiments consomment/créent des ressources.\n\nDans la fenêtre d'informations de la case, \"Règlement\" consomme 0,1 pierre par cycle.Cela crée des ressources - des fragments de données.";
         _text[1125, 3] = "Ogni tick, gli edifici consumano/creano risorse.\n\nNella finestra informativa della tessera, \"Insediamento\" consuma 0,1 pietra per tick.\n\nQuesto crea risorse, ovvero frammenti di dati.";
-        _text[1125, 4] = "Jeder Tick verbrauchen und erzeugen Gebäude Ressourcen.\n\nIm Infofenster der \"Siedlung\" siehst du, dass sie pro Tick 0.1 Stein verbraucht und dabei Datenfragmente erzeugt.";
+        _text[1125, 4] = "In jedem Tick verbrauchen/erzeugen Gebäude Ressourcen.\n\nIm Kachelinformationsfenster verbraucht „Siedlung“ 0,1 Stein pro Tick.\n\nDadurch entstehen Ressourcen – Datenfragmente.";
         _text[1125, 5] = "En cada tic de tiempo, los edificios consumen y/o producen recursos.\n\nEn la ventana de información del mosaico, \"Asentamiento\" consume 0.1 de piedra por cada tic.\n\nA la vez, produce el recurso - fragmentos de datos.";
         _text[1125, 6] = "W każdym tiku czasu budynki zużywają/tworzą zasoby.\n\nW oknie informacji o kafelku \"Osada\" zużywa 0.1 kamienia na każdy tik czasu.\n\nJednocześnie tworzy zasób - fragmenty danych.";
         _text[1125, 7] = "A cada tick de tempo, ocorre consumo/produção de recursos pelos edifícios.\n\nNa janela de informações do tile, \"Assentamento\" consome 0.1 de pedra por tick.\n\nAo mesmo tempo, produz o recurso - fragmentos de dados.";
@@ -8828,7 +8828,7 @@ public class Language : MonoBehaviour
         _text[1126, 1] = "Фрагмент данных необходим для изучения новых зданий\n\nВы можете получить их:\n\n-после прохождения миссии\n\n-во время путешествия по космосу\n\nИзучить новые здания можно только на корабле.";
         _text[1126, 2] = "Un fragment de données est nécessaire pour rechercher de nouveaux bâtiments.\n\nVous pouvez l'obtenir:\n\n-après avoir terminé une mission\n\n-lors de vos voyages spatiaux.\n\nLa recherche de nouveaux bâtiments ne peut avoir lieu qu'à bord d'un vaisseau.";
         _text[1126, 3] = "Per ricercare nuovi edifici è necessario un frammento di dati.\n\nPuoi ottenerlo:\n\n- dopo aver completato una missione\n\n- durante un viaggio nello spazio\n\nI nuovi edifici possono essere ricercati solo a bordo di una nave.";
-        _text[1126, 4] = "Datenfragmente werden benötigt, um neue Gebäude zu erforschen.\n\nDu kannst sie erhalten:\n\n-nach Abschluss der Mission\n-während der Reise im Weltraum\n\nNeue Gebäude kannst du nur auf dem Schiff erlernen.";
+        _text[1126, 4] = "Für die Erforschung neuer Gebäude wird ein Datenfragment benötigt.\n\nSie erhalten es:\n\n– nach Abschluss einer Mission\n\n– während einer Reise durch den Weltraum\n\nNeue Gebäude können nur auf einem Raumschiff erforscht werden.";
         _text[1126, 5] = "El fragmento de datos es necesario para investigar nuevos edificios\n\nPuedes obtenerlos:\n\n-al completar una misión\n\n-durante el viaje por el espacio\n\nSolo puedes investigar edificios nuevos en la nave.";
         _text[1126, 6] = "Fragment danych jest potrzebny do badania nowych budynków\n\nMożesz je zdobyć:\n\n-po ukończeniu misji\n\n- podczas podróży w kosmosie\n\nNowe budynki można badać tylko na statku.";
         _text[1126, 7] = "Fragmentos de dados são necessários para pesquisar novos edifícios\n\nVocê pode obtê-los:\n\n-após completar uma missão\n\n-durante a viagem pelo espaço\n\nNovos edifícios só podem ser pesquisados no navio.";
@@ -8840,7 +8840,7 @@ public class Language : MonoBehaviour
         _text[1127, 1] = "Если у вас мало камня, но например много дерева.\n\nПоменяйте потребляемый зданием ресурс, нажав на иконку ресурса.";
         _text[1127, 2] = "Si vous avez peu de pierres mais beaucoup de bois, par exemple.\n\nModifiez la ressource consommée par le bâtiment en cliquant sur l'icône de ressource.";
         _text[1127, 3] = "Ad esempio, se hai poca pietra ma molta legna,\n\nmodifica la risorsa consumata dall'edificio cliccando sull'icona della risorsa.";
-        _text[1127, 4] = "Wenn du wenig Stein hast, aber viel Holz, kannst du die verbrauchte Ressource ändern.\n\nKlicke dafür auf das Ressourcen-Symbol im Infofenster des Gebäudes.";
+        _text[1127, 4] = "Wenn du beispielsweise wenig Stein, aber viel Holz hast:\n\nÄndere die vom Gebäude verbrauchte Ressource, indem du auf das Ressourcensymbol klickst.";
         _text[1127, 5] = "Si tienes poca piedra, pero por ejemplo mucha madera.\n\nCambia el recurso que consume el edificio pulsando el icono del recurso.";
         _text[1127, 6] = "Jeśli masz mało kamienia, ale na przykład dużo drewna.\n\nZmień zasób zużywany przez budynek, klikając ikonę zasobu.";
         _text[1127, 7] = "Se você tem pouca pedra, mas por exemplo muito madeira.\n\nTroque o recurso consumido pelo edifício clicando no ícone do recurso.";
@@ -8852,7 +8852,7 @@ public class Language : MonoBehaviour
         _text[1128, 1] = "Пока мы находимся в режиме паузы, время остановлено. Создание и потребление ресурсов зданиями не происходит.\n\nЕсли требуемый для работы ресурс закончится. То здание перестанет его добывать до тех пор, пока необходимое кол-во ресурсов снова не появится.";
         _text[1128, 2] = "En mode pause, le temps est figé. Les bâtiments ne produisent ni ne consomment de ressources.\n\nSi une ressource nécessaire vient à manquer, le bâtiment cessera de la produire jusqu'à ce que la quantité requise soit de nouveau disponible.";
         _text[1128, 3] = "Mentre siamo in modalità pausa, il tempo è congelato. Gli edifici non producono né consumano risorse.\n\nSe una risorsa richiesta si esaurisce, l'edificio smetterà di produrla finché non ricomparirà la quantità richiesta.";
-        _text[1128, 4] = "Im Pausenmodus steht die Zeit still.\n\nGebäude verbrauchen und erzeugen keine Ressourcen.\n\nWenn eine benötigte Ressource ausgeht, stellt das Gebäude die Förderung ein, bis die erforderliche Menge wieder verfügbar ist.";
+        _text[1128, 4] = "Im Pausenmodus steht die Zeit still. Gebäude produzieren und verbrauchen keine Ressourcen.\n\nWenn eine benötigte Ressource ausgeht, stellt das Gebäude die Produktion ein, bis die benötigte Menge wieder verfügbar ist.";
         _text[1128, 5] = "Mientras estamos en pausa, el tiempo está detenido. Los edificios no producen ni consumen recursos.\n\nSi el recurso necesario para funcionar se agota, el edificio dejará de producirlo hasta que vuelva a haber la cantidad requerida.";
         _text[1128, 6] = "Gdy jesteśmy w trybie pauzy, czas jest zatrzymany. Budynki nie tworzą ani nie zużywają zasobów.\n\nJeśli zabraknie zasobu wymaganego do pracy, budynek przestanie go pozyskiwać, dopóki potrzebna ilość zasobów nie pojawi się ponownie.";
         _text[1128, 7] = "Enquanto estamos no modo de pausa, o tempo está parado. A produção e o consumo de recursos pelos edifícios não acontecem.\n\nSe o recurso necessário para operar acabar, o edifício deixará de produzi-lo até que a quantidade necessária de recursos apareça novamente.";
@@ -8864,7 +8864,7 @@ public class Language : MonoBehaviour
         _text[1129, 1] = "После строительства базы вам гарантировано дается по 1 карте Леса и Горы, а так же две случайные карты ландшафтов.\n\nКаждый новый день всегда приносит 2 новые карты.";
         _text[1129, 2] = "Après avoir construit votre base, vous recevez systématiquement une carte Forêt et une carte Montagne, ainsi que deux cartes Paysage aléatoires.\n\nChaque jour apporte deux nouvelles cartes.";
         _text[1129, 3] = "Dopo aver costruito la tua base, ti saranno garantite una carta Foresta e una carta Montagna, oltre a due carte Paesaggio casuali.\n\nOgni nuovo giorno porta sempre due nuove carte.";
-        _text[1129, 4] = "Nach dem Bau der Basis erhältst du garantiert je 1 Karte Wald und Berge sowie zwei zufällige Landschaftskarten.\n\nJeder neue Tag bringt immer 2 neue Karten.";
+        _text[1129, 4] = "Nach dem Bau deiner Basis erhältst du garantiert eine Wald- und eine Bergkarte sowie zwei zufällige Landschaftskarten.\n\nJeder neue Tag bringt dir zwei neue Karten.";
         _text[1129, 5] = "Después de construir la base, recibes garantizado 1 carta de Bosque y 1 de Montaña, además de dos cartas de paisaje aleatorias.\n\nCada nuevo día siempre trae 2 cartas nuevas.";
         _text[1129, 6] = "Po zbudowaniu bazy gwarantowanie otrzymujesz po 1 karcie Las i Góra, a także dwie losowe karty krajobrazów.\n\nKażdy nowy dzień zawsze przynosi 2 nowe karty.";
         _text[1129, 7] = "Após construir a base, você recebe гарантidamente 1 card de Floresta e 1 de Montanha, além de dois cards de paisagem aleatórios.\n\nCada novo dia sempre traz 2 novos cards.";
@@ -8876,7 +8876,7 @@ public class Language : MonoBehaviour
         _text[1130, 1] = "Временно отключите работу здания.\n\nЧтобы сэкономить ресурсы для дальнейших построек.\n\nЕсли здание выключено, оно не добывает и не потребляет ресурсы.\n\nА также снижает порчу экологии.";
         _text[1130, 2] = "Désactiver temporairement le bâtiment.\n\nAfin de préserver les ressources pour les constructions futures.\n\nLorsqu'un bâtiment est désactivé, il ne produit ni ne consomme de ressources.Cela contribue également à réduire l'impact environnemental.";
         _text[1130, 3] = "Disattivare temporaneamente l'edificio.\n\nPer risparmiare risorse per future costruzioni.\n\nQuando un edificio è disattivato, non produce né consuma risorse.\n\nQuesto riduce anche il danno ambientale.";
-        _text[1130, 4] = "Du kannst ein Gebäude vorübergehend deaktivieren.\n\nSo sparst du Ressourcen für weitere Bauten.\n\nWenn ein Gebäude ausgeschaltet ist, verbraucht und produziert es nichts.\n\nAußerdem reduziert es den Verderb der Ökologie.";
+        _text[1130, 4] = "Das Gebäude wird vorübergehend deaktiviert.\n\nDies spart Ressourcen für zukünftige Bauvorhaben.\n\nEin deaktiviertes Gebäude produziert und verbraucht keine Ressourcen.\n\nDadurch werden auch Umweltschäden reduziert.";
         _text[1130, 5] = "Desactiva temporalmente el funcionamiento del edificio.\n\nPara ahorrar recursos para construcciones posteriores.\n\nSi el edificio está apagado, no produce ni consume recursos.\n\nAdemás, reduce la degradación de la ecología.";
         _text[1130, 6] = "Tymczasowo wyłącz pracę budynku.\n\nAby zaoszczędzić zasoby na dalsze budowy.\n\nGdy budynek jest wyłączony, nie pozyskuje ani nie zużywa zasobów.\n\nDodatkowo zmniejsza degradację ekologii.";
         _text[1130, 7] = "Desative temporariamente o funcionamento do edifício.\n\nPara economizar recursos para construções futuras.\n\nSe o edifício estiver desligado, ele não produz nem consome recursos.\n\nE também reduz a degradação da ecologia.";
@@ -8888,7 +8888,7 @@ public class Language : MonoBehaviour
         _text[1131, 1] = "Настало время посмотреть на новые тайлы ландшафта.\n\nВыберите карту \"Лес\".";
         _text[1131, 2] = "Il est temps de découvrir les nouveaux éléments de paysage.\n\nSélectionnez la carte \"Forêt\".";
         _text[1131, 3] = "È il momento di dare un'occhiata alle nuove tessere del paesaggio.\n\nSeleziona la mappa \"Foresta\".";
-        _text[1131, 4] = "Jetzt ist es Zeit, neue Landschaftskacheln zu betrachten.\n\nWähle die Karte \"Wald\".";
+        _text[1131, 4] = "Es ist an der Zeit, einen Blick auf die neuen Landschaftskacheln zu werfen.\n\nWählen Sie die Karte „Wald“ aus.";
         _text[1131, 5] = "Es hora de ver nuevos mosaicos de paisaje.\n\nSelecciona la carta \"Bosque\".";
         _text[1131, 6] = "Czas spojrzeć na nowe kafelki krajobrazu.\n\nWybierz kartę \"Las\".";
         _text[1131, 7] = "É hora de ver novos tiles de paisagem.\n\nSelecione o card \"Floresta\".";
@@ -8900,7 +8900,7 @@ public class Language : MonoBehaviour
         _text[1132, 1] = "Данная карта ландшафта имеет обычный размер 1x1 клетки.\n\nУстановите карту на землю.";
         _text[1132, 2] = "Cette carte de terrain est au format standard 1x1.\n\nPlacez la carte au sol.";
         _text[1132, 3] = "Questa mappa del terreno ha una dimensione standard di 1x1 riquadro.\n\nPosiziona la mappa sul terreno.";
-        _text[1132, 4] = "Diese Landschaftskarte hat eine normale Größe: 1x1.\n\nPlatziere sie auf dem Boden.";
+        _text[1132, 4] = "Diese Geländekarte hat die Standardgröße 1x1 Kachel.\n\nPlatzieren Sie die Karte auf dem Boden.";
         _text[1132, 5] = "Esta carta de paisaje tiene el tamaño normal de 1x1 casilla.\n\nColoca la carta en el suelo.";
         _text[1132, 6] = "Ta karta krajobrazu ma standardowy rozmiar 1x1 pola.\n\nUmieść kartę na ziemi.";
         _text[1132, 7] = "Este card de paisagem tem o tamanho padrão de 1x1 célula.\n\nColoque o card no chão.";
@@ -8912,7 +8912,7 @@ public class Language : MonoBehaviour
         _text[1133, 1] = "Нажмите на тайл \"Лес\".\n\nЧтобы открыть панель с информацией.";
         _text[1133, 2] = "Cliquez sur la vignette \"Forêt\".\n\nPour ouvrir le panneau d'informations.";
         _text[1133, 3] = "Clicca sul riquadro \"Foresta\".\n\nPer aprire il pannello informativo.";
-        _text[1133, 4] = "Klicke auf die Kachel \"Wald\", um das Info-Panel zu öffnen.";
+        _text[1133, 4] = "Klicken Sie auf die Kachel „Wald“.\n\nUm das Informationsfeld zu öffnen.";
         _text[1133, 5] = "Haz clic en el mosaico \"Bosque\".\n\nPara abrir el panel de información.";
         _text[1133, 6] = "Kliknij kafelek \"Las\".\n\nAby otworzyć panel informacji.";
         _text[1133, 7] = "Clique no tile \"Floresta\".\n\nPara abrir o painel de informações.";
@@ -8924,7 +8924,7 @@ public class Language : MonoBehaviour
         _text[1134, 1] = "Нажмите на кнопку \"Построить\".\n\nПеред вами откроется список доступных типов зданий на данном ландшафте.";
         _text[1134, 2] = "Cliquez sur le bouton \"Construire\".\n\nUne liste des types de bâtiments disponibles pour ce paysage s'affichera.";
         _text[1134, 3] = "Clicca sul pulsante \"Costruisci\".\n\nSi aprirà un elenco dei tipi di edifici disponibili per questo paesaggio.";
-        _text[1134, 4] = "Drücke die Schaltfläche \"Bauen\".";
+        _text[1134, 4] = "Klicken Sie auf die Schaltfläche „Erstellen“.\n\nEs öffnet sich eine Liste der verfügbaren Gebäudetypen für diese Landschaft.";
         _text[1134, 5] = "Pulsa el botón \"Construir\".\n\nSe abrirá una lista de tipos de edificios disponibles en este paisaje.";
         _text[1134, 6] = "Naciśnij przycisk \"Zbuduj\".\n\nOtworzy się lista dostępnych typów budynków na tym krajobrazie.";
         _text[1134, 7] = "Clique no botão \"Construir\".\n\nUma lista de tipos de edifícios disponíveis neste paisagem será aberta.";
@@ -8936,7 +8936,7 @@ public class Language : MonoBehaviour
         _text[1135, 1] = "На тайле ландшафта \"Лес\" доступно несколько зданий для постройки.\n\nЕсли кнопка типа здания не активна, это означает, что у вас не изучено ни одно здание в этом типе.";
         _text[1135, 2] = "Plusieurs bâtiments sont disponibles pour la construction sur la tuile de paysage \"Forêt\".\n\nSi le bouton d'un type de bâtiment est inactif, cela signifie que vous n'avez effectué aucune recherche pour ce type de bâtiment.";
         _text[1135, 3] = "Diversi edifici sono disponibili per la costruzione nella casella del paesaggio \"Foresta\".\n\nSe un pulsante relativo al tipo di edificio è inattivo, significa che non hai ancora ricercato alcun edificio di quel tipo.";
-        _text[1135, 4] = "Auf der Kachel \"Wald\" sind mehrere Gebäude verfügbar.\n\nWenn eine Schaltfläche für einen Gebäudetyp inaktiv ist, bedeutet das, dass du noch kein Gebäude dieses Typs gelernt hast.";
+        _text[1135, 4] = "Auf dem Landschaftsfeld „Wald“ können mehrere Gebäude errichtet werden.\n\nWenn die Schaltfläche für einen Gebäudetyp inaktiv ist, bedeutet dies, dass Sie noch keine Gebäude dieses Typs erforscht haben.";
         _text[1135, 5] = "En el mosaico de paisaje \"Bosque\" hay varios edificios disponibles para construir.\n\nSi el botón del tipo de edificio no está activo, significa que no has investigado ningún edificio de ese tipo.";
         _text[1135, 6] = "Na kafelku krajobrazu \"Las\" dostępnych jest kilka budynków do postawienia.\n\nJeśli przycisk typu budynku jest nieaktywny, oznacza to, że nie zbadano żadnego budynku w tym typie.";
         _text[1135, 7] = "No tile de paisagem \"Floresta\", há vários edifícios disponíveis para construir.\n\nSe o botão do tipo de edifício estiver inativo, isso significa que você não pesquisou nenhum edifício desse tipo.";
@@ -8948,7 +8948,7 @@ public class Language : MonoBehaviour
         _text[1136, 1] = "Выберите тип здания \"Добыча Дерева\", чтобы открыть доступные здания для постройки.";
         _text[1136, 2] = "Sélectionnez le type de bâtiment \"Exploitation Forestière\" pour afficher les bâtiments disponibles à construire.";
         _text[1136, 3] = "Seleziona il tipo di edificio \"Estrazione del legno\" per visualizzare gli edifici disponibili da costruire.";
-        _text[1136, 4] = "Wähle den Typ \"Holzgewinnung\", um die verfügbaren Gebäude zu öffnen.";
+        _text[1136, 4] = "Wählen Sie den Gebäudetyp „Holzabbau“, um die verfügbaren Gebäude anzuzeigen.";
         _text[1136, 5] = "Selecciona el tipo de edificio \"Extracción de Madera\" para ver los edificios disponibles.";
         _text[1136, 6] = "Wybierz typ budynku \"Pozyskiwanie Drewna\", aby otworzyć dostępne budynki do postawienia.";
         _text[1136, 7] = "Selecione o tipo de edifício \"Extração de Madeira\" para ver os edifícios disponíveis.";
@@ -8960,7 +8960,7 @@ public class Language : MonoBehaviour
         _text[1137, 1] = "Нажмите на карту \"Ручная Добыча\", чтобы начать строительство.";
         _text[1137, 2] = "Cliquez sur la carte \"Extraction Manuelle\" pour commencer la construction.";
         _text[1137, 3] = "Fare clic sulla scheda Estrazione manuale per avviare la costruzione.";
-        _text[1137, 4] = "Klicke auf die Karte \"Manueller Abbau\", um mit dem Bau zu beginnen.";
+        _text[1137, 4] = "Klicken Sie auf die Karte „Manuelle Minen“, um mit dem Bau zu beginnen.";
         _text[1137, 5] = "Pulsa la carta \"Extracción Manual\" para iniciar la construcción.";
         _text[1137, 6] = "Kliknij kartę \"Ręczne Pozyskiwanie\", aby rozpocząć budowę.";
         _text[1137, 7] = "Clique no card \"Extração Manual\" para iniciar a construção.";
@@ -8972,7 +8972,7 @@ public class Language : MonoBehaviour
         _text[1138, 1] = "Необходимо выйти из паузы, чтобы запустить процесс строительства здания.";
         _text[1138, 2] = "Vous devez sortir de la pause pour démarrer le processus de construction du bâtiment.";
         _text[1138, 3] = "Per avviare il processo di costruzione dell'edificio è necessario uscire dalla pausa.";
-        _text[1138, 4] = "Du musst die Pause beenden, um den Bauprozess zu starten.";
+        _text[1138, 4] = "Sie müssen die Pause beenden, um den Bauprozess zu starten.";
         _text[1138, 5] = "Debes salir de la pausa para iniciar el proceso de construcción del edificio.";
         _text[1138, 6] = "Musisz wyjść z pauzy, aby uruchomić proces budowy budynku.";
         _text[1138, 7] = "É preciso sair da pausa para iniciar o processo de construção do edifício.";
@@ -8984,7 +8984,7 @@ public class Language : MonoBehaviour
         _text[1139, 1] = "Отлично, у вас есть постоянная добыча дерева.\n\nТеперь самостоятельно установите тайл \"Гора\" и постройте здание ручной добычи камня.";
         _text[1139, 2] = "Parfait, vous avez un approvisionnement constant en bois.\n\nPlacez maintenant vous-même la dalle \"Montagne\" et construisez un bâtiment pour extraire manuellement la pierre.";
         _text[1139, 3] = "Ottimo, hai una scorta costante di legna.\n\nOra posiziona tu stesso la tessera \"Montagna\" e costruisci un edificio per estrarre manualmente la pietra.";
-        _text[1139, 4] = "Sehr gut, du hast nun eine konstante Holzgewinnung.\n\nSetze jetzt selbst die Kachel \"Berg\" und baue das Gebäude für manuellen Steinabbau.";
+        _text[1139, 4] = "Super, du hast einen ständigen Holzvorrat.\n\nPlatziere nun selbst die „Berg“-Kachel und baue ein Gebäude, um Stein manuell abzubauen.";
         _text[1139, 5] = "Genial, ya tienes una extracción constante de madera.\n\nAhora coloca por tu cuenta el mosaico \"Montaña\" y construye el edificio de extracción manual de piedra.";
         _text[1139, 6] = "Świetnie, masz stałe wydobycie drewna.\n\nTeraz samodzielnie umieść kafelek \"Góra\" i zbuduj budynek ręcznego wydobycia kamienia.";
         _text[1139, 7] = "Ótimo, você agora tem uma fonte constante de madeira.\n\nAgora, instale o tile \"Montanha\" por conta própria e construa o edifício de extração manual de pedra.";
@@ -8996,7 +8996,7 @@ public class Language : MonoBehaviour
         _text[1140, 1] = "На данный момент вы добываете два основных ресурса.\n\nНо теперь настало время защитить базу.";
         _text[1140, 2] = "Vous exploitez actuellement deux ressources principales.\n\nMais il est temps maintenant de défendre votre base.";
         _text[1140, 3] = "Al momento stai estraendo due risorse primarie.\n\nMa ora è il momento di difendere la tua base.";
-        _text[1140, 4] = "Im Moment förderst du zwei Grundressourcen.\n\nJetzt ist es an der Zeit, die Basis zu verteidigen.";
+        _text[1140, 4] = "Du baust gerade zwei primäre Ressourcen ab.\n\nAber jetzt ist es an der Zeit, deine Basis zu verteidigen.";
         _text[1140, 5] = "En este momento extraes dos recursos principales.\n\nPero ahora es hora de defender la base.";
         _text[1140, 6] = "W tej chwili wydobywasz dwa podstawowe zasoby.\n\nAle teraz nadszedł czas, aby obronić bazę.";
         _text[1140, 7] = "No momento, você está coletando dois recursos principais.\n\nMas agora é hora de proteger a base.";
@@ -9008,7 +9008,7 @@ public class Language : MonoBehaviour
         _text[1141, 1] = "Вам необходимо поставить тайл ландшафта на котором будет доступен тип здания \"Сооружения: Атакующие\".\n\nЗатем постройте на нем здание - \"Баллиста\".";
         _text[1141, 2] = "Vous devez placer une case de terrain sur laquelle le type de bâtiment \"Structures: Attaquant\" sera disponible.Construisez ensuite un bâtiment « Balista » sur cette case.";
         _text[1141, 3] = "Devi posizionare una casella paesaggio su cui sarà disponibile l'edificio di tipo \"Strutture: Attaccante\".\n\nQuindi costruiscici sopra un edificio \"Balista\".";
-        _text[1141, 4] = "Du musst eine Landschaftskachel platzieren, auf der der Gebäudetyp \"Bauwerke: Angriff\" verfügbar ist.\n\nBaue darauf das Gebäude - \"Balliste\".";
+        _text[1141, 4] = "Platzieren Sie ein Landschaftsfeld, auf dem der Gebäudetyp „Angreifer“ verfügbar sein soll.\n\nErrichten Sie anschließend ein „Ballista“-Gebäude darauf.";
         _text[1141, 5] = "Debes colocar un mosaico de paisaje en el que esté disponible el tipo de edificio \"Estructuras: Atacantes\".\n\nLuego construye en él el edificio \"Balista\".";
         _text[1141, 6] = "Musisz postawić kafelek krajobrazu, na którym będzie dostępny typ budowli \"Budowle: Atakujące\".\n\nNastępnie zbuduj na nim budynek - \"Balista\".";
         _text[1141, 7] = "Você precisa colocar um tile de paisagem onde o tipo de edifício \"Estruturas: Ataque\" esteja disponível.\n\nEm seguida, construa nele o edifício - \"Balista\".";
@@ -9020,7 +9020,7 @@ public class Language : MonoBehaviour
         _text[1142, 1] = "У атакующих сооружений ограниченный радиус атаки.\n\nСтарайтесь размещать их возле базы и добывающих зданий, чтобы враги не смогли беспрепятственно атаковать их.";
         _text[1142, 2] = "Les structures d'attaque ont une portée limitée.\n\nEssayez de les placer près de votre base et de vos bâtiments miniers pour empêcher les ennemis de les attaquer sans entrave.";
         _text[1142, 3] = "Le strutture d'attacco hanno un raggio d'azione limitato.\n\nCerca di posizionarle vicino alla tua base e agli edifici minerari per impedire ai nemici di attaccarle senza ostacoli.";
-        _text[1142, 4] = "Angriffs-Bauwerke haben eine begrenzte Reichweite.\n\nPlatziere sie in der Nähe der Basis und der Fördergebäude, damit Gegner sie nicht ungehindert angreifen können.";
+        _text[1142, 4] = "Angriffsstrukturen haben eine begrenzte Reichweite.\n\nPlatziere sie möglichst nahe an deiner Basis und deinen Minengebäuden, um zu verhindern, dass Feinde diese ungehindert angreifen können.";
         _text[1142, 5] = "Las estructuras atacantes tienen un radio de ataque limitado.\n\nIntenta colocarlas cerca de la base y de los edificios de extracción para que los enemigos no puedan atacarlos sin obstáculos.";
         _text[1142, 6] = "Budowle atakujące mają ograniczony zasięg ataku.\n\nStaraj się umieszczać je blisko bazy i budynków wydobywczych, aby wrogowie nie mogli bez przeszkód ich atakować.";
         _text[1142, 7] = "As estruturas ofensivas têm um raio de ataque limitado.\n\nTente posicioná-las perto da base e dos edifícios de extração, para que os inimigos não consigam atacá-los livremente.";
@@ -9032,7 +9032,7 @@ public class Language : MonoBehaviour
         _text[1143, 1] = "Теперь когда база защищена, включите работу в здании \"Поселение\".\n\nОчень важно начать добывать фрагменты данных.";
         _text[1143, 2] = "La base étant désormais sécurisée, activez les travaux dans le bâtiment \"Règlement\".\n\nIl est crucial de commencer l'extraction des fragments de données.";
         _text[1143, 3] = "Ora che la base è protetta, attiva il lavoro nell'edificio \"Insediamento\".\n\nÈ fondamentale iniziare a estrarre frammenti di dati.";
-        _text[1143, 4] = "Jetzt, da die Basis geschützt ist, aktiviere die Arbeit im Gebäude \"Siedlung\".\n\nEs ist sehr wichtig, mit der Gewinnung von Datenfragmenten zu beginnen.";
+        _text[1143, 4] = "Nachdem die Basis gesichert ist, aktivieren Sie die Arbeiten im Gebäude „Siedlung“.\n\nEs ist entscheidend, mit dem Sammeln von Datenfragmenten zu beginnen.";
         _text[1143, 5] = "Ahora que la base está protegida, activa el funcionamiento del edificio \"Asentamiento\".\n\nEs muy importante empezar a extraer fragmentos de datos.";
         _text[1143, 6] = "Teraz, gdy baza jest chroniona, włącz pracę w budynku \"Osada\".\n\nBardzo ważne jest rozpocząć wydobywanie fragmentów danych.";
         _text[1143, 7] = "Agora que a base está protegida, ative o funcionamento do edifício \"Assentamento\".\n\nÉ muito importante começar a produzir fragmentos de dados.";
@@ -9044,7 +9044,7 @@ public class Language : MonoBehaviour
         _text[1144, 1] = "Когда вы устанавливаете любой тайл ландшафта, то получаете ресурс - энергия луча.\n\nОна требуется для замены карты в руке на случайную и для уничтожения уже установленных тайлов ландшафта.\n\nТак же ее можно получить, если лишние карты начинают исчезать, когда колода переполняется.";
         _text[1144, 2] = "Lorsque vous posez une tuile de paysage, vous gagnez une ressource appelée Énergie de rayon.\n\nElle est nécessaire pour remplacer une carte de votre main par une carte aléatoire et pour détruire des tuiles de paysage existantes.\n\nVous pouvez également en gagner lorsque des cartes en surplus disparaissent de votre pioche.";
         _text[1144, 3] = "Quando posizioni una tessera paesaggio, ottieni una risorsa chiamata Energia del Raggio.\n\nÈ necessaria per sostituire una carta nella tua mano con una casuale e per distruggere le tessere paesaggio esistenti.\n\nPuoi ottenerla anche quando le carte in eccesso iniziano a scomparire quando il mazzo si riempie.";
-        _text[1144, 4] = "Wenn du eine beliebige Landschaftskachel platzierst, erhältst du eine Ressource - Strahlenergie.\n\nSie wird benötigt, um eine Karte in deiner Hand durch eine zufällige zu ersetzen und um bereits platzierte Landschaftskacheln zu zerstören.\n\nDu kannst sie auch erhalten, wenn überzählige Karten verschwinden, sobald das Deck überläuft.";
+        _text[1144, 4] = "Wenn du eine Landschaftsplättchen platzierst, erhältst du die Ressource Strahlenergie.\n\nDiese benötigst du, um eine Karte auf deiner Hand durch eine zufällige zu ersetzen und um bestehende Landschaftsplättchen zu zerstören.\n\nDu erhältst Strahlenergie auch, wenn überschüssige Karten verschwinden, sobald dein Kartenstapel voll ist.";
         _text[1144, 5] = "Cada vez que colocas cualquier mosaico de paisaje, obtienes el recurso: energía del rayo.\n\nSe necesita para reemplazar una carta en tu mano por una aleatoria y para destruir mosaicos de paisaje ya colocados.\n\nTambién se puede obtener cuando las cartas sobrantes empiezan a desaparecer al desbordarse el mazo.";
         _text[1144, 6] = "Gdy umieszczasz dowolny kafelek krajobrazu, otrzymujesz zasób - energia wiązki.\n\nJest ona potrzebna do wymiany karty w ręce na losową oraz do niszczenia już ustawionych kafelków krajobrazu.\n\nMożna ją też zdobyć, gdy nadmiarowe karty zaczynają znikać, kiedy talia się przepełnia.";
         _text[1144, 7] = "Sempre que você coloca qualquer tile de paisagem, você recebe um recurso - energia do feixe.\n\nEla é necessária para substituir uma carta na mão por uma aleatória e para destruir tiles de paisagem já colocados.\n\nEla também pode ser obtida quando cartas excedentes começam a desaparecer, quando o baralho fica cheio demais.";
@@ -9056,7 +9056,7 @@ public class Language : MonoBehaviour
         _text[1145, 1] = "Правильная установка тайлов ландшафта - ключ к успешному прохождению миссии.\n\nВы можете комбинировать их между собой, создавая новые тайлы.";
         _text[1145, 2] = "Le placement précis des tuiles de terrain est essentiel à la réussite de la mission.\n\nVous pouvez les combiner pour créer de nouvelles tuiles.";
         _text[1145, 3] = "Il corretto posizionamento delle tessere del terreno è fondamentale per il completamento della missione.\n\nÈ possibile combinarle per creare nuove tessere.";
-        _text[1145, 4] = "Das richtige Platzieren von Landschaftskacheln ist der Schlüssel zum erfolgreichen Abschluss einer Mission.\n\nDu kannst sie miteinander kombinieren und so neue Kacheln erschaffen.";
+        _text[1145, 4] = "Die richtige Platzierung der Geländeteile ist entscheidend für den erfolgreichen Abschluss der Mission.\n\nSie können sie kombinieren, um neue Teile zu erstellen.";
         _text[1145, 5] = "La colocación correcta de los mosaicos de paisaje es la clave para completar la misión con éxito.\n\nPuedes combinarlos entre sí, creando nuevos mosaicos.";
         _text[1145, 6] = "Prawidłowe ustawianie kafelków krajobrazu to klucz do pomyślnego ukończenia misji.\n\nMożesz je łączyć ze sobą, tworząc nowe kafelki.";
         _text[1145, 7] = "A colocação correta dos tiles de paisagem é a chave para concluir a missão com sucesso.\n\nVocê pode combiná-los entre si, criando novos tiles.";
@@ -9068,7 +9068,7 @@ public class Language : MonoBehaviour
         _text[1146, 1] = "Например, если поставить равнину вплотную к горе.\n\nТайл равнины превратится в луг.\n\nНа нем вы сможете создавать другие типы зданий и повысите экологию.";
         _text[1146, 2] = "Par exemple, si vous placez une plaine à côté d'une montagne,la case de plaine se transformera en prairie.\n\nVous pourrez alors y construire d'autres types de bâtiments et améliorer l'écosystème.";
         _text[1146, 3] = "Ad esempio, se posizioni una pianura accanto a una montagna,\n\nla tessera pianura si trasformerà in un prato.\n\nPuoi costruirci sopra altri tipi di edifici e migliorarne l'ecologia.";
-        _text[1146, 4] = "Zum Beispiel, wenn du eine Ebene direkt an einen Berg legst.\n\nDie Ebenen-Kachel verwandelt sich in eine Wiese.\n\nDort kannst du andere Gebäudetypen bauen und die Ökologie verbessern.";
+        _text[1146, 4] = "Wenn du beispielsweise eine Ebene neben einen Berg platzierst,\n\nverwandelt sich die Ebene in eine Wiese.\n\nDort kannst du andere Gebäude errichten und so das Ökosystem verbessern.";
         _text[1146, 5] = "Por ejemplo, si colocas una llanura pegada a una montaña.\n\nEl mosaico de llanura se convertirá en pradera.\n\nEn ella podrás construir otros tipos de edificios y aumentarás la ecología.";
         _text[1146, 6] = "Na przykład, jeśli postawisz równinę tuż obok góry.\n\nKafelek równiny zmieni się w łąkę.\n\nNa niej będziesz mógł tworzyć inne typy budynków i poprawisz ekologię.";
         _text[1146, 7] = "Por exemplo, se você colocar uma planície bem encostada a uma montanha.\n\nO tile de planície se transformará em um prado.\n\nNele, você poderá construir outros tipos de edifícios e aumentar a ecologia.";
@@ -9080,7 +9080,7 @@ public class Language : MonoBehaviour
         _text[1147, 1] = "Но будьте осторожны в установке пустыни возле леса.\n\nТаким образом лес превратится в оазис и добыча дерева уменьшится.";
         _text[1147, 2] = "Mais attention à ne pas placer un désert près d'une forêt.\n\nCela transformera la forêt en oasis et réduira la production de bois.";
         _text[1147, 3] = "Ma fate attenzione quando posizionate un deserto vicino a una foresta.\n\nQuesto trasformerà la foresta in un'oasi e ridurrà la produzione di legname.";
-        _text[1147, 4] = "Aber sei vorsichtig, wenn du eine Wüste neben einen Wald legst.\n\nSo verwandelt sich der Wald in eine Oase und die Holzgewinnung sinkt.";
+        _text[1147, 4] = "Aber Vorsicht beim Anlegen einer Wüste in der Nähe eines Waldes.\n\nDadurch wird der Wald zur Oase und die Holzproduktion sinkt.";
         _text[1147, 5] = "Pero ten cuidado al colocar el desierto cerca del bosque.\n\nAsí el bosque se convertirá en un oasis y la extracción de madera disminuirá.";
         _text[1147, 6] = "Ale uważaj, stawiając pustynię obok lasu.\n\nW ten sposób las zamieni się w oazę, a wydobycie drewna zmaleje.";
         _text[1147, 7] = "Mas tenha cuidado ao colocar deserto perto da floresta.\n\nAssim, a floresta se transformará em um oásis e a extração de madeira diminuirá.";
@@ -9092,7 +9092,7 @@ public class Language : MonoBehaviour
         _text[1148, 1] = "Нажмите на тайл, где происходит добыча ресурса.";
         _text[1148, 2] = "Cliquez sur la case où la ressource est extraite.";
         _text[1148, 3] = "Fare clic sul riquadro in cui viene estratta la risorsa.";
-        _text[1148, 4] = "Klicke auf die Kachel, auf der eine Ressource gefördert wird.";
+        _text[1148, 4] = "Klicken Sie auf die Kachel, auf der die Ressource abgebaut wird.";
         _text[1148, 5] = "Haz clic en el mosaico donde se está extrayendo el recurso.";
         _text[1148, 6] = "Kliknij kafelek, na którym odbywa się wydobycie zasobu.";
         _text[1148, 7] = "Clique no tile onde o recurso está sendo extraído.";
@@ -9104,7 +9104,7 @@ public class Language : MonoBehaviour
         _text[1149, 1] = "Посмотрите на модификатор производства ресурсов.\n\nНа разных тайлах модификатор может отличаться.\n\nТаким образом есть выгодные и не выгодные тайлы для добычи того, или иного ресурса.";
         _text[1149, 2] = "Consultez le modificateur de production de ressources.\n\nCe modificateur peut varier d'une case à l'autre.\n\nPar conséquent, certaines cases sont plus rentables que d'autres pour la production d'une ressource donnée.";
         _text[1149, 3] = "Osserva il modificatore di produzione delle risorse.\n\nIl modificatore può variare a seconda della casella.\n\nPertanto, ci sono caselle che sono redditizie e non redditizie per la produzione di una particolare risorsa.";
-        _text[1149, 4] = "Sieh dir den Produktionsmodifikator an.\n\nAuf verschiedenen Kacheln kann der Modifikator unterschiedlich sein.\n\nSo gibt es vorteilhafte und unvorteilhafte Kacheln für die Förderung einer bestimmten Ressource.";
+        _text[1149, 4] = "Betrachten Sie den Ressourcenproduktionsmodifikator.\n\nDer Modifikator kann auf verschiedenen Feldern variieren.\n\nDaher gibt es Felder, die für die Produktion einer bestimmten Ressource profitabel und unprofitabel sind.";
         _text[1149, 5] = "Mira el modificador de producción de recursos.\n\nEn diferentes mosaicos el modificador puede variar.\n\nAsí existen mosaicos más y menos rentables para extraer uno u otro recurso.";
         _text[1149, 6] = "Spójrz na modyfikator produkcji zasobów.\n\nNa różnych kafelkach modyfikator może się różnić.\n\nDzięki temu są kafelki bardziej i mniej opłacalne do wydobycia danego zasobu.";
         _text[1149, 7] = "Veja o modificador de produção de recursos.\n\nEm tiles diferentes, o modificador pode variar.\n\nAssim, há tiles vantajosos e desvantajosos para a extração de cada recurso.";
@@ -9116,7 +9116,7 @@ public class Language : MonoBehaviour
         _text[1150, 1] = "Это панель событий.\n\nВ ней периодически вы будете замечать иконки событий.\n\nДлина шкалы равна 3 дням.\n\nЗа 1 день до события вам будет приходить уведомление с информацией о нем.";
         _text[1150, 2] = "Voici le panneau des événements.Vous y verrez régulièrement des icônes d'événements.\n\nLa barre d'événements s'étend sur 3 jours.\n\nVous recevrez une notification contenant des informations sur l'événement la veille.";
         _text[1150, 3] = "Questo è il pannello degli eventi.\n\nVedrai periodicamente le icone degli eventi.\n\nLa barra è lunga 3 giorni.\n\nRiceverai una notifica con informazioni sull'evento un giorno prima.";
-        _text[1150, 4] = "Das ist das Ereignis-Panel.\n\nDarin wirst du von Zeit zu Zeit Ereignis-Symbole sehen.\n\nDie Länge der Leiste entspricht 3 Tagen.\n\n1 Tag vor einem Ereignis erhältst du eine Benachrichtigung mit Informationen dazu.";
+        _text[1150, 4] = "Dies ist die Ereignisübersicht.\n\nHier werden Ihnen regelmäßig Ereignissymbole angezeigt.\n\nDer Balken ist drei Tage lang.\n\nSie erhalten einen Tag vor dem Ereignis eine Benachrichtigung mit Informationen dazu.";
         _text[1150, 5] = "Este es el panel de eventos.\n\nEn él, periódicamente verás iconos de eventos.\n\nLa longitud de la escala equivale a 3 días.\n\nUn día antes del evento recibirás una notificación con información sobre él.";
         _text[1150, 6] = "To panel wydarzeń.\n\nBędziesz tu okresowo zauważać ikony wydarzeń.\n\nDługość skali wynosi 3 dni.\n\nNa 1 dzień przed wydarzeniem otrzymasz powiadomienie z informacjami o nim.";
         _text[1150, 7] = "Este é o painel de eventos.\n\nNele, você periodicamente verá ícones de eventos.\n\nO comprimento da barra é de 3 dias.\n\n1 dia antes do evento, você receberá uma notificação com informações sobre ele.";
@@ -9140,7 +9140,7 @@ public class Language : MonoBehaviour
         _text[1152, 1] = "Здесь находятся доступные для использования умения.\n\nИх можно приобрести у торговцев или купить за \"Осколок\" в ангаре при старте новой игры.";
         _text[1152, 2] = "Les compétences disponibles se trouvent ici.\n\nVous pouvez les acheter auprès des marchands ou avec des \"Eclats\" dans le hangar lors du lancement d'une nouvelle partie.";
         _text[1152, 3] = "Le abilità disponibili si trovano qui.\n\nPossono essere acquistate dai mercanti o con i Frammenti nell'hangar quando si inizia una nuova partita.";
-        _text[1152, 4] = "Hier befinden sich die Fähigkeiten, die du benutzen kannst.\n\nDu kannst sie bei Händlern erwerben oder im Hangar beim Start eines neuen Spiels für \"Splitter\" kaufen.";
+        _text[1152, 4] = "Die verfügbaren Fertigkeiten findest du hier.\n\nDu kannst sie bei Händlern oder beim Spielstart im Hangar mit Scherben erwerben.";
         _text[1152, 5] = "Aquí están las habilidades disponibles para usar.\n\nSe pueden adquirir a los comerciantes o comprarlas por \"Esquirla\" en el hangar al comenzar una nueva partida.";
         _text[1152, 6] = "Tutaj znajdują się umiejętności dostępne do użycia.\n\nMożna je zdobyć u handlarzy lub kupić za \"Odłamek\" w hangarze na początku nowej gry.";
         _text[1152, 7] = "Aqui estão as habilidades disponíveis para uso.\n\nElas podem ser adquiridas com comerciantes ou compradas por \"Estilhaço\" no hangar ao iniciar um novo jogo.";
@@ -9152,7 +9152,7 @@ public class Language : MonoBehaviour
         _text[1153, 1] = "Осколки - это все, что остается у вас после окончания игры.\n\nИспользуйте их для покупки предметов в ангаре, с помощью которых вы сможете путешествовать все дальше, и дальше.";
         _text[1153, 2] = "Les fragments sont tout ce qui vous reste après avoir terminé une partie.\n\nUtilisez-les pour acheter des objets dans le hangar, ce qui vous permettra de voyager toujours plus loin.";
         _text[1153, 3] = "I frammenti sono tutto ciò che ti rimane dopo aver terminato una partita.\n\nUsali per acquistare oggetti nell'hangar, che ti permetteranno di viaggiare sempre più lontano.";
-        _text[1153, 4] = "Splitter sind alles, was dir nach dem Ende des Spiels bleibt.\n\nNutze sie, um im Hangar Gegenstände zu kaufen, mit denen du immer weiter und weiter reisen kannst.";
+        _text[1153, 4] = "Nach Abschluss eines Spiels bleiben dir nur noch Splitter übrig.\n\nVerwende sie, um im Hangar Gegenstände zu kaufen, mit denen du immer weiter reisen kannst.";
         _text[1153, 5] = "Las esquirlas son todo lo que te queda tras terminar la partida.\n\nÚsalas para comprar objetos en el hangar, con los que podrás viajar cada vez más lejos.";
         _text[1153, 6] = "Odłamki - to wszystko, co zostaje po zakończeniu gry.\n\nUżywaj ich do kupowania przedmiotów w hangarze, dzięki którym będziesz mógł podróżować coraz dalej i dalej.";
         _text[1153, 7] = "Estilhaços são tudo o que fica com você após o fim do jogo.\n\nUse-os para comprar itens no hangar, que permitirão que você viaje cada vez mais longe.";
@@ -9164,7 +9164,7 @@ public class Language : MonoBehaviour
         _text[1154, 1] = "На 7 день ожидается первая группа врагов.\n\nПодготовьте вашу базу к битве.\n\nНапример построив дополнительные баллисты.";
         _text[1154, 2] = "Le premier groupe d'ennemis est attendu le 7e jour.\n\nPréparez votre base au combat.\n\nPar exemple, en construisant des balistes supplémentaires.";
         _text[1154, 3] = "Il primo gruppo di nemici è previsto per il settimo giorno.\n\nPrepara la tua base per la battaglia.\n\nAd esempio, costruendo baliste aggiuntive.";
-        _text[1154, 4] = "Am 7. Tag wird die erste Gegnergruppe erwartet.\n\nBereite deine Basis auf die Schlacht vor.\n\nZum Beispiel, indem du zusätzliche Ballisten baust.";
+        _text[1154, 4] = "Die erste Gegnergruppe wird am 7. Tag erwartet.\n\nBereitet eure Basis auf den Kampf vor.\n\nZum Beispiel durch den Bau zusätzlicher Ballisten.";
         _text[1154, 5] = "El día 7 se espera el primer grupo de enemigos.\n\nPrepara tu base para la batalla.\n\nPor ejemplo, construyendo balistas adicionales.";
         _text[1154, 6] = "7 dnia spodziewana jest pierwsza grupa wrogów.\n\nPrzygotuj bazę do bitwy.\n\nNa przykład budując dodatkowe balisty.";
         _text[1154, 7] = "No 7º dia, a primeira onda de inimigos é esperada.\n\nPrepare sua base para a batalha.\n\nPor exemplo, construindo balistas adicionais.";
@@ -9176,7 +9176,7 @@ public class Language : MonoBehaviour
         _text[1155, 1] = "Вы можете ускорить игру в 2 или 3 раза, если хотите быстро накопить ресурсы или переждать некоторое время.";
         _text[1155, 2] = "Vous pouvez accélérer le jeu de 2 ou 3 fois si vous souhaitez accumuler rapidement des ressources ou attendre un peu.";
         _text[1155, 3] = "Puoi accelerare il gioco di 2 o 3 volte se vuoi accumulare rapidamente risorse o aspettare un po' di tempo.";
-        _text[1155, 4] = "Du kannst das Spiel 2- oder 3-fach beschleunigen, wenn du schnell Ressourcen ansammeln oder einfach etwas Zeit überbrücken möchtest.";
+        _text[1155, 4] = "Du kannst das Spiel um das Zwei- oder Dreifache beschleunigen, wenn du schnell Ressourcen sammeln oder etwas Zeit überbrücken möchtest.";
         _text[1155, 5] = "Puedes acelerar el juego a 2 o 3 si quieres acumular recursos rápidamente o esperar un rato.";
         _text[1155, 6] = "Możesz przyspieszyć grę 2 lub 3 razy, jeśli chcesz szybko zgromadzić zasoby albo przeczekać trochę czasu.";
         _text[1155, 7] = "Você pode acelerar o jogo em 2 ou 3, se quiser acumular recursos rapidamente ou apenas esperar um tempo.";
@@ -9188,7 +9188,7 @@ public class Language : MonoBehaviour
         _text[1156, 1] = "После того как ваше здание атакуют.\n\nУ него отобразится слайдер здоровья.";
         _text[1156, 2] = "Après l'attaque de votre bâtiment,un indicateur de santé s'affichera.";
         _text[1156, 3] = "Dopo che il tuo edificio è stato attaccato,\n\nverrà visualizzato un cursore della salute.";
-        _text[1156, 4] = "Nachdem dein Gebäude angegriffen wurde,\n\nwird ein Gesundheitsbalken angezeigt.";
+        _text[1156, 4] = "Nach einem Angriff auf Ihr Gebäude\n\nwird ein Gesundheitsregler angezeigt.";
         _text[1156, 5] = "Después de que tu edificio sea atacado.\n\nSe mostrará su deslizador de salud.";
         _text[1156, 6] = "Gdy twój budynek zostanie zaatakowany.\n\nPojawi się na nim suwak zdrowia.";
         _text[1156, 7] = "Depois que um edifício seu for atacado.\n\nUma barra de vida será exibida.";
@@ -9200,7 +9200,7 @@ public class Language : MonoBehaviour
         _text[1157, 1] = "Вы можете починить здание.\n\nНажмите на него, чтобы открыть панель с информацией о тайле.";
         _text[1157, 2] = "Vous pouvez réparer le bâtiment.\n\nCliquez dessus pour ouvrir le panneau d'informations de la tuile.";
         _text[1157, 3] = "Puoi riparare l'edificio.\n\nCliccaci sopra per aprire il pannello informativo della tessera.";
-        _text[1157, 4] = "Du kannst ein Gebäude reparieren.\n\nKlicke darauf, um das Informationspanel der Kachel zu öffnen.";
+        _text[1157, 4] = "Du kannst das Gebäude reparieren.\n\nKlicke darauf, um das Informationsfeld der Kachel zu öffnen.";
         _text[1157, 5] = "Puedes reparar el edificio.\n\nHaz clic en él para abrir el panel con información del mosaico.";
         _text[1157, 6] = "Możesz naprawić budynek.\n\nKliknij go, aby otworzyć panel z informacjami o kafelku.";
         _text[1157, 7] = "Você pode reparar um edifício.\n\nClique nele para abrir o painel de informações do tile.";
@@ -9212,7 +9212,7 @@ public class Language : MonoBehaviour
         _text[1158, 1] = "В панеле нажмите кнопку \"Построить\".";
         _text[1158, 2] = "Dans le panneau, cliquez sur le bouton \"Construire\".";
         _text[1158, 3] = "Nel pannello, fare clic sul pulsante \"Crea\".";
-        _text[1158, 4] = "Klicke im Panel auf die Schaltfläche \"Bauen\".";
+        _text[1158, 4] = "Klicken Sie im Bedienfeld auf die Schaltfläche „Erstellen“.";
         _text[1158, 5] = "En el panel, pulsa el botón \"Construir\".";
         _text[1158, 6] = "W panelu kliknij przycisk \"Zbuduj\".";
         _text[1158, 7] = "No painel, clique no botão \"Construir\".";
@@ -9224,7 +9224,7 @@ public class Language : MonoBehaviour
         _text[1159, 1] = "Перед вами сразу открылась панель с картой починки текущего здания.\n\nПочините здание.";
         _text[1159, 2] = "Un panneau affichant un plan de réparation du bâtiment actuel s'ouvre immédiatement devant vous.\n\nRéparez le bâtiment.";
         _text[1159, 3] = "Si aprirà immediatamente un pannello con una mappa di riparazione per l'edificio attuale.\n\nRipara l'edificio.";
-        _text[1159, 4] = "Vor dir hat sich sofort ein Panel mit der Reparaturkarte für das aktuelle Gebäude geöffnet.\n\nRepariere das Gebäude.";
+        _text[1159, 4] = "Vor Ihnen öffnet sich sofort ein Fenster mit einer Reparaturkarte für das aktuelle Gebäude.\n\nReparieren Sie das Gebäude.";
         _text[1159, 5] = "Se abrió inmediatamente el panel con la carta de reparación del edificio actual.\n\nRepara el edificio.";
         _text[1159, 6] = "Od razu otworzył się panel z kartą naprawy bieżącego budynku.\n\nNapraw budynek.";
         _text[1159, 7] = "Você já verá o painel com a carta de reparo do edifício atual.\n\nRepare o edifício.";
@@ -9236,7 +9236,7 @@ public class Language : MonoBehaviour
         _text[1160, 1] = "Если у вас уже есть здание на тайле и изучены другие здания такого же типа.\n\nТогда при нажатии на кнопку \"Построить\", помимо ремонта текущего здания, рядом вы обнаружите карточки зданий в которые вы можете улучшить текущее здание.";
         _text[1160, 2] = "Si vous possédez déjà un bâtiment sur la case et avez effectué des recherches sur d'autres bâtiments du même type.\n\nAlors, lorsque vous cliquerez sur le bouton \"Construire\", en plus de réparer le bâtiment actuel, vous verrez apparaître à proximité des cartes de bâtiments que vous pourrez améliorer.";
         _text[1160, 3] = "Se hai già un edificio nella casella e hai ricercato altri edifici dello stesso tipo,\n\ncliccando sul pulsante \"Costruisci\", oltre a riparare l'edificio attuale, vedrai delle schede edificio nelle vicinanze che puoi potenziare.";
-        _text[1160, 4] = "Wenn du bereits ein Gebäude auf der Kachel hast und andere Gebäude desselben Typs erforscht hast,\n\ndann findest du beim Klick auf \"Bauen\" neben der Reparatur des aktuellen Gebäudes auch Karten der Gebäude, zu denen du es aufrüsten kannst.";
+        _text[1160, 4] = "Wenn sich bereits ein Gebäude auf dem Feld befindet und Sie weitere Gebäude desselben Typs erforscht haben,\n\ndann werden Ihnen beim Klicken auf die Schaltfläche „Bauen“ neben der Reparatur des aktuellen Gebäudes auch Gebäudekarten in der Nähe angezeigt, die Sie aufrüsten können.";
         _text[1160, 5] = "Si ya tienes un edificio en el mosaico y has investigado otros edificios del mismo tipo.\n\nEntonces, al pulsar \"Construir\", además de reparar el edificio actual, verás al lado las cartas de edificios a los que puedes mejorar el edificio actual.";
         _text[1160, 6] = "Jeśli na kafelku stoi już budynek i zbadano inne budynki tego samego typu.\n\nWtedy po kliknięciu przycisku \"Zbuduj\", oprócz naprawy bieżącego budynku, obok zobaczysz karty budynków, na które możesz ulepszyć obecny budynek.";
         _text[1160, 7] = "Se você já tiver um edifício no tile e tiver pesquisado outros edifícios do mesmo tipo.\n\nEntão, ao clicar no botão \"Construir\", além de reparar o edifício atual, você verá ao lado cartas de edifícios para os quais pode aprimorar o edifício atual.";
@@ -9248,7 +9248,7 @@ public class Language : MonoBehaviour
         _text[1161, 1] = "При улучшении здания, вы автоматически получаете часть ресурсов затраченных на ранее стоящее здание.\n\nПоэтому не обязательно уничтожать здание перед постройкой его улучшенной версии.";
         _text[1161, 2] = "Lors de la rénovation d'un bâtiment, vous récupérez automatiquement une partie des ressources dépensées pour le bâtiment d'origine.\n\nIl n'est donc pas nécessaire de détruire un bâtiment avant de construire sa version améliorée.";
         _text[1161, 3] = "Quando si potenzia un edificio, si ricevono automaticamente alcune delle risorse spese per l'edificio esistente.\n\nPertanto, non è necessario distruggere un edificio prima di costruirne la versione potenziata.";
-        _text[1161, 4] = "Beim Aufrüsten eines Gebäudes bekommst du automatisch einen Teil der Ressourcen zurück, die für das vorherige Gebäude ausgegeben wurden.\n\nDeshalb musst du ein Gebäude nicht zerstören, bevor du seine verbesserte Version baust.";
+        _text[1161, 4] = "Beim Ausbau eines Gebäudes erhältst du automatisch einen Teil der für das bestehende Gebäude aufgewendeten Ressourcen zurück.\n\nDaher ist es nicht notwendig, ein Gebäude abzureißen, bevor du die ausgebaute Version errichtest.";
         _text[1161, 5] = "Al mejorar un edificio, recuperas automáticamente parte de los recursos gastados en el edificio anterior.\n\nPor eso no es necesario destruirlo antes de construir su versión mejorada.";
         _text[1161, 6] = "Podczas ulepszania budynku automatycznie odzyskujesz część zasobów wydanych na poprzedni budynek.\n\nDlatego nie trzeba niszczyć budynku przed postawieniem jego ulepszonej wersji.";
         _text[1161, 7] = "Ao aprimorar um edifício, você automaticamente recebe de volta parte dos recursos gastos no edifício anterior.\n\nPor isso, não é necessário destruir o edifício antes de construir sua versão aprimorada.";
@@ -9260,7 +9260,7 @@ public class Language : MonoBehaviour
         _text[1162, 1] = "Если вы не справляетесь с врагами, просто включите режим корабля, чтобы активировать оружие.";
         _text[1162, 2] = "Si vous avez des difficultés à gérer les ennemis, activez simplement le mode navire pour activer vos armes.";
         _text[1162, 3] = "Se hai difficoltà a gestire i nemici, ti basta attivare la modalità nave per attivare le tue armi.";
-        _text[1162, 4] = "Wenn du mit den Gegnern nicht fertig wirst, aktiviere einfach den Schiffsmodus, um die Waffen zu nutzen.";
+        _text[1162, 4] = "Falls Sie Schwierigkeiten haben, mit Feinden fertigzuwerden, schalten Sie einfach den Schiffsmodus ein, um Ihre Waffen zu aktivieren.";
         _text[1162, 5] = "Si no puedes con los enemigos, activa el modo de nave para habilitar las armas.";
         _text[1162, 6] = "Jeśli nie radzisz sobie z wrogami, po prostu włącz tryb statku, aby aktywować broń.";
         _text[1162, 7] = "Se você não está conseguindo lidar com os inimigos, basta ativar o modo do navio para habilitar as armas.";
@@ -9272,7 +9272,7 @@ public class Language : MonoBehaviour
         _text[1163, 1] = "Боеприпасы оружия выдаются в начале каждой миссии и имею ограниченный запас.\n\nИспользуйте их только в экстренных ситуациях.\n\nЧтобы улучшить урон оружия, вам необходимо посетить инженера на звездной карте.";
         _text[1163, 2] = "Les munitions sont distribuées au début de chaque mission et sont en quantité limitée.\n\nUtilisez-les uniquement en cas d'urgence.\n\nPour améliorer les dégâts de vos armes, vous devez consulter un ingénieur sur la Carte Stellaire.";
         _text[1163, 3] = "Le munizioni per le armi vengono consegnate all'inizio di ogni missione e sono limitate.\n\nUsale solo in situazioni di emergenza.\n\nPer migliorare i danni delle armi, devi rivolgerti a un ingegnere sulla Mappa Stellare.";
-        _text[1163, 4] = "Munition wird zu Beginn jeder Mission ausgegeben und ist nur begrenzt verfügbar.\n\nNutze sie nur in Notfällen.\n\nUm den Waffenschaden zu verbessern, musst du den Ingenieur auf der Sternkarte besuchen.";
+        _text[1163, 4] = "Zu Beginn jeder Mission wird Munition ausgegeben, die jedoch begrenzt ist.\n\nVerwende sie nur im Notfall.\n\nUm den Waffenschaden zu verbessern, musst du einen Ingenieur auf der Sternenkarte aufsuchen.";
         _text[1163, 5] = "La munición de las armas se entrega al inicio de cada misión y tiene una reserva limitada.\n\nÚsala solo en situaciones de emergencia.\n\nPara mejorar el daño de las armas, debes visitar al ingeniero en el mapa estelar.";
         _text[1163, 6] = "Amunicja do broni jest przyznawana na początku każdej misji i ma ograniczony zapas.\n\nUżywaj jej tylko w sytuacjach awaryjnych.\n\nAby zwiększyć obrażenia broni, musisz odwiedzić inżyniera na mapie gwiezdnej.";
         _text[1163, 7] = "A munição das armas é fornecida no início de cada missão e tem um estoque limitado.\n\nUse-a apenas em situações de emergência.\n\nPara aumentar o dano das armas, você precisa visitar o engenheiro no mapa estelar.";
@@ -9284,7 +9284,7 @@ public class Language : MonoBehaviour
         _text[1164, 1] = "Левая кнопка мыши отвечает за выстрелы левым оружие, правая кнопка мыши за правым.\n\nОружие не может стрелять, пока игра находится на паузе.\n\nНа данный момент лучше сэкономить патроны.\n\nВыйдите из режима корабля, обратно в режим планеты.";
         _text[1164, 2] = "Le bouton gauche de la souris tire avec l'arme gauche, et le bouton droit avec l'arme droite.\n\nLes armes ne peuvent pas tirer lorsque le jeu est en pause.\n\nPour l'instant, il est préférable d'économiser vos munitions.\n\nQuittez le mode vaisseau et retournez au mode planète.";
         _text[1164, 3] = "Il tasto sinistro del mouse spara con l'arma sinistra, mentre il tasto destro spara con l'arma destra.\n\nLe armi non possono sparare mentre il gioco è in pausa.\n\nPer ora, è meglio risparmiare munizioni.\n\nUscire dalla modalità nave e tornare alla modalità pianeta.";
-        _text[1164, 4] = "Die linke Maustaste feuert die linke Waffe, die rechte Maustaste die rechte.\n\nWaffen können nicht feuern, solange das Spiel pausiert ist.\n\nIm Moment ist es besser, Munition zu sparen.\n\nVerlasse den Schiffsmodus und kehre zurück in den Planetenmodus.";
+        _text[1164, 4] = "Die linke Maustaste feuert die linke Waffe ab, die rechte die rechte.\n\nIm Pausenmodus können keine Waffen abgefeuert werden.\n\nSpar dir vorerst die Munition.\n\nVerlasse den Schiffsmodus und kehre zum Planetenmodus zurück.";
         _text[1164, 5] = "El botón izquierdo del ratón dispara el arma izquierda; el botón derecho, el arma derecha.\n\nLas armas no pueden disparar mientras el juego está en pausa.\n\nPor ahora es mejor ahorrar munición.\n\nSal del modo de nave y vuelve al modo de planeta.";
         _text[1164, 6] = "Lewy przycisk myszy odpowiada za strzały z lewego uzbrojenia, prawy przycisk myszy - z prawego.\n\nBroń nie może strzelać, gdy gra jest wstrzymana.\n\nNa ten moment lepiej oszczędzić amunicję.\n\nWyjdź z trybu statku z powrotem do trybu planety.";
         _text[1164, 7] = "O botão esquerdo do mouse dispara a arma esquerda; o botão direito, a arma direita.\n\nAs armas não podem atirar enquanto o jogo estiver em pausa.\n\nPor enquanto, é melhor economizar munição.\n\nSaia do modo do navio e volte para o modo do planeta.";
@@ -9296,7 +9296,7 @@ public class Language : MonoBehaviour
         _text[1165, 1] = "Если ваша база будет уничтожена, то миссия будет считаться проваленной.\n\nВы потеряете 1 ядро ИИ.\n\nНо сможете начинать миссию сначала до тех пор, пока не закончатся все ядра.";
         _text[1165, 2] = "Si votre base est détruite, la mission sera considérée comme un échec.\n\nVous perdrez un noyau d'IA.\n\nVous pouvez toutefois recommencer la mission jusqu'à épuisement de tous vos noyaux.";
         _text[1165, 3] = "Se la tua base viene distrutta, la missione sarà considerata un fallimento.\n\nPerderai un nucleo IA.\n\nTuttavia, puoi riavviare la missione finché tutti i nuclei non saranno esauriti.";
-        _text[1165, 4] = "Wenn deine Basis zerstört wird, gilt die Mission als gescheitert.\n\nDu verlierst 1 KI-Kern.\n\nDu kannst die Mission jedoch neu starten, solange noch Kerne übrig sind.";
+        _text[1165, 4] = "Wird Ihre Basis zerstört, gilt die Mission als gescheitert.\n\nSie verlieren einen KI-Kern.\n\nSie können die Mission jedoch so lange neu starten, bis alle Kerne verbraucht sind.";
         _text[1165, 5] = "Si tu base es destruida, la misión se considerará fallida.\n\nPerderás 1 núcleo de IA.\n\nPero podrás reiniciar la misión hasta que se agoten todos los núcleos.";
         _text[1165, 6] = "Jeśli twoja baza zostanie zniszczona, misja zostanie uznana za nieudaną.\n\nStracisz 1 rdzeń SI.\n\nAle będziesz mógł rozpocząć misję od nowa, dopóki nie skończą się wszystkie rdzenie.";
         _text[1165, 7] = "Se sua base for destruída, a missão será considerada fracassada.\n\nVocê perderá 1 núcleo de IA.\n\nMas poderá reiniciar a missão até que todos os núcleos acabem.";
@@ -9308,7 +9308,7 @@ public class Language : MonoBehaviour
         _text[1166, 1] = "Выполните все цели, чтобы успешно завершить миссию.\n\nНесмотря на поставленные цели, старайтесь накопить за миссию как можно больше фрагментов данных.\n\nЕсли вы не будете поспевать за прогрессом в технологиях, ваше путешествие закончится быстро...";
         _text[1166, 2] = "Accomplissez tous les objectifs pour réussir la mission.\n\nQuel que soit votre objectif, essayez de collecter un maximum de données pendant la mission.\n\nSi vous ne suivez pas le rythme des avancées technologiques, votre voyage s'achèvera rapidement...";
         _text[1166, 3] = "Completa tutti gli obiettivi per completare con successo la missione.\n\nNonostante i tuoi obiettivi, cerca di raccogliere quanti più frammenti di dati possibile durante la missione.\n\nSe non tieni il passo con i progressi tecnologici, il tuo viaggio finirà presto...";
-        _text[1166, 4] = "Erfülle alle Ziele, um die Mission erfolgreich abzuschließen.\n\nTrotz der Ziele versuche, während der Mission so viele Datenfragmente wie möglich zu sammeln.\n\nWenn du beim Technologie-Fortschritt nicht Schritt hältst, endet deine Reise schnell...";
+        _text[1166, 4] = "Erfülle alle Ziele, um die Mission erfolgreich abzuschließen.\n\nVersuche, unabhängig von deinen Zielen, während der Mission so viele Datenfragmente wie möglich zu sammeln.\n\nWenn du mit den technologischen Entwicklungen nicht Schritt hältst, ist deine Reise schnell vorbei.";
         _text[1166, 5] = "Completa todos los objetivos para finalizar la misión con éxito.\n\nA pesar de los objetivos establecidos, intenta acumular durante la misión la mayor cantidad posible de fragmentos de datos.\n\nSi no sigues el ritmo del progreso tecnológico, tu viaje terminará rápido...";
         _text[1166, 6] = "Wykonaj wszystkie cele, aby pomyślnie ukończyć misję.\n\nMimo wyznaczonych celów staraj się zebrać w misji jak najwięcej fragmentów danych.\n\nJeśli nie będziesz nadążać z postępem technologii, twoja podróż szybko się zakończy...";
         _text[1166, 7] = "Conclua todos os objetivos para terminar a missão com sucesso.\n\nApesar dos objetivos definidos, tente acumular o máximo possível de fragmentos de dados durante a missão.\n\nSe você não acompanhar o progresso das tecnologias, sua viagem terminará rápido...";
@@ -9320,7 +9320,7 @@ public class Language : MonoBehaviour
         _text[1167, 1] = "Вы прошли миссию и заработали фрагменты данных.\n\nТеперь откройте панель изучений";
         _text[1167, 2] = "Vous avez terminé la mission et obtenu des fragments de données.\n\nOuvrez maintenant le panneau de recherche.";
         _text[1167, 3] = "Hai completato la missione e ottenuto frammenti di dati.\n\nOra apri il pannello di ricerca.";
-        _text[1167, 4] = "Du hast die Mission abgeschlossen und Datenfragmente verdient.\n\nÖffne jetzt das Forschungs-Panel.";
+        _text[1167, 4] = "Du hast die Mission abgeschlossen und Datenfragmente erhalten.\n\nÖffne nun das Forschungspanel.";
         _text[1167, 5] = "Has completado la misión y has ganado fragmentos de datos.\n\nAhora abre el panel de investigación";
         _text[1167, 6] = "Ukończyłeś misję i zdobyłeś fragmenty danych.\n\nTeraz otwórz panel badań";
         _text[1167, 7] = "Você completou a missão e ganhou fragmentos de dados.\n\nAgora, abra o painel de pesquisas";
@@ -9332,7 +9332,7 @@ public class Language : MonoBehaviour
         _text[1168, 1] = "Здесь вы можете увидеть все типы зданий доступные для изучения.\n\nПосмотрите сколько фрагментов данных вы добыли и выберите любое не изученное здание.";
         _text[1168, 2] = "Vous pouvez consulter ici tous les types de bâtiments disponibles pour la recherche.\n\nVérifiez le nombre de fragments de données extraits et sélectionnez un bâtiment inexploré.";
         _text[1168, 3] = "Qui puoi vedere tutti i tipi di edifici disponibili per la ricerca.\n\nVedi quanti frammenti di dati hai estratto e seleziona qualsiasi edificio inesplorato.";
-        _text[1168, 4] = "Hier kannst du alle Gebäudetypen sehen, die zur Erforschung verfügbar sind.\n\nSieh nach, wie viele Datenfragmente du gesammelt hast, und wähle ein beliebiges noch nicht erforschtes Gebäude.";
+        _text[1168, 4] = "Hier sehen Sie alle Gebäudetypen, die Sie erforschen können.\n\nSehen Sie, wie viele Datenfragmente Sie bereits gesammelt haben, und wählen Sie ein beliebiges unerforschtes Gebäude aus.";
         _text[1168, 5] = "Aquí puedes ver todos los tipos de edificios disponibles para investigar.\n\nMira cuántos fragmentos de datos has obtenido y elige cualquier edificio no investigado.";
         _text[1168, 6] = "Tutaj możesz zobaczyć wszystkie typy budynków dostępne do zbadania.\n\nSpójrz, ile fragmentów danych zdobyłeś, i wybierz dowolny niezbadany budynek.";
         _text[1168, 7] = "Aqui você pode ver todos os tipos de edifícios disponíveis para pesquisa.\n\nVeja quantos fragmentos de dados você coletou e escolha qualquer edifício ainda não pesquisado.";
@@ -9344,7 +9344,7 @@ public class Language : MonoBehaviour
         _text[1169, 1] = "Если фрагментов данных достаточно, начните изучение, нажав на кнопку.\n\nВыберите другое сооружение, если ресурсов не хватает или требуется предварительное исследование другого здания.";
         _text[1169, 2] = "S'il y a suffisamment de fragments de données, lancez la recherche en cliquant sur le bouton.\n\nSélectionnez un autre bâtiment si vous manquez de ressources ou si vous devez d'abord en rechercher un autre.";
         _text[1169, 3] = "Se ci sono abbastanza frammenti di dati, inizia la ricerca cliccando sul pulsante.\n\nSeleziona un altro edificio se non hai risorse o se devi prima ricercarne un altro.";
-        _text[1169, 4] = "Wenn genügend Datenfragmente vorhanden sind, starte die Forschung, indem du die Schaltfläche drückst.\n\nWähle ein anderes Bauwerk, wenn die Ressourcen nicht reichen oder eine vorherige Forschung erforderlich ist.";
+        _text[1169, 4] = "Sind genügend Datenfragmente vorhanden, starten Sie die Forschung durch Klicken auf die Schaltfläche.\n\nWählen Sie ein anderes Gebäude, falls Ihnen Ressourcen fehlen oder Sie zuerst ein anderes Gebäude erforschen müssen.";
         _text[1169, 5] = "Si tienes suficientes fragmentos de datos, inicia la investigación pulsando el botón.\n\nElige otra estructura si faltan recursos o se requiere una investigación previa de otro edificio.";
         _text[1169, 6] = "Jeśli masz wystarczająco fragmentów danych, rozpocznij badanie, klikając przycisk.\n\nWybierz inną konstrukcję, jeśli brakuje zasobów lub wymagane jest wcześniejsze badanie innego budynku.";
         _text[1169, 7] = "Se houver fragmentos de dados suficientes, inicie a pesquisa clicando no botão.\n\nEscolha outra estrutura se os recursos forem insuficientes ou se for necessária uma pesquisa prévia de outro edifício.";
@@ -9356,7 +9356,7 @@ public class Language : MonoBehaviour
         _text[1170, 1] = "Отлично, вы изучили новое здание.\n\nТеперь оно станет доступно для постройки на миссиях.";
         _text[1170, 2] = "Parfait, vous avez exploré le nouveau bâtiment.\n\nIl sera désormais possible de le construire lors des missions.";
         _text[1170, 3] = "Ottimo, hai esplorato il nuovo edificio.\n\nOra sarà possibile costruirlo durante le missioni.";
-        _text[1170, 4] = "Sehr gut, du hast ein neues Gebäude erforscht.\n\nJetzt ist es in Missionen zum Bau verfügbar.";
+        _text[1170, 4] = "Super, du hast das neue Gebäude erkundet.\n\nEs kann nun während Missionen gebaut werden.";
         _text[1170, 5] = "Genial, has investigado un edificio nuevo.\n\nAhora estará disponible para construir en las misiones.";
         _text[1170, 6] = "Świetnie, zbadałeś nowy budynek.\n\nTeraz będzie dostępny do zbudowania w misjach.";
         _text[1170, 7] = "Ótimo, você pesquisou um novo edifício.\n\nAgora ele ficará disponível para construção nas missões.";
@@ -9368,7 +9368,7 @@ public class Language : MonoBehaviour
         _text[1171, 1] = "Возвращайтесь на карту и исследуйте космос.\n\nЧтобы найти пригодную для жизни планету...";
         _text[1171, 2] = "Retournez à la carte et explorez l'espace.\n\nPour trouver une planète habitable...";
         _text[1171, 3] = "Torna alla mappa ed esplora lo spazio.\n\nPer trovare un pianeta abitabile...";
-        _text[1171, 4] = "Kehre zur Karte zurück und erforsche den Weltraum.\n\nUm einen bewohnbaren Planeten zu finden...";
+        _text[1171, 4] = "Kehre zur Karte zurück und erkunde den Weltraum.\n\nUm einen bewohnbaren Planeten zu finden …";
         _text[1171, 5] = "Vuelve al mapa y explora el espacio.\n\nPara encontrar un planeta apto para la vida...";
         _text[1171, 6] = "Wróć na mapę i badaj kosmos.\n\nAby znaleźć planetę nadającą się do życia...";
         _text[1171, 7] = "Volte ao mapa e explore o espaço.\n\nPara encontrar um planeta habitável...";
@@ -9438,7 +9438,7 @@ public class Language : MonoBehaviour
         _text[1205, 1] = "Паровой двигатель";
         _text[1205, 2] = "Locomotive à vapeur";
         _text[1205, 3] = "Macchina a vapore";
-        _text[1205, 4] = "Dampfmotor";
+        _text[1205, 4] = "Dampfmaschine";
         _text[1205, 5] = "Motor de vapor";
         _text[1205, 6] = "Silnik parowy";
         _text[1205, 7] = "Motor a vapor";
@@ -9449,7 +9449,7 @@ public class Language : MonoBehaviour
         _text[1206, 1] = "Солнечная панель";
         _text[1206, 2] = "Panneau solaire";
         _text[1206, 3] = "Pannello solare";
-        _text[1206, 4] = "Solarmodul";
+        _text[1206, 4] = "Solarpanel";
         _text[1206, 5] = "Panel solar";
         _text[1206, 6] = "Panel słoneczny";
         _text[1206, 7] = "Painel solar";
@@ -9482,7 +9482,7 @@ public class Language : MonoBehaviour
         _text[1209, 1] = "Угольная шахта";
         _text[1209, 2] = "Mine de charbon";
         _text[1209, 3] = "Miniera di carbone";
-        _text[1209, 4] = "Kohlemine";
+        _text[1209, 4] = "Kohlebergwerk";
         _text[1209, 5] = "Mina de carbón";
         _text[1209, 6] = "Kopalnia węgla";
         _text[1209, 7] = "Mina de carvão";
@@ -9493,7 +9493,7 @@ public class Language : MonoBehaviour
         _text[1210, 1] = "Паровая установка";
         _text[1210, 2] = "Installation de vapeur";
         _text[1210, 3] = "Installazione a vapore";
-        _text[1210, 4] = "Dampfanlage";
+        _text[1210, 4] = "Dampfinstallation";
         _text[1210, 5] = "Planta de vapor";
         _text[1210, 6] = "Instalacja parowa";
         _text[1210, 7] = "Instalação a vapor";
@@ -9526,7 +9526,7 @@ public class Language : MonoBehaviour
         _text[1213, 1] = "Рудник";
         _text[1213, 2] = "Le mien";
         _text[1213, 3] = "Mio";
-        _text[1213, 4] = "Erzmine";
+        _text[1213, 4] = "Meins";
         _text[1213, 5] = "Mina";
         _text[1213, 6] = "Kopalnia rudy";
         _text[1213, 7] = "Mina de minério";
@@ -9548,7 +9548,7 @@ public class Language : MonoBehaviour
         _text[1215, 1] = "Многоковшовый экскаватор";
         _text[1215, 2] = "Pelle à godets multiples";
         _text[1215, 3] = "Escavatore multi-benna";
-        _text[1215, 4] = "Schaufelradbagger";
+        _text[1215, 4] = "Mehrschaufelbagger";
         _text[1215, 5] = "Excavadora de rueda de cangilones";
         _text[1215, 6] = "Koparka wieloczerpakowa";
         _text[1215, 7] = "Escavadeira de roda de caçambas";
@@ -9581,7 +9581,7 @@ public class Language : MonoBehaviour
         _text[1218, 1] = "Паровая лесопилка";
         _text[1218, 2] = "Scierie à vapeur";
         _text[1218, 3] = "Segheria a vapore";
-        _text[1218, 4] = "Dampf-sägewerk";
+        _text[1218, 4] = "Dampfsägewerk";
         _text[1218, 5] = "Aserradero de vapor";
         _text[1218, 6] = "Tartak parowy";
         _text[1218, 7] = "Serraria a vapor";
@@ -9614,7 +9614,7 @@ public class Language : MonoBehaviour
         _text[1221, 1] = "Паровая установка";
         _text[1221, 2] = "Installation de vapeur";
         _text[1221, 3] = "Installazione a vapore";
-        _text[1221, 4] = "Dampfanlage";
+        _text[1221, 4] = "Dampfinstallation";
         _text[1221, 5] = "Planta de vapor";
         _text[1221, 6] = "Instalacja parowa";
         _text[1221, 7] = "Instalação a vapor";
@@ -9636,7 +9636,7 @@ public class Language : MonoBehaviour
         _text[1223, 1] = "Многоковшовый экскаватор";
         _text[1223, 2] = "Pelle à godets multiples";
         _text[1223, 3] = "Escavatore multi-benna";
-        _text[1223, 4] = "Schaufelradbagger";
+        _text[1223, 4] = "Mehrschaufelbagger";
         _text[1223, 5] = "Excavadora de rueda de cangilones";
         _text[1223, 6] = "Koparka wieloczerpakowa";
         _text[1223, 7] = "Escavadeira de roda de caçambas";
@@ -9669,7 +9669,7 @@ public class Language : MonoBehaviour
         _text[1226, 1] = "Насосный домкрат";
         _text[1226, 2] = "Pompe à balancier";
         _text[1226, 3] = "Martinetto della pompa";
-        _text[1226, 4] = "Pumpjack";
+        _text[1226, 4] = "Pumpenheber";
         _text[1226, 5] = "Balancín de bombeo";
         _text[1226, 6] = "Pompa kiwakowa";
         _text[1226, 7] = "Bomba de cavalo";
@@ -9735,7 +9735,7 @@ public class Language : MonoBehaviour
         _text[1232, 1] = "Колодец";
         _text[1232, 2] = "Bien";
         _text[1232, 3] = "Bene";
-        _text[1232, 4] = "Brunnen";
+        _text[1232, 4] = "Also";
         _text[1232, 5] = "Pozo";
         _text[1232, 6] = "Studnia";
         _text[1232, 7] = "Poço";
@@ -9812,7 +9812,7 @@ public class Language : MonoBehaviour
         _text[1239, 1] = "Камнетесный стол";
         _text[1239, 2] = "Table de taille de pierre";
         _text[1239, 3] = "Tavolo da taglio per pietre";
-        _text[1239, 4] = "Steinmetztisch";
+        _text[1239, 4] = "Steinschneidetisch";
         _text[1239, 5] = "Mesa de cantería";
         _text[1239, 6] = "Stół kamieniarski";
         _text[1239, 7] = "Mesa do cortador de pedra";
@@ -9823,7 +9823,7 @@ public class Language : MonoBehaviour
         _text[1240, 1] = "Верстак резки камня";
         _text[1240, 2] = "Établi de découpe de pierre";
         _text[1240, 3] = "Banco da lavoro per il taglio della pietra";
-        _text[1240, 4] = "Steinschneide-werkbank";
+        _text[1240, 4] = "Steinbearbeitungswerkbank";
         _text[1240, 5] = "Banco de corte de piedra";
         _text[1240, 6] = "Warsztat cięcia kamienia";
         _text[1240, 7] = "Bancada de corte de pedra";
@@ -9845,7 +9845,7 @@ public class Language : MonoBehaviour
         _text[1242, 1] = "Глиняная печь";
         _text[1242, 2] = "Four en terre cuite";
         _text[1242, 3] = "Forno di argilla";
-        _text[1242, 4] = "Tonofen";
+        _text[1242, 4] = "Lehmofen";
         _text[1242, 5] = "Horno de arcilla";
         _text[1242, 6] = "Gliniany piec";
         _text[1242, 7] = "Forno de argila";
@@ -9900,7 +9900,7 @@ public class Language : MonoBehaviour
         _text[1247, 1] = "Автомешалка";
         _text[1247, 2] = "Mélangeur de voiture";
         _text[1247, 3] = "Autobetoniera";
-        _text[1247, 4] = "Automatischer mischer";
+        _text[1247, 4] = "Auto-mixer";
         _text[1247, 5] = "Mezcladora automática";
         _text[1247, 6] = "Mieszarka automatyczna";
         _text[1247, 7] = "Misturador automático";
@@ -9933,7 +9933,7 @@ public class Language : MonoBehaviour
         _text[1250, 1] = "Большой котел";
         _text[1250, 2] = "Le grand chaudron";
         _text[1250, 3] = "Il grande calderone";
-        _text[1250, 4] = "Großer kessel";
+        _text[1250, 4] = "Der große kessel";
         _text[1250, 5] = "Caldera grande";
         _text[1250, 6] = "Duży kocioł";
         _text[1250, 7] = "Caldeira grande";
@@ -9944,7 +9944,7 @@ public class Language : MonoBehaviour
         _text[1251, 1] = "Парогенераторный комплекс";
         _text[1251, 2] = "Complexe de générateur de vapeur";
         _text[1251, 3] = "Complesso generatore di vapore";
-        _text[1251, 4] = "Dampferzeuger-komplex";
+        _text[1251, 4] = "Dampferzeugerkomplex";
         _text[1251, 5] = "Complejo generador de vapor";
         _text[1251, 6] = "Kompleks parogeneratorów";
         _text[1251, 7] = "Complexo de geração de vapor";
@@ -9955,7 +9955,7 @@ public class Language : MonoBehaviour
         _text[1252, 1] = "Верстак компонентов";
         _text[1252, 2] = "Atelier de composants";
         _text[1252, 3] = "Banco di lavoro dei componenti";
-        _text[1252, 4] = "Komponentenwerkbank";
+        _text[1252, 4] = "Komponenten-werkbank";
         _text[1252, 5] = "Banco de componentes";
         _text[1252, 6] = "Warsztat komponentów";
         _text[1252, 7] = "Bancada de componentes";
@@ -9988,7 +9988,7 @@ public class Language : MonoBehaviour
         _text[1255, 1] = "Биосептик";
         _text[1255, 2] = "Bioseptique";
         _text[1255, 3] = "Serbatoio biosettico";
-        _text[1255, 4] = "Bioseptik";
+        _text[1255, 4] = "Bioseptische grube";
         _text[1255, 5] = "Bioséptico";
         _text[1255, 6] = "Bioseptyk";
         _text[1255, 7] = "Biosséptico";
@@ -10032,7 +10032,7 @@ public class Language : MonoBehaviour
         _text[1259, 1] = "Радиовышка";
         _text[1259, 2] = "Tour radio";
         _text[1259, 3] = "Torre radio";
-        _text[1259, 4] = "Funkmast";
+        _text[1259, 4] = "Funkturm";
         _text[1259, 5] = "Torre de radio";
         _text[1259, 6] = "Wieża radiowa";
         _text[1259, 7] = "Torre de rádio";
@@ -10076,7 +10076,7 @@ public class Language : MonoBehaviour
         _text[1263, 1] = "Каменная стена";
         _text[1263, 2] = "Mur de pierre";
         _text[1263, 3] = "Muro di pietra";
-        _text[1263, 4] = "Steinwand";
+        _text[1263, 4] = "Steinmauer";
         _text[1263, 5] = "Muro de piedra";
         _text[1263, 6] = "Kamienna sciana";
         _text[1263, 7] = "Parede de pedra";
@@ -10109,7 +10109,7 @@ public class Language : MonoBehaviour
         _text[1266, 1] = "Деревянные ворота";
         _text[1266, 2] = "Portails en bois";
         _text[1266, 3] = "Cancelli in legno";
-        _text[1266, 4] = "Holztor";
+        _text[1266, 4] = "Holztore";
         _text[1266, 5] = "Puerta de madera";
         _text[1266, 6] = "Drewniana brama";
         _text[1266, 7] = "Portão de madeira";
@@ -10142,7 +10142,7 @@ public class Language : MonoBehaviour
         _text[1269, 1] = "Бетонные ворота";
         _text[1269, 2] = "Portails en béton";
         _text[1269, 3] = "Cancelli in cemento";
-        _text[1269, 4] = "Betontor";
+        _text[1269, 4] = "Betontore";
         _text[1269, 5] = "Puerta de hormigón";
         _text[1269, 6] = "Betonowa brama";
         _text[1269, 7] = "Portão de concreto";
@@ -10153,7 +10153,7 @@ public class Language : MonoBehaviour
         _text[1270, 1] = "Стальные ворота";
         _text[1270, 2] = "Portails en acier";
         _text[1270, 3] = "Cancelli in acciaio";
-        _text[1270, 4] = "Stahltor";
+        _text[1270, 4] = "Stahltore";
         _text[1270, 5] = "Puerta de acero";
         _text[1270, 6] = "Stalowa brama";
         _text[1270, 7] = "Portão de aço";
@@ -10164,7 +10164,7 @@ public class Language : MonoBehaviour
         _text[1271, 1] = "Баллиста";
         _text[1271, 2] = "Baliste";
         _text[1271, 3] = "Balista";
-        _text[1271, 4] = "Balliste";
+        _text[1271, 4] = "Ballista";
         _text[1271, 5] = "Balista";
         _text[1271, 6] = "Balista";
         _text[1271, 7] = "Balista";
@@ -10175,7 +10175,7 @@ public class Language : MonoBehaviour
         _text[1272, 1] = "Пушка";
         _text[1272, 2] = "Pistolet";
         _text[1272, 3] = "Pistola";
-        _text[1272, 4] = "Kanone";
+        _text[1272, 4] = "Pistole";
         _text[1272, 5] = "Cañón";
         _text[1272, 6] = "Armata";
         _text[1272, 7] = "Canhão";
@@ -10252,7 +10252,7 @@ public class Language : MonoBehaviour
         _text[1279, 1] = "Палатка механика";
         _text[1279, 2] = "Mécanique des tentes";
         _text[1279, 3] = "Meccanica delle tende";
-        _text[1279, 4] = "Mechanikerzelt";
+        _text[1279, 4] = "Zeltmechaniker";
         _text[1279, 5] = "Tienda del mecánico";
         _text[1279, 6] = "Namiot mechanika";
         _text[1279, 7] = "Tenda do mecânico";
@@ -10285,7 +10285,7 @@ public class Language : MonoBehaviour
         _text[1282, 1] = "Деревянные шипы";
         _text[1282, 2] = "Piques en bois";
         _text[1282, 3] = "Punte di legno";
-        _text[1282, 4] = "Holzspieße";
+        _text[1282, 4] = "Holzspitzen";
         _text[1282, 5] = "Estacas de madera";
         _text[1282, 6] = "Drewniane kolce";
         _text[1282, 7] = "Estacas de madeira";
@@ -10307,7 +10307,7 @@ public class Language : MonoBehaviour
         _text[1284, 1] = "Железные шипы";
         _text[1284, 2] = "Pointes de fer";
         _text[1284, 3] = "Punte di ferro";
-        _text[1284, 4] = "Eisenspieße";
+        _text[1284, 4] = "Eisenspitzen";
         _text[1284, 5] = "Púas de hierro";
         _text[1284, 6] = "Żelazne kolce";
         _text[1284, 7] = "Estacas de ferro";
