@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 
-public class EndGameSystem : MonoBehaviour
+public class CompleteGameSystem : MonoBehaviour
 {
     [Inject] private HangarSaveGame _hangarSaveGame;
     [Inject] private SpaceSaveGame _spaceSaveGame;
@@ -12,7 +12,6 @@ public class EndGameSystem : MonoBehaviour
     [SerializeField] private ShardsCalculateSystem _shardsCalculateSystem;
     [SerializeField] private Landscape _megastructureLandscape;
     [SerializeField] private CosmosView _cosmosView;
-    [SerializeField] private GameObject _explosionVfx;
     [SerializeField] private GameObject[] _falseObjects;
     [SerializeField] private DialogueSequence _completeGameDialogue;
     public void CheckCompleteGame(bool completeGame)
@@ -25,7 +24,6 @@ public class EndGameSystem : MonoBehaviour
         }
 
         _cosmosView.ChangeCosmos(_megastructureLandscape.CosmosVariations, 0);
-        // _explosionVfx.SetActive(true);
         ShowEndGamePanel(_completeGameDialogue);
     }
 

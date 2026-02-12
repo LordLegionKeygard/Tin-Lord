@@ -5,7 +5,7 @@ public class AiCoreSystem : MonoBehaviour
     [SerializeField] private int _aiCore;
     [SerializeField] private CellsView _cellsView;
     [SerializeField] private DialogueSequence _endGameDialogue;
-    [SerializeField] private EndGameSystem _spaceEndGameSystem;
+    [SerializeField] private CompleteGameSystem _spaceEndGameSystem;
 
     public int GetAiCores() => _aiCore;
 

@@ -25825,7 +25825,7 @@ GameObject:
   - component: {fileID: 788531533}
   - component: {fileID: 788531534}
   m_Layer: 0
-  m_Name: EndGameSystem
+  m_Name: CompleteGameSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25864,7 +25864,6 @@ MonoBehaviour:
   _megastructureLandscape: {fileID: 11400000, guid: 19ec99d948d9435429500a273677119c,
     type: 2}
   _cosmosView: {fileID: 417999332}
-  _explosionVfx: {fileID: 0}
   _falseObjects:
   - {fileID: 1275243396}
   - {fileID: 1003870431308464738}
