@@ -8862,16 +8862,16 @@ public class Language : MonoBehaviour
         _text[1128, 9] = "暂停模式下，时间静止。建筑物不会生产或消耗资源。\n\n如果所需资源耗尽，建筑物将停止生产，直到所需数量重新出现。";
 
         // MissionAddCardsDescription_29
-        _text[1129, 0] = "After building a base, you are guaranteed to receive 1 Forest card and 1 Mountain card, plus two random landscape cards.\n\nEach new day always brings 2 new cards.";
-        _text[1129, 1] = "После строительства базы вам гарантировано дается по 1 карте Леса и Горы, а так же две случайные карты ландшафтов.\n\nКаждый новый день всегда приносит 2 новые карты.";
-        _text[1129, 2] = "Après avoir construit votre base, vous recevez systématiquement une carte Forêt et une carte Montagne, ainsi que deux cartes Paysage aléatoires.\n\nChaque jour apporte deux nouvelles cartes.";
-        _text[1129, 3] = "Dopo aver costruito la tua base, ti saranno garantite una carta Foresta e una carta Montagna, oltre a due carte Paesaggio casuali.\n\nOgni nuovo giorno porta sempre due nuove carte.";
-        _text[1129, 4] = "Nach dem Bau deiner Basis erhältst du garantiert eine Wald- und eine Bergkarte sowie zwei zufällige Landschaftskarten.\n\nJeder neue Tag bringt dir zwei neue Karten.";
-        _text[1129, 5] = "Después de construir la base, recibes garantizado 1 carta de Bosque y 1 de Montaña, además de dos cartas de paisaje aleatorias.\n\nCada nuevo día siempre trae 2 cartas nuevas.";
-        _text[1129, 6] = "Po zbudowaniu bazy masz gwarantowaną jedną kartę Lasu i Gór, a także dwie losowe karty Krajobrazu.\n\nKażdy nowy dzień zawsze przynosi dwie nowe karty.";
-        _text[1129, 7] = "Após construir sua base, você tem garantida uma carta de Floresta e uma de Montanha, além de duas cartas de Paisagem aleatórias.\n\nA cada novo dia, você sempre recebe duas novas cartas.";
-        _text[1129, 8] = "基地を建設すると、森と山のカードが1枚ずつ、さらにランダムな風景カードが2枚手に入ります。\n\n毎日必ず2枚の新しいカードが手に入ります。";
-        _text[1129, 9] = "建造基地后，您将必定获得一张森林卡和一张山脉卡，以及两张随机的景观卡。\n\n每天都会获得两张新卡。";
+        _text[1129, 0] = "After building a base, you are guaranteed to receive 1 Forest card and 1 Mountain card, plus one or two random cards.\n\nEach new day always brings new cards.";
+        _text[1129, 1] = "После строительства базы вам гарантировано дается по 1 карте Леса и Горы, а так же одна или две случайные карты.\n\nКаждый новый день приносит новые карты.";
+        _text[1129, 2] = "Après avoir construit une base, vous recevez à coup sûr 1 carte Forêt et 1 carte Montagne, plus une ou deux cartes aléatoires.\n\nChaque nouveau jour apporte toujours de nouvelles cartes.";
+        _text[1129, 3] = "Dopo aver costruito una base, riceverai sicuramente 1 carta Foresta e 1 carta Montagna, più una o due carte casuali.\n\nOgni nuovo giorno porta sempre nuove carte.";
+        _text[1129, 4] = "Nach dem Bau einer Basis erhältst du garantiert 1 Waldkarte und 1 Bergkarte sowie eine oder zwei zufällige Karten.\n\nJeder neue Tag bringt immer neue Karten.";
+        _text[1129, 5] = "Después de construir una base, recibes garantizado 1 carta de Bosque y 1 carta de Montaña, además de una o dos cartas aleatorias.\n\nCada nuevo día siempre trae cartas nuevas.";
+        _text[1129, 6] = "Po zbudowaniu bazy na pewno otrzymasz 1 kartę Lasu i 1 kartę Gór, a także jedną lub dwie losowe karty.\n\nKażdy nowy dzień zawsze przynosi nowe karty.";
+        _text[1129, 7] = "Após construir uma base, você tem garantida 1 carta de Floresta e 1 carta de Montanha, além de uma ou duas cartas aleatórias.\n\nCada novo dia sempre traz novas cartas.";
+        _text[1129, 8] = "基地を建設すると、森のカード1枚と山のカード1枚に加えて、ランダムなカードを1～2枚必ず入手します。\n\n新しい日ごとに必ず新しいカードが手に入ります。";
+        _text[1129, 9] = "建造基地后，您将必定获得 1 张森林卡和 1 张山脉卡，外加 1–2 张随机卡牌。\n\n每一天都会带来新的卡牌。";
 
         // MissionToggleOffSettlement_30
         _text[1130, 0] = "Temporarily disable the building to save resources for future construction.\n\nIf the building is disabled, it does not extract or consume resources.\n\nAnd also reduces environmental damage.";
