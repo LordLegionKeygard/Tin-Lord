@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 82_WoodenSpikes
   m_EditorClassIdentifier: 
-  Name:
-  - Wooden Spikes
-  - "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u044B\u0435 \u0428\u0438\u043F\u044B"
   NameLanguageNumber: 1282
   BuildingSprite: {fileID: 21300000, guid: b7166d69e3ab2fb47814e89b55bce364, type: 3}
   Id: 82
@@ -35,7 +32,7 @@ MonoBehaviour:
     type: 3}
   ConstructionPrefab: {fileID: 5909100974166539308, guid: b92f060e9a417d24c87eec878bbd29be,
     type: 3}
-  Damage: 0.4
+  Damage: 0.6
   AttackSpeed: 0
   AttackRadius: 0
   RotationSpeed: 0

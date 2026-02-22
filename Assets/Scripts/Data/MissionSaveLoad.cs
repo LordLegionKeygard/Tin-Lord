@@ -213,7 +213,7 @@ public class MissionSaveLoad : MonoBehaviour
         SelectedMissionData sel = _spaceSaveGame.SpaceSaveData.CurrentMission;
         if (sel == null) return null;
 
-        var definition = _actsInfo[_spaceSaveGame.SpaceSaveData.Act].MissionDeck[sel.MissionDeckIndex];
+        var definition = ResolveMissionDefinition(sel.MissionDeckIndex);
         var template = _actsInfo[_spaceSaveGame.SpaceSaveData.Act].MissionNodeTemplate;
         var landscape = _actsInfo[_spaceSaveGame.SpaceSaveData.Act].Landscapes[sel.LandscapeId];
         var spawnerSO = definition.Spawner;
@@ -244,6 +244,20 @@ public class MissionSaveLoad : MonoBehaviour
         node.CosmosVariations = landscape.CosmosVariations;
 
         return node;
+    }
+
+    private MissionDefinition ResolveMissionDefinition(int missionDeckIndex)
+    {
+        var act = _spaceSaveGame.SpaceSaveData.Act;
+        var info = _actsInfo[act];
+        var regularDefinition = info.MissionDeck[missionDeckIndex];
+
+        if (_tutorialSystem.ShouldUseTutorialMission(act, missionDeckIndex) && info.TutorialMissionDefinition != null)
+        {
+            return info.TutorialMissionDefinition;
+        }
+
+        return regularDefinition;
     }
 
     public void PrepareRestartMission()

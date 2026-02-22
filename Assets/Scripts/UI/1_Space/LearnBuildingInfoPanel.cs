@@ -301,7 +301,7 @@ public class LearnBuildingInfoPanel : MonoBehaviour
         string buildingName = Language.TextStatic[item.GetBuilding().NameLanguageNumber];
         string typeNumber = _buildingLearnPanel.GetParentTileName(item, _allBuildingTypes);
 
-        return $"{needOpen} \"{buildingName}\" => \"{typeNumber}\"";
+        return $"{needOpen} \"{buildingName}\" / \"{typeNumber}\"";
     }
 
     private void PrepareGoButton()

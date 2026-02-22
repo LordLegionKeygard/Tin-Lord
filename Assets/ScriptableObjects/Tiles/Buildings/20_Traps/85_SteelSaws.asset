@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 85_SteelSaws
   m_EditorClassIdentifier: 
-  Name:
-  - Steel Saws
-  - "\u0421\u0442\u0430\u043B\u044C\u043D\u044B\u0435 \u041F\u0438\u043B\u044B"
   NameLanguageNumber: 1285
   BuildingSprite: {fileID: 21300000, guid: 995bc68cbd607ab47b46a1e1541fe9a0, type: 3}
   Id: 85
@@ -37,7 +34,7 @@ MonoBehaviour:
     type: 3}
   ConstructionPrefab: {fileID: 5909100974166539308, guid: 9f6942ad41bccb94bb66356369b7fce9,
     type: 3}
-  Damage: 1
+  Damage: 1.5
   AttackSpeed: 0
   AttackRadius: 0
   RotationSpeed: 0

@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc632d67fbe53f4e8bcaa017ed9b24f, type: 3}
   m_Name: 84_IronSpikes
   m_EditorClassIdentifier: 
-  Name:
-  - Iron Spikes
-  - "\u0416\u0435\u043B\u0435\u0437\u043D\u044B\u0435 \u0428\u0438\u043F\u044B"
   NameLanguageNumber: 1284
   BuildingSprite: {fileID: 21300000, guid: ba20faf1d571f6745b923ebf7fb708ec, type: 3}
   Id: 84
@@ -35,7 +32,7 @@ MonoBehaviour:
     type: 3}
   ConstructionPrefab: {fileID: 5909100974166539308, guid: 43586f3836288dd4f8b79c36cd283393,
     type: 3}
-  Damage: 0.8
+  Damage: 1
   AttackSpeed: 0
   AttackRadius: 0
   RotationSpeed: 0

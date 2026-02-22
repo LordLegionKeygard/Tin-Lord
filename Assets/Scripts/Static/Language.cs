@@ -2,15 +2,15 @@
 using Steamworks;
 
 // 0 - English						en
-//+ 1 - Russian						ru
-//+ 2 - French						fr
-//+ 3 - Italian						it
-//+ 4 - German						de
-//+ 5 - Spanish (Spain)				es-ES
-//+ 6 - Polish						pl
-//+ 7 - Portuguese (Brazil)			pt-BR
-//+ 8 - Japanese					ja
-//+ 9 - Chinese (Simplified)		zh-Hans
+// 1 - Russian						ru
+// 2 - French						fr
+// 3 - Italian						it
+// 4 - German						de
+// 5 - Spanish (Spain)				es-ES
+// 6 - Polish						pl
+// 7 - Portuguese (Brazil)			pt-BR
+// 8 - Japanese					ja
+// 9 - Chinese (Simplified)		zh-Hans
 
 public class Language : MonoBehaviour
 {
@@ -9342,16 +9342,16 @@ public class Language : MonoBehaviour
         _text[1168, 9] = "您可以在这里查看所有可供研究的建筑类型。\n\n查看您已挖掘的数据片段数量，并选择任何尚未探索的建筑。";
 
         // SpaceLearnBuilding_69
-        _text[1169, 0] = "If there are enough data fragments, start learning by clicking the button.\n\nSelect another building if there are not enough resources or preliminary research of another building is required.";
-        _text[1169, 1] = "Если фрагментов данных достаточно, начните изучение нажав на кнопку.\n\nВыберите другое сооружение, если ресурсов не хватает или требуется предварительное исследование другого здания.";
-        _text[1169, 2] = "S'il y a suffisamment de fragments de données, lancez la recherche en cliquant sur le bouton.\n\nSélectionnez un autre bâtiment si vous manquez de ressources ou si vous devez d'abord en rechercher un autre.";
-        _text[1169, 3] = "Se ci sono abbastanza frammenti di dati, inizia la ricerca cliccando sul pulsante.\n\nSeleziona un altro edificio se non hai risorse o se devi prima ricercarne un altro.";
-        _text[1169, 4] = "Sind genügend Datenfragmente vorhanden, starten Sie die Forschung durch Klicken auf die Schaltfläche.\n\nWählen Sie ein anderes Gebäude, falls Ihnen Ressourcen fehlen oder Sie zuerst ein anderes Gebäude erforschen müssen.";
-        _text[1169, 5] = "Si tienes suficientes fragmentos de datos, inicia la investigación pulsando el botón.\n\nElige otra estructura si faltan recursos o se requiere una investigación previa de otro edificio.";
-        _text[1169, 6] = "Jeśli masz wystarczająco dużo fragmentów danych, rozpocznij badania, klikając przycisk.\n\nWybierz inny budynek, jeśli brakuje Ci zasobów lub musisz najpierw zbadać inny budynek.";
-        _text[1169, 7] = "Se houver fragmentos de dados suficientes, inicie a pesquisa clicando no botão.\n\nSelecione outro edifício se você não tiver recursos suficientes ou precisar pesquisar outro edifício primeiro.";
-        _text[1169, 8] = "データフラグメントが十分にある場合は、ボタンをクリックして研究を開始してください。\n\nリソースが不足している場合や、先に別の建物を研究する必要がある場合は、別の建物を選択してください。";
-        _text[1169, 9] = "如果数据碎片足够，点击按钮即可开始研究。\n\n如果资源不足或需要先研究其他建筑，请选择其他建筑。";
+        _text[1169, 0] = "You need to choose a tactic.\n\n-You can research manual ore mining, a clay furnace, a cannon, or a mechanic's tent.\n\n-Or go defensive, playing with walls and traps.\n\nChoose a building and research it.";
+        _text[1169, 1] = "Вам необходимо выбрать тактику.\n\n-Вы можете изучить ручную добычу руды, глиняную печку и пушку или палатку механика.\n\n-Либо пойти от обороны, играя стенами и ловушками.\n\nВыберите здание и изучите его.";
+        _text[1169, 2] = "Vous devez choisir une tactique.\n\n-Vous pouvez rechercher l'extraction manuelle de minerai, un four à argile, un canon ou une tente de mécanicien.\n\n-Ou opter pour une stratégie défensive, en utilisant des murs et des pièges.\n\nChoisissez un bâtiment et recherchez-le.";
+        _text[1169, 3] = "Devi scegliere una tattica.\n\n- Puoi fare ricerche sull'estrazione manuale dei minerali, una fornace per l'argilla, un cannone o la tenda di un meccanico.\n\n- Oppure puoi metterti sulla difensiva, giocando con muri e trappole.\n\nScegli un edificio e fai ricerche su di esso.";
+        _text[1169, 4] = "Du musst eine Taktik wählen.\n\n-Du kannst den manuellen Erzabbau, einen Lehmofen, eine Kanone oder ein Mechanikerzelt erforschen.\n\n-Oder du gehst defensiv vor und spielst mit Mauern und Fallen.\n\nWähle ein Gebäude und erforsche es.";
+        _text[1169, 5] = "Tienes que elegir una táctica.\n\n-Puedes investigar la minería manual de minerales, un horno de arcilla, un cañón o la tienda de un mecánico.\n\n-O ponerte a la defensiva, jugando con muros y trampas.\n\nElige un edificio e investígalo.";
+        _text[1169, 6] = "Musisz wybrać taktykę.\n\n- Możesz zbadać ręczne wydobywanie rudy, piec gliniany, armatę lub namiot mechanika.\n\n- Możesz też grać defensywnie, bawiąc się murami i pułapkami.\n\nWybierz budynek i zbadaj go.";
+        _text[1169, 7] = "Você precisa escolher uma tática.\n\n-Você pode pesquisar mineração manual de minério, um forno de barro, um canhão ou uma tenda de mecânico.\n\n-Ou optar por uma estratégia defensiva, utilizando muros e armadilhas.\n\nEscolha um edifício e pesquise-o.";
+        _text[1169, 8] = "戦術を選択する必要があります。\n\n- 手作業による鉱石採掘、粘土炉、大砲、または機械工のテントなどを研究できます。\n\n- または、壁や罠を使って防御に徹することもできます。\n\n建物を選択して研究します。";
+        _text[1169, 9] = "你需要选择一种战术。\n\n-你可以研究手动采矿、粘土熔炉、大炮或技工帐篷。\n\n-或者采取防御策略，利用城墙和陷阱。\n\n选择一种建筑并进行研究。";
 
         // SpaceLearnBuildingDescription_70
         _text[1170, 0] = "Great, you've learned about a new building.\n\nIt will now be available for construction during the missions.";

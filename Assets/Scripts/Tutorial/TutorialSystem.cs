@@ -25,6 +25,7 @@ public class TutorialSystem : MonoBehaviour
     public Building GetTutorialBuilding(int number) => _tutorialBuildings[number];
     public bool IsCompleteMissionTutorial() => IsCompleteAllTutorial() || _currentStep.TutorialStepEnum >= TutorialStepEnum.MissionGoodLuckDescription_66;
     public bool IsCompleteAllTutorial() => _isCompleteAllTutorials;
+    public bool ShouldUseTutorialMission(int act, int missionDeckIndex) => !IsCompleteMissionTutorial() && act == 0 && missionDeckIndex == 0;
     public bool PanelIsActive() => _tutorialPanel.activeInHierarchy;
     public AllTileObjects GetAllTileObjects() => _allTileObjects;
     public bool IsCurrentInProcess() => _currentStepInProcess;

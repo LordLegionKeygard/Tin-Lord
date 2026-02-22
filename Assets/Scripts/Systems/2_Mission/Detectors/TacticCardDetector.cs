@@ -162,13 +162,11 @@ public class TacticCardDetector : MonoBehaviour
         var buildingTileObject = tileObject.BuildingTileObject();
         var isHaveBuildingTile = buildingTileObject.IsHaveTile();
         var isConstructionNow = buildingTileObject.IsConstructionNow();
-
-        if(isHaveGroundTile && groundTileObject.CheckTileView(GroundTileViewEnum.Road)) return false;
         
         switch (upgrade.CardType)
         {
             case TacticCardType.IncreaseDamage:
-                if (isConstructionNow) return false;
+                if (isConstructionNow || groundTileObject.CheckTileView(GroundTileViewEnum.Road)) return false;
                 return isHaveBuildingTile && buildingTileObject.GetCurrentBuildingTile().BuildingTileView == BuildingTileViewEnum.AttackingStructures;
             case TacticCardType.IncreaseDurability:
                 if (isConstructionNow) return false;
@@ -177,7 +175,7 @@ public class TacticCardDetector : MonoBehaviour
                 if (isConstructionNow) return false;
                 return isHaveBuildingTile && !tileObject.BuildingHealth().IsFullHealth();
             case TacticCardType.OverProduction:
-                if (isConstructionNow) return false;
+                if (isConstructionNow || groundTileObject.CheckTileView(GroundTileViewEnum.Road)) return false;
                 return isHaveBuildingTile && tileObject.GetCurrentResourceProduction() != null;
             case TacticCardType.ChangeRarity:
                 return isHaveGroundTile && groundTileObject.CurrentGroundTile().GroundTileView != GroundTileViewEnum.BaseFoundation && tileObject.GetRarity() != (int)CardRarityEnum.Legendary;

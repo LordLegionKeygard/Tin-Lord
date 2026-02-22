@@ -6,6 +6,7 @@ using Zenject;
 public class MapSystem : MonoBehaviour
 {
     [Inject] private SpaceSaveGame _save;
+    [Inject] private readonly TutorialSystem _tutorialSystem;
     [SerializeField] private ActInfo[] _actsInfo;
     [SerializeField] private MapDragScroller _mapScroller;
     [SerializeField] private EventNodePanel _eventPanel;
@@ -532,7 +533,7 @@ public class MapSystem : MonoBehaviour
         if (landscapeIndex < 0 || landscapeIndex >= info.Landscapes.Length) return null;
         if (currentMission.SavedObjectives == null || currentMission.SavedObjectives.Length == 0) return null;
 
-        var definition = info.MissionDeck[deckIndex];
+        var definition = ResolveMissionDefinition(deckIndex);
         var landscape = info.Landscapes[landscapeIndex];
 
         var spawnerSO = definition.Spawner;
@@ -626,7 +627,7 @@ public class MapSystem : MonoBehaviour
     // Строит Mission-/Boss-Node для случайной планеты
     private MissionNode BuildMissionRandom(int deckIdx, bool isBossNode, out int landscapeIdx, out ObjectiveSave[] savedObj)
     {
-        var definition = _actsInfo[_save.SpaceSaveData.Act].MissionDeck[deckIdx];
+        var definition = ResolveMissionDefinition(deckIdx);
         var templateMission = _actsInfo[_save.SpaceSaveData.Act].MissionNodeTemplate;
         var templateBoss = _actsInfo[_save.SpaceSaveData.Act].BossNode;
 
@@ -668,7 +669,7 @@ public class MapSystem : MonoBehaviour
     // Восстанавливает Mission-/Boss-Node из сейва (без RNG)
     private MissionNode BuildMissionFixed(int deckIndex, int landscapeIdx, ObjectiveSave[] savedObj, bool isBossNode)
     {
-        var definition = _actsInfo[_save.SpaceSaveData.Act].MissionDeck[deckIndex];
+        var definition = ResolveMissionDefinition(deckIndex);
         var tplMission = _actsInfo[_save.SpaceSaveData.Act].MissionNodeTemplate;
         var tplBoss = _actsInfo[_save.SpaceSaveData.Act].BossNode;
 
@@ -746,6 +747,20 @@ public class MapSystem : MonoBehaviour
         if (free.Count == 0) return 0;
 
         return free[Random.Range(0, free.Count)];
+    }
+
+    private MissionDefinition ResolveMissionDefinition(int deckIndex)
+    {
+        var act = _save.SpaceSaveData.Act;
+        var info = _actsInfo[act];
+        var regularDefinition = info.MissionDeck[deckIndex];
+
+        if (_tutorialSystem.ShouldUseTutorialMission(act, deckIndex) && info.TutorialMissionDefinition != null)
+        {
+            return info.TutorialMissionDefinition;
+        }
+
+        return regularDefinition;
     }
 
     private void OnDestroy()

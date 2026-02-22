@@ -14,7 +14,7 @@ public class DemoSystem : MonoBehaviour
 
         var missionsCompleted = saveData.Map.Nodes.Count(n => n.IsCompleted && n.NodeType == NodeType.Mission);
 
-        if (missionsCompleted >= 3)
+        if (missionsCompleted >= 2)
         {
             _eventPanel.Open(_demoDialogue, OnDemoFinished);
             _panels.EventPanelOpen();

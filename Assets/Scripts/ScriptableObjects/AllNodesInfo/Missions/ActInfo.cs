@@ -13,6 +13,7 @@ public class ActInfo : ScriptableObject
 
     [Header("Campaign")]
     public MissionDefinition[] MissionDeck;
+    public MissionDefinition TutorialMissionDefinition;
 
     [Header("Templates")]
     public MissionNode MissionNodeTemplate; // шаблон для получения иконки миссии
