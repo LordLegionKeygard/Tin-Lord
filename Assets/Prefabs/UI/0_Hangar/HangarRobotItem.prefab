@@ -410,10 +410,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hangarSystem: {fileID: 0}
   _hangarRobotInfo: {fileID: 0}
+  _cityRobotInfo: {fileID: 0}
   _nameText: {fileID: 2017931915142312095}
   _priceText: {fileID: 378107031}
   _icon: {fileID: 2933529273123648842}
   _price: {fileID: 1940261106}
+  _backImage: {fileID: 7579450451455258551}
 --- !u!1 &6890453328020625751
 GameObject:
   m_ObjectHideFlags: 0

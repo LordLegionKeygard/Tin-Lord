@@ -36,21 +36,6 @@ public class LoadingScreenController : MonoBehaviour
         await Task.Delay(2000);
         CustomEvents.FireFade(FadeType.FadeOut);
         ScreenToggle(false);
-        // switch (SceneManager.GetActiveScene().buildIndex)
-        // {
-        //     case (int)SceneEnum.Hangar:
-        //         CustomEvents.FireFade(FadeType.FadeOut);
-        //         ScreenToggle(false);
-        //         break;
-        //     case (int)SceneEnum.Space:
-        //         CustomEvents.FireFade(FadeType.FadeOut);
-        //         ScreenToggle(false);
-        //         break;
-        //     case (int)SceneEnum.Mission:
-        //         CustomEvents.FireFade(FadeType.FadeOut);
-        //         ScreenToggle(false);
-        //         break;
-        // }
     }
 
     private void OnDestroy()
