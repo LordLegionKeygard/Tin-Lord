@@ -15,7 +15,7 @@ MonoBehaviour:
   Spawners:
   - StartDaySpawn: 6
     SpawnPeriod: 3
-    Count: 8
+    Count: 7
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -28,7 +28,7 @@ MonoBehaviour:
       EnemyLevel: 1
   - StartDaySpawn: 15
     SpawnPeriod: 3
-    Count: 20
+    Count: 15
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -41,7 +41,7 @@ MonoBehaviour:
       EnemyLevel: 1
   - StartDaySpawn: 21
     SpawnPeriod: 3
-    Count: 18
+    Count: 14
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 24
     SpawnPeriod: 3
-    Count: 22
+    Count: 18
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 42
     SpawnPeriod: 3
-    Count: 25
+    Count: 22
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
@@ -105,7 +105,7 @@ MonoBehaviour:
       EnemyLevel: 2
   - StartDaySpawn: 47
     SpawnPeriod: 47
-    Count: 30
+    Count: 25
     LandscapeSpawnSide:
     - LandscapeEnum: 0
       SpawnSide: 1
