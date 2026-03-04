@@ -15,6 +15,8 @@ public class ToxicGasMissionEvent : BaseMissionEvent
         {
             var buildingTileObject = tileObject.BuildingTileObject();
             if (buildingTileObject.IsHaveTile() 
+            && !tileObject.BuildingHealth().IsDeath()
+            && !tileObject.IsBuildingDestroyedNow()
             && buildingTileObject.GetCurrentBuildingTile().BuildingTileView != BuildingTileViewEnum.Base 
             && !buildingTileObject.IsExtraBaseTileObject()
             && !buildingTileObject.IsConstructionNow()
