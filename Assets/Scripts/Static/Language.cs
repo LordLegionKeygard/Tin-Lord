@@ -14,7 +14,7 @@ using Steamworks;
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 8;
+    public static int LanguageNumber = 1;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 10];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 
