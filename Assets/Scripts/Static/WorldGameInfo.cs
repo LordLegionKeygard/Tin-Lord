@@ -32,9 +32,9 @@ public class WorldGameInfo
     [Header("Time")]
     public const int OneDayTicksCount = 24;
     public const float PausedTimeScale = 0.00001f;
-    public const float DefaultTimeScale = 1.5f;
-    public const float DoubleTimeScale = 2.2f;
-    public const float TripleTimeScale = 3;
+    public const float DefaultTimeScale = 2;
+    public const float DoubleTimeScale = 3;
+    public const float TripleTimeScale = 4;
     public const float TickSpeed = 2;
 
     [Header("Enemies")]
