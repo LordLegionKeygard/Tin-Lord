@@ -9,12 +9,12 @@ using Steamworks;
 // 5 - Spanish (Spain)				es-ES
 // 6 - Polish						pl
 // 7 - Portuguese (Brazil)			pt-BR
-// 8 - Japanese					ja
-// 9 - Chinese (Simplified)		zh-Hans
+// 8 - Japanese					    ja
+// 9 - Chinese (Simplified)		    zh-Hans
 
 public class Language : MonoBehaviour
 {
-    public static int LanguageNumber = 1;
+    public static int LanguageNumber = 8;
     private string[,] _text = new string[WorldGameInfo.LanguageLength, 10];
     public static string[] TextStatic = new string[WorldGameInfo.LanguageLength];
 

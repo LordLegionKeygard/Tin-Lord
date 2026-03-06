@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 305643357}
-  m_IndirectSpecularColor: {r: 0.00007797817, g: 0.00009617872, b: 0.00011579676,
+  m_IndirectSpecularColor: {r: 0.000077617486, g: 0.00009587205, b: 0.00011519198,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -514,12 +514,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1523,12 +1573,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1811,12 +1911,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 0.509
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 0.509
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6238,7 +6388,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &158255176
@@ -7877,12 +8027,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 0.213
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 0.213
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13588,7 +13788,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &377191526
@@ -20040,12 +20240,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -21529,6 +21779,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 0.805
       objectReference: {fileID: 0}
@@ -21545,6 +21800,96 @@ PrefabInstance:
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Yofsset
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Yofsset
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Yofsset
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Yofsset
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Yofsset
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Yofsset
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Yofsset
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Yofsset
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Yofsset
+      value: 1.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Yofsset
       value: 1.97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -22310,12 +22655,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 0.805
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 0.805
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -24521,6 +24916,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 1.1
       objectReference: {fileID: 0}
@@ -24537,6 +24937,96 @@ PrefabInstance:
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Yofsset
+      value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Yofsset
+      value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Yofsset
+      value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Yofsset
+      value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Yofsset
+      value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Yofsset
+      value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Yofsset
+      value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Yofsset
+      value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Yofsset
+      value: 2.038
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Yofsset
       value: 2.038
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -25309,7 +25799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &760603514
@@ -25715,12 +26205,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 0.213
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 0.213
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -27557,8 +28097,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 245, y: 0}
+  m_SizeDelta: {x: 470, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &852473223
 MonoBehaviour:
@@ -33079,12 +33619,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 0.805
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 0.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 0.805
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -34839,6 +35429,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 0.509
       objectReference: {fileID: 0}
@@ -34855,6 +35450,96 @@ PrefabInstance:
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Yofsset
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Yofsset
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Yofsset
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Yofsset
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Yofsset
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Yofsset
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Yofsset
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Yofsset
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Yofsset
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Yofsset
       value: 1.91
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -40307,12 +40992,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 0.509
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 0.509
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 0.509
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -42512,12 +43247,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 1.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -49399,7 +50184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 490, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1547388441
@@ -57722,7 +58507,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -173.57251, y: 185.82}
-  m_SizeDelta: {x: 256.3911, y: 33.361}
+  m_SizeDelta: {x: 243.8, y: 33.361}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1789595332
 MonoBehaviour:
@@ -57775,9 +58560,9 @@ MonoBehaviour:
   m_fontSize: 18
   m_fontSizeBase: 18
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 14
+  m_fontSizeMax: 18
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -58231,7 +59016,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -173.57251, y: 185.82}
-  m_SizeDelta: {x: 256.3911, y: 33.361}
+  m_SizeDelta: {x: 243.8, y: 33.361}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1808449730
 MonoBehaviour:
@@ -58284,9 +59069,9 @@ MonoBehaviour:
   m_fontSize: 18
   m_fontSizeBase: 18
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 14
+  m_fontSizeMax: 18
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -61981,12 +62766,62 @@ PrefabInstance:
       objectReference: {fileID: 1486721231}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
       value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -68015,7 +68850,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -173.57251, y: 185.82}
-  m_SizeDelta: {x: 256.3911, y: 33.361}
+  m_SizeDelta: {x: 243.8, y: 33.361}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2084968119
 MonoBehaviour:
@@ -68068,9 +68903,9 @@ MonoBehaviour:
   m_fontSize: 18
   m_fontSizeBase: 18
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 14
+  m_fontSizeMax: 18
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -70332,6 +71167,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
+      propertyPath: _skillOfssets.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
       propertyPath: _skillOfssets.Array.data[0].Xofsset
       value: 0.213
       objectReference: {fileID: 0}
@@ -70348,6 +71188,96 @@ PrefabInstance:
     - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
         type: 3}
       propertyPath: _skillOfssets.Array.data[1].Yofsset
+      value: 2.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[2].Yofsset
+      value: 2.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[3].Yofsset
+      value: 2.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[4].Yofsset
+      value: 2.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[5].Yofsset
+      value: 2.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[6].Yofsset
+      value: 2.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[7].Yofsset
+      value: 2.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[8].Yofsset
+      value: 2.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[9].Yofsset
+      value: 2.193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Xofsset
+      value: 0.213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958458793010845211, guid: fb26b0d375f043d4aa7754bcdd6da49c,
+        type: 3}
+      propertyPath: _skillOfssets.Array.data[10].Yofsset
       value: 2.193
       objectReference: {fileID: 0}
     m_RemovedComponents: []
