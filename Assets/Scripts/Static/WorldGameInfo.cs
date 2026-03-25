@@ -74,6 +74,7 @@ public class WorldGameInfo
 
     [Header("Machine")]
     public const int MachineExperienceFromTick = 1;
+    public const int MachineExperienceForLevel = 240;
     public const int MachinesCount = 1;
     public const float MachineEngineerRepairBuildingsDistance = 5.5f;
     public const float MachineDieDelay = 10;

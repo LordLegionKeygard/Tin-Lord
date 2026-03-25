@@ -6,7 +6,6 @@ public class MachinesDataMission : MonoBehaviour
     [SerializeField] private int _machineLevel;
     [SerializeField] private int _machineExperience;
     [SerializeField] private MachineInfo[] _machineInfo;
-    [SerializeField] private MachineExperienceInfo _experienceInfo;
     [SerializeField] private CurrentMachineSystem _currentMachineSystem;
     [SerializeField] private MachinePanel _robotPanel;
     [SerializeField] private TimeTickSystem _timeTickSystem;
@@ -17,10 +16,6 @@ public class MachinesDataMission : MonoBehaviour
     public int GetCurrentRangeDamage() => GetMachineInformation().GetRangeDamage(GetCurrentLevel());
     public float GetCurrentDurability() => GetMachineInformation().GetDurability(GetCurrentLevel());
     public float GetDetectionRadius() => GetMachineInformation().DetectionRadius;
-
-
-    //Select
-    public int GetMachineMaxExpForLevel() => _experienceInfo.NeedExperienceForNextLevel[_machineLevel];
     public int GetMachineExperience() => _machineExperience;
 
     private void Awake()
@@ -44,9 +39,9 @@ public class MachinesDataMission : MonoBehaviour
 
     private void AddExperience(int amount)
     {
-        while (amount > 0 && _machineLevel < _experienceInfo.NeedExperienceForNextLevel.Length)
+        while (amount > 0)
         {
-            int need = _experienceInfo.NeedExperienceForNextLevel[_machineLevel] - _machineExperience;
+            int need = WorldGameInfo.MachineExperienceForLevel - _machineExperience;
 
             if (amount >= need)
             {

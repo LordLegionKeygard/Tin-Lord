@@ -138,8 +138,8 @@ public class MachinePanel : MonoBehaviour
         if (_currentSelectMachineInfo == null) return;
 
         var level = MachinesDataMission.Instance.GetCurrentLevel();
-        var maxExp = MachinesDataMission.Instance.GetMachineMaxExpForLevel();
         var currentExp = MachinesDataMission.Instance.GetMachineExperience();
+        var maxExp = WorldGameInfo.MachineExperienceForLevel;
 
         _levelText.text = $"{level}";
         _expSlider.maxValue = maxExp;

@@ -12,7 +12,6 @@ public class EnemyInformation : ScriptableObject
     [SerializeField] private int FactorExperience;
     [SerializeField] private int FactorHealth;
     [SerializeField] private int FactorPhysAttack;
-    public int GetExperience(int level) => StartExperience + FactorExperience * (level - 1);
     public float GetHealth(int level) => StartHealth + FactorHealth * (level - 1);
     public int GetPhysAttack(int level) => StartPhysAttack + FactorPhysAttack * (level - 1);
 }
