@@ -1037,16 +1037,16 @@ public class Language : MonoBehaviour
         _text[89, 8] = "右";
         _text[89, 9] = "正确的";
 
-        _text[90, 0] = "ICOSA CORP";
-        _text[90, 1] = "ИКОСА КОРП";
-        _text[90, 2] = "ICOSA CORP";
-        _text[90, 3] = "ICOSA CORP";
-        _text[90, 4] = "ICOSA CORP";
-        _text[90, 5] = "ICOSA CORP";
-        _text[90, 6] = "ICOSA CORP";
-        _text[90, 7] = "ICOSA CORP";
-        _text[90, 8] = "ICOSA CORP";
-        _text[90, 9] = "ICOSA CORP";
+        _text[90, 0] = "ICOSA CORE";
+        _text[90, 1] = "ЯДРО ИКОСА";
+        _text[90, 2] = "ICOSA CORE";
+        _text[90, 3] = "ICOSA CORE";
+        _text[90, 4] = "ICOSA CORE";
+        _text[90, 5] = "ICOSA CORE";
+        _text[90, 6] = "ICOSA CORE";
+        _text[90, 7] = "ICOSA CORE";
+        _text[90, 8] = "ICOSA CORE";
+        _text[90, 9] = "ICOSA CORE";
 
         _text[91, 0] = "BUILDING BETTER WORLD";
         _text[91, 1] = "ПОСТРОИМ ЛУЧШИЙ МИР";
@@ -3116,16 +3116,16 @@ public class Language : MonoBehaviour
         _text[278, 8] = "ターミナル042";
         _text[278, 9] = "042号航站楼";
 
-        _text[279, 0] = "ICOSA CORP";
-        _text[279, 1] = "ИКОСА КОРП";
-        _text[279, 2] = "ICOSA CORP";
-        _text[279, 3] = "IKOSA CORP";
-        _text[279, 4] = "IKOSA CORP";
-        _text[279, 5] = "ICOSA CORP";
-        _text[279, 6] = "IKOSA CORP";
-        _text[279, 7] = "IKOSA CORP";
-        _text[279, 8] = "ICOSA CORP";
-        _text[279, 9] = "ICOSA CORP";
+        _text[279, 0] = "";
+        _text[279, 1] = "";
+        _text[279, 2] = "";
+        _text[279, 3] = "";
+        _text[279, 4] = "";
+        _text[279, 5] = "";
+        _text[279, 6] = "";
+        _text[279, 7] = "";
+        _text[279, 8] = "";
+        _text[279, 9] = "";
 
         _text[280, 0] = "BUILDING BETTER WORLD";
         _text[280, 1] = "ПОСТРОИМ ЛУЧШИЙ МИР";

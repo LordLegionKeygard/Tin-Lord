@@ -42,7 +42,7 @@ public class ChangeLanguageMission : MonoBehaviour
     private void SetTerminalTexts()
     {
         _terminalTexts[0].text = Language.TextStatic[278];
-        _terminalTexts[1].text = Language.TextStatic[279];
+        _terminalTexts[1].text = Language.TextStatic[90];
         _terminalTexts[2].text = Language.TextStatic[280];
         _terminalTexts[3].text = Language.TextStatic[281];
         _terminalTexts[4].text = Language.TextStatic[282];
